@@ -1,0 +1,47 @@
+@keyframes rotate{
+  0%{
+    transform: rotate(0deg);
+  }
+  100%{
+    transform: rotate(359deg);
+  }
+}
+
+.wrapper {
+  position: relative;
+}
+
+.fluid {
+  width: 160px;
+  height: 160px;
+  background: #e2e2e2;
+  margin: 50px auto 0px auto;
+  border-radius: 80px;
+  animation: rotate 30s infinite;
+  position: relative;
+}
+
+.headerWrapper {
+  position: absolute;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.header {
+  font-size: 36px;
+  font-weight: bold;
+  color: #042539;
+  letter-spacing: 1px;
+}
+
+.subHeader {
+  font-size: 14px;
+  color: #042539;
+  letter-spacing: 2px;
+}

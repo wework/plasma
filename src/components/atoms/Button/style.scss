@@ -1,0 +1,15 @@
+@import '../../../styles/base';
+
+.button {
+  @extend %font-family;
+  font-size: 14px;
+  background: $cBrandPrimary;
+  color: $cDarkBlue;
+  font-weight: bold;
+  cursor: pointer;
+  padding: 12px;
+  text-align: center;
+  &:hover {
+    background: $cBrandPrimary - #111;
+  }
+}

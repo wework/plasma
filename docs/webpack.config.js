@@ -1,11 +1,27 @@
+'use strict';
+
 var path = require('path');
 var webpack = require('webpack');
+var ExtractTextPlugin = require("extract-text-webpack-plugin");
 
-console.log(path.resolve('../node_modules'));
+let entry;
+if (process.env.BUILD === 'true') {
+  entry = ['./app.js'];
+} else {
+  entry = [
+    './docs/app.js',
+    'webpack/hot/dev-server',
+    'webpack-dev-server/client?http://localhost:8081'
+  ];
+}
 
 module.exports = {
-  entry: './index.js',
-  output: { path: `${__dirname}/build`, filename: 'bundle.js' },
+  entry: entry,
+  output: {
+    path: `${__dirname}/static`,
+    filename: 'bundle.js',
+    publicPath: "http://localhost:8081/"
+  },
   resolve: {
     root: [
       path.resolve('../node_modules')
@@ -23,13 +39,14 @@ module.exports = {
       },
       {
         test: /\.scss$/,
-        loaders: [
-          'style',
-          'css?modules&importLoaders=1&localIdentName=[path]___[name]__[local]___[hash:base64:5]',
-          'resolve-url',
-          'sass'
-        ]
+        loader: ExtractTextPlugin.extract(
+          'style-loader',
+          'css-loader?modules&importLoaders=1&localIdentName=[path]___[name]__[local]___[hash:base64:5]!resolve-url!sass'
+        )
       }
     ]
   },
+  plugins: [
+    new ExtractTextPlugin("styles.css")
+  ]
 };
