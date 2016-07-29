@@ -2,7 +2,8 @@
 
 .card {
   background: white;
-  padding: 12px;
+  padding: $space $space 0 $space;
   min-height: 20px;
-  border: 1px solid #e7e7e7;
+  border: 1px solid $cBorder;
+  margin-bottom: $space;
 }

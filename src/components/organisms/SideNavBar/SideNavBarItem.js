@@ -20,6 +20,14 @@ SideNavBarItem.defaultProps = {
   label: 'Label'
 };
 
-SideNavBarItem.displayName = 'SideNavBarItem';
+SideNavBarItem.propTypes = {
+  /**
+  * This should be a URL to an image
+  */
+  icon: React.PropTypes.string,
+  iconStyle: React.PropTypes.object
+};
+
+SideNavBarItem.displayName = 'Organism.SideNavBarItem';
 
 export default SideNavBarItem;

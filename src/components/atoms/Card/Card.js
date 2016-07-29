@@ -4,7 +4,7 @@ import style from './style.scss';
 class Card extends React.Component {
   render() {
     return (
-      <div className={style.card}>
+      <div className={style.card} style={ this.props.style }>
         { this.props.children }
       </div>
     );
@@ -12,8 +12,14 @@ class Card extends React.Component {
 }
 
 Card.defaultProps = {
-  children: 'Lorem ipsum'
+  children: 'Lorem ipsum',
+  style: {}
 };
+
+Card.propTypes = {
+  children: React.PropTypes.node.isRequired,
+  style: React.PropTypes.object
+}
 
 Card.displayName = 'Atom.Card';
 

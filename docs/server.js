@@ -29,7 +29,7 @@ app.get('/*', function(req, res) {
         </script> \
       </head> \
       <body> \
-        <div id='app'></div> \
+        <div id='app' style='min-height: 100%; height: 100%;'></div> \
         <script src='/live/bundle.js'></script> \
       </body> \
     </html>`

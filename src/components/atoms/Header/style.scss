@@ -1,0 +1,27 @@
+@import '../../../styles/base';
+
+.header { }
+
+.header1 {
+  @extend %type--headline1;
+}
+
+.header2 {
+  @extend %type--headline2;
+}
+
+.header3 {
+  @extend %type--headline3;
+}
+
+.header4 {
+  @extend %type--headline4;
+}
+
+.header5 {
+  @extend %type--headline5;
+}
+
+.header6 {
+  @extend %type--headline6;
+}

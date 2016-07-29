@@ -12,9 +12,14 @@ class Image extends React.Component {
 }
 
 Image.defaultProps = {
-  style: null,
-  src: ''
+  style: { width: 200, height: 'auto' },
+  src: 'https://cdn.spacetelescope.org/archives/images/screen/s82e5407.jpg'
 };
+
+Image.propTypes = {
+  style: React.PropTypes.object,
+  src: React.PropTypes.string
+}
 
 Image.displayName = 'Atom.Image';
 

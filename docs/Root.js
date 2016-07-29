@@ -7,7 +7,7 @@ import NavMenu from './components/NavMenu/NavMenu';
 export default class Root extends React.Component {
   render() {
     return(
-      <div>
+      <div className={ style.fullHeight }>
         { this.props.children }
       </div>
     );

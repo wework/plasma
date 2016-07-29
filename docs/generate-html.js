@@ -4,7 +4,7 @@ var mkdirp = require('mkdirp');
 const pages = [
   '', // main index
   'components',
-  'templates'
+  'playground'
 ];
 
 export default function html(metadata) {
@@ -26,7 +26,7 @@ export default function html(metadata) {
         </script>\
       </head>\
       <body>\
-        <div id='app'></div>\
+        <div id='app' style='min-height: 100%; height: 100%;'></div>\
         <script src='${urlRoot}bundle.js'></script>\
       </body>\
     </html>`;

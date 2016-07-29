@@ -1,0 +1,19 @@
+@import '../../../styles/base';
+
+.wrapper {
+  margin-bottom: $space;
+}
+
+.content {
+  margin-bottom: 12px;
+}
+
+.label {
+  margin-bottom: 6px;
+}
+
+.rule {
+  width: 50px;
+  height: 4px;
+  background: $cTextPrimary;
+}

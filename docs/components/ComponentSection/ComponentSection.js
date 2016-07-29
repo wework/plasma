@@ -8,37 +8,24 @@ import MethodsSection from '../MethodsSection/MethodsSection';
 
 export default class ComponentSection extends React.Component {
   render() {
-    let comp = '';
-    if (
-      this.props &&
-      this.props.componentData &&
-      this.props.componentData.displayName
-    ) { 
-      const nameParts = this.props.componentData.displayName.split('.');
-      let obj = Plasma[nameParts[0]];
-      console.log(obj);
-      for (let i = 1; i < nameParts.length; i++) {
-        obj = obj[nameParts[i]];
-        console.log(obj);
-      }
-      if (_.isObject(obj)) {
-        comp = React.createElement(obj);
-      }
-    }
     return(
       <div className={ style.section }>
-        { this.props && this.props.componentData && 
+        { this.props && this.props.data && 
           <div>
-            <div style={{ marginBottom: 16 }}>
-              <h1 style={{ marginBottom: 8 }}>{ this.props.componentData.displayName }</h1>
+            <div style={{ marginBottom: 24 }}>
+              <a href={`#${this.props.data.componentName.toLowerCase()}`}>
+                <h1 style={{ marginBottom: 8 }}>{ this.props.data.componentName }</h1>
+              </a>
               <h3 style={{ marginBottom: 8 }}>Description</h3>
-              <pre>{ this.props.componentData.description }</pre>
+              <pre>{ this.props.data.description }</pre>
             </div>
-            <PropsSection propData={ this.props.componentData.props } />
-            <MethodsSection methodData={ this.props.componentData.methods } />
-            <div className={ style.componentFrame }>
-              { comp }
-            </div>
+            <PropsSection propData={ this.props.data.props } />
+            <MethodsSection methodData={ this.props.data.methods } />
+            { this.props.data.shouldRender && 
+              <div className={ style.componentFrame }>
+                { this.props.data.component }
+              </div>
+            }
           </div>
         }
         <hr style={{ marginTop: 32 }} className='rule--partial'/>

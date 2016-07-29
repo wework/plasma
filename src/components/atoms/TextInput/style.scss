@@ -1,10 +1,14 @@
 @import '../../../styles/base';
 
 .input {
-  @extend %font-family;
-  font-size: 14px;
-  border: 2px solid $cWhite300;
-  padding: 12px;
+  @extend %type--body;
+  box-sizing: border-box;
+  height: 30px;
+  width: 100%;
+  flex-grow: 1;
+  font-size: $typeBase;
+  border: 1px solid $cWhite300;
+  padding: $space / 2;
   outline: none;
   &:hover {
     border-color: $cWhite200;

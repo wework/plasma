@@ -1,0 +1,15 @@
+@import '../../../styles/base';
+
+.wrapper {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  margin-bottom: $space;
+
+  div {
+    margin-right: $space;
+    &:last-child {
+      margin-right: 0;
+    }
+  }
+}

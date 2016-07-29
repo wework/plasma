@@ -72,6 +72,16 @@ html, body {
   // background: #F8F7F4;
   color: #042539;
   background: #FFF;
+  height: 100%;
+  min-height: 100%;
+}
+
+a {
+  text-decoration: none;
+  color: #042539;
+  &:visited {
+    color: #042539;
+  }
 }
 
 p {
@@ -94,14 +104,22 @@ h3 {
   line-height: 1.4em;
 }
 
+.fullHeight {
+  height: 100%;
+  min-height: 100%;
+}
+
 .container {
   display: flex;
   flex-direction: row;
   justify-content: flex-start;
   max-width: 960px;
+  height: 100%;
+  min-height: 100%;
 }
 
 .placeholder {
+  min-width: 200px;
   width: 200px;
 }
 

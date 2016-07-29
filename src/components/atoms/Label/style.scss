@@ -1,0 +1,5 @@
+@import '../../../styles/base';
+
+.label {
+  @extend %type--label;
+}

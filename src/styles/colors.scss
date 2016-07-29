@@ -7,6 +7,8 @@ $cWhite300: #D7D4C4;
 $cGray100: #282829;
 $cGray200: #575757;
 $cGray300: #767679;
+$cGray700: #C7C7C5;
+$cGray800: #E1E1E0;
 
 $cRed100: #D86262;
 $cBlue100: #5499C3;
@@ -15,3 +17,20 @@ $cDarkBlue: #042539;
 $cLightBlue: #5499C3;
 
 $cBrandPrimary: #FFCF71;
+
+// -----
+
+$cBorder: $cGray800;
+$cBackground: #F7F6F6;
+
+$cTextPrimary: $cDarkBlue;
+$cTextSecondary: $cWhite300;
+
+$cButtonBrightBg: $cBrandPrimary;
+$cButtonBrightLabel: $cDarkBlue;
+
+$cButtonDarkBg: $cDarkBlue;
+$cButtonDarkLabel: $cWhite0;
+
+$cButtonDisabledBg: $cGray800;
+$cButtonDisabledLabel: $cGray700;

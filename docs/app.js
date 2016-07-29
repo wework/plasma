@@ -5,13 +5,13 @@ import { render } from 'react-dom';
 
 import Root from './Root';
 import Components from './containers/Components';
-import FilterableTable from './containers/FilterableTable';
+import Playground from './containers/Playground';
 
 render((
   <Router history={browserHistory}>
     <Route path="/plasma" component={Root}>
       <Route path="components" component={Components} />
-      <Route path="templates" component={FilterableTable} />
+      <Route path="playground" component={Playground} />
     </Route>
   </Router>
 ), document.getElementById('app'));

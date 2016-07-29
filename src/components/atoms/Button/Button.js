@@ -1,3 +1,4 @@
+import cx from 'classnames';
 import React from 'react';
 import style from './style.scss';
 
@@ -18,21 +19,32 @@ class Button extends React.Component {
   /**
   * This is the whatup method
   */
-  whatup(name, gender) {
-
+  whatupGirl(name, gender) {
+    console.log(`What's up ${name}?`);
   }
 
   render() {
+
+    let buttonStyle = cx(style.button, {
+      [style.secondary]: this.props.secondary,
+      [style.disabled]: this.props.disabled
+    });
+
     return (
-      <div className={style.button} onClick={ this.props.handleClick }>
-        {this.props.label}
+      <div
+        className={ cx(style.button, buttonStyle) }
+        onClick={ this.props.handleClick }
+      >
+        <div className={ style.label }>{this.props.label}</div>
       </div>
     );
   }
 }
 
 Button.defaultProps = {
-  label: 'Forget it'
+  label: 'Click it',
+  secondary: false,
+  disabled: false
 }
 
 Button.propTypes = {
@@ -40,7 +52,9 @@ Button.propTypes = {
   /**
   * Callback to handle click event
   */
-  handleClick: React.PropTypes.func
+  handleClick: React.PropTypes.func,
+  secondary: React.PropTypes.bool,
+  disabled: React.PropTypes.bool
 }
 
 Button.displayName = 'Atom.Button';

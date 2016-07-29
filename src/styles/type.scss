@@ -1,0 +1,63 @@
+@import './fonts';
+
+$typeBase: 14px;
+
+%type--label {
+  @extend %fontFamily--body;
+  color: $cTextPrimary;
+  font-size: 12px;
+}
+
+%type--body {
+  @extend %fontFamily--body;
+  font-size: $typeBase;
+  color: $cTextPrimary;
+}
+
+%type--headline1 {
+  @extend %fontFamily--headline;
+  color: $cTextPrimary;
+  letter-spacing: 3px;
+  font-size: 40px;
+  text-transform: uppercase;
+}
+
+%type--headline2 {
+  @extend %fontFamily--headline;
+  color: $cTextPrimary;
+  letter-spacing: 3px;
+  font-size: 24px;
+  text-transform: uppercase;
+}
+
+%type--headline3 {
+  @extend %fontFamily--headline;
+  color: $cTextPrimary;
+  letter-spacing: 2px;
+  font-size: 18px;
+  text-transform: uppercase;
+}
+
+%type--headline4 {
+  @extend %fontFamily--body;
+  font-weight: bold;
+  color: $cTextPrimary;
+  font-size: 24px;
+  letter-spacing: 0.5px;
+}
+
+%type--headline5 {
+  @extend %fontFamily--body;
+  font-weight: bold;
+  color: $cTextPrimary;
+  font-size: 18px;
+  letter-spacing: 0.5px;
+}
+
+%type--headline6 {
+  @extend %fontFamily--body;
+  font-weight: bold;
+  color: $cTextPrimary;
+  font-size: 16px;
+  letter-spacing: 0.5px;
+}

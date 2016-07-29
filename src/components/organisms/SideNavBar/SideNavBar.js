@@ -15,6 +15,6 @@ SideNavBar.defaultProps = {
   children: 'Lorem ipsum'
 };
 
-SideNavBar.displayName = 'SideNavBar';
+SideNavBar.displayName = 'Organism.SideNavBar';
 
 export default SideNavBar;

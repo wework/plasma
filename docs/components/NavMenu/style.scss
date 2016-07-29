@@ -7,6 +7,7 @@
   width: 180px;
   background: #042539;
   color: #FFF;
+  overflow-y: scroll;
 }
 
 .headWrapper {
@@ -15,6 +16,7 @@
   align-items: center;
   justify-content: center;
   height: 3em;
+  font-size: 16px;
   font-weight: bold;
 }
 
@@ -26,8 +28,23 @@
 .link {
   cursor: pointer;
   width: 100%;
-  padding: 8px 12px;
+  padding: 8px 0;
+  font-size: 14px;
   &:hover {
     color: #FFCF71;
   }
+}
+
+.group {
+  margin: 8px 12px 16px 12px;
+  padding-bottom: 16px;
+  border-bottom: 1px solid rgba(255,255,255,0.15);
+}
+
+.groupTitle {
+  color: #5889BA;
+  font-size: 12px;
+  width: 100%;
+  padding: 8px 0;
+  font-weight: bold;
 }
