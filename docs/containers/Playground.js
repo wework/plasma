@@ -70,7 +70,13 @@ export default class Playground extends React.Component {
               <P.A.Button disabled />
             </P.M.ButtonGroup>
           </P.A.Card>
-          
+          <P.O.Table
+            header={{ name: 'Name', email: 'Email' }}
+            items={[
+              { name: 'Robert Smith', email: 'robert@gmail.com' },
+              { name: 'Violet Benoot', email: 'violetb@gmail.com' }
+            ]}
+          />
         </div>
       </P.P.FixedLeft>
     );

@@ -1,0 +1,28 @@
+@import '../../../styles/base';
+
+.table {
+  @extend %type--label;
+  width: 100%;
+  display: table;
+  border-top: none;
+}
+
+.row {
+  display: table-row;
+  background: #fff;
+  border: 1px solid $cBorder;
+  &.header {
+    background: none;
+    border: none;
+    border-bottom: 2px solid $cBrandPrimary;
+    th {
+      padding-bottom: 12px;
+    }
+  }
+}
+
+.cell {
+  padding: 12px;
+  display: table-cell;
+  text-align: left;
+}
