@@ -23,6 +23,7 @@ app.get('/*', function(req, res) {
         <title>Plasma</title> \
         <link rel='stylesheet' type='text/css' href='/live/styles.css'> \
         <script src='//cdnjs.cloudflare.com/ajax/libs/jquery/3.0.0-beta1/jquery.min.js'></script> \
+        <script src='//cdnjs.cloudflare.com/ajax/libs/velocity/1.2.3/velocity.min.js'></script>\
         <script src='//cdn.jsdelivr.net/jquery.color-animation/1/mainfile'></script> \
         <script> \
           window.DOCDATA = ${JSON.stringify(metadata)}; \
@@ -44,7 +45,7 @@ var server = new WebpackDevServer(webpack(config), {
   quiet: false,
   noInfo: false,
   publicPath: "/",
-  stats: { colors: true }
+  stats: { colors: true },
 });
 
 require('./generate-metadata').default().then(function(data) {

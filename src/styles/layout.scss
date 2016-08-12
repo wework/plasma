@@ -13,19 +13,17 @@ $space-bounds: $space * 1.5;
   height: 0;
 }
 
-%bounds,
-.bounds {
+%bounds {
   @extend .clearfix;
   box-sizing: border-box;
   margin-left: auto;
   margin-right: auto;
   max-width: $bounds;
-  padding: $space-bounds $space ($space-bounds - $space); // subtract for .chunk at bottom
+  padding: $space-bounds $space-bounds ($space-bounds - $space); // subtract for .chunk at bottom
   width: 100%;
 }
 
-%chunk,
-.chunk {
+%chunk {
   @extend .clearfix;
   display: block;
   margin-bottom: $space !important;

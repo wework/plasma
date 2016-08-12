@@ -1,22 +1,36 @@
 @import '../../../styles/base';
 
 .wrapper {
+  box-sizing: border-box;
   min-height: 100%;
   height: 100%;
 }
 
 .fixedWrapper {
   position: fixed;
-  top: 0;
-  left: 0;
-  bottom: 0;
-  width: 180px;
+  margin-top: 0;
+  margin-left: 0;
+  height: 100%;
+  min-height: 100%;
+  overflow-y: scroll;
+  z-index: 10;
+  &::-webkit-scrollbar { width: 0 !important }
 }
 
-.content {
+.contentWrapper {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
   box-sizing: border-box;
   min-height: 100%;
-  background: $cBackground;
-  padding: $space;
-  padding-left: 180px + 24;
+  .stub {
+    visibility: hidden;
+    opacity: 0;
+  }
+  .content {
+    box-sizing: border-box;
+    min-height: 100%;
+    background: $cBackground;
+    flex-grow: 1;
+  }
 }

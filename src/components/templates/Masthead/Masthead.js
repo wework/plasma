@@ -10,19 +10,19 @@ class Masthead extends React.Component {
     if (this.props.label) {
       labelComp =
         <div className={ style.label }>
-          <Header h3>{ this.props.label }</Header>
+          <Header h3 text={ this.props.label }></Header>
         </div>;
     }
 
     let headerComp;
     if (this.props.secondary) {
-      headerComp = <Header h4>{ this.props.header }</Header>;
+      headerComp = <Header h4 text={ this.props.header }/>;
     } else {
-      headerComp = <Header h1>{ this.props.header }</Header>;
+      headerComp = <Header h1 text={ this.props.header }/>;
     }
 
     return (
-      <div className={ style.wrapper }>
+      <div style={ this.props.style } className={ style.wrapper }>
         <div className={ style.content }>
           { labelComp }
           { headerComp }

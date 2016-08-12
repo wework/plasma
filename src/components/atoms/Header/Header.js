@@ -15,8 +15,13 @@ class Header extends React.Component {
     });
 
     return (
-      <div className={ headerStyle }>
-        { this.props.children }
+      <div style={ this.props.style } className={[ headerStyle ]}>
+        <div className={ style.content }>
+          { this.props.text }
+        </div>
+        { this.props.underline &&
+          <div className={ style.rule } />
+        }
       </div>
     );
   }

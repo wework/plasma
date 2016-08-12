@@ -1,4 +1,4 @@
-import _ from 'lodash-compat';
+import _ from 'lodash';
 import React from 'react';
 import cx from 'classnames';
 import Plasma from '../../../src';
@@ -11,24 +11,28 @@ export default class MethodsSection extends React.Component {
     if ( this.props.methodData && this.props.methodData.length > 0) {
       comp = <div style={{ marginBottom: 24 }}>
         <h3 style={{ marginBottom: 8 }}>Methods</h3>
-        <div className={ style.table }>
-          <div className={ cx(style.row, style.head) }>
-            <div className={ style.cell }>Name</div>
-            <div className={ style.cell }>Params</div>
-            <div className={ style.cell }>Description</div>
-          </div>
+        <table className={ style.table }>
+          <thead className={ cx(style.row, style.head) }>
+            <tr>
+              <th className={ style.cell }>Name</th>
+              <th className={ style.cell }>Params</th>
+              <th className={ style.cell }>Description</th>
+            </tr>
+          </thead>
           { this.props.methodData && _.map(this.props.methodData, (method) => {
             return (
-              <div className={ style.row }>
-                <div className={ style.cell }>{ method.name }</div>
-                <div className={ style.cell }>
-                  { method.params && method.params.map(p => p.name).join(', ') }
-                </div>
-                <div className={ style.cell }>{ method.description }</div>
-              </div>
+              <tbody>
+                <tr className={ style.row }>
+                  <td className={ style.cell }>{ method.name }</td>
+                  <td className={ style.cell }>
+                    { method.params && method.params.map(p => p.name).join(', ') }
+                  </td>
+                  <td className={ style.cell }>{ method.htmlDescription }</td>
+                </tr>
+              </tbody>
             );
           })} 
-        </div>
+        </table>
       </div>
     } else {
       comp = null;

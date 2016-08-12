@@ -1,10 +1,36 @@
 import React from 'react';
 import Plasma from '../../src';
-import _ from 'lodash-compat';
+import _ from 'lodash';
+import getItems from '../_tableItems';
 
 const P = Plasma;
 
 export default class Playground extends React.Component {
+
+  constructor() {
+    super();
+    this.state = {
+      tableItems: {},
+      filteredItems: {}
+    }
+    this.filter = this.filter.bind(this);
+  }
+
+  componentWillMount() {
+    getItems().then((result) => {
+      this.setState({ tableItems: result, filteredItems: result });
+    });
+  }
+
+  filter() {
+    let s = 'a';
+    const filtered = _.filter(this.state.tableItems, (item) => {
+      const fi = _.first(item.name);
+      return fi && fi.toLowerCase() === s;
+    });
+    this.setState({ filteredItems: filtered });
+  }
+
   render() {
     return(
       <P.P.FixedLeft>
@@ -46,38 +72,43 @@ export default class Playground extends React.Component {
             iconStyle={{ width: 18, height: 18 }}
           />
         </P.O.SideNavBar>
-        <div>
-          <P.T.Masthead
-            secondary
-            label='Company'
-            header='Viral Gains'
-          />
-          <P.A.Card style={{ width: 500 }}>
-            <P.M.FormField label='Phone number'>
-                <P.A.TextInput />
-              </P.M.FormField>
-            <P.M.ButtonGroup>
-              <P.M.FormField label='First name'>
-                <P.A.TextInput />
-              </P.M.FormField>
-              <P.M.FormField label='Last name'>
-                <P.A.TextInput />
-              </P.M.FormField>
-            </P.M.ButtonGroup>
-            <P.M.ButtonGroup>
-              <P.A.Button />
-              <P.A.Button secondary />
-              <P.A.Button disabled />
-            </P.M.ButtonGroup>
-          </P.A.Card>
-          <P.O.Table
-            header={{ name: 'Name', email: 'Email' }}
-            items={[
-              { name: 'Robert Smith', email: 'robert@gmail.com' },
-              { name: 'Violet Benoot', email: 'violetb@gmail.com' }
-            ]}
-          />
-        </div>
+        <P.P.FixedTop>
+
+          <P.O.TopNavBar />
+
+          <div>
+            <P.T.Masthead
+              style={{ paddingTop: 24 }}
+              header='Members'
+            />
+            <P.P.FixedLeft>
+
+              <div style={{ width: 212, padding: 16, position: 'relative', top: -12 }}>
+                <P.A.Header h2 underline text='Filters' style={{ marginBottom: 24 }} />
+                <P.M.FormField label='Phone number'>
+                  <P.A.TextInput />
+                </P.M.FormField>
+                <P.M.FormField label='First name'>
+                  <P.A.TextInput />
+                </P.M.FormField>
+                <P.M.FormField label='Last name'>
+                  <P.A.TextInput />
+                </P.M.FormField>
+                <P.M.RowGroup>
+                  <P.A.Button secondary label='Clear' onClick={() => { alert('🗑🗑🗑🗑🗑') }} />
+                  <P.A.Button label='Filter' onClick={ () => alert('👍👍👍👍👍') } />
+                </P.M.RowGroup>
+              </div>
+
+              <P.O.Table
+                style={{ paddingRight: 16 }}
+                header={{ name: 'Name', email: 'Email', phone: 'Phone #', city: 'City' }}
+                items={ this.state.filteredItems }
+              />
+
+            </P.P.FixedLeft>
+          </div>
+        </P.P.FixedTop>
       </P.P.FixedLeft>
     );
   }

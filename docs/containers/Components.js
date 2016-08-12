@@ -1,6 +1,7 @@
 import React from 'react';
 import Plasma from '../../src';
-import _ from 'lodash-compat';
+import _ from 'lodash';
+import { Link } from 'react-router';
 
 import style from '../docs.scss';
 
@@ -65,15 +66,27 @@ export default class Components extends React.Component {
   }
 
   render() {
-    console.log(this.state.metadata);
+    const atomicGroups = _.groupBy(this.state.metadata, (compData) => compData.atomicPart.toLowerCase());
     return(
       <div className={ style.fullHeight }>
-        <NavMenu data={ this.state.metadata } >test</NavMenu>
+        <NavMenu data={ this.state.metadata } />
         <div className={ style.container }>
           <div className={ style.placeholder } />
           <div className={ style.childContainer }>
             <Hero />
-            { _.map(this.state.metadata, (data, key) => {
+            { _.map(atomicGroups.atom, (data, key) => {
+              return (<ComponentSection key={key} data={data} />);
+            })}
+            { _.map(atomicGroups.molecule, (data, key) => {
+              return (<ComponentSection key={key} data={data} />);
+            })}
+            { _.map(atomicGroups.organism, (data, key) => {
+              return (<ComponentSection key={key} data={data} />);
+            })}
+            { _.map(atomicGroups.template, (data, key) => {
+              return (<ComponentSection key={key} data={data} />);
+            })}
+            { _.map(atomicGroups.page, (data, key) => {
               return (<ComponentSection key={key} data={data} />);
             })}
           </div>

@@ -19,6 +19,7 @@ export default function html(metadata) {
         <meta charset='UTF-8'>\
         <title>Plasma</title>\
         <link rel='stylesheet' type='text/css' href='${urlRoot}styles.css'>\
+        <script src='//cdnjs.cloudflare.com/ajax/libs/velocity/1.2.3/velocity.min.js'></script>\
         <script src='//cdnjs.cloudflare.com/ajax/libs/jquery/3.0.0-beta1/jquery.min.js'></script>\
         <script src='//cdn.jsdelivr.net/jquery.color-animation/1/mainfile'></script>\
         <script>\

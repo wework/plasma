@@ -1,5 +1,19 @@
-pre {
-  line-height: 1.3em;
+.description {
+  font-size: 14px;
+  line-height: 1.5em;
+  max-width: 620px;
+
+  em {
+    font-style: italic;
+  }
+
+  strong {
+    font-weight: bold;
+  }
+
+  ul {
+    list-style: disc;
+  }
 }
 
 .section {
@@ -8,5 +22,6 @@ pre {
 
 .componentFrame {
   position: relative;
-  
+  background: #f2f2f2;
+  padding: 16px;
 }

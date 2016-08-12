@@ -1,0 +1,33 @@
+@import '../../../styles/base';
+
+.wrapper {
+  position: fixed;
+  left: 0;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 100;
+}
+
+.overlay {
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  background: rgba($cDarkBlue, 0.8);
+  z-index: 101;
+}
+
+.card {
+  background: $cWhite0;
+  box-shadow: rgba(0,0,0,0.3) 0 5px 10px;
+  z-index: 102;
+}
+
+.content {
+  @extend %bounds;
+}

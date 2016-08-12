@@ -1,6 +1,12 @@
-@import './fonts';
-
 $typeBase: 14px;
+
+%fontFamily--body {
+  font-family: 'Helvetica Neue', helvetica, arial, 'sans-serif';
+}
+
+%fontFamily--headline {
+  font-family: 'Helvetica Neue', helvetica, arial, 'sans-serif';
+}
 
 %type--label {
   @extend %fontFamily--body;
@@ -17,25 +23,22 @@ $typeBase: 14px;
 %type--headline1 {
   @extend %fontFamily--headline;
   color: $cTextPrimary;
-  letter-spacing: 3px;
+  font-weight: bold;
   font-size: 40px;
-  text-transform: uppercase;
+  letter-spacing: -1px;
 }
 
 %type--headline2 {
   @extend %fontFamily--headline;
+  font-weight: bold;
   color: $cTextPrimary;
-  letter-spacing: 3px;
   font-size: 24px;
-  text-transform: uppercase;
 }
 
 %type--headline3 {
   @extend %fontFamily--headline;
   color: $cTextPrimary;
-  letter-spacing: 2px;
   font-size: 18px;
-  text-transform: uppercase;
 }
 
 %type--headline4 {
@@ -43,7 +46,6 @@ $typeBase: 14px;
   font-weight: bold;
   color: $cTextPrimary;
   font-size: 24px;
-  letter-spacing: 0.5px;
 }
 
 %type--headline5 {
@@ -51,7 +53,6 @@ $typeBase: 14px;
   font-weight: bold;
   color: $cTextPrimary;
   font-size: 18px;
-  letter-spacing: 0.5px;
 }
 
 %type--headline6 {
@@ -59,5 +60,4 @@ $typeBase: 14px;
   font-weight: bold;
   color: $cTextPrimary;
   font-size: 16px;
-  letter-spacing: 0.5px;
 }

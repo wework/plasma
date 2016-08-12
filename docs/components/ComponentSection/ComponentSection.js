@@ -1,4 +1,4 @@
-import _ from 'lodash-compat';
+import _ from 'lodash';
 import React from 'react';
 import Plasma from '../../../src';
 import style from './style.scss';
@@ -7,23 +7,30 @@ import PropsSection from '../PropsSection/PropsSection';
 import MethodsSection from '../MethodsSection/MethodsSection';
 
 export default class ComponentSection extends React.Component {
+
   render() {
     return(
-      <div className={ style.section }>
+      <div className={ style.section } id={`${this.props.data.componentName}`}>
         { this.props && this.props.data && 
           <div>
             <div style={{ marginBottom: 24 }}>
-              <a href={`#${this.props.data.componentName.toLowerCase()}`}>
+              <a href={`/plasma/components/#${this.props.data.componentName}`}>
                 <h1 style={{ marginBottom: 8 }}>{ this.props.data.componentName }</h1>
               </a>
               <h3 style={{ marginBottom: 8 }}>Description</h3>
-              <pre>{ this.props.data.description }</pre>
+              <div
+                className={ style.description }
+                dangerouslySetInnerHTML={ { __html: this.props.data.htmlDescription } }
+              />
             </div>
             <PropsSection propData={ this.props.data.props } />
             <MethodsSection methodData={ this.props.data.methods } />
             { this.props.data.shouldRender && 
-              <div className={ style.componentFrame }>
-                { this.props.data.component }
+              <div>
+                <h3 style={{ marginBottom: 8 }}>Preview</h3>
+                <div className={ style.componentFrame }>
+                  { this.props.data.component }
+                </div>
               </div>
             }
           </div>

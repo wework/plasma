@@ -2,14 +2,7 @@
 
 .input {
   @extend %type--body;
-  box-sizing: border-box;
-  height: 30px;
-  width: 100%;
-  flex-grow: 1;
-  font-size: $typeBase;
-  border: 1px solid $cWhite300;
-  padding: $space / 2;
-  outline: none;
+  @extend %input--base;
   &:hover {
     border-color: $cWhite200;
   }

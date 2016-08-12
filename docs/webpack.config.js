@@ -41,12 +41,20 @@ module.exports = {
         test: /\.scss$/,
         loader: ExtractTextPlugin.extract(
           'style-loader',
-          'css-loader?modules&importLoaders=1&localIdentName=[path]___[name]__[local]___[hash:base64:5]!resolve-url!sass'
+          'css-loader?modules&importLoaders=1&localIdentName=[path][local]__[hash:base64:5]!resolve-url!sass'
+        )
+      },
+      {
+        test: /fonts\.scss$/,
+        loader: ExtractTextPlugin.extract(
+          'style-loader',
+          'css-loader!resolve-url!sass'
         )
       }
     ]
   },
   plugins: [
     new ExtractTextPlugin("styles.css")
-  ]
+  ],
+  devtool: "source-map"
 };

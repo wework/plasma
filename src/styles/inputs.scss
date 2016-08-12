@@ -1,0 +1,17 @@
+$inputRadius: 3px;
+
+%input--base {
+  box-sizing: border-box;
+  height: 30px;
+  padding-left: 1em;
+  padding-right: 1em;
+  width: 100%;
+  border: 1px solid $cBorder;
+  padding: $space / 2;
+  outline: none;
+  display: flex;
+  flex-grow: 1;
+  flex-direction: row;
+  justify-content: flex-start;
+  border-radius: $inputRadius;
+}
