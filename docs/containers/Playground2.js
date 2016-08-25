@@ -72,46 +72,108 @@ export default class Playground2 extends React.Component {
             iconStyle={{ width: 18, height: 18 }}
           />
         </P.O.SideNavBar>
-        <P.P.FixedTop>
-
-          <P.O.TopNavBar />
-
-          <div>
-            <P.T.Masthead
-              style={{ paddingTop: 24 }}
-              header='Members'
-            />
-            <P.P.FixedLeft stickAt={100}>
-
-              <div style={{ width: 212, padding: 16, position: 'relative', top: -12 }}>
-                <P.A.Header h2 underline text='Filters' style={{ marginBottom: 24 }} />
-                
-                <P.M.FormField label='Phone number'>
+        <div style={{ padding: '32px 16px 32px 32px' }}>
+          <P.A.SegmentedCard>
+            <div>
+              <P.A.Header h2 text='Member'/>
+              <P.A.Text>
+                Protip: Don't do this
+              </P.A.Text>
+            </div>
+            <div>
+              <P.M.RowGroup>
+                <P.M.FormField label='Name'>
                   <P.A.TextInput />
                 </P.M.FormField>
-
-                <P.M.FormField label='First name'>
+                <P.M.FormField label='Email'>
                   <P.A.TextInput />
                 </P.M.FormField>
-                <P.M.FormField label='Last name'>
-                  <P.A.TextInput />
-                </P.M.FormField>
-                <P.M.RowGroup>
-                  <P.A.Button secondary label='Clear' onClick={() => { alert('🗑🗑🗑🗑🗑') }} />
-                  <P.A.Button label='Filter' onClick={ () => alert('👍👍👍👍👍') } />
-                </P.M.RowGroup>
-              </div>
+              </P.M.RowGroup>
+              <P.M.FormField label='Phone #'>
+                <P.A.TextInput />
+              </P.M.FormField>
+              <P.M.FormField label='Country'>
+                <P.M.Select
+                  name="form-field-name"
+                  value="one"
+                  multi={true}
+                  options={[
+                    { value: 'one', label: 'One' },
+                    { value: 'two', label: 'Two' },
+                    { value: 'three', label: 'Three' },
+                    { value: 'four', label: 'Four' },
+                  ]}
+                />
+              </P.M.FormField>
+            </div>
+          </P.A.SegmentedCard>
+          <P.A.SegmentedCard>
+            <div>
+              <P.A.Header h2 text='Member'/>
+              <P.A.Text>
+                Protip: Don't do this
+              </P.A.Text>
+            </div>
+            <div>
+              <P.M.FormField label='Name'>
+                <P.A.TextInput />
+              </P.M.FormField>
 
-              <P.O.Table
-                style={{ paddingRight: 16 }}
-                header={{ name: 'Name', email: 'Email', phone: 'Phone #', city: 'City' }}
-                items={ this.state.filteredItems }
-                stickAt={100}
-              />
+              <P.M.FormField label='Email'>
+                <P.A.TextInput />
+              </P.M.FormField>
+              <P.M.FormField label='Phone #'>
+                <P.A.TextInput />
+              </P.M.FormField>
+              <P.M.FormField label='Country'>
+                <P.M.Select
+                  name="form-field-name"
+                  value="one"
+                  multi={true}
+                  options={[
+                    { value: 'one', label: 'One' },
+                    { value: 'two', label: 'Two' },
+                    { value: 'three', label: 'Three' },
+                    { value: 'four', label: 'Four' },
+                  ]}
+                />
+              </P.M.FormField>
+            </div>
+          </P.A.SegmentedCard>
+          <P.A.SegmentedCard>
+            <div>
+              <P.A.Header h2 text='Member'/>
+              <P.A.Text>
+                Protip: Don't do this
+              </P.A.Text>
+            </div>
+            <div>
+              <P.M.FormField label='Name'>
+                <P.A.TextInput />
+              </P.M.FormField>
 
-            </P.P.FixedLeft>
-          </div>
-        </P.P.FixedTop>
+              <P.M.FormField label='Email'>
+                <P.A.TextInput />
+              </P.M.FormField>
+              <P.M.FormField label='Phone #'>
+                <P.A.TextInput />
+              </P.M.FormField>
+              <P.M.FormField label='Country'>
+                <P.M.Select
+                  name="form-field-name"
+                  value="one"
+                  multi={true}
+                  options={[
+                    { value: 'one', label: 'One' },
+                    { value: 'two', label: 'Two' },
+                    { value: 'three', label: 'Three' },
+                    { value: 'four', label: 'Four' },
+                  ]}
+                />
+              </P.M.FormField>
+            </div>
+          </P.A.SegmentedCard>
+        </div>
       </P.P.FixedLeft>
     );
   }
