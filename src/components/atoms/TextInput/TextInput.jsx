@@ -10,12 +10,12 @@ class TextInput extends React.Component {
 }
 
 TextInput.propTypes = {
-  placeholder: React.PropTypes.string
-}
+  placeholder: React.PropTypes.string,
+};
 
 TextInput.defaultProps = {
-  placeholder: 'Type something...'
-}
+  placeholder: 'Type something...',
+};
 
 TextInput.displayName = 'Atom.TextInput';
 

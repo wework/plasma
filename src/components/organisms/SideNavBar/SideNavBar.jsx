@@ -5,14 +5,18 @@ class SideNavBar extends React.Component {
   render() {
     return (
       <div className={style.wrapper}>
-        { this.props.children }
+        {this.props.children}
       </div>
     );
   }
 }
 
 SideNavBar.defaultProps = {
-  children: 'Lorem ipsum'
+  children: 'Lorem ipsum',
+};
+
+SideNavBar.propTypes = {
+  children: React.PropTypes.node.isRequired,
 };
 
 SideNavBar.displayName = 'Organism.SideNavBar';

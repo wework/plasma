@@ -4,7 +4,7 @@ import style from './style.scss';
 class Label extends React.Component {
   render() {
     return (
-      <div className={ style.label }>
+      <div className={style.label}>
         { this.props.text }
       </div>
     );
@@ -12,11 +12,11 @@ class Label extends React.Component {
 }
 
 Label.propTypes = {
-  text: React.PropTypes.string
-}
+  text: React.PropTypes.string,
+};
 
 Label.defaultProps = {
-  text: 'Label'
+  text: 'Label',
 };
 
 Label.displayName = 'Atom.Label';

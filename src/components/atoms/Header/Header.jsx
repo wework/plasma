@@ -4,8 +4,7 @@ import style from './style.scss';
 
 class Header extends React.Component {
   render() {
-
-    let headerStyle = cx(style.header, {
+    const headerStyle = cx(style.header, {
       [style.header1]: this.props.h1,
       [style.header2]: this.props.h2,
       [style.header3]: this.props.h3,
@@ -15,12 +14,12 @@ class Header extends React.Component {
     });
 
     return (
-      <div style={ this.props.style } className={[ headerStyle ]}>
-        <div className={ style.content }>
-          { this.props.text }
+      <div style={this.props.style} className={[headerStyle]}>
+        <div className={style.content}>
+          {this.props.text}
         </div>
         { this.props.underline &&
-          <div className={ style.rule } />
+          <div className={style.rule} />
         }
       </div>
     );
@@ -28,11 +27,19 @@ class Header extends React.Component {
 }
 
 Header.propTypes = {
-  children: React.PropTypes.string.isRequired
-}
+  text: React.PropTypes.string.isRequired,
+  underline: React.PropTypes.bool,
+  h1: React.PropTypes.bool,
+  h2: React.PropTypes.bool,
+  h3: React.PropTypes.bool,
+  h4: React.PropTypes.bool,
+  h5: React.PropTypes.bool,
+  h6: React.PropTypes.bool,
+  style: React.PropTypes.object,
+};
 
 Header.defaultProps = {
-  children: 'Header'
+  text: 'Header',
 };
 
 Header.displayName = 'Atom.Header';

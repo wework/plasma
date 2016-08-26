@@ -8,6 +8,12 @@ $typeBase: 14px;
   font-family: 'Helvetica Neue', helvetica, arial, 'sans-serif';
 }
 
+%type--tiny {
+  @extend %fontFamily--body;
+  color: $cTextPrimary;
+  font-size: 11px;
+}
+
 %type--label {
   @extend %fontFamily--body;
   color: $cTextPrimary;

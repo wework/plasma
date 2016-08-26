@@ -2,28 +2,28 @@
 
 .wrapper {
   background: $cDarkBlue;
-  color: $cWhite0;
+  @extend %type--tiny;
+  color: rgba(255,255,255,0.8);
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: flex-start;
   padding-top: 8px;
   height: 100%;
-  width: 180px;
+  width: 80px;
 }
 
 .itemWrapper {
   align-self: flex-start;
   width: 100%;
   box-sizing: border-box;
-  font-size: 14px;
   display: flex;
-  min-height: 36px;
   padding: $space / 2;
   cursor: pointer;
   align-items: center;
-  flex-direction: row;
-  padding-left: $space;
+  flex-direction: column;
+  justify-content: space-between;
+  text-align: center;
   &:hover {
     background: $cDarkBlue + #111;
   }
@@ -31,6 +31,6 @@
     background: $cDarkBlue - #050505;
   }
   .icon {
-    margin-right: $space / 2;
+    margin-bottom: $space / 2;
   }
 }

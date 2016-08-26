@@ -36,11 +36,16 @@ export default class Playground2 extends React.Component {
         <Page.FixedLeft>
           <Organism.SideNavBar>
             <Atom.Image
-              style={{width: 32}}
+              style={{width: 28}}
               src=' https://s3.amazonaws.com/wework.design/ss-logo.png' />
             <Atom.Image
-              style={{width: 80, height: 'auto', marginBottom: 16}}
+              style={{width: 50, height: 'auto', marginBottom: 16}}
               src='//spacestation.wework.com/images/weworkLight.svg' />
+            <Organism.SideNavBarItem
+              label='Meagan'
+              icon='https://avatars.io/twitter/owltastic'
+              iconStyle={{ width: 32, height: 32, borderRadius: 999 }}
+            />
             <Organism.SideNavBarItem
               label='Chelsea'
               icon='//spacestation.wework.com/images/house.svg'
@@ -72,19 +77,13 @@ export default class Playground2 extends React.Component {
               iconStyle={{ width: 18, height: 18 }}
             />
           </Organism.SideNavBar>
-          <Page.FixedTop>
 
-            <Organism.TopNavBar />
+            <div style={{paddingLeft: 16}}>
+              <Atom.Header h1 text='Members' style={{ marginBottom: 16, marginTop: 32 }} />
+              <Page.FixedLeft stickAt={30}>
 
-            <div>
-              <Template.Masthead
-                style={{ paddingTop: 24 }}
-                header='Members'
-              />
-              <Page.FixedLeft stickAt={100}>
-
-                <div style={{ width: 212, padding: 16, position: 'relative', top: -12 }}>
-                  <Atom.Header h2 underline text='Filters' style={{ marginBottom: 24 }} />
+                <div style={{ width: 212, paddingRight: 16, position: 'relative', top: 4 }}>
+                  <Atom.Header h2 text='Filters' style={{ marginBottom: 16 }} />
                   
                   <Molecule.FormField label='Name'>
                     <Atom.TextInput />
@@ -109,36 +108,38 @@ export default class Playground2 extends React.Component {
                       ]}
                     />
                   </Molecule.FormField>
-                  <Molecule.FormField>
-                    <Atom.RadioButton text='Are you serious?' />
-                    <Atom.RadioButton text="No but really. C'mon." />
+                  <Molecule.FormField label="What is the question?">
+                    <Molecule.Group vertical>
+                      <Atom.RadioButton text="Are you serious?" />
+                      <Atom.RadioButton text="No but really. C'mon." />
+                    </Molecule.Group>
                   </Molecule.FormField>
-                  <Molecule.RowGroup>
+                  <Molecule.Group>
                     <Atom.Button secondary label='Clear' onClick={() => { alert('🗑🗑🗑🗑🗑') }} />
                     <Atom.Button label='Filter' onClick={ () => this.setState({ showModal: true }) } />
-                  </Molecule.RowGroup>
+                  </Molecule.Group>
                 </div>
 
                 <div>
                   <Organism.Table
                     style={{ paddingRight: 16 }}
-                    header={{ name: 'Name', email: 'Email', phone: 'Phone #', city: 'City' }}
+                    headerData={{ name: 'Name', email: 'Email', phone: 'Phone #', city: 'City' }}
                     items={ this.state.filteredItems }
-                    stickAt={100}
+                    stickAt={30}
                   />
                   <div style={{ height: 200 }}/>
                   <Organism.Table
                     style={{ paddingRight: 16 }}
-                    header={{ foo: 'bar', red: 'blue', green: 'yellow', purp: '💰' }}
+                    headerData={{ foo: 'bar', red: 'blue', green: 'yellow', purp: '💖' }}
                     items={ this.state.filteredItems }
-                    stickAt={100}
+                    stickAt={30}
                   />
 
                 </div>
 
               </Page.FixedLeft>
             </div>
-          </Page.FixedTop>
+
         </Page.FixedLeft>
         <Template.Modal
           visible={ this.state.showModal }
@@ -149,10 +150,10 @@ export default class Playground2 extends React.Component {
           <Molecule.FormField label='Last name'>
             <Atom.TextInput />
           </Molecule.FormField>
-          <Molecule.RowGroup>
+          <Molecule.Group layout={['40%']}>
             <Atom.Button secondary label='Clear' onClick={() => { alert('🗑🗑🗑🗑🗑') }} />
             <Atom.Button label='Filter' onClick={ () => alert('👍👍👍👍👍') } />
-          </Molecule.RowGroup>
+          </Molecule.Group>
         </Template.Modal>
       </div>
     );

@@ -11,7 +11,7 @@ import { parse, resolver } from 'react-docgen-fixed';
 const basePath = '/../src/components/';
 
 export default function generate() {
-  return globp(__dirname + `${basePath}**/*.js`)
+  return globp(__dirname + `${basePath}**/*.jsx`)
     .then((files) => {
       let results = _.map(
         _.filter(files, (filename) => {

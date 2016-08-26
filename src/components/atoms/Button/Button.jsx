@@ -16,26 +16,18 @@ import style from './style.scss';
 
 class Button extends React.Component {
 
-  /**
-  * This is the __whatup__ method
-  */
-  whatupGirl(name, gender) {
-    console.log(`What's up ${name}?`);
-  }
-
   render() {
-
-    let buttonStyle = cx(style.button, {
+    const buttonStyle = cx(style.button, {
       [style.secondary]: this.props.secondary,
-      [style.disabled]: this.props.disabled
+      [style.disabled]: this.props.disabled,
     });
 
     return (
       <div
-        className={ cx(style.button, buttonStyle) }
-        onClick={ this.props.onClick }
+        className={cx(style.button, buttonStyle)}
+        onClick={this.props.onClick}
       >
-        <div className={ style.label }>{this.props.label}</div>
+        <div className={style.label}>{this.props.label}</div>
       </div>
     );
   }
@@ -44,18 +36,18 @@ class Button extends React.Component {
 Button.defaultProps = {
   label: 'Click it',
   secondary: false,
-  disabled: false
-}
+  disabled: false,
+};
 
 Button.propTypes = {
   label: React.PropTypes.string.isRequired,
   /**
   * Callback to handle click event
   */
-  handleClick: React.PropTypes.func,
+  onClick: React.PropTypes.func,
   secondary: React.PropTypes.bool,
-  disabled: React.PropTypes.bool
-}
+  disabled: React.PropTypes.bool,
+};
 
 Button.displayName = 'Atom.Button';
 

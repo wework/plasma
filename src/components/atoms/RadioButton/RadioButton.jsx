@@ -6,10 +6,10 @@ class RadioButton extends React.Component {
   render() {
     const id = _.uniqueId('id');
     return (
-      <div className={ style.wrapper }>
-        <input className={ style.original } type='radio' id={ id } name={ this.props.name } />
-        <div className={ style.faux } />
-        <label htmlFor={ id } className={ style.text }>
+      <div className={style.wrapper}>
+        <input className={style.original} type="radio" id={id} name={this.props.name} />
+        <div className={style.faux} />
+        <label htmlFor={id} className={style.text}>
           { this.props.text }
         </label>
       </div>
@@ -19,13 +19,13 @@ class RadioButton extends React.Component {
 
 RadioButton.defaultProps = {
   text: 'Option',
-  name: 'radioButton'
+  name: 'radioButton',
 };
 
 RadioButton.propTypes = {
   text: React.PropTypes.string.isRequired,
-  name: React.PropTypes.string.isRequired
-}
+  name: React.PropTypes.string.isRequired,
+};
 
 RadioButton.displayName = 'Atom.RadioButton';
 

@@ -5,9 +5,9 @@ import classNames from 'classnames';
 
 import stripDiacritics from './utils/stripDiacritics';
 
-import Async from './Async';
-import Option from './Option';
-import Value from './Value';
+import Async from './Async.jsx';
+import Option from './Option.jsx';
+import Value from './Value.jsx';
 
 import style from './style.scss';
 

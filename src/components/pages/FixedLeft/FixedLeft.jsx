@@ -1,8 +1,7 @@
-import React from 'react';
-import ReactDOM from 'react-dom';
-import style from './style.scss';
 import _ from 'lodash';
 import $ from 'jquery';
+import React from 'react';
+import style from './style.scss';
 
 /**
   * The fixed left page is great.
@@ -14,8 +13,8 @@ class FixedLeft extends React.Component {
     super();
     this.state = {
       fixedWidth: 0,
-      translateY: 0
-    }
+      translateY: 0,
+    };
     this.handleScroll = this.handleScroll.bind(this);
     this.componentWillUnmount = this.componentWillUnmount.bind(this);
   }
@@ -35,27 +34,37 @@ class FixedLeft extends React.Component {
     if (!_.isNull(this.props.stickAt)) {
       const offsetViewport = $(this.fixed).position().top;
       const offsetDoc = $(this.fixed).offset().top;
-      const stuckAt = _.clamp(offsetDoc - offsetViewport, 0, this.props.stickAt);
-      this.setState({ translateY: -stuckAt });
+      const ty = _.clamp(
+        offsetDoc - offsetViewport, 0, this.fixedViewportOffsetOrigin - this.props.stickAt
+      );
+      console.log(ty);
+      $(this.fixed).css(
+        'transform', `translateY(${-ty}px)`);
     }
   }
 
   render() {
     return (
-      <div className={ style.wrapper }>
+      <div className={style.wrapper}>
         <div
-          className={ style.fixedWrapper }
-          style={ { transform: `translateY(${this.state.translateY}px)` } }
-          ref={(c) => this.fixed = c}
+          className={style.fixedWrapper}
+          ref={(c) => {
+            if (c) {
+              if (!this.fixedViewportOffsetOrigin) {
+                this.fixedViewportOffsetOrigin = $(c).position().top;
+              }
+              this.fixed = c;
+            }
+          }}
         >
           { this.props.children[0] }
         </div>
-        <div className={ style.contentWrapper }>
+        <div className={style.contentWrapper}>
           <div
-            className={ style.stub }
+            className={style.stub}
             style={{ width: this.state.fixedWidth, minWidth: this.state.fixedWidth }}
           />
-          <div className={ style.content }>
+          <div className={style.content}>
             { this.props.children[1] }
           </div>
         </div>
@@ -66,12 +75,13 @@ class FixedLeft extends React.Component {
 
 FixedLeft.defaultProps = {
   children: [null, null],
-  stickAt: null
-}
+  stickAt: null,
+};
 
 FixedLeft.propTypes = {
-  children: React.PropTypes.array.isRequired
-}
+  children: React.PropTypes.array.isRequired,
+  stickAt: React.PropTypes.number,
+};
 
 FixedLeft.displayName = '!Page.FixedLeft';
 

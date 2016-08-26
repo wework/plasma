@@ -5,14 +5,18 @@ class TopNavBar extends React.Component {
   render() {
     return (
       <div className={style.wrapper}>
-        { this.props.children }
+        {this.props.children}
       </div>
     );
   }
 }
 
 TopNavBar.defaultProps = {
-  children: ''
+  children: null,
+};
+
+TopNavBar.propTypes = {
+  children: React.PropTypes.node.isRequired,
 };
 
 TopNavBar.displayName = 'Organism.TopNavBar';
