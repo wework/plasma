@@ -1,11 +1,13 @@
 // Atom imports
-import Header from './components/atoms/Header/Header.jsx';
-import Card from './components/atoms/Card/Card.jsx';
-import Button from './components/atoms/Button/Button.jsx';
-import TextInput from './components/atoms/TextInput/TextInput.jsx';
-import Image from './components/atoms/Image/Image.jsx';
-import Label from './components/atoms/Label/Label.jsx';
-import RadioButton from './components/atoms/RadioButton/RadioButton.jsx';
+import Header from './components/atoms/Header/Header';
+import Card from './components/atoms/Card/Card';
+import SegmentedCard from './components/atoms/SegmentedCard/SegmentedCard';
+import Button from './components/atoms/Button/Button';
+import TextInput from './components/atoms/TextInput/TextInput';
+import Image from './components/atoms/Image/Image';
+import Text from './components/atoms/Text/Text';
+import Label from './components/atoms/Label/Label';
+import RadioButton from './components/atoms/RadioButton/RadioButton';
 
 // Molecule imports
 import Group from './components/molecules/Group/Group.jsx';
@@ -40,7 +42,9 @@ Plasma.Page = {};
 Plasma.Atom.Header = Header;
 Plasma.Atom.Label = Label;
 Plasma.Atom.Image = Image;
+Plasma.Atom.Text = Text;
 Plasma.Atom.Card = Card;
+Plasma.Atom.SegmentedCard = SegmentedCard;
 Plasma.Atom.Button = Button;
 Plasma.Atom.TextInput = TextInput;
 Plasma.Atom.RadioButton = RadioButton;

@@ -24,6 +24,7 @@ $typeBase: 14px;
   @extend %fontFamily--body;
   font-size: $typeBase;
   color: $cTextPrimary;
+  line-height: 1.4em;
 }
 
 %type--headline1 {
