@@ -1,0 +1,46 @@
+@import '../../styles/base';
+
+.wrapper {
+  .content {
+    position: relative;
+    display: flex;
+    pointer-events: none;
+    visibility: hidden;
+    position: absolute;
+    opacity: 0;
+    background: white;
+    border: 1px solid $cBorder;
+    box-shadow: rgba(0,0,0,0.05) 0 2px 5px;
+    padding: $space;
+    transform: scale(0.8) !important;
+    transform-origin: center top;
+    -webkit-transition: all 0.2s ease-in-out;
+    transition: all 0.2s ease-in-out;
+    &:before {
+      pointer-events: none;
+      position: absolute;
+      content: '';
+      font-size: 14px;
+      width: 8px;
+      height: 8px;
+      background: white;
+      transform: rotate(45deg);
+      z-index: 100;
+      top: auto;
+      right: auto;
+      bottom: 100%;
+      left: 50%;
+      margin-left: -4px;
+      margin-bottom: -4px;
+      box-shadow: -1px -1px 0 0 $cBorder;
+    }
+  }
+  &:hover {
+    .content {
+      visibility: visible;
+      pointer-events: auto;
+      transform: scale(1) !important;
+      opacity: 1;
+    }
+  }
+}

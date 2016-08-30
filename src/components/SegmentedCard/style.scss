@@ -1,0 +1,34 @@
+@import '../../styles/base';
+
+.card {
+  background: white;
+  min-height: 20px;
+  border: 1px solid $cBorder;
+  margin-bottom: $space * 2;
+  display: flex;
+}
+
+.first {
+  padding: $space $space 0 $space;
+  flex: 0 1 25%;
+  background: $cBackground;
+  border-right: 1px solid $cBorder;
+}
+
+.second {
+  padding: $space $space 0 $space;
+  flex: 1 0 auto;
+}
+
+@media only screen and (min-device-width : 1px) and (max-device-width : 1024px) {
+  .card {
+    flex-direction: column;
+  }
+  .first {
+    border-right: 0;
+    border-bottom: 1px solid $cBorder;
+    flex: 1 0 default;
+    padding-bottom: $space;
+  }
+}
+

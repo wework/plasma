@@ -45,7 +45,7 @@ var server = new WebpackDevServer(webpack(config), {
   quiet: false,
   noInfo: false,
   publicPath: "/",
-  stats: { colors: true },
+  stats: { colors: true, errorDetails: true },
 });
 
 require('./generate-metadata').default().then(function(data) {

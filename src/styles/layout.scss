@@ -13,7 +13,7 @@ $space-bounds: $space * 1.5;
   height: 0;
 }
 
-%bounds {
+%layout--bounds {
   @extend .clearfix;
   box-sizing: border-box;
   margin-left: auto;
@@ -23,7 +23,7 @@ $space-bounds: $space * 1.5;
   width: 100%;
 }
 
-%chunk {
+%layout--chunk {
   @extend .clearfix;
   display: block;
   margin-bottom: $space !important;

@@ -1,0 +1,50 @@
+@import '../../styles/base';
+
+.wrapper {
+  position: relative;
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+}
+
+.original {
+  position: absolute;
+  opacity: 0;
+  z-index: 10;
+  cursor: pointer;
+  &:checked ~ .faux {
+    border-color: $cGray300;
+    &::before {
+      background: $cBrandPrimary;
+    }
+  }
+}
+
+.faux {
+  width: 16px;
+  height: 16px;
+  background: none;
+  border: 1px solid $cBorder;
+  border-radius: 100%;
+  background: $cWhite0;
+  cursor: pointer;
+  transition: border-color 0.1s ease-out;
+  &::before {
+    display: block;
+    position: absolute;
+    content: '';
+    border-radius: 100%;
+    width: 12px;
+    height: 12px;
+    top: 3px;
+    left: 3px;
+    background: none;
+  }
+}
+
+.text {
+  margin-left: $space / 2;
+  @extend %type--body;
+  cursor: pointer;
+}
+

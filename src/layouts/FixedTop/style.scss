@@ -1,0 +1,33 @@
+@import '../../styles/base';
+
+.wrapper {
+  box-sizing: border-box;
+  min-height: 100%;
+  height: 100%;
+}
+
+.fixedWrapper {
+  position: fixed;
+  margin-top: 0;
+  margin-left: 0;
+  width: 100%;
+  z-index: 10;
+}
+
+.contentWrapper {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  box-sizing: border-box;
+  min-height: 100%;
+  .stub {
+    visibility: hidden;
+    opacity: 0;
+  }
+  .content {
+    box-sizing: border-box;
+    min-height: 100%;
+    background: $cBackground;
+    flex-grow: 1;
+  }
+}

@@ -1,84 +1,79 @@
-// Atom imports
-import Header from './components/atoms/Header/Header';
-import Card from './components/atoms/Card/Card';
-import SegmentedCard from './components/atoms/SegmentedCard/SegmentedCard';
-import Button from './components/atoms/Button/Button';
-import TextInput from './components/atoms/TextInput/TextInput';
-import Image from './components/atoms/Image/Image';
-import Text from './components/atoms/Text/Text';
-import Label from './components/atoms/Label/Label';
-import RadioButton from './components/atoms/RadioButton/RadioButton';
-
-// Molecule imports
-import Group from './components/molecules/Group/Group.jsx';
-import FormField from './components/molecules/FormField/FormField.jsx';
-import Tooltip from './components/molecules/Tooltip/Tooltip.jsx';
-import Select from './components/molecules/Select/Select.jsx';
-
-// Organism imports
-import SideNavBar from './components/organisms/SideNavBar/SideNavBar.jsx';
-import SideNavBarItem from './components/organisms/SideNavBar/SideNavBarItem.jsx';
-import Table from './components/organisms/Table/Table.jsx';
-import TopNavBar from './components/organisms/TopNavBar/TopNavBar.jsx';
-
-// Template imports
-import Masthead from './components/templates/Masthead/Masthead.jsx';
-import Modal from './components/templates/Modal/Modal.jsx';
+import Button from './components/Button/Button.jsx';
+import Card from './components/Card/Card.jsx';
+import Header from './components/Header/Header.jsx';
+import Image from './components/Image/Image.jsx';
+import Label from './components/Label/Label.jsx';
+import Masthead from './components/Masthead/Masthead.jsx';
+import Modal from './components/Modal/Modal.jsx';
+import RadioButton from './components/RadioButton/RadioButton.jsx';
+import SegmentedCard from './components/SegmentedCard/SegmentedCard.jsx';
+import Table from './components/Table/Table.jsx';
+import Text from './components/Text/Text.jsx';
+import TextInput from './components/TextInput/TextInput.jsx';
+import Tooltip from './components/Tooltip/Tooltip.jsx';
+import TopNavBar from './components/TopNavBar/TopNavBar.jsx';
+import SideNavBar from './components/SideNavBar/SideNavBar.jsx';
+import SideNavBarItem from './components/SideNavBar/SideNavBarItem.jsx';
 
 // Page imports
-import FixedLeft from './components/pages/FixedLeft/FixedLeft.jsx';
-import FixedTop from './components/pages/FixedTop/FixedTop.jsx';
+import Group from './layouts/Group/Group.jsx';
+import FormField from './layouts/FormField/FormField.jsx';
+import FixedLeft from './layouts/FixedLeft/FixedLeft.jsx';
+import FixedRight from './layouts/FixedRight/FixedRight.jsx';
+import FixedTop from './layouts/FixedTop/FixedTop.jsx';
 
 // Plasma object
 
 const Plasma = {};
 
-Plasma.Atom = {};
-Plasma.Organism = {};
-Plasma.Molecule = {};
-Plasma.Template = {};
-Plasma.Page = {};
+Plasma.Header = Header;
+Plasma.Label = Label;
+Plasma.Image = Image;
+Plasma.Text = Text;
+Plasma.Card = Card;
+Plasma.SegmentedCard = SegmentedCard;
+Plasma.Button = Button;
+Plasma.TextInput = TextInput;
+Plasma.RadioButton = RadioButton;
 
-Plasma.Atom.Header = Header;
-Plasma.Atom.Label = Label;
-Plasma.Atom.Image = Image;
-Plasma.Atom.Text = Text;
-Plasma.Atom.Card = Card;
-Plasma.Atom.SegmentedCard = SegmentedCard;
-Plasma.Atom.Button = Button;
-Plasma.Atom.TextInput = TextInput;
-Plasma.Atom.RadioButton = RadioButton;
+Plasma.Group = Group;
+Plasma.FormField = FormField;
+Plasma.Tooltip = Tooltip;
 
-Plasma.Molecule.Group = Group;
-Plasma.Molecule.FormField = FormField;
-Plasma.Molecule.Tooltip = Tooltip;
-Plasma.Molecule.Select = Select;
+Plasma.SideNavBar = SideNavBar;
+Plasma.SideNavBarItem = SideNavBarItem;
+Plasma.Table = Table;
+Plasma.TopNavBar = TopNavBar;
 
-Plasma.Organism.SideNavBar = SideNavBar;
-Plasma.Organism.SideNavBarItem = SideNavBarItem;
-Plasma.Organism.Table = Table;
-Plasma.Organism.TopNavBar = TopNavBar;
+Plasma.Masthead = Masthead;
+Plasma.Modal = Modal;
 
-Plasma.Template.Masthead = Masthead;
-Plasma.Template.Modal = Modal;
-
-Plasma.Page.FixedLeft = FixedLeft;
-Plasma.Page.FixedTop = FixedTop;
-
-Plasma.A = Plasma.Atom;
-Plasma.M = Plasma.Molecule;
-Plasma.O = Plasma.Organism;
-Plasma.T = Plasma.Template;
-Plasma.P = Plasma.Page;
-
-// window.Plasma = Plasma;
+Plasma.FixedLeft = FixedLeft;
+Plasma.FixedRight = FixedRight;
+Plasma.FixedTop = FixedTop;
 
 export default Plasma;
 
-const Atom = Plasma.Atom;
-const Molecule = Plasma.Molecule;
-const Organism = Plasma.Organism;
-const Template = Plasma.Template;
-const Page = Plasma.Page;
-
-export { Plasma, Atom, Molecule, Organism, Template, Page };
+export {
+  Header,
+  Label,
+  Image,
+  Text,
+  Card,
+  SegmentedCard,
+  Button,
+  TextInput,
+  RadioButton,
+  Group,
+  FormField,
+  Tooltip,
+  SideNavBar,
+  SideNavBarItem,
+  Table,
+  TopNavBar,
+  Masthead,
+  Modal,
+  FixedLeft,
+  FixedRight,
+  FixedTop,
+};

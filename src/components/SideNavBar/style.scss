@@ -1,0 +1,36 @@
+@import '../../styles/base';
+
+.wrapper {
+  background: $cDarkBlue;
+  @extend %type--tiny;
+  color: rgba(255,255,255,0.8);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  padding-top: 8px;
+  height: 100%;
+  width: 80px;
+}
+
+.itemWrapper {
+  align-self: flex-start;
+  width: 100%;
+  box-sizing: border-box;
+  display: flex;
+  padding: $space / 2;
+  cursor: pointer;
+  align-items: center;
+  flex-direction: column;
+  justify-content: space-between;
+  text-align: center;
+  &:hover {
+    background: $cDarkBlue + #111;
+  }
+  &:active {
+    background: $cDarkBlue - #050505;
+  }
+  .icon {
+    margin-bottom: $space / 2;
+  }
+}
