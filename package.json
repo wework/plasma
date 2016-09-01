@@ -1,5 +1,5 @@
 {
-  "name": "plasma",
+  "name": "@wework-dev/plasma",
   "version": "0.0.1",
   "description": "",
   "main": "index.js",
