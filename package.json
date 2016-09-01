@@ -1,6 +1,6 @@
 {
   "name": "plasma",
-  "version": "1.0.0",
+  "version": "0.0.1",
   "description": "",
   "main": "index.js",
   "scripts": {
@@ -8,7 +8,7 @@
     "dev": "babel-node ./docs/server.js",
     "publish": "webpack"
   },
-  "author": "",
+  "author": "WeWork",
   "license": "ISC",
   "devDependencies": {
     "anchorate": "^1.1.0",
