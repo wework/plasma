@@ -4,10 +4,12 @@ const path = require('path');
 const ExtractTextPlugin = require("extract-text-webpack-plugin");
 
 module.exports = {
-  entry: ['./src/index.js', './src/external'],
+  entry: ['./src/index.js'],
   output: {
-    path: `${__dirname}/lib`,
-    filename: 'plasma.js',
+    path: __dirname,
+    filename: 'index.js',
+    library: 'Plasma',
+    libraryTarget: 'commonjs'
   },
   resolve: {
     root: [
@@ -34,6 +36,6 @@ module.exports = {
     ],
   },
   plugins: [
-    new ExtractTextPlugin('plasma.css'),
+    new ExtractTextPlugin('style.css'),
   ],
 };
