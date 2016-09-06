@@ -1,5 +1,14 @@
-exports["Plasma"] =
-/******/ (function(modules) { // webpackBootstrap
+(function webpackUniversalModuleDefinition(root, factory) {
+	if(typeof exports === 'object' && typeof module === 'object')
+		module.exports = factory();
+	else if(typeof define === 'function' && define.amd)
+		define([], factory);
+	else if(typeof exports === 'object')
+		exports["Plasma"] = factory();
+	else
+		root["Plasma"] = factory();
+})(this, function() {
+return /******/ (function(modules) { // webpackBootstrap
 /******/ 	// The module cache
 /******/ 	var installedModules = {};
 
@@ -33383,4 +33392,6 @@ exports["Plasma"] =
 	module.exports = {"clearfix":"src-layouts-FixedTop-clearfix__2fgKS","wrapper":"src-layouts-FixedTop-wrapper__3YOaw","fixedWrapper":"src-layouts-FixedTop-fixedWrapper__eWWya","contentWrapper":"src-layouts-FixedTop-contentWrapper__1i4gX","stub":"src-layouts-FixedTop-stub__1Ixye","content":"src-layouts-FixedTop-content__3dqEs"};
 
 /***/ }
-/******/ ]);
+/******/ ])
+});
+;

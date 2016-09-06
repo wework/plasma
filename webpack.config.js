@@ -9,7 +9,7 @@ module.exports = {
     path: __dirname,
     filename: 'index.js',
     library: 'Plasma',
-    libraryTarget: 'commonjs'
+    libraryTarget: 'umd'
   },
   resolve: {
     root: [
