@@ -10,12 +10,12 @@ export default class ComponentSection extends React.Component {
 
   render() {
     return(
-      <div className={ style.section } id={`${this.props.data.componentName}`}>
+      <div className={ style.section } id={`${this.props.data.displayName}`}>
         { this.props && this.props.data && 
           <div>
             <div style={{ marginBottom: 24 }}>
-              <a href={`/plasma/components/#${this.props.data.componentName}`}>
-                <h1 style={{ marginBottom: 8 }}>{ this.props.data.componentName }</h1>
+              <a href={`/plasma/docs/#${this.props.data.displayName}`}>
+                <h1 style={{ marginBottom: 8 }}>{ this.props.data.displayName }</h1>
               </a>
               <h3 style={{ marginBottom: 8 }}>Description</h3>
               <div

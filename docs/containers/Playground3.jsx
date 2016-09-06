@@ -86,7 +86,7 @@ export default class Playground2 extends React.Component {
 
           <div>
             <Header h1 text='Members' style={{ marginBottom: 16, marginTop: 32 }} />
-            <FixedLeft stickAt={30} contentStyle={{ marginRight: 0 }}>
+            <FixedLeft contentStyle={{ marginRight: 0 }}>
               <div style={{ width: 212, position: 'relative', top: 4 }}>
                 <Header h2 text='Filters' style={{ marginBottom: 16 }} />
                 <FormField label='Name'>
