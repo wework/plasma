@@ -36,12 +36,13 @@
     "node-sass": "^3.8.0",
     "proxy-middleware": "^0.15.0",
     "react-docgen-fixed": "^2.9.1",
-    "react-select": "^1.0.0-beta14",
+    "react-select": "^1.0.0-rc.1",
     "resolve-url-loader": "^1.6.0",
     "sass-loader": "^4.0.0",
     "style-loader": "^0.13.1",
     "webpack": "^1.13.1",
-    "webpack-dev-server": "^1.14.1"
+    "webpack-dev-server": "^1.14.1",
+    "react-router": "^2.6.0"
   },
   "dependencies": {
     "babel-runtime": "^6.9.2",
@@ -51,7 +52,6 @@
     "proxy-middleware": "^0.15.0",
     "react": "^15.2.1",
     "react-dom": "^15.2.1",
-    "react-input-autosize": "^1.1.0",
-    "react-router": "^2.6.0"
+    "react-input-autosize": "^1.1.0"
   }
 }
