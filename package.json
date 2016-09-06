@@ -7,7 +7,7 @@
     "docs": "cd docs && BUILD=true webpack",
     "dev": "babel-node ./docs/server.js",
     "build": "webpack",
-    "publish": "webpack && npm publish —-access public"
+    "publish": "webpack && npm publish --access public"
   },
   "author": "WeWork",
   "license": "ISC",
