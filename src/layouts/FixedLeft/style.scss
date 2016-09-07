@@ -23,7 +23,6 @@
   justify-content: flex-start;
   box-sizing: border-box;
   min-height: 100%;
-  margin-left: $space;
   background: $cBackground;
   .stub {
     visibility: hidden;
@@ -33,6 +32,6 @@
     box-sizing: border-box;
     min-height: 100%;
     flex-grow: 1;
-    margin-right: $space;
+    margin: 0 $space;
   }
 }
