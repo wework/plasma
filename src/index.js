@@ -17,6 +17,7 @@ import SideNavBarItem from './components/SideNavBar/SideNavBarItem.jsx';
 
 // Page imports
 import Group from './layouts/Group/Group.jsx';
+import HorizontalScroll from './layouts/HorizontalScroll/HorizontalScroll.jsx';
 import FormField from './layouts/FormField/FormField.jsx';
 import FixedLeft from './layouts/FixedLeft/FixedLeft.jsx';
 import FixedRight from './layouts/FixedRight/FixedRight.jsx';
@@ -36,7 +37,6 @@ Plasma.Button = Button;
 Plasma.TextInput = TextInput;
 Plasma.RadioButton = RadioButton;
 
-Plasma.Group = Group;
 Plasma.FormField = FormField;
 Plasma.Tooltip = Tooltip;
 
@@ -48,6 +48,8 @@ Plasma.TopNavBar = TopNavBar;
 Plasma.Masthead = Masthead;
 Plasma.Modal = Modal;
 
+Plasma.Group = Group;
+Plasma.HorizontalScroll = HorizontalScroll;
 Plasma.FixedLeft = FixedLeft;
 Plasma.FixedRight = FixedRight;
 Plasma.FixedTop = FixedTop;
@@ -73,6 +75,7 @@ export {
   TopNavBar,
   Masthead,
   Modal,
+  HorizontalScroll,
   FixedLeft,
   FixedRight,
   FixedTop,
