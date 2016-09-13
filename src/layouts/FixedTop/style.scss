@@ -20,9 +20,11 @@
   justify-content: flex-start;
   box-sizing: border-box;
   min-height: 100%;
+  overflow: auto;
   .stub {
     visibility: hidden;
     opacity: 0;
+    flex: none;
   }
   .content {
     box-sizing: border-box;
