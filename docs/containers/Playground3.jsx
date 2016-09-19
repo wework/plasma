@@ -14,6 +14,7 @@ import {
   TextInput,
   Modal,
   RadioButton,
+  HorizontalScroll,
 } from '../../src';
 import getItems from '../_tableItems';
 
@@ -87,45 +88,20 @@ export default class Playground2 extends React.Component {
           <div>
             <Header h1 text='Members' style={{ marginBottom: 16, marginTop: 32 }} />
             <FixedLeft contentStyle={{ marginRight: 0 }}>
-              <div style={{ width: 212, position: 'relative', top: 4 }}>
-                <Header h2 text='Filters' style={{ marginBottom: 16 }} />
-                <FormField label='Name'>
-                  <TextInput />
-                </FormField>
-                <FormField label='Email'>
-                  <TextInput />
-                </FormField>
-                <FormField label='Phone #'>
-                  <TextInput />
-                </FormField>
-                <FormField label="What is the question?">
-                  <Group vertical>
-                    <RadioButton text="Are you serious?" />
-                    <RadioButton text="No but really. C'mon." />
-                  </Group>
-                </FormField>
-                <FormField label='Phone #'>
-                  <Select />
-                </FormField>
-                <Group>
-                  <Button secondary label='Clear' onClick={() => { alert('🗑🗑🗑🗑🗑') }} />
-                  <Button label='Filter' onClick={ () => this.setState({ showModal: true }) } />
-                </Group>
+              <div>
+                Fixed Left
               </div>
               <div>
-                <Table
-                  headerData={{ name: 'Name', email: 'Email', phone: 'Phone #', city: 'City' }}
-                  items={ this.state.filteredItems }
-                  stickAt={30}
-                />
-                <div style={{ height: 200 }}/>
-                <Table
-                  headerData={{ foo: 'bar', red: 'blue', green: 'yellow', purp: '💖' }}
-                  items={ this.state.filteredItems }
-                  stickAt={30}
-                />
+                <HorizontalScroll
+                  onScroll={(data) => console.log(data)}
+                >
+                  <Table
+                    headerData={{ name: 'Name', email: 'Email', phone: 'Phone #', city: 'City', gender: 'Gender', favoriteColor: 'Favorite Color' }}
+                    items={this.state.filteredItems}
+                    stickAt={30}
+                  />
+                </HorizontalScroll>
               </div>
-
             </FixedLeft>
           </div>
         </FixedLeft>

@@ -6,10 +6,10 @@ import style from './style.scss';
 class HorizontalScroll extends React.Component {
 
   componentDidMount() {
-    $(this.wrapper).on('scroll', this.throttledHandleScroll);
+    $(this.wrapper).on('scroll', this.handleScroll.bind(this));
   }
 
-  componentDidUnmount() {
+  componentWillUnmount() {
     $(this.wrapper).off('scroll');
   }
 
@@ -30,6 +30,7 @@ class HorizontalScroll extends React.Component {
 
 HorizontalScroll.defaultProps = {
   children: null,
+  onScroll: () => {},
 };
 
 HorizontalScroll.propTypes = {
