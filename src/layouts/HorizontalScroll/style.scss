@@ -1,4 +1,8 @@
 .wrapper {
-  flex-grow: 1;
   overflow-x: scroll;
+}
+
+.content {
+  white-space: nowrap;
+  width: 100%;
 }
