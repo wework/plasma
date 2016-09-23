@@ -1,7 +1,7 @@
 @import '../../styles/base';
 
 .wrapper {
-  background: $cDarkBlue;
+  background: $cADarkPurple;
   @extend %type--tiny;
   color: rgba(255,255,255,0.8);
   display: flex;
@@ -10,10 +10,12 @@
   justify-content: flex-start;
   padding-top: 8px;
   height: 100%;
-  width: 80px;
+  width: 100px;
+  box-sizing: border-box;
 }
 
 .itemWrapper {
+  height: 70px;
   align-self: flex-start;
   width: 100%;
   box-sizing: border-box;
@@ -22,15 +24,31 @@
   cursor: pointer;
   align-items: center;
   flex-direction: column;
-  justify-content: space-between;
+  justify-content: center;
   text-align: center;
+  font-size: 13px;
+  position: relative;
+  border-bottom: 1px solid rgba(0,0,0,0.3);
+  transition: all 0.3s;
   &:hover {
-    background: $cDarkBlue + #111;
+    background: darken($cADarkPurple, 5%);
   }
   &:active {
-    background: $cDarkBlue - #050505;
+    background: darken($cADarkPurple, 10%);
   }
   .icon {
-    margin-bottom: $space / 2;
+    margin-bottom: 5px;
   }
+  .label {
+    line-height: 20px;
+  }
+}
+
+.itemWrapperSelected {
+  position: absolute;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  width: 5px;
+  background-color: $cALightPurple;
 }

@@ -4,10 +4,12 @@
   display: flex;
   flex-grow: 1;
   flex-direction: column;
-  margin-bottom: $space;
+  margin-bottom: 20px;
 }
 
 .label {
-  margin-bottom: $space / 4;
+  font-size: 13px;
+  line-height: 20px;
+  margin-bottom: 5px;
   font-weight: bold;
 }

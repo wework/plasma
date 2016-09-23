@@ -24,7 +24,6 @@
   box-sizing: border-box;
   min-height: 100%;
   background: $cBackground;
-  overflow: auto;
   .stub {
     visibility: hidden;
     opacity: 0;
@@ -34,7 +33,6 @@
     box-sizing: border-box;
     min-height: 100%;
     flex-grow: 1;
-    margin: 0 $space;
-    overflow-x: auto;
+    margin: 0 30px;
   }
 }

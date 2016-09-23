@@ -69,6 +69,7 @@ class Table extends React.Component {
       }
       $(this.fixed)
         .css('height', `${this.props.stickAt + this.state.headerHeight}px`)
+        .css('pointer-events', isVisible ? 'auto' : 'none')
         .css('opacity', isVisible ? 1 : 0);
     }
   }
@@ -92,7 +93,7 @@ class Table extends React.Component {
         maxHeaderHeight = height;
       }
     });
-    const tableWidth = $(this.table).outerWidth() + 1;
+    const tableWidth = $(this.table).outerWidth();
     this.updateState({
       columnSizes: headerSizes,
       headerHeight: maxHeaderHeight,
@@ -110,9 +111,10 @@ class Table extends React.Component {
       if (opts.sticky && this.state.columnSizes[key]) {
         colStyles = { width: this.state.columnSizes[key].width };
       }
+      const cellStyle = cx(style.cell, { [style.sortableColumn]: value.sortable });
       return (
         <th
-          className={style.cell}
+          className={cellStyle}
           style={colStyles}
           key={key}
           ref={(c) => {
@@ -120,12 +122,30 @@ class Table extends React.Component {
               this.headerComponents[key] = c;
             }
           }}
+          onClick={value.sortable && value.onClick}
         >
-          { value }
+          { value.label }
+          { value.sortable &&
+            <div
+              className={
+                cx(style.sortableColumnHighlight,
+                  { [style.sortableColumnHighlightSelected]: this.props.selectedColumnKey === key }
+                )
+              }
+            />
+          }
         </th>
       );
     });
-    return (<thead><tr className={cx(style.row, style.header)}>{ headerComponents }</tr></thead>);
+    return (
+      <thead>
+        <tr
+          className={cx(style.row, style.header)}
+        >
+          { headerComponents }
+        </tr>
+      </thead>
+    );
   }
 
   renderItems() {
@@ -177,6 +197,7 @@ Table.propTypes = {
   stickAt: React.PropTypes.number,
   items: React.PropTypes.array,
   style: React.PropTypes.object,
+  selectedColumnKey: React.PropTypes.string,
 };
 
 Table.defaultProps = {

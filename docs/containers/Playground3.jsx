@@ -1,8 +1,10 @@
 import _ from 'lodash';
-import React from 'react';
 import Select from 'react-select';
+import { browserHistory } from 'react-router';
+import React from 'react';
 import {
   FixedLeft,
+  FixedRight,
   SideNavBar,
   Image,
   SideNavBarItem,
@@ -14,11 +16,15 @@ import {
   TextInput,
   Modal,
   RadioButton,
-  HorizontalScroll,
+  Rule,
+  Checkbox,
+  SegmentedCard,
+  Text
 } from '../../src';
-import getItems from '../_tableItems';
 
-export default class Playground2 extends React.Component {
+import getItems from '../_tableItems.jsx';
+
+export default class Playground4 extends React.Component {
 
   constructor() {
     super();
@@ -26,13 +32,41 @@ export default class Playground2 extends React.Component {
       tableItems: {},
       filteredItems: {},
       showModal: false,
+      sortKey: 'email',
+      locations: []
     };
+    this.handleLocationChange = this.handleLocationChange.bind(this);
   }
 
   componentWillMount() {
     getItems().then((result) => {
       this.setState({ tableItems: result, filteredItems: result });
     });
+  }
+
+  filterByEmail(email) {
+    const filtered = _.filter(this.state.tableItems, (item) => {
+      const regex = new RegExp(email);
+      const result = regex.exec(item.email);
+      if (result) return true;
+      return false;
+    });
+    this.setState({ filteredItems: filtered });
+  }
+
+  sortByEmail(order) {
+    const sorted = _.sortBy(this.state.tableItems, 'email');
+    this.setState({ filteredItems: sorted, sortKey: 'email' });
+  }
+
+  sortByCity(order) {
+    const sorted = _.sortBy(this.state.tableItems, 'city');
+    this.setState({ filteredItems: sorted, sortKey: 'city' });
+  }
+
+  handleLocationChange(locations) {
+    const locationValues = _.map(locations, 'value');
+    this.setState({ locations: locationValues });
   }
 
   render() {
@@ -51,74 +85,84 @@ export default class Playground2 extends React.Component {
               label='Meagan'
               icon='https://avatars.io/twitter/owltastic'
               iconStyle={{ width: 32, height: 32, borderRadius: 999 }}
-              onClick={() => alert('meagan')}
             />
             <SideNavBarItem
-              label='Chelsea'
+              label='Docs'
               icon='//spacestation.wework.com/images/house.svg'
-              iconSize={24}
+              iconStyle={{ width: 24, height: 24 }}
+              onClick={() => browserHistory.push('/plasma/docs')}
             />
             <SideNavBarItem
-              label='Offices & Desks'
+              label='Table'
               icon='//spacestation.wework.com/images/sales_sign.svg'
-              iconSize={24}
+              iconStyle={{ width: 24, height: 24 }}
+              onClick={() => browserHistory.push('/plasma/Playground4')}
             />
             <SideNavBarItem
-              label='Companies'
+              label='Settings'
               icon='//spacestation.wework.com/images/company.svg'
-              iconSize={24}
+              iconStyle={{ width: 24, height: 24 }}
+              onClick={() => browserHistory.push('/plasma/Playground3')}
             />
             <SideNavBarItem
               label='Members'
               icon='//spacestation.wework.com/images/member.svg'
-              iconSize={24}
+              iconStyle={{ width: 24, height: 24 }}
             />
             <SideNavBarItem
               label='Tours'
               icon='//spacestation.wework.com/images/calendar.svg'
-              iconSize={24}
+              iconStyle={{ width: 24, height: 24 }}
             />
             <SideNavBarItem
               label='Services'
               icon='//spacestation.wework.com/images/services.svg'
-              iconSize={24}
+              iconStyle={{ width: 24, height: 24 }}
             />
           </SideNavBar>
-
-          <div>
-            <Header h1 text='Members' style={{ marginBottom: 16, marginTop: 32 }} />
-            <FixedLeft contentStyle={{ marginRight: 0 }}>
+          <div style={{ marginTop: 40 }}>
+            <SegmentedCard>
               <div>
-                Fixed Left
+                <Header h2 text='Member' />
+                <Rule type='dotted' />
+                <Text>
+                  An amenity is an element (title + description) that can be added to one or multiple buildings. If the amenity is intended for multiple locations, then the description should be generic.
+                </Text>
               </div>
               <div>
-                <HorizontalScroll
-                  onScroll={(data) => console.log(data)}
-                >
-                  <Table
-                    headerData={{ name: 'Name', email: 'Email', phone: 'Phone #', city: 'City', gender: 'Gender', favoriteColor: 'Favorite Color' }}
-                    items={this.state.filteredItems}
-                    stickAt={30}
-                  />
-                </HorizontalScroll>
+                <Header h2 text='Edit Member Info' />
+                <Rule type='dotted' />
+                <Group>
+                  <FormField label='Name'>
+                    <TextInput value='Britney Johnson' />
+                  </FormField>
+                  <FormField label='Email'>
+                    <TextInput value='britneyj4eva@gmail.com'/>
+                  </FormField>
+                </Group>
+                <Group>
+                  <FormField label='Location'>
+                    <Select
+                      multi
+                      name="location"
+                      value={this.state.locations}
+                      options={[
+                        { value: 'chelsea', label: 'NY15 - Chelsea' },
+                        { value: 'chargingbull', label: 'NY17 - Charging Bull' },
+                        { value: 'dumbo', label: 'NY20 - Dumbo' },
+                        { value: 'wallst', label: 'NY3 - Wall St.' },
+                      ]}
+                      onChange={this.handleLocationChange}
+                    />
+                  </FormField>
+                  <FormField label='Phone #'>
+                    <TextInput value='567-8309'/>
+                  </FormField>
+                </Group>
               </div>
-            </FixedLeft>
+            </SegmentedCard>
           </div>
         </FixedLeft>
-        <Modal
-          visible={ this.state.showModal }
-          style={{ width: 400 }}
-          onDismiss={() => this.setState({ showModal: false }) }
-        >
-          <Header h4 text='Information' />
-          <FormField label='Last name'>
-            <TextInput />
-          </FormField>
-          <Group layout={['40%']}>
-            <Button secondary label='Clear' onClick={() => { alert('🗑🗑🗑🗑🗑') }} />
-            <Button label='Filter' onClick={ () => alert('👍👍👍👍👍') } />
-          </Group>
-        </Modal>
       </div>
     );
   }

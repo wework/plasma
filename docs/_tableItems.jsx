@@ -1,3 +1,4 @@
+import React from 'react';
 import $ from 'jquery';
 import _ from 'lodash';
 
@@ -11,7 +12,7 @@ export default function getItems() {
       success: function(data) {
         _.forEach(data.results, (person) => {
           const obj = {};
-          obj.name = _.startCase(`${person.name.first} ${person.name.last}`);
+          obj.name = <div><b><div>{_.startCase(`${person.name.first} ${person.name.last}`)}</div></b><div style={{color: '#999'}}>Boo this person.</div></div>;
           obj.email = person.email;
           obj.phone = person.phone;
           obj.city = _.startCase(person.location.city);

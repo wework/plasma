@@ -2,14 +2,14 @@ import _ from 'lodash';
 import React from 'react';
 import style from './style.scss';
 
-class RadioButton extends React.Component {
+class Checkbox extends React.Component {
   render() {
     const id = _.uniqueId('id');
     return (
       <div className={style.wrapper}>
         <input
           className={style.original}
-          type="radio"
+          type="checkbox"
           id={id}
           name={this.props.name}
           onChange={this.props.onChange}
@@ -23,17 +23,17 @@ class RadioButton extends React.Component {
   }
 }
 
-RadioButton.defaultProps = {
+Checkbox.defaultProps = {
   text: 'Option',
-  name: 'radioButton',
+  name: 'checkbox',
 };
 
-RadioButton.propTypes = {
+Checkbox.propTypes = {
   text: React.PropTypes.string.isRequired,
   name: React.PropTypes.string.isRequired,
   onChange: React.PropTypes.func,
 };
 
-RadioButton.displayName = 'RadioButton';
+Checkbox.displayName = 'Checkbox';
 
-export default RadioButton;
+export default Checkbox;

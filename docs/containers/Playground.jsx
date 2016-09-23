@@ -1,7 +1,7 @@
 import React from 'react';
 import Plasma from '../../src';
 import _ from 'lodash';
-import getItems from '../_tableItems';
+import getItems from '../_tableItems.jsx';
 
 const P = Plasma;
 

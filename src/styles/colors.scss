@@ -18,14 +18,27 @@ $cLightBlue: #5499C3;
 
 $cBrandPrimary: #FFCF71;
 $cBrandLight: #F5DEB2;
-// 0EC8BB
+
+// Andrew colors
+
+$cAYellow: #FFCF71;
+$cABlue: #5499C3;
+$cARed: #D86262;
+$cABlack: #282829;
+$cAGray: #575757;
+$cALightGray: #C2C2C2;
+$cALighterGray: #E0E0E0;
+$cADarkPurple: #2B3445;
+$cALightPurple: #59698B;
+$cADeenaGray: #FAF9F8;
 
 // -----
 
-$cBorder: $cGray800;
-$cBackground: #F7F6F6;
+$cBorder: $cALighterGray;
+$cBorderDark: $cALightGray;
+$cBackground: $cADeenaGray;
 
-$cTextPrimary: $cDarkBlue;
+$cTextPrimary: $cABlack;
 $cTextSecondary: $cWhite300;
 
 $cButtonBrightBg: $cBrandPrimary;

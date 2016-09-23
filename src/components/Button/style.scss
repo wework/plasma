@@ -3,23 +3,18 @@
 .button {
   @extend %button--base;
   @extend %type--body;
-  font-size: $typeBase;
-  background: $cBrandPrimary;
-  color: $cDarkBlue;
-  line-height: 0;
-  &:hover {
-    background: $cBrandPrimary - #111;
-  }
+}
+
+.primary {
+  @extend %button--primary;
 }
 
 .secondary {
-  background: none;
-  color: $cLightBlue;
-  border: 2px solid $cLightBlue;
-  &:hover {
-    background: $cLightBlue;
-    color: white;
-  }
+  @extend %button--secondary;
+}
+
+.tertiary {
+  
 }
 
 .disabled {

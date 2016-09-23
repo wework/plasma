@@ -17,7 +17,7 @@ class SegmentedCard extends React.Component {
 }
 
 SegmentedCard.defaultProps = {
-  children: 'Lorem ipsum',
+  children: ['Side', 'Content'],
   style: {},
 };
 

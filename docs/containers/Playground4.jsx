@@ -1,4 +1,6 @@
 import _ from 'lodash';
+import Select from 'react-select';
+import { browserHistory } from 'react-router';
 import React from 'react';
 import {
   FixedLeft,
@@ -14,10 +16,13 @@ import {
   TextInput,
   Modal,
   RadioButton,
+  Rule,
+  Checkbox,
 } from '../../src';
-import getItems from '../_tableItems';
 
-export default class Playground2 extends React.Component {
+import getItems from '../_tableItems.jsx';
+
+export default class Playground4 extends React.Component {
 
   constructor() {
     super();
@@ -25,6 +30,7 @@ export default class Playground2 extends React.Component {
       tableItems: {},
       filteredItems: {},
       showModal: false,
+      sortKey: 'email',
     };
   }
 
@@ -32,6 +38,26 @@ export default class Playground2 extends React.Component {
     getItems().then((result) => {
       this.setState({ tableItems: result, filteredItems: result });
     });
+  }
+
+  filterByEmail(email) {
+    const filtered = _.filter(this.state.tableItems, (item) => {
+      const regex = new RegExp(email);
+      const result = regex.exec(item.email);
+      if (result) return true;
+      return false;
+    });
+    this.setState({ filteredItems: filtered });
+  }
+
+  sortByEmail(order) {
+    const sorted = _.sortBy(this.state.tableItems, 'email');
+    this.setState({ filteredItems: sorted, sortKey: 'email' });
+  }
+
+  sortByCity(order) {
+    const sorted = _.sortBy(this.state.tableItems, 'city');
+    this.setState({ filteredItems: sorted, sortKey: 'city' });
   }
 
   render() {
@@ -50,66 +76,51 @@ export default class Playground2 extends React.Component {
               label='Meagan'
               icon='https://avatars.io/twitter/owltastic'
               iconStyle={{ width: 32, height: 32, borderRadius: 999 }}
-              onClick={() => alert('meagan')}
             />
             <SideNavBarItem
-              label='Chelsea'
+              label='Docs'
               icon='//spacestation.wework.com/images/house.svg'
-              iconStyle={{ width: 18, height: 18 }}
+              iconStyle={{ width: 24, height: 24 }}
+              onClick={() => browserHistory.push('/plasma/docs')}
             />
             <SideNavBarItem
-              label='Offices & Desks'
+              label='Table'
               icon='//spacestation.wework.com/images/sales_sign.svg'
-              iconStyle={{ width: 18, height: 18 }}
+              iconStyle={{ width: 24, height: 24 }}
+              onClick={() => browserHistory.push('/plasma/Playground4')}
             />
             <SideNavBarItem
-              label='Companies'
+              label='Settings'
               icon='//spacestation.wework.com/images/company.svg'
-              iconStyle={{ width: 18, height: 18 }}
+              iconStyle={{ width: 24, height: 24 }}
+              onClick={() => browserHistory.push('/plasma/Playground3')}
             />
             <SideNavBarItem
               label='Members'
               icon='//spacestation.wework.com/images/member.svg'
-              iconStyle={{ width: 18, height: 18 }}
+              iconStyle={{ width: 24, height: 24 }}
             />
             <SideNavBarItem
               label='Tours'
               icon='//spacestation.wework.com/images/calendar.svg'
-              iconStyle={{ width: 18, height: 18 }}
+              iconStyle={{ width: 24, height: 24 }}
             />
             <SideNavBarItem
               label='Services'
               icon='//spacestation.wework.com/images/services.svg'
-              iconStyle={{ width: 18, height: 18 }}
+              iconStyle={{ width: 24, height: 24 }}
             />
           </SideNavBar>
 
-            <div style={{paddingLeft: 16}}>
-              <Header h1 text='Members' style={{ marginBottom: 16, marginTop: 32 }} />
-              <FixedRight stickAt={30}>
-                <div>
-                  <Table
-                    style={{ paddingRight: 16 }}
-                    headerData={{ name: 'Name', email: 'Email', phone: 'Phone #', city: 'City' }}
-                    items={ this.state.filteredItems }
-                    stickAt={30}
-                  />
-                  <div style={{ height: 200 }}/>
-                  <Table
-                    style={{ paddingRight: 16 }}
-                    headerData={{ foo: 'bar', red: 'blue', green: 'yellow', purp: '💖' }}
-                    items={ this.state.filteredItems }
-                    stickAt={30}
-                  />
-
-                </div>
-                <div style={{ width: 212, paddingRight: 16, position: 'relative', top: 4 }}>
-                  <Header h2 text='Filters' style={{ marginBottom: 16 }} />
-                  <FormField label='Name'>
-                    <TextInput />
-                  </FormField>
+            <div>
+              <Group style={{ marginBottom: 40, marginTop: 40 }} layout={['grow', 'shrink']}>
+                <Header h2 text='Members' />
+                <Button>Test</Button>
+              </Group>
+              <FixedLeft stickAt={30} contentStyle={{ marginRight: 0 }}>
+                <div style={{ width: 212, position: 'relative', top: 4 }}>
                   <FormField label='Email'>
-                    <TextInput />
+                    <TextInput onChange={(event) => this.filterByEmail(event.target.value)} />
                   </FormField>
                   <FormField label='Phone #'>
                     <TextInput />
@@ -120,26 +131,60 @@ export default class Playground2 extends React.Component {
                       <RadioButton text="No but really. C'mon." />
                     </Group>
                   </FormField>
-                  <Group>
-                    <Button secondary label='Clear' onClick={() => { alert('🗑🗑🗑🗑🗑') }} />
+                  <Rule type='dashed' />
+                  <FormField label="How many people do you love?">
+                    <Group vertical>
+                      <Checkbox text="None" />
+                      <Checkbox text="2" onChange={(v) => console.log(v.nativeEvent)} />
+                    </Group>
+                  </FormField>
+                  <FormField label='What is your occupation?'>
+                    <Select
+                      multi
+                      name="occupation"
+                      value="one"
+                      options={[
+                        { value: 'one', label: 'One' },
+                        { value: 'two', label: 'Two' },
+                        { value: 'two', label: 'Three' },
+                        { value: 'two', label: 'Four' },
+                        { value: 'two', label: 'Five' },
+                      ]}
+                    />
+                  </FormField>
+                  <Group vertical>
                     <Button label='Filter' onClick={ () => this.setState({ showModal: true }) } />
+                    <Button type='secondary' label='Clear' onClick={() => { alert('🗑🗑🗑🗑🗑') }} />
                   </Group>
                 </div>
-              </FixedRight>
+                <div>
+                  <Table
+                    headerData={{
+                      name: { label: 'Name' },
+                      email: { label: 'Email', sortable: true, onClick: () => this.sortByEmail('desc') },
+                      phone: { label: 'Phone #' },
+                      city: { label: 'City', sortable: true, onClick: () => this.sortByCity('desc') },
+                    }}
+                    items={this.state.filteredItems}
+                    stickAt={30}
+                    selectedColumnKey={this.state.sortKey}
+                  />
+                </div>
+              </FixedLeft>
             </div>
         </FixedLeft>
         <Modal
-          visible={ this.state.showModal }
+          visible={this.state.showModal}
           style={{ width: 400 }}
-          onDismiss={() => this.setState({ showModal: false }) }
+          onDismiss={() => this.setState({ showModal: false })}
         >
           <Header h4 text='Information' />
           <FormField label='Last name'>
             <TextInput />
           </FormField>
-          <Group layout={['40%']}>
-            <Button secondary label='Clear' onClick={() => { alert('🗑🗑🗑🗑🗑') }} />
-            <Button label='Filter' onClick={ () => alert('👍👍👍👍👍') } />
+          <Group layout={['50%']}>
+            <Button type='secondary' label='Cancel' onClick={() => { alert('🗑🗑🗑🗑🗑') }} />
+            <Button label='OK' onClick={ () => alert('👍👍👍👍👍') } />
           </Group>
         </Modal>
       </div>

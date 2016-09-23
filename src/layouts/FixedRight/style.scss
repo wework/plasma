@@ -18,6 +18,7 @@
   overflow-y: scroll;
   z-index: 10;
   &::-webkit-scrollbar { width: 0 !important }
+  padding-right: 30px;
 }
 
 .contentWrapper {

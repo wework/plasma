@@ -2,15 +2,50 @@ $buttonRadius: 5px;
 
 %button--base {
   font-weight: bold;
+  font-size: 13px;
   cursor: pointer;
   box-sizing: border-box;
   text-align: center;
-  height: 34px;
-  padding-left: 1em;
-  padding-right: 1em;
+  height: 38px;
+  padding-left: 20px;
+  padding-right: 20px;
   flex-grow: 1;
   display: flex;
   align-items: center;
   justify-content: center;
   border-radius: $buttonRadius;
+  font-size: $typeBase;
+  line-height: 0;
+  transition: all 0.2s;
+}
+
+%button--primary {
+  background-color: $cBrandPrimary;
+  border: 1px solid darken($cAYellow, 15%);
+  &:hover {
+    background-color: darken($cAYellow, 5%);
+    border-color: darken($cAYellow, 20%);
+  }
+  &:active {
+    background-color: darken($cAYellow, 10%);
+    border-color: darken($cAYellow, 30%);
+  }
+}
+
+%button--secondary {
+  background-color: $cWhite200;
+  border: 1px solid darken($cWhite200, 10%);
+  &:hover {
+    background-color: darken($cWhite200, 5%);
+    border-color: darken($cWhite200, 20%)
+  }
+  &:active {
+    background-color: darken($cWhite200, 10%);
+    border-color: darken($cWhite200, 30%)
+  }
+}
+
+%button--tertiary {
+  background-color: none;
+  border: 1px solid $cWhite200 - #111;
 }

@@ -1,11 +1,13 @@
 import Button from './components/Button/Button.jsx';
 import Card from './components/Card/Card.jsx';
+import Checkbox from './components/Checkbox/Checkbox.jsx';
 import Header from './components/Header/Header.jsx';
 import Image from './components/Image/Image.jsx';
 import Label from './components/Label/Label.jsx';
 import Masthead from './components/Masthead/Masthead.jsx';
 import Modal from './components/Modal/Modal.jsx';
 import RadioButton from './components/RadioButton/RadioButton.jsx';
+import Rule from './components/Rule/Rule.jsx';
 import SegmentedCard from './components/SegmentedCard/SegmentedCard.jsx';
 import Table from './components/Table/Table.jsx';
 import Text from './components/Text/Text.jsx';
@@ -32,10 +34,12 @@ Plasma.Label = Label;
 Plasma.Image = Image;
 Plasma.Text = Text;
 Plasma.Card = Card;
+Plasma.Checkbox = Checkbox;
 Plasma.SegmentedCard = SegmentedCard;
 Plasma.Button = Button;
 Plasma.TextInput = TextInput;
 Plasma.RadioButton = RadioButton;
+Plasma.Rule = Rule;
 
 Plasma.FormField = FormField;
 Plasma.Tooltip = Tooltip;
@@ -62,10 +66,12 @@ export {
   Image,
   Text,
   Card,
+  Checkbox,
   SegmentedCard,
   Button,
   TextInput,
   RadioButton,
+  Rule,
   Group,
   FormField,
   Tooltip,

@@ -10,7 +10,7 @@ class Group extends React.Component {
     });
 
     return (
-      <div className={groupStyle}>
+      <div className={groupStyle} style={this.props.style}>
         {_.map(this.props.children, (child, index) => {
           const styleObj = {};
           if (this.props.layout[index] === 'shrink') {
@@ -20,7 +20,7 @@ class Group extends React.Component {
           } else if (this.props.layout[index]) {
             styleObj.flexBasis = this.props.layout[index];
           } else {
-            styleObj.flexGrow = '1';
+            styleObj.flexBasis = `${100 / this.props.children.length}%`;
           }
 
           return (<div
@@ -44,6 +44,7 @@ Group.propTypes = {
   children: React.PropTypes.node,
   vertical: React.PropTypes.boolean,
   layout: React.PropTypes.array,
+  style: React.PropTypes.object,
 };
 
 Group.displayName = 'Group';

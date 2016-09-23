@@ -1,5 +1,27 @@
 @import '../../styles/base';
 
+@keyframes slidein {
+  from {
+    opacity: .5;
+    top: 20px; 
+  }
+
+  to {
+    opacity: 1;
+    top: 0;
+  }
+}
+
+@keyframes fadeOverlay {
+  from {
+    opacity: .5;
+  }
+
+  to {
+    opacity: 1;
+  }
+}
+
 .wrapper {
   position: fixed;
   left: 0;
@@ -18,14 +40,21 @@
   right: 0;
   bottom: 0;
   left: 0;
-  background: rgba($cDarkBlue, 0.8);
+  background: rgba($cADarkPurple, 0.94);
   z-index: 101;
+  animation-duration: 0.15s;
+  animation-name: fadeOverlay;
 }
 
 .card {
+  position: relative;
   background: $cWhite0;
   box-shadow: rgba(0,0,0,0.3) 0 5px 10px;
   z-index: 102;
+  border-radius: 5px;
+  animation-duration: 0.15s;
+  animation-name: slidein;
+  animation-timing-function: ease-out;
 }
 
 .content {

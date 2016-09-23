@@ -4,7 +4,7 @@
   @extend %type--label;
   width: 100%;
   display: table;
-  border-top: none;
+  border: none;
   margin-bottom: $space;
 }
 
@@ -14,6 +14,7 @@
   background: $cBackground;
   z-index: 1;
   opacity: 0;
+  pointer-events: none;
   table {
     position: absolute;
     bottom: 0;
@@ -30,11 +31,37 @@
   background: #fff;
   border: 1px solid $cBorder;
   &.header {
-    background: none;
-    border: none;
-    border-bottom: 2px solid $cBrandPrimary;
+    box-sizing: border-box;
+    background: $cWhite0;
+    border: 1px solid $cBorder;
+    border-bottom: 1px solid $cBorderDark;
+    border-radius: 3px 0 0 3px;
     th {
-      padding-bottom: 12px;
+      padding-top: 0;
+      padding-bottom: 0;
+      font-weight: bold;
+      font-size: 13px;
+      height: 60px;
+      position: relative;
+      vertical-align: middle;
+      box-sizing: border-box;
+      &.sortableColumn {
+        cursor: pointer;
+      }
+      &:hover {
+        .sortableColumnHighlight {
+          display: block;
+        }
+      }
+      &:active {
+        .sortableColumnHighlight {
+          background-color: darken($cWhite200, 5%);
+        }
+      }
+      .sortableColumnHighlightSelected {
+        display: block;
+        background-color: $cAYellow;
+      }
     }
   }
   &:hover:not(.header) {
@@ -43,13 +70,23 @@
   }
 }
 
+.sortableColumnHighlight {
+  display: none;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 3px;
+  background-color: $cWhite200;
+}
+
 .cell {
-  padding: 12px;
+  padding: 10px 20px;
   display: table-cell;
   text-align: left;
+  line-height: 1.2em;
 }
 
 .headerCell {
   text-align: left;
-  max-width: 100px;
 }

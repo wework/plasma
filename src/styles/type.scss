@@ -1,11 +1,13 @@
-$typeBase: 14px;
+$typeBase: 13px;
 
 %fontFamily--body {
   font-family: 'Helvetica Neue', helvetica, arial, 'sans-serif';
+  text-rendering: geometricPrecision;
 }
 
 %fontFamily--headline {
   font-family: 'Helvetica Neue', helvetica, arial, 'sans-serif';
+  text-rendering: geometricPrecision;
 }
 
 %type--tiny {
@@ -14,17 +16,25 @@ $typeBase: 14px;
   font-size: 11px;
 }
 
+%type--giant {
+  @extend %fontFamily--body;
+  color: $cTextPrimary;
+  font-size: 80px;
+  line-height: 80px;
+  letter-spacing: -3px;
+}
+
 %type--label {
   @extend %fontFamily--body;
   color: $cTextPrimary;
-  font-size: 12px;
+  font-size: 13px;
 }
 
 %type--body {
   @extend %fontFamily--body;
   font-size: $typeBase;
   color: $cTextPrimary;
-  line-height: 1.4em;
+  line-height: 20px;
 }
 
 %type--headline1 {
@@ -39,7 +49,7 @@ $typeBase: 14px;
   @extend %fontFamily--headline;
   font-weight: bold;
   color: $cTextPrimary;
-  font-size: 24px;
+  font-size: 30px;
 }
 
 %type--headline3 {

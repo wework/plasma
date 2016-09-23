@@ -14,11 +14,15 @@ import style from './style.scss';
   * Buttons that result in a long action can replace the label with a loader once it’s clicked
  */
 
+const type = { PRIMARY: 'primary', SECONDARY: 'secondary', TERTIARY: 'tertiary' };
+
 class Button extends React.Component {
 
   render() {
     const buttonStyle = cx(style.button, {
-      [style.secondary]: this.props.secondary,
+      [style.primary]: this.props.type === type.PRIMARY,
+      [style.secondary]: this.props.type === type.SECONDARY,
+      [style.tertiary]: this.props.type === type.TERTIARY,
       [style.disabled]: this.props.disabled,
     });
 
@@ -35,7 +39,7 @@ class Button extends React.Component {
 
 Button.defaultProps = {
   label: 'Click it',
-  secondary: false,
+  type: type.PRIMARY,
   disabled: false,
 };
 
@@ -45,7 +49,7 @@ Button.propTypes = {
   * Callback to handle click event
   */
   onClick: React.PropTypes.func,
-  secondary: React.PropTypes.bool,
+  type: React.PropTypes.string,
   disabled: React.PropTypes.bool,
 };
 

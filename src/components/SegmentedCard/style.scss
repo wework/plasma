@@ -4,20 +4,21 @@
   background: white;
   min-height: 20px;
   border: 1px solid $cBorder;
-  margin-bottom: $space * 2;
+  border-radius: 3px;
+  margin-bottom: 30px;
   display: flex;
 }
 
 .first {
-  padding: $space $space 0 $space;
-  flex: 0 1 25%;
-  background: $cBackground;
+  padding: 40px 40px;
+  flex-basis: 25%;
+  background: rgba($cWhite0, .7);
   border-right: 1px solid $cBorder;
 }
 
 .second {
-  padding: $space $space 0 $space;
-  flex: 1 0 auto;
+  padding: 40px 40px 0 40px;
+  flex-grow: 1;
 }
 
 @media only screen and (min-device-width : 1px) and (max-device-width : 1024px) {

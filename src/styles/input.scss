@@ -1,17 +1,30 @@
-$inputRadius: 3px;
+$inputRadius: 2px;
 
 %input--base {
+  font-size: 13px;
   box-sizing: border-box;
-  height: 30px;
-  padding-left: 1em;
-  padding-right: 1em;
+  height: 40px;
+  padding-left: 10px;
+  padding-right: 10px;
   width: 100%;
   border: 1px solid $cBorder;
-  padding: $space / 2;
   outline: none;
   display: flex;
   flex-grow: 1;
   flex-direction: row;
   justify-content: flex-start;
   border-radius: $inputRadius;
+  text-rendering: geometricPrecision;
+  &::-webkit-input-placeholder { /* Chrome/Opera/Safari */
+    color: $cALightGray;
+  }
+  &::-moz-placeholder { /* Firefox 19+ */
+    color: $cALightGray;
+  }
+  &:-ms-input-placeholder { /* IE 10+ */
+    color: $cALightGray;
+  }
+  &:-moz-placeholder { /* Firefox 18- */
+    color: $cALightGray;
+  }
 }

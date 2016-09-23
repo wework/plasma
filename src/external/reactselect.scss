@@ -3,10 +3,10 @@
 $select-input-bg:                  #fff !default;
 $select-input-bg-disabled:         #f9f9f9 !default;
 $select-input-border-color:        $cBorder !default;
-$select-input-border-radius:       3px !default;
-$select-input-border-focus:        $cLightBlue !default; // blue
+$select-input-border-radius:       2px !default;
+$select-input-border-focus:        $cBorderDark !default; // blue
 $select-input-border-width:        1px !default;
-$select-input-height:              30px !default;
+$select-input-height:              40px !default;
 $select-input-internal-height:     ($select-input-height - ($select-input-border-width * 2)) !default;
 $select-input-placeholder:         #aaa !default;
 $select-text-color:                $cTextPrimary !default;
@@ -21,10 +21,10 @@ $select-menu-max-height:           200px !default;
 
 $select-option-color:              lighten($select-text-color, 20%) !default;
 $select-option-bg:                 $select-input-bg !default;
-$select-option-focused-color:      $select-text-color !default;
-$select-option-focused-bg:         $cBrandLight !default; // pale blue
+$select-option-focused-color:      $cTextPrimary !default;
+$select-option-focused-bg:         $cADeenaGray !default;
 $select-option-selected-color:     $select-text-color !default;
-$select-option-selected-bg:        #f5faff !default; // lightest blue
+$select-option-selected-bg:        $cWhite0 !default;
 $select-option-disabled-color:     lighten($select-text-color, 60%) !default;
 
 $select-noresults-color:           lighten($select-text-color, 40%) !default;
@@ -36,8 +36,8 @@ $select-clear-hover-color:         #D0021B !default; // red
 $select-clear-width:               ($select-input-internal-height / 2) !default;
 
 // arrow indicator
-$select-arrow-color:               #999 !default;
-$select-arrow-color-hover:         #666 !default;
+$select-arrow-color:               $cGray200 !default;
+$select-arrow-color-hover:         $cGray100 !default;
 $select-arrow-width:               5px !default;
 
 // loading indicator
@@ -48,11 +48,12 @@ $select-loading-color-bg:          $select-input-border-color !default;
 // multi-select item
 $select-item-border-radius:        2px !default;
 $select-item-gutter:               4px !default;
-$select-item-padding-vertical:     2px !default;
-$select-item-padding-horizontal:   5px !default;
+$select-item-padding-vertical:     8px !default;
+$select-item-padding-horizontal:   8px !default;
 $select-item-font-size:            $typeBase !default;
-$select-item-color:                $cTextPrimary !default;
-$select-item-bg:                   $cBrandLight !default;
+$select-item-color:                $cWhite0 !default;
+$select-item-bg:                   $cALightPurple !default;
+$select-item-border-width:         0;
 $select-item-border-color:         darken($select-item-bg, 10%) !default;
 $select-item-hover-color:          darken($select-item-color, 5%) !default;
 $select-item-hover-bg:             darken($select-item-bg, 5%) !default;
@@ -163,6 +164,10 @@ $select-item-disabled-border-color: darken($select-item-disabled-bg, 10%) !defau
       cursor: default;
       pointer-events: none;
     }
+
+     .Select-value-label {
+      font-size: $select-item-font-size;
+     }
   }
 
   // base
@@ -184,7 +189,7 @@ $select-item-disabled-border-color: darken($select-item-disabled-bg, 10%) !defau
     width: 100%;
 
     &:hover {
-      box-shadow: 0 1px 0 rgba(0, 0, 0, 0.06);
+      //box-shadow: 0 1px 0 rgba(0, 0, 0, 0.06);
     }
 
     .Select-input:focus {
@@ -201,7 +206,7 @@ $select-item-disabled-border-color: darken($select-item-disabled-bg, 10%) !defau
   .is-open > .Select-control {
     @include border-bottom-radius( 0 );
     background: $select-input-bg;
-    border-color: darken($select-input-border-color, 10%) $select-input-border-color lighten($select-input-border-color, 5%);
+    // border-color: darken($select-input-border-color, 10%) $select-input-border-color lighten($select-input-border-color, 5%);
 
     // flip the arrow so its pointing up when the menu is open
     > .Select-arrow {
@@ -224,10 +229,11 @@ $select-item-disabled-border-color: darken($select-item-disabled-bg, 10%) !defau
   // placeholder
   .Select-placeholder,
   .Select--single > .Select-control .Select-value {
+    font-size: $select-item-font-size;
     bottom: 0;
     color: $select-input-placeholder;
     left: 0;
-    line-height: $select-input-internal-height;
+    line-height: $select-input-height;
     padding-left: $select-padding-horizontal;
     padding-right: $select-padding-horizontal;
     position: absolute;
@@ -270,19 +276,16 @@ $select-item-disabled-border-color: darken($select-item-disabled-bg, 10%) !defau
     vertical-align: middle;
 
     > input {
+      font-size: $select-item-font-size;
       background: none transparent;
       border: 0 none;
       box-shadow: none;
       cursor: default;
       display: inline-block;
       font-family: inherit;
-      font-size: inherit;
-      // height: $select-input-internal-height;
+      height: $select-input-internal-height;
       margin: 0;
       outline: none;
-      // padding: 0;
-      line-height: 14px;  /* For IE 8 compatibility */
-      padding: (($select-input-internal-height - 14) / 2 - 2) 0 (($select-input-internal-height - 14) / 2 + 2);  /* For IE 8 compatibility */
       -webkit-appearance: none;
 
       .is-focused & {
@@ -439,6 +442,7 @@ $select-item-disabled-border-color: darken($select-item-disabled-bg, 10%) !defau
     cursor: pointer;
     display: block;
     padding: $select-padding-vertical $select-padding-horizontal;
+    font-size: $select-item-font-size;
 
     &:last-child {
       @include border-bottom-radius( $select-input-border-radius );
@@ -465,6 +469,7 @@ $select-item-disabled-border-color: darken($select-item-disabled-bg, 10%) !defau
   // no results
 
   .Select-noresults {
+    font-size: $select-item-font-size;
     box-sizing: border-box;
     color: $select-noresults-color;
     cursor: default;
@@ -496,9 +501,10 @@ $select-item-disabled-border-color: darken($select-item-disabled-bg, 10%) !defau
 
     // Items
     .Select-value {
+      height: $select-input-height - ($select-item-gutter * 2) - ($select-item-border-width * 2) - ($select-input-border-width * 2);
       background-color: $select-item-bg;
       border-radius: $select-item-border-radius;
-      border: 1px solid $select-item-border-color;
+      border: $select-item-border-width solid $select-item-border-color;
       color: $select-item-color;
       display: inline-block;
       font-size: $select-item-font-size;
@@ -519,6 +525,7 @@ $select-item-disabled-border-color: darken($select-item-disabled-bg, 10%) !defau
       @include border-right-radius( $select-item-border-radius );
       cursor: default;
       padding: $select-item-padding-vertical $select-item-padding-horizontal;
+      font-size: $select-item-font-size;
     }
     a.Select-value-label {
       color: $select-item-color;
@@ -537,7 +544,7 @@ $select-item-disabled-border-color: darken($select-item-disabled-bg, 10%) !defau
       border-right: 1px solid $select-item-border-color;
 
       // move the baseline up by 1px
-      padding: ($select-item-padding-vertical - 1) $select-item-padding-horizontal ($select-item-padding-vertical + 1);
+      padding: ($select-item-padding-vertical - 1) $select-item-padding-horizontal ($select-item-padding-vertical + 2);
 
       &:hover,
       &:focus {

@@ -33,6 +33,7 @@ body {
   font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
   line-height: 1;
   text-rendering: geometricPrecision;
+  background: #FAF9F8;
 }
 ol, ul {
   list-style: none;
@@ -48,6 +49,10 @@ q:before, q:after {
 table {
   border-collapse: collapse;
   border-spacing: 0;
+}
+
+b {
+  font-weight: bold;
 }
 
 a {

@@ -64,7 +64,7 @@ class FixedLeft extends React.Component {
             className={style.stub}
             style={{ width: this.state.fixedWidth, minWidth: this.state.fixedWidth }}
           />
-          <div className={style.content} style={{...this.props.contentStyle}}>
+          <div className={style.content} style={{ ...this.props.contentStyle }}>
             { this.props.children[1] }
           </div>
         </div>

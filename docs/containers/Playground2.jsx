@@ -1,7 +1,7 @@
 import React from 'react';
 import Plasma from '../../src';
 import _ from 'lodash';
-import getItems from '../_tableItems';
+import getItems from '../_tableItems.jsx';
 
 const P = Plasma;
 
@@ -79,40 +79,7 @@ export default class Playground2 extends React.Component {
           />
         </P.O.SideNavBar>
         <div style={{ padding: '32px 16px 32px 32px' }}>
-          <P.A.SegmentedCard>
-            <div>
-              <P.A.Header h2 text='Member'/>
-              <P.A.Text>
-                Protip: Don't do this
-              </P.A.Text>
-            </div>
-            <div>
-              <P.M.Group>
-                <P.M.FormField label='Name'>
-                  <P.A.TextInput />
-                </P.M.FormField>
-                <P.M.FormField label='Email'>
-                  <P.A.TextInput />
-                </P.M.FormField>
-                <P.M.FormField label='Phone #'>
-                  <P.A.TextInput />
-                </P.M.FormField>
-              </P.M.Group>
-              <P.M.FormField label='Country'>
-                <P.M.Select
-                  name="form-field-name"
-                  value="one"
-                  multi
-                  options={[
-                    { value: 'one', label: 'One' },
-                    { value: 'two', label: 'Two' },
-                    { value: 'three', label: 'Three' },
-                    { value: 'four', label: 'Four' },
-                  ]}
-                />
-              </P.M.FormField>
-            </div>
-          </P.A.SegmentedCard>
+          
         </div>
       </P.P.FixedLeft>
     );
