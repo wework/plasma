@@ -1,51 +1,34 @@
+// Whites
 $cWhite0: #FFFFFF;
 $cWhite100: #FFFEF2;
 $cWhite150: #FCF9EB;
 $cWhite200: #ECE9D9;
 $cWhite300: #D7D4C4;
 
+// Grays
 $cGray100: #282829;
 $cGray200: #575757;
-$cGray300: #767679;
-$cGray700: #C7C7C5;
-$cGray800: #E1E1E0;
+$cGray300: #C2C2C2;
+$cGray400: #E0E0E0;
+$cGray700: #FAF9F8;
 
-$cRed100: #D86262;
-$cBlue100: #5499C3;
+// Purples
+$cPurple100: #2B3445;
+$cPurple200: #59698B;
 
-$cDarkBlue: rgb(43, 52, 69);
-$cLightBlue: #5499C3;
+// Special
+$cBrandYellow: #FFCF71;
+$cLinkBlue: #5499C3;
+$cWarningRed: #D86262;
 
-$cBrandPrimary: #FFCF71;
-$cBrandLight: #F5DEB2;
+// Interface
 
-// Andrew colors
+$cBorder: $cGray400;
+$cBorderDark: $cGray300;
+$cBackground: $cGray700;
 
-$cAYellow: #FFCF71;
-$cABlue: #5499C3;
-$cARed: #D86262;
-$cABlack: #282829;
-$cAGray: #575757;
-$cALightGray: #C2C2C2;
-$cALighterGray: #E0E0E0;
-$cADarkPurple: #2B3445;
-$cALightPurple: #59698B;
-$cADeenaGray: #FAF9F8;
-
-// -----
-
-$cBorder: $cALighterGray;
-$cBorderDark: $cALightGray;
-$cBackground: $cADeenaGray;
-
-$cTextPrimary: $cABlack;
+$cTextPrimary: $cGray100;
 $cTextSecondary: $cWhite300;
 
-$cButtonBrightBg: $cBrandPrimary;
-$cButtonBrightLabel: $cDarkBlue;
-
-$cButtonDarkBg: $cDarkBlue;
-$cButtonDarkLabel: $cWhite0;
-
-$cButtonDisabledBg: $cGray800;
-$cButtonDisabledLabel: $cGray700;
+$cButtonDisabledBg: $cGray700;
+$cButtonDisabledLabel: $cGray300;

@@ -1,7 +1,7 @@
 @import '../../styles/base';
 
 .wrapper {
-  background: $cADarkPurple;
+  background: $cPurple100;
   @extend %type--tiny;
   color: rgba(255,255,255,0.8);
   display: flex;
@@ -31,16 +31,16 @@
   border-bottom: 1px solid rgba(0,0,0,0.3);
   transition: all 0.3s;
   &:hover {
-    background: darken($cADarkPurple, 5%);
+    background: darken($cPurple100, 5%);
   }
   &:active {
-    background: darken($cADarkPurple, 10%);
+    background: darken($cPurple100, 10%);
   }
   .icon {
     margin-bottom: 5px;
   }
   .label {
-    line-height: 20px;
+    
   }
 }
 
@@ -50,5 +50,5 @@
   top: 0;
   bottom: 0;
   width: 5px;
-  background-color: $cALightPurple;
+  background-color: $cPurple200;
 }

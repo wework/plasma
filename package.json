@@ -4,7 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "docs": "cd docs && BUILD=true webpack",
+    "docs": "cd docs && BUILD=true webpack && BUILD=true babel-node build",
     "dev": "babel-node ./docs/server.js",
     "build": "webpack",
     "publish": "webpack && npm publish --access public"
@@ -13,7 +13,7 @@
   "license": "ISC",
   "devDependencies": {
     "anchorate": "^1.1.0",
-    "babel-cli": "^6.10.1",
+    "babel-cli": "^6.14.0",
     "babel-core": "^6.10.4",
     "babel-eslint": "^6.1.2",
     "babel-loader": "^6.2.4",
@@ -37,13 +37,13 @@
     "node-sass": "^3.8.0",
     "proxy-middleware": "^0.15.0",
     "react-docgen-fixed": "^2.9.1",
+    "react-router": "^2.6.0",
     "react-select": "^1.0.0-rc.1",
     "resolve-url-loader": "^1.6.0",
     "sass-loader": "^4.0.0",
     "style-loader": "^0.13.1",
     "webpack": "^1.13.1",
-    "webpack-dev-server": "^1.14.1",
-    "react-router": "^2.6.0"
+    "webpack-dev-server": "^1.14.1"
   },
   "dependencies": {
     "babel-runtime": "^6.9.2",

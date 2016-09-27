@@ -87,16 +87,16 @@ export default class Playground4 extends React.Component {
               label='Table'
               icon='//spacestation.wework.com/images/sales_sign.svg'
               iconStyle={{ width: 24, height: 24 }}
-              onClick={() => browserHistory.push('/plasma/Playground4')}
+              onClick={() => browserHistory.push('/plasma/playground4')}
             />
             <SideNavBarItem
               label='Settings'
               icon='//spacestation.wework.com/images/company.svg'
               iconStyle={{ width: 24, height: 24 }}
-              onClick={() => browserHistory.push('/plasma/Playground3')}
+              onClick={() => browserHistory.push('/plasma/playground3')}
             />
             <SideNavBarItem
-              label='Members'
+              label='Manhattan Beach Towers'
               icon='//spacestation.wework.com/images/member.svg'
               iconStyle={{ width: 24, height: 24 }}
             />

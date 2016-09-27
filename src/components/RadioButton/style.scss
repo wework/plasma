@@ -16,7 +16,7 @@
   &:checked ~ .faux {
     border-color: $cGray300;
     &::before {
-      background: $cABlack;
+      background: $cGray100;
     }
   }
 }

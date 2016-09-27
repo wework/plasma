@@ -13,6 +13,7 @@ class RadioButton extends React.Component {
           id={id}
           name={this.props.name}
           onChange={this.props.onChange}
+          checked={this.props.checked}
         />
         <div className={style.faux} />
         <label htmlFor={id} className={style.text}>
@@ -32,6 +33,7 @@ RadioButton.propTypes = {
   text: React.PropTypes.string.isRequired,
   name: React.PropTypes.string.isRequired,
   onChange: React.PropTypes.func,
+  checked: React.PropTypes.boolean,
 };
 
 RadioButton.displayName = 'RadioButton';

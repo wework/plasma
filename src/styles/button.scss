@@ -20,15 +20,15 @@ $buttonRadius: 5px;
 }
 
 %button--primary {
-  background-color: $cBrandPrimary;
-  border: 1px solid darken($cAYellow, 15%);
+  background-color: $cBrandYellow;
+  border: 1px solid darken($cBrandYellow, 15%);
   &:hover {
-    background-color: darken($cAYellow, 5%);
-    border-color: darken($cAYellow, 20%);
+    background-color: darken($cBrandYellow, 5%);
+    border-color: darken($cBrandYellow, 20%);
   }
   &:active {
-    background-color: darken($cAYellow, 10%);
-    border-color: darken($cAYellow, 30%);
+    background-color: darken($cBrandYellow, 10%);
+    border-color: darken($cBrandYellow, 30%);
   }
 }
 

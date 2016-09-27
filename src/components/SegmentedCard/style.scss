@@ -14,11 +14,15 @@
   flex-basis: 25%;
   background: rgba($cWhite0, .7);
   border-right: 1px solid $cBorder;
+  border-top-left-radius: 3px;
+  border-bottom-left-radius: 3px;
 }
 
 .second {
-  padding: 40px 40px 0 40px;
+  padding: 40px;
   flex-grow: 1;
+  border-top-right-radius: 3px;
+  border-bottom-left-radius: 3px;
 }
 
 @media only screen and (min-device-width : 1px) and (max-device-width : 1024px) {

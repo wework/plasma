@@ -36,6 +36,7 @@ export default class Playground4 extends React.Component {
       locations: []
     };
     this.handleLocationChange = this.handleLocationChange.bind(this);
+    this.handleBuildingTypeChange = this.handleBuildingTypeChange.bind(this);
   }
 
   componentWillMount() {
@@ -64,6 +65,10 @@ export default class Playground4 extends React.Component {
     this.setState({ filteredItems: sorted, sortKey: 'city' });
   }
 
+  handleBuildingTypeChange(type, event) {
+    this.setState({buildingType: type});
+  }
+
   handleLocationChange(locations) {
     const locationValues = _.map(locations, 'value');
     this.setState({ locations: locationValues });
@@ -75,16 +80,13 @@ export default class Playground4 extends React.Component {
         <FixedLeft>
           <SideNavBar>
             <Image
-              style={{ width: 28 }}
-              src="https://s3.amazonaws.com/wework.design/ss-logo.png"
-            />
-            <Image
               style={{width: 50, height: 'auto', marginBottom: 16}}
               src='//spacestation.wework.com/images/weworkLight.svg' />
             <SideNavBarItem
-              label='Meagan'
-              icon='https://avatars.io/twitter/owltastic'
-              iconStyle={{ width: 32, height: 32, borderRadius: 999 }}
+              label='Chelsea'
+              icon='//spacestation.wework.com/images/member.svg'
+              iconStyle={{ width: 24, height: 24 }}
+              onClick={ () => this.setState({ showModal: true }) }
             />
             <SideNavBarItem
               label='Docs'
@@ -96,18 +98,13 @@ export default class Playground4 extends React.Component {
               label='Table'
               icon='//spacestation.wework.com/images/sales_sign.svg'
               iconStyle={{ width: 24, height: 24 }}
-              onClick={() => browserHistory.push('/plasma/Playground4')}
+              onClick={() => browserHistory.push('/plasma/playground4')}
             />
             <SideNavBarItem
               label='Settings'
               icon='//spacestation.wework.com/images/company.svg'
               iconStyle={{ width: 24, height: 24 }}
-              onClick={() => browserHistory.push('/plasma/Playground3')}
-            />
-            <SideNavBarItem
-              label='Members'
-              icon='//spacestation.wework.com/images/member.svg'
-              iconStyle={{ width: 24, height: 24 }}
+              onClick={() => browserHistory.push('/plasma/playground3')}
             />
             <SideNavBarItem
               label='Tours'
@@ -118,6 +115,11 @@ export default class Playground4 extends React.Component {
               label='Services'
               icon='//spacestation.wework.com/images/services.svg'
               iconStyle={{ width: 24, height: 24 }}
+            />
+            <SideNavBarItem
+              label='Meagan'
+              icon='https://avatars.io/twitter/owltastic'
+              iconStyle={{ width: 32, height: 32, borderRadius: 999 }}
             />
           </SideNavBar>
           <div style={{ marginTop: 40 }}>
@@ -163,6 +165,37 @@ export default class Playground4 extends React.Component {
             </SegmentedCard>
           </div>
         </FixedLeft>
+        <Modal
+          visible={this.state.showModal}
+          style={{ width: 400 }}
+          onDismiss={() => this.setState({ showModal: false })}
+        >
+          <Header h4 text='Change Building' />
+          <Rule type='dotted' />
+          <FormField label='Building Type'>
+            <Group>
+              <RadioButton checked={this.state.buildingType === 'wework'} text="WeWork" onChange={this.handleBuildingTypeChange.bind(null, 'wework')} />
+              <RadioButton checked={this.state.buildingType === 'welive'} text="WeLive" onChange={this.handleBuildingTypeChange.bind(null, 'welive')} />
+            </Group>
+          </FormField>
+          <FormField label='Building Name'>
+            <Select
+              name="building"
+              value='chelsea'
+              options={[
+                { value: 'chelsea', label: 'Chelsea' },
+                { value: 'chargingbull', label: 'Charging Bull' },
+                { value: 'dumbo', label: 'Dumbo' },
+                { value: 'wallst', label: 'Wall St.' },
+              ]}
+              onChange={this.handleLocationChange}
+            />
+          </FormField>
+          <Group layout={['50%']}>
+            <Button type='secondary' label='Cancel' onClick={() => { this.setState({showModal: false}) }} />
+            <Button label='Change' onClick={ () => alert('👍👍👍👍👍') } />
+          </Group>
+        </Modal>
       </div>
     );
   }

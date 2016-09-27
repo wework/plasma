@@ -22,7 +22,7 @@ $select-menu-max-height:           200px !default;
 $select-option-color:              lighten($select-text-color, 20%) !default;
 $select-option-bg:                 $select-input-bg !default;
 $select-option-focused-color:      $cTextPrimary !default;
-$select-option-focused-bg:         $cADeenaGray !default;
+$select-option-focused-bg:         $cGray700 !default;
 $select-option-selected-color:     $select-text-color !default;
 $select-option-selected-bg:        $cWhite0 !default;
 $select-option-disabled-color:     lighten($select-text-color, 60%) !default;
@@ -52,7 +52,7 @@ $select-item-padding-vertical:     8px !default;
 $select-item-padding-horizontal:   8px !default;
 $select-item-font-size:            $typeBase !default;
 $select-item-color:                $cWhite0 !default;
-$select-item-bg:                   $cALightPurple !default;
+$select-item-bg:                   $cPurple200 !default;
 $select-item-border-width:         0;
 $select-item-border-color:         darken($select-item-bg, 10%) !default;
 $select-item-hover-color:          darken($select-item-color, 5%) !default;
@@ -326,10 +326,10 @@ $select-item-disabled-border-color: darken($select-item-disabled-bg, 10%) !defau
     @include animation( Select-animation-fadeIn 200ms );
     color: $select-clear-color;
     cursor: pointer;
-    display: table-cell;
-    position: relative;
+    position: absolute;
+    right: 30px;
+    top: 8px;
     text-align: center;
-    vertical-align: middle;
     width: $select-clear-width;
 
     &:hover {
@@ -362,8 +362,9 @@ $select-item-disabled-border-color: darken($select-item-disabled-bg, 10%) !defau
 
   .Select-arrow-zone {
     cursor: pointer;
-    display: table-cell;
-    position: relative;
+    position: absolute;
+    top: 10px;
+    right: 5px;
     text-align: center;
     vertical-align: middle;
     width: ($select-arrow-width * 5);

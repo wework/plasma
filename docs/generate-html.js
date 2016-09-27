@@ -3,16 +3,19 @@ var mkdirp = require('mkdirp');
 
 const pages = [
   '', // main index
-  'components',
-  'playground'
+  'docs',
+  'playground3',
+  'playground4',
 ];
 
 export default function html(metadata) {
   const buildToPath = `${__dirname}/static`;
   let urlRoot = '/live/';
+  console.log(process.env.BUILD);
   if (process.env.BUILD === 'true') {
     urlRoot = '/plasma/';
   }
+  console.log(urlRoot);
   const html = `<!doctype html>\
     <html>\
       <head>\
