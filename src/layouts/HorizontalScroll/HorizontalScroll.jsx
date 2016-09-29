@@ -19,7 +19,7 @@ class HorizontalScroll extends React.Component {
 
   render() {
     return (
-      <div className={style.wrapper} ref={(c) => { this.wrapper = c; }}>
+      <div style={this.props.style} className={style.wrapper} ref={(c) => { this.wrapper = c; }}>
         <div className={style.content}>
           { this.props.children }
         </div>
@@ -36,6 +36,7 @@ HorizontalScroll.defaultProps = {
 HorizontalScroll.propTypes = {
   children: React.PropTypes.node,
   onScroll: React.PropTypes.func,
+  style: React.PropTypes.object,
 };
 
 HorizontalScroll.displayName = 'HorizontalScroll';
