@@ -1,5 +1,7 @@
 .wrapper {
   overflow-x: scroll;
+  -ms-overflow-style: none;
+  &::-webkit-scrollbar { width: 0 !important }
 }
 
 .content {
