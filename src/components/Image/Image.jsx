@@ -4,8 +4,15 @@ import style from './style.scss';
 class Image extends React.Component {
   render() {
     return (
-      <div style={this.props.style}>
-        <img alt={this.props.altText} className={style.image} src={this.props.src} />
+      <div
+        style={this.props.style}
+      >
+        <img
+          alt={this.props.altText}
+          className={style.image}
+          src={this.props.src}
+          style={this.props.imageStyle}
+        />
       </div>
     );
   }
@@ -19,6 +26,7 @@ Image.defaultProps = {
 
 Image.propTypes = {
   style: React.PropTypes.object,
+  imageStyle: React.PropTypes.object,
   src: React.PropTypes.string,
   altText: React.PropTypes.string,
 };
