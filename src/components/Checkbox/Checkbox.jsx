@@ -6,7 +6,7 @@ class Checkbox extends React.Component {
   render() {
     const id = _.uniqueId('id');
     return (
-      <div className={style.wrapper}>
+      <label htmlFor={id} className={style.wrapper}>
         <input
           className={style.original}
           type="checkbox"
@@ -15,10 +15,10 @@ class Checkbox extends React.Component {
           onChange={this.props.onChange}
         />
         <div className={style.faux} />
-        <label htmlFor={id} className={style.text}>
+        <div className={style.text}>
           { this.props.text }
-        </label>
-      </div>
+        </div>
+      </label>
     );
   }
 }

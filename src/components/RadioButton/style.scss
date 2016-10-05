@@ -6,6 +6,7 @@
   flex-direction: row;
   justify-content: flex-start;
   align-items: center;
+  cursor: pointer;
 }
 
 .original {
@@ -28,7 +29,6 @@
   border: 1px solid $cBorder;
   border-radius: 100%;
   background: $cWhite0;
-  cursor: pointer;
   transition: border-color 0.1s ease-out;
   box-sizing: content-box;
   &::before {

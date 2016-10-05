@@ -1,12 +1,13 @@
 import _ from 'lodash';
 import React from 'react';
+import cx from 'classnames';
 import style from './style.scss';
 
 class RadioButton extends React.Component {
   render() {
     const id = _.uniqueId('id');
     return (
-      <div className={style.wrapper}>
+      <label htmlFor={id} className={cx(style.wrapper)}>
         <input
           className={style.original}
           type="radio"
@@ -16,10 +17,10 @@ class RadioButton extends React.Component {
           checked={this.props.checked}
         />
         <div className={style.faux} />
-        <label htmlFor={id} className={style.text}>
+        <div className={style.text}>
           { this.props.text }
-        </label>
-      </div>
+        </div>
+      </label>
     );
   }
 }
