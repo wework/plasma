@@ -44,7 +44,7 @@ SideNavBarItem.propTypes = {
   iconStyle: React.PropTypes.object,
   label: React.PropTypes.string,
   onClick: React.PropTypes.func,
-  selected: React.PropTypes.boolean,
+  selected: React.PropTypes.bool,
 };
 
 SideNavBarItem.displayName = 'SideNavBarItem';

@@ -33,7 +33,7 @@ RadioButton.propTypes = {
   text: React.PropTypes.string.isRequired,
   name: React.PropTypes.string.isRequired,
   onChange: React.PropTypes.func,
-  checked: React.PropTypes.boolean,
+  checked: React.PropTypes.bool,
 };
 
 RadioButton.displayName = 'RadioButton';

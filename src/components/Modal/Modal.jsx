@@ -28,7 +28,7 @@ Modal.defaultProps = {};
 
 Modal.propTypes = {
   children: React.PropTypes.node.isRequired,
-  visible: React.PropTypes.boolean,
+  visible: React.PropTypes.bool,
   onDismiss: React.PropTypes.func,
   style: React.PropTypes.object,
 };

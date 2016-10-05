@@ -42,7 +42,7 @@ Group.defaultProps = {
 
 Group.propTypes = {
   children: React.PropTypes.node,
-  vertical: React.PropTypes.boolean,
+  vertical: React.PropTypes.bool,
   layout: React.PropTypes.array,
   style: React.PropTypes.object,
 };
