@@ -163,6 +163,44 @@ export default class Playground4 extends React.Component {
                 </Group>
               </div>
             </SegmentedCard>
+            <SegmentedCard>
+              <div>
+                <Header h2 text='Member' />
+                <Rule type='dotted' />
+                <Text>
+                  An amenity is an element (title + description) that can be added to one or multiple buildings. If the amenity is intended for multiple locations, then the description should be generic.
+                </Text>
+              </div>
+              <div>
+                <Header h2 text='Edit Member Info' />
+                <Rule type='dotted' />
+                <Group>
+                  <FormField label='Name'>
+                    <TextInput value='Britney Johnson' />
+                  </FormField>
+                  <FormField label='Email'>
+                    <TextInput value='britneyj4eva@gmail.com'/>
+                  </FormField>
+                </Group>
+                <Group>
+                  <FormField label='Location'>
+                    <Select
+                      multi
+                      name="location2"
+                      options={[
+                        { value: 'chelsea', label: 'NY15 - Chelsea' },
+                        { value: 'chargingbull', label: 'NY17 - Charging Bull' },
+                        { value: 'dumbo', label: 'NY20 - Dumbo' },
+                        { value: 'wallst', label: 'NY3 - Wall St.' },
+                      ]}
+                    />
+                  </FormField>
+                  <FormField label='Phone #'>
+                    <TextInput value='567-8309'/>
+                  </FormField>
+                </Group>
+              </div>
+            </SegmentedCard>
           </div>
         </FixedLeft>
         <Modal

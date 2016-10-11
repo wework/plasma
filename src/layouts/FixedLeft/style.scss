@@ -26,6 +26,8 @@
   background: $cBackground;
   overflow: auto;
   &::-webkit-scrollbar { width: 0 !important }
+  padding-bottom: 1000px;
+  margin-bottom: -1000px;
   .stub {
     visibility: hidden;
     opacity: 0;
@@ -39,5 +41,7 @@
     overflow-x: auto;
     margin: 0 30px;
     &::-webkit-scrollbar { width: 0 !important }
+    padding-bottom: 1000px;
+    margin-bottom: -1000px;
   }
 }

@@ -29,6 +29,8 @@
   min-height: 100%;
   width: 100%;
   overflow: auto;
+  padding-bottom: 1000px;
+  margin-bottom: -1000px;
   .stub {
     visibility: hidden;
     opacity: 0;
@@ -39,5 +41,7 @@
     min-height: 100%;
     background: $cBackground;
     flex-grow: 1;
+    padding-bottom: 1000px;
+    margin-bottom: -1000px;
   }
 }

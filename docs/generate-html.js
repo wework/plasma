@@ -21,6 +21,7 @@ export default function html(metadata) {
       <head>\
         <meta charset='UTF-8'>\
         <title>Plasma</title>\
+        <link rel='stylesheet' type='text/css' href='https://cdnjs.cloudflare.com/ajax/libs/material-design-iconic-font/2.2.0/css/material-design-iconic-font.css'>\
         <link rel='stylesheet' type='text/css' href='${urlRoot}styles.css'>\
         <script src='//cdnjs.cloudflare.com/ajax/libs/velocity/1.2.3/velocity.min.js'></script>\
         <script src='//cdnjs.cloudflare.com/ajax/libs/jquery/3.0.0-beta1/jquery.min.js'></script>\

@@ -2,4 +2,7 @@
 
 .label {
   @extend %type--label;
+  line-height: 20px;
+  margin-bottom: 5px;
+  font-weight: bold;
 }
