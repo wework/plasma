@@ -7,11 +7,13 @@ class Modal extends React.Component {
     if (this.props.visible) {
       comp = (
         <div className={style.wrapper} >
-          <div className={style.card} style={this.props.style}>
-            <div className={style.content}>
-              {this.props.children}
+          <div className={style.innerWrapper}>
+            <div className={style.card} style={this.props.style}>
+              <div className={style.content}>
+                {this.props.children}
+              </div>
+              <div className={style.actions} />
             </div>
-            <div className={style.actions} />
           </div>
           <div
             className={style.overlay}

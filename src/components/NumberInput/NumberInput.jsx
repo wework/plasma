@@ -1,11 +1,11 @@
 import React from 'react';
 import style from './style.scss';
 
-class TextInput extends React.Component {
+class NumberInput extends React.Component {
   render() {
     return (
       <input
-        type="text"
+        type="number"
         placeholder={this.props.placeholder}
         className={style.input}
         value={this.props.value}
@@ -15,16 +15,16 @@ class TextInput extends React.Component {
   }
 }
 
-TextInput.propTypes = {
+NumberInput.propTypes = {
   placeholder: React.PropTypes.string,
   value: React.PropTypes.string,
   onChange: React.PropTypes.func,
 };
 
-TextInput.defaultProps = {
+NumberInput.defaultProps = {
   placeholder: 'Type something...',
 };
 
-TextInput.displayName = 'TextInput';
+NumberInput.displayName = 'NumberInput';
 
-export default TextInput;
+export default NumberInput;

@@ -20,16 +20,17 @@ import {
   Checkbox,
   SegmentedCard,
   Text,
-  Label
+  Label,
+  NumberInput
 } from '../../src';
 
 import getItems from '../_tableItems.jsx';
 
 const products = {
-  product1: { key: 'product1', name: '4.101', quantity: '4 desks', building: 'Grand Central', price: '$3,300.00' },
-  product2: { key: 'product2', name: 'SSHD101', quantity: '1 desk', building: 'Grand Central', price: '$450.00' },
-  product3: { key: 'product3', name: '12101A', quantity: '1 desk', building: '300 Park', price: '$800.00' },
-  product4: { key: 'product4', name: '12101B', quantity: '1 desk', building: '300 Park', price: '$800.00' },
+  product1: { key: 'product1', type: 'office', name: '4.101', quantity: '4 desks', building: 'Grand Central', price: '$3,300.00' },
+  product2: { key: 'product2', type: 'hotdesk', name: 'SSHD101', quantity: '1 desk', building: 'Grand Central', price: '$450.00' },
+  product3: { key: 'product3', type: 'office', name: '12101A', quantity: '1 desk', building: '300 Park', price: '$800.00' },
+  product4: { key: 'product4', type: 'office', name: '12101B', quantity: '1 desk', building: '300 Park', price: '$800.00' },
   product5: { key: 'product5', name: '4.101', quantity: '4 desks', building: 'Grand Central', price: '$3,300.00' },
   product6: { key: 'product6', name: '4.101', quantity: '4 desks', building: 'Grand Central', price: '$3,300.00' },
   product7: { key: 'product7', name: '4.101', quantity: '4 desks', building: 'Grand Central', price: '$3,300.00' },
@@ -129,41 +130,44 @@ export default class Playground4 extends React.Component {
               placeholder='Search...'
               name="product"
               value={null}
-              options={ _.map(products, (product) => { return { value: product.key, label: `${product.name} • ${product.quantity}` }; }) }
+              options={ _.map(products, (product) => { return { value: product.key, label: `${product.building} • ${product.name} • ${product.quantity}` }; }) }
               onChange={this.handleProductChange}
             />
           </FormField>
-          <Group layout={['grow', 'shrink']}>
+          {/* <Group layout={['grow', 'shrink']}>
             <Label text='Product' />
             <Label text='Start date' />
-          </Group>
+          </Group> */}
           <Rule style={{ marginBottom: 5 }} />
           { this.state.addedProducts.length > 0 &&
             <div style={{ marginBottom: 30 }}>
               {this.state.addedProducts.map((product) => {
                 return (
-                  <Group style={{ marginBottom: 10 }} layout={['grow', '200px', 'shrink']}>
-                    <div>
-                      <Text style={{ fontWeight: 'bold' }}>{product.name} • {product.quantity}</Text>
-                      <Text>{product.building}</Text>
-                    </div>
-                    <div>
+                  <Group style={{ marginBottom: 0 }} layout={['grow', '50px', '200px', 'shrink']}>
+                    <FormField label='Product' labelType='secondary'>
+                      <div>
+                        <Text style={{ fontWeight: 'bold' }}>{product.name} • {product.quantity}</Text>
+                        <Text>{product.building}</Text>
+                      </div>
+                    </FormField>
+                    {product.type === 'hotdesk' ?
+                      <FormField label='Qty' labelType='secondary'>
+                        <NumberInput value={1} />
+                      </FormField>
+                      :
+                      <div />
+                    }
+                    <FormField label='Start date' labelType='secondary'>
                       <Select
                         name={`${product.key}-startDate`}
                         value={{ label: 'November 1, 2016' }}
                         clearable={false}
                       />
-                    </div>
+                    </FormField>
                     <div
                       onClick={this.handleRemoveClick.bind(null, product.key)}
                       style={{cursor: 'pointer'}}
-                    >
-                      <div style={{
-                        fontFamily: 'Material-Design-Iconic-Font',
-                        height: 40,
-                        lineHeight: '40px'
-                      }} className='zmdi-close' />
-                    </div>
+                    />
                   </Group>
                 );
               })}

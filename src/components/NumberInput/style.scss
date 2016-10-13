@@ -1,0 +1,12 @@
+@import '../../styles/base';
+
+.input {
+  @extend %type--body;
+  @extend %input--base;
+  &:hover {
+    border-color: $cWhite200;
+  }
+  &:focus {
+    border-color: $cGray300;
+  }
+}

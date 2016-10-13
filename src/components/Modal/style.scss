@@ -28,10 +28,19 @@
   top: 0;
   right: 0;
   bottom: 0;
+  z-index: 100;
+}
+
+.innerWrapper {
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  overflow-y: scroll;
   display: flex;
   justify-content: center;
   align-items: center;
-  z-index: 100;
 }
 
 .overlay {
@@ -55,6 +64,7 @@
   animation-duration: 0.15s;
   animation-name: slidein;
   animation-timing-function: ease-out;
+  margin: 40px 0;
 }
 
 .content {

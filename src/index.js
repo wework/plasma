@@ -6,6 +6,7 @@ import Image from './components/Image/Image.jsx';
 import Label from './components/Label/Label.jsx';
 import Masthead from './components/Masthead/Masthead.jsx';
 import Modal from './components/Modal/Modal.jsx';
+import NumberInput from './components/NumberInput/NumberInput.jsx';
 import RadioButton from './components/RadioButton/RadioButton.jsx';
 import Rule from './components/Rule/Rule.jsx';
 import SegmentedCard from './components/SegmentedCard/SegmentedCard.jsx';
@@ -38,6 +39,7 @@ Plasma.Checkbox = Checkbox;
 Plasma.SegmentedCard = SegmentedCard;
 Plasma.Button = Button;
 Plasma.TextInput = TextInput;
+Plasma.NumberInput = NumberInput;
 Plasma.RadioButton = RadioButton;
 Plasma.Rule = Rule;
 
@@ -85,4 +87,5 @@ export {
   FixedLeft,
   FixedRight,
   FixedTop,
+  NumberInput,
 };

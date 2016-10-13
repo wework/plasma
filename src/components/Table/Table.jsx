@@ -149,10 +149,21 @@ class Table extends React.Component {
   }
 
   renderItems() {
+    const spanKeys = _.map(this.props.spanObjects, (so) => _.keys(so)[0]);
     const itemComponents = _.map(this.props.items, (itemValue, itemIndex) => {
-      const columnComponents = _.map(itemValue, (columnValue, columnKey) =>
-        <td className={style.cell} key={columnKey}>{ columnValue }</td>
-      );
+      const columnComponents = _.map(itemValue, (columnValue, columnKey) => {
+        const spanKeyObj = _.find(spanKeys, (sk) => sk === columnKey);
+        let comp;
+        if (spanKeyObj) {
+          // const spanComponents = _.map(spanObj, (spanValue, spanKey) => {
+          //   return <td rowSpan={columnValue.length} className={style.cell} key={}>{  }</td>
+          // });
+          comp = <div>oops</div>;
+        } else {
+          comp = <td className={style.cell} key={columnKey}>{ columnValue }</td>;
+        }
+        return comp;
+      });
       const rowComponent = <tr className={style.row} key={itemIndex}>{ columnComponents }</tr>;
       return rowComponent;
     });
@@ -198,6 +209,7 @@ Table.propTypes = {
   items: React.PropTypes.array,
   style: React.PropTypes.object,
   selectedColumnKey: React.PropTypes.string,
+  spanObjects: React.PropTypes.array,
 };
 
 Table.defaultProps = {

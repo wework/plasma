@@ -162,9 +162,10 @@ export default class Playground4 extends React.Component {
                     headerData={{
                       name: { label: 'Name' },
                       email: { label: 'Email', sortable: true, onClick: () => this.sortByEmail('desc') },
-                      phone: { label: 'Phone #' },
-                      city: { label: 'City', sortable: true, onClick: () => this.sortByCity('desc') },
+                      petName: { label: 'Pet name' },
+                      petType: { label: 'Pet type' },
                     }}
+                    spanObjects={[{ pets: ['petName', 'petType'] }]}
                     items={this.state.filteredItems}
                     stickAt={30}
                     selectedColumnKey={this.state.sortKey}
