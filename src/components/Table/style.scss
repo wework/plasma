@@ -64,8 +64,14 @@
       }
     }
   }
-  &:hover:not(.header) {
-    cursor: pointer;
+}
+
+.clickable {
+  cursor: pointer;
+}
+
+.highlightable {
+  &:hover {
     background: $cWhite100;
   }
 }

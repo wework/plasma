@@ -159,16 +159,18 @@ export default class Playground4 extends React.Component {
                 </div>
                 <div>
                   <Table
-                    headerData={{
-                      name: { label: 'Name' },
-                      email: { label: 'Email', sortable: true, onClick: () => this.sortByEmail('desc') },
-                      petName: { label: 'Pet name' },
-                      petType: { label: 'Pet type' },
-                    }}
-                    spanObjects={[{ pets: ['petName', 'petType'] }]}
+                    headerData={[
+                      { key: 'name', label: 'Name' },
+                      { key: 'email', label: 'Email', sortable: true, onClick: () => this.sortByEmail('desc') },
+                      { key: 'petName', label: 'Pet name' },
+                      { key: 'petType', label: 'Pet type' },
+                    ]}
+                    spanMap={{ pets: ['petName', 'petType'] }}
                     items={this.state.filteredItems}
                     stickAt={30}
                     selectedColumnKey={this.state.sortKey}
+                    clickable
+                    highlightable
                   />
                 </div>
               </FixedLeft>

@@ -21,6 +21,8 @@ class Table extends React.Component {
     this.componentDidUpdate = this.componentDidUpdate.bind(this);
     this.handleScroll = this.handleScroll.bind(this);
     this.handleWindowResize = _.throttle(this.handleWindowResize, 100).bind(this);
+    this.handleColumnMouseEnter = this.handleColumnMouseEnter.bind(this);
+    this.handleColumnMouseLeave = this.handleColumnMouseLeave.bind(this);
     this.updateState = this.updateState.bind(this);
   }
 
@@ -47,6 +49,39 @@ class Table extends React.Component {
   componentWillUnmount() {
     $(document).off('scroll', this.handleScroll);
     $(window).off('resize', this.handleWindowResize);
+    $(this.table).find('td').off('mouseenter mouseleave');
+  }
+
+  handleColumnMouseEnter(element) {
+    console.log(element);
+    {/* hover(function() {
+
+      $el = $(this);
+      
+      $el.parent().addClass("hover");
+
+      if ($el.parent().has('td[rowspan]').length == 0)
+        
+        $el
+          .parent()
+          .prevAll('tr:has(td[rowspan]):first')
+          .find('td[rowspan]')
+          .addClass("hover");
+
+    }, function() { 
+          
+      $el
+        .parent()
+        .removeClass("hover")
+        .prevAll('tr:has(td[rowspan]):first')
+        .find('td[rowspan]')
+        .removeClass("hover");
+
+    }); */}
+  }
+
+  handleColumnMouseLeave(element) {
+    console.log(element);
   }
 
   handleWindowResize() {
@@ -106,8 +141,9 @@ class Table extends React.Component {
   }
 
   renderHeader(opts = {}) {
-    const headerComponents = _.map(this.props.headerData, (value, key) => {
+    const headerComponents = _.map(this.props.headerData, (value, index) => {
       let colStyles = {};
+      const key = value.key;
       if (opts.sticky && this.state.columnSizes[key]) {
         colStyles = { width: this.state.columnSizes[key].width };
       }
@@ -149,25 +185,68 @@ class Table extends React.Component {
   }
 
   renderItems() {
-    const spanKeys = _.map(this.props.spanObjects, (so) => _.keys(so)[0]);
-    const itemComponents = _.map(this.props.items, (itemValue, itemIndex) => {
-      const columnComponents = _.map(itemValue, (columnValue, columnKey) => {
-        const spanKeyObj = _.find(spanKeys, (sk) => sk === columnKey);
-        let comp;
-        if (spanKeyObj) {
-          // const spanComponents = _.map(spanObj, (spanValue, spanKey) => {
-          //   return <td rowSpan={columnValue.length} className={style.cell} key={}>{  }</td>
-          // });
-          comp = <div>oops</div>;
+    let spanKey;
+    let spannedHeaderKeys;
+    if (this.props.spanMap) {
+      spanKey = _.keys(this.props.spanMap)[0];
+      spannedHeaderKeys = this.props.spanMap[spanKey];
+    }
+    const headerKeys = _.map(this.props.headerData, 'key');
+    const rowComponents = [];
+    _.forEach(this.props.items, (itemValue, itemIndex) => {
+      const spanCount = _.get(itemValue[spanKey], 'length');
+      const columnComponents = [];
+      _.forEach(headerKeys, (headerKey) => {
+        const isInnerKey = _.includes(spannedHeaderKeys, headerKey);
+        let cellValue;
+        let rowsToSpan;
+        if (!isInnerKey) {
+          rowsToSpan = spanCount;
+          cellValue = itemValue[headerKey];
         } else {
-          comp = <td className={style.cell} key={columnKey}>{ columnValue }</td>;
+          cellValue = itemValue[spanKey][0][headerKey];
         }
-        return comp;
+        columnComponents.push(
+          <td className={style.cell} key={headerKey} rowSpan={rowsToSpan}>{cellValue}</td>
+        );
       });
-      const rowComponent = <tr className={style.row} key={itemIndex}>{ columnComponents }</tr>;
-      return rowComponent;
+      rowComponents.push(
+        <tr
+          key={itemIndex}
+          className={cx({
+            [style.row]: true,
+            [style.clickable]: this.props.clickable,
+            [style.highlightable]: this.props.highlightable,
+          })}
+        >
+          {columnComponents}
+        </tr>
+      );
+      // Create the remaining partial rows if necessary
+      if (spanCount) {
+        for (let i = 1; i < spanCount; i++) {
+          const partialRowColumns = [];
+          _.forEach(spannedHeaderKeys, (key) => {
+            partialRowColumns.push(
+              <td key={key} className={style.cell}>{itemValue[spanKey][i][key]}</td>
+            );
+          });
+          rowComponents.push(
+            <tr
+              key={`${itemIndex}.${i}`}
+              className={cx({
+                [style.row]: true,
+                [style.clickable]: this.props.clickable,
+                [style.highlightable]: this.props.highlightable,
+              })}
+            >
+              {partialRowColumns}
+            </tr>
+          );
+        }
+      }
     });
-    return <tbody className={style.tbody}>{itemComponents}</tbody>;
+    return <tbody className={style.tbody}>{rowComponents}</tbody>;
   }
 
   render() {
@@ -204,12 +283,14 @@ class Table extends React.Component {
 }
 
 Table.propTypes = {
-  headerData: React.PropTypes.object,
+  headerData: React.PropTypes.array,
   stickAt: React.PropTypes.number,
   items: React.PropTypes.array,
   style: React.PropTypes.object,
   selectedColumnKey: React.PropTypes.string,
-  spanObjects: React.PropTypes.array,
+  spanMap: React.PropTypes.object,
+  clickable: React.PropTypes.bool,
+  highlightable: React.PropTypes.bool,
 };
 
 Table.defaultProps = {
