@@ -9,4 +9,52 @@
   &:focus {
     border-color: $cGray300;
   }
+  &::-webkit-inner-spin-button, 
+  &::-webkit-outer-spin-button { 
+    -webkit-appearance: none;
+    margin: 0; /* Removes leftover margin */
+  }
+  min-width: 60px;
+}
+
+.wrapper {
+  position: relative;
+}
+
+.spinner {
+  position: absolute;
+  top: 0px;
+  right: 0px;
+  bottom: 0px;
+  width: 15px;
+  border-top-right-radius: $inputRadius;
+  border-bottom-right-radius: $inputRadius;
+  border-top: 1px solid darken($cWhite200, 15%);
+  border-right: 1px solid darken($cWhite200, 15%);
+  border-bottom: 1px solid darken($cWhite200, 15%);
+  border-left: 1px solid darken($cWhite200, 15%);
+  background-color: $cWhite200;
+  color: $cTextPrimary;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  .action {
+    flex: 1;
+    width: 100%;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-basis: 50%;
+    font-size: 11px;
+    text-align: center;
+    user-select: none;
+    -moz-user-select: -moz-none;
+    -khtml-user-select: none;
+    -webkit-user-select: none;
+    &:active {
+      background-color: darken($cWhite200, 5%);
+    }
+  }
 }

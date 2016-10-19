@@ -2,6 +2,7 @@
 var webpack = require('webpack');
 var WebpackDevServer = require('webpack-dev-server');
 var config = require('./webpack.config');
+config.plugins.push(new webpack.HotModuleReplacementPlugin());
 
 var express = require('express');
 var proxy = require('proxy-middleware');
@@ -38,11 +39,11 @@ app.get('/*', function(req, res) {
   ));
 });
 
-
 // -----webpack-dev-server------
 var server = new WebpackDevServer(webpack(config), {
   contentBase: __dirname,
   hot: true,
+  inline: true,
   quiet: false,
   noInfo: false,
   publicPath: "/",

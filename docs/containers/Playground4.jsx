@@ -160,7 +160,7 @@ export default class Playground4 extends React.Component {
                 <div>
                   <Table
                     headerData={[
-                      { key: 'name', label: 'Name' },
+                      { key: 'name', label: 'Name', sortable: true },
                       { key: 'email', label: 'Email', sortable: true, onClick: () => this.sortByEmail('desc') },
                       { key: 'petName', label: 'Pet name' },
                       { key: 'petType', label: 'Pet type' },
@@ -169,8 +169,6 @@ export default class Playground4 extends React.Component {
                     items={this.state.filteredItems}
                     stickAt={30}
                     selectedColumnKey={this.state.sortKey}
-                    clickable
-                    highlightable
                   />
                 </div>
               </FixedLeft>

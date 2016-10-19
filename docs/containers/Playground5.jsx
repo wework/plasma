@@ -46,9 +46,11 @@ export default class Playground4 extends React.Component {
     this.state = {
       showModal: false,
       addedProducts: [],
+      quantity: 1,
     };
     this.handleProductChange = this.handleProductChange.bind(this);
     this.handleRemoveClick = this.handleRemoveClick.bind(this);
+    this.handleChangeQuantity = this.handleChangeQuantity.bind(this);
   }
 
   handleProductChange(product) {
@@ -61,6 +63,14 @@ export default class Playground4 extends React.Component {
     const addedProducts = _.clone(this.state.addedProducts);
     _.remove(addedProducts, (product) => product.key === productKey);
     this.setState({ addedProducts });
+  }
+
+  handleChangeQuantity(params) {
+    if (_.isNumber(params.diff)) {
+      this.setState({ quantity: this.state.quantity + params.diff });
+    } else if (_.isNumber(params.value)) {
+      this.setState({ quantity: params.value });
+    }
   }
 
   render() {
@@ -152,7 +162,13 @@ export default class Playground4 extends React.Component {
                     </FormField>
                     {product.type === 'hotdesk' ?
                       <FormField label='Qty' labelType='secondary'>
-                        <NumberInput value={1} />
+                        <NumberInput
+                          value={this.state.quantity}
+                          onPressIncrement={this.handleChangeQuantity}
+                          onPressDecrement={this.handleChangeQuantity}
+                          onChange={this.handleChangeQuantity}
+                          minValue={0}
+                        />
                       </FormField>
                       :
                       <div />
