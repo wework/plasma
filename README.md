@@ -25,7 +25,10 @@ Plasma is a design system for creating sensible, modern interfaces.
 1.  Run `npm install @wework-dev/plasma --save` in your project.
 2.  Link to correct version of CSS in your HTML <head>.
     Example:
+    
+    ```html
     <link rel="stylesheet" href="https://npmcdn.com/@wework-dev/plasma@0.0.3-beta.1/style.css">
+    ```
 3.  Include the Plasma object (or individual components) in your Javascript.
     Plasma object example:
     ```javascript
