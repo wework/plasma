@@ -31,7 +31,7 @@ class Button extends React.Component {
         className={cx(style.button, buttonStyle)}
         onClick={this.props.onClick}
       >
-        <div className={style.label}>{this.props.label}</div>
+        {this.props.label}
       </div>
     );
   }
