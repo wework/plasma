@@ -9,6 +9,14 @@ class SideNavBarItem extends React.Component {
         onClick={this.props.onClick}
       >
         {this.props.selected && <div className={style.itemWrapperSelected} />}
+        { this.props.children || this.renderIconAndLabel() }
+      </div>
+    );
+  }
+
+  renderIconAndLabel() {
+    return (
+      <div>
         <img
           className={style.icon}
           style={{
@@ -21,7 +29,7 @@ class SideNavBarItem extends React.Component {
         />
         <div className={style.label}>{this.props.label}</div>
       </div>
-    );
+    )
   }
 }
 
@@ -45,6 +53,7 @@ SideNavBarItem.propTypes = {
   label: React.PropTypes.string,
   onClick: React.PropTypes.func,
   selected: React.PropTypes.bool,
+  children: React.PropTypes.node,
 };
 
 SideNavBarItem.displayName = 'SideNavBarItem';
