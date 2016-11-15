@@ -19,12 +19,12 @@ import SideNavBar from './components/SideNavBar/SideNavBar.jsx';
 import SideNavBarItem from './components/SideNavBar/SideNavBarItem.jsx';
 
 // Page imports
-import Group from './layouts/Group/Group.jsx';
-import HorizontalScroll from './layouts/HorizontalScroll/HorizontalScroll.jsx';
-import FormField from './layouts/FormField/FormField.jsx';
-import FixedLeft from './layouts/FixedLeft/FixedLeft.jsx';
-import FixedRight from './layouts/FixedRight/FixedRight.jsx';
-import FixedTop from './layouts/FixedTop/FixedTop.jsx';
+import Group from './components/layout/Group/Group.jsx';
+import HorizontalScroll from './components/layout/HorizontalScroll/HorizontalScroll.jsx';
+import FormField from './components/layout/FormField/FormField.jsx';
+import FixedLeft from './components/layout/FixedLeft/FixedLeft.jsx';
+import FixedRight from './components/layout/FixedRight/FixedRight.jsx';
+import FixedTop from './components/layout/FixedTop/FixedTop.jsx';
 
 // Plasma object
 

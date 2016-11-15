@@ -2,12 +2,12 @@
   "name": "@wework-dev/plasma",
   "version": "0.0.20",
   "description": "",
-  "main": "index.js",
+  "main": "./src/index.js",
   "scripts": {
-    "docs": "cd docs && BUILD=true webpack && BUILD=true babel-node build",
-    "dev": "babel-node ./docs/server.js",
-    "build": "webpack",
-    "publish": "webpack && npm publish --access public"
+    "start": "node server.js",
+    "publish": "webpack && npm publish --access public",
+    "generate-metadata": "babel-node generateMetadata.js",
+    "build": "webpack && npm run generate-metadata"
   },
   "author": "WeWork",
   "license": "ISC",
@@ -37,6 +37,7 @@
     "node-sass": "^3.8.0",
     "proxy-middleware": "^0.15.0",
     "react-docgen-fixed": "^2.9.1",
+    "react-hot-loader": "^3.0.0-beta.6",
     "react-router": "^2.6.0",
     "react-select": "^1.0.0-rc.1",
     "resolve-url-loader": "^1.6.0",

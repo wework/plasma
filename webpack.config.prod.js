@@ -1,15 +1,17 @@
-'use strict';
+/* eslint-disable import/no-extraneous-dependencies, no-console */
 
 const path = require('path');
-const ExtractTextPlugin = require("extract-text-webpack-plugin");
+const ExtractTextPlugin = require('extract-text-webpack-plugin');
+const webpack = require('webpack');
 
 module.exports = {
-  entry: ['./src/index.js'],
+  entry: [
+    './src/index.js',
+  ],
   output: {
-    path: __dirname,
+    path: path.resolve(__dirname, 'build'),
     filename: 'index.js',
-    library: 'Plasma',
-    libraryTarget: 'umd'
+    libraryTarget: 'umd',
   },
   resolve: {
     root: [
@@ -20,11 +22,8 @@ module.exports = {
     loaders: [
       {
         test: /.jsx?$/,
-        loader: 'babel-loader',
+        loaders: ['babel-loader?presets[]=es2015,presets[]=react'],
         exclude: /node_modules/,
-        query: {
-          presets: ['es2015', 'react'],
-        },
       },
       {
         test: /\.scss$/,
@@ -36,6 +35,7 @@ module.exports = {
     ],
   },
   plugins: [
-    new ExtractTextPlugin('style.css'),
+    new ExtractTextPlugin('styles.css'),
+    new webpack.NoErrorsPlugin(),
   ],
 };

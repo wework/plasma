@@ -2,7 +2,7 @@ import React from 'react';
 import cx from 'classnames';
 import style from './style.scss';
 
-import Label from '../../components/Label/Label.jsx';
+import Label from '../../Label/Label.jsx';
 
 const labelType = { PRIMARY: 'primary', SECONDARY: 'secondary' };
 

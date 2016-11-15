@@ -4,8 +4,15 @@ $bounds: 840px;
 
 //5, 10, 20, 30, 40
 
-$space: 16px;
-$space-bounds: $space * 1.5;
+$space5: 5px;
+$space10: 10px;
+$space20: 20px;
+$space30: 30px;
+$space40: 40px;
+
+$space-bounds: $space30;
+
+$borderRadius: 2px;
 
 .clearfix:after {
   visibility: hidden;
@@ -28,5 +35,5 @@ $space-bounds: $space * 1.5;
 %layout--chunk {
   @extend .clearfix;
   display: block;
-  margin-bottom: $space !important;
+  margin-bottom: $space20 !important;
 }

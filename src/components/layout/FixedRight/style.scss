@@ -1,26 +1,37 @@
-@import '../../styles/base';
+@import '../../../styles/base';
 
 .wrapper {
   box-sizing: border-box;
   min-height: 100%;
   height: 100%;
+  display: flex;
+  flex-direction: row;
 }
 
 .fixedWrapper {
   position: fixed;
+  right: 0;
   margin-top: 0;
   margin-left: 0;
-  width: 100%;
+  height: 100%;
+  min-height: 100%;
+  overflow-y: scroll;
   z-index: 10;
+  &::-webkit-scrollbar { width: 0 !important }
+  padding-right: 30px;
 }
 
 .contentWrapper {
+  position: relative;
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
   justify-content: flex-start;
   box-sizing: border-box;
   min-height: 100%;
+  width: 100%;
   overflow: auto;
+  padding-bottom: 1000px;
+  margin-bottom: -1000px;
   .stub {
     visibility: hidden;
     opacity: 0;
@@ -31,5 +42,7 @@
     min-height: 100%;
     background: $cBackground;
     flex-grow: 1;
+    padding-bottom: 1000px;
+    margin-bottom: -1000px;
   }
 }

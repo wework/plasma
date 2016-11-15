@@ -2,8 +2,13 @@
 
 .card {
   background: white;
-  padding: $space $space 0 $space;
+  padding: $space40 $space40 0 $space40;
   min-height: 20px;
   border: 1px solid $cBorder;
-  margin-bottom: $space;
+  margin-bottom: $space30;
+  border-radius: $borderRadius;
+}
+
+.condensed {
+  padding: $space20 $space20 0 $space20;
 }
