@@ -55,3 +55,15 @@ $buttonRadius: 5px;
     background-color: rgba(0, 0, 0, 0.1);
   }
 }
+
+%button--disabled {
+  background: none;
+  color: $cGray100;
+  border-color: $cGray100;
+  cursor: not-allowed;
+  opacity: 0.15;
+  &:hover {
+    border-color: $cGray100;
+    background: none;
+  }
+}
