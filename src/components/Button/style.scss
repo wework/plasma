@@ -19,14 +19,10 @@
 
 .loading {
   opacity: 0.9;
+  cursor: default;
+  pointer-events: none;
 }
 
 .disabled {
-  background: $cButtonDisabledBg;
-  color: $cButtonDisabledLabel;
-  cursor: not-allowed;
-  &:hover {
-    background: $cButtonDisabledBg;
-    color: $cButtonDisabledLabel;
-  }
+  @extend %button--disabled;
 }
