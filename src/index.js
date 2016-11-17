@@ -4,6 +4,7 @@ import Checkbox from './components/Checkbox/Checkbox.jsx';
 import Header from './components/Header/Header.jsx';
 import Image from './components/Image/Image.jsx';
 import Label from './components/Label/Label.jsx';
+import Loader from './components/Loader/Loader.jsx';
 import Masthead from './components/Masthead/Masthead.jsx';
 import Modal from './components/Modal/Modal.jsx';
 import NumberInput from './components/NumberInput/NumberInput.jsx';
@@ -42,6 +43,7 @@ Plasma.TextInput = TextInput;
 Plasma.NumberInput = NumberInput;
 Plasma.RadioButton = RadioButton;
 Plasma.Rule = Rule;
+Plasma.Loader = Loader;
 
 Plasma.FormField = FormField;
 Plasma.Tooltip = Tooltip;
@@ -88,4 +90,5 @@ export {
   FixedRight,
   FixedTop,
   NumberInput,
+  Loader,
 };
