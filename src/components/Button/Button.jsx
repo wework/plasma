@@ -57,7 +57,6 @@ class Button extends React.Component {
 }
 
 Button.defaultProps = {
-  label: 'Click it',
   type: type.PRIMARY,
   disabled: false,
   loading: false,
