@@ -14,7 +14,11 @@
 }
 
 .tertiary {
+  @extend %button--tertiary;
+}
 
+.loading {
+  opacity: 0.9;
 }
 
 .disabled {

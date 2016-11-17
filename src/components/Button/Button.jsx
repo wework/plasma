@@ -1,3 +1,4 @@
+import Loader from '../Loader/Loader.jsx';
 import cx from 'classnames';
 import React from 'react';
 import style from './style.scss';
@@ -23,24 +24,42 @@ class Button extends React.Component {
       [style.primary]: this.props.type === type.PRIMARY,
       [style.secondary]: this.props.type === type.SECONDARY,
       [style.tertiary]: this.props.type === type.TERTIARY,
+      [style.loading]: this.props.loading,
       [style.disabled]: this.props.disabled,
     });
 
+    let loaderDotStyle;
+    if (
+      this.props.type === type.SECONDARY ||
+      this.props.type === type.TERTIARY
+    ) {
+      loaderDotStyle = { backgroundColor: '#000', opacity: '0.1' };
+    }
+
+    let comp;
+
+    if (this.props.loading) {
+      comp = <Loader dotStyle={loaderDotStyle} />;
+    } else {
+      comp = this.props.label || this.props.children;
+    }
+
     return (
       <div
-        className={cx(style.button, buttonStyle)}
+        className={cx(buttonStyle)}
+        style={this.props.style}
         onClick={this.props.onClick}
       >
-        {this.props.label}
+        {comp}
       </div>
     );
   }
 }
 
 Button.defaultProps = {
-  label: 'Click it',
   type: type.PRIMARY,
   disabled: false,
+  loading: false,
 };
 
 Button.propTypes = {
@@ -51,6 +70,9 @@ Button.propTypes = {
   onClick: React.PropTypes.func,
   type: React.PropTypes.string,
   disabled: React.PropTypes.bool,
+  loading: React.PropTypes.bool,
+  children: React.PropTypes.node,
+  style: React.PropTypes.object,
 };
 
 Button.displayName = 'Button';
