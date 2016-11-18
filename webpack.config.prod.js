@@ -9,7 +9,7 @@ module.exports = {
     './src/index.js',
   ],
   output: {
-    path: path.resolve(__dirname, 'build'),
+    path: __dirname,
     filename: 'index.js',
     libraryTarget: 'umd',
   },

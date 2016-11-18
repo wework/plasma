@@ -1,11 +1,11 @@
 {
   "name": "@wework-dev/plasma",
-  "version": "0.0.21",
+  "version": "0.0.22",
   "description": "",
   "main": "./src/index.js",
   "scripts": {
     "start": "node server.js",
-    "publish": "webpack && npm publish --access public",
+    "p": "webpack && npm publish --access public",
     "generate-metadata": "babel-node generateMetadata.js",
     "build": "webpack && npm run generate-metadata"
   },
