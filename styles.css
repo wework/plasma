@@ -91,6 +91,7 @@
   font-size: 13px;
   line-height: 0;
   transition: all 0.2s;
+  outline: none;
 }
 
 .src-components-Button-primary__1I9gR {
@@ -841,6 +842,7 @@
   height: 0;
 }
 
+.src-components-TextInput-wrapper__lq6pB,
 .src-components-TextInput-input__2XPTx {
   font-size: 13px;
   box-sizing: border-box;
@@ -858,32 +860,85 @@
   text-rendering: geometricPrecision;
 }
 
+.src-components-TextInput-wrapper__lq6pB::-webkit-input-placeholder,
 .src-components-TextInput-input__2XPTx::-webkit-input-placeholder {
   /* Chrome/Opera/Safari */
   color: #C2C2C2;
 }
 
+.src-components-TextInput-wrapper__lq6pB::-moz-placeholder,
 .src-components-TextInput-input__2XPTx::-moz-placeholder {
   /* Firefox 19+ */
   color: #C2C2C2;
 }
 
+.src-components-TextInput-wrapper__lq6pB:-ms-input-placeholder,
 .src-components-TextInput-input__2XPTx:-ms-input-placeholder {
   /* IE 10+ */
   color: #C2C2C2;
 }
 
+.src-components-TextInput-wrapper__lq6pB:-moz-placeholder,
 .src-components-TextInput-input__2XPTx:-moz-placeholder {
   /* Firefox 18- */
   color: #C2C2C2;
 }
 
-.src-components-TextInput-input__2XPTx:hover {
-  border-color: #ECE9D9;
+.src-components-TextInput-wrapper__lq6pB {
+  padding: 0;
+  position: relative;
+  display: flex;
+  flex-direction: row;
 }
 
-.src-components-TextInput-input__2XPTx:focus {
-  border-color: #C2C2C2;
+.src-components-TextInput-wrapper__lq6pB.src-components-TextInput-hasPrefix__2NZaQ {
+  justify-content: flex-end;
+}
+
+.src-components-TextInput-wrapper__lq6pB.src-components-TextInput-hasSuffix__1mNrC {
+  justify-content: flex-start;
+}
+
+.src-components-TextInput-input__2XPTx {
+  border: 0;
+  outline: none;
+  box-sizing: border-box;
+  width: 100%;
+  height: 100%;
+  order: 1;
+}
+
+.src-components-TextInput-fix__3s9Cv {
+  font-size: 13px;
+  background-color: #ECE9D9;
+  color: #282829;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 0 10px;
+  border-top: 1px solid #d3cba6;
+  border-right: 1px solid #d3cba6;
+  border-bottom: 1px solid #d3cba6;
+  border-left: 1px solid #d3cba6;
+}
+
+.src-components-TextInput-suffix__2naE6 {
+  margin-top: -1px;
+  margin-right: -1px;
+  margin-bottom: -1px;
+  border-top-right-radius: 2px;
+  border-bottom-right-radius: 2px;
+  order: 2;
+}
+
+.src-components-TextInput-prefix__CMqS_ {
+  margin-top: -1px;
+  margin-left: -1px;
+  margin-bottom: -1px;
+  border-top-left-radius: 2px;
+  border-bottom-left-radius: 2px;
+  order: 0;
 }.src-components-Tooltip-clearfix__1cdKS:after {
   visibility: hidden;
   display: block;

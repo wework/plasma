@@ -6,12 +6,6 @@
   position: relative;
   display: flex;
   flex-direction: row;
-  &.hasPrefix {
-    justify-content: flex-end;
-  }
-  &.hasSuffix {
-    justify-content: flex-start;
-  }
 }
 
 .input {
