@@ -36,22 +36,27 @@ class Button extends React.Component {
       loaderDotStyle = { backgroundColor: '#000', opacity: '0.1' };
     }
 
-    let comp;
-
+    let contentComponent;
     if (this.props.loading) {
-      comp = <Loader dotStyle={loaderDotStyle} />;
+      contentComponent = <Loader dotStyle={loaderDotStyle} />;
     } else {
-      comp = this.props.label || this.props.children;
+      contentComponent = this.props.label || this.props.children;
+    }
+
+    let buttonType = 'button';
+    if (this.props.isSubmit) {
+      buttonType = 'submit';
     }
 
     return (
-      <div
+      <button
         className={cx(buttonStyle)}
         style={this.props.style}
         onClick={this.props.onClick}
+        type={buttonType}
       >
-        {comp}
-      </div>
+        {contentComponent}
+      </button>
     );
   }
 }
@@ -73,6 +78,7 @@ Button.propTypes = {
   loading: React.PropTypes.bool,
   children: React.PropTypes.node,
   style: React.PropTypes.object,
+  isSubmit: React.PropTypes.bool,
 };
 
 Button.displayName = 'Button';

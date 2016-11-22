@@ -17,6 +17,7 @@ $buttonRadius: 5px;
   font-size: $typeBase;
   line-height: 0;
   transition: all 0.2s;
+  outline: none;
 }
 
 %button--primary {
