@@ -1,12 +1,59 @@
 @import '../../styles/base';
 
-.input {
-  @extend %type--body;
+.wrapper {
   @extend %input--base;
-  &:hover {
-    border-color: $cWhite200;
+  padding: 0;
+  position: relative;
+  display: flex;
+  flex-direction: row;
+  &.hasPrefix {
+    justify-content: flex-end;
   }
-  &:focus {
-    border-color: $cGray300;
+  &.hasSuffix {
+    justify-content: flex-start;
   }
+}
+
+.input {
+  @extend %input--base;
+  @extend %type--body;
+  border: 0;
+  outline: none;
+  box-sizing: border-box;
+  width: 100%;
+  height: 100%;
+  order: 1;
+}
+
+.fix {
+  font-size: 13px;
+  background-color: $cWhite200;
+  color: $cTextPrimary;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 0 10px;
+  border-top: 1px solid darken($cWhite200, 15%);
+  border-right: 1px solid darken($cWhite200, 15%);
+  border-bottom: 1px solid darken($cWhite200, 15%);
+  border-left: 1px solid darken($cWhite200, 15%);
+}
+
+.suffix {
+  margin-top: -1px;
+  margin-right: -1px;
+  margin-bottom: -1px;
+  border-top-right-radius: $inputRadius;
+  border-bottom-right-radius: $inputRadius;
+  order: 2;
+}
+
+.prefix {
+  margin-top: -1px;
+  margin-left: -1px;
+  margin-bottom: -1px;
+  border-top-left-radius: $inputRadius;
+  border-bottom-left-radius: $inputRadius;
+  order: 0;
 }
