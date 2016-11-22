@@ -4,18 +4,13 @@ import style from './style.scss';
 
 class TextInput extends React.Component {
   render() {
-    const wrapperStyle = cx(style.wrapper, {
-      [style.hasPrefix]: this.props.prefix,
-      [style.hasSuffix]: this.props.suffix,
-    });
-
     const fixStyle = cx(style.fix, {
       [style.suffix]: this.props.suffix,
       [style.prefix]: this.props.prefix,
     });
 
     return (
-      <div className={wrapperStyle}>
+      <div className={style.wrapper}>
         <input
           type="text"
           placeholder={this.props.placeholder}
@@ -23,9 +18,11 @@ class TextInput extends React.Component {
           value={this.props.value}
           onChange={this.props.onChange}
         />
-        <div className={fixStyle}>
-          {this.props.suffix || this.props.prefix}
-        </div>
+        { (this.props.suffix || this.props.prefix) &&
+          <div className={fixStyle}>
+            {this.props.suffix || this.props.prefix}
+          </div>
+        }
       </div>
     );
   }
