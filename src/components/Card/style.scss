@@ -7,8 +7,33 @@
   border: 1px solid $cBorder;
   margin-bottom: $space30;
   border-radius: $borderRadius;
+  .default, .expanded {
+    transition: max-height 0.2s, opacity 0.2s;
+  }
+  .default {
+    overflow: auto;
+    opacity: 1;
+  }
+  .expanded {
+    overflow: hidden;
+    opacity: 0;
+  }
+  &.isExpanded {
+    .default {
+      overflow: hidden;
+      opacity: 0;
+    }
+    .expanded {
+      overflow: auto;
+      opacity: 1;
+    }
+  }
 }
 
 .condensed {
   padding: $space20 $space20 0 $space20;
+}
+
+.borderDashed {
+  border: 1px dashed $cBorder;
 }

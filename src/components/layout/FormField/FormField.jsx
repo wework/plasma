@@ -8,9 +8,13 @@ const labelType = { PRIMARY: 'primary', SECONDARY: 'secondary' };
 
 class FormField extends React.Component {
   render() {
+    let labelText = this.props.label;
+    if (this.props.isRequired) {
+      labelText += ' *';
+    }
     return (
       <div className={style.wrapper}>
-        <Label text={this.props.label} type={this.props.labelType} />
+        <Label text={labelText} type={this.props.labelType} />
         <div className={style.input}>
           { this.props.children }
         </div>
@@ -30,6 +34,7 @@ FormField.propTypes = {
   label: React.PropTypes.string,
   labelType: React.PropTypes.string,
   children: React.PropTypes.node.isRequired,
+  isRequired: React.PropTypes.bool,
 };
 
 FormField.displayName = 'FormField';

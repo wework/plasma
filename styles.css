@@ -171,8 +171,32 @@
   border-radius: 2px;
 }
 
+.src-components-Card-card__2Sgvf .src-components-Card-default__2jKy1 {
+  max-height: auto;
+  overflow: auto;
+}
+
+.src-components-Card-card__2Sgvf .src-components-Card-expanded__1u6dy {
+  max-height: 0;
+  overflow: hidden;
+}
+
+.src-components-Card-card__2Sgvf.src-components-Card-isExpanded__2Xmw5 .src-components-Card-default__2jKy1 {
+  max-height: 0;
+  overflow: hidden;
+}
+
+.src-components-Card-card__2Sgvf.src-components-Card-isExpanded__2Xmw5 .src-components-Card-expanded__1u6dy {
+  max-height: 200px;
+  overflow: auto;
+}
+
 .src-components-Card-condensed__1Qlkk {
   padding: 20px 20px 0 20px;
+}
+
+.src-components-Card-borderDashed__18gdz {
+  border: 1px dashed #E0E0E0;
 }.src-components-Checkbox-text__17XBM {
   font-family: 'Helvetica Neue', helvetica, arial, 'sans-serif';
   text-rendering: geometricPrecision;
@@ -889,14 +913,6 @@
   position: relative;
   display: flex;
   flex-direction: row;
-}
-
-.src-components-TextInput-wrapper__lq6pB.src-components-TextInput-hasPrefix__2NZaQ {
-  justify-content: flex-end;
-}
-
-.src-components-TextInput-wrapper__lq6pB.src-components-TextInput-hasSuffix__1mNrC {
-  justify-content: flex-start;
 }
 
 .src-components-TextInput-input__2XPTx {

@@ -1,18 +1,71 @@
 import cx from 'classnames';
 import React from 'react';
+import ReactDOM from 'react-dom';
 import style from './style.scss';
 
 const type = { CONDENSED: 'condensed' };
+const borderType = { DASHED: 'dashed' };
 
 class Card extends React.Component {
+
+  constructor() {
+    super();
+    this.state = {
+      isMounted: false,
+    };
+  }
+
+  componentDidMount() {
+    const defaultEl = ReactDOM.findDOMNode(this.default);
+    const defaultHeight = defaultEl.offsetHeight;
+    const expandedEl = ReactDOM.findDOMNode(this.expanded);
+    const expandedHeight = expandedEl.offsetHeight;
+    this.setState({ defaultHeight, expandedHeight, isMounted: true });
+  }
+
   render() {
     const cardStyle = cx(style.card, {
       [style.condensed]: this.props.type === type.CONDENSED,
+      [style.borderDashed]: this.props.borderType === borderType.DASHED,
+      [style.isExpanded]: this.props.isExpanded,
     });
 
+    let defaultHeight = 'auto';
+    let expandedHeight = 'auto';
+
+    if (this.state.isMounted) {
+      if (this.props.isExpanded) {
+        defaultHeight = 0;
+        expandedHeight = this.state.expandedHeight;
+      } else {
+        defaultHeight = this.state.defaultHeight;
+        expandedHeight = 0;
+      }
+    }
+
     return (
-      <div className={cardStyle} style={this.props.style}>
-        { this.props.children }
+      <div
+        ref={(c) => { this.outer = c; }}
+        className={cardStyle}
+        style={this.props.style}
+        onClick={this.props.onClick}
+      >
+        <div className={style.inner}>
+          <div
+            ref={(c) => { this.default = c; }}
+            className={style.default}
+            style={{ maxHeight: defaultHeight }}
+          >
+            { this.props.children }
+          </div>
+          <div
+            ref={(c) => { this.expanded = c; }}
+            className={style.expanded}
+            style={{ maxHeight: expandedHeight }}
+          >
+            { this.props.expandedComponent }
+          </div>
+        </div>
       </div>
     );
   }
@@ -27,6 +80,10 @@ Card.propTypes = {
   children: React.PropTypes.node.isRequired,
   style: React.PropTypes.object,
   type: React.PropTypes.string,
+  onClick: React.PropTypes.func,
+  borderType: React.PropTypes.string,
+  expandedComponent: React.PropTypes.node,
+  isExpanded: React.PropTypes.bool,
 };
 
 Card.displayName = 'Card';
