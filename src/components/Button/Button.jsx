@@ -1,6 +1,8 @@
-import Loader from '../Loader/Loader.jsx';
 import cx from 'classnames';
 import React from 'react';
+
+import Base from '../Base.jsx';
+import Loader from '../Loader/Loader.jsx';
 import style from './style.scss';
 
 /**
@@ -68,7 +70,7 @@ Button.defaultProps = {
 };
 
 Button.propTypes = {
-  label: React.PropTypes.string.isRequired,
+  label: React.PropTypes.string,
   /**
   * Callback to handle click event
   */
@@ -83,4 +85,4 @@ Button.propTypes = {
 
 Button.displayName = 'Button';
 
-export default Button;
+export default Base(Button);

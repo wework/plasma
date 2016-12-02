@@ -1,6 +1,7 @@
 import cx from 'classnames';
 import React from 'react';
 import ReactDOM from 'react-dom';
+import Base from '../Base.jsx';
 import style from './style.scss';
 
 const type = { CONDENSED: 'condensed' };
@@ -16,11 +17,14 @@ class Card extends React.Component {
   }
 
   componentDidMount() {
-    const defaultEl = ReactDOM.findDOMNode(this.default);
-    const defaultHeight = defaultEl.offsetHeight;
-    const expandedEl = ReactDOM.findDOMNode(this.expanded);
-    const expandedHeight = expandedEl.offsetHeight;
-    this.setState({ defaultHeight, expandedHeight, isMounted: true });
+    if (this.props.expandedComponent) {
+      const defaultEl = ReactDOM.findDOMNode(this.default);
+      const defaultHeight = defaultEl.offsetHeight;
+      const expandedEl = ReactDOM.findDOMNode(this.expanded);
+      const expandedHeight = expandedEl.offsetHeight;
+      this.setState({ defaultHeight, expandedHeight });
+    }
+    this.setState({ isMounted: true });
   }
 
   render() {
@@ -58,13 +62,15 @@ class Card extends React.Component {
           >
             { this.props.children }
           </div>
-          <div
-            ref={(c) => { this.expanded = c; }}
-            className={style.expanded}
-            style={{ maxHeight: expandedHeight }}
-          >
-            { this.props.expandedComponent }
-          </div>
+          { this.props.expandedComponent &&
+            <div
+              ref={(c) => { this.expanded = c; }}
+              className={style.expanded}
+              style={{ maxHeight: expandedHeight }}
+            >
+              { this.props.expandedComponent }
+            </div>
+          }
         </div>
       </div>
     );
@@ -88,4 +94,4 @@ Card.propTypes = {
 
 Card.displayName = 'Card';
 
-export default Card;
+export default Base(Card);

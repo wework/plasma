@@ -1,6 +1,8 @@
 import _ from 'lodash';
 import React from 'react';
 import cx from 'classnames';
+
+import Base from '../Base.jsx';
 import style from './style.scss';
 
 class RadioButton extends React.Component {
@@ -39,4 +41,4 @@ RadioButton.propTypes = {
 
 RadioButton.displayName = 'RadioButton';
 
-export default RadioButton;
+export default Base(RadioButton);

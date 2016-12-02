@@ -1,6 +1,8 @@
 import React from 'react';
 import $ from 'jquery';
 import _ from 'lodash';
+
+import Base from '../../Base.jsx';
 import style from './style.scss';
 
 class HorizontalScroll extends React.Component {
@@ -41,4 +43,4 @@ HorizontalScroll.propTypes = {
 
 HorizontalScroll.displayName = 'HorizontalScroll';
 
-export default HorizontalScroll;
+export default Base(HorizontalScroll);

@@ -1,7 +1,8 @@
 import React from 'react';
 import cx from 'classnames';
-import style from './style.scss';
 
+import Base from '../../Base.jsx';
+import style from './style.scss';
 import Label from '../../Label/Label.jsx';
 
 const labelType = { PRIMARY: 'primary', SECONDARY: 'secondary' };
@@ -39,4 +40,4 @@ FormField.propTypes = {
 
 FormField.displayName = 'FormField';
 
-export default FormField;
+export default Base(FormField);

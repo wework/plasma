@@ -1,4 +1,6 @@
 import React from 'react';
+
+import Base from '../Base.jsx';
 import style from './style.scss';
 
 class Modal extends React.Component {
@@ -37,4 +39,4 @@ Modal.propTypes = {
 
 Modal.displayName = 'Modal';
 
-export default Modal;
+export default Base(Modal);

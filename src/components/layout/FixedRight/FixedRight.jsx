@@ -1,6 +1,8 @@
 import _ from 'lodash';
 import $ from 'jquery';
 import React from 'react';
+
+import Base from '../../Base.jsx';
 import style from './style.scss';
 
 /**
@@ -44,6 +46,7 @@ class FixedRight extends React.Component {
   }
 
   render() {
+    console.log(this.props.fixedContainerStyle);
     return (
       <div className={style.wrapper}>
         <div className={style.contentWrapper}>
@@ -57,6 +60,7 @@ class FixedRight extends React.Component {
         </div>
         <div
           className={style.fixedWrapper}
+          style={this.props.fixedContainerStyle}
           ref={(c) => {
             if (c) {
               if (!this.fixedViewportOffsetOrigin) {
@@ -81,8 +85,9 @@ FixedRight.defaultProps = {
 FixedRight.propTypes = {
   children: React.PropTypes.array.isRequired,
   stickAt: React.PropTypes.number,
+  fixedContainerStyle: React.PropTypes.object,
 };
 
 FixedRight.displayName = '!FixedRight';
 
-export default FixedRight;
+export default Base(FixedRight);

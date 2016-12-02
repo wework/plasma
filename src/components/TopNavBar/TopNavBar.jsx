@@ -1,4 +1,6 @@
 import React from 'react';
+
+import Base from '../Base.jsx';
 import style from './style.scss';
 
 class TopNavBar extends React.Component {
@@ -21,4 +23,4 @@ TopNavBar.propTypes = {
 
 TopNavBar.displayName = 'TopNavBar';
 
-export default TopNavBar;
+export default Base(TopNavBar);

@@ -1,5 +1,7 @@
 import React from 'react';
 import cx from 'classnames';
+
+import Base from '../Base.jsx';
 import style from './style.scss';
 
 class TextInput extends React.Component {
@@ -42,4 +44,4 @@ TextInput.defaultProps = {
 
 TextInput.displayName = 'TextInput';
 
-export default TextInput;
+export default Base(TextInput);

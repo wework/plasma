@@ -1,6 +1,8 @@
 import _ from 'lodash';
 import $ from 'jquery';
 import React from 'react';
+
+import Base from '../../Base.jsx';
 import style from './style.scss';
 
 /**
@@ -86,4 +88,4 @@ FixedLeft.propTypes = {
 
 FixedLeft.displayName = '!FixedLeft';
 
-export default FixedLeft;
+export default Base(FixedLeft);

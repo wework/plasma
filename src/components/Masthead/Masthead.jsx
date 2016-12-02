@@ -1,6 +1,7 @@
 import React from 'react';
 import style from './style.scss';
 
+import Base from '../Base.jsx';
 import Header from '../Header/Header.jsx';
 
 class Masthead extends React.Component {
@@ -47,4 +48,4 @@ Masthead.propTypes = {
 
 Masthead.displayName = 'Masthead';
 
-export default Masthead;
+export default Base(Masthead);

@@ -2,6 +2,8 @@ import _ from 'lodash';
 import React from 'react';
 import cx from 'classnames';
 import $ from 'jquery';
+
+import Base from '../Base.jsx';
 import style from './style.scss';
 
 class Table extends React.Component {
@@ -299,4 +301,4 @@ Table.defaultProps = {
 
 Table.displayName = 'Table';
 
-export default Table;
+export default Base(Table);

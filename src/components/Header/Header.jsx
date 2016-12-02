@@ -1,5 +1,7 @@
 import cx from 'classnames';
 import React from 'react';
+
+import Base from '../Base.jsx';
 import style from './style.scss';
 
 class Header extends React.Component {
@@ -44,4 +46,4 @@ Header.defaultProps = {
 
 Header.displayName = 'Header';
 
-export default Header;
+export default Base(Header);

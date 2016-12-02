@@ -1,4 +1,6 @@
 import React from 'react';
+
+import Base from '../Base.jsx';
 import style from './style.scss';
 
 class Image extends React.Component {
@@ -33,4 +35,4 @@ Image.propTypes = {
 
 Image.displayName = 'Image';
 
-export default Image;
+export default Base(Image);

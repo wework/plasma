@@ -1,6 +1,8 @@
 import React from 'react';
 import cx from 'classnames';
 import _ from 'lodash';
+
+import Base from '../../Base.jsx';
 import style from './style.scss';
 
 class Group extends React.Component {
@@ -54,4 +56,4 @@ Group.propTypes = {
 
 Group.displayName = 'Group';
 
-export default Group;
+export default Base(Group);

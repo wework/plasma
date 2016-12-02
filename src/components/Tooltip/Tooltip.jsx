@@ -1,4 +1,6 @@
 import React from 'react';
+
+import Base from '../Base.jsx';
 import style from './style.scss';
 
 class Tooltip extends React.Component {
@@ -26,4 +28,4 @@ Tooltip.propTypes = {
 
 Tooltip.displayName = 'Tooltip';
 
-export default Tooltip;
+export default Base(Tooltip);
