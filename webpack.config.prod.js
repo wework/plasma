@@ -11,6 +11,7 @@ module.exports = {
   output: {
     path: __dirname,
     filename: 'index.js',
+    library: 'Plasma',
     libraryTarget: 'umd',
   },
   resolve: {
