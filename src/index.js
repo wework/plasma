@@ -1,6 +1,7 @@
 import Button from './components/Button/Button.jsx';
 import Card from './components/Card/Card.jsx';
 import Checkbox from './components/Checkbox/Checkbox.jsx';
+import DropDownMenu from './components/DropDownMenu/DropDownMenu.jsx';
 import Header from './components/Header/Header.jsx';
 import Image from './components/Image/Image.jsx';
 import Label from './components/Label/Label.jsx';
@@ -44,6 +45,7 @@ Plasma.NumberInput = NumberInput;
 Plasma.RadioButton = RadioButton;
 Plasma.Rule = Rule;
 Plasma.Loader = Loader;
+Plasma.DropDownMenu = DropDownMenu;
 
 Plasma.FormField = FormField;
 Plasma.Tooltip = Tooltip;
@@ -91,4 +93,5 @@ export {
   FixedTop,
   NumberInput,
   Loader,
+  DropDownMenu,
 };

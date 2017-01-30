@@ -8,8 +8,6 @@ const port = process.env.PORT || 8082;
 
 module.exports = {
   entry: [
-    `webpack-dev-server/client?http://0.0.0.0:${port}`,
-    'webpack/hot/dev-server',
     './src/index.js',
   ],
   output: {
@@ -37,6 +35,13 @@ module.exports = {
           'css-loader?modules&importLoaders=1&localIdentName=[path][local]__[hash:base64:5]!resolve-url!sass'
         ),
       },
+      {
+        test: /\.(jpe?g|png|gif|svg)$/i,
+        loaders: [
+          'file?hash=sha512&digest=hex&name=[hash].[ext]',
+          'image-webpack?bypassOnDebug&optimizationLevel=7&interlaced=false'
+        ]
+      },
     ],
   },
   plugins: [
@@ -46,6 +51,7 @@ module.exports = {
   devtool: 'source-map',
   devServer: {
     hot: true,
+    contentBase: 'build',
     historyApiFallback: true,
     headers: {
       'Access-Control-Allow-Origin': '*',

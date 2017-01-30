@@ -1,0 +1,9 @@
+%icon--overflow {
+  &:before {
+    content: '';
+    display: block;
+    background: url("./assets/overflow/overflow@2x.png") no-repeat;
+    height: 30px;
+    width: 30px;
+  }
+}
