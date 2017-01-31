@@ -8,6 +8,9 @@
   width: 40px;
   height: 35px;
   cursor: pointer;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .revealable {
@@ -25,12 +28,12 @@
 .revealableTopWrapper {
   box-sizing: border-box;
   position: absolute;
-  top: 0;
+  top: -3px;
   left: -4px;
   overflow: hidden;
   padding: 3px 4px 0 4px;
   width: 48px;
-  height: 30px;
+  height: 33px;
   z-index: 10;
   cursor: pointer;
 }
@@ -41,6 +44,13 @@
   height: 35px;
   background-color: $cWhite0;
   box-shadow: 0 2px 4px 0 rgba(0,0,0,0.2);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.overflow {
+  @extend %icon--overflow;
 }
 
 .revealableList {

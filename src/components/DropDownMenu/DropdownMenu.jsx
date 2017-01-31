@@ -5,7 +5,28 @@ import React from 'react';
 import Base from '../Base.jsx';
 import style from './style.scss';
 
-class DropdownMenu extends React.Component {
+class DropDownMenuOption extends React.Component {
+  constructor() {
+    super();
+    this.handleClick = this.handleClick.bind(this);
+  }
+
+  handleClick() {
+    this.props.onClick(this.props.optionKey);
+  }
+  render() {
+    return (
+      <li
+        className={style.revealableListItem}
+        onClick={this.handleClick}
+      >
+        { this.props.text }
+      </li>
+    );
+  }
+}
+
+class DropDownMenu extends React.Component {
 
   constructor() {
     super();
@@ -29,6 +50,7 @@ class DropdownMenu extends React.Component {
     const revealableStyle = cx(style.revealable, {
       [style.revealed]: this.state.revealed,
     });
+    console.log(this.props);
     return (
       <div
         onMouseEnter={this.handleMouseEnter}
@@ -39,7 +61,7 @@ class DropdownMenu extends React.Component {
           ref={(c) => { this.title = c }}
           className={style.action}
         >
-          { this.props.title }
+          <div className={style.overflow} />
         </div>
         <div
           ref={(c) => { this.revealable = c }}
@@ -48,12 +70,25 @@ class DropdownMenu extends React.Component {
           <div className={style.revealableTopWrapper}>
             <div
               className={style.revealableTop}
-            />
+            >
+              <div className={style.overflow} />
+            </div>
           </div>
           <ol className={style.revealableList}>
-            <li className={style.revealableListItem}>Option 1</li>
-            <li className={style.revealableListItem}>Option 2</li>
-            <li className={style.revealableListItem}>Option 4</li>
+            { _.map(this.props.options, (option) => {
+              return (
+                <DropDownMenuOption
+                  key={option.key}
+                  optionKey={option.key}
+                  text={option.text}
+                  onClick={(optionKey) => {
+                    if (option.onClick) {
+                      option.onClick(optionKey);
+                    }
+                  }}
+                />
+              );
+            })}
           </ol>
         </div>
       </div>
@@ -61,17 +96,12 @@ class DropdownMenu extends React.Component {
   }
 }
 
-DropdownMenu.defaultProps = {
-  text: 'Option',
-  name: 'checkbox',
+DropDownMenu.defaultProps = {
+  options: {},
 };
 
-DropdownMenu.propTypes = {
-  text: React.PropTypes.string.isRequired,
-  name: React.PropTypes.string.isRequired,
-  onChange: React.PropTypes.func,
-};
+DropDownMenu.propTypes = {};
 
-DropdownMenu.displayName = 'DrowpdownMenu';
+DropDownMenu.displayName = 'DrowpDownMenu';
 
-export default Base(DropdownMenu);
+export default Base(DropDownMenu);
