@@ -50,6 +50,7 @@ class FixedLeft extends React.Component {
       <div className={style.wrapper}>
         <div
           className={style.fixedWrapper}
+          style={{ ...this.props.fixedStyle }}
           ref={(c) => {
             if (c) {
               if (!this.fixedViewportOffsetOrigin) {
@@ -84,6 +85,7 @@ FixedLeft.propTypes = {
   children: React.PropTypes.array.isRequired,
   stickAt: React.PropTypes.number,
   contentStyle: React.PropTypes.object,
+  fixedStyle: React.PropTypes.object,
 };
 
 FixedLeft.displayName = '!FixedLeft';

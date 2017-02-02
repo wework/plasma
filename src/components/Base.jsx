@@ -23,7 +23,9 @@ export default function Base(Component) {
 
     render() {
       return (
-        <div {...this.state.dataAttrs}>
+        <div
+          {...this.state.dataAttrs}
+        >
           <Component
             ref={(c) => { this.compEl = c; }}
             {...this.props}
