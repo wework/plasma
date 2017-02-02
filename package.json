@@ -1,13 +1,12 @@
 {
   "name": "@wework-dev/plasma",
-  "version": "0.0.34",
+  "version": "0.0.35",
   "description": "",
-  "main": "./index.js",
+  "main": "./dist/index.js",
   "scripts": {
     "start": "babel-node server.js",
-    "p": "webpack && npm publish --access public",
-    "generate-metadata": "babel-node generateMetadata.js",
-    "build": "webpack && npm run generate-metadata"
+    "pack": "webpack --config webpack.config.prod",
+    "publish": "webpack --config webpack.config.prod && npm publish --access public"
   },
   "author": "WeWork",
   "license": "ISC",

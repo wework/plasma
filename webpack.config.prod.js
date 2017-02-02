@@ -9,7 +9,7 @@ module.exports = {
     './src/index.js',
   ],
   output: {
-    path: __dirname,
+    path: path.resolve(__dirname, 'dist'),
     filename: 'index.js',
     library: 'Plasma',
     libraryTarget: 'umd',
