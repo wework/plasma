@@ -6,19 +6,22 @@ import style from './style.scss';
 
 class Checkbox extends React.Component {
   render() {
+    const { indeterminate, name, onChange, text } = this.props;
     const id = _.uniqueId('id');
+    const inputClassName = indeterminate ? style.indeterminate : style.original;
+
     return (
       <label htmlFor={id} className={style.wrapper}>
         <input
-          className={style.original}
+          className={inputClassName}
           type="checkbox"
           id={id}
-          name={this.props.name}
-          onChange={this.props.onChange}
+          name={name}
+          onChange={onChange}
         />
-        <div className={style.faux} />
+        <div className={style.checkbox} />
         <div className={style.text}>
-          { this.props.text }
+          {text}
         </div>
       </label>
     );
@@ -26,12 +29,18 @@ class Checkbox extends React.Component {
 }
 
 Checkbox.defaultProps = {
+  indeterminate: false,
   text: 'Option',
   name: 'checkbox',
 };
 
 Checkbox.propTypes = {
-  text: React.PropTypes.string.isRequired,
+  indeterminate: React.PropTypes.bool,
+  text: React.PropTypes.oneOfType([
+    React.PropTypes.string,
+    React.PropTypes.node,
+    React.PropTypes.element,
+  ]).isRequired,
   name: React.PropTypes.string.isRequired,
   onChange: React.PropTypes.func,
 };
