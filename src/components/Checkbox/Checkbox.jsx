@@ -6,13 +6,14 @@ import style from './style.scss';
 
 class Checkbox extends React.Component {
   render() {
-    const { indeterminate, name, onChange, text } = this.props;
+    const { checked, indeterminate, name, onChange, text } = this.props;
     const id = _.uniqueId('id');
     const inputClassName = indeterminate ? style.indeterminate : style.original;
 
     return (
       <label htmlFor={id} className={style.wrapper}>
         <input
+          checked={checked}
           className={inputClassName}
           type="checkbox"
           id={id}
@@ -29,12 +30,14 @@ class Checkbox extends React.Component {
 }
 
 Checkbox.defaultProps = {
+  checked: false,
   indeterminate: false,
   text: 'Option',
   name: 'checkbox',
 };
 
 Checkbox.propTypes = {
+  checked: React.PropTypes.bool,
   indeterminate: React.PropTypes.bool,
   text: React.PropTypes.oneOfType([
     React.PropTypes.string,
