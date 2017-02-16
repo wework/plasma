@@ -14,14 +14,32 @@
   opacity: 0;
   z-index: 10;
   cursor: pointer;
-  &:checked ~ .faux {
+
+  &:checked ~ .checkbox {
     &::before {
       content: url('data:image/svg+xml;utf8,<svg width="12px" height="10px" viewBox="2 5 12 10" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"><defs></defs><polygon id="Rectangle-34" stroke="none" fill="#282829" fill-rule="evenodd" points="6 15 2 10.8333333 3.6 9.16666667 6 11.6666667 12.4 5 14 6.66666667"></polygon></svg>');
     }
   }
 }
 
-.faux {
+.indeterminate {
+  position: absolute;
+  opacity: 0;
+  z-index: 10;
+  cursor: pointer;
+
+  &:checked ~ .checkbox {
+    &::before {
+      display: block;
+      width: 8px;
+      height: 2.5px;
+      background: $cGray100;
+      margin: 5px auto;
+    }
+  }
+}
+
+.checkbox {
   width: 14px;
   height: 14px;
   background: none;
@@ -31,11 +49,10 @@
   transition: border-color 0.1s ease-out;
   &::before {
     display: block;
-    position: absolute;
     content: '';
-    top: 1px;
-    left: 2px;
     background: none;
+    width: 14px;
+    margin-top: -4px;
   }
 }
 
