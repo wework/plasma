@@ -31,7 +31,7 @@
   &:checked ~ .checkbox {
     &::before {
       display: block;
-      width: 10px;
+      width: 8px;
       height: 2.5px;
       background: $cGray100;
       margin: 5px auto;
