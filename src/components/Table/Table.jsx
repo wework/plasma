@@ -59,19 +59,19 @@ class Table extends React.Component {
     {/* hover(function() {
 
       $el = $(this);
-      
+
       $el.parent().addClass("hover");
 
       if ($el.parent().has('td[rowspan]').length == 0)
-        
+
         $el
           .parent()
           .prevAll('tr:has(td[rowspan]):first')
           .find('td[rowspan]')
           .addClass("hover");
 
-    }, function() { 
-          
+    }, function() {
+
       $el
         .parent()
         .removeClass("hover")
@@ -208,6 +208,11 @@ class Table extends React.Component {
         } else {
           cellValue = itemValue[spanKey][0][headerKey];
         }
+
+        if (!cellValue) {
+          cellValue = "-";
+        }
+
         columnComponents.push(
           <td className={style.cell} key={headerKey} rowSpan={rowsToSpan}>{cellValue}</td>
         );
