@@ -189,19 +189,71 @@ class Table extends React.Component {
   renderItems() {
     let spanKey;
     let spannedHeaderKeys;
-    if (this.props.spanMap) {
-      spanKey = _.keys(this.props.spanMap)[0];
-      spannedHeaderKeys = this.props.spanMap[spanKey];
+
+    const {
+      clickable,
+      empty,
+      emptyText,
+      headerData,
+      highlightable,
+      items,
+      loading,
+      spanMap,
+    } = this.props;
+
+    const totalColumns = headerData.length;
+
+    if (loading) {
+      return (
+        <tbody className={style.tbody}>
+          <tr className={style.row}>
+            <td
+              className={style.cell}
+              colSpan={totalColumns}
+            >
+              <span className={style.loadingText}>
+                Loading...
+              </span>
+            </td>
+          </tr>
+        </tbody>
+      );
     }
-    const headerKeys = _.map(this.props.headerData, 'key');
+
+    if (empty && emptyText) {
+      return (
+        <tbody className={style.tbody}>
+          <tr className={style.row}>
+            <td
+              className={style.cell}
+              colSpan={totalColumns}
+            >
+              <span className={style.emptyText}>
+                {emptyText}
+              </span>
+            </td>
+          </tr>
+        </tbody>
+      );
+    }
+
+    if (spanMap) {
+      spanKey = _.keys(spanMap)[0];
+      spannedHeaderKeys = spanMap[spanKey];
+    }
+
+    const headerKeys = _.map(headerData, 'key');
     const rowComponents = [];
-    _.forEach(this.props.items, (itemValue, itemIndex) => {
+
+    _.forEach(items, (itemValue, itemIndex) => {
       const spanCount = _.get(itemValue[spanKey], 'length');
       const columnComponents = [];
+
       _.forEach(headerKeys, (headerKey) => {
         const isInnerKey = _.includes(spannedHeaderKeys, headerKey);
         let cellValue;
         let rowsToSpan;
+
         if (!isInnerKey) {
           rowsToSpan = spanCount;
           cellValue = itemValue[headerKey];
@@ -214,28 +266,41 @@ class Table extends React.Component {
         }
 
         columnComponents.push(
-          <td className={style.cell} key={headerKey} rowSpan={rowsToSpan}>{cellValue}</td>
+          <td
+            className={style.cell}
+            key={headerKey}
+            rowSpan={rowsToSpan}
+          >
+            {cellValue}
+          </td>
         );
       });
+
       rowComponents.push(
         <tr
           key={itemIndex}
           className={cx({
             [style.row]: true,
-            [style.clickable]: this.props.clickable,
-            [style.highlightable]: this.props.highlightable,
+            [style.clickable]: clickable,
+            [style.highlightable]: highlightable,
           })}
         >
           {columnComponents}
         </tr>
       );
+
       // Create the remaining partial rows if necessary
       if (spanCount) {
         for (let i = 1; i < spanCount; i++) {
           const partialRowColumns = [];
           _.forEach(spannedHeaderKeys, (key) => {
             partialRowColumns.push(
-              <td key={key} className={style.cell}>{itemValue[spanKey][i][key]}</td>
+              <td
+                key={key}
+                className={style.cell}
+              >
+                {itemValue[spanKey][i][key]}
+              </td>
             );
           });
           rowComponents.push(
@@ -243,8 +308,8 @@ class Table extends React.Component {
               key={`${itemIndex}.${i}`}
               className={cx({
                 [style.row]: true,
-                [style.clickable]: this.props.clickable,
-                [style.highlightable]: this.props.highlightable,
+                [style.clickable]: clickable,
+                [style.highlightable]: highlightable,
               })}
             >
               {partialRowColumns}
@@ -253,7 +318,12 @@ class Table extends React.Component {
         }
       }
     });
-    return <tbody className={style.tbody}>{rowComponents}</tbody>;
+
+    return (
+      <tbody className={style.tbody}>
+        {rowComponents}
+      </tbody>
+    );
   }
 
   render() {
@@ -290,17 +360,23 @@ class Table extends React.Component {
 }
 
 Table.propTypes = {
+  clickable: React.PropTypes.bool,
+  empty: React.PropTypes.bool,
+  emptyText: React.PropTypes.string,
   headerData: React.PropTypes.array,
-  stickAt: React.PropTypes.number,
+  highlightable: React.PropTypes.bool,
   items: React.PropTypes.array,
-  style: React.PropTypes.object,
+  loading: React.PropTypes.bool,
   selectedColumnKey: React.PropTypes.string,
   spanMap: React.PropTypes.object,
-  clickable: React.PropTypes.bool,
-  highlightable: React.PropTypes.bool,
+  stickAt: React.PropTypes.number,
+  style: React.PropTypes.object,
 };
 
 Table.defaultProps = {
+  empty: false,
+  emptyText: '',
+  loading: false,
   stickAt: null,
 };
 

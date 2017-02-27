@@ -96,3 +96,11 @@
 .headerCell {
   text-align: left;
 }
+
+.emptyText, .loadingText {
+  display: block;
+  padding: 40px;
+  font-size: 30px;
+  font-weight: bold;
+  color: $cGray400;
+}
