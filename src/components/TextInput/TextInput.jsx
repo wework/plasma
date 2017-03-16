@@ -56,7 +56,7 @@ TextInput.propTypes = {
 
 TextInput.defaultProps = {
   placeholder: 'Type something...',
-  disabled: false,
+  isDisabled: false,
 };
 
 TextInput.displayName = 'TextInput';
