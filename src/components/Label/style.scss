@@ -10,3 +10,8 @@
 .labelSecondary {
   color: $cTextSecondary;
 }
+
+.labelDisabled {
+  color: $cGray300;
+  cursor: not-allowed;
+}

@@ -4,20 +4,29 @@ import cx from 'classnames';
 import Base from '../Base.jsx';
 import style from './style.scss';
 
-const type = { PRIMARY: 'primary', SECONDARY: 'secondary' };
+const types = {
+  PRIMARY: 'primary',
+  SECONDARY: 'secondary',
+  DISABLED: 'disabled',
+};
 
-class Label extends React.Component {
-  render() {
-    const labelStyle = cx(style.label, {
-      [style.labelSecondary]: this.props.type === type.SECONDARY,
-    });
-    return (
-      <div className={labelStyle}>
-        { this.props.text }
-      </div>
-    );
+const Label = (
+  {
+    type,
+    text,
   }
-}
+) => {
+  const labelStyle = cx(style.label, {
+    [style.labelSecondary]: type === types.SECONDARY,
+    [style.labelDisabled]: type === types.DISABLED,
+  });
+
+  return (
+    <div className={labelStyle}>
+      {text}
+    </div>
+  );
+};
 
 Label.propTypes = {
   text: React.PropTypes.string,
@@ -26,7 +35,7 @@ Label.propTypes = {
 
 Label.defaultProps = {
   text: 'Label',
-  type: type.PRIMARY,
+  type: types.PRIMARY,
 };
 
 Label.displayName = 'Label';

@@ -6,3 +6,11 @@
   flex-direction: column;
   margin-bottom: 20px;
 }
+
+.disabled {
+  @extend %input--disabled;
+}
+
+.disabledWrapper {
+  @extend %input--disabled-wrapper;
+}
