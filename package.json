@@ -6,11 +6,14 @@
   "scripts": {
     "start": "babel-node server.js",
     "pack": "webpack --config webpack.config.prod",
-    "packAndPublish": "webpack --config webpack.config.prod && npm publish --access public"
+    "packAndPublish": "webpack --config webpack.config.prod && npm publish --access public",
+    "storybook": "start-storybook -p 6006",
+    "build-storybook": "build-storybook"
   },
   "author": "WeWork",
   "license": "ISC",
   "devDependencies": {
+    "@kadira/storybook": "^2.21.0",
     "anchorate": "^1.1.0",
     "babel-cli": "^6.14.0",
     "babel-core": "^6.10.4",
