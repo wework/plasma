@@ -5,37 +5,55 @@ import Base from '../../Base.jsx';
 import style from './style.scss';
 import Label from '../../Label/Label.jsx';
 
-const labelType = { PRIMARY: 'primary', SECONDARY: 'secondary' };
+const labelType = {
+  PRIMARY: 'primary',
+  SECONDARY: 'secondary',
+};
 
-class FormField extends React.Component {
-  render() {
-    let labelText = this.props.label;
-    if (this.props.isRequired) {
-      labelText += ' *';
-    }
-    return (
-      <div className={style.wrapper}>
-        <Label text={labelText} type={this.props.labelType} />
-        <div className={style.input}>
-          { this.props.children }
-        </div>
-
-      </div>
-    );
+const FormField = (
+  {
+    children,
+    isDisabled,
+    isRequired,
+    labelType,
+    label,
   }
-}
+) => {
+  let labelText = label;
+
+  if (isRequired) {
+    labelText += ' *';
+  }
+
+  return (
+    <div className={style.wrapper}>
+      <Label
+        text={labelText}
+        type={labelType}
+        className={style.disabled}
+        type={isDisabled ? 'disabled' : 'primary'}
+      />
+      <div className={style.input}>
+        {children}
+      </div>
+
+    </div>
+  );
+};
 
 FormField.defaultProps = {
+  children: '',
+  disabled: false,
   label: 'Label',
   labelType: labelType.PRIMARY,
-  children: '',
 };
 
 FormField.propTypes = {
+  children: React.PropTypes.node.isRequired,
+  disabled: React.PropTypes.bool,
+  isRequired: React.PropTypes.bool,
   label: React.PropTypes.string,
   labelType: React.PropTypes.string,
-  children: React.PropTypes.node.isRequired,
-  isRequired: React.PropTypes.bool,
 };
 
 FormField.displayName = 'FormField';

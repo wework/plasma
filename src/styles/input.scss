@@ -28,3 +28,11 @@ $inputRadius: 2px;
     color: $cGray300;
   }
 }
+
+%input--disabled {
+  cursor: not-allowed;
+}
+
+%input--disabled-wrapper {
+  opacity: 0.5;
+}
