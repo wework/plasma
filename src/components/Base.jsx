@@ -5,28 +5,17 @@ import ReactDOM from 'react-dom';
 
 export default function Base(Component) {
   return class extends React.Component {
-    constructor(props) {
-      super(props);
-      this.state = {
-        dataAttrs: null
-      }
-    }
-
-    componentDidMount() {
+    getDataAttrs() {
       const { data } = this.props;
 
-      if (!data) return;
+      if (!data) return {};
 
-      this.setState({
-        dataAttrs: mapKeys(data, (val, key) => `data-${kebabCase(key)}`)
-      });
+      return mapKeys(data, (val, key) => `data-${kebabCase(key)}`)
     }
 
     render() {
-      const { dataAttrs } = this.state;
-
       return (
-        <div {...dataAttrs}>
+        <div {...this.getDataAttrs()}>
           <Component {...this.props} />
         </div>
       );
