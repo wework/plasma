@@ -1,6 +1,6 @@
 {
   "name": "@wework-dev/plasma",
-  "version": "0.0.47",
+  "version": "0.0.48",
   "description": "",
   "main": "./dist/index.js",
   "scripts": {
