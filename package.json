@@ -9,7 +9,7 @@
     "createRelease": "webpack --config webpack.config.prod && npm publish --access public",
     "storybook": "start-storybook -p 6006",
     "build-storybook": "build-storybook",
-    "preversion": "plasma_old_version=$(node -pe 'require('./package.json').version') && echo $plasma_old_version",
+    "preversion": "plasma_old_version=$(node -pe \"require(\"./package.json\").version\") && echo $plasma_old_version",
     "version": "webpack --config webpack.config.prod && plasma_new_version=$(node -pe 'require('./package.json').version') && echo $plasma_new_version && mv './design/Sketch43/Plasma@$plasma_old_version' './design/Sketch43/Plasma@$plasma_new_version' && git add -A dist",
     "postversion": ""
   },
