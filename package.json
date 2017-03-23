@@ -6,9 +6,12 @@
   "scripts": {
     "start": "babel-node server.js",
     "pack": "webpack --config webpack.config.prod",
-    "packAndPublish": "webpack --config webpack.config.prod && npm publish --access public",
+    "createRelease": "webpack --config webpack.config.prod && npm publish --access public",
     "storybook": "start-storybook -p 6006",
-    "build-storybook": "build-storybook"
+    "build-storybook": "build-storybook",
+    "preversion": "plasma_old_version=$(node -pe 'require('./package.json').version') && echo $plasma_old_version",
+    "version": "webpack --config webpack.config.prod && plasma_new_version=$(node -pe 'require('./package.json').version') && echo $plasma_new_version && mv './design/Sketch43/Plasma@$plasma_old_version' './design/Sketch43/Plasma@$plasma_new_version' && git add -A dist",
+    "postversion": ""
   },
   "author": "WeWork",
   "license": "ISC",
