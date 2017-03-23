@@ -1,38 +1,35 @@
-import _ from 'lodash';
+import { mapKeys, kebabCase } from 'lodash';
 import $ from 'jquery';
 import React from 'react';
 import ReactDOM from 'react-dom';
 
 export default function Base(Component) {
-  const Base = React.createClass({
-    getInitialState() {
-      return {
-        dataAttrs: null,
-      };
-    },
+  return class extends React.Component {
+    constructor(props) {
+      super(props);
+      this.state = {
+        dataAttrs: null
+      }
+    }
 
     componentDidMount() {
-      if (this.props.data) {
-        const attrObj = {};
-        _.forEach(this.props.data, (value, key) => {
-          attrObj['data-' + _.kebabCase(key)] = value;
-        });
-        this.setState({ dataAttrs: attrObj });
-      }
-    },
+      const { data } = this.props;
+
+      if (!data) return;
+
+      this.setState({
+        dataAttrs: mapKeys(data, (val, key) => `data-${kebabCase(key)}`)
+      });
+    }
 
     render() {
+      const { dataAttrs } = this.state;
+
       return (
-        <div
-          {...this.state.dataAttrs}
-        >
-          <Component
-            ref={(c) => { this.compEl = c; }}
-            {...this.props}
-          />
+        <div {...dataAttrs}>
+          <Component {...this.props} />
         </div>
       );
-    },
-  });
-  return Base;
+    }
+  }
 }
