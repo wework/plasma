@@ -1,3 +1,5 @@
-const examples = {
-  'Default': <Button>Click me</Button>,
-};
+(function() {
+  return {
+    'Default': <Button>Click me</Button>
+  };
+})
