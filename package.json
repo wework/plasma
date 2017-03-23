@@ -1,6 +1,6 @@
 {
   "name": "@wework-dev/plasma",
-  "version": "0.0.49",
+  "version": "0.0.50",
   "description": "",
   "main": "./dist/index.js",
   "scripts": {
@@ -8,10 +8,7 @@
     "pack": "webpack --config webpack.config.prod",
     "createRelease": "webpack --config webpack.config.prod && npm publish --access public",
     "storybook": "start-storybook -p 6006",
-    "build-storybook": "build-storybook",
-    "preversion": "plasma_old_version=$(node -pe \"require(\"./package.json\").version\") && echo $plasma_old_version",
-    "version": "webpack --config webpack.config.prod && plasma_new_version=$(node -pe 'require('./package.json').version') && echo $plasma_new_version && mv './design/Sketch43/Plasma@$plasma_old_version' './design/Sketch43/Plasma@$plasma_new_version' && git add -A dist",
-    "postversion": ""
+    "build-storybook": "build-storybook"
   },
   "author": "WeWork",
   "license": "ISC",
