@@ -14,3 +14,4 @@ const p = require('../package.json');
 fs.renameSync(`./design/Sketch43/Plasma-temp.sketch`, `./design/Sketch43/Plasma@${p.version}.sketch`);
 const sketchFiles = fs.readdirSync('./design/Sketch43');
 sketchFiles.filter(name => new RegExp(`^Plasma@(?!${p.version}).*$`).test(name)).forEach(name => fs.unlinkSync(`./design/Sketch43/${name}`));
+const gitAddDesign = execSync('git add -A design');
