@@ -1,6 +1,6 @@
 {
   "name": "@wework-dev/plasma",
-  "version": "0.0.51",
+  "version": "0.0.50",
   "description": "",
   "main": "./dist/index.js",
   "scripts": {
@@ -10,7 +10,8 @@
     "storybook": "start-storybook -p 6006",
     "build-storybook": "build-storybook",
     "preversion": "node ./scripts/preversion.js",
-    "version": "node ./scripts/version.js"
+    "version": "node ./scripts/version.js",
+    "postversion": "node ./scripts/postversion.js",
   },
   "author": "WeWork",
   "license": "ISC",
