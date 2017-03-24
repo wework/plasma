@@ -8,7 +8,9 @@
     "pack": "webpack --config webpack.config.prod",
     "createRelease": "webpack --config webpack.config.prod && npm publish --access public",
     "storybook": "start-storybook -p 6006",
-    "build-storybook": "build-storybook"
+    "build-storybook": "build-storybook",
+    "preversion": "./preversion",
+    "version": "./version"
   },
   "author": "WeWork",
   "license": "ISC",
