@@ -9,8 +9,8 @@
     "createRelease": "webpack --config webpack.config.prod && npm publish --access public",
     "storybook": "start-storybook -p 6006",
     "build-storybook": "build-storybook",
-    "preversion": "./scripts/preversion.js",
-    "version": "./scripts/version.js"
+    "preversion": "node ./scripts/preversion.js",
+    "version": "node ./scripts/version.js"
   },
   "author": "WeWork",
   "license": "ISC",
