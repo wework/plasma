@@ -1,4 +1,4 @@
-const exec = require('child_process').exec;
+const exec = require('child_process').execSync;
 const fs = require('fs');
 
 if (fs.existsSync('./dist/index.js')) {
