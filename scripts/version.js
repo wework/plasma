@@ -23,7 +23,7 @@ const webpack = exec('webpack --config webpack.config.prod', (err, stdout, stder
 });
 
 webpack.on('exit', (code) => {
-  const p = require('./package.json');
+  const p = require('../package.json');
   console.log(p.version);
   if (code === 0) {
     fs.renameSync(`./design/Sketch43/Plasma-temp.sketch`, `./design/Sketch43/Plasma${p.version}.sketch`);
