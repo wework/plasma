@@ -11,7 +11,7 @@
     "build-storybook": "build-storybook",
     "preversion": "node ./scripts/preversion.js",
     "version": "node ./scripts/version.js",
-    "postversion": "node ./scripts/postversion.js",
+    "postversion": "node ./scripts/postversion.js"
   },
   "author": "WeWork",
   "license": "ISC",
