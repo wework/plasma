@@ -1,31 +1,16 @@
 const exec = require('child_process').exec;
 const fs = require('fs');
 
-fs.access('./dist/index.js', fs.constants.R_OK, (err) => {
-  console.log(err);
-  if (!err) {
-    console.log('Deleting /dist/index.js');
-    fs.unlinkSync('./dist/index.js');
-  }
-});
-fs.access('./dist/styles.css', fs.constants.R_OK, (err) => {
-  if (!err) {
-    console.log('Deleting /dist/styles.css');
-    fs.unlinkSync('./dist/styles.css');
-  }
-});
+if (fs.existsSync('./dist/index.js')) {
+  fs.unlinkSync('./dist/index.js');
+}
 
-const webpack = exec('webpack --config webpack.config.prod', (err, stdout, stderr) => {
-  if (err) {
-    console.error(err);
-  }
-  console.log(stdout);
-});
+if (fs.existsSync('./dist/styles.css')) {
+  fs.unlinkSync('./dist/styles.css');
+}
 
-webpack.on('exit', (code) => {
-  const p = require('../package.json');
-  console.log(p.version);
-  if (code === 0) {
-    fs.renameSync(`./design/Sketch43/Plasma-temp.sketch`, `./design/Sketch43/Plasma${p.version}.sketch`);
-  }
-});
+const webpack = execSync('webpack --config webpack.config.prod');
+const p = require('../package.json');
+fs.renameSync(`./design/Sketch43/Plasma-temp.sketch`, `./design/Sketch43/Plasma@${p.version}.sketch`);
+const sketchFiles = fs.readdirSync('./design/Sketch43');
+sketchFiles.filter(name => new RegExp(`^(?!${p.version}).*$`).test(name)).forEach(fs.unlinkSync);
