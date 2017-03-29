@@ -5,3 +5,4 @@ import Button from './Button';
 import FormField from './FormField';
 import Label from './Label';
 import TextInput from './TextInput';
+import Table from './Table';

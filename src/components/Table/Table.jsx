@@ -248,6 +248,7 @@ class Table extends React.Component {
     _.forEach(items, (itemValue, itemIndex) => {
       const spanCount = _.get(itemValue[spanKey], 'length');
       const columnComponents = [];
+      const isDisabledRow = itemValue.disabled;
 
       _.forEach(headerKeys, (headerKey) => {
         const isInnerKey = _.includes(spannedHeaderKeys, headerKey);
@@ -281,6 +282,7 @@ class Table extends React.Component {
           key={itemIndex}
           className={cx({
             [style.row]: true,
+            [style.rowDisabled]: isDisabledRow,
             [style.clickable]: clickable,
             [style.highlightable]: highlightable,
           })}
@@ -308,6 +310,7 @@ class Table extends React.Component {
               key={`${itemIndex}.${i}`}
               className={cx({
                 [style.row]: true,
+                [style.rowDisabled]: isDisabledRow,
                 [style.clickable]: clickable,
                 [style.highlightable]: highlightable,
               })}
