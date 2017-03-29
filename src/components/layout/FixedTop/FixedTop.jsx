@@ -30,7 +30,7 @@ class FixedTop extends React.Component {
             className={style.stub}
             style={{ height: this.state.fixedHeight, minHeight: this.state.fixedHeight }}
           />
-          <div className={style.content}>
+          <div className={style.content} style={{ backgroundColor: this.props.backgroundColor }}>
             { this.props.children[1] }
           </div>
         </div>
@@ -41,10 +41,12 @@ class FixedTop extends React.Component {
 
 FixedTop.defaultProps = {
   children: ['', ''],
+  backgroundColor: 'transparent',
 };
 
 FixedTop.propTypes = {
   children: React.PropTypes.array.isRequired,
+  backgroundColor: React.PropTypes.string,
 };
 
 FixedTop.displayName = '!FixedTop';
