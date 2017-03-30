@@ -6,15 +6,18 @@ import Loader from '../Loader/Loader.jsx';
 import style from './style.scss';
 
 /**
-  * - **Primary** (primary action for the view, “Save”)
-  * - Secondary (a secondary action, “Cancel”)
-  * - Text buttons (can have many within a view, not a primary or secondary action)
-  * All buttons should have hover state and active state
-  * Buttons can have up to one icon, that should be a visual representation of the label
-  * Buttons labels should describe the result of the action (‘verb’)
-  * Button labels should not be longer than two words
-  * Avoid having more than one primary and secondary action for a view
-  * Buttons that result in a long action can replace the label with a loader once it’s clicked
+  * Rules
+  * - Text on buttons should always use the Bold 5 text style.
+  * - Text on active buttons is always WeWork Black color.
+  * - Button height is 38px (40px including top/bottom border of 1px).
+  * - No icons on primary, secondary or tertiary style buttons.
+  * - Icons can be used in link style buttons, where applicable.
+  *
+  *  Spacing
+  *  - Buttons have left/right padding of 20px (except for link buttons, which have no padding).
+  *  - Buttons contained in narrow spaces (e.g. filters) should fill 100% of the width available to them. This helps with cleaner alignment with other elements in that column, and also aligns multiple buttons when stacked.
+  *  - If multiple buttons are horizontally aligned, there should be a 20px margin separating them.
+  *  - If multiple buttons are stacked vertically, there should be a 10px margin separating them.
  */
 
 const type = { PRIMARY: 'primary', SECONDARY: 'secondary', TERTIARY: 'tertiary' };
