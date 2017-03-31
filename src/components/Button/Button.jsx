@@ -6,7 +6,7 @@ import Loader from '../Loader/Loader.jsx';
 import style from './style.scss';
 
 const type = { PRIMARY: 'primary', SECONDARY: 'secondary' };
-// const type = { PRIMARY: 'primary', SECONDARY: 'secondary', TERTIARY: 'tertiary' };
+const type = { PRIMARY: 'primary', SECONDARY: 'secondary', TERTIARY: 'tertiary' };
 
 class Button extends React.Component {
 
@@ -14,7 +14,7 @@ class Button extends React.Component {
     const buttonStyle = cx(style.button, {
       [style.primary]: this.props.type === type.PRIMARY,
       [style.secondary]: this.props.type === type.SECONDARY,
-      // [style.tertiary]: this.props.type === type.TERTIARY,
+      [style.tertiary]: this.props.type === type.TERTIARY,
       [style.loading]: this.props.loading,
       [style.disabled]: this.props.disabled,
     });
@@ -22,7 +22,7 @@ class Button extends React.Component {
     let loaderDotStyle;
     if (
       this.props.type === type.SECONDARY
-      // || this.props.type === type.TERTIARY
+      || this.props.type === type.TERTIARY
     ) {
       loaderDotStyle = { backgroundColor: '#000', opacity: '0.1' };
     }
