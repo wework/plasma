@@ -5,7 +5,6 @@ import Base from '../Base.jsx';
 import Loader from '../Loader/Loader.jsx';
 import style from './style.scss';
 
-const type = { PRIMARY: 'primary', SECONDARY: 'secondary' };
 const type = { PRIMARY: 'primary', SECONDARY: 'secondary', TERTIARY: 'tertiary' };
 
 class Button extends React.Component {
