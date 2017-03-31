@@ -1,5 +1,7 @@
 (function() {
   return {
-    'Default': <Button>Click me</Button>
+    'Primary': <Button>Done</Button>,
+    'Secondary': <Button type='secondary'>Done</Button>,
+    'Primary loading': <Button loading>Done</Button>,
   };
 })
