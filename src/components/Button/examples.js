@@ -6,5 +6,8 @@
     'Secondary': <Button type='secondary'>Done</Button>,
     'Secondary disabled': <Button type='secondary' disabled>Done</Button>,
     'Secondary loading': <Button type='secondary' loading>Done</Button>,
+    'Tertiary': <Button type='tertiary'>Done</Button>,
+    'Tertiary disabled': <Button type='tertiary' disabled>Done</Button>,
+    'Tertiary loading': <Button type='tertiary' loading>Done</Button>,
   };
 })
