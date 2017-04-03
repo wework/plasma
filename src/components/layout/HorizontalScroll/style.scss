@@ -9,5 +9,6 @@
 .content {
   white-space: nowrap;
   width: 100%;
-  flex-direction: 'row';
+  display: flex;
+  flex-direction: row;
 }
