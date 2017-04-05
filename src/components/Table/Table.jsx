@@ -144,9 +144,9 @@ class Table extends React.Component {
 
   renderHeader(opts = {}) {
     const headerComponents = _.map(this.props.headerData, (value, index) => {
-      let colStyles = {};
+      let colStyles = { width: value.width };
       const key = value.key;
-      if (opts.sticky && this.state.columnSizes[key]) {
+      if (opts.sticky && this.state.columnSizes[key] && !value.width) {
         colStyles = { width: this.state.columnSizes[key].width };
       }
       const cellStyle = cx(style.cell, { [style.sortableColumn]: value.sortable });

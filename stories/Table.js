@@ -68,3 +68,31 @@ storiesOf('Table', module).add('with a disabled row', () => {
     />
   );
 });
+
+storiesOf('Table', module).add('with explicit column width', () => {
+  let items = [];
+  _.times(100, () => {
+    items.push(
+      {
+        header1: 'Text text text',
+        header2: 'Text text text',
+        header3: 'Text text text',
+        header4: 'Text text text',
+        header5: 'Text text text',
+      }
+    );
+  });
+
+  headerData[4].width = 500;
+
+  return (
+    <Table
+      empty={false}
+      emptyText="The table is empty."
+      headerData={headerData}
+      items={items}
+      loading={false}
+      stickAt={0}
+    />
+  );
+});
