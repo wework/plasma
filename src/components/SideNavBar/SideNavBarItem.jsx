@@ -1,27 +1,9 @@
-import React from 'react';
+import React, { Component, PropTypes } from 'react';
 import cn from 'classnames';
 import Base from '../Base.jsx';
 import style from './style.scss';
 
-class SideNavBarItem extends React.Component {
-  render() {
-    const { children, darkBg, onClick, selected } = this.props;
-
-    const wrapperClasses = cn(style.itemWrapper, {
-      [style.darkBg]: darkBg,
-      [style.selected]: selected,
-    });
-
-    return (
-      <div
-        className={wrapperClasses}
-        onClick={onClick}
-      >
-        { children || this.renderIconAndLabel() }
-      </div>
-    );
-  }
-
+class SideNavBarItem extends Component {
   renderIconAndLabel() {
     const { icon, iconSize, iconStyle, label } = this.props;
 
@@ -45,6 +27,24 @@ class SideNavBarItem extends React.Component {
       </div>
     )
   }
+
+  render() {
+    const { children, darkBg, onClick, selected } = this.props;
+
+    const wrapperClasses = cn(style.itemWrapper, {
+      [style.darkBg]: darkBg,
+      [style.selected]: selected,
+    });
+
+    return (
+      <div
+        className={wrapperClasses}
+        onClick={onClick}
+      >
+        { children || this.renderIconAndLabel() }
+      </div>
+    );
+  }
 }
 
 SideNavBarItem.defaultProps = {
@@ -57,17 +57,20 @@ SideNavBarItem.propTypes = {
   /**
   * URL to an image
   */
-  icon: React.PropTypes.string,
-  iconSize: React.PropTypes.number,
+  icon: PropTypes.string,
+  iconSize: PropTypes.number,
   /**
   * Only override iconStyle when absolutely necessary.
   * Prefer `iconSize`.
   */
-  iconStyle: React.PropTypes.object,
-  label: React.PropTypes.string,
-  onClick: React.PropTypes.func,
-  selected: React.PropTypes.bool,
-  children: React.PropTypes.node,
+  iconStyle: PropTypes.object,
+  label: PropTypes.oneOfType([
+    PropTypes.string,
+    PropTypes.node,
+  ]).isRequired,
+  onClick: PropTypes.func,
+  selected: PropTypes.bool,
+  children: PropTypes.node,
 };
 
 SideNavBarItem.displayName = 'SideNavBarItem';
