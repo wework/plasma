@@ -78,18 +78,19 @@ storiesOf('Table', module).add('with explicit column width', () => {
         header2: 'Text text text',
         header3: 'Text text text',
         header4: 'Text text text',
-        header5: 'Text text text',
+        header5: 'sooooo much text omg omg omg',
       }
     );
   });
 
-  headerData[4].width = 500;
+  const hd = _.cloneDeep(headerData);
+  hd[4].width = 500;
 
   return (
     <Table
       empty={false}
       emptyText="The table is empty."
-      headerData={headerData}
+      headerData={hd}
       items={items}
       loading={false}
       stickAt={0}

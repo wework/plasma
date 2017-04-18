@@ -1,16 +1,14 @@
 // Whites
-$cWhite0: #FFFFFF;
-$cWhite100: #FFFEF2;
-$cWhite150: #FCF9EB;
-$cWhite200: #ECE9D9;
-$cWhite300: #D7D4C4;
+$cWhite: #FFFFFF;
+$cWhite300: #ECE9D9;
 
-// Grays
-$cGray100: #282829;
-$cGray200: #575757;
-$cGray300: #C2C2C2;
-$cGray400: #E0E0E0;
-$cGray700: #FAF9F8;
+// Blacks
+$cWeWorkBlack: #252729;
+$cGray100: #AAAAAA;
+$cGray200: #C2C2C2;
+$cGray300: #E0E0E0;
+$cGray400: #EAEBEC;
+$cGray600: #FAF9F8;
 
 // Purples
 $cPurple100: #2B3445;
@@ -22,13 +20,9 @@ $cLinkBlue: #5499C3;
 $cWarningRed: #D86262;
 
 // Interface
-
 $cBorder: $cGray400;
 $cBorderDark: $cGray300;
-$cBackground: $cGray700;
+$cBackground: $cGray600;
 
-$cTextPrimary: $cGray100;
-$cTextSecondary: $cGray300;
-
-$cButtonDisabledBg: $cGray700;
+$cButtonDisabledBg: $cGray600;
 $cButtonDisabledLabel: $cGray300;

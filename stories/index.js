@@ -6,3 +6,5 @@ import FormField from './FormField';
 import Label from './Label';
 import TextInput from './TextInput';
 import Table from './Table';
+import Checkbox from './Checkbox';
+import DatePicker from './DatePicker';

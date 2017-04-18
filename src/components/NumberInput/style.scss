@@ -2,9 +2,9 @@
 
 .input {
   @extend %type--body;
-  @extend %input--base;
+  @extend %input;
   &:hover {
-    border-color: $cWhite200;
+    border-color: $cWhite300;
   }
   &:focus {
     border-color: $cGray300;
@@ -29,12 +29,12 @@
   width: 15px;
   border-top-right-radius: $inputRadius;
   border-bottom-right-radius: $inputRadius;
-  border-top: 1px solid darken($cWhite200, 15%);
-  border-right: 1px solid darken($cWhite200, 15%);
-  border-bottom: 1px solid darken($cWhite200, 15%);
-  border-left: 1px solid darken($cWhite200, 15%);
-  background-color: $cWhite200;
-  color: $cTextPrimary;
+  border-top: 1px solid darken($cWhite300, 15%);
+  border-right: 1px solid darken($cWhite300, 15%);
+  border-bottom: 1px solid darken($cWhite300, 15%);
+  border-left: 1px solid darken($cWhite300, 15%);
+  background-color: $cWhite300;
+  color: $cWeWorkBlack;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
@@ -54,7 +54,7 @@
     -khtml-user-select: none;
     -webkit-user-select: none;
     &:active {
-      background-color: darken($cWhite200, 5%);
+      background-color: darken($cWhite300, 5%);
     }
   }
 }

@@ -1,13 +1,12 @@
 $inputRadius: 2px;
 
-%input--base {
+%input--wrapper {
   font-size: 13px;
   box-sizing: border-box;
   height: 40px;
-  padding-left: 10px;
-  padding-right: 10px;
+  padding: 0;
   width: 100%;
-  border: 1px solid $cBorder;
+  border: 1px solid $cGray300;
   outline: none;
   display: flex;
   flex-grow: 1;
@@ -15,24 +14,72 @@ $inputRadius: 2px;
   justify-content: flex-start;
   border-radius: $inputRadius;
   text-rendering: geometricPrecision;
+}
+
+%input--wrapper--hover {
+  border: 1px solid $cGray200;
+}
+
+%input--wrapper--focus {
+  border: 1px solid $cGray200;
+  box-shadow: 0 0 4px 1px $cGray300;
+}
+
+%input--wrapper--disabled {
+  cursor: not-allowed;
+  color: $cGray400;
+  border: 1px solid $cGray400;
+  &:hover {
+    border: 1px solid $cGray400;
+  }
+}
+
+%input--wrapper--large {
+  font-size: 16px;
+  height: 50px;
+}
+
+%input--wrapper--error {
+  border: 1px solid $cWarningRed;
+}
+
+%input {
+  color: $cWeWorkBlack;
+  background-color: $cWhite;
+  padding: 0 10px;
   &::-webkit-input-placeholder { /* Chrome/Opera/Safari */
-    color: $cGray300;
+    color: $cGray200;
   }
   &::-moz-placeholder { /* Firefox 19+ */
-    color: $cGray300;
+    color: $cGray200;
   }
   &:-ms-input-placeholder { /* IE 10+ */
-    color: $cGray300;
+    color: $cGray200;
   }
   &:-moz-placeholder { /* Firefox 18- */
-    color: $cGray300;
+    color: $cGray200;
   }
 }
 
 %input--disabled {
   cursor: not-allowed;
+  color: $cGray400;
+  &::-webkit-input-placeholder { /* Chrome/Opera/Safari */
+    color: $cGray400;
+  }
+  &::-moz-placeholder { /* Firefox 19+ */
+    color: $cGray400;
+  }
+  &:-ms-input-placeholder { /* IE 10+ */
+    color: $cGray400;
+  }
+  &:-moz-placeholder { /* Firefox 18- */
+    color: $cGray400;
+  }
 }
 
-%input--disabled-wrapper {
-  opacity: 0.5;
+%input--large {
+  padding: 0 15px;
+  font-size: 16px;
 }
+

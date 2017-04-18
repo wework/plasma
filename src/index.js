@@ -19,6 +19,7 @@ import Tooltip from './components/Tooltip/Tooltip.jsx';
 import TopNavBar from './components/TopNavBar/TopNavBar.jsx';
 import SideNavBar from './components/SideNavBar/SideNavBar.jsx';
 import SideNavBarItem from './components/SideNavBar/SideNavBarItem.jsx';
+import DatePicker from './components/DatePicker/DatePicker.jsx';
 
 // Page imports
 import Group from './components/layout/Group/Group.jsx';
@@ -46,6 +47,7 @@ Plasma.RadioButton = RadioButton;
 Plasma.Rule = Rule;
 Plasma.Loader = Loader;
 Plasma.DropDownMenu = DropDownMenu;
+Plasma.DatePicker = DatePicker;
 
 Plasma.FormField = FormField;
 Plasma.Tooltip = Tooltip;
@@ -94,4 +96,5 @@ export {
   NumberInput,
   Loader,
   DropDownMenu,
+  DatePicker,
 };

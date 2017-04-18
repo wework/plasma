@@ -12,13 +12,13 @@ $typeBase: 13px;
 
 %type--tiny {
   @extend %fontFamily--body;
-  color: $cTextPrimary;
+  color: $cWeWorkBlack;
   font-size: 11px;
 }
 
 %type--giant {
   @extend %fontFamily--body;
-  color: $cTextPrimary;
+  color: $cWeWorkBlack;
   font-size: 80px;
   line-height: 80px;
   letter-spacing: -3px;
@@ -26,20 +26,20 @@ $typeBase: 13px;
 
 %type--label {
   @extend %fontFamily--body;
-  color: $cTextPrimary;
+  color: $cWeWorkBlack;
   font-size: 13px;
 }
 
 %type--body {
   @extend %fontFamily--body;
   font-size: $typeBase;
-  color: $cTextPrimary;
+  color: $cWeWorkBlack;
   line-height: 20px;
 }
 
 %type--headline1 {
   @extend %fontFamily--headline;
-  color: $cTextPrimary;
+  color: $cWeWorkBlack;
   font-weight: bold;
   font-size: 40px;
   letter-spacing: -1px;
@@ -48,33 +48,33 @@ $typeBase: 13px;
 %type--headline2 {
   @extend %fontFamily--headline;
   font-weight: bold;
-  color: $cTextPrimary;
+  color: $cWeWorkBlack;
   font-size: 30px;
 }
 
 %type--headline3 {
   @extend %fontFamily--headline;
-  color: $cTextPrimary;
+  color: $cWeWorkBlack;
   font-size: 18px;
 }
 
 %type--headline4 {
   @extend %fontFamily--body;
   font-weight: bold;
-  color: $cTextPrimary;
+  color: $cWeWorkBlack;
   font-size: 24px;
 }
 
 %type--headline5 {
   @extend %fontFamily--body;
   font-weight: bold;
-  color: $cTextPrimary;
+  color: $cWeWorkBlack;
   font-size: 18px;
 }
 
 %type--headline6 {
   @extend %fontFamily--body;
   font-weight: bold;
-  color: $cTextPrimary;
+  color: $cWeWorkBlack;
   font-size: 16px;
 }

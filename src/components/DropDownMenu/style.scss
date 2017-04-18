@@ -42,7 +42,7 @@
   box-sizing: border-box;
   width: 40px;
   height: 35px;
-  background-color: $cWhite0;
+  background-color: $cWhite;
   box-shadow: 0 2px 4px 0 rgba(0,0,0,0.2);
   display: flex;
   justify-content: center;
@@ -56,7 +56,7 @@
 .revealableList {
   cursor: pointer;
   box-sizing: border-box;
-  background-color: $cWhite0;
+  background-color: $cWhite;
   position: relative;
   z-index: 1;
   padding: 10px 0;
@@ -68,11 +68,11 @@
 .revealableListItem {
   @extend %type--body;
   box-sizing: border-box;
-  background-color: $cWhite0;
+  background-color: $cWhite;
   list-style: none;
   padding: 5px 10px;
   cursor: pointer;
   &:hover {
-    background-color: $cGray700;
+    background-color: $cGray600;
   }
 }

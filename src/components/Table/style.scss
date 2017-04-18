@@ -6,6 +6,8 @@
   display: table;
   border: none;
   margin-bottom: $space20;
+  border-collapse: collapse;
+  border-spacing: 0;
 }
 
 .sticky {
@@ -19,6 +21,8 @@
     position: absolute;
     bottom: 0;
     left: 0;
+    border-collapse: collapse;
+    border-spacing: 0;
   }
 }
 
@@ -32,7 +36,7 @@
   border: 1px solid $cBorder;
   &.header {
     box-sizing: border-box;
-    background: $cWhite0;
+    background: $cWhite;
     border: 1px solid $cBorder;
     border-bottom: 1px solid $cBorderDark;
     border-radius: 3px 0 0 3px;
@@ -55,7 +59,7 @@
       }
       &:active {
         .sortableColumnHighlight {
-          background-color: darken($cWhite200, 5%);
+          background-color: darken($cWhite300, 5%);
         }
       }
       .sortableColumnHighlightSelected {
@@ -67,7 +71,7 @@
 }
 
 .rowDisabled {
-  background: $cGray700;
+  background: $cGray600;
 }
 
 .clickable {
@@ -76,7 +80,7 @@
 
 .highlightable {
   &:hover {
-    background: $cWhite100;
+    background: $cWhite;
   }
 }
 
@@ -87,7 +91,7 @@
   left: 0;
   right: 0;
   height: 3px;
-  background-color: $cWhite200;
+  background-color: $cWhite300;
 }
 
 .cell {

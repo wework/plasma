@@ -21,6 +21,7 @@ $buttonRadius: 5px;
 }
 
 %button--primary {
+  color: $cWeWorkBlack;
   background-color: $cBrandYellow;
   border: 1px solid darken($cBrandYellow, 15%);
   &:hover {
@@ -34,26 +35,28 @@ $buttonRadius: 5px;
 }
 
 %button--secondary {
-  background-color: $cWhite200;
-  border: 1px solid darken($cWhite200, 10%);
+  color: $cWeWorkBlack;
+  background-color: $cWhite300;
+  border: 1px solid darken($cWhite300, 10%);
   &:hover {
-    background-color: darken($cWhite200, 5%);
-    border-color: darken($cWhite200, 20%)
+    background-color: darken($cWhite300, 5%);
+    border-color: darken($cWhite300, 20%)
   }
   &:active {
-    background-color: darken($cWhite200, 10%);
-    border-color: darken($cWhite200, 30%)
+    background-color: darken($cWhite300, 10%);
+    border-color: darken($cWhite300, 30%)
   }
 }
 
 %button--tertiary {
-  background-color: none;
+  color: $cWeWorkBlack;
+  background-color: transparent;
   border: 1px solid $cGray100;
   &:hover {
-    background-color: rgba(0, 0, 0, 0.05);
+    background-color: rgba(37, 39, 41, 0.05);
   }
   &:active {
-    background-color: rgba(0, 0, 0, 0.1);
+    background-color: rgba(37, 39, 41, 0.1);
   }
 }
 

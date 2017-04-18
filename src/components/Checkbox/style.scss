@@ -7,6 +7,11 @@
   justify-content: flex-start;
   align-items: center;
   cursor: pointer;
+  &:hover {
+    .checkbox {
+      border: 1px solid $cGray200;
+    }
+  }
 }
 
 .original {
@@ -17,7 +22,8 @@
 
   &:checked ~ .checkbox {
     &::before {
-      content: url('data:image/svg+xml;utf8,<svg width="12px" height="10px" viewBox="2 5 12 10" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"><defs></defs><polygon id="Rectangle-34" stroke="none" fill="#282829" fill-rule="evenodd" points="6 15 2 10.8333333 3.6 9.16666667 6 11.6666667 12.4 5 14 6.66666667"></polygon></svg>');
+      // content: url('data:image/svg+xml;utf8,<svg width="12px" height="10px" viewBox="2 5 12 10" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"><defs></defs><polygon id="Rectangle-34" stroke="none" fill="#282829" fill-rule="evenodd" points="6 15 2 10.8333333 3.6 9.16666667 6 11.6666667 12.4 5 14 6.66666667"></polygon></svg>');
+      content: url('data:image/svg+xml;utf8,<svg width="12px" height="10px" viewBox="0 0 12 10" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"><!-- Generator: Sketch 43.1 (39012) - http://www.bohemiancoding.com/sketch --><title>checked</title><desc>Created with Sketch.</desc><defs></defs><g id="Symbols" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd"><g id="checkbox-/-selected" transform="translate(-2.000000, -8.000000)" fill="#252729"><polygon id="checked" points="6 18 2 13.8333333 3.6 12.1666667 6 14.6666667 12.4 8 14 9.66666667"></polygon></g></g></svg>');
     }
   }
 }
@@ -32,27 +38,32 @@
     &::before {
       display: block;
       width: 8px;
-      height: 2.5px;
-      background: $cGray100;
-      margin: 5px auto;
+      height: 2px;
+      background: $cWeWorkBlack;
+      position: relative;
+      top: 0;
     }
   }
 }
 
 .checkbox {
-  width: 14px;
-  height: 14px;
-  background: none;
+  width: 16px;
+  height: 16px;
+  background: $cWhite;
   border: 1px solid $cBorder;
   border-radius: 3px;
-  background: $cWhite0;
+  background: $cWhite;
   transition: border-color 0.1s ease-out;
+  box-sizing: border-box;
+  display: flex;
+  justify-content: center;
+  align-items: center;
   &::before {
     display: block;
     content: '';
     background: none;
-    width: 14px;
-    margin-top: -4px;
+    width: 12px;
+    height: 10px;
   }
 }
 

@@ -12,8 +12,14 @@ storiesOf('Button', module)
   .add('tertiary', () => (
     <Button type="tertiary" onClick={action('clicked')}>Hello Button</Button>
   ))
-  .add('loading', () => (
+  .add('primary loading', () => (
     <Button type="primary" loading onClick={action('clicked')}>Hello Button</Button>
+  ))
+  .add('secondary loading', () => (
+    <Button type="secondary" loading onClick={action('clicked')}>Hello Button</Button>
+  ))
+  .add('tertiary loading', () => (
+    <Button type="tertiary" loading onClick={action('clicked')}>Hello Button</Button>
   ))
   .add('disabled', () => (
     <Button type="primary" disabled onClick={action('clicked')}>Hello Button</Button>

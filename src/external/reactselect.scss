@@ -9,7 +9,7 @@ $select-input-border-width:        1px !default;
 $select-input-height:              40px !default;
 $select-input-internal-height:     ($select-input-height - ($select-input-border-width * 2)) !default;
 $select-input-placeholder:         #aaa !default;
-$select-text-color:                $cTextPrimary !default;
+$select-text-color:                $cWeWorkBlack !default;
 $select-link-hover-color:          $select-input-border-focus !default;
 
 $select-padding-vertical:          8px !default;
@@ -21,10 +21,10 @@ $select-menu-max-height:           200px !default;
 
 $select-option-color:              lighten($select-text-color, 20%) !default;
 $select-option-bg:                 $select-input-bg !default;
-$select-option-focused-color:      $cTextPrimary !default;
-$select-option-focused-bg:         $cGray700 !default;
+$select-option-focused-color:      $cWeWorkBlack !default;
+$select-option-focused-bg:         $cGray600 !default;
 $select-option-selected-color:     $select-text-color !default;
-$select-option-selected-bg:        $cWhite0 !default;
+$select-option-selected-bg:        $cWhite !default;
 $select-option-disabled-color:     lighten($select-text-color, 60%) !default;
 
 $select-noresults-color:           lighten($select-text-color, 40%) !default;
@@ -51,7 +51,7 @@ $select-item-gutter:               4px !default;
 $select-item-padding-vertical:     8px !default;
 $select-item-padding-horizontal:   8px !default;
 $select-item-font-size:            $typeBase !default;
-$select-item-color:                $cWhite0 !default;
+$select-item-color:                $cWhite !default;
 $select-item-bg:                   $cPurple200 !default;
 $select-item-border-width:         0;
 $select-item-border-color:         darken($select-item-bg, 10%) !default;
