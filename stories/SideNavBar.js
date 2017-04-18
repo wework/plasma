@@ -12,12 +12,17 @@ storiesOf('SideNavBar', module).add('default', () => {
         style={{ width: 50, height: 'auto', marginBottom: 16 }}
         src="http://spacestation.wework.com/images/weworkLight.svg"
       />
-      <div style={{ display: 'block', width: '100%' }}>
+      <div>
         <SideNavBarItem
           label="Dark Bg"
           onClick={() => {}}
           selected={false}
           darkBg
+        />
+        <SideNavBarItem
+          label={<div><img src="http://placehold.it/10x12" /> Node</div>}
+          onClick={() => {}}
+          selected={false}
         />
         <SideNavBarItem
           icon="http://placehold.it/24x24"
