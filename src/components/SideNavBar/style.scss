@@ -1,6 +1,12 @@
 @import '../../styles/base';
 
+.wrapper, .itemWrapper {
+  width: 100px;
+}
+
 .wrapper {
+  display: flex;
+  flex: 1;
   background: $cPurple100;
   @extend %type--tiny;
   color: rgba(255,255,255,0.8);
@@ -10,14 +16,11 @@
   justify-content: flex-start;
   padding-top: 8px;
   height: 100%;
-  width: 100px;
   box-sizing: border-box;
 }
 
 .itemWrapper {
-  height: 70px;
   align-self: flex-start;
-  width: 100%;
   box-sizing: border-box;
   display: flex;
   padding: $space10;

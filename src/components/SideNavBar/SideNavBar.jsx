@@ -1,9 +1,9 @@
-import React from 'react';
+import React, { Component, PropTypes } from 'react';
 
 import Base from '../Base.jsx';
 import style from './style.scss';
 
-class SideNavBar extends React.Component {
+class SideNavBar extends Component {
   render() {
     return (
       <div className={style.wrapper}>
@@ -13,12 +13,8 @@ class SideNavBar extends React.Component {
   }
 }
 
-SideNavBar.defaultProps = {
-  children: 'Lorem ipsum',
-};
-
 SideNavBar.propTypes = {
-  children: React.PropTypes.node.isRequired,
+  children: PropTypes.node.isRequired,
 };
 
 SideNavBar.displayName = 'SideNavBar';
