@@ -12,43 +12,41 @@ storiesOf('SideNavBar', module).add('default', () => {
         style={{ width: 50, height: 'auto', marginBottom: 16 }}
         src="http://spacestation.wework.com/images/weworkLight.svg"
       />
-      <div>
-        <SideNavBarItem
-          label="Dark Bg"
-          onClick={() => {}}
-          selected={false}
-          darkBg
-        />
-        <SideNavBarItem
-          label={<div><img src="http://placehold.it/10x12" /> Node</div>}
-          onClick={() => {}}
-          selected={false}
-        />
-        <SideNavBarItem
-          icon="http://placehold.it/24x24"
-          label="Label 1"
-          onClick={() => {}}
-          selected={false}
-        />
-        <SideNavBarItem
-          icon="http://placehold.it/24x24"
-          label="Label 2"
-          onClick={() => {}}
-          selected
-        />
-        <SideNavBarItem
-          icon="http://placehold.it/24x24"
-          label="Label 3"
-          onClick={() => {}}
-          selected={false}
-        />
-        <SideNavBarItem
-          icon="http://placehold.it/24x24"
-          label="Label 4"
-          onClick={() => {}}
-          selected={false}
-        />
-      </div>
+      <SideNavBarItem
+        label="Dark Bg"
+        onClick={() => {}}
+        selected={false}
+        darkBg
+      />
+      <SideNavBarItem
+        label={<div><img src="http://placehold.it/10x12" /> Node</div>}
+        onClick={() => {}}
+        selected={false}
+      />
+      <SideNavBarItem
+        icon="http://placehold.it/24x24"
+        label="Label 1"
+        onClick={() => {}}
+        selected={false}
+      />
+      <SideNavBarItem
+        icon="http://placehold.it/24x24"
+        label="Label 2"
+        onClick={() => {}}
+        selected
+      />
+      <SideNavBarItem
+        icon="http://placehold.it/24x24"
+        label="Label 3"
+        onClick={() => {}}
+        selected={false}
+      />
+      <SideNavBarItem
+        icon="http://placehold.it/24x24"
+        label="Label 4"
+        onClick={() => {}}
+        selected={false}
+      />
     </SideNavBar>
   );
 });
