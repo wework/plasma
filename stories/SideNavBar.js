@@ -19,10 +19,13 @@ storiesOf('SideNavBar', module).add('default', () => {
         darkBg
       />
       <SideNavBarItem
-        label={<div><img src="http://placehold.it/10x12" /> Node</div>}
         onClick={() => {}}
         selected={false}
-      />
+      >
+        <div>
+          <img src="http://placehold.it/10x12" /> Node
+        </div>
+      </SideNavBarItem>
       <SideNavBarItem
         icon="http://placehold.it/24x24"
         label="Label 1"

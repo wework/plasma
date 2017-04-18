@@ -64,10 +64,7 @@ SideNavBarItem.propTypes = {
   * Prefer `iconSize`.
   */
   iconStyle: PropTypes.object,
-  label: PropTypes.oneOfType([
-    PropTypes.string,
-    PropTypes.node,
-  ]).isRequired,
+  label: PropTypes.string,
   onClick: PropTypes.func,
   selected: PropTypes.bool,
   children: PropTypes.node,
