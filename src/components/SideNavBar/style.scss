@@ -30,25 +30,21 @@
   position: relative;
   border-bottom: 1px solid rgba(0,0,0,0.3);
   transition: all 0.3s;
-  &:hover {
-    background: darken($cPurple100, 5%);
+
+  &:hover, &:active, &:focus {
+    background: $cPurple200;
   }
-  &:active {
-    background: darken($cPurple100, 10%);
-  }
+
   .icon {
     margin-bottom: 5px;
   }
-  .label {
-    
-  }
 }
 
-.itemWrapperSelected {
-  position: absolute;
-  left: 0;
-  top: 0;
-  bottom: 0;
-  width: 5px;
-  background-color: $cPurple200;
+.darkBg {
+  background: fade-out(#000, 0.9);
+}
+
+.selected {
+  background: fade-out($cPurple200, 0.9);
+  border-left: 5px solid $cPurple200;
 }

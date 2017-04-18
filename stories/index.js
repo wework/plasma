@@ -6,3 +6,4 @@ import FormField from './FormField';
 import Label from './Label';
 import TextInput from './TextInput';
 import Table from './Table';
+import SideNavBar from './SideNavBar';
