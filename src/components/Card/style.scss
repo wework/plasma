@@ -11,20 +11,16 @@
     transition: max-height 0.2s, opacity 0.2s;
   }
   .default {
-    overflow: auto;
     opacity: 1;
   }
   .expanded {
-    overflow: hidden;
     opacity: 0;
   }
   &.isExpanded {
     .default {
-      overflow: hidden;
       opacity: 0;
     }
     .expanded {
-      overflow: auto;
       opacity: 1;
     }
   }

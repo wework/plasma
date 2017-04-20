@@ -2,7 +2,6 @@
 
 .wrapper {
   @extend %input--wrapper;
-  position: relative;
   display: flex;
   flex-direction: row;
   &:hover {

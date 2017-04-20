@@ -53,3 +53,11 @@ storiesOf('TextInput', module).add('large', () => (
 storiesOf('TextInput', module).add('large prefix', () => (
   <TextInput prefix='http://' size='large' onChange={action('changed')} />
 ));
+
+storiesOf('TextInput', module).add('clipping parent', () => (
+  <div>
+    <div style={{ overflow: 'hidden', width: 100, height: 100 }}>
+      <TextInput />
+    </div>
+  </div>
+));

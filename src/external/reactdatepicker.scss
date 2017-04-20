@@ -1,12 +1,5 @@
 @import '../styles/base';
 
-input {
-  border: 0;
-  outline: none;
-  box-sizing: border-box;
-  flex-grow: 1;
-}
-
 :global .react-datepicker__tether-element-attached-top .react-datepicker__triangle, :global .react-datepicker__tether-element-attached-bottom .react-datepicker__triangle, :global .react-datepicker__year-read-view--down-arrow, :global .react-datepicker__month-read-view--down-arrow {
   margin-left: -8px;
   position: absolute; }
@@ -21,17 +14,17 @@ input {
     z-index: -1;
     border-width: 8px;
     left: -8px;
-    border-bottom-color: #aeaeae; }
+    border-bottom-color: $cGray400; }
 
 :global .react-datepicker__tether-element-attached-top .react-datepicker__triangle {
   top: 0;
   margin-top: -8px; }
   :global .react-datepicker__tether-element-attached-top .react-datepicker__triangle, :global .react-datepicker__tether-element-attached-top .react-datepicker__triangle::before {
     border-top: none;
-    border-bottom-color: #f0f0f0; }
+    border-bottom-color: $cGray600; }
   :global .react-datepicker__tether-element-attached-top .react-datepicker__triangle::before {
     top: -1px;
-    border-bottom-color: #aeaeae; }
+    border-bottom-color: $cGray400; }
 
 :global .react-datepicker__tether-element-attached-bottom .react-datepicker__triangle, :global .react-datepicker__year-read-view--down-arrow, :global .react-datepicker__month-read-view--down-arrow {
   bottom: 0;
@@ -41,17 +34,18 @@ input {
     border-top-color: #fff; }
   :global .react-datepicker__tether-element-attached-bottom .react-datepicker__triangle::before, :global .react-datepicker__year-read-view--down-arrow::before, :global .react-datepicker__month-read-view--down-arrow::before {
     bottom: -1px;
-    border-top-color: #aeaeae; }
+    border-top-color: $cGray400; }
 
 :global .react-datepicker {
   font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
   font-size: 0.8rem;
   background-color: #fff;
   color: #000;
-  border: 1px solid #aeaeae;
+  border: 1px solid $cGray400;
   border-radius: 0.3rem;
   display: inline-block;
   position: relative;
+  box-shadow: 0 3px 5px rgba(0,0,0,0.05);
 }
 
 :global .react-datepicker__triangle {
@@ -63,8 +57,7 @@ input {
 
 :global .react-datepicker__header {
   text-align: center;
-  background-color: #f0f0f0;
-  border-bottom: 1px solid #aeaeae;
+  background-color: $cGray600;
   border-top-left-radius: 0.3rem;
   border-top-right-radius: 0.3rem;
   padding-top: 8px;
@@ -184,6 +177,41 @@ input {
   position: relative;
   display: flex;
   @extend %input--wrapper;
+  color: $cWeWorkBlack;
+  background-color: $cWhite;
+  padding: 0 10px;
+  &::-webkit-input-placeholder { /* Chrome/Opera/Safari */
+    color: $cGray200;
+  }
+  &::-moz-placeholder { /* Firefox 19+ */
+    color: $cGray200;
+  }
+  &:-ms-input-placeholder { /* IE 10+ */
+    color: $cGray200;
+  }
+  &:-moz-placeholder { /* Firefox 18- */
+    color: $cGray200;
+  }
+  &:hover {
+    border: 1px solid $cGray200;
+  }
+  &::before {
+    content: '';
+    width: 30px;
+    height: 30px;
+    background: url(data:image/svg+xml,%0A%3Csvg%20width%3D%2230px%22%20height%3D%2230px%22%20viewBox%3D%220%200%2030%2030%22%20version%3D%221.1%22%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%20xmlns%3Axlink%3D%22http%3A//www.w3.org/1999/xlink%22%3E%0A%20%20%20%20%3C%21--%20Generator%3A%20Sketch%2043.1%20%2839012%29%20-%20http%3A//www.bohemiancoding.com/sketch%20--%3E%0A%20%20%20%20%3Cdesc%3ECreated%20with%20Sketch.%3C/desc%3E%0A%20%20%20%20%3Cdefs%3E%3C/defs%3E%0A%20%20%20%20%3Cg%20id%3D%22Symbols%22%20stroke%3D%22none%22%20stroke-width%3D%221%22%20fill%3D%22none%22%20fill-rule%3D%22evenodd%22%3E%0A%20%20%20%20%20%20%20%20%3Cg%20id%3D%22date-input-/-filled%22%20transform%3D%22translate%28-5.000000%2C%20-30.000000%29%22%3E%0A%20%20%20%20%20%20%20%20%20%20%20%20%3Cg%20id%3D%22icon-/-date%22%20transform%3D%22translate%285.000000%2C%2030.000000%29%22%3E%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%3Crect%20id%3D%22path%22%20fill%3D%22%23FFFFFF%22%20x%3D%220%22%20y%3D%220%22%20width%3D%2230%22%20height%3D%2230%22%3E%3C/rect%3E%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%3Cg%20id%3D%22date%22%20transform%3D%22translate%287.000000%2C%207.000000%29%22%3E%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%3Crect%20id%3D%22Rectangle-7%22%20stroke%3D%22%23C2C2C2%22%20stroke-width%3D%222%22%20x%3D%221%22%20y%3D%223%22%20width%3D%2214%22%20height%3D%2212%22%3E%3C/rect%3E%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%3Crect%20id%3D%22Rectangle-7-Copy%22%20fill%3D%22%23C2C2C2%22%20x%3D%223%22%20y%3D%220%22%20width%3D%223%22%20height%3D%223%22%3E%3C/rect%3E%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%3Crect%20id%3D%22Rectangle-7-Copy-12%22%20fill%3D%22%23C2C2C2%22%20x%3D%220%22%20y%3D%224%22%20width%3D%2216%22%20height%3D%221%22%3E%3C/rect%3E%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%3Crect%20id%3D%22Rectangle-7-Copy-4%22%20fill%3D%22%23C2C2C2%22%20x%3D%227%22%20y%3D%227%22%20width%3D%222%22%20height%3D%222%22%3E%3C/rect%3E%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%3Crect%20id%3D%22Rectangle-7-Copy-5%22%20fill%3D%22%23C2C2C2%22%20x%3D%2210%22%20y%3D%227%22%20width%3D%222%22%20height%3D%222%22%3E%3C/rect%3E%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%3Crect%20id%3D%22Rectangle-7-Copy-8%22%20fill%3D%22%23C2C2C2%22%20x%3D%224%22%20y%3D%2210%22%20width%3D%222%22%20height%3D%222%22%3E%3C/rect%3E%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%3Crect%20id%3D%22Rectangle-7-Copy-7%22%20fill%3D%22%23C2C2C2%22%20x%3D%227%22%20y%3D%2210%22%20width%3D%222%22%20height%3D%222%22%3E%3C/rect%3E%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%3Crect%20id%3D%22Rectangle-7-Copy-6%22%20fill%3D%22%23C2C2C2%22%20x%3D%2210%22%20y%3D%2210%22%20width%3D%222%22%20height%3D%222%22%3E%3C/rect%3E%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%3Crect%20id%3D%22Rectangle-7-Copy-2%22%20fill%3D%22%23C2C2C2%22%20x%3D%2210%22%20y%3D%220%22%20width%3D%223%22%20height%3D%224%22%3E%3C/rect%3E%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%3C/g%3E%0A%20%20%20%20%20%20%20%20%20%20%20%20%3C/g%3E%0A%20%20%20%20%20%20%20%20%3C/g%3E%0A%20%20%20%20%3C/g%3E%0A%3C/svg%3E);
+    position: relative;
+    top: 4px;
+    left: -5px;
+  }
+  input {
+    @extend %fontFamily--body;
+    font-size: 13px;
+    border: 0;
+    outline: none;
+    box-sizing: border-box;
+    flex-grow: 1;
+  }
 }
 
 :global .react-datepicker__year-read-view,
