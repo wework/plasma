@@ -9,3 +9,4 @@ import Table from './Table';
 import Checkbox from './Checkbox';
 import DatePicker from './DatePicker';
 import SideNavBar from './SideNavBar';
+import Search from './Search';

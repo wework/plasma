@@ -20,6 +20,7 @@ import TopNavBar from './components/TopNavBar/TopNavBar.jsx';
 import SideNavBar from './components/SideNavBar/SideNavBar.jsx';
 import SideNavBarItem from './components/SideNavBar/SideNavBarItem.jsx';
 import DatePicker from './components/DatePicker/DatePicker.jsx';
+import Search from './components/Search/Search.jsx';
 
 // Page imports
 import Group from './components/layout/Group/Group.jsx';
@@ -48,6 +49,7 @@ Plasma.Rule = Rule;
 Plasma.Loader = Loader;
 Plasma.DropDownMenu = DropDownMenu;
 Plasma.DatePicker = DatePicker;
+Plasma.Search = Search;
 
 Plasma.FormField = FormField;
 Plasma.Tooltip = Tooltip;
@@ -97,4 +99,5 @@ export {
   Loader,
   DropDownMenu,
   DatePicker,
+  Search,
 };
