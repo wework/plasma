@@ -43,12 +43,14 @@ class Search extends Component {
     return (
       <div className={style.container}>
         <div className={style.inputWrapper}>
+          <span className={style.searchIconContainer}>
+            <img src={iconUrl} />
+          </span>
           <input
             className={style.input}
             disabled={disabled}
             onChange={this.onChange}
             placeholder={placeholder}
-            style={{ backgroundImage: `url(${iconUrl})` }}
             type="text"
             value={this.state.text}
           />

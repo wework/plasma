@@ -12,6 +12,16 @@ storiesOf('Search', module).add('default', () => {
   );
 });
 
+storiesOf('Search', module).add('with a small icon passed in', () => {
+  return (
+    <Search
+      iconUrl="http://placehold.it/16x16"
+      onChange={() => {}}
+      placeholder="Search"
+    />
+  );
+});
+
 storiesOf('Search', module).add('with instruction text', () => {
   return (
     <Search

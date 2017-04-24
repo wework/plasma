@@ -14,15 +14,21 @@
   background-repeat: no-repeat;
 }
 
+.searchIconContainer {
+  position: absolute;
+  display: flex;
+  width: 50px;
+  height: 100%;
+  align-items: center;
+  justify-content: center;
+}
+
 .input {
   flex: 1;
   width: 100%;
   color: $cWeWorkBlack;
   font-size: 13px;
   line-height: 1.4;
-  background-position: 10px center;
-  background-size: 30px 30px;
-  background-repeat: no-repeat;
   border: 1px solid $cGray300;
   border-radius: 2px;
   padding: 10px 10px 10px 50px;
