@@ -18,6 +18,7 @@ module.exports = {
     root: [
       path.resolve('./node_modules'),
     ],
+    extensions: ['', '.js', '.jsx'],
   },
   module: {
     loaders: [
