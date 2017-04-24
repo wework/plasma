@@ -1,0 +1,71 @@
+@import '../../styles/base';
+
+.container {
+  display: flex;
+  flex-flow: column;
+}
+
+.inputWrapper {
+  position: relative;
+  display: flex;
+  flex-flow: row;
+  background-position: right center;
+  background-size: 8px 8px;
+  background-repeat: no-repeat;
+}
+
+.input {
+  flex: 1;
+  color: $cWeWorkBlack;
+  font-size: 13px;
+  line-height: 1.4;
+  background-position: 10px center;
+  background-size: 30px 30px;
+  background-repeat: no-repeat;
+  border: 1px solid $cGray300;
+  border-radius: 2px;
+  padding: 10px 10px 10px 50px;
+
+  &:hover, &:focus {
+    border-color: $cGray200;
+  }
+
+  &:focus {
+    outline: none;
+    box-shadow: 1px 1px 10px $cGray300;
+  }
+
+  &::placeholder {
+    color: $cGray200;
+  }
+
+  &:disabled {
+    &:hover {
+      border: 1px solid $cGray300;
+      cursor: not-allowed;
+    }
+
+    &::placeholder {
+      color: $cGray300;
+    }
+  }
+}
+
+.instructionText {
+  margin: 10px 0;
+  font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  font-size: 11px;
+  color: $cGray200;
+}
+
+.clearableIcon {
+  position: absolute;
+  right: 10px;
+  width: 8px;
+  height: 8px;
+  align-self: center;
+
+  &:hover {
+    cursor: pointer;
+  }
+}
