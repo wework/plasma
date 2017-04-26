@@ -8,21 +8,31 @@ import style from './style.scss';
 class RadioButton extends React.Component {
   render() {
     const id = _.uniqueId('id');
+    const wrapperClasses = cx(style.wrapper, {
+      [style.isLarge]: this.props.isLarge,
+    });
+
     return (
-      <label htmlFor={id} className={cx(style.wrapper)}>
+      <div>
+      <label htmlFor={id} className={wrapperClasses}>
         <input
           className={style.original}
           type="radio"
           id={id}
           name={this.props.name}
+          description={this.props.description}
           onChange={this.props.onChange}
           checked={this.props.checked}
         />
         <div className={style.faux} />
         <div className={style.text}>
-          { this.props.text }
+          <strong>{ this.props.text }</strong>
         </div>
       </label>
+      <span className={style.description}>
+        { this.props.description }
+      </span>
+      </div>
     );
   }
 }
@@ -35,6 +45,8 @@ RadioButton.defaultProps = {
 RadioButton.propTypes = {
   text: React.PropTypes.string.isRequired,
   name: React.PropTypes.string.isRequired,
+  description: React.PropTypes.string,
+  isLarge: React.PropTypes.bool,
   onChange: React.PropTypes.func,
   checked: React.PropTypes.bool,
 };

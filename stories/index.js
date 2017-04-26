@@ -7,6 +7,7 @@ import Label from './Label';
 import TextInput from './TextInput';
 import Table from './Table';
 import Checkbox from './Checkbox';
+import RadioButton from './RadioButton';
 import DatePicker from './DatePicker';
 import SideNavBar from './SideNavBar';
 import Search from './Search';
