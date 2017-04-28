@@ -17,16 +17,16 @@ class Search extends Component {
 
     this.setState({ text: event.target.value });
 
-    onChange();
+    onChange(event);
   }
 
-  onClear() {
+  onClear(event) {
     const { onClear } = this.props;
 
     this.setState({ text: '' });
 
     if (onClear) {
-      return onClear();
+      return onClear(event);
     }
   }
 
