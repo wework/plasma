@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import $ from 'jquery';
 import _ from 'lodash';
 
@@ -36,9 +37,9 @@ HorizontalScroll.defaultProps = {
 };
 
 HorizontalScroll.propTypes = {
-  children: React.PropTypes.node,
-  onScroll: React.PropTypes.func,
-  style: React.PropTypes.object,
+  children: PropTypes.node,
+  onScroll: PropTypes.func,
+  style: PropTypes.object,
 };
 
 HorizontalScroll.displayName = 'HorizontalScroll';

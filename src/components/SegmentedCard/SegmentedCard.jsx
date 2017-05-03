@@ -1,5 +1,5 @@
 import React from 'react';
-
+import PropTypes from 'prop-types';
 import Base from '../Base.jsx';
 import style from './style.scss';
 
@@ -24,8 +24,8 @@ SegmentedCard.defaultProps = {
 };
 
 SegmentedCard.propTypes = {
-  children: React.PropTypes.node.isRequired,
-  style: React.PropTypes.object,
+  children: PropTypes.node.isRequired,
+  style: PropTypes.object,
 };
 
 SegmentedCard.displayName = 'SegmentedCard';

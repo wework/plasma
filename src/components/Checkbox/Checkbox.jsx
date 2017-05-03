@@ -1,6 +1,6 @@
 import _ from 'lodash';
 import React from 'react';
-
+import PropTypes from 'prop-types';
 import Base from '../Base.jsx';
 import style from './style.scss';
 
@@ -37,15 +37,15 @@ Checkbox.defaultProps = {
 };
 
 Checkbox.propTypes = {
-  checked: React.PropTypes.bool,
-  indeterminate: React.PropTypes.bool,
-  text: React.PropTypes.oneOfType([
-    React.PropTypes.string,
-    React.PropTypes.node,
-    React.PropTypes.element,
+  checked: PropTypes.bool,
+  indeterminate: PropTypes.bool,
+  text: PropTypes.oneOfType([
+    PropTypes.string,
+    PropTypes.node,
+    PropTypes.element,
   ]).isRequired,
-  name: React.PropTypes.string.isRequired,
-  onChange: React.PropTypes.func,
+  name: PropTypes.string.isRequired,
+  onChange: PropTypes.func,
 };
 
 Checkbox.displayName = 'Checkbox';

@@ -1,5 +1,5 @@
 import React from 'react';
-
+import PropTypes from 'prop-types';
 import Base from '../Base.jsx';
 import style from './style.scss';
 
@@ -27,10 +27,10 @@ Image.defaultProps = {
 };
 
 Image.propTypes = {
-  style: React.PropTypes.object,
-  imageStyle: React.PropTypes.object,
-  src: React.PropTypes.string,
-  altText: React.PropTypes.string,
+  style: PropTypes.object,
+  imageStyle: PropTypes.object,
+  src: PropTypes.string,
+  altText: PropTypes.string,
 };
 
 Image.displayName = 'Image';

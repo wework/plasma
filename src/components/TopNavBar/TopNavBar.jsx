@@ -1,5 +1,5 @@
 import React from 'react';
-
+import PropTypes from 'prop-types';
 import Base from '../Base.jsx';
 import style from './style.scss';
 
@@ -18,7 +18,7 @@ TopNavBar.defaultProps = {
 };
 
 TopNavBar.propTypes = {
-  children: React.PropTypes.node.isRequired,
+  children: PropTypes.node.isRequired,
 };
 
 TopNavBar.displayName = 'TopNavBar';

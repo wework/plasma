@@ -1,5 +1,5 @@
 import React from 'react';
-
+import PropTypes from 'prop-types';
 import Base from '../Base.jsx';
 import style from './style.scss';
 
@@ -18,7 +18,7 @@ Text.defaultProps = {
 };
 
 Text.propTypes = {
-  style: React.PropTypes.object,
+  style: PropTypes.object,
 }
 
 Text.displayName = 'Text';

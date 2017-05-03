@@ -1,7 +1,7 @@
 import _ from 'lodash';
 import $ from 'jquery';
 import React from 'react';
-
+import PropTypes from 'prop-types';
 import Base from '../../Base.jsx';
 import style from './style.scss';
 
@@ -83,9 +83,9 @@ FixedRight.defaultProps = {
 };
 
 FixedRight.propTypes = {
-  children: React.PropTypes.array.isRequired,
-  stickAt: React.PropTypes.number,
-  fixedContainerStyle: React.PropTypes.object,
+  children: PropTypes.array.isRequired,
+  stickAt: PropTypes.number,
+  fixedContainerStyle: PropTypes.object,
 };
 
 FixedRight.displayName = '!FixedRight';

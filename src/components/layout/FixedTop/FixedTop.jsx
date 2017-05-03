@@ -1,5 +1,5 @@
 import React from 'react';
-
+import PropTypes from 'prop-types';
 import Base from '../../Base.jsx';
 import style from './style.scss';
 
@@ -45,8 +45,8 @@ FixedTop.defaultProps = {
 };
 
 FixedTop.propTypes = {
-  children: React.PropTypes.array.isRequired,
-  backgroundColor: React.PropTypes.string,
+  children: PropTypes.array.isRequired,
+  backgroundColor: PropTypes.string,
 };
 
 FixedTop.displayName = '!FixedTop';

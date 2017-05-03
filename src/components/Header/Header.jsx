@@ -1,6 +1,6 @@
 import cx from 'classnames';
 import React from 'react';
-
+import PropTypes from 'prop-types';
 import Base from '../Base.jsx';
 import style from './style.scss';
 
@@ -29,15 +29,15 @@ class Header extends React.Component {
 }
 
 Header.propTypes = {
-  text: React.PropTypes.string.isRequired,
-  underline: React.PropTypes.bool,
-  h1: React.PropTypes.bool,
-  h2: React.PropTypes.bool,
-  h3: React.PropTypes.bool,
-  h4: React.PropTypes.bool,
-  h5: React.PropTypes.bool,
-  h6: React.PropTypes.bool,
-  style: React.PropTypes.object,
+  text: PropTypes.string.isRequired,
+  underline: PropTypes.bool,
+  h1: PropTypes.bool,
+  h2: PropTypes.bool,
+  h3: PropTypes.bool,
+  h4: PropTypes.bool,
+  h5: PropTypes.bool,
+  h6: PropTypes.bool,
+  style: PropTypes.object,
 };
 
 Header.defaultProps = {

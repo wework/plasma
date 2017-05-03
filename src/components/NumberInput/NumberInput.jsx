@@ -1,6 +1,6 @@
 import _ from 'lodash';
 import React from 'react';
-
+import PropTypes from 'prop-types';
 import Base from '../Base.jsx';
 import style from './style.scss';
 
@@ -61,14 +61,14 @@ class NumberInput extends React.Component {
 }
 
 NumberInput.propTypes = {
-  placeholder: React.PropTypes.string,
-  minValue: React.PropTypes.number,
-  maxValue: React.PropTypes.number,
-  step: React.PropTypes.number,
-  value: React.PropTypes.number,
-  onChange: React.PropTypes.func,
-  onPressIncrement: React.PropTypes.func,
-  onPressDecrement: React.PropTypes.func,
+  placeholder: PropTypes.string,
+  minValue: PropTypes.number,
+  maxValue: PropTypes.number,
+  step: PropTypes.number,
+  value: PropTypes.number,
+  onChange: PropTypes.func,
+  onPressIncrement: PropTypes.func,
+  onPressDecrement: PropTypes.func,
 };
 
 NumberInput.defaultProps = {
