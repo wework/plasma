@@ -11,3 +11,4 @@ import RadioButton from './RadioButton';
 import DatePicker from './DatePicker';
 import SideNavBar from './SideNavBar';
 import Search from './Search';
+import Tabs from './Tabs';

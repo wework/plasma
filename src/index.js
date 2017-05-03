@@ -21,6 +21,7 @@ import SideNavBar from './components/SideNavBar/SideNavBar';
 import SideNavBarItem from './components/SideNavBar/SideNavBarItem';
 import DatePicker from './components/DatePicker/DatePicker';
 import Search from './components/Search/Search';
+import Tabs from './components/Tabs/Tabs';
 
 // Page imports
 import Group from './components/layout/Group/Group';
@@ -53,6 +54,7 @@ Plasma.Search = Search;
 
 Plasma.FormField = FormField;
 Plasma.Tooltip = Tooltip;
+Plasma.Tabs = Tabs;
 
 Plasma.SideNavBar = SideNavBar;
 Plasma.SideNavBarItem = SideNavBarItem;
@@ -85,6 +87,7 @@ export {
   Group,
   FormField,
   Tooltip,
+  Tabs,
   SideNavBar,
   SideNavBarItem,
   Table,
