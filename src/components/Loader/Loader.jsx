@@ -1,6 +1,6 @@
 import cx from 'classnames';
 import React from 'react';
-
+import PropTypes from 'prop-types';
 import Base from '../Base.jsx';
 import style from './style.scss';
 
@@ -32,8 +32,8 @@ class Loader extends React.Component {
 Loader.defaultProps = {};
 
 Loader.propTypes = {
-  style: React.PropTypes.object,
-  dotStyle: React.PropTypes.object,
+  style: PropTypes.object,
+  dotStyle: PropTypes.object,
 };
 
 Loader.displayName = 'Loader';

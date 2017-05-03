@@ -1,5 +1,6 @@
 import _ from 'lodash';
 import React from 'react';
+import PropTypes from 'prop-types';
 import cx from 'classnames';
 
 import Base from '../Base.jsx';
@@ -64,18 +65,18 @@ const TextInput = (
 };
 
 TextInput.propTypes = {
-  placeholder: React.PropTypes.string,
-  value: React.PropTypes.string,
-  onChange: React.PropTypes.func,
-  onFocus: React.PropTypes.func,
-  onBlur: React.PropTypes.func,
-  suffix: React.PropTypes.node,
-  prefix: React.PropTypes.node,
+  placeholder: PropTypes.string,
+  value: PropTypes.string,
+  onChange: PropTypes.func,
+  onFocus: PropTypes.func,
+  onBlur: PropTypes.func,
+  suffix: PropTypes.node,
+  prefix: PropTypes.node,
   // DEPRECATED - Use 'disabled' instead
-  isDisabled: React.PropTypes.bool,
-  disabled: React.PropTypes.bool,
-  size: React.PropTypes.bool,
-  error: React.PropTypes.bool,
+  isDisabled: PropTypes.bool,
+  disabled: PropTypes.bool,
+  size: PropTypes.bool,
+  error: PropTypes.bool,
 };
 
 TextInput.defaultProps = {

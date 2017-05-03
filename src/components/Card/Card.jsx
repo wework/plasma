@@ -1,6 +1,7 @@
 import cx from 'classnames';
 import React from 'react';
 import ReactDOM from 'react-dom';
+import PropTypes from 'prop-types';
 import Base from '../Base.jsx';
 import style from './style.scss';
 
@@ -83,13 +84,13 @@ Card.defaultProps = {
 };
 
 Card.propTypes = {
-  children: React.PropTypes.node.isRequired,
-  style: React.PropTypes.object,
-  type: React.PropTypes.string,
-  onClick: React.PropTypes.func,
-  borderType: React.PropTypes.string,
-  expandedComponent: React.PropTypes.node,
-  isExpanded: React.PropTypes.bool,
+  children: PropTypes.node.isRequired,
+  style: PropTypes.object,
+  type: PropTypes.string,
+  onClick: PropTypes.func,
+  borderType: PropTypes.string,
+  expandedComponent: PropTypes.node,
+  isExpanded: PropTypes.bool,
 };
 
 Card.displayName = 'Card';

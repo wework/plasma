@@ -1,6 +1,6 @@
 import cx from 'classnames';
 import React from 'react';
-
+import PropTypes from 'prop-types';
 import Base from '../Base.jsx';
 import style from './style.scss';
 
@@ -24,7 +24,7 @@ Rule.defaultProps = {
 };
 
 Rule.propTypes = {
-  type: React.PropTypes.string,
+  type: PropTypes.string,
 };
 
 Rule.displayName = 'Rule';

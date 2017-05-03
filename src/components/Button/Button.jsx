@@ -1,5 +1,6 @@
 import cx from 'classnames';
 import React from 'react';
+import PropTypes from 'prop-types';
 
 import Base from '../Base.jsx';
 import Loader from '../Loader/Loader.jsx';
@@ -58,17 +59,17 @@ Button.defaultProps = {
 };
 
 Button.propTypes = {
-  label: React.PropTypes.string,
+  label: PropTypes.string,
   /**
   * Callback to handle click event
   */
-  onClick: React.PropTypes.func,
-  type: React.PropTypes.string,
-  disabled: React.PropTypes.bool,
-  loading: React.PropTypes.bool,
-  children: React.PropTypes.node,
-  style: React.PropTypes.object,
-  isSubmit: React.PropTypes.bool,
+  onClick: PropTypes.func,
+  type: PropTypes.string,
+  disabled: PropTypes.bool,
+  loading: PropTypes.bool,
+  children: PropTypes.node,
+  style: PropTypes.object,
+  isSubmit: PropTypes.bool,
 };
 
 Button.displayName = 'Button';
