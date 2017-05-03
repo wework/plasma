@@ -42,7 +42,6 @@ class DropDownMenu extends React.Component {
   }
 
   handleMouseLeave() {
-    console.log('mouseleavedd');
     this.setState({ revealed: false });
   }
 
@@ -50,7 +49,6 @@ class DropDownMenu extends React.Component {
     const revealableStyle = cx(style.revealable, {
       [style.revealed]: this.state.revealed,
     });
-    console.log(this.props);
     return (
       <div
         onMouseEnter={this.handleMouseEnter}
@@ -100,7 +98,9 @@ DropDownMenu.defaultProps = {
   options: {},
 };
 
-DropDownMenu.propTypes = {};
+DropDownMenu.propTypes = {
+  onClick: React.PropTypes.func
+};
 
 DropDownMenu.displayName = 'DrowpDownMenu';
 

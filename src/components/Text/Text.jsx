@@ -19,7 +19,8 @@ Text.defaultProps = {
 
 Text.propTypes = {
   style: React.PropTypes.object,
-}
+  children: React.PropTypes.element,
+};
 
 Text.displayName = 'Text';
 

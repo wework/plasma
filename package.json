@@ -5,6 +5,7 @@
   "main": "./dist/index.js",
   "scripts": {
     "start": "babel-node server.js",
+    "lint": "./node_modules/.bin/eslint src/components/**/*.jsx",
     "pack": "webpack --config webpack.config.prod",
     "createRelease": "webpack --config webpack.config.prod && npm publish --access public",
     "storybook": "start-storybook -p 6006",

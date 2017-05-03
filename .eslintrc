@@ -1,12 +1,13 @@
 {
   "parser": "babel-eslint",
   "env": {
-    "node": true
+    "node": true,
+    "browser": true,
   },
   "extends": "airbnb",
   "rules": {
     "react/prefer-stateless-function": "off",
     "new-cap": "off",
-    "react/no-find-dom-node", "off",
+    "react/no-find-dom-node": "off",
   }
 }

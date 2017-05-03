@@ -43,7 +43,6 @@ const TextInput = (
         disabled={isDisabled || disabled}
         onChange={onChange}
         onFocus={(e) => {
-          console.log(style);
           e.target.parentElement.className += ` ${style.wrapperFocused}`;
           onFocus && onFocus();
         }}
