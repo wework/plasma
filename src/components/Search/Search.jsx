@@ -1,5 +1,4 @@
 import React, { Component, PropTypes } from 'react';
-import Base from '../Base';
 import style from './style.scss';
 
 class Search extends Component {
@@ -26,7 +25,7 @@ class Search extends Component {
     this.setState({ text: '' });
 
     if (onClear) {
-      return onClear(event);
+      onClear(event);
     }
   }
 
@@ -44,7 +43,7 @@ class Search extends Component {
       <div className={style.container}>
         <div className={style.inputWrapper}>
           <span className={style.searchIconContainer}>
-            <img src={iconUrl} />
+            <img src={iconUrl} role="presentation" />
           </span>
           <input
             className={style.input}
@@ -60,6 +59,7 @@ class Search extends Component {
               className={style.clearableIcon}
               onClick={this.onClear}
               src={clearIconUrl}
+              role="presentation"
             />
           }
         </div>

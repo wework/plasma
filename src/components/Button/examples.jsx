@@ -1,3 +1,4 @@
+/* eslint-disable */
 (function() {
   return {
     'Primary': <Button>Done</Button>,
