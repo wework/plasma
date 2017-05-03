@@ -9,7 +9,7 @@ class Tabs extends React.Component {
   constructor(props) {
     super(props);
 
-    let selectedIndex = _.findIndex(props.items, item => item.selected);
+    let selectedIndex = _.findIndex(props.items, 'selected');
     if (selectedIndex === -1) {
       selectedIndex = 0;
     }
