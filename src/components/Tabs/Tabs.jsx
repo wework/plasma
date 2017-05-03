@@ -3,12 +3,18 @@ import PropTypes from 'prop-types';
 import Base from '../Base.jsx';
 import style from './style.scss';
 import cn from 'classnames';
+import _ from 'lodash';
 
 class Tabs extends React.Component {
-  constructor() {
-    super();
+  constructor(props) {
+    super(props);
+
+    let selectedIndex = _.findIndex(props.items, item => item.selected);
+    if (selectedIndex === -1) {
+      selectedIndex = 0;
+    }
     this.state = {
-      selectedIndex: 0
+      selectedIndex
     };
   }
   onClick(tab, index) {

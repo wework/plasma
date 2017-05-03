@@ -40,5 +40,13 @@ storiesOf('Tabs', module)
     ]} onChange={(label, index) => {
       alert(`clicked "${label}" at ${index} index`);
     }} />
+  ))
+  .add('selected 2nd by default', () => (
+    <Tabs items={[
+      { title: 'Hello', label: 'hello' },
+      { title: 'World', label: 'world', selected: true },
+      { title: 'Bye bye', label: 'bye' },
+    ]} />
   ));
+
 
