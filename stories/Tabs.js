@@ -4,18 +4,41 @@ import Tabs from '../src/components/Tabs/Tabs';
 
 storiesOf('Tabs', module)
   .add('one tab', () => (
-    <Tabs items={['Hello']} />
+    <Tabs items={[
+      { title: 'Hello', label: 'hello' }
+    ]} />
   ))
   .add('two tabs', () => (
-    <Tabs items={['Hello', 'World']} />
+    <Tabs items={[
+      { title: 'Hello', label: 'hello' },
+      { title: 'World', label: 'world' }
+    ]} />
   ))
   .add('three tabs', () => (
-    <Tabs items={['Hello', 'World', 'Bye Bye']} />
+    <Tabs items={[
+      { title: 'Hello', label: 'hello' },
+      { title: 'World', label: 'world' },
+      { title: 'Bye bye', label: 'bye' }
+    ]} />
   ))
   .add('five tabs', () => (
-    <Tabs items={['Hello', 'World', 'Bye Bye', 'привет', '你好']} />
+    <Tabs items={[
+      { title: 'Hello', label: 'hello' },
+      { title: 'World', label: 'world' },
+      { title: 'Bye bye', label: 'bye' },
+      { title: 'привет', label: 'hello_russian' },
+      { title: '你好', label: 'hello_chinese' }
+    ]} />
   ))
   .add('with onClick', () => (
-    <Tabs items={['Hello', 'World']} onClick={ (index) => alert('clicked tab #' + index) } />
+    <Tabs items={[
+      { title: 'Hello', label: 'hello' },
+      { title: 'World', label: 'world' },
+      { title: 'Bye bye', label: 'bye' },
+      { title: 'привет', label: 'hello_russian' },
+      { title: '你好', label: 'hello_chinese' }
+    ]} onChange={(label, index) => {
+      alert(`clicked "${label}" at ${index} index`);
+    }} />
   ));
 

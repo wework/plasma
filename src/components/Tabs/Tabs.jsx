@@ -11,23 +11,23 @@ class Tabs extends React.Component {
       selectedIndex: 0
     };
   }
-  onClick(index) {
+  onClick(tab, index) {
     this.setState({
       selectedIndex: index
-    });
-    if (this.props.onClick) {
-      this.props.onClick(index);
+    })
+    if (this.props.onChange) {
+      this.props.onChange(tab.label, index);
     }
   }
-  onKeyDown(event, index) {
+  onKeyDown(event, tab, index) {
     if (event.keyCode === 13 /* enter */) {
-      this.onClick(index);
+      this.onClick(tab, index);
     }
   }
   render() {
     return (
       <ul className={style.tabs} role="tablist">
-        {_.map(this.props.items, (tabTitle, index) => {
+        {_.map(this.props.items, (tab, index) => {
 
           const tabClasses = cn(style.tab, {
             [style.active]: this.state.selectedIndex === index,
@@ -38,13 +38,13 @@ class Tabs extends React.Component {
           return (
             <li
               role="tab"
-              onClick={() => this.onClick(index)}
-              onKeyDown={(event) => this.onKeyDown(event, index)}
+              onClick={() => this.onClick(tab, index)}
+              onKeyDown={(event) => this.onKeyDown(event, tab, index)}
               className={tabClasses}
               key={index}
               tabIndex="0"
             >
-              { tabTitle }
+              { tab.title }
             </li>
           );
         })}
@@ -55,12 +55,12 @@ class Tabs extends React.Component {
 
 Tabs.defaultProps = {
   items: [],
-  onClick: function() { },
+  onChange: function() { },
 };
 
 Tabs.propTypes = {
   items: PropTypes.array.isRequired,
-  onClick: PropTypes.func,
+  onChange: PropTypes.func,
 };
 
 Tabs.displayName = 'Tabs';
