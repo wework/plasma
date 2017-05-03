@@ -63,6 +63,6 @@ Tabs.propTypes = {
   onClick: PropTypes.func,
 };
 
-Tabs.displayName = 'Tab';
+Tabs.displayName = 'Tabs';
 
 export default Base(Tabs);
