@@ -1,0 +1,44 @@
+@import '../../styles/base';
+
+.tabs {
+  padding: 14px 0 0 14px; /* so first tab aligns with labels */
+  border-bottom: 1px solid $cGray200;;
+  list-style: none;
+}
+
+.tab {
+  display: inline-block;
+  @extend %fontFamily--body;
+  height: 38px;
+  line-height: 38px;
+  padding: 0 15px;
+  color: $cWeWorkBlack;
+  background-color: rgba(255,207,113,0.05); /* $weworkyellow @ 5% opacity */
+  border: 1px solid $cGray200;
+  border-right: 0px;
+  border-radius: 0;
+  position: relative;
+  bottom: -1px;
+  cursor: pointer;
+
+  &:hover, &:focus {
+    background-color: rgba(0, 0, 0, 0.02);
+  }
+
+  &:focus {
+    background-color: rgba(0, 0, 0, 0.05);
+  }
+
+  &.first {
+    border-radius: 2px 2px 0 0;
+  }
+  &.last {
+    border-radius: 0 2px 0 0;
+    border: 1px solid $cGray200;
+  }
+
+  &.active {
+    background-color: $cWhite;
+    border-bottom: 1px solid $cWhite;
+  }
+}
