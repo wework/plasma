@@ -1,5 +1,5 @@
 import React from 'react';
-
+import PropTypes from 'prop-types';
 import Base from '../Base.jsx';
 import style from './style.scss';
 
@@ -31,10 +31,10 @@ class Modal extends React.Component {
 Modal.defaultProps = {};
 
 Modal.propTypes = {
-  children: React.PropTypes.node.isRequired,
-  visible: React.PropTypes.bool,
-  onDismiss: React.PropTypes.func,
-  style: React.PropTypes.object,
+  children: PropTypes.node.isRequired,
+  visible: PropTypes.bool,
+  onDismiss: PropTypes.func,
+  style: PropTypes.object,
 };
 
 Modal.displayName = 'Modal';

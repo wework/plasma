@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import cx from 'classnames';
 import _ from 'lodash';
 
@@ -48,10 +49,10 @@ Group.defaultProps = {
 };
 
 Group.propTypes = {
-  children: React.PropTypes.node,
-  vertical: React.PropTypes.bool,
-  layout: React.PropTypes.array,
-  style: React.PropTypes.object,
+  children: PropTypes.node,
+  vertical: PropTypes.bool,
+  layout: PropTypes.array,
+  style: PropTypes.object,
 };
 
 Group.displayName = 'Group';

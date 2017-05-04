@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import cx from 'classnames';
 
 import Base from '../Base.jsx';
@@ -29,8 +30,8 @@ const Label = (
 };
 
 Label.propTypes = {
-  text: React.PropTypes.string,
-  type: React.PropTypes.string,
+  text: PropTypes.string,
+  type: PropTypes.string,
 };
 
 Label.defaultProps = {

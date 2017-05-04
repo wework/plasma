@@ -1,5 +1,6 @@
 import _ from 'lodash';
 import React from 'react';
+import PropTypes from 'prop-types';
 import cx from 'classnames';
 
 import Base from '../Base.jsx';
@@ -43,12 +44,12 @@ RadioButton.defaultProps = {
 };
 
 RadioButton.propTypes = {
-  text: React.PropTypes.string.isRequired,
-  name: React.PropTypes.string.isRequired,
-  description: React.PropTypes.string,
-  isLarge: React.PropTypes.bool,
-  onChange: React.PropTypes.func,
-  checked: React.PropTypes.bool,
+  text: PropTypes.string.isRequired,
+  name: PropTypes.string.isRequired,
+  description: PropTypes.string,
+  isLarge: PropTypes.bool,
+  onChange: PropTypes.func,
+  checked: PropTypes.bool,
 };
 
 RadioButton.displayName = 'RadioButton';

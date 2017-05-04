@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import cx from 'classnames';
 
 import Base from '../../Base.jsx';
@@ -49,11 +50,11 @@ FormField.defaultProps = {
 };
 
 FormField.propTypes = {
-  children: React.PropTypes.node.isRequired,
-  disabled: React.PropTypes.bool,
-  isRequired: React.PropTypes.bool,
-  label: React.PropTypes.string,
-  labelType: React.PropTypes.string,
+  children: PropTypes.node.isRequired,
+  disabled: PropTypes.bool,
+  isRequired: PropTypes.bool,
+  label: PropTypes.string,
+  labelType: PropTypes.string,
 };
 
 FormField.displayName = 'FormField';

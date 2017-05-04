@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import style from './style.scss';
 
 import Base from '../Base.jsx';
@@ -40,10 +41,10 @@ Masthead.defaultProps = {
 };
 
 Masthead.propTypes = {
-  secondary: React.PropTypes.bool,
-  label: React.PropTypes.string,
-  header: React.PropTypes.string.isRequired,
-  style: React.PropTypes.object,
+  secondary: PropTypes.bool,
+  label: PropTypes.string,
+  header: PropTypes.string.isRequired,
+  style: PropTypes.object,
 };
 
 Masthead.displayName = 'Masthead';

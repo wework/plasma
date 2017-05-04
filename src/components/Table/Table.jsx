@@ -1,5 +1,6 @@
 import _ from 'lodash';
 import React from 'react';
+import PropTypes from 'prop-types';
 import cx from 'classnames';
 import $ from 'jquery';
 
@@ -339,17 +340,17 @@ class Table extends React.Component {
 }
 
 Table.propTypes = {
-  clickable: React.PropTypes.bool,
-  empty: React.PropTypes.bool,
-  emptyText: React.PropTypes.string,
-  headerData: React.PropTypes.array,
-  highlightable: React.PropTypes.bool,
-  items: React.PropTypes.array,
-  loading: React.PropTypes.bool,
-  selectedColumnKey: React.PropTypes.string,
-  spanMap: React.PropTypes.object,
-  stickAt: React.PropTypes.number,
-  style: React.PropTypes.object,
+  clickable: PropTypes.bool,
+  empty: PropTypes.bool,
+  emptyText: PropTypes.string,
+  headerData: PropTypes.array,
+  highlightable: PropTypes.bool,
+  items: PropTypes.array,
+  loading: PropTypes.bool,
+  selectedColumnKey: PropTypes.string,
+  spanMap: PropTypes.object,
+  stickAt: PropTypes.number,
+  style: PropTypes.object,
 };
 
 Table.defaultProps = {

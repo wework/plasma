@@ -1,5 +1,5 @@
 import React from 'react';
-
+import PropTypes from 'prop-types';
 import Base from '../Base.jsx';
 import style from './style.scss';
 
@@ -22,8 +22,8 @@ Tooltip.defaultProps = {
 };
 
 Tooltip.propTypes = {
-  children: React.PropTypes.node.isRequired,
-  content: React.PropTypes.node,
+  children: PropTypes.node.isRequired,
+  content: PropTypes.node,
 };
 
 Tooltip.displayName = 'Tooltip';

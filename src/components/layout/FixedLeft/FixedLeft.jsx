@@ -1,7 +1,7 @@
 import _ from 'lodash';
 import $ from 'jquery';
 import React from 'react';
-
+import PropTypes from 'prop-types';
 import Base from '../../Base.jsx';
 import style from './style.scss';
 
@@ -81,10 +81,10 @@ FixedLeft.defaultProps = {
 };
 
 FixedLeft.propTypes = {
-  children: React.PropTypes.array.isRequired,
-  stickAt: React.PropTypes.number,
-  contentStyle: React.PropTypes.object,
-  fixedStyle: React.PropTypes.object,
+  children: PropTypes.array.isRequired,
+  stickAt: PropTypes.number,
+  contentStyle: PropTypes.object,
+  fixedStyle: PropTypes.object,
 };
 
 FixedLeft.displayName = '!FixedLeft';
