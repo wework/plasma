@@ -1,9 +1,10 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import Base from '../Base.jsx';
-import style from './style.scss';
 import cn from 'classnames';
 import _ from 'lodash';
+
+import Base from '../Base.jsx';
+import style from './style.scss';
 
 class Tabs extends React.Component {
   constructor(props) {
@@ -14,13 +15,13 @@ class Tabs extends React.Component {
       selectedIndex = 0;
     }
     this.state = {
-      selectedIndex
+      selectedIndex,
     };
   }
   onClick(tab, index) {
     this.setState({
-      selectedIndex: index
-    })
+      selectedIndex: index,
+    });
     if (this.props.onChange) {
       this.props.onChange(tab.label, index);
     }
@@ -33,12 +34,11 @@ class Tabs extends React.Component {
   render() {
     return (
       <ul className={style.tabs} role="tablist">
-        {_.map(this.props.items, (tab, index) => {
-
+        { _.map(this.props.items, (tab, index) => {
           const tabClasses = cn(style.tab, {
             [style.active]: this.state.selectedIndex === index,
             [style.first]: index === 0,
-            [style.last]: index === this.props.items.length - 1
+            [style.last]: index === this.props.items.length - 1,
           });
 
           return (
@@ -61,7 +61,7 @@ class Tabs extends React.Component {
 
 Tabs.defaultProps = {
   items: [],
-  onChange: function() { },
+  onChange: () => { },
 };
 
 Tabs.propTypes = {
