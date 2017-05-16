@@ -1,0 +1,13 @@
+sudo: required
+dist: trusty
+language: node_js
+node_js:
+  - 6.9
+before_script:
+  - yarn global add gulp-cli
+  - npm rebuild node-sass
+  - yarn
+script:
+  - bash fetch_configs.sh
+  - npm run pack
+  - yarn test
