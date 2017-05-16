@@ -7,6 +7,10 @@
   border-radius: 3px;
   margin-bottom: 30px;
   display: flex;
+
+  &.vertical {
+    flex-direction: column;
+  }
 }
 
 .first {
@@ -16,6 +20,15 @@
   border-right: 1px solid $cBorder;
   border-top-left-radius: 3px;
   border-bottom-left-radius: 3px;
+}
+
+.vertical {
+  .first {
+    border-right: 0;
+    border-bottom: 1px solid $cBorder;
+    flex: 1 0 default;
+    padding-bottom: $space20;
+  }
 }
 
 .second {
