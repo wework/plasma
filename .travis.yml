@@ -8,6 +8,5 @@ before_script:
   - npm rebuild node-sass
   - yarn
 script:
-  - bash fetch_configs.sh
   - npm run pack
   - yarn test
