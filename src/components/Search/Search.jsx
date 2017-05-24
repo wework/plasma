@@ -11,6 +11,14 @@ class Search extends Component {
     };
   }
 
+  componentWillReceiveProps(nextProps) {
+    const { value } = nextProps;
+
+    if (value) {
+      this.setState({ text: value });
+    }
+  }
+
   onChange(event) {
     const { onChange } = this.props;
 
@@ -83,6 +91,7 @@ Search.propTypes = {
   onChange: PropTypes.func.isRequired,
   onClear: PropTypes.func,
   placeholder: PropTypes.string.isRequired,
+  value: PropTypes.string,
 };
 
 export default Search;

@@ -55,3 +55,29 @@ storiesOf('Search', module).add('disabled', () => {
     />
   );
 });
+
+storiesOf('Search', module).add('with prepopulated value', () => {
+  return (
+    <Search
+      clearable
+      clearIconUrl="http://placehold.it/8x8"
+      iconUrl="http://placehold.it/30x30"
+      onChange={() => {}}
+      placeholder="Search"
+      value="Hello there"
+    />
+  );
+});
+
+storiesOf('Search', module).add('with empty prepopulated value', () => {
+  return (
+    <Search
+      clearable
+      clearIconUrl="http://placehold.it/8x8"
+      iconUrl="http://placehold.it/30x30"
+      onChange={() => {}}
+      placeholder="Search"
+      value=""
+    />
+  );
+});

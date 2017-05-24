@@ -1,8 +1,8 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import cx from 'classnames';
 import Base from '../Base.jsx';
 import style from './style.scss';
-import cx from 'classnames';
 
 class SegmentedCard extends React.Component {
   render() {
@@ -31,6 +31,7 @@ SegmentedCard.defaultProps = {
 SegmentedCard.propTypes = {
   children: PropTypes.node.isRequired,
   style: PropTypes.object,
+  vertical: PropTypes.bool,
 };
 
 SegmentedCard.displayName = 'SegmentedCard';
