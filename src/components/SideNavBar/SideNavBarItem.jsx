@@ -25,7 +25,7 @@ class SideNavBarItem extends Component {
         {renderIcon}
         <div className={style.label}>{label}</div>
       </div>
-    )
+    );
   }
 
   render() {
@@ -68,6 +68,7 @@ SideNavBarItem.propTypes = {
   onClick: PropTypes.func,
   selected: PropTypes.bool,
   children: PropTypes.node,
+  darkBg: PropTypes.bool,
 };
 
 SideNavBarItem.displayName = 'SideNavBarItem';

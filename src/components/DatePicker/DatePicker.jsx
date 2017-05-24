@@ -1,17 +1,15 @@
-import cx from 'classnames';
 import React from 'react';
-import ReactDOM from 'react-dom';
+import datePicker from 'react-datepicker';
+
 import Base from '../Base.jsx';
 
-import moment from 'moment';
-import _DatePicker from 'react-datepicker';
 const style = require('../../external/reactdatepicker.scss');
 
 class DatePicker extends React.Component {
   render() {
     const props = Object.assign({}, this.props, { style });
     return (
-      <_DatePicker {...props} />
+      <datePicker {...props} />
     );
   }
 }

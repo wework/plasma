@@ -1,3 +1,4 @@
+/* eslint-disable */
 (function() {
   return {
     'Unchecked': <Checkbox text='I agree to all of it' />,

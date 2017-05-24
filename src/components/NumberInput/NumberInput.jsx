@@ -14,13 +14,15 @@ class NumberInput extends React.Component {
   }
 
   onPressIncrement() {
-    if (!_.isNumber(this.props.maxValue) || this.props.maxValue >= this.props.value + this.props.step) {
+    if (!_.isNumber(this.props.maxValue) ||
+        this.props.maxValue >= this.props.value + this.props.step) {
       this.props.onPressIncrement({ diff: this.props.step });
     }
   }
 
   onPressDecrement() {
-    if (!_.isNumber(this.props.minValue) || this.props.minValue <= this.props.value - this.props.step) {
+    if (!_.isNumber(this.props.minValue) ||
+        this.props.minValue <= this.props.value - this.props.step) {
       this.props.onPressDecrement({ diff: -1 * this.props.step });
     }
   }

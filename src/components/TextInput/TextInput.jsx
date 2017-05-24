@@ -29,12 +29,12 @@ const TextInput = (
   const wrapperStyle = cx(style.wrapper, {
     [style.wrapperDisabled]: isDisabled || disabled,
     [style.wrapperError]: error,
-    [style.wrapperLarge]: 'LARGE' === _.toUpper(size),
+    [style.wrapperLarge]: _.toUpper(size) === 'LARGE',
   });
 
   const inputStyle = cx(style.input, {
     [style.disabled]: isDisabled || disabled,
-    [style.large]: 'LARGE' === _.toUpper(size),
+    [style.large]: _.toUpper(size) === 'LARGE',
   });
 
   return (
@@ -44,8 +44,9 @@ const TextInput = (
         disabled={isDisabled || disabled}
         onChange={onChange}
         onFocus={(e) => {
-          console.log(style);
+          /* eslint-disable no-param-reassign */
           e.target.parentElement.className += ` ${style.wrapperFocused}`;
+          /* eslint-enable no-param-reassign */
           onFocus && onFocus();
         }}
         onBlur={(e) => {

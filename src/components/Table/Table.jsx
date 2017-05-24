@@ -55,36 +55,12 @@ class Table extends React.Component {
     $(this.table).find('td').off('mouseenter mouseleave');
   }
 
-  handleColumnMouseEnter(element) {
-    console.log(element);
-    {/* hover(function() {
+  handleColumnMouseEnter() {
 
-      $el = $(this);
-
-      $el.parent().addClass("hover");
-
-      if ($el.parent().has('td[rowspan]').length == 0)
-
-        $el
-          .parent()
-          .prevAll('tr:has(td[rowspan]):first')
-          .find('td[rowspan]')
-          .addClass("hover");
-
-    }, function() {
-
-      $el
-        .parent()
-        .removeClass("hover")
-        .prevAll('tr:has(td[rowspan]):first')
-        .find('td[rowspan]')
-        .removeClass("hover");
-
-    }); */}
   }
 
-  handleColumnMouseLeave(element) {
-    console.log(element);
+  handleColumnMouseLeave() {
+
   }
 
   handleWindowResize() {
@@ -144,7 +120,7 @@ class Table extends React.Component {
   }
 
   renderHeader(opts = {}) {
-    const headerComponents = _.map(this.props.headerData, (value, index) => {
+    const headerComponents = _.map(this.props.headerData, (value) => {
       let colStyles = { width: value.width };
       const key = value.key;
       if (opts.sticky && this.state.columnSizes[key] && !value.width) {
@@ -264,7 +240,7 @@ class Table extends React.Component {
         }
 
         if (!cellValue) {
-          cellValue = "-";
+          cellValue = '-';
         }
 
         columnComponents.push(

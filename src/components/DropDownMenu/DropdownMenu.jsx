@@ -3,28 +3,9 @@ import _ from 'lodash';
 import React from 'react';
 
 import Base from '../Base.jsx';
+import DropDownMenuOption from './DropDownMenuOption.jsx';
+
 import style from './style.scss';
-
-class DropDownMenuOption extends React.Component {
-  constructor() {
-    super();
-    this.handleClick = this.handleClick.bind(this);
-  }
-
-  handleClick() {
-    this.props.onClick(this.props.optionKey);
-  }
-  render() {
-    return (
-      <li
-        className={style.revealableListItem}
-        onClick={this.handleClick}
-      >
-        { this.props.text }
-      </li>
-    );
-  }
-}
 
 class DropDownMenu extends React.Component {
 
@@ -37,12 +18,11 @@ class DropDownMenu extends React.Component {
     this.handleMouseLeave = this.handleMouseLeave.bind(this);
   }
 
-  handleMouseEnter(event) {
+  handleMouseEnter() {
     this.setState({ revealed: true });
   }
 
   handleMouseLeave() {
-    console.log('mouseleavedd');
     this.setState({ revealed: false });
   }
 
@@ -50,7 +30,6 @@ class DropDownMenu extends React.Component {
     const revealableStyle = cx(style.revealable, {
       [style.revealed]: this.state.revealed,
     });
-    console.log(this.props);
     return (
       <div
         onMouseEnter={this.handleMouseEnter}
@@ -58,13 +37,13 @@ class DropDownMenu extends React.Component {
         className={style.container}
       >
         <div
-          ref={(c) => { this.title = c }}
+          ref={(c) => { this.title = c; }}
           className={style.action}
         >
           <div className={style.overflow} />
         </div>
         <div
-          ref={(c) => { this.revealable = c }}
+          ref={(c) => { this.revealable = c; }}
           className={revealableStyle}
         >
           <div className={style.revealableTopWrapper}>
@@ -100,7 +79,9 @@ DropDownMenu.defaultProps = {
   options: {},
 };
 
-DropDownMenu.propTypes = {};
+DropDownMenu.propTypes = {
+  options: React.PropTypes.array,
+};
 
 DropDownMenu.displayName = 'DrowpDownMenu';
 

@@ -18,6 +18,7 @@ class Card extends React.Component {
   }
 
   componentDidMount() {
+    /* eslint-disable */
     if (this.props.expandedComponent) {
       const defaultEl = ReactDOM.findDOMNode(this.default);
       const defaultHeight = defaultEl.offsetHeight;
@@ -26,6 +27,7 @@ class Card extends React.Component {
       this.setState({ defaultHeight, expandedHeight });
     }
     this.setState({ isMounted: true });
+    /* eslint-enable */
   }
 
   render() {

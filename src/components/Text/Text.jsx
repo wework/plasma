@@ -19,7 +19,8 @@ Text.defaultProps = {
 
 Text.propTypes = {
   style: PropTypes.object,
-}
+  children: PropTypes.element,
+};
 
 Text.displayName = 'Text';
 

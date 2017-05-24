@@ -39,7 +39,6 @@ class FixedLeft extends React.Component {
       const ty = _.clamp(
         offsetDoc - offsetViewport, 0, this.fixedViewportOffsetOrigin - this.props.stickAt
       );
-      console.log(ty);
       $(this.fixed).css(
         'transform', `translateY(${-ty}px)`);
     }

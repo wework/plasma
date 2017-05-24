@@ -15,24 +15,24 @@ class RadioButton extends React.Component {
 
     return (
       <div>
-      <label htmlFor={id} className={wrapperClasses}>
-        <input
-          className={style.original}
-          type="radio"
-          id={id}
-          name={this.props.name}
-          description={this.props.description}
-          onChange={this.props.onChange}
-          checked={this.props.checked}
-        />
-        <div className={style.faux} />
-        <div className={style.text}>
-          <strong>{ this.props.text }</strong>
-        </div>
-      </label>
-      <span className={style.description}>
-        { this.props.description }
-      </span>
+        <label htmlFor={id} className={wrapperClasses}>
+          <input
+            className={style.original}
+            type="radio"
+            id={id}
+            name={this.props.name}
+            description={this.props.description}
+            onChange={this.props.onChange}
+            checked={this.props.checked}
+          />
+          <div className={style.faux} />
+          <div className={style.text}>
+            <strong>{ this.props.text }</strong>
+          </div>
+        </label>
+        <span className={style.description}>
+          { this.props.description }
+        </span>
       </div>
     );
   }
