@@ -1,28 +1,72 @@
 import React from 'react';
 import { storiesOf, action, linkTo } from '@kadira/storybook';
 import Tabs from '../src/components/Tabs/Tabs';
+import Button from '../src/components/Button/Button';
+
+class TabsWithLabelState extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      selectedLabel: 'hello',
+    };
+  }
+
+  render() {
+    return <Tabs
+      selectedLabel={this.state.selectedLabel}
+      onChange={selectedLabel => this.setState({ selectedLabel })}
+      items={this.props.items}
+    />
+  }
+}
+
+class TabsWithIndexState extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      selectedIndex: 0,
+    };
+  }
+
+  render() {
+    return <div>
+      <Tabs
+        selectedIndex={this.state.selectedIndex}
+        onChange={(_, selectedIndex) => this.setState({ selectedIndex })}
+        items={this.props.items}
+      />
+      <Button
+        onClick={() => this.setState(({ selectedIndex }) => ({
+          selectedIndex: (selectedIndex + 1) % this.props.items.length,
+        }))}
+      >
+        Next Tab
+      </Button>
+    </div>
+  }
+}
 
 storiesOf('Tabs', module)
   .add('one tab', () => (
-    <Tabs items={[
+    <Tabs selectedLabel="hello" items={[
       { title: 'Hello', label: 'hello' }
     ]} />
   ))
   .add('two tabs', () => (
-    <Tabs items={[
+    <Tabs selectedLabel="hello" items={[
       { title: 'Hello', label: 'hello' },
       { title: 'World', label: 'world' }
     ]} />
   ))
   .add('three tabs', () => (
-    <Tabs items={[
+    <Tabs selectedLabel="hello" items={[
       { title: 'Hello', label: 'hello' },
       { title: 'World', label: 'world' },
       { title: 'Bye bye', label: 'bye' }
     ]} />
   ))
   .add('five tabs', () => (
-    <Tabs items={[
+    <Tabs selectedLabel="hello" items={[
       { title: 'Hello', label: 'hello' },
       { title: 'World', label: 'world' },
       { title: 'Bye bye', label: 'bye' },
@@ -31,7 +75,7 @@ storiesOf('Tabs', module)
     ]} />
   ))
   .add('with onClick', () => (
-    <Tabs items={[
+    <Tabs selectedLabel="hello" items={[
       { title: 'Hello', label: 'hello' },
       { title: 'World', label: 'world' },
       { title: 'Bye bye', label: 'bye' },
@@ -42,11 +86,29 @@ storiesOf('Tabs', module)
     }} />
   ))
   .add('selected 2nd by default', () => (
-    <Tabs items={[
+    <Tabs selectedLabel="world" items={[
       { title: 'Hello', label: 'hello' },
-      { title: 'World', label: 'world', selected: true },
+      { title: 'World', label: 'world' },
       { title: 'Bye bye', label: 'bye' },
     ]} />
+  ))
+  .add('with label state management', () => (
+    <TabsWithLabelState
+      items={[
+        { title: 'Hello', label: 'hello' },
+        { title: 'World', label: 'world' },
+        { title: 'Bye bye', label: 'bye' },
+      ]}
+    />
+  ))
+  .add('with index state management', () => (
+    <TabsWithIndexState
+      items={[
+        { title: 'Hello', label: 'hello' },
+        { title: 'World', label: 'world' },
+        { title: 'Bye bye', label: 'bye' },
+      ]}
+    />
   ));
 
 
