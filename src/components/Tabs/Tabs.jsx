@@ -7,24 +7,8 @@ import Base from '../Base.jsx';
 import style from './style.scss';
 
 class Tabs extends React.Component {
-  constructor(props) {
-    super(props);
-
-    let selectedIndex = _.findIndex(props.items, 'selected');
-    if (selectedIndex === -1) {
-      selectedIndex = 0;
-    }
-    this.state = {
-      selectedIndex,
-    };
-  }
   onClick(tab, index) {
-    this.setState({
-      selectedIndex: index,
-    });
-    if (this.props.onChange) {
-      this.props.onChange(tab.label, index);
-    }
+    this.props.onChange(tab.label, index);
   }
   onKeyDown(event, tab, index) {
     if (event.keyCode === 13 /* enter */) {
@@ -36,7 +20,7 @@ class Tabs extends React.Component {
       <ul className={style.tabs} role="tablist">
         { _.map(this.props.items, (tab, index) => {
           const tabClasses = cn(style.tab, {
-            [style.active]: this.state.selectedIndex === index,
+            [style.active]: this.props.selectedIndex === index || this.props.selectedLabel === tab.label,
             [style.first]: index === 0,
             [style.last]: index === this.props.items.length - 1,
           });
@@ -65,8 +49,13 @@ Tabs.defaultProps = {
 };
 
 Tabs.propTypes = {
-  items: PropTypes.array.isRequired,
-  onChange: PropTypes.func,
+  items: PropTypes.arrayOf(PropTypes.shape({
+    label: PropTypes.string.isRequired,
+    title: PropTypes.string.isRequired,
+  })).isRequired,
+  onChange: PropTypes.func.isRequired,
+  selectedIndex: PropTypes.number,
+  selectedLabel: PropTypes.string,
 };
 
 Tabs.displayName = 'Tabs';
