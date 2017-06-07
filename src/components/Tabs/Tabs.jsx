@@ -20,7 +20,9 @@ class Tabs extends React.Component {
       <ul className={style.tabs} role="tablist">
         { _.map(this.props.items, (tab, index) => {
           const tabClasses = cn(style.tab, {
-            [style.active]: this.props.selectedIndex === index || this.props.selectedLabel === tab.label,
+            [style.active]: (
+              this.props.selectedIndex === index || this.props.selectedLabel === tab.label
+            ),
             [style.first]: index === 0,
             [style.last]: index === this.props.items.length - 1,
           });
