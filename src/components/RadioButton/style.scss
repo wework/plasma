@@ -22,7 +22,7 @@
   &:checked ~ .faux {
     border-color: $cGray300;
     &::before {
-      background: $cGray100;
+      background: $cWeWorkBlack;
     }
   }
 }
@@ -30,12 +30,12 @@
 .faux {
   width: 14px;
   height: 14px;
-  background: none;
   border: 1px solid $cBorder;
   border-radius: 100%;
   background: $cWhite;
   transition: border-color 0.1s ease-out;
   box-sizing: content-box;
+  position: relative;
   &::before {
     display: block;
     position: absolute;
@@ -43,9 +43,11 @@
     border-radius: 100%;
     width: 8px;
     height: 8px;
-    top: 7px;
-    left: 4px;
     background: none;
+    margin-left: 50%;
+    left: -4px;
+    margin-top: 50%;
+    top: -4px;
   }
 }
 
