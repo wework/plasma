@@ -33,9 +33,13 @@
   position: relative;
   border-bottom: 1px solid rgba(0,0,0,0.3);
   transition: all 0.3s;
+  border-left: 5px solid $cPurple100;
+  border-right: 5px solid $cPurple100;
 
   &:hover, &:active, &:focus {
     background: $cPurple200;
+    border-left-color: $cPurple200;
+    border-right-color: $cPurple200;
   }
 
   .icon {
@@ -49,5 +53,6 @@
 
 .selected {
   background: fade-out($cPurple200, 0.9);
-  border-left: 5px solid $cPurple200;
+  border-left-color: $cPurple200;
+  border-right-color: #303a4c;
 }
