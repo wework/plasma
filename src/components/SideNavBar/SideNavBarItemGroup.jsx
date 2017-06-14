@@ -54,12 +54,15 @@ class SideNavBarItemGroup extends Component {
   renderSubItems() {
     const items = [];
     forEach(this.props.items, (groupedItem) => {
+      console.log(this.props.selectedId);
+      console.log(groupedItem.id === this.props.selectedId);
       items.push(
         <SideNavBarItem
           key={groupedItem.id}
           id={groupedItem.id}
           label={groupedItem.label}
           onClick={this.handleItemClick}
+          selected={groupedItem.id === this.props.selectedId}
         />
       );
     });
@@ -67,6 +70,7 @@ class SideNavBarItemGroup extends Component {
   }
 
   render() {
+
     return (
       <div
         className={style.groupWrapper}
@@ -101,6 +105,7 @@ SideNavBarItemGroup.propTypes = {
   onClick: PropTypes.func,
   items: PropTypes.array,
   darkBg: PropTypes.bool,
+  selectedId: PropTypes.string,
 };
 
 SideNavBarItemGroup.displayName = 'SideNavBarItemGroup';

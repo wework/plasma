@@ -7,6 +7,7 @@ storiesOf('SideNavBar', module).add('default', () => {
     {
       label: 'Building',
       id: 'building',
+      icon: 'http://simpleicon.com/wp-content/uploads/rocket.svg',
       items: [
         {
           label: 'Milestones',
@@ -61,10 +62,25 @@ storiesOf('SideNavBar', module).add('default', () => {
       ],
     },
   ];
+
+  class StatefulWrapper extends React.Component {
+    constructor() {
+      super();
+      this.state = { selectedId: null };
+    }
+
+    render() {
+      return (
+        <SideNavBar
+          items={items}
+          onChange={(event) => { this.setState({ selectedId: event.id }); }}
+          selectedId={this.state.selectedId}
+        />
+      );
+    }
+  }
+
   return (
-    <SideNavBar
-      items={items}
-      onChange={action('selection changed')}
-    />
+    <StatefulWrapper />
   );
 });

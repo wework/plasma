@@ -49,11 +49,11 @@
   box-sizing: border-box;
 
   &:hover, &:focus {
-    color: $cBlack70;
+    color: $cBlack20;
   }
 
   &:active {
-    color: $cBlue70;
+    color: $cBlack50;
   }
 }
 
@@ -70,4 +70,7 @@
 
 .selected {
   color: $cBlue70;
+  &:hover {
+    color: $cBlue70;
+  }
 }

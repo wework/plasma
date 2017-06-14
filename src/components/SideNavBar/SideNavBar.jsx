@@ -24,9 +24,11 @@ class SideNavBar extends Component {
         <SideNavBarItemGroup
           key={item.id}
           id={item.id}
+          icon={item.icon}
           label={item.label}
           onClick={this.handleClick}
           items={item.items}
+          selectedId={this.props.selectedId}
         />
       );
     });
@@ -45,6 +47,7 @@ class SideNavBar extends Component {
 SideNavBar.propTypes = {
   items: PropTypes.array,
   onChange: PropTypes.func,
+  selectedId: PropTypes.string,
 };
 
 SideNavBar.displayName = 'SideNavBar';
