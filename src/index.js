@@ -18,7 +18,6 @@ import TextInput from './components/TextInput/TextInput';
 import Tooltip from './components/Tooltip/Tooltip';
 import TopNavBar from './components/TopNavBar/TopNavBar';
 import SideNavBar from './components/SideNavBar/SideNavBar';
-import SideNavBarItem from './components/SideNavBar/SideNavBarItem';
 import DatePicker from './components/DatePicker/DatePicker';
 import Search from './components/Search/Search';
 import Tabs from './components/Tabs/Tabs';
@@ -57,7 +56,6 @@ Plasma.Tooltip = Tooltip;
 Plasma.Tabs = Tabs;
 
 Plasma.SideNavBar = SideNavBar;
-Plasma.SideNavBarItem = SideNavBarItem;
 Plasma.Table = Table;
 Plasma.TopNavBar = TopNavBar;
 

@@ -4,6 +4,16 @@ import Base from '../Base.jsx';
 import style from './style.scss';
 
 class SideNavBarItem extends Component {
+
+  constructor() {
+    super();
+    this._onClick = this._onClick.bind(this);
+  }
+
+  _onClick() {
+    this.props.onClick(this.props.id);
+  }
+
   renderIconAndLabel() {
     const { icon, iconSize, iconStyle, label } = this.props;
 
@@ -21,15 +31,14 @@ class SideNavBarItem extends Component {
     );
 
     return (
-      <div>
-        {renderIcon}
+      <div className={style.iconAndLabelContainer}>
         <div className={style.label}>{label}</div>
       </div>
     );
   }
 
   render() {
-    const { children, darkBg, onClick, selected } = this.props;
+    const { children, darkBg, selected } = this.props;
 
     const wrapperClasses = cn(style.itemWrapper, {
       [style.darkBg]: darkBg,
@@ -39,7 +48,7 @@ class SideNavBarItem extends Component {
     return (
       <div
         className={wrapperClasses}
-        onClick={onClick}
+        onClick={this._onClick}
       >
         { children || this.renderIconAndLabel() }
       </div>
@@ -49,11 +58,12 @@ class SideNavBarItem extends Component {
 
 SideNavBarItem.defaultProps = {
   label: 'Label',
-  iconSize: 24,
+  iconSize: 16,
   selected: false,
 };
 
 SideNavBarItem.propTypes = {
+  id: PropTypes.string,
   /**
   * URL to an image
   */

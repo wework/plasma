@@ -1,46 +1,67 @@
 @import '../../styles/base';
 
-.wrapper, .itemWrapper {
-  width: 100px;
+.wrapper, .groupWrapper {
+  width: 180px;
 }
 
 .wrapper {
-  display: flex;
-  flex: 1;
-  background: $cPurple100;
-  @extend %type--tiny;
-  color: rgba(255,255,255,0.8);
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: flex-start;
-  padding-top: 8px;
+  font-family: $fontStack;
+  background: $cGray600;
+  padding: 8px 0;
   height: 100%;
   box-sizing: border-box;
 }
 
-.itemWrapper {
-  align-self: flex-start;
+.groupWrapper {
   box-sizing: border-box;
-  display: flex;
-  padding: $space10;
-  cursor: pointer;
-  align-items: center;
-  flex-direction: column;
-  justify-content: center;
-  text-align: center;
+  padding: 0 10px 0 30px;
+  margin-bottom: 10px;
   font-size: 13px;
   position: relative;
-  border-bottom: 1px solid rgba(0,0,0,0.3);
-  transition: all 0.3s;
-
-  &:hover, &:active, &:focus {
-    background: $cPurple200;
-  }
-
+  transition: all 0.1s;
+  box-sizing: border-box;
+  color: $cBlack30;
+  cursor: pointer;
   .icon {
-    margin-bottom: 5px;
+    margin-right: 15px;
   }
+
+  .groupLabel {
+    font-weight: bold;
+    padding-bottom: 5px;
+    &:hover, &:focus {
+      color: $cBlack70;
+    }
+  }
+
+  .groupSubItems {
+
+  }
+}
+
+.itemWrapper {
+  box-sizing: border-box;
+  padding: 4px 0px;
+  font-size: 13px;
+  position: relative;
+  transition: all 0.1s;
+  color: $cBlack30;
+  box-sizing: border-box;
+
+  &:hover, &:focus {
+    color: $cBlack70;
+  }
+
+  &:active {
+    color: $cBlue70;
+  }
+}
+
+.iconAndLabelContainer {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: center;
 }
 
 .darkBg {
@@ -48,6 +69,5 @@
 }
 
 .selected {
-  background: fade-out($cPurple200, 0.9);
-  border-left: 5px solid $cPurple200;
+  color: $cBlue70;
 }

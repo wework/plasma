@@ -1,55 +1,70 @@
 import React from 'react';
-import _ from 'lodash';
-import { storiesOf } from '@kadira/storybook';
-import Image from '../src/components/Image/Image';
+import { storiesOf, action } from '@kadira/storybook';
 import SideNavBar from '../src/components/SideNavBar/SideNavBar';
-import SideNavBarItem from '../src/components/SideNavBar/SideNavBarItem';
 
 storiesOf('SideNavBar', module).add('default', () => {
+  const items = [
+    {
+      label: 'Building',
+      id: 'building',
+      items: [
+        {
+          label: 'Milestones',
+          id: 'milestones',
+        },
+        {
+          label: 'Accounts',
+          id: 'accounts',
+        },
+      ],
+    },
+    {
+      label: 'Inventory',
+      id: 'inventory',
+      items: [
+        {
+          label: 'Your inventory',
+          id: 'your-inventory',
+        },
+        {
+          label: 'Nearby inventory',
+          id: 'nearby-inventory',
+        },
+      ],
+    },
+    {
+      label: 'Members',
+      id: 'members',
+      items: [
+        {
+          label: 'Companies',
+          id: 'companies',
+        },
+        {
+          label: 'People',
+          id: 'people',
+        },
+      ],
+    },
+    {
+      label: 'Sales',
+      id: 'sales',
+      items: [
+        {
+          label: 'Tours',
+          id: 'tours',
+        },
+        {
+          label: 'Waitlist',
+          id: 'waitlist',
+        },
+      ],
+    },
+  ];
   return (
-    <SideNavBar>
-      <Image
-        style={{ width: 50, height: 'auto', marginBottom: 16 }}
-        src="http://spacestation.wework.com/images/weworkLight.svg"
-      />
-      <SideNavBarItem
-        label="Dark Bg"
-        onClick={() => {}}
-        selected={false}
-        darkBg
-      />
-      <SideNavBarItem
-        onClick={() => {}}
-        selected={false}
-      >
-        <div>
-          <img src="http://placehold.it/10x12" /> Node
-        </div>
-      </SideNavBarItem>
-      <SideNavBarItem
-        icon="http://placehold.it/24x24"
-        label="Label 1"
-        onClick={() => {}}
-        selected={false}
-      />
-      <SideNavBarItem
-        icon="http://placehold.it/24x24"
-        label="Label 2"
-        onClick={() => {}}
-        selected
-      />
-      <SideNavBarItem
-        icon="http://placehold.it/24x24"
-        label="Label 3"
-        onClick={() => {}}
-        selected={false}
-      />
-      <SideNavBarItem
-        icon="http://placehold.it/24x24"
-        label="Label 4"
-        onClick={() => {}}
-        selected={false}
-      />
-    </SideNavBar>
+    <SideNavBar
+      items={items}
+      onChange={action('selection changed')}
+    />
   );
 });

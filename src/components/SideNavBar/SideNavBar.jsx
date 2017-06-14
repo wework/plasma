@@ -1,20 +1,50 @@
 import React, { Component, PropTypes } from 'react';
+import { forEach } from 'lodash';
 
+import SideNavBarItemGroup from './SideNavBarItemGroup';
 import Base from '../Base.jsx';
 import style from './style.scss';
 
 class SideNavBar extends Component {
+
+  constructor() {
+    super();
+    this.renderItems = this.renderItems.bind(this);
+    this.handleClick = this.handleClick.bind(this);
+  }
+
+  handleClick(result) {
+    this.props.onChange({ id: result.id });
+  }
+
+  renderItems() {
+    const items = [];
+    forEach(this.props.items, (item) => {
+      items.push(
+        <SideNavBarItemGroup
+          key={item.id}
+          id={item.id}
+          label={item.label}
+          onClick={this.handleClick}
+          items={item.items}
+        />
+      );
+    });
+    return items;
+  }
+
   render() {
     return (
       <div className={style.wrapper}>
-        {this.props.children}
+        {this.renderItems()}
       </div>
     );
   }
 }
 
 SideNavBar.propTypes = {
-  children: PropTypes.node.isRequired,
+  items: PropTypes.array,
+  onChange: PropTypes.func,
 };
 
 SideNavBar.displayName = 'SideNavBar';
