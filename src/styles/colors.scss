@@ -14,6 +14,22 @@ $cGray600: #FAF9F8;
 $cPurple100: #2B3445;
 $cPurple200: #59698B;
 
+
+$cBlack50: #252729;
+
+// darker
+$cBlack70: darken($cBlack50, 20%);
+
+// lighter
+$cBlack40: lighten($cBlack50, 10%);
+$cBlack30: lighten($cBlack50, 20%);
+$cBlack20: lighten($cBlack50, 30%);
+
+$cBlue50: #4d99f9;
+
+$cBlue80: darken($cBlue50, 30%);
+$cBlue70: darken($cBlue50, 20%);
+
 // Special
 $cBrandYellow: #FFCF71;
 $cLinkBlue: #5499C3;

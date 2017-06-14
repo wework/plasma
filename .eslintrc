@@ -10,6 +10,7 @@
     "new-cap": "off",
     "react/no-find-dom-node": "off",
     "arrow-body-style": "off",
+    "no-underscore-dangle": "off",
     "no-unused-expressions": [2, {
       "allowShortCircuit": true
     }]
