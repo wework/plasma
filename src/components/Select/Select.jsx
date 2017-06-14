@@ -1,12 +1,11 @@
 import React from 'react';
-import select from 'react-select';
-
+import ExternalSelect from 'react-select';
 import Base from '../Base.jsx';
 
 class Select extends React.Component {
   render() {
     return (
-      <select {...this.props} />
+      <ExternalSelect {...this.props} />
     );
   }
 }

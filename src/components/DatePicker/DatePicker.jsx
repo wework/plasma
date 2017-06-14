@@ -1,15 +1,11 @@
 import React from 'react';
-import datePicker from 'react-datepicker';
-
+import ExternalDatePicker from 'react-datepicker';
 import Base from '../Base.jsx';
-
-const style = require('../../external/reactdatepicker.scss');
 
 class DatePicker extends React.Component {
   render() {
-    const props = Object.assign({}, this.props, { style });
     return (
-      <datePicker {...props} />
+      <ExternalDatePicker {...this.props} />
     );
   }
 }

@@ -1,6 +1,6 @@
 import React from 'react';
 import { storiesOf, action, linkTo } from '@kadira/storybook';
-import Select from 'react-select';
+import Select from '../src/components/Select/Select';
 
 const options = [
   { value: 'one', label: 'One' },
