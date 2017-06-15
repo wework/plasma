@@ -1,8 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import style from './style.scss';
-
-import Base from '../Base.jsx';
+import getDataAttrs from '../../getDataAttrs';
 import Header from '../Header/Header.jsx';
 
 class Masthead extends React.Component {
@@ -23,7 +22,11 @@ class Masthead extends React.Component {
     }
 
     return (
-      <div style={this.props.style} className={style.wrapper}>
+      <div
+        style={this.props.style}
+        className={style.wrapper}
+        {...getDataAttrs(this.props.data)}
+      >
         <div className={style.content}>
           { labelComp }
           { headerComp }
@@ -45,8 +48,9 @@ Masthead.propTypes = {
   label: PropTypes.string,
   header: PropTypes.string.isRequired,
   style: PropTypes.object,
+  data: PropTypes.obj,
 };
 
 Masthead.displayName = 'Masthead';
 
-export default Base(Masthead);
+export default Masthead;

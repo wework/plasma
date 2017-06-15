@@ -2,8 +2,8 @@ import cx from 'classnames';
 import React from 'react';
 import ReactDOM from 'react-dom';
 import PropTypes from 'prop-types';
-import Base from '../Base.jsx';
 import style from './style.scss';
+import getDataAttrs from '../../getDataAttrs';
 
 const type = { CONDENSED: 'condensed' };
 const borderType = { DASHED: 'dashed' };
@@ -56,6 +56,7 @@ class Card extends React.Component {
         className={cardStyle}
         style={this.props.style}
         onClick={this.props.onClick}
+        {...getDataAttrs(this.props.data)}
       >
         <div className={style.inner}>
           <div
@@ -93,8 +94,9 @@ Card.propTypes = {
   borderType: PropTypes.string,
   expandedComponent: PropTypes.node,
   isExpanded: PropTypes.bool,
+  data: PropTypes.obj,
 };
 
 Card.displayName = 'Card';
 
-export default Base(Card);
+export default Card;

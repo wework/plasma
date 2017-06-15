@@ -1,14 +1,17 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import Base from '../Base.jsx';
 import style from './style.scss';
+import getDataAttrs from '../../getDataAttrs';
 
 class Modal extends React.Component {
   render() {
     let comp = null;
     if (this.props.visible) {
       comp = (
-        <div className={style.wrapper} >
+        <div
+          className={style.wrapper}
+          {...getDataAttrs(this.props.data)}
+        >
           <div className={style.innerWrapper}>
             <div className={style.card} style={this.props.style}>
               <div className={style.content}>
@@ -35,8 +38,9 @@ Modal.propTypes = {
   visible: PropTypes.bool,
   onDismiss: PropTypes.func,
   style: PropTypes.object,
+  data: PropTypes.obj,
 };
 
 Modal.displayName = 'Modal';
 
-export default Base(Modal);
+export default Modal;

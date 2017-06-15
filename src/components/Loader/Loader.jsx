@@ -1,12 +1,16 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import Base from '../Base.jsx';
 import style from './style.scss';
+import getDataAttrs from '../../getDataAttrs';
 
 class Loader extends React.Component {
   render() {
     return (
-      <div className={style.container} style={this.props.style}>
+      <div
+        className={style.container}
+        style={this.props.style}
+        {...getDataAttrs(this.props.data)}
+      >
         <div
           className={style.spinner}
         >
@@ -33,8 +37,9 @@ Loader.defaultProps = {};
 Loader.propTypes = {
   style: PropTypes.object,
   dotStyle: PropTypes.object,
+  data: PropTypes.obj,
 };
 
 Loader.displayName = 'Loader';
 
-export default Base(Loader);
+export default Loader;

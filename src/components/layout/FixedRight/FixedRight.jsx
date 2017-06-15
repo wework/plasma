@@ -4,6 +4,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import Base from '../../Base.jsx';
 import style from './style.scss';
+import getDataAttrs from '../../../getDataAttrs';
 
 /**
   * The fixed right page is great.
@@ -39,16 +40,17 @@ class FixedRight extends React.Component {
       const ty = _.clamp(
         offsetDoc - offsetViewport, 0, this.fixedViewportOffsetOrigin - this.props.stickAt
       );
-      console.log(ty);
       $(this.fixed).css(
         'transform', `translateY(${-ty}px)`);
     }
   }
 
   render() {
-    console.log(this.props.fixedContainerStyle);
     return (
-      <div className={style.wrapper}>
+      <div
+        className={style.wrapper}
+        {...getDataAttrs(this.props.data)}
+      >
         <div className={style.contentWrapper}>
           <div className={style.content}>
             { this.props.children[0] }
@@ -86,8 +88,9 @@ FixedRight.propTypes = {
   children: PropTypes.array.isRequired,
   stickAt: PropTypes.number,
   fixedContainerStyle: PropTypes.object,
+  data: PropTypes.obj,
 };
 
 FixedRight.displayName = '!FixedRight';
 
-export default Base(FixedRight);
+export default FixedRight;

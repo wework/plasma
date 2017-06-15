@@ -1,8 +1,8 @@
 import cx from 'classnames';
 import React from 'react';
 import PropTypes from 'prop-types';
-import Base from '../Base.jsx';
 import style from './style.scss';
+import getDataAttrs from '../../getDataAttrs';
 
 class DisplayText extends React.Component {
   render() {
@@ -16,7 +16,10 @@ class DisplayText extends React.Component {
     });
 
     return (
-      <div className={[headerStyle]}>
+      <div
+        className={[headerStyle]}
+        {...getDataAttrs(this.props.data)}
+      >
         <div className={style.content}>
           {this.props.children}
         </div>
@@ -28,6 +31,7 @@ class DisplayText extends React.Component {
 DisplayText.propTypes = {
   children: PropTypes.string.isRequired,
   size: PropTypes.string.oneOf(['default', 'extraLarge', 'large', 'medium', 'small']),
+  data: PropTypes.obj,
 };
 
 DisplayText.defaultProps = {
@@ -36,4 +40,4 @@ DisplayText.defaultProps = {
 
 DisplayText.displayName = 'DisplayText';
 
-export default Base(DisplayText);
+export default DisplayText;

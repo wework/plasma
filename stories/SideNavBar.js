@@ -22,6 +22,7 @@ storiesOf('SideNavBar', module).add('default', () => {
     {
       label: 'Inventory',
       id: 'inventory',
+      icon: 'http://simpleicon.com/wp-content/uploads/rocket.svg',
       items: [
         {
           label: 'Your inventory',
@@ -36,6 +37,7 @@ storiesOf('SideNavBar', module).add('default', () => {
     {
       label: 'Members',
       id: 'members',
+      icon: 'http://simpleicon.com/wp-content/uploads/rocket.svg',
       items: [
         {
           label: 'Companies',
@@ -50,6 +52,7 @@ storiesOf('SideNavBar', module).add('default', () => {
     {
       label: 'Sales',
       id: 'sales',
+      icon: 'http://simpleicon.com/wp-content/uploads/rocket.svg',
       items: [
         {
           label: 'Tours',
@@ -75,6 +78,7 @@ storiesOf('SideNavBar', module).add('default', () => {
           items={items}
           onChange={(event) => { this.setState({ selectedId: event.id }); }}
           selectedId={this.state.selectedId}
+          data={{ qa: 'test' }}
         />
       );
     }

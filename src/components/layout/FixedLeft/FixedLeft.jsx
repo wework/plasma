@@ -2,8 +2,8 @@ import _ from 'lodash';
 import $ from 'jquery';
 import React from 'react';
 import PropTypes from 'prop-types';
-import Base from '../../Base.jsx';
 import style from './style.scss';
+import getDataAttrs from '../../../getDataAttrs';
 
 /**
   * The fixed left page is great.
@@ -46,7 +46,10 @@ class FixedLeft extends React.Component {
 
   render() {
     return (
-      <div className={style.wrapper}>
+      <div
+        className={style.wrapper}
+        {...getDataAttrs(this.props.data)}
+      >
         <div
           className={style.fixedWrapper}
           style={{ ...this.props.fixedStyle }}
@@ -85,8 +88,9 @@ FixedLeft.propTypes = {
   stickAt: PropTypes.number,
   contentStyle: PropTypes.object,
   fixedStyle: PropTypes.object,
+  data: PropTypes.obj,
 };
 
 FixedLeft.displayName = '!FixedLeft';
 
-export default Base(FixedLeft);
+export default FixedLeft;

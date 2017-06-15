@@ -2,8 +2,7 @@ import _ from 'lodash';
 import React from 'react';
 import PropTypes from 'prop-types';
 import cx from 'classnames';
-
-import Base from '../Base.jsx';
+import getDataAttrs from '../../getDataAttrs';
 import style from './style.scss';
 
 const TextInput = (
@@ -19,6 +18,7 @@ const TextInput = (
     disabled,
     size,
     error,
+    data,
   }
 ) => {
   const fixStyle = cx(style.fix, {
@@ -38,7 +38,10 @@ const TextInput = (
   });
 
   return (
-    <div className={wrapperStyle}>
+    <div
+      className={wrapperStyle}
+      {...getDataAttrs(data)}
+    >
       <input
         className={inputStyle}
         disabled={isDisabled || disabled}
@@ -78,6 +81,7 @@ TextInput.propTypes = {
   disabled: PropTypes.bool,
   size: PropTypes.bool,
   error: PropTypes.bool,
+  data: PropTypes.obj,
 };
 
 TextInput.defaultProps = {
@@ -87,4 +91,4 @@ TextInput.defaultProps = {
 
 TextInput.displayName = 'TextInput';
 
-export default Base(TextInput);
+export default TextInput;

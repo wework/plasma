@@ -2,8 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import cx from 'classnames';
 import _ from 'lodash';
-
-import Base from '../../Base.jsx';
+import getDataAttrs from '../../../getDataAttrs';
 import style from './style.scss';
 
 class Group extends React.Component {
@@ -18,7 +17,11 @@ class Group extends React.Component {
     }
 
     return (
-      <div className={groupStyle} style={this.props.style}>
+      <div
+        className={groupStyle}
+        style={this.props.style}
+        {...getDataAttrs(this.props.data)}
+      >
         {_.map(children, (child, index) => {
           const styleObj = {};
           if (this.props.layout[index] === 'shrink') {
@@ -53,8 +56,9 @@ Group.propTypes = {
   vertical: PropTypes.bool,
   layout: PropTypes.array,
   style: PropTypes.object,
+  data: PropTypes.obj,
 };
 
 Group.displayName = 'Group';
 
-export default Base(Group);
+export default Group;

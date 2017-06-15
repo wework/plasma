@@ -1,8 +1,9 @@
 import React, { Component, PropTypes } from 'react';
 import { forEach } from 'lodash';
 
+import getDataAttrs from '../../getDataAttrs';
 import SideNavBarItemGroup from './SideNavBarItemGroup';
-import Base from '../Base.jsx';
+import SideNavBarTop from './SideNavBarTop';
 import style from './style.scss';
 
 class SideNavBar extends Component {
@@ -37,8 +38,14 @@ class SideNavBar extends Component {
 
   render() {
     return (
-      <div className={style.wrapper}>
-        {this.renderItems()}
+      <div className={style.wrapper} {...getDataAttrs(this.props.data)}>
+        <SideNavBarTop
+          label="Chelsea"
+          onClick={this.props.onClickTop}
+        />
+        <div className={style.sidebarContent}>
+          {this.renderItems()}
+        </div>
       </div>
     );
   }
@@ -48,8 +55,10 @@ SideNavBar.propTypes = {
   items: PropTypes.array,
   onChange: PropTypes.func,
   selectedId: PropTypes.string,
+  onClickTop: PropTypes.func,
+  data: PropTypes.obj,
 };
 
 SideNavBar.displayName = 'SideNavBar';
 
-export default Base(SideNavBar);
+export default SideNavBar;

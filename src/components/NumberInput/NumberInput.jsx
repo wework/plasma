@@ -1,8 +1,8 @@
 import _ from 'lodash';
 import React from 'react';
 import PropTypes from 'prop-types';
-import Base from '../Base.jsx';
 import style from './style.scss';
+import getDataAttrs from '../../getDataAttrs';
 
 class NumberInput extends React.Component {
 
@@ -39,7 +39,10 @@ class NumberInput extends React.Component {
 
   render() {
     return (
-      <div className={style.wrapper}>
+      <div
+        className={style.wrapper}
+        {...getDataAttrs(this.props.data)}
+      >
         <input
           type="number"
           placeholder={this.props.placeholder}
@@ -71,6 +74,7 @@ NumberInput.propTypes = {
   onChange: PropTypes.func,
   onPressIncrement: PropTypes.func,
   onPressDecrement: PropTypes.func,
+  data: PropTypes.obj,
 };
 
 NumberInput.defaultProps = {
@@ -80,4 +84,4 @@ NumberInput.defaultProps = {
 
 NumberInput.displayName = 'NumberInput';
 
-export default Base(NumberInput);
+export default NumberInput;

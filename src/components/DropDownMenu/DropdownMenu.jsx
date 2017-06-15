@@ -1,10 +1,9 @@
 import cx from 'classnames';
 import _ from 'lodash';
 import React from 'react';
-
-import Base from '../Base.jsx';
+import PropTypes from 'prop-types';
 import DropDownMenuOption from './DropDownMenuOption.jsx';
-
+import getDataAttrs from '../../getDataAttrs';
 import style from './style.scss';
 
 class DropDownMenu extends React.Component {
@@ -35,6 +34,7 @@ class DropDownMenu extends React.Component {
         onMouseEnter={this.handleMouseEnter}
         onMouseLeave={this.handleMouseLeave}
         className={style.container}
+        {...getDataAttrs(this.props.data)}
       >
         <div
           ref={(c) => { this.title = c; }}
@@ -81,8 +81,9 @@ DropDownMenu.defaultProps = {
 
 DropDownMenu.propTypes = {
   options: React.PropTypes.array,
+  data: PropTypes.obj,
 };
 
 DropDownMenu.displayName = 'DrowpDownMenu';
 
-export default Base(DropDownMenu);
+export default DropDownMenu;

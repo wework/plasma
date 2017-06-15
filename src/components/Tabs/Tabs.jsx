@@ -2,8 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import cn from 'classnames';
 import _ from 'lodash';
-
-import Base from '../Base.jsx';
+import getDataAttrs from '../../getDataAttrs';
 import style from './style.scss';
 
 class Tabs extends React.Component {
@@ -17,7 +16,11 @@ class Tabs extends React.Component {
   }
   render() {
     return (
-      <ul className={style.tabs} role="tablist">
+      <ul
+        className={style.tabs}
+        role="tablist"
+        {...getDataAttrs(this.props.data)}
+      >
         { _.map(this.props.items, (tab, index) => {
           const tabClasses = cn(style.tab, {
             [style.active]: (
@@ -58,8 +61,9 @@ Tabs.propTypes = {
   onChange: PropTypes.func.isRequired,
   selectedIndex: PropTypes.number,
   selectedLabel: PropTypes.string,
+  data: PropTypes.obj,
 };
 
 Tabs.displayName = 'Tabs';
 
-export default Base(Tabs);
+export default Tabs;

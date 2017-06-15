@@ -1,8 +1,8 @@
 import _ from 'lodash';
 import React from 'react';
 import PropTypes from 'prop-types';
-import Base from '../Base.jsx';
 import style from './style.scss';
+import getDataAttrs from '../../getDataAttrs';
 
 class Checkbox extends React.Component {
   render() {
@@ -11,7 +11,11 @@ class Checkbox extends React.Component {
     const inputClassName = indeterminate ? style.indeterminate : style.original;
 
     return (
-      <label htmlFor={id} className={style.wrapper}>
+      <label
+        htmlFor={id}
+        className={style.wrapper}
+        {...getDataAttrs(this.props.data)}
+      >
         <input
           checked={checked}
           className={inputClassName}
@@ -46,8 +50,9 @@ Checkbox.propTypes = {
   ]).isRequired,
   name: PropTypes.string.isRequired,
   onChange: PropTypes.func,
+  data: PropTypes.obj,
 };
 
 Checkbox.displayName = 'Checkbox';
 
-export default Base(Checkbox);
+export default Checkbox;

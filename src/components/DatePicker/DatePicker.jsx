@@ -1,8 +1,6 @@
 import React from 'react';
 import datePicker from 'react-datepicker';
 
-import Base from '../Base.jsx';
-
 const style = require('../../external/reactdatepicker.scss');
 
 class DatePicker extends React.Component {
@@ -20,4 +18,4 @@ DatePicker.propTypes = {};
 
 DatePicker.displayName = 'DatePicker';
 
-export default Base(DatePicker);
+export default DatePicker;

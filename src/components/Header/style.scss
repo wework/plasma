@@ -1,0 +1,39 @@
+@import '../../styles/base';
+
+.header { }
+
+.header1 {
+  @extend %type--headline1;
+}
+
+.header2 {
+  @extend %type--headline2;
+}
+
+.header3 {
+  @extend %type--headline3;
+}
+
+.header4 {
+  @extend %type--headline4;
+}
+
+.header5 {
+  @extend %type--headline5;
+}
+
+.header6 {
+  @extend %type--headline6;
+}
+
+.content {
+  margin-bottom: 8px;
+}
+
+.rule {
+  box-sizing: border-box;
+  width: 100%;
+  height: 2px;
+  background: $cWeWorkBlack;
+  margin-bottom: 8px;
+}

@@ -3,8 +3,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import cx from 'classnames';
 import $ from 'jquery';
-
-import Base from '../Base.jsx';
+import getDataAttrs from '../../getDataAttrs';
 import style from './style.scss';
 
 class Table extends React.Component {
@@ -308,7 +307,11 @@ class Table extends React.Component {
 
   render() {
     return (
-      <div style={this.props.style} className={style.wrapper}>
+      <div
+        style={this.props.style}
+        className={style.wrapper}
+        {...getDataAttrs(this.props.data)}
+      >
         { !_.isNull(this.props.stickAt) &&
           <div
             ref={(c) => (this.fixed = c)}
@@ -351,6 +354,7 @@ Table.propTypes = {
   spanMap: PropTypes.object,
   stickAt: PropTypes.number,
   style: PropTypes.object,
+  data: PropTypes.obj,
 };
 
 Table.defaultProps = {
@@ -362,4 +366,4 @@ Table.defaultProps = {
 
 Table.displayName = 'Table';
 
-export default Base(Table);
+export default Table;

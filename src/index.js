@@ -3,6 +3,7 @@ import Card from './components/Card/Card';
 import Checkbox from './components/Checkbox/Checkbox';
 import DropDownMenu from './components/DropDownMenu/DropDownMenu';
 import Header from './components/Header/Header';
+import Icon from './components/Icon/Icon';
 import Image from './components/Image/Image';
 import Label from './components/Label/Label';
 import Loader from './components/Loader/Loader';
@@ -37,6 +38,7 @@ const Plasma = {};
 Plasma.Header = Header;
 Plasma.Label = Label;
 Plasma.Image = Image;
+Plasma.Icon = Icon;
 Plasma.Text = Text;
 Plasma.Card = Card;
 Plasma.Checkbox = Checkbox;
@@ -71,6 +73,7 @@ Plasma.FixedTop = FixedTop;
 export default Plasma;
 
 export {
+  Icon,
   Header,
   Label,
   Image,
@@ -87,7 +90,6 @@ export {
   Tooltip,
   Tabs,
   SideNavBar,
-  SideNavBarItem,
   Table,
   TopNavBar,
   Masthead,

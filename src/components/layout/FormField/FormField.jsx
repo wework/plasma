@@ -1,12 +1,10 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import cx from 'classnames';
-
-import Base from '../../Base.jsx';
+import getDataAttrs from '../../../getDataAttrs';
 import style from './style.scss';
 import Label from '../../Label/Label.jsx';
 
-const labelType = {
+const labelTypes = {
   PRIMARY: 'primary',
   SECONDARY: 'secondary',
 };
@@ -18,6 +16,7 @@ const FormField = (
     isRequired,
     labelType,
     label,
+    data,
   }
 ) => {
   let labelText = label;
@@ -27,7 +26,10 @@ const FormField = (
   }
 
   return (
-    <div className={style.wrapper}>
+    <div
+      className={style.wrapper}
+      {...getDataAttrs(data)}
+    >
       <Label
         text={labelText}
         type={labelType}
@@ -46,17 +48,18 @@ FormField.defaultProps = {
   children: '',
   disabled: false,
   label: 'Label',
-  labelType: labelType.PRIMARY,
+  labelType: labelTypes.PRIMARY,
 };
 
 FormField.propTypes = {
   children: PropTypes.node.isRequired,
-  disabled: PropTypes.bool,
+  isDisabled: PropTypes.bool,
   isRequired: PropTypes.bool,
   label: PropTypes.string,
   labelType: PropTypes.string,
+  data: PropTypes.obj,
 };
 
 FormField.displayName = 'FormField';
 
-export default Base(FormField);
+export default FormField;
