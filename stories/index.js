@@ -13,3 +13,4 @@ import SideNavBar from './SideNavBar';
 import Search from './Search';
 import Tabs from './Tabs';
 import SegmentedCard from './SegmentedCard';
+import Toggles from './Toggles';
