@@ -32,11 +32,13 @@
     background-color: rgba(0, 0, 0, 0.05);
   }
 
+
   &.horizontal {
     margin: 20px 0;
     border-radius: 0px;
     display: inline-block;
     border-right: 0px;
+    width: myWidth;
 
 
     &:first-child {
@@ -54,14 +56,15 @@
         margin-right: 20px;
       }
     }
+
     &.active {
-    color: $cWeWorkBlack;
-    font-weight:bold;
-    background-color: $cBrandYellow;
-    border: 1px solid darken($cBrandYellow, 15%);
-    z-index: 1;
-    position: relative;
-    margin-right: -1px;
+      color: $cWeWorkBlack;
+      font-weight:bold;
+      background-color: $cBrandYellow;
+      border: 1px solid darken($cBrandYellow, 15%);
+      z-index: 1;
+      position: relative;
+      margin-right: -1px;
     }
   }
 
@@ -87,14 +90,27 @@
         margin-bottom:20px;
       }
     }
+
     &.active {
-    color: $cWeWorkBlack;
-    font-weight:bold;
-    background-color: $cBrandYellow;
-    border: 1px solid darken($cBrandYellow, 15%);
-    z-index: 1;
-    position: relative;
-    margin-bottom: -1px;
+      color: $cWeWorkBlack;
+      font-weight:bold;
+      background-color: $cBrandYellow;
+      border: 1px solid darken($cBrandYellow, 15%);
+      z-index: 1;
+      position: relative;
+      margin-bottom: -1px;
+    }
+  }
+
+  &.disabled {
+    background: none;
+    color: $cGray200;
+    border-color: $cGray300;
+    cursor: not-allowed;
+    pointer-events: none;
+    &:hover {
+      border-color: $cGray300;
+      background: none;
     }
   }
 }

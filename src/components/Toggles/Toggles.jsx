@@ -1,6 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import cn from 'classnames';
+import cx from 'classnames';
 import _ from'lodash';
 
 import Base from '../Base.jsx';
@@ -25,12 +25,17 @@ class Toggles extends React.Component{
 
   render() {
     // calculate width as a percent out of 100 in order to determine how to evenly partition toggles
-    // var width = 100 / items.length;
+
+    //var myWidth = 1 / this.props.items.length * 100;
+
+
+
     return (
       <ul className={style.toggles} role="togglelist">
         { _.map(this.props.items, (toggle, index) => {
-          const toggleClasses = cn(style.toggle, {
+          const toggleClasses = cx(style.toggle, {
             [style.active]: (this.props.selectedIndex === index || this.props.selectedLabel === toggle.label),
+            [style.disabled]: this.props.items[index].disabled,
             [style.horizontal]: this.props.type === type.HORIZONTAL,
             [style.vertical]: this.props.type === type.VERTICAL,
           });
@@ -41,6 +46,7 @@ class Toggles extends React.Component{
               onClick={() => this.onClick(toggle, index)}
               onKeyDown={(event) => this.onKeyDown(event, toggle, index)}
               className={toggleClasses}
+              //style={this.props.type === type.HORIZONTAL ? {width: `${myWidth}%`} : {}}
               key={index}
               type={this.props.type}
             >
@@ -63,6 +69,7 @@ Toggles.propTypes = {
   items: PropTypes.arrayOf(PropTypes.shape({
     label: PropTypes.string.isRequired,
     title: PropTypes.string.isRequired,
+    disabled: PropTypes.bool,
   })).isRequired,
   onChange: PropTypes.func.isRequired,
   selectedIndex: PropTypes.number,

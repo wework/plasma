@@ -129,7 +129,7 @@ storiesOf('Toggles', module)
     <TogglesWithLabelState
       items={[
         { title: 'Hello', label: 'hello' },
-        { title: 'World', label: 'world' },
+        { title: 'World', label: 'world', disabled: true },
         { title: 'Bye bye', label: 'bye' },
       ]}
       type="horizontal"/>
@@ -166,7 +166,7 @@ storiesOf('Toggles', module)
     <TogglesWithLabelState
       items={[
         { title: 'Hello', label: 'hello' },
-        { title: 'World', label: 'world' },
+        { title: 'World', label: 'world', disabled: true },
         { title: 'Bye bye', label: 'bye' },
       ]}
       type="vertical"/>
@@ -177,6 +177,24 @@ storiesOf('Toggles', module)
         { title: 'Hello', label: 'hello' },
         { title: 'World', label: 'world' },
         { title: 'Bye bye', label: 'bye' },
+      ]}
+      type="vertical"/>
+  ))
+  .add('with disabled - horizontal', () => (
+    <Toggles selectedLabel="hello"
+      items={[
+        { title: 'Hello', label: 'hello' },
+        { title: 'World', label: 'world', disabled: true },
+        { title: 'Bye bye', label: 'bye' },
+      ]}
+      type="horizontal"/>
+  ))
+  .add('with disabled - vertical', () => (
+    <Toggles selectedLabel="hello"
+      items={[
+        { title: 'Hello', label: 'hello' },
+        { title: 'World', label: 'world' },
+        { title: 'Bye bye', label: 'bye', disabled: true },
       ]}
       type="vertical"/>
   ));
