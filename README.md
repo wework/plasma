@@ -8,10 +8,10 @@ Plasma is a design system for creating sensible, modern interfaces.
 
 ## Developing locally
 
-1.  Run `yarn start` from the root directory.
-2.  Server is now running.
-    Component docs at [http://localhost:8080/plasma/docs](http://localhost:8080/plasma/docs).
-    Playgrounds at [http://localhost:8080/plasma/playground3](http://localhost:8080/plasma/playground3)
+1. Run the Plasma dev server: `yarn start`
+2. Run the Storybook server: `yarn storybook`
+3. Go to [http://localhost:6006/](http://localhost:6006/) to view the Storybook
+4. Add stories to the `stories/` directory as you build/modify components!
 
 ## Publishing to NPM
 
@@ -41,10 +41,3 @@ Plasma is a design system for creating sensible, modern interfaces.
     import { Button } from '@wework-dev/plasma';
     <Button label='Click it'/>
     ```
-
-## [Storybook](https://getstorybook.io)
-
-1. Run the Plasma dev server: `yarn start`
-2. Run the Storybook server: `yarn storybook`
-3. Go to [http://localhost:6006/](http://localhost:6006/) to view the Storybook
-4. Add stories to the `stories/` directory as you build/modify components!
