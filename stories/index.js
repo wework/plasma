@@ -14,3 +14,4 @@ import Search from './Search';
 import Tabs from './Tabs';
 import SegmentedCard from './SegmentedCard';
 import Toggles from './Toggles';
+import Select from './Select';

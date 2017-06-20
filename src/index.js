@@ -32,6 +32,8 @@ import FixedLeft from './components/layout/FixedLeft/FixedLeft';
 import FixedRight from './components/layout/FixedRight/FixedRight';
 import FixedTop from './components/layout/FixedTop/FixedTop';
 
+import style from '../src/external';
+
 // Plasma object
 
 const Plasma = {};
@@ -71,6 +73,8 @@ Plasma.FixedLeft = FixedLeft;
 Plasma.FixedRight = FixedRight;
 Plasma.FixedTop = FixedTop;
 Plasma.Toggles = Toggles;
+
+Plasma._style = style;
 
 export default Plasma;
 
