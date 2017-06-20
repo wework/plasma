@@ -24,12 +24,6 @@ class Toggles extends React.Component{
   }
 
   render() {
-    // calculate width as a percent out of 100 in order to determine how to evenly partition toggles
-
-    //var myWidth = 1 / this.props.items.length * 100;
-
-
-
     return (
       <ul className={style.toggles} role="togglelist">
         { _.map(this.props.items, (toggle, index) => {
@@ -46,7 +40,6 @@ class Toggles extends React.Component{
               onClick={() => this.onClick(toggle, index)}
               onKeyDown={(event) => this.onKeyDown(event, toggle, index)}
               className={toggleClasses}
-              //style={this.props.type === type.HORIZONTAL ? {width: `${myWidth}%`} : {}}
               key={index}
               type={this.props.type}
             >
