@@ -22,6 +22,7 @@ import SideNavBarItem from './components/SideNavBar/SideNavBarItem';
 import DatePicker from './components/DatePicker/DatePicker';
 import Search from './components/Search/Search';
 import Tabs from './components/Tabs/Tabs';
+import Toggle from './components/Toggle/Toggle';
 
 // Page imports
 import Group from './components/layout/Group/Group';
@@ -71,6 +72,7 @@ Plasma.HorizontalScroll = HorizontalScroll;
 Plasma.FixedLeft = FixedLeft;
 Plasma.FixedRight = FixedRight;
 Plasma.FixedTop = FixedTop;
+Plasma.Toggle = Toggle;
 
 Plasma._style = style;
 
@@ -107,4 +109,5 @@ export {
   DropDownMenu,
   DatePicker,
   Search,
+  Toggle,
 };
