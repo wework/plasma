@@ -24,6 +24,7 @@ import Search from './components/Search/Search';
 import Tabs from './components/Tabs/Tabs';
 
 // Page imports
+import Page from './components/layout/Page/Page';
 import Group from './components/layout/Group/Group';
 import HorizontalScroll from './components/layout/HorizontalScroll/HorizontalScroll';
 import FormField from './components/layout/FormField/FormField';
@@ -52,23 +53,20 @@ Plasma.Loader = Loader;
 Plasma.DropDownMenu = DropDownMenu;
 Plasma.DatePicker = DatePicker;
 Plasma.Search = Search;
-
 Plasma.FormField = FormField;
 Plasma.Tooltip = Tooltip;
 Plasma.Tabs = Tabs;
-
 Plasma.SideNavBar = SideNavBar;
 Plasma.Table = Table;
 Plasma.TopNavBar = TopNavBar;
-
 Plasma.Masthead = Masthead;
 Plasma.Modal = Modal;
-
 Plasma.Group = Group;
 Plasma.HorizontalScroll = HorizontalScroll;
 Plasma.FixedLeft = FixedLeft;
 Plasma.FixedRight = FixedRight;
 Plasma.FixedTop = FixedTop;
+Plasma.Page = Page;
 
 export default Plasma;
 
@@ -103,4 +101,5 @@ export {
   DropDownMenu,
   DatePicker,
   Search,
+  Page,
 };

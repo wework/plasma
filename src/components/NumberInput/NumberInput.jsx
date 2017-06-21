@@ -74,7 +74,7 @@ NumberInput.propTypes = {
   onChange: PropTypes.func,
   onPressIncrement: PropTypes.func,
   onPressDecrement: PropTypes.func,
-  data: PropTypes.obj,
+  data: PropTypes.object,
 };
 
 NumberInput.defaultProps = {

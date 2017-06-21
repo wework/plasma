@@ -88,7 +88,7 @@ FixedRight.propTypes = {
   children: PropTypes.array.isRequired,
   stickAt: PropTypes.number,
   fixedContainerStyle: PropTypes.object,
-  data: PropTypes.obj,
+  data: PropTypes.object,
 };
 
 FixedRight.displayName = '!FixedRight';

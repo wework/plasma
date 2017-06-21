@@ -22,7 +22,7 @@ TopNavBar.defaultProps = {
 
 TopNavBar.propTypes = {
   children: PropTypes.node.isRequired,
-  data: PropTypes.obj,
+  data: PropTypes.object,
 };
 
 TopNavBar.displayName = 'TopNavBar';

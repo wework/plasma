@@ -81,7 +81,7 @@ DropDownMenu.defaultProps = {
 
 DropDownMenu.propTypes = {
   options: React.PropTypes.array,
-  data: PropTypes.obj,
+  data: PropTypes.object,
 };
 
 DropDownMenu.displayName = 'DrowpDownMenu';

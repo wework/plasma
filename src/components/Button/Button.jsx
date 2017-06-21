@@ -71,7 +71,7 @@ Button.propTypes = {
   children: PropTypes.node,
   style: PropTypes.object,
   isSubmit: PropTypes.bool,
-  data: PropTypes.obj,
+  data: PropTypes.object,
 };
 
 Button.displayName = 'Button';

@@ -61,7 +61,7 @@ Tabs.propTypes = {
   onChange: PropTypes.func.isRequired,
   selectedIndex: PropTypes.number,
   selectedLabel: PropTypes.string,
-  data: PropTypes.obj,
+  data: PropTypes.object,
 };
 
 Tabs.displayName = 'Tabs';

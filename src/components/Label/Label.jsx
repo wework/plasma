@@ -29,7 +29,7 @@ const Label = ({ type, text, data }) => {
 Label.propTypes = {
   text: PropTypes.string,
   type: PropTypes.string,
-  data: PropTypes.obj,
+  data: PropTypes.object,
 };
 
 Label.defaultProps = {

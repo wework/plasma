@@ -50,7 +50,7 @@ Checkbox.propTypes = {
   ]).isRequired,
   name: PropTypes.string.isRequired,
   onChange: PropTypes.func,
-  data: PropTypes.obj,
+  data: PropTypes.object,
 };
 
 Checkbox.displayName = 'Checkbox';

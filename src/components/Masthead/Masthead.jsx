@@ -48,7 +48,7 @@ Masthead.propTypes = {
   label: PropTypes.string,
   header: PropTypes.string.isRequired,
   style: PropTypes.object,
-  data: PropTypes.obj,
+  data: PropTypes.object,
 };
 
 Masthead.displayName = 'Masthead';

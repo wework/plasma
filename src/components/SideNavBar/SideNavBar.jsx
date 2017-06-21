@@ -15,7 +15,7 @@ class SideNavBar extends Component {
   }
 
   handleClick(result) {
-    this.props.onChange({ id: result.id });
+    this.props.onChange && this.props.onChange({ id: result.id });
   }
 
   renderItems() {
@@ -40,7 +40,7 @@ class SideNavBar extends Component {
     return (
       <div className={style.wrapper} {...getDataAttrs(this.props.data)}>
         <SideNavBarTop
-          label="Chelsea"
+          label={this.props.topText}
           onClick={this.props.onClickTop}
         />
         <div className={style.sidebarContent}>
@@ -56,7 +56,8 @@ SideNavBar.propTypes = {
   onChange: PropTypes.func,
   selectedId: PropTypes.string,
   onClickTop: PropTypes.func,
-  data: PropTypes.obj,
+  topText: PropTypes.string,
+  data: PropTypes.object,
 };
 
 SideNavBar.displayName = 'SideNavBar';

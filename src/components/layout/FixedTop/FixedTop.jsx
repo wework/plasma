@@ -51,7 +51,7 @@ FixedTop.defaultProps = {
 FixedTop.propTypes = {
   children: PropTypes.array.isRequired,
   backgroundColor: PropTypes.string,
-  data: PropTypes.obj,
+  data: PropTypes.object,
 };
 
 FixedTop.displayName = '!FixedTop';

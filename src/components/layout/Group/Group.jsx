@@ -56,7 +56,7 @@ Group.propTypes = {
   vertical: PropTypes.bool,
   layout: PropTypes.array,
   style: PropTypes.object,
-  data: PropTypes.obj,
+  data: PropTypes.object,
 };
 
 Group.displayName = 'Group';

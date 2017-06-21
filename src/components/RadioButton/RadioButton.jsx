@@ -51,7 +51,7 @@ RadioButton.propTypes = {
   isLarge: PropTypes.bool,
   onChange: PropTypes.func,
   checked: PropTypes.bool,
-  data: PropTypes.obj,
+  data: PropTypes.object,
 };
 
 RadioButton.displayName = 'RadioButton';

@@ -44,7 +44,7 @@ HorizontalScroll.propTypes = {
   children: PropTypes.node,
   onScroll: PropTypes.func,
   style: PropTypes.object,
-  data: PropTypes.obj,
+  data: PropTypes.object,
 };
 
 HorizontalScroll.displayName = 'HorizontalScroll';

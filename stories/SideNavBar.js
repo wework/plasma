@@ -78,6 +78,7 @@ storiesOf('SideNavBar', module).add('default', () => {
           items={items}
           onChange={(event) => { this.setState({ selectedId: event.id }); }}
           selectedId={this.state.selectedId}
+          topText="Long Building Name"
           data={{ qa: 'test' }}
         />
       );

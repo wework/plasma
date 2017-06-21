@@ -88,7 +88,7 @@ FixedLeft.propTypes = {
   stickAt: PropTypes.number,
   contentStyle: PropTypes.object,
   fixedStyle: PropTypes.object,
-  data: PropTypes.obj,
+  data: PropTypes.object,
 };
 
 FixedLeft.displayName = '!FixedLeft';

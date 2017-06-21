@@ -81,7 +81,7 @@ TextInput.propTypes = {
   disabled: PropTypes.bool,
   size: PropTypes.bool,
   error: PropTypes.bool,
-  data: PropTypes.obj,
+  data: PropTypes.object,
 };
 
 TextInput.defaultProps = {

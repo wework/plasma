@@ -38,7 +38,7 @@ Modal.propTypes = {
   visible: PropTypes.bool,
   onDismiss: PropTypes.func,
   style: PropTypes.object,
-  data: PropTypes.obj,
+  data: PropTypes.object,
 };
 
 Modal.displayName = 'Modal';

@@ -36,7 +36,7 @@ SegmentedCard.propTypes = {
   children: PropTypes.node.isRequired,
   style: PropTypes.object,
   vertical: PropTypes.bool,
-  data: PropTypes.obj,
+  data: PropTypes.object,
 };
 
 SegmentedCard.displayName = 'SegmentedCard';

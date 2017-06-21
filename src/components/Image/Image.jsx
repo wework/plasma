@@ -32,7 +32,7 @@ Image.propTypes = {
   imageStyle: PropTypes.object,
   src: PropTypes.string,
   altText: PropTypes.string,
-  data: PropTypes.obj,
+  data: PropTypes.object,
 };
 
 Image.displayName = 'Image';

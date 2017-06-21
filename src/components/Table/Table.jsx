@@ -354,7 +354,7 @@ Table.propTypes = {
   spanMap: PropTypes.object,
   stickAt: PropTypes.number,
   style: PropTypes.object,
-  data: PropTypes.obj,
+  data: PropTypes.object,
 };
 
 Table.defaultProps = {

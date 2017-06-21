@@ -14,7 +14,11 @@
 .top {
   font-size: 14px;
   box-sizing: border-box;
-  background-color: $cPurple60;
+  background-color: $cPurple50;
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 0;
   height: 50px;
   width: 100%;
   display: flex;
@@ -32,8 +36,9 @@
 
 .sidebarContent {
   height: 100%;
+  box-sizing: border-box;
   border-right: 1px solid $cBorder;
-  padding: 20px 0;
+  padding: 70px 0 50px 0;
 }
 
 .groupWrapper {
@@ -54,7 +59,7 @@
 
 .itemWrapper {
   box-sizing: border-box;
-  padding: 6px 10px 6px 40px;
+  padding: 6px 0px 6px 40px;
   font-size: 13px;
   position: relative;
   transition: all 0.1s;
@@ -74,6 +79,7 @@
   flex-direction: row;
   justify-content: flex-start;
   align-items: center;
+  overflow: hidden;
   .iconWrapper {
     width: 40px;
     display: flex;
@@ -84,6 +90,10 @@
   }
   .groupLabelWrapper {
     font-weight: bold;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    overflow: hidden;
+    padding-right: 20px;
   }
 }
 

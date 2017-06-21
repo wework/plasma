@@ -37,7 +37,7 @@ Loader.defaultProps = {};
 Loader.propTypes = {
   style: PropTypes.object,
   dotStyle: PropTypes.object,
-  data: PropTypes.obj,
+  data: PropTypes.object,
 };
 
 Loader.displayName = 'Loader';

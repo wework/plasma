@@ -28,7 +28,7 @@ Rule.defaultProps = {
 
 Rule.propTypes = {
   type: PropTypes.string,
-  data: PropTypes.obj,
+  data: PropTypes.object,
 };
 
 Rule.displayName = 'Rule';

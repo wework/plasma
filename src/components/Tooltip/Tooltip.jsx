@@ -27,7 +27,7 @@ Tooltip.defaultProps = {
 Tooltip.propTypes = {
   children: PropTypes.node.isRequired,
   content: PropTypes.node,
-  data: PropTypes.obj,
+  data: PropTypes.object,
 };
 
 Tooltip.displayName = 'Tooltip';

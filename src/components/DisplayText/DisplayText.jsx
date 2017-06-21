@@ -31,7 +31,7 @@ class DisplayText extends React.Component {
 DisplayText.propTypes = {
   children: PropTypes.string.isRequired,
   size: PropTypes.string.oneOf(['default', 'extraLarge', 'large', 'medium', 'small']),
-  data: PropTypes.obj,
+  data: PropTypes.object,
 };
 
 DisplayText.defaultProps = {

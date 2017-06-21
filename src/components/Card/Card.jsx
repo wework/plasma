@@ -94,7 +94,7 @@ Card.propTypes = {
   borderType: PropTypes.string,
   expandedComponent: PropTypes.node,
   isExpanded: PropTypes.bool,
-  data: PropTypes.obj,
+  data: PropTypes.object,
 };
 
 Card.displayName = 'Card';

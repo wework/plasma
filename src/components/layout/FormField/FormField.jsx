@@ -57,7 +57,7 @@ FormField.propTypes = {
   isRequired: PropTypes.bool,
   label: PropTypes.string,
   labelType: PropTypes.string,
-  data: PropTypes.obj,
+  data: PropTypes.object,
 };
 
 FormField.displayName = 'FormField';

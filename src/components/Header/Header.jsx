@@ -1,8 +1,8 @@
 import cx from 'classnames';
 import React from 'react';
 import PropTypes from 'prop-types';
-import Base from '../Base.jsx';
 import style from './style.scss';
+import getDataAttrs from '../../getDataAttrs';
 
 class Header extends React.Component {
   render() {
@@ -16,7 +16,11 @@ class Header extends React.Component {
     });
 
     return (
-      <div style={this.props.style} className={[headerStyle]}>
+      <div
+        style={this.props.style}
+        className={[headerStyle]}
+        {...getDataAttrs(this.props.data)}
+      >
         <div className={style.content}>
           {this.props.text}
         </div>
@@ -38,6 +42,7 @@ Header.propTypes = {
   h5: PropTypes.bool,
   h6: PropTypes.bool,
   style: PropTypes.object,
+  data: PropTypes.object,
 };
 
 Header.defaultProps = {
@@ -46,4 +51,4 @@ Header.defaultProps = {
 
 Header.displayName = 'Header';
 
-export default Base(Header);
+export default Header;
