@@ -4,7 +4,7 @@ import Button from '../src/components/Button/Button';
 
 storiesOf('Button', module)
   .add('primary', () => (
-    <Button onClick={action('clicked')}>Hello Button</Button>
+    <Button onClick={action('clicked')}>Helslo Button</Button>
   ))
   .add('secondary', () => (
     <Button type="secondary" onClick={action('clicked')}>Hello Button</Button>

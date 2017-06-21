@@ -3,6 +3,8 @@
 .input {
   @extend %type--body;
   @extend %input;
+  height: 100%;
+
   &:hover {
     border-color: $cWhite300;
   }
