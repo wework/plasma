@@ -2,7 +2,7 @@ import React from 'react';
 import { storiesOf, action, linkTo } from '@kadira/storybook';
 
 import NumberInput from '../src/components/NumberInput/NumberInput';
-import style from '../src/components/NumberInput/example.scss';
+
 
 storiesOf('NumberInput', module).add('numberinput', () =>(
   <NumberInput
@@ -13,6 +13,5 @@ storiesOf('NumberInput', module).add('numberinput', () =>(
     onChange={()=>{}}
     onPressIncrement={()=>{}}
     onPressDecrement={()=>{}}
-    wrapperClass={style.customWrapperClass}
   />
 ));

@@ -1,6 +1,5 @@
 import _ from 'lodash';
 import React from 'react';
-import cx from 'classnames';
 import PropTypes from 'prop-types';
 import Base from '../Base.jsx';
 import style from './style.scss';
@@ -39,10 +38,9 @@ class NumberInput extends React.Component {
   }
 
   render() {
-    const wrapperClasses = cx(style.wrapper, this.props.wrapperClass);
 
     return (
-      <div className={wrapperClasses}>
+      <div className={style.wrapper}>
         <input
           type="number"
           placeholder={this.props.placeholder}
@@ -66,7 +64,7 @@ class NumberInput extends React.Component {
 }
 
 NumberInput.propTypes = {
-  wrapperClass: PropTypes.string,
+ // wrapperClass: PropTypes.string,
   placeholder: PropTypes.string,
   minValue: PropTypes.number,
   maxValue: PropTypes.number,
