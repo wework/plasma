@@ -3,11 +3,11 @@ import _ from 'lodash';
 import React from 'react';
 
 import Base from '../Base.jsx';
-import DropDownMenuOption from './DropDownMenuOption.jsx';
+import OverflowMenuItem from './OverflowMenuItem.jsx';
 
 import style from './style.scss';
 
-class DropDownMenu extends React.Component {
+class OverflowMenu extends React.Component {
 
   constructor() {
     super();
@@ -56,15 +56,11 @@ class DropDownMenu extends React.Component {
           <ol className={style.revealableList}>
             { _.map(this.props.options, (option) => {
               return (
-                <DropDownMenuOption
+                <OverflowMenuItem
                   key={option.key}
                   optionKey={option.key}
                   text={option.text}
-                  onClick={(optionKey) => {
-                    if (option.onClick) {
-                      option.onClick(optionKey);
-                    }
-                  }}
+                  onClick={this.props.onClick}
                 />
               );
             })}
@@ -75,14 +71,15 @@ class DropDownMenu extends React.Component {
   }
 }
 
-DropDownMenu.defaultProps = {
+OverflowMenu.defaultProps = {
   options: {},
 };
 
-DropDownMenu.propTypes = {
+OverflowMenu.propTypes = {
   options: React.PropTypes.array,
+  onClick: React.PropTypes.func,
 };
 
-DropDownMenu.displayName = 'DrowpDownMenu';
+OverflowMenu.displayName = 'OverflowMenu';
 
-export default Base(DropDownMenu);
+export default Base(OverflowMenu);

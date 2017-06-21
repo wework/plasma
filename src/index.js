@@ -1,7 +1,7 @@
 import Button from './components/Button/Button';
 import Card from './components/Card/Card';
 import Checkbox from './components/Checkbox/Checkbox';
-import DropDownMenu from './components/DropDownMenu/DropDownMenu';
+import OverflowMenu from './components/OverflowMenu/OverflowMenu';
 import Header from './components/Header/Header';
 import Image from './components/Image/Image';
 import Label from './components/Label/Label';
@@ -51,7 +51,7 @@ Plasma.NumberInput = NumberInput;
 Plasma.RadioButton = RadioButton;
 Plasma.Rule = Rule;
 Plasma.Loader = Loader;
-Plasma.DropDownMenu = DropDownMenu;
+Plasma.OverflowMenu = OverflowMenu;
 Plasma.DatePicker = DatePicker;
 Plasma.Search = Search;
 
@@ -106,7 +106,7 @@ export {
   FixedTop,
   NumberInput,
   Loader,
-  DropDownMenu,
+  OverflowMenu,
   DatePicker,
   Search,
   Toggle,
