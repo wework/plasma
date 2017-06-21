@@ -38,7 +38,6 @@ class NumberInput extends React.Component {
   }
 
   render() {
-
     return (
       <div className={style.wrapper}>
         <input
@@ -64,7 +63,6 @@ class NumberInput extends React.Component {
 }
 
 NumberInput.propTypes = {
- // wrapperClass: PropTypes.string,
   placeholder: PropTypes.string,
   minValue: PropTypes.number,
   maxValue: PropTypes.number,
