@@ -11,8 +11,8 @@
   &:focus {
     border-color: $cGray300;
   }
-  &::-webkit-inner-spin-button, 
-  &::-webkit-outer-spin-button { 
+  &::-webkit-inner-spin-button,
+  &::-webkit-outer-spin-button {
     -webkit-appearance: none;
     margin: 0; /* Removes leftover margin */
   }
@@ -21,6 +21,7 @@
 
 .wrapper {
   position: relative;
+  height: 39px;
 }
 
 .spinner {
