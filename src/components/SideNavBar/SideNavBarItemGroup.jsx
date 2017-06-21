@@ -1,5 +1,5 @@
 import React, { Component, PropTypes } from 'react';
-import { forEach, findIndex, get } from 'lodash';
+import { forEach, findIndex, get, find } from 'lodash';
 import SideNavBarItem from './SideNavBarItem';
 import Base from '../Base.jsx';
 import style from './style.scss';
@@ -25,7 +25,11 @@ class SideNavBarItemGroup extends Component {
   }
 
   renderIconAndLabel() {
-    const { icon, iconSize, iconStyle, label } = this.props;
+    const { icon, iconSize, iconStyle, label, items } = this.props;
+
+    if (find(items, (item) => !item.hidden) === -1) {
+      return null;
+    }
 
     const renderIcon = icon && iconSize && (
       <img
@@ -58,7 +62,7 @@ class SideNavBarItemGroup extends Component {
   renderSubItems() {
     const items = [];
     forEach(this.props.items, (groupedItem) => {
-      items.push(
+      !groupedItem.hidden && items.push(
         <SideNavBarItem
           key={groupedItem.id}
           id={groupedItem.id}
