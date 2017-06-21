@@ -10,7 +10,7 @@ class DatePicker extends React.Component {
   }
 }
 
-DatePicker.defaultProps = ExternalDatePicker.defaultProps();
+DatePicker.defaultProps = ExternalDatePicker.defaultProps;
 
 DatePicker.propTypes = ExternalDatePicker.propTypes;
 
