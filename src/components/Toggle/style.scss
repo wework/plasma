@@ -1,0 +1,105 @@
+@import '../../styles/base';
+
+
+.toggleWrapper {
+  list-style: none;
+  margin: 0px;
+  padding: 0px;
+}
+
+.toggle {
+  background: $cWhite;
+  border: 1px solid $cGray300;
+  color: $cWeWorkBlack;
+  height: 38px;
+  font-size: 13px;
+  cursor: pointer;
+  flex-grow: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  line-height: 38px;
+  outline: none;
+  border-radius: 0px;
+  padding: 0 20px;
+  outline: none;
+  margin: 0;
+  @extend %fontFamily--body;
+
+  &:hover {
+    background-color: rgba(0, 0, 0, 0.02);
+  }
+
+  &:focus {
+    background-color: rgba(0, 0, 0, 0.05);
+  }
+
+
+  &.horizontal {
+    border-radius: 0px;
+    display: inline-block;
+    border-right: 0px;
+    width: myWidth;
+
+
+    &:first-child {
+      border-top-left-radius: 5px;
+      border-bottom-left-radius: 5px;
+    }
+
+    &:last-child {
+      border-top-right-radius: 5px;
+      border-bottom-right-radius: 5px;
+      border-right: 1px solid $cGray300;
+    }
+
+    &.active {
+      color: $cWeWorkBlack;
+      font-weight:bold;
+      background-color: $cBrandYellow;
+      border: 1px solid darken($cBrandYellow, 15%);
+      z-index: 1;
+      position: relative;
+      margin-right: -1px;
+    }
+  }
+
+  &.vertical {
+    border-radius: 0px;
+    min-width: 200px;
+    border-bottom: 0px;
+
+    &:first-child {
+      border-top-left-radius: 5px;
+      border-top-right-radius: 5px;
+    }
+
+    &:last-child {
+      border-bottom-left-radius: 5px;
+      border-bottom-right-radius: 5px;
+      border-bottom: 1px solid $cGray300;
+    }
+
+    &.active {
+      color: $cWeWorkBlack;
+      font-weight:bold;
+      background-color: $cBrandYellow;
+      border: 1px solid darken($cBrandYellow, 15%);
+      z-index: 1;
+      position: relative;
+      margin-bottom: -1px;
+    }
+  }
+
+  &.disabled {
+    background: none;
+    color: $cGray200;
+    border-color: $cGray300;
+    cursor: not-allowed;
+    pointer-events: none;
+    &:hover {
+      border-color: $cGray300;
+      background: none;
+    }
+  }
+}
