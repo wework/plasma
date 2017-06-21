@@ -42,6 +42,7 @@
     "lodash": "^4.14.1",
     "marked": "^0.3.6",
     "mkdirp": "^0.5.1",
+    "moment": "^2.18.1",
     "node-sass": "^3.8.0",
     "proxy-middleware": "^0.15.0",
     "react-docgen-fixed": "^2.9.1",
@@ -61,11 +62,14 @@
     "classnames": "^2.2.5",
     "jquery": "^3.1.0",
     "lodash": "^4.14.1",
-    "moment": "^2.18.1",
     "prop-types": "^15.5.7",
     "proxy-middleware": "^0.15.0",
     "react-datepicker": "^0.46.0",
     "react-input-autosize": "^1.1.0",
     "react-select": "^1.0.0-rc.1"
+  },
+  "peerDependencies": {
+    "react": ">=0.14.0 <= 15",
+    "react-dom": ">=0.14.0 <= 15"
   }
 }
