@@ -1,8 +1,8 @@
-import reactselect from './reactselect.scss';
+// import reactselect from './reactselect.scss';
 import reactdatepicker from './reactdatepicker.scss';
 
 const dummy = {
-  reactselect,
+  // reactselect,
   reactdatepicker,
 };
 
