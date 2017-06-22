@@ -3,14 +3,16 @@
 .input {
   @extend %type--body;
   @extend %input;
+  height: 100%;
+
   &:hover {
     border-color: $cWhite300;
   }
   &:focus {
     border-color: $cGray300;
   }
-  &::-webkit-inner-spin-button, 
-  &::-webkit-outer-spin-button { 
+  &::-webkit-inner-spin-button,
+  &::-webkit-outer-spin-button {
     -webkit-appearance: none;
     margin: 0; /* Removes leftover margin */
   }
@@ -19,6 +21,7 @@
 
 .wrapper {
   position: relative;
+  height: 40px;
 }
 
 .spinner {
