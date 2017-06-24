@@ -16,6 +16,6 @@ SideNavBar.propTypes = {
   children: PropTypes.node.isRequired,
 };
 
-SideNavBar.displayName = 'SideNavBar';
+SideNavBar.displayName = 'Plasma@SideNavBar';
 
 export default SideNavBar;

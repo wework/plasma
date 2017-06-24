@@ -51,6 +51,6 @@ Masthead.propTypes = {
   data: PropTypes.object,
 };
 
-Masthead.displayName = 'Masthead';
+Masthead.displayName = 'Plasma@Masthead';
 
 export default Masthead;

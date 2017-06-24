@@ -41,6 +41,6 @@ Modal.propTypes = {
   data: PropTypes.object,
 };
 
-Modal.displayName = 'Modal';
+Modal.displayName = 'Plasma@Modal';
 
 export default Modal;

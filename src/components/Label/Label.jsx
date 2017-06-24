@@ -44,6 +44,6 @@ Label.defaultProps = {
   type: types.PRIMARY,
 };
 
-Label.displayName = 'Label';
+Label.displayName = 'Plasma@Label';
 
 export default Label;

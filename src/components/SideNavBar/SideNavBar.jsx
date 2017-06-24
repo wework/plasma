@@ -51,6 +51,6 @@ SideNavBar.propTypes = {
   data: PropTypes.object,
 };
 
-SideNavBar.displayName = 'SideNavBar';
+SideNavBar.displayName = 'Plasma@SideNavBar';
 
 export default SideNavBar;

@@ -59,6 +59,6 @@ Group.propTypes = {
   data: PropTypes.object,
 };
 
-Group.displayName = 'Group';
+Group.displayName = 'Plasma@Group';
 
 export default Group;

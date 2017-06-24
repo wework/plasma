@@ -82,6 +82,6 @@ NumberInput.defaultProps = {
   step: 1,
 };
 
-NumberInput.displayName = 'NumberInput';
+NumberInput.displayName = 'Plasma@NumberInput';
 
 export default NumberInput;

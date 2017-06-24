@@ -60,6 +60,6 @@ FormField.propTypes = {
   data: PropTypes.object,
 };
 
-FormField.displayName = 'FormField';
+FormField.displayName = 'Plasma@FormField';
 
 export default FormField;

@@ -53,6 +53,6 @@ FixedTop.propTypes = {
   data: PropTypes.object,
 };
 
-FixedTop.displayName = '!FixedTop';
+FixedTop.displayName = '!Plasma@FixedTop';
 
 export default FixedTop;

@@ -82,6 +82,6 @@ OverflowMenu.propTypes = {
   data: PropTypes.object,
 };
 
-OverflowMenu.displayName = 'OverflowMenu';
+OverflowMenu.displayName = 'Plasma@OverflowMenu';
 
 export default OverflowMenu;

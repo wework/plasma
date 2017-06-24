@@ -40,6 +40,6 @@ Loader.propTypes = {
   data: PropTypes.object,
 };
 
-Loader.displayName = 'Loader';
+Loader.displayName = 'Plasma@Loader';
 
 export default Loader;

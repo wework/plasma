@@ -378,6 +378,6 @@ Table.defaultProps = {
   stickAt: null,
 };
 
-Table.displayName = 'Table';
+Table.displayName = 'Plasma@Table';
 
 export default Table;

@@ -100,6 +100,6 @@ FixedRight.propTypes = {
   data: PropTypes.object,
 };
 
-FixedRight.displayName = '!FixedRight';
+FixedRight.displayName = '!Plasma@FixedRight';
 
 export default FixedRight;

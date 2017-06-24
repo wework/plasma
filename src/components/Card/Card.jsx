@@ -97,6 +97,6 @@ Card.propTypes = {
   data: PropTypes.object,
 };
 
-Card.displayName = 'Card';
+Card.displayName = 'Plasma@Card';
 
 export default Card;

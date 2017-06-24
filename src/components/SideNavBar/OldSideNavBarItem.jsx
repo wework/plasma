@@ -71,6 +71,6 @@ SideNavBarItem.propTypes = {
   darkBg: PropTypes.bool,
 };
 
-SideNavBarItem.displayName = 'SideNavBarItem';
+SideNavBarItem.displayName = 'Plasma@SideNavBarItem';
 
 export default SideNavBarItem;

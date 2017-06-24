@@ -49,6 +49,6 @@ Header.defaultProps = {
   text: 'Header',
 };
 
-Header.displayName = 'Header';
+Header.displayName = 'Plasma@Header';
 
 export default Header;

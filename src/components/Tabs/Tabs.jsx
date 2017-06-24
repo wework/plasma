@@ -64,6 +64,6 @@ Tabs.propTypes = {
   data: PropTypes.object,
 };
 
-Tabs.displayName = 'Tabs';
+Tabs.displayName = 'Plasma@Tabs';
 
 export default Tabs;

@@ -53,6 +53,6 @@ RadioButton.propTypes = {
   data: PropTypes.object,
 };
 
-RadioButton.displayName = 'RadioButton';
+RadioButton.displayName = 'Plasma@RadioButton';
 
 export default RadioButton;

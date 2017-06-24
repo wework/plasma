@@ -102,6 +102,6 @@ SideNavBarItemGroup.propTypes = {
   darkBg: PropTypes.bool,
 };
 
-SideNavBarItemGroup.displayName = 'SideNavBarItemGroup';
+SideNavBarItemGroup.displayName = 'Plasma@SideNavBarItemGroup';
 
 export default SideNavBarItemGroup;

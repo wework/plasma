@@ -39,6 +39,6 @@ SegmentedCard.propTypes = {
   data: PropTypes.object,
 };
 
-SegmentedCard.displayName = 'SegmentedCard';
+SegmentedCard.displayName = 'Plasma@SegmentedCard';
 
 export default SegmentedCard;

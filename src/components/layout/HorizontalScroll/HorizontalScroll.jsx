@@ -50,6 +50,6 @@ HorizontalScroll.propTypes = {
   data: PropTypes.object,
 };
 
-HorizontalScroll.displayName = 'HorizontalScroll';
+HorizontalScroll.displayName = 'Plasma@HorizontalScroll';
 
 export default HorizontalScroll;

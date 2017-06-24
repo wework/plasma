@@ -26,6 +26,6 @@ Text.propTypes = {
   children: PropTypes.element,
 };
 
-Text.displayName = 'Text';
+Text.displayName = 'Plasma@Text';
 
 export default Text;

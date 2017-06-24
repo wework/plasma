@@ -99,4 +99,6 @@ Search.propTypes = {
   data: PropTypes.object,
 };
 
+Search.displayName = 'Plasma@Search';
+
 export default Search;

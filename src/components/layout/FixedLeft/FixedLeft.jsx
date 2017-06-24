@@ -101,6 +101,6 @@ FixedLeft.propTypes = {
   data: PropTypes.object,
 };
 
-FixedLeft.displayName = '!FixedLeft';
+FixedLeft.displayName = '!Plasma@FixedLeft';
 
 export default FixedLeft;

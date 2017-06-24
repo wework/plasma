@@ -53,6 +53,6 @@ Checkbox.propTypes = {
   data: PropTypes.object,
 };
 
-Checkbox.displayName = 'Checkbox';
+Checkbox.displayName = 'Plasma@Checkbox';
 
 export default Checkbox;

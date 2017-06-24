@@ -67,7 +67,8 @@
     "prop-types": "^15.5.7",
     "proxy-middleware": "^0.15.0",
     "react-datepicker": "^0.46.0",
-    "react-input-autosize": "^1.1.0"
+    "react-input-autosize": "^1.1.0",
+    "react-select": "^1.0.0-rc.5"
   },
   "peerDependencies": {
     "react": "^15.4.0",

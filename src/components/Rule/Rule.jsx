@@ -31,6 +31,6 @@ Rule.propTypes = {
   data: PropTypes.object,
 };
 
-Rule.displayName = 'Rule';
+Rule.displayName = 'Plasma@Rule';
 
 export default Rule;

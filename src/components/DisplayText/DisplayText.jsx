@@ -38,6 +38,6 @@ DisplayText.defaultProps = {
   children: 'Display text',
 };
 
-DisplayText.displayName = 'DisplayText';
+DisplayText.displayName = 'Plasma@DisplayText';
 
-export default Base(DisplayText);
+export default DisplayText;

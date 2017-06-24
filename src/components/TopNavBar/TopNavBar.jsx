@@ -25,6 +25,6 @@ TopNavBar.propTypes = {
   data: PropTypes.object,
 };
 
-TopNavBar.displayName = 'TopNavBar';
+TopNavBar.displayName = 'Plasma@TopNavBar';
 
 export default TopNavBar;

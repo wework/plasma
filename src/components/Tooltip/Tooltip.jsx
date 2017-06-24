@@ -30,6 +30,6 @@ Tooltip.propTypes = {
   data: PropTypes.object,
 };
 
-Tooltip.displayName = 'Tooltip';
+Tooltip.displayName = 'Plasma@Tooltip';
 
 export default Tooltip;

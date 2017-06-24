@@ -35,6 +35,6 @@ Image.propTypes = {
   data: PropTypes.object,
 };
 
-Image.displayName = 'Image';
+Image.displayName = 'Plasma@Image';
 
 export default Image;
