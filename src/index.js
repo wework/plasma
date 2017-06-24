@@ -3,6 +3,7 @@ import Card from './components/Card/Card';
 import Checkbox from './components/Checkbox/Checkbox';
 import OverflowMenu from './components/OverflowMenu/OverflowMenu';
 import Header from './components/Header/Header';
+import Icon from './components/Icon/Icon';
 import Image from './components/Image/Image';
 import Label from './components/Label/Label';
 import Loader from './components/Loader/Loader';
@@ -26,6 +27,7 @@ import Tabs from './components/Tabs/Tabs';
 import Toggle from './components/Toggle/Toggle';
 
 // Page imports
+import Page from './components/layout/Page/Page';
 import Group from './components/layout/Group/Group';
 import HorizontalScroll from './components/layout/HorizontalScroll/HorizontalScroll';
 import FormField from './components/layout/FormField/FormField';
@@ -42,6 +44,7 @@ const Plasma = {};
 Plasma.Header = Header;
 Plasma.Label = Label;
 Plasma.Image = Image;
+Plasma.Icon = Icon;
 Plasma.Text = Text;
 Plasma.Card = Card;
 Plasma.Checkbox = Checkbox;
@@ -55,32 +58,30 @@ Plasma.Loader = Loader;
 Plasma.OverflowMenu = OverflowMenu;
 // Plasma.DatePicker = DatePicker;
 Plasma.Search = Search;
-
 Plasma.FormField = FormField;
 Plasma.Tooltip = Tooltip;
 Plasma.Tabs = Tabs;
-
 Plasma.SideNavBar = SideNavBar;
 Plasma.SideNavBarItem = SideNavBarItem;
 Plasma.SideNavBarV2 = SideNavBarV2;
 Plasma.Table = Table;
 Plasma.TopNavBar = TopNavBar;
-
 Plasma.Masthead = Masthead;
 Plasma.Modal = Modal;
-
 Plasma.Group = Group;
 Plasma.HorizontalScroll = HorizontalScroll;
 Plasma.FixedLeft = FixedLeft;
 Plasma.FixedRight = FixedRight;
 Plasma.FixedTop = FixedTop;
 Plasma.Toggle = Toggle;
+Plasma.Page = Page;
 
 Plasma._style = style;
 
 export default Plasma;
 
 export {
+  Icon,
   Header,
   Label,
   Image,
@@ -113,4 +114,5 @@ export {
   // DatePicker,
   Search,
   Toggle,
+  Page,
 };

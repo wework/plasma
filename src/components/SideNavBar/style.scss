@@ -7,56 +7,93 @@
 .wrapper {
   font-family: $fontStack;
   background: $cGray600;
-  padding: 8px 0;
   height: 100%;
   box-sizing: border-box;
 }
 
+.top {
+  font-size: 14px;
+  box-sizing: border-box;
+  background-color: $cPurple50;
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 0;
+  height: 50px;
+  width: 100%;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  color: $cGray20;
+  cursor: pointer;
+  &:hover, &:focus {
+    color: $cGray40;
+  }
+  &:active {
+    color: $cGray20;
+  }
+}
+
+.sidebarContent {
+  height: 100%;
+  box-sizing: border-box;
+  border-right: 1px solid $cBorder;
+  padding: 70px 0 50px 0;
+}
+
 .groupWrapper {
   box-sizing: border-box;
-  padding: 0 10px 0 30px;
-  margin-bottom: 10px;
-  font-size: 13px;
+  padding: 0 10px 0 0px;
+  margin-bottom: 12px;
+  font-size: 14px;
   position: relative;
   transition: all 0.1s;
   box-sizing: border-box;
   color: $cBlack30;
   cursor: pointer;
-  .icon {
-    margin-right: 15px;
-  }
+}
 
-  .groupLabel {
-    font-weight: bold;
-    padding-bottom: 5px;
-    &:hover, &:focus {
-      color: $cBlack70;
-    }
-  }
-
-  .groupSubItems {
-
-  }
+.groupSubItems {
+  margin-top: 2px;
 }
 
 .itemWrapper {
   box-sizing: border-box;
-  padding: 4px 0px;
+  padding: 6px 0px 6px 40px;
   font-size: 13px;
   position: relative;
-  border-bottom: 1px solid rgba(0,0,0,0.3);
-  transition: all 0.3s;
-  border-left: 5px solid $cPurple100;
-  border-right: 5px solid $cPurple100;
-
-  &:hover, &:active, &:focus {
-    background: $cPurple200;
-    border-left-color: $cPurple200;
-    border-right-color: $cPurple200;
+  transition: all 0.1s;
+  color: $cBlack20;
+  box-sizing: border-box;
+  &:hover, &:focus {
+    color: $cBlack40;
   }
-
   &:active {
-    color: $cBlue70;
+    color: $cBlack50;
+  }
+}
+
+.iconAndLabelContainer {
+  position: relative;
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: center;
+  overflow: hidden;
+  .iconWrapper {
+    width: 40px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    top: 1px;
+  }
+  .groupLabelWrapper {
+    font-weight: bold;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    overflow: hidden;
+    padding-right: 20px;
   }
 }
 
@@ -72,7 +109,8 @@
 }
 
 .selected {
-  background: fade-out($cPurple200, 0.9);
-  border-left-color: $cPurple200;
-  border-right-color: #303a4c;
+  color: $cBlue70;
+  &:hover {
+    color: $cBlue70;
+  }
 }

@@ -52,11 +52,12 @@ class Card extends React.Component {
 
     return (
       <div
-        {...getDataAttrs(this.props)}
+        {...getDataAttrs(this.props.data)}
         ref={(c) => { this.outer = c; }}
         className={cardStyle}
         style={this.props.style}
         onClick={this.props.onClick}
+        {...getDataAttrs(this.props.data)}
       >
         <div className={style.inner}>
           <div

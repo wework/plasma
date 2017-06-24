@@ -42,3 +42,98 @@ $cBackground: $cGray600;
 
 $cButtonDisabledBg: $cGray600;
 $cButtonDisabledLabel: $cGray300;
+
+// Black
+
+$cBlack50: #252729;
+
+$cBlack70: darken($cBlack50, 20%);
+$cBlack60: darken($cBlack50, 10%);
+
+$cBlack40: lighten($cBlack50, 10%);
+$cBlack30: lighten($cBlack50, 20%);
+$cBlack20: lighten($cBlack50, 30%);
+
+// Gray
+
+$cGray50: #c1c1c2;
+
+$cGray80: darken($cGray50, 30%);
+$cGray70: darken($cGray50, 20%);
+$cGray60: darken($cGray50, 10%);
+
+$cGray40: lighten($cGray50, 10%);
+$cGray30: lighten($cGray50, 20%);
+$cGray20: lighten($cGray50, 30%);
+
+// Yellow
+
+$cYellow50: #ffcf71;
+
+$cYellow80: darken($cYellow50, 30%);
+$cYellow70: darken($cYellow50, 20%);
+$cYellow60: darken($cYellow50, 10%);
+
+$cYellow40: lighten($cYellow50, 10%);
+$cYellow30: lighten($cYellow50, 20%);
+
+
+// Blue
+
+$cBlue50: #4d99f9;
+
+$cBlue80: darken($cBlue50, 30%);
+$cBlue70: darken($cBlue50, 20%);
+$cBlue60: darken($cBlue50, 10%);
+
+$cBlue40: lighten($cBlue50, 10%);
+$cBlue30: lighten($cBlue50, 20%);
+$cBlue20: lighten($cBlue50, 30%);
+
+// Red
+
+$cRed50: #ff6352;
+
+$cRed80: darken($cRed50, 30%);
+$cRed70: darken($cRed50, 20%);
+$cRed60: darken($cRed50, 10%);
+
+$cRed40: lighten($cRed50, 10%);
+$cRed30: lighten($cRed50, 20%);
+$cRed20: lighten($cRed50, 30%);
+
+// Green
+
+$cGreen50: #4fc188;
+
+$cGreen80: darken($cGreen50, 30%);
+$cGreen70: darken($cGreen50, 20%);
+$cGreen60: darken($cGreen50, 10%);
+
+$cGreen40: lighten($cGreen50, 10%);
+$cGreen30: lighten($cGreen50, 20%);
+$cGreen20: lighten($cGreen50, 30%);
+
+// Purple
+
+$cPurple50: #2b3445;
+
+$cPurple80: darken($cPurple50, 30%);
+$cPurple70: darken($cPurple50, 20%);
+$cPurple60: darken($cPurple50, 10%);
+
+$cPurple40: lighten($cPurple50, 10%);
+$cPurple30: lighten($cPurple50, 20%);
+$cPurple20: lighten($cPurple50, 30%);
+
+// Orange
+
+$cOrange50: #ea8b44;
+
+$cOrange80: darken($cOrange50, 30%);
+$cOrange70: darken($cOrange50, 20%);
+$cOrange60: darken($cOrange50, 10%);
+
+$cOrange40: lighten($cOrange50, 10%);
+$cOrange30: lighten($cOrange50, 20%);
+$cOrange20: lighten($cOrange50, 30%);

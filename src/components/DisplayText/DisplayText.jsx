@@ -1,8 +1,8 @@
 import cx from 'classnames';
 import React from 'react';
 import PropTypes from 'prop-types';
-import getDataAttrs from '../../getDataAttrs';
 import style from './style.scss';
+import getDataAttrs from '../../getDataAttrs';
 
 class DisplayText extends React.Component {
   render() {
@@ -17,7 +17,7 @@ class DisplayText extends React.Component {
 
     return (
       <div
-        {...getDataAttrs(this.props)}
+        {...getDataAttrs(this.props.data)}
         className={[headerStyle]}
       >
         <div className={style.content}>
@@ -37,6 +37,7 @@ DisplayText.propTypes = {
 DisplayText.defaultProps = {
   children: 'Display text',
 };
+
 
 DisplayText.displayName = 'Plasma@DisplayText';
 

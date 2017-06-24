@@ -1,7 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import cx from 'classnames';
-
 import getDataAttrs from '../../getDataAttrs';
 import style from './style.scss';
 
@@ -25,7 +24,7 @@ const Label = (
 
   return (
     <div
-      {...getDataAttrs({ data })}
+      {...getDataAttrs(data)}
       className={labelStyle}
     >
       {text}

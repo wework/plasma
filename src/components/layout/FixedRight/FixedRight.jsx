@@ -57,7 +57,7 @@ class FixedRight extends React.Component {
   render() {
     return (
       <div
-        {...getDataAttrs(this.props)}
+        {...getDataAttrs(this.props.data)}
         className={style.wrapper}
       >
         <div className={style.contentWrapper}>

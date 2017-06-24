@@ -39,7 +39,7 @@ const TextInput = (
 
   return (
     <div
-      {...getDataAttrs({ data })}
+      {...getDataAttrs(data)}
       className={wrapperStyle}
     >
       <input
@@ -89,6 +89,6 @@ TextInput.defaultProps = {
   isDisabled: false,
 };
 
-TextInput.displayName = 'TextInput';
+TextInput.displayName = 'Plasma@TextInput';
 
 export default TextInput;

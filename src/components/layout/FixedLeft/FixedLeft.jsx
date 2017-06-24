@@ -1,8 +1,8 @@
 import { isNull, clamp } from 'lodash';
 import React from 'react';
 import PropTypes from 'prop-types';
-import getDataAttrs from '../../../getDataAttrs';
 import style from './style.scss';
+import getDataAttrs from '../../../getDataAttrs';
 
 /**
   * The fixed left page is great.
@@ -57,7 +57,7 @@ class FixedLeft extends React.Component {
   render() {
     return (
       <div
-        {...getDataAttrs(this.props)}
+        {...getDataAttrs(this.props.data)}
         className={style.wrapper}
       >
         <div

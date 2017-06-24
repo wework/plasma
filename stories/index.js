@@ -19,3 +19,5 @@ import Toggle from './Toggle';
 import Select from './Select';
 import OverflowMenu from './OverflowMenu';
 import NumberInput from './NumberInput';
+import Rule from './Rule';
+import Page from './Page';

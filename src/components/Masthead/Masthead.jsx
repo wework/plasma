@@ -23,7 +23,7 @@ class Masthead extends React.Component {
 
     return (
       <div
-        {...getDataAttrs(this.props)}
+        {...getDataAttrs(this.props.data)}
         style={this.props.style}
         className={style.wrapper}
       >

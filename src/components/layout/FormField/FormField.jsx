@@ -27,7 +27,7 @@ const FormField = (
 
   return (
     <div
-      {...getDataAttrs({ data })}
+      {...getDataAttrs(data)}
       className={style.wrapper}
     >
       <Label

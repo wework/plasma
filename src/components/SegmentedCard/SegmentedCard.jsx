@@ -1,8 +1,8 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import cx from 'classnames';
-import getDataAttrs from '../../getDataAttrs';
 import style from './style.scss';
+import getDataAttrs from '../../getDataAttrs';
 
 class SegmentedCard extends React.Component {
   render() {
@@ -12,7 +12,7 @@ class SegmentedCard extends React.Component {
 
     return (
       <div
-        {...getDataAttrs(this.props)}
+        {...getDataAttrs(this.props.data)}
         className={className}
         style={this.props.style}
       >

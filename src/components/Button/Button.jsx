@@ -40,12 +40,12 @@ class Button extends React.Component {
 
     return (
       <button
-        {...getDataAttrs(this.props)}
+        {...getDataAttrs(this.props.data)}
         className={cx(buttonStyle)}
         style={this.props.style}
         onClick={this.props.onClick}
         type={buttonType}
-
+        {...getDataAttrs(this.props.data)}
       >
         {contentComponent}
       </button>

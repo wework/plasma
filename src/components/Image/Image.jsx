@@ -1,13 +1,13 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import getDataAttrs from '../../getDataAttrs';
 import style from './style.scss';
+import getDataAttrs from '../../getDataAttrs';
 
 class Image extends React.Component {
   render() {
     return (
       <div
-        {...getDataAttrs(this.props)}
+        {...getDataAttrs(this.props.data)}
         style={this.props.style}
       >
         <img

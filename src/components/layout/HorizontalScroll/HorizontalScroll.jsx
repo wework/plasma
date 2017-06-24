@@ -25,7 +25,7 @@ class HorizontalScroll extends React.Component {
   render() {
     return (
       <div
-        {...getDataAttrs(this.props)}
+        {...getDataAttrs(this.props.data)}
         style={this.props.style}
         className={style.wrapper}
         ref={(c) => { this.wrapper = c; }}

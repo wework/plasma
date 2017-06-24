@@ -1,8 +1,8 @@
 import { uniqueId } from 'lodash';
 import React from 'react';
 import PropTypes from 'prop-types';
-import getDataAttrs from '../../getDataAttrs';
 import style from './style.scss';
+import getDataAttrs from '../../getDataAttrs';
 
 class Checkbox extends React.Component {
   render() {
@@ -12,7 +12,7 @@ class Checkbox extends React.Component {
 
     return (
       <label
-        {...getDataAttrs(this.props)}
+        {...getDataAttrs(this.props.data)}
         htmlFor={id}
         className={style.wrapper}
       >

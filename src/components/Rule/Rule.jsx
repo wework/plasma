@@ -1,8 +1,8 @@
 import cx from 'classnames';
 import React from 'react';
 import PropTypes from 'prop-types';
-import getDataAttrs from '../../getDataAttrs';
 import style from './style.scss';
+import getDataAttrs from '../../getDataAttrs';
 
 const type = { SOLID: 'solid', DOTTED: 'dotted', DASHED: 'dashed' };
 

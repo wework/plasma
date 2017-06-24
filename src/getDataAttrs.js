@@ -1,7 +1,6 @@
-import { kebabCase, mapKeys } from 'lodash';
+import { mapKeys, kebabCase } from 'lodash';
 
-const getDataAttrs = (props = {}) => {
-  const { data } = props;
+const getDataAttrs = (data) => {
   if (!data) return {};
   return mapKeys(data, (val, key) => `data-${kebabCase(key)}`);
 };

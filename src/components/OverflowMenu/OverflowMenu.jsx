@@ -4,7 +4,6 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import getDataAttrs from '../../getDataAttrs';
 import OverflowMenuItem from './OverflowMenuItem.jsx';
-
 import style from './style.scss';
 
 class OverflowMenu extends React.Component {
@@ -32,7 +31,7 @@ class OverflowMenu extends React.Component {
     });
     return (
       <div
-        {...getDataAttrs(this.props)}
+        {...getDataAttrs(this.props.data)}
         onMouseEnter={this.handleMouseEnter}
         onMouseLeave={this.handleMouseLeave}
         className={style.container}

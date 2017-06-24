@@ -18,7 +18,7 @@ class Group extends React.Component {
 
     return (
       <div
-        {...getDataAttrs(this.props)}
+        {...getDataAttrs(this.props.data)}
         className={groupStyle}
         style={this.props.style}
       >

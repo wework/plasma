@@ -50,7 +50,7 @@ class Search extends Component {
 
     return (
       <div
-        {...getDataAttrs(this.props)}
+        {...getDataAttrs(this.props.data)}
         className={style.container}
       >
         <div className={style.inputWrapper}>

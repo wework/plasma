@@ -1,0 +1,12 @@
+@import '../../../styles/base';
+
+.wrapper {
+  @extend %type--body;
+  padding: 40px 30px;
+}
+
+.title {
+  font-weight: bold;
+  font-size: 30px;
+  margin-bottom: 40px;
+}

@@ -14,7 +14,7 @@ class RadioButton extends React.Component {
 
     return (
       <div
-        {...getDataAttrs(this.props)}
+        {...getDataAttrs(this.props.data)}
       >
         <label htmlFor={id} className={wrapperClasses}>
           <input

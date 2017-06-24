@@ -1,8 +1,8 @@
 import { isNumber, toNumber } from 'lodash';
 import React from 'react';
 import PropTypes from 'prop-types';
-import getDataAttrs from '../../getDataAttrs';
 import style from './style.scss';
+import getDataAttrs from '../../getDataAttrs';
 
 class NumberInput extends React.Component {
 
@@ -40,7 +40,7 @@ class NumberInput extends React.Component {
   render() {
     return (
       <div
-        {...getDataAttrs(this.props)}
+        {...getDataAttrs(this.props.data)}
         className={style.wrapper}
       >
         <input

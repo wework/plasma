@@ -17,7 +17,7 @@ class Tabs extends React.Component {
   render() {
     return (
       <ul
-        {...getDataAttrs(this.props)}
+        {...getDataAttrs(this.props.data)}
         className={style.tabs}
         role="tablist"
       >

@@ -1,13 +1,13 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import getDataAttrs from '../../getDataAttrs';
 import style from './style.scss';
+import getDataAttrs from '../../getDataAttrs';
 
 class Text extends React.Component {
   render() {
     return (
       <div
-        {...getDataAttrs(this.props)}
+        {...getDataAttrs(this.props.data)}
         className={style.wrapper}
         style={this.props.style}
       >
@@ -24,6 +24,7 @@ Text.defaultProps = {
 Text.propTypes = {
   style: PropTypes.object,
   children: PropTypes.element,
+  data: PropTypes.object,
 };
 
 Text.displayName = 'Plasma@Text';

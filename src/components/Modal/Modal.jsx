@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import getDataAttrs from '../../getDataAttrs';
 import style from './style.scss';
+import getDataAttrs from '../../getDataAttrs';
 
 class Modal extends React.Component {
   render() {
@@ -9,7 +9,7 @@ class Modal extends React.Component {
     if (this.props.visible) {
       comp = (
         <div
-          {...getDataAttrs(this.props)}
+          {...getDataAttrs(this.props.data)}
           className={style.wrapper}
         >
           <div className={style.innerWrapper}>
