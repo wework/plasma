@@ -2,7 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import cx from 'classnames';
 
-import Base from '../Base.jsx';
+import getDataAttrs from '../../getDataAttrs';
 import style from './style.scss';
 
 const types = {
@@ -15,6 +15,7 @@ const Label = (
   {
     type,
     text,
+    data,
   }
 ) => {
   const labelStyle = cx(style.label, {
@@ -23,7 +24,10 @@ const Label = (
   });
 
   return (
-    <div className={labelStyle}>
+    <div
+      {...getDataAttrs({ data })}
+      className={labelStyle}
+    >
       {text}
     </div>
   );
@@ -32,6 +36,7 @@ const Label = (
 Label.propTypes = {
   text: PropTypes.string,
   type: PropTypes.string,
+  data: PropTypes.object,
 };
 
 Label.defaultProps = {
@@ -41,4 +46,4 @@ Label.defaultProps = {
 
 Label.displayName = 'Label';
 
-export default Base(Label);
+export default Label;

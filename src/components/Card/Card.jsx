@@ -2,7 +2,7 @@ import cx from 'classnames';
 import React from 'react';
 import ReactDOM from 'react-dom';
 import PropTypes from 'prop-types';
-import Base from '../Base.jsx';
+import getDataAttrs from '../../getDataAttrs';
 import style from './style.scss';
 
 const type = { CONDENSED: 'condensed' };
@@ -52,6 +52,7 @@ class Card extends React.Component {
 
     return (
       <div
+        {...getDataAttrs(this.props)}
         ref={(c) => { this.outer = c; }}
         className={cardStyle}
         style={this.props.style}
@@ -93,8 +94,9 @@ Card.propTypes = {
   borderType: PropTypes.string,
   expandedComponent: PropTypes.node,
   isExpanded: PropTypes.bool,
+  data: PropTypes.object,
 };
 
 Card.displayName = 'Card';
 
-export default Base(Card);
+export default Card;

@@ -1,7 +1,7 @@
-import _ from 'lodash';
+import { isNumber, toNumber } from 'lodash';
 import React from 'react';
 import PropTypes from 'prop-types';
-import Base from '../Base.jsx';
+import getDataAttrs from '../../getDataAttrs';
 import style from './style.scss';
 
 class NumberInput extends React.Component {
@@ -14,21 +14,21 @@ class NumberInput extends React.Component {
   }
 
   onPressIncrement() {
-    if (!_.isNumber(this.props.maxValue) ||
+    if (!isNumber(this.props.maxValue) ||
         this.props.maxValue >= this.props.value + this.props.step) {
       this.props.onPressIncrement({ diff: this.props.step });
     }
   }
 
   onPressDecrement() {
-    if (!_.isNumber(this.props.minValue) ||
+    if (!isNumber(this.props.minValue) ||
         this.props.minValue <= this.props.value - this.props.step) {
       this.props.onPressDecrement({ diff: -1 * this.props.step });
     }
   }
 
   onChange(event) {
-    const value = _.toNumber(event.nativeEvent.target.value);
+    const value = toNumber(event.nativeEvent.target.value);
     if (
       (!this.props.maxValue || value <= this.props.maxValue) &&
       (!this.props.minValue || value >= this.props.minValue)
@@ -39,7 +39,10 @@ class NumberInput extends React.Component {
 
   render() {
     return (
-      <div className={style.wrapper}>
+      <div
+        {...getDataAttrs(this.props)}
+        className={style.wrapper}
+      >
         <input
           type="number"
           placeholder={this.props.placeholder}
@@ -71,6 +74,7 @@ NumberInput.propTypes = {
   onChange: PropTypes.func,
   onPressIncrement: PropTypes.func,
   onPressDecrement: PropTypes.func,
+  data: PropTypes.object,
 };
 
 NumberInput.defaultProps = {
@@ -80,4 +84,4 @@ NumberInput.defaultProps = {
 
 NumberInput.displayName = 'NumberInput';
 
-export default Base(NumberInput);
+export default NumberInput;

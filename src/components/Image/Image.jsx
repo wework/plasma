@@ -1,12 +1,13 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import Base from '../Base.jsx';
+import getDataAttrs from '../../getDataAttrs';
 import style from './style.scss';
 
 class Image extends React.Component {
   render() {
     return (
       <div
+        {...getDataAttrs(this.props)}
         style={this.props.style}
       >
         <img
@@ -31,8 +32,9 @@ Image.propTypes = {
   imageStyle: PropTypes.object,
   src: PropTypes.string,
   altText: PropTypes.string,
+  data: PropTypes.object,
 };
 
 Image.displayName = 'Image';
 
-export default Base(Image);
+export default Image;

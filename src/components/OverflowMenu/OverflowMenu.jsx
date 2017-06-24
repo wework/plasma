@@ -1,8 +1,8 @@
 import cx from 'classnames';
-import _ from 'lodash';
+import { map } from 'lodash';
 import React from 'react';
-
-import Base from '../Base.jsx';
+import PropTypes from 'prop-types';
+import getDataAttrs from '../../getDataAttrs';
 import OverflowMenuItem from './OverflowMenuItem.jsx';
 
 import style from './style.scss';
@@ -32,6 +32,7 @@ class OverflowMenu extends React.Component {
     });
     return (
       <div
+        {...getDataAttrs(this.props)}
         onMouseEnter={this.handleMouseEnter}
         onMouseLeave={this.handleMouseLeave}
         className={style.container}
@@ -54,7 +55,7 @@ class OverflowMenu extends React.Component {
             </div>
           </div>
           <ol className={style.revealableList}>
-            { _.map(this.props.options, (option) => {
+            { map(this.props.options, (option) => {
               return (
                 <OverflowMenuItem
                   key={option.key}
@@ -78,8 +79,9 @@ OverflowMenu.defaultProps = {
 OverflowMenu.propTypes = {
   options: React.PropTypes.array,
   onClick: React.PropTypes.func,
+  data: PropTypes.object,
 };
 
 OverflowMenu.displayName = 'OverflowMenu';
 
-export default Base(OverflowMenu);
+export default OverflowMenu;

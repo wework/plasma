@@ -1,18 +1,9 @@
-import React, { Component, PropTypes } from 'react';
+import React, { Component } from 'react';
+import PropTypes from 'prop-types';
 import cn from 'classnames';
-import style from './style.scss';
+import style from './oldStyle.scss';
 
 class SideNavBarItem extends Component {
-
-  constructor() {
-    super();
-    this._onClick = this._onClick.bind(this);
-  }
-
-  _onClick() {
-    this.props.onClick(this.props.id);
-  }
-
   renderIconAndLabel() {
     const { icon, iconSize, iconStyle, label } = this.props;
 
@@ -30,14 +21,15 @@ class SideNavBarItem extends Component {
     );
 
     return (
-      <div className={style.iconAndLabelContainer}>
+      <div>
+        {renderIcon}
         <div className={style.label}>{label}</div>
       </div>
     );
   }
 
   render() {
-    const { children, darkBg, selected } = this.props;
+    const { children, darkBg, onClick, selected } = this.props;
 
     const wrapperClasses = cn(style.itemWrapper, {
       [style.darkBg]: darkBg,
@@ -47,7 +39,7 @@ class SideNavBarItem extends Component {
     return (
       <div
         className={wrapperClasses}
-        onClick={this._onClick}
+        onClick={onClick}
       >
         { children || this.renderIconAndLabel() }
       </div>
@@ -57,12 +49,11 @@ class SideNavBarItem extends Component {
 
 SideNavBarItem.defaultProps = {
   label: 'Label',
-  iconSize: 16,
+  iconSize: 24,
   selected: false,
 };
 
 SideNavBarItem.propTypes = {
-  id: PropTypes.string,
   /**
   * URL to an image
   */

@@ -4,7 +4,7 @@ import PropTypes from 'prop-types';
 import getDataAttrs from '../../getDataAttrs';
 import style from './style.scss';
 
-class DisplayText extends React.Component {
+class Header extends React.Component {
   render() {
     const headerStyle = cx(style.header, {
       [style.header1]: this.props.h1,
@@ -18,26 +18,37 @@ class DisplayText extends React.Component {
     return (
       <div
         {...getDataAttrs(this.props)}
+        style={this.props.style}
         className={[headerStyle]}
       >
         <div className={style.content}>
-          {this.props.children}
+          {this.props.text}
         </div>
+        { this.props.underline &&
+          <div className={style.rule} />
+        }
       </div>
     );
   }
 }
 
-DisplayText.propTypes = {
-  children: PropTypes.string.isRequired,
-  size: PropTypes.string.oneOf(['default', 'extraLarge', 'large', 'medium', 'small']),
+Header.propTypes = {
+  text: PropTypes.string.isRequired,
+  underline: PropTypes.bool,
+  h1: PropTypes.bool,
+  h2: PropTypes.bool,
+  h3: PropTypes.bool,
+  h4: PropTypes.bool,
+  h5: PropTypes.bool,
+  h6: PropTypes.bool,
+  style: PropTypes.object,
   data: PropTypes.object,
 };
 
-DisplayText.defaultProps = {
-  children: 'Display text',
+Header.defaultProps = {
+  text: 'Header',
 };
 
-DisplayText.displayName = 'DisplayText';
+Header.displayName = 'Header';
 
-export default Base(DisplayText);
+export default Header;

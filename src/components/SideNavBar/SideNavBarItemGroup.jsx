@@ -1,7 +1,6 @@
 import React, { Component, PropTypes } from 'react';
 import { forEach, findIndex, get } from 'lodash';
 import SideNavBarItem from './SideNavBarItem';
-import Base from '../Base.jsx';
 import style from './style.scss';
 
 class SideNavBarItemGroup extends Component {
@@ -105,4 +104,4 @@ SideNavBarItemGroup.propTypes = {
 
 SideNavBarItemGroup.displayName = 'SideNavBarItemGroup';
 
-export default Base(SideNavBarItemGroup);
+export default SideNavBarItemGroup;

@@ -1,4 +1,5 @@
 import React from 'react';
+import { times, cloneDeep } from 'lodash';
 import { storiesOf } from '@kadira/storybook';
 import Table from '../src/components/Table/Table';
 
@@ -70,8 +71,8 @@ storiesOf('Table', module).add('with a disabled row', () => {
 });
 
 storiesOf('Table', module).add('with explicit column width', () => {
-  let items = [];
-  _.times(100, () => {
+  const items = [];
+  times(100, () => {
     items.push(
       {
         header1: 'Text text text',
@@ -83,7 +84,7 @@ storiesOf('Table', module).add('with explicit column width', () => {
     );
   });
 
-  const hd = _.cloneDeep(headerData);
+  const hd = cloneDeep(headerData);
   hd[4].width = 500;
 
   return (

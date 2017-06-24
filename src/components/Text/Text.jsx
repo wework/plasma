@@ -1,12 +1,16 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import Base from '../Base.jsx';
+import getDataAttrs from '../../getDataAttrs';
 import style from './style.scss';
 
 class Text extends React.Component {
   render() {
     return (
-      <div className={style.wrapper} style={this.props.style}>
+      <div
+        {...getDataAttrs(this.props)}
+        className={style.wrapper}
+        style={this.props.style}
+      >
         {this.props.children}
       </div>
     );
@@ -24,4 +28,4 @@ Text.propTypes = {
 
 Text.displayName = 'Text';
 
-export default Base(Text);
+export default Text;

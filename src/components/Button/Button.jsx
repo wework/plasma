@@ -1,8 +1,7 @@
 import cx from 'classnames';
 import React from 'react';
 import PropTypes from 'prop-types';
-
-import Base from '../Base.jsx';
+import getDataAttrs from '../../getDataAttrs';
 import Loader from '../Loader/Loader.jsx';
 import style from './style.scss';
 
@@ -41,10 +40,12 @@ class Button extends React.Component {
 
     return (
       <button
+        {...getDataAttrs(this.props)}
         className={cx(buttonStyle)}
         style={this.props.style}
         onClick={this.props.onClick}
         type={buttonType}
+
       >
         {contentComponent}
       </button>
@@ -70,8 +71,9 @@ Button.propTypes = {
   children: PropTypes.node,
   style: PropTypes.object,
   isSubmit: PropTypes.bool,
+  data: PropTypes.object,
 };
 
-Button.displayName = 'Button';
+Button.displayName = 'Plasma@Button';
 
-export default Base(Button);
+export default Button;

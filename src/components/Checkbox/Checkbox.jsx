@@ -1,17 +1,21 @@
-import _ from 'lodash';
+import { uniqueId } from 'lodash';
 import React from 'react';
 import PropTypes from 'prop-types';
-import Base from '../Base.jsx';
+import getDataAttrs from '../../getDataAttrs';
 import style from './style.scss';
 
 class Checkbox extends React.Component {
   render() {
     const { checked, indeterminate, name, onChange, text } = this.props;
-    const id = _.uniqueId('id');
+    const id = uniqueId('id');
     const inputClassName = indeterminate ? style.indeterminate : style.original;
 
     return (
-      <label htmlFor={id} className={style.wrapper}>
+      <label
+        {...getDataAttrs(this.props)}
+        htmlFor={id}
+        className={style.wrapper}
+      >
         <input
           checked={checked}
           className={inputClassName}
@@ -46,8 +50,9 @@ Checkbox.propTypes = {
   ]).isRequired,
   name: PropTypes.string.isRequired,
   onChange: PropTypes.func,
+  data: PropTypes.object,
 };
 
 Checkbox.displayName = 'Checkbox';
 
-export default Base(Checkbox);
+export default Checkbox;

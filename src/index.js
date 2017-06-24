@@ -17,8 +17,10 @@ import Text from './components/Text/Text';
 import TextInput from './components/TextInput/TextInput';
 import Tooltip from './components/Tooltip/Tooltip';
 import TopNavBar from './components/TopNavBar/TopNavBar';
-import SideNavBar from './components/SideNavBar/SideNavBar';
-import DatePicker from './components/DatePicker/DatePicker';
+import SideNavBar from './components/SideNavBar/OldSideNavBar';
+import SideNavBarItem from './components/SideNavBar/OldSideNavBarItem';
+import { SideNavBar as SideNavBarV2 } from './components/SideNavBar/SideNavBar';
+// import DatePicker from './components/DatePicker/DatePicker';
 import Search from './components/Search/Search';
 import Tabs from './components/Tabs/Tabs';
 import Toggle from './components/Toggle/Toggle';
@@ -51,7 +53,7 @@ Plasma.RadioButton = RadioButton;
 Plasma.Rule = Rule;
 Plasma.Loader = Loader;
 Plasma.OverflowMenu = OverflowMenu;
-Plasma.DatePicker = DatePicker;
+// Plasma.DatePicker = DatePicker;
 Plasma.Search = Search;
 
 Plasma.FormField = FormField;
@@ -59,6 +61,8 @@ Plasma.Tooltip = Tooltip;
 Plasma.Tabs = Tabs;
 
 Plasma.SideNavBar = SideNavBar;
+Plasma.SideNavBarItem = SideNavBarItem;
+Plasma.SideNavBarV2 = SideNavBarV2;
 Plasma.Table = Table;
 Plasma.TopNavBar = TopNavBar;
 
@@ -94,6 +98,7 @@ export {
   Tabs,
   SideNavBar,
   SideNavBarItem,
+  SideNavBarV2,
   Table,
   TopNavBar,
   Masthead,
@@ -105,7 +110,7 @@ export {
   NumberInput,
   Loader,
   OverflowMenu,
-  DatePicker,
+  // DatePicker,
   Search,
   Toggle,
 };

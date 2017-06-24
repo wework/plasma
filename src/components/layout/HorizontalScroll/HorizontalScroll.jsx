@@ -1,19 +1,21 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import $ from 'jquery';
-import _ from 'lodash';
-
-import Base from '../../Base.jsx';
+import getDataAttrs from '../../../getDataAttrs';
 import style from './style.scss';
 
 class HorizontalScroll extends React.Component {
 
+  constructor() {
+    super();
+    this.handleScroll = this.handleScroll.bind(this);
+  }
+
   componentDidMount() {
-    $(this.wrapper).on('scroll', this.handleScroll.bind(this));
+    this.wrapper.addEventListener('scroll', this.handleScroll);
   }
 
   componentWillUnmount() {
-    $(this.wrapper).off('scroll');
+    this.wrapper.removeEventListener('scroll', this.handleScroll);
   }
 
   handleScroll(e) {
@@ -22,7 +24,12 @@ class HorizontalScroll extends React.Component {
 
   render() {
     return (
-      <div style={this.props.style} className={style.wrapper} ref={(c) => { this.wrapper = c; }}>
+      <div
+        {...getDataAttrs(this.props)}
+        style={this.props.style}
+        className={style.wrapper}
+        ref={(c) => { this.wrapper = c; }}
+      >
         <div className={style.content}>
           { this.props.children }
         </div>
@@ -40,8 +47,9 @@ HorizontalScroll.propTypes = {
   children: PropTypes.node,
   onScroll: PropTypes.func,
   style: PropTypes.object,
+  data: PropTypes.object,
 };
 
 HorizontalScroll.displayName = 'HorizontalScroll';
 
-export default Base(HorizontalScroll);
+export default HorizontalScroll;

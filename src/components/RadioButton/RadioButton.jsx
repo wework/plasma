@@ -1,20 +1,21 @@
-import _ from 'lodash';
+import { uniqueId } from 'lodash';
 import React from 'react';
 import PropTypes from 'prop-types';
 import cx from 'classnames';
-
-import Base from '../Base.jsx';
+import getDataAttrs from '../../getDataAttrs';
 import style from './style.scss';
 
 class RadioButton extends React.Component {
   render() {
-    const id = _.uniqueId('id');
+    const id = uniqueId('id');
     const wrapperClasses = cx(style.wrapper, {
       [style.isLarge]: this.props.isLarge,
     });
 
     return (
-      <div>
+      <div
+        {...getDataAttrs(this.props)}
+      >
         <label htmlFor={id} className={wrapperClasses}>
           <input
             className={style.original}
@@ -49,8 +50,9 @@ RadioButton.propTypes = {
   isLarge: PropTypes.bool,
   onChange: PropTypes.func,
   checked: PropTypes.bool,
+  data: PropTypes.object,
 };
 
 RadioButton.displayName = 'RadioButton';
 
-export default Base(RadioButton);
+export default RadioButton;
