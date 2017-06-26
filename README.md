@@ -18,9 +18,10 @@ Plasma is a design system for creating sensible, modern interfaces.
 
 1.  Only publish from master and make sure you `git pull` the latest from master.
 2.  Run `npm version patch`. This will create a new tag and push to Github.
-2.  Make sure you're logged in to NPM via `npm login`.
-3.  Run `yarn publish` from the root directory to publish to NPM registry.
-4.  Check https://www.npmjs.com/~wework-dev to make sure package is updated.
+3.  Run `npm run pack` to bundle the .js and .css file into `/dist`.
+4.  Make sure you're logged in to NPM via `npm login`.
+5.  Run `npm publish` from the root directory to publish to NPM registry.
+6.  Check https://www.npmjs.com/~wework-dev to make sure package is updated.
 
 ## Using Plasma
 
