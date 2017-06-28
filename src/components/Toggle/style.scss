@@ -12,18 +12,12 @@
   border: 1px solid $cGray300;
   color: $cWeWorkBlack;
   height: 38px;
-  font-size: 13px;
+  font-size: 14px;
   cursor: pointer;
-  flex-grow: 1;
   display: flex;
-  align-items: center;
   justify-content: center;
   line-height: 38px;
-  outline: none;
-  border-radius: 0px;
   padding: 0 20px;
-  outline: none;
-  margin: 0;
   @extend %fontFamily--body;
 
   &:hover {
@@ -39,8 +33,6 @@
     border-radius: 0px;
     display: inline-block;
     border-right: 0px;
-    width: myWidth;
-
 
     &:first-child {
       border-top-left-radius: 5px;
@@ -54,7 +46,6 @@
     }
 
     &.active {
-      color: $cWeWorkBlack;
       font-weight:bold;
       background-color: $cBrandYellow;
       border: 1px solid darken($cBrandYellow, 15%);
@@ -62,6 +53,7 @@
       position: relative;
       margin-right: -1px;
     }
+
   }
 
   &.vertical {
@@ -81,7 +73,6 @@
     }
 
     &.active {
-      color: $cWeWorkBlack;
       font-weight:bold;
       background-color: $cBrandYellow;
       border: 1px solid darken($cBrandYellow, 15%);
