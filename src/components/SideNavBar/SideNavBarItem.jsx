@@ -37,21 +37,35 @@ class SideNavBarItem extends Component {
   }
 
   render() {
-    const { children, darkBg, selected } = this.props;
+    const { darkBg, selected, linkComponent } = this.props;
 
     const wrapperClasses = cn(style.itemWrapper, {
       [style.darkBg]: darkBg,
       [style.selected]: selected,
     });
 
-    return (
-      <div
-        className={wrapperClasses}
-        onClick={this._onClick}
-      >
-        { children || this.renderIconAndLabel() }
-      </div>
-    );
+    let comp;
+
+    if (linkComponent) {
+      comp = (
+        <div
+          className={wrapperClasses}
+        >
+          { linkComponent }
+        </div>
+      );
+    } else {
+      comp = (
+        <div
+          className={wrapperClasses}
+          onClick={this._onClick}
+        >
+          { this.renderIconAndLabel() }
+        </div>
+      );
+    }
+
+    return comp;
   }
 }
 
@@ -78,6 +92,7 @@ SideNavBarItem.propTypes = {
   selected: PropTypes.bool,
   children: PropTypes.node,
   darkBg: PropTypes.bool,
+  linkComponent: PropTypes.node,
 };
 
 SideNavBarItem.displayName = 'Plasma@SideNavBarItem';

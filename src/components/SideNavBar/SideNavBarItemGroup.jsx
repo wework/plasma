@@ -25,7 +25,6 @@ class SideNavBarItemGroup extends Component {
 
   renderIconAndLabel() {
     const { icon, iconSize, iconStyle, label, items } = this.props;
-
     if (find(items, (item) => !item.hidden) === -1) {
       return null;
     }
@@ -68,6 +67,7 @@ class SideNavBarItemGroup extends Component {
           label={groupedItem.label}
           onClick={this.handleItemClick}
           selected={groupedItem.id === this.props.selectedId}
+          linkComponent={groupedItem.linkComponent}
         />
       );
     });

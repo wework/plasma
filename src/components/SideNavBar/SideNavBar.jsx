@@ -15,6 +15,7 @@ class SideNavBar extends Component {
   }
 
   handleClick(result) {
+    console.log(result.id);
     this.props.onChange && this.props.onChange({ id: result.id });
   }
 

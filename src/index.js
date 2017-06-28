@@ -20,7 +20,7 @@ import Tooltip from './components/Tooltip/Tooltip';
 import TopNavBar from './components/TopNavBar/TopNavBar';
 import SideNavBar from './components/SideNavBar/OldSideNavBar';
 import SideNavBarItem from './components/SideNavBar/OldSideNavBarItem';
-import { SideNavBar as SideNavBarV2 } from './components/SideNavBar/SideNavBar';
+import SideNavBarV2 from './components/SideNavBar/SideNavBar';
 // import DatePicker from './components/DatePicker/DatePicker';
 import Search from './components/Search/Search';
 import Tabs from './components/Tabs/Tabs';
