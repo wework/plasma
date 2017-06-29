@@ -1,8 +1,9 @@
 import React, { PropTypes } from 'react';
 import Icon from '../Icon/Icon';
+import locationPin from '../Icon/icons/locationPin';
 import style from './style.scss';
 
-const SideBarNavTop = ({ label, icon, onClick }) => {
+const SideBarNavTop = ({ label, onClick }) => {
   return (
     <div
       className={style.top}
@@ -10,7 +11,10 @@ const SideBarNavTop = ({ label, icon, onClick }) => {
     >
       <div className={style.iconAndLabelContainer}>
         <div className={style.iconWrapper}>
-          <Icon name="locationPin" />
+          <Icon
+            color="#fff"
+            icon={locationPin}
+          />
         </div>
         <div className={style.groupLabelWrapper}>
           {label}
