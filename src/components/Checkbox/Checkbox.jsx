@@ -5,14 +5,16 @@ import Base from '../Base.jsx';
 import style from './style.scss';
 
 class Checkbox extends React.Component {
+
   render() {
-    const { checked, indeterminate, name, onChange, text } = this.props;
+    const { checked, indeterminate, name, text, onChange, disabled } = this.props;
     const id = _.uniqueId('id');
     const inputClassName = indeterminate ? style.indeterminate : style.original;
 
     return (
       <label htmlFor={id} className={style.wrapper}>
         <input
+          disabled={disabled}
           checked={checked}
           className={inputClassName}
           type="checkbox"
@@ -46,6 +48,7 @@ Checkbox.propTypes = {
   ]).isRequired,
   name: PropTypes.string.isRequired,
   onChange: PropTypes.func,
+  disabled: PropTypes.bool,
 };
 
 Checkbox.displayName = 'Checkbox';
