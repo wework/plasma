@@ -90,7 +90,7 @@ class SideNavBarItemGroup extends Component {
 
 SideNavBarItemGroup.defaultProps = {
   label: 'Label',
-  iconSize: 20,
+  iconSize: 22,
 };
 
 SideNavBarItemGroup.propTypes = {

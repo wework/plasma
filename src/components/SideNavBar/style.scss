@@ -101,11 +101,15 @@ a {
     top: 1px;
   }
   .groupLabelWrapper {
+    color: $cPurple50;
     font-weight: bold;
     text-overflow: ellipsis;
     white-space: nowrap;
     overflow: hidden;
     padding-right: 20px;
+    &.topText {
+      color: $cGray20;
+    }
   }
 }
 

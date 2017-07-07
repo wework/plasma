@@ -15,19 +15,20 @@ const Label = (
     type,
     text,
     data,
+    children,
   }
 ) => {
   const labelStyle = cx(style.label, {
     [style.labelSecondary]: type === types.SECONDARY,
     [style.labelDisabled]: type === types.DISABLED,
   });
-
+  console.log(children);
   return (
     <div
       {...getDataAttrs(data)}
       className={labelStyle}
     >
-      {text}
+      {text || children}
     </div>
   );
 };
@@ -36,10 +37,10 @@ Label.propTypes = {
   text: PropTypes.string,
   type: PropTypes.string,
   data: PropTypes.object,
+  children: PropTypes.node,
 };
 
 Label.defaultProps = {
-  text: 'Label',
   type: types.PRIMARY,
 };
 
