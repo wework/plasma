@@ -24,6 +24,9 @@ storiesOf('Button', module)
   .add('disabled', () => (
     <Button type="primary" disabled onClick={action('clicked')}>Hello Button</Button>
   ))
+  .add('small', () => (
+    <Button type="primary" size="small" onClick={action('clicked')}>Hello Button</Button>
+  ))
   .add('with data attributes', () => (
     <Button data={{ qa: "stuff-and-things" }} type="primary" onClick={action('clicked')}>Hello Button</Button>
   ));
