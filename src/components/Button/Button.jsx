@@ -7,7 +7,7 @@ import Loader from '../Loader/Loader.jsx';
 import style from './style.scss';
 
 const type = { PRIMARY: 'primary', SECONDARY: 'secondary', TERTIARY: 'tertiary' };
-const SIZE = { SMALL: 'small' };
+const size = { SMALL: 'small' };
 
 class Button extends React.Component {
 
@@ -16,7 +16,7 @@ class Button extends React.Component {
       [style.primary]: this.props.type === type.PRIMARY,
       [style.secondary]: this.props.type === type.SECONDARY,
       [style.tertiary]: this.props.type === type.TERTIARY,
-      [style.small]: this.props.size === SIZE.SMALL,
+      [style.small]: this.props.size === size.SMALL,
       [style.loading]: this.props.loading,
       [style.disabled]: this.props.disabled,
     });
