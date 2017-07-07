@@ -28,7 +28,8 @@ class TextArea extends Component {
     return (
       <div className={wrapperStyle}>
         <textarea
-          ref={(el) => new Autogrow(el)}
+          rows="5"
+          ref={(el) => el && new Autogrow(el)}
           className={textareaStyle}
           disabled={this.props.disabled}
           onChange={this.props.onChange}

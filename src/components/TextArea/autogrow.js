@@ -23,6 +23,7 @@
       var style = window.getComputedStyle(textarea, null),
         props = ['paddingTop', 'paddingBottom'],
         offset = 0;
+      // console.log(style);
 
       for (var i = 0; i < props.length; i++) {
         offset += parseInt(style[props[i]]);
@@ -37,6 +38,8 @@
     self.autogrowFn = function() {
       var newHeight = 0,
         hasGrown = false;
+      console.log('scrollheight', textarea.scrollHeight);
+      console.log('offset', offset);
       if ((textarea.scrollHeight - offset) > self.maxAllowedHeight) {
         textarea.style.overflowY = 'scroll';
         newHeight = self.maxAllowedHeight;
@@ -53,7 +56,9 @@
     var offset = self.getOffset(textarea);
     self.rows = textarea.rows || 1;
     self.lineHeight = (textarea.scrollHeight / self.rows) - (offset / self.rows);
+    console.log('lineHeight', self.lineHeight);
     self.maxAllowedHeight = (self.lineHeight * maxLines) - offset;
+    console.log('maxAllowedHeight', self.maxAllowedHeight);
 
     // Call autogrowFn() when textarea's value is changed
     textarea.addEventListener('input', self.autogrowFn);

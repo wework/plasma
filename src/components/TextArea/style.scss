@@ -7,12 +7,6 @@
   flex-direction: row;
   &:hover {
     @extend %input--wrapper--hover;
-    .fix {
-      border-top: 1px solid $cGray200;
-      border-right: 1px solid $cGray200;
-      border-bottom: 1px solid $cGray200;
-      border-left: 1px solid $cGray200;
-    }
   }
 }
 
@@ -60,12 +54,14 @@
 
 .textarea {
   @extend %input;
+  // need to override padding here because of autosizing
+  padding: 10px;
   @extend %type--body;
+  // box-sizing: content-box is required for autosizing
+  box-sizing: content-box;
   border: 0;
   outline: none;
-  box-sizing: border-box;
   width: 100%;
-  height: auto;
   order: 1;
   resize: none;
 }

@@ -5,7 +5,7 @@ import TextArea from '../src/components/TextArea/TextArea';
 storiesOf('TextArea', module)
   .add('with div below', () => (
     <div>
-      <TextArea />
+      <TextArea placeholder="Type a note..." />
       <div>Another thing</div>
     </div>
   ));
