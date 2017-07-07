@@ -65,7 +65,7 @@ TextArea.propTypes = {
 
 TextArea.defaultProps = {
   placeholder: '',
-  rows: "3",
+  rows: '3',
 };
 
 TextArea.displayName = 'TextArea';
