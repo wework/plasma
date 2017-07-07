@@ -1,0 +1,94 @@
+@import '../../styles/base';
+
+.wrapper {
+  @extend %input--wrapper;
+  height: auto;
+  display: flex;
+  flex-direction: row;
+  &:hover {
+    @extend %input--wrapper--hover;
+    .fix {
+      border-top: 1px solid $cGray200;
+      border-right: 1px solid $cGray200;
+      border-bottom: 1px solid $cGray200;
+      border-left: 1px solid $cGray200;
+    }
+  }
+}
+
+.wrapperLarge {
+  @extend %input--wrapper--large;
+  .fix {
+    padding: 0 15px;
+  }
+}
+
+.wrapperFocused {
+  @extend %input--wrapper--focus;
+  .fix {
+    border: 1px solid $cGray200;
+  }
+}
+
+.wrapperDisabled {
+  @extend %input--wrapper--disabled;
+  .fix {
+    color: $cGray300;
+    border: 1px solid $cGray400;
+  }
+  &:hover {
+    .fix {
+      border: 1px solid $cGray400;
+    }
+  }
+}
+
+.wrapperError {
+  @extend %input--wrapper--error;
+  &:hover {
+    @extend %input--wrapper--error;
+  }
+  .fix {
+    border: 1px solid $cWarningRed;
+  }
+  &:hover {
+    .fix {
+      border: 1px solid $cWarningRed;
+    }
+  }
+}
+
+.textarea {
+  @extend %input;
+  @extend %type--body;
+  border: 0;
+  outline: none;
+  box-sizing: border-box;
+  width: 100%;
+  height: auto;
+  order: 1;
+  resize: none;
+}
+
+.large {
+  @extend %input--large;
+}
+
+.disabled {
+  @extend %input--disabled;
+}
+
+.fix {
+  @extend %fontFamily--body;
+  background-color: $cGray600;
+  color: $cWeWorkBlack;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 0 10px;
+  border-top: 1px solid $cGray300;
+  border-right: 1px solid $cGray300;
+  border-bottom: 1px solid $cGray300;
+  border-left: 1px solid $cGray300;
+}
