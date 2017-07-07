@@ -8,4 +8,14 @@ storiesOf('TextArea', module)
       <TextArea placeholder="Type a note..." />
       <div>Another thing</div>
     </div>
+  ))
+  .add('with error', () => (
+    <div>
+      <TextArea error placeholder="Type a note..." />
+    </div>
+  ))
+  .add('disabled', () => (
+    <div>
+      <TextArea disabled placeholder="Type a note..." />
+    </div>
   ));
