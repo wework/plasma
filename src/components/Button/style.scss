@@ -1,5 +1,4 @@
 @import '../../styles/base';
-
 .button {
   @extend %button--base;
   @extend %type--body;
@@ -25,4 +24,9 @@
 
 .disabled {
   @extend %button--disabled;
+}
+
+
+.small {
+  @extend %button--small;
 }
