@@ -7,6 +7,8 @@ import OverflowMenuItem from './OverflowMenuItem.jsx';
 
 import style from './style.scss';
 
+const direction = { RIGHT: 'right', LEFT: 'left' };
+
 class OverflowMenu extends React.Component {
 
   constructor() {
@@ -29,6 +31,10 @@ class OverflowMenu extends React.Component {
   render() {
     const revealableStyle = cx(style.revealable, {
       [style.revealed]: this.state.revealed,
+    });
+    const revealableListStyle = cx(style.revealableList, {
+      [style.openLeft]: this.props.openDirection &&
+        this.props.openDirection === direction.LEFT,
     });
     return (
       <div
@@ -53,7 +59,7 @@ class OverflowMenu extends React.Component {
               <div className={style.overflow} />
             </div>
           </div>
-          <ol className={style.revealableList}>
+          <ol className={revealableListStyle}>
             { _.map(this.props.options, (option) => {
               return (
                 <OverflowMenuItem
@@ -73,11 +79,13 @@ class OverflowMenu extends React.Component {
 
 OverflowMenu.defaultProps = {
   options: {},
+  openDirection: direction.RIGHT,
 };
 
 OverflowMenu.propTypes = {
   options: React.PropTypes.array,
   onClick: React.PropTypes.func,
+  openDirection: React.PropTypes.oneOf([direction.LEFT, direction.RIGHT]),
 };
 
 OverflowMenu.displayName = 'OverflowMenu';
