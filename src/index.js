@@ -23,6 +23,7 @@ import DatePicker from './components/DatePicker/DatePicker';
 import Search from './components/Search/Search';
 import Tabs from './components/Tabs/Tabs';
 import Toggle from './components/Toggle/Toggle';
+import TextArea from './components/TextArea/TextArea';
 
 // Page imports
 import Group from './components/layout/Group/Group';
@@ -110,4 +111,5 @@ export {
   DatePicker,
   Search,
   Toggle,
+  TextArea,
 };
