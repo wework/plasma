@@ -1,0 +1,21 @@
+@import '../../styles/base';
+.tag {
+  display: inline-block;
+  border-radius: 2px;
+  border-style: solid;
+  border-width: 1px;
+  font-weight: bold;
+  color: $cPurple200;
+  background-color: inherit;
+  border-color: $cPurple200;
+
+  span {
+    white-space: nowrap;
+  }
+}
+
+/* size */
+.small {
+  font-size: 11px;
+  padding: 3px 10px 2px;
+}
