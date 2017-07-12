@@ -14,4 +14,12 @@ storiesOf('OverflowMenu', module)
       options={options}
       onClick={action('clicked')}
     />
+  )).add('open left', () => (
+    <div style={{ float: 'right' }}>
+      <OverflowMenu
+        openDirection="left"
+        options={options}
+        onClick={action('clicked')}
+      />
+    </div>
   ));
