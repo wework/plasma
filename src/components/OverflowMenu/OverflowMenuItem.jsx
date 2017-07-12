@@ -15,7 +15,7 @@ const OverflowMenuItem = ({ onClick, optionKey, text }) => {
 
 OverflowMenuItem.propTypes = {
   onClick: PropTypes.func,
-  optionKey: PropTypes.number,
+  optionKey: PropTypes.string,
   text: PropTypes.string,
 };
 

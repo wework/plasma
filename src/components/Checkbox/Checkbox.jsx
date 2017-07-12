@@ -8,7 +8,7 @@ class Checkbox extends React.Component {
 
   render() {
     const { checked, indeterminate, name, text, onChange, disabled } = this.props;
-    const id = _.uniqueId('id');
+    const id = uniqueId('id');
     const inputClassName = indeterminate ? style.indeterminate : style.original;
 
     return (
