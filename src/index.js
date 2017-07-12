@@ -25,6 +25,7 @@ import SideNavBarV2 from './components/SideNavBar/SideNavBar';
 import Search from './components/Search/Search';
 import Tabs from './components/Tabs/Tabs';
 import Toggle from './components/Toggle/Toggle';
+import TextArea from './components/TextArea/TextArea';
 
 // Page imports
 import Page from './components/layout/Page/Page';
@@ -115,4 +116,5 @@ export {
   Search,
   Toggle,
   Page,
+  TextArea,
 };

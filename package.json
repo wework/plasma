@@ -1,6 +1,6 @@
 {
   "name": "@wework-dev/plasma",
-  "version": "0.0.106",
+  "version": "0.0.111",
   "description": "",
   "main": "./dist/index.js",
   "scripts": {
@@ -45,7 +45,7 @@
     "marked": "^0.3.6",
     "mkdirp": "^0.5.1",
     "moment": "^2.18.1",
-    "node-sass": "^3.8.0",
+    "node-sass": "^4.5.3",
     "proxy-middleware": "^0.15.0",
     "react": "^15.2.1",
     "react-docgen-fixed": "^2.9.1",

@@ -1,0 +1,53 @@
+@import '../../styles/base';
+
+.wrapper {
+  @extend %input--wrapper;
+  height: auto;
+  display: flex;
+  flex-direction: row;
+  &:hover {
+    @extend %input--wrapper--hover;
+  }
+}
+
+.wrapperLarge {
+  @extend %input--wrapper--large;
+}
+
+.wrapperFocused {
+  @extend %input--wrapper--focus;
+}
+
+.wrapperDisabled {
+  @extend %input--wrapper--disabled;
+}
+
+.wrapperError {
+  @extend %input--wrapper--error;
+  &:hover {
+    @extend %input--wrapper--error;
+  }
+}
+
+.textarea {
+  @extend %input;
+  // need to override padding here because of autosizing
+  padding: 10px;
+  @extend %type--body;
+  // box-sizing: content-box is required for autosizing
+  box-sizing: content-box;
+  border: 0;
+  outline: none;
+  width: 100%;
+  order: 1;
+  resize: none;
+  padding: 10px;
+}
+
+.large {
+  @extend %input--large;
+}
+
+.disabled {
+  @extend %input--disabled;
+}

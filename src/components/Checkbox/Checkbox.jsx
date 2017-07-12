@@ -5,9 +5,10 @@ import style from './style.scss';
 import getDataAttrs from '../../getDataAttrs';
 
 class Checkbox extends React.Component {
+
   render() {
-    const { checked, indeterminate, name, onChange, text } = this.props;
-    const id = uniqueId('id');
+    const { checked, indeterminate, name, text, onChange, disabled } = this.props;
+    const id = _.uniqueId('id');
     const inputClassName = indeterminate ? style.indeterminate : style.original;
 
     return (
@@ -17,6 +18,7 @@ class Checkbox extends React.Component {
         className={style.wrapper}
       >
         <input
+          disabled={disabled}
           checked={checked}
           className={inputClassName}
           type="checkbox"
@@ -51,6 +53,7 @@ Checkbox.propTypes = {
   name: PropTypes.string.isRequired,
   onChange: PropTypes.func,
   data: PropTypes.object,
+  disabled: PropTypes.bool,
 };
 
 Checkbox.displayName = 'Plasma@Checkbox';
