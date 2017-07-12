@@ -69,7 +69,7 @@ class Card extends React.Component {
       <div
         ref={(c) => { this.outer = c; }}
         className={cardStyle}
-        style={{minWidth}}
+        style={{ minWidth }}
         onClick={onClick}
         {...getDataAttrs(data)}
       >

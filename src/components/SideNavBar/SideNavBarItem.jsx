@@ -14,20 +14,7 @@ class SideNavBarItem extends Component {
   }
 
   renderIconAndLabel() {
-    const { icon, iconSize, iconStyle, label } = this.props;
-
-    const renderIcon = icon && iconSize && (
-      <img
-        className={style.icon}
-        style={{
-          width: iconSize,
-          height: iconSize,
-          ...iconStyle,
-        }}
-        src={icon}
-        alt={label}
-      />
-    );
+    const { label } = this.props;
 
     return (
       <div className={style.iconAndLabelContainer}>
