@@ -1,33 +1,66 @@
 @import '../../styles/base';
 
-.header { }
+.header {}
 
 .header1 {
-  @extend %type--headline1;
+  @extend %fontFamily--headline;
+  color: $cWeWorkBlack;
+  font-weight: bold;
+  font-size: 80px;
+  letter-spacing: -3px;
+  line-height: 80px;
+  margin-bottom: 30px;
 }
 
 .header2 {
-  @extend %type--headline2;
+  @extend %fontFamily--headline;
+  color: $cWeWorkBlack;
+  font-weight: bold;
+  font-size: 40px;
+  letter-spacing: -1px;
+  line-height: 44px;
+  margin-bottom: 15px;
 }
 
 .header3 {
-  @extend %type--headline3;
+  @extend %fontFamily--headline;
+  color: $cWeWorkBlack;
+  font-weight: bold;
+  font-size: 30px;
+  letter-spacing: -0.3px;
+  line-height: 30px;
+  margin-bottom: 20px;
 }
 
 .header4 {
-  @extend %type--headline4;
+  @extend %fontFamily--headline;
+  color: $cWeWorkBlack;
+  font-weight: bold;
+  font-size: 16px;
+  line-height: 20px;
+  margin-bottom: 5px;
 }
 
 .header5 {
-  @extend %type--headline5;
+  @extend %fontFamily--headline;
+  color: $cWeWorkBlack;
+  font-weight: bold;
+  font-size: 13px;
+  line-height: 20px;
+  margin-bottom: 5px;
 }
 
 .header6 {
-  @extend %type--headline6;
+  @extend %fontFamily--headline;
+  color: $cWeWorkBlack;
+  font-weight: bold;
+  font-size: 11px;
+  line-height: 18px;
+  margin-bottom: 5px;
 }
 
-.content {
-  margin-bottom: 8px;
+.invert {
+  color: $cGray20;
 }
 
 .rule {
@@ -35,5 +68,9 @@
   width: 100%;
   height: 2px;
   background: $cWeWorkBlack;
-  margin-bottom: 8px;
+  margin-bottom: 10px;
+}
+
+.noMargin {
+  margin: 0;
 }

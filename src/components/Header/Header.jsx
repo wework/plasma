@@ -13,16 +13,17 @@ class Header extends React.Component {
       [style.header4]: this.props.h4,
       [style.header5]: this.props.h5,
       [style.header6]: this.props.h6,
+      [style.invert]: this.props.invert,
+      [style.noMargin]: this.props.noMargin,
     });
 
     return (
       <div
         {...getDataAttrs(this.props.data)}
-        style={this.props.style}
         className={[headerStyle]}
       >
         <div className={style.content}>
-          {this.props.text}
+          { this.props.text || this.props.children }
         </div>
         { this.props.underline &&
           <div className={style.rule} />
@@ -33,7 +34,8 @@ class Header extends React.Component {
 }
 
 Header.propTypes = {
-  text: PropTypes.string.isRequired,
+  text: PropTypes.string,
+  children: PropTypes.string,
   underline: PropTypes.bool,
   h1: PropTypes.bool,
   h2: PropTypes.bool,
@@ -41,13 +43,13 @@ Header.propTypes = {
   h4: PropTypes.bool,
   h5: PropTypes.bool,
   h6: PropTypes.bool,
+  invert: PropTypes.bool,
   style: PropTypes.object,
   data: PropTypes.object,
+  noMargin: PropTypes.bool,
 };
 
-Header.defaultProps = {
-  text: 'Header',
-};
+Header.defaultProps = {};
 
 Header.displayName = 'Plasma@Header';
 

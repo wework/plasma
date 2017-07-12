@@ -72,9 +72,9 @@ a {
   box-sizing: border-box;
   display: block;
   &.selected, &.selected a {
-    color: $cBlue70;
+    color: $cPurple30;
     &:hover {
-      color: $cBlue70;
+      color: $cPurple30;
     }
   }
   &:hover, &:focus, a:hover {

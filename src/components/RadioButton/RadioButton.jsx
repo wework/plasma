@@ -30,9 +30,11 @@ class RadioButton extends React.Component {
             <strong>{ this.props.text }</strong>
           </div>
         </label>
-        <span className={style.description}>
-          { this.props.description }
-        </span>
+        { this.props.description &&
+          <span className={style.description}>
+            { this.props.description }
+          </span>
+        }
       </div>
     );
   }

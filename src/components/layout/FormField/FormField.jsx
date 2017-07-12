@@ -47,7 +47,7 @@ const FormField = (
 FormField.defaultProps = {
   children: '',
   disabled: false,
-  label: 'Label',
+  label: '',
   labelType: type.PRIMARY,
 };
 

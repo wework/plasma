@@ -70,6 +70,14 @@ $fontStack: 'Helvetica Neue', helvetica, arial, 'sans-serif';
   line-height: 20px;
 }
 
+%type--headline0 {
+  @extend %fontFamily--headline;
+  color: $cWeWorkBlack;
+  font-weight: bold;
+  font-size: 80px;
+  letter-spacing: -3px;
+}
+
 %type--headline1 {
   @extend %fontFamily--headline;
   color: $cWeWorkBlack;

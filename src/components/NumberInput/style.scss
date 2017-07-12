@@ -3,10 +3,11 @@
 .input {
   @extend %type--body;
   @extend %input;
+  @extend %input--wrapper;
   height: 100%;
 
   &:hover {
-    border-color: $cWhite300;
+    @extend %input--wrapper--hover;
   }
   &:focus {
     border-color: $cGray300;

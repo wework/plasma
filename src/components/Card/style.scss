@@ -2,7 +2,7 @@
 
 .card {
   background: white;
-  padding: $space40 $space40 0 $space40;
+  padding: $space40;
   min-height: 20px;
   border: 1px solid $cBorder;
   margin-bottom: $space30;
@@ -27,9 +27,26 @@
 }
 
 .condensed {
-  padding: $space20 $space20 0 $space20;
+  padding: $space30;
 }
 
 .borderDashed {
   border: 1px dashed $cBorder;
+}
+
+.top {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 0px;
+}
+
+.cardActions {
+  display: flex;
+  *  {
+    margin-right: 20px;
+  }
+  :last-child {
+    margin-right: 0;
+  }
 }

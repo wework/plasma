@@ -25,7 +25,7 @@ class SideNavBarItemGroup extends Component {
 
   renderIconAndLabel() {
     const { icon, iconSize, iconStyle, label, items } = this.props;
-    if (find(items, (item) => !item.hidden) === -1) {
+    if (!find(items, (item) => !item.hidden)) {
       return null;
     }
 

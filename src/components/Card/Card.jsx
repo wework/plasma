@@ -5,8 +5,10 @@ import PropTypes from 'prop-types';
 import getDataAttrs from '../../getDataAttrs';
 import style from './style.scss';
 
-const type = { CONDENSED: 'condensed' };
-const borderType = { DASHED: 'dashed' };
+import Header from '../Header/Header';
+
+const cardTypes = { CONDENSED: 'condensed' };
+const borderTypes = { DASHED: 'dashed' };
 
 class Card extends React.Component {
 
@@ -31,10 +33,23 @@ class Card extends React.Component {
   }
 
   render() {
+    const {
+      title,
+      actions,
+      children,
+      expandedComponent,
+      onClick,
+      data,
+      isExpanded,
+      borderType,
+      type,
+      minWidth,
+    } = this.props;
+
     const cardStyle = cx(style.card, {
-      [style.condensed]: this.props.type === type.CONDENSED,
-      [style.borderDashed]: this.props.borderType === borderType.DASHED,
-      [style.isExpanded]: this.props.isExpanded,
+      [style.condensed]: type === cardTypes.CONDENSED,
+      [style.borderDashed]: borderType === borderTypes.DASHED,
+      [style.isExpanded]: isExpanded,
     });
 
     let defaultHeight = 'auto';
@@ -52,28 +67,41 @@ class Card extends React.Component {
 
     return (
       <div
-        {...getDataAttrs(this.props.data)}
         ref={(c) => { this.outer = c; }}
         className={cardStyle}
-        style={this.props.style}
-        onClick={this.props.onClick}
-        {...getDataAttrs(this.props.data)}
+        style={{minWidth}}
+        onClick={onClick}
+        {...getDataAttrs(data)}
       >
         <div className={style.inner}>
+          { (title || actions) &&
+            <div className={style.top}>
+              { title &&
+                <Header h3>
+                  { title }
+                </Header>
+              }
+              { actions &&
+                <div className={style.cardActions}>
+                  { actions.map((action) => action)}
+                </div>
+              }
+            </div>
+          }
           <div
             ref={(c) => { this.default = c; }}
             className={style.default}
             style={{ maxHeight: defaultHeight }}
           >
-            { this.props.children }
+            { children }
           </div>
-          { this.props.expandedComponent &&
+          { expandedComponent &&
             <div
               ref={(c) => { this.expanded = c; }}
               className={style.expanded}
               style={{ maxHeight: expandedHeight }}
             >
-              { this.props.expandedComponent }
+              { expandedComponent }
             </div>
           }
         </div>
@@ -83,19 +111,20 @@ class Card extends React.Component {
 }
 
 Card.defaultProps = {
-  children: 'Lorem ipsum',
-  style: {},
+  children: 'Card',
 };
 
 Card.propTypes = {
+  title: PropTypes.string,
+  actions: PropTypes.array,
   children: PropTypes.node.isRequired,
-  style: PropTypes.object,
   type: PropTypes.string,
   onClick: PropTypes.func,
   borderType: PropTypes.string,
   expandedComponent: PropTypes.node,
   isExpanded: PropTypes.bool,
   data: PropTypes.object,
+  minWidth: PropTypes.number,
 };
 
 Card.displayName = 'Plasma@Card';
