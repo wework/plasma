@@ -60,7 +60,7 @@ Modal.defaultProps = {
 
 Modal.propTypes = {
   title: PropTypes.string,
-  actions: PropTypes.array,
+  actions: PropTypes.arrayOf(PropTypes.element),
   children: PropTypes.node.isRequired,
   visible: PropTypes.bool,
   onDismiss: PropTypes.func,
