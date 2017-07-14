@@ -4,7 +4,7 @@ import cn from 'classnames';
 import Base from '../Base.jsx';
 import style from './style.scss';
 
-const Tag = ({ text, isLarge, isLeft }) => {
+const Tag = ({ text }) => {
   const tagClasses = cn(style.tag, style.small)
   return (
     <div className={tagClasses}>
