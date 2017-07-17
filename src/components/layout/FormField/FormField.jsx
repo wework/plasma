@@ -18,6 +18,8 @@ const FormField = (
     isRequired,
     labelType,
     label,
+    displayError,
+    errorMessage,
   }
 ) => {
   let labelText = label;
@@ -37,7 +39,7 @@ const FormField = (
       <div className={style.input}>
         {children}
       </div>
-
+      {displayError && errorMessage && <div className={style.error}>{errorMessage}</div>}
     </div>
   );
 };
@@ -45,7 +47,7 @@ const FormField = (
 FormField.defaultProps = {
   children: '',
   disabled: false,
-  label: 'Label',
+  label: '',
   labelType: labelType.PRIMARY,
 };
 
@@ -55,6 +57,8 @@ FormField.propTypes = {
   isRequired: PropTypes.bool,
   label: PropTypes.string,
   labelType: PropTypes.string,
+  displayError: PropTypes.bool,
+  errorMessage: PropTypes.string,
 };
 
 FormField.displayName = 'FormField';
