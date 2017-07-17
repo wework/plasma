@@ -20,3 +20,4 @@ import Select from './Select';
 import OverflowMenu from './OverflowMenu';
 import NumberInput from './NumberInput';
 import TextArea from './TextArea';
+import Tag from './Tag';
