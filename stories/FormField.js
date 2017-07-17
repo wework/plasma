@@ -9,8 +9,14 @@ storiesOf('FormField', module).add('default', () => (
   </FormField>
 ));
 
+storiesOf('FormField', module).add('label', () => (
+  <FormField label="Charlie don't surf">
+    <TextInput />
+  </FormField>
+));
+
 storiesOf('FormField', module).add('isRequired', () => (
-  <FormField isRequired>
+  <FormField isRequired label="Tacos">
     <TextInput />
   </FormField>
 ));
@@ -18,5 +24,11 @@ storiesOf('FormField', module).add('isRequired', () => (
 storiesOf('FormField', module).add('isDisabled', () => (
   <FormField isDisabled>
     <TextInput isDisabled />
+  </FormField>
+));
+
+storiesOf('FormField', module).add('with errorMessage', () => (
+  <FormField isDisabled displayError errorMessage="Required">
+    <TextInput isDisabled error/>
   </FormField>
 ));
