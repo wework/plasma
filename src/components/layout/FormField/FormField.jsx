@@ -17,6 +17,8 @@ const FormField = (
     labelType,
     label,
     data,
+    displayError,
+    errorMessage,
   }
 ) => {
   let labelText = label;
@@ -39,7 +41,7 @@ const FormField = (
       <div className={style.input}>
         {children}
       </div>
-
+      {displayError && errorMessage && <div className={style.error}>{errorMessage}</div>}
     </div>
   );
 };
@@ -58,6 +60,8 @@ FormField.propTypes = {
   label: PropTypes.string,
   labelType: PropTypes.string,
   data: PropTypes.object,
+  displayError: PropTypes.bool,
+  errorMessage: PropTypes.string,
 };
 
 FormField.displayName = 'Plasma@FormField';

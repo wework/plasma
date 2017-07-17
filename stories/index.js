@@ -23,3 +23,4 @@ import Rule from './Rule';
 import Page from './Page';
 import TextArea from './TextArea';
 import Icon from './Icon';
+import Tag from './Tag';

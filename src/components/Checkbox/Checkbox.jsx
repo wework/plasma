@@ -7,19 +7,28 @@ import getDataAttrs from '../../getDataAttrs';
 class Checkbox extends React.Component {
 
   render() {
-    const { checked, indeterminate, name, text, onChange, disabled } = this.props;
+    const {
+      checked,
+      indeterminate,
+      name,
+      text,
+      onChange,
+      disabled,
+      value,
+      data,
+    } = this.props;
     const id = uniqueId('id');
     const inputClassName = indeterminate ? style.indeterminate : style.original;
 
     return (
       <label
-        {...getDataAttrs(this.props.data)}
+        {...getDataAttrs(data)}
         htmlFor={id}
         className={style.wrapper}
       >
         <input
           disabled={disabled}
-          checked={checked}
+          checked={checked || value}
           className={inputClassName}
           type="checkbox"
           id={id}
@@ -37,6 +46,7 @@ class Checkbox extends React.Component {
 
 Checkbox.defaultProps = {
   checked: false,
+  value: false,
   indeterminate: false,
   text: 'Option',
   name: 'checkbox',
@@ -44,6 +54,7 @@ Checkbox.defaultProps = {
 
 Checkbox.propTypes = {
   checked: PropTypes.bool,
+  value: PropTypes.bool,
   indeterminate: PropTypes.bool,
   text: PropTypes.oneOfType([
     PropTypes.string,
