@@ -1,6 +1,9 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import getDataAttrs from '../../getDataAttrs';
+import {
+  getDataAttrs,
+  getDataProps,
+} from '../../dataUtils';
 import style from './style.scss';
 
 const Icon = ({ icon, color, data }) => {
@@ -17,7 +20,7 @@ const Icon = ({ icon, color, data }) => {
 Icon.propTypes = {
   icon: PropTypes.string,
   color: PropTypes.string,
-  data: PropTypes.object,
+  ...getDataProps(),
 };
 
 Icon.defaultProps = {

@@ -2,7 +2,10 @@ import cx from 'classnames';
 import React from 'react';
 import PropTypes from 'prop-types';
 import style from './style.scss';
-import getDataAttrs from '../../getDataAttrs';
+import {
+  getDataAttrs,
+  getDataProps,
+} from '../../dataUtils';
 
 const type = { SOLID: 'solid', DOTTED: 'dotted', DASHED: 'dashed' };
 
@@ -28,7 +31,7 @@ Rule.defaultProps = {
 
 Rule.propTypes = {
   type: PropTypes.string,
-  data: PropTypes.object,
+  ...getDataProps(),
 };
 
 Rule.displayName = 'Plasma@Rule';

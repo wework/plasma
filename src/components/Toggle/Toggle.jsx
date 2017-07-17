@@ -2,9 +2,11 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import cx from 'classnames';
 import _ from 'lodash';
-import getDataAttrs from '../../getDataAttrs';
+import {
+  getDataAttrs,
+  getDataProps,
+} from '../../dataUtils';
 import style from './style.scss';
-
 
 const type = {
   HORIZONTAL: 'horizontal',
@@ -25,7 +27,7 @@ class Toggle extends React.Component {
   render() {
     return (
       <ul
-        {...getDataAttrs(this.props)}
+        {...getDataAttrs(this.props.data)}
         className={style.toggleWrapper}
         role="tablist"
       >
@@ -72,6 +74,7 @@ Toggle.propTypes = {
   selectedIndex: PropTypes.number,
   selectedLabel: PropTypes.string,
   type: PropTypes.string,
+  ...getDataProps(),
 };
 
 Toggle.displayName = 'Plasma@Toggle';

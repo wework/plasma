@@ -1,7 +1,10 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import cx from 'classnames';
-import getDataAttrs from '../../getDataAttrs';
+import {
+  getDataAttrs,
+  getDataProps,
+} from '../../dataUtils';
 import style from './style.scss';
 
 const types = {
@@ -35,8 +38,8 @@ const Label = (
 Label.propTypes = {
   text: PropTypes.string,
   type: PropTypes.string,
-  data: PropTypes.object,
   children: PropTypes.node,
+  ...getDataProps(),
 };
 
 Label.defaultProps = {

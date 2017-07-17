@@ -1,6 +1,9 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import getDataAttrs from '../../../getDataAttrs';
+import {
+  getDataAttrs,
+  getDataProps,
+} from '../../../dataUtils';
 import style from './style.scss';
 
 class HorizontalScroll extends React.Component {
@@ -47,7 +50,7 @@ HorizontalScroll.propTypes = {
   children: PropTypes.node,
   onScroll: PropTypes.func,
   style: PropTypes.object,
-  data: PropTypes.object,
+  ...getDataProps(),
 };
 
 HorizontalScroll.displayName = 'Plasma@HorizontalScroll';

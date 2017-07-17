@@ -2,7 +2,10 @@ import { uniqueId } from 'lodash';
 import React from 'react';
 import PropTypes from 'prop-types';
 import style from './style.scss';
-import getDataAttrs from '../../getDataAttrs';
+import {
+  getDataAttrs,
+  getDataProps }
+from '../../dataUtils';
 
 class Checkbox extends React.Component {
 
@@ -63,8 +66,8 @@ Checkbox.propTypes = {
   ]).isRequired,
   name: PropTypes.string.isRequired,
   onChange: PropTypes.func,
-  data: PropTypes.object,
   disabled: PropTypes.bool,
+  ...getDataProps(),
 };
 
 Checkbox.displayName = 'Plasma@Checkbox';

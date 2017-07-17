@@ -2,7 +2,10 @@ import cx from 'classnames';
 import React from 'react';
 import ReactDOM from 'react-dom';
 import PropTypes from 'prop-types';
-import getDataAttrs from '../../getDataAttrs';
+import {
+  getDataAttrs,
+  getDataProps }
+from '../../dataUtils';
 import style from './style.scss';
 
 import Header from '../Header/Header';
@@ -123,8 +126,8 @@ Card.propTypes = {
   borderType: PropTypes.string,
   expandedComponent: PropTypes.node,
   isExpanded: PropTypes.bool,
-  data: PropTypes.object,
   minWidth: PropTypes.number,
+  ...getDataProps(),
 };
 
 Card.displayName = 'Plasma@Card';

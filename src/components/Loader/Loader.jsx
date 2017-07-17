@@ -1,7 +1,10 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import style from './style.scss';
-import getDataAttrs from '../../getDataAttrs';
+import {
+  getDataAttrs,
+  getDataProps,
+} from '../../dataUtils';
 
 class Loader extends React.Component {
   render() {
@@ -37,7 +40,7 @@ Loader.defaultProps = {};
 Loader.propTypes = {
   style: PropTypes.object,
   dotStyle: PropTypes.object,
-  data: PropTypes.object,
+  ...getDataProps(),
 };
 
 Loader.displayName = 'Plasma@Loader';

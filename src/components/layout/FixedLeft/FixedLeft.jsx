@@ -2,7 +2,10 @@ import { isNull, clamp } from 'lodash';
 import React from 'react';
 import PropTypes from 'prop-types';
 import style from './style.scss';
-import getDataAttrs from '../../../getDataAttrs';
+import {
+  getDataAttrs,
+  getDataProps,
+} from '../../../dataUtils';
 
 /**
   * The fixed left page is great.
@@ -98,7 +101,7 @@ FixedLeft.propTypes = {
   stickAt: PropTypes.number,
   contentStyle: PropTypes.object,
   fixedStyle: PropTypes.object,
-  data: PropTypes.object,
+  ...getDataProps(),
 };
 
 FixedLeft.displayName = '!Plasma@FixedLeft';

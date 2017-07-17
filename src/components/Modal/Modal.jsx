@@ -2,7 +2,10 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import style from './style.scss';
 import Header from '../Header/Header';
-import getDataAttrs from '../../getDataAttrs';
+import {
+  getDataAttrs,
+  getDataProps,
+} from '../../dataUtils';
 
 class Modal extends React.Component {
   render() {
@@ -65,8 +68,8 @@ Modal.propTypes = {
   visible: PropTypes.bool,
   onDismiss: PropTypes.func,
   style: PropTypes.object,
-  data: PropTypes.object,
   minWidth: PropTypes.number,
+  ...getDataProps(),
 };
 
 Modal.displayName = 'Plasma@Modal';

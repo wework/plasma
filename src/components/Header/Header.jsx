@@ -2,7 +2,10 @@ import cx from 'classnames';
 import React from 'react';
 import PropTypes from 'prop-types';
 import style from './style.scss';
-import getDataAttrs from '../../getDataAttrs';
+import {
+  getDataAttrs,
+  getDataProps }
+from '../../dataUtils';
 
 class Header extends React.Component {
   render() {
@@ -45,8 +48,8 @@ Header.propTypes = {
   h6: PropTypes.bool,
   invert: PropTypes.bool,
   style: PropTypes.object,
-  data: PropTypes.object,
   noMargin: PropTypes.bool,
+  ...getDataProps(),
 };
 
 Header.defaultProps = {};

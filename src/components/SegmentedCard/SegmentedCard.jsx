@@ -2,7 +2,10 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import cx from 'classnames';
 import style from './style.scss';
-import getDataAttrs from '../../getDataAttrs';
+import {
+  getDataAttrs,
+  getDataProps,
+} from '../../dataUtils';
 
 class SegmentedCard extends React.Component {
   render() {
@@ -36,7 +39,7 @@ SegmentedCard.propTypes = {
   children: PropTypes.node.isRequired,
   style: PropTypes.object,
   vertical: PropTypes.bool,
-  data: PropTypes.object,
+  ...getDataProps(),
 };
 
 SegmentedCard.displayName = 'Plasma@SegmentedCard';

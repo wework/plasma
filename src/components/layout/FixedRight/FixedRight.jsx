@@ -2,7 +2,10 @@ import { isNull, clamp } from 'lodash';
 import React from 'react';
 import PropTypes from 'prop-types';
 import { getOffsetTop } from '../util';
-import getDataAttrs from '../../../getDataAttrs';
+import {
+  getDataAttrs,
+  getDataProps,
+} from '../../../dataUtils';
 import style from './style.scss';
 
 /**
@@ -87,7 +90,7 @@ FixedRight.propTypes = {
   children: PropTypes.array.isRequired,
   stickAt: PropTypes.number,
   fixedContainerStyle: PropTypes.object,
-  data: PropTypes.object,
+  ...getDataProps(),
 };
 
 FixedRight.displayName = '!Plasma@FixedRight';

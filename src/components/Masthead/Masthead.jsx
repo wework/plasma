@@ -1,7 +1,10 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import style from './style.scss';
-import getDataAttrs from '../../getDataAttrs';
+import {
+  getDataAttrs,
+  getDataProps,
+} from '../../dataUtils';
 import Header from '../Header/Header.jsx';
 
 class Masthead extends React.Component {
@@ -48,7 +51,7 @@ Masthead.propTypes = {
   label: PropTypes.string,
   header: PropTypes.string.isRequired,
   style: PropTypes.object,
-  data: PropTypes.object,
+  ...getDataProps(),
 };
 
 Masthead.displayName = 'Plasma@Masthead';

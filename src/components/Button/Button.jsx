@@ -1,7 +1,10 @@
 import cx from 'classnames';
 import React from 'react';
 import PropTypes from 'prop-types';
-import getDataAttrs from '../../getDataAttrs';
+import {
+  getDataAttrs,
+  getDataProps }
+from '../../dataUtils';
 import Loader from '../Loader/Loader.jsx';
 import style from './style.scss';
 
@@ -73,8 +76,8 @@ Button.propTypes = {
   children: PropTypes.node,
   style: PropTypes.object,
   isSubmit: PropTypes.bool,
-  data: PropTypes.object,
   size: PropTypes.string,
+  ...getDataProps(),
 };
 
 Button.displayName = 'Plasma@Button';

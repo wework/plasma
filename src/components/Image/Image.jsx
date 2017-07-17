@@ -1,7 +1,10 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import style from './style.scss';
-import getDataAttrs from '../../getDataAttrs';
+import {
+  getDataAttrs,
+  getDataProps,
+} from '../../dataUtils';
 
 class Image extends React.Component {
   render() {
@@ -32,7 +35,7 @@ Image.propTypes = {
   imageStyle: PropTypes.object,
   src: PropTypes.string,
   altText: PropTypes.string,
-  data: PropTypes.object,
+  ...getDataProps(),
 };
 
 Image.displayName = 'Plasma@Image';

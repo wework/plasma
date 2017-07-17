@@ -2,7 +2,10 @@ import { uniqueId } from 'lodash';
 import React from 'react';
 import PropTypes from 'prop-types';
 import cx from 'classnames';
-import getDataAttrs from '../../getDataAttrs';
+import {
+  getDataAttrs,
+  getDataProps,
+} from '../../dataUtils';
 import style from './style.scss';
 
 class RadioButton extends React.Component {
@@ -52,7 +55,7 @@ RadioButton.propTypes = {
   isLarge: PropTypes.bool,
   onChange: PropTypes.func,
   checked: PropTypes.bool,
-  data: PropTypes.object,
+  ...getDataProps(),
 };
 
 RadioButton.displayName = 'Plasma@RadioButton';

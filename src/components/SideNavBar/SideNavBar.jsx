@@ -1,5 +1,8 @@
 import React, { Component, PropTypes } from 'react';
-import getDataAttrs from '../../getDataAttrs';
+import {
+  getDataAttrs,
+  getDataProps,
+} from '../../dataUtils';
 import SideNavBarItemGroup from './SideNavBarItemGroup';
 import SideNavBarTop from './SideNavBarTop';
 import style from './style.scss';
@@ -50,7 +53,7 @@ SideNavBar.propTypes = {
   onClickTop: PropTypes.func,
   topText: PropTypes.string,
   topIcon: PropTypes.string,
-  data: PropTypes.object,
+  ...getDataProps(),
 };
 
 SideNavBar.displayName = 'Plasma@SideNavBar';

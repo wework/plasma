@@ -1,7 +1,10 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import Header from '../../Header/Header';
-import getDataAttrs from '../../../getDataAttrs';
+import {
+  getDataAttrs,
+  getDataProps,
+} from '../../../dataUtils';
 import style from './style.scss';
 
 class Page extends React.Component {
@@ -50,9 +53,9 @@ Page.defaultProps = {};
 Page.propTypes = {
   title: PropTypes.string,
   children: PropTypes.node,
-  data: PropTypes.object,
   actions: PropTypes.array,
   breadcrumb: PropTypes.node,
+  ...getDataProps(),
 };
 
 Page.displayName = 'Plasma@Page';

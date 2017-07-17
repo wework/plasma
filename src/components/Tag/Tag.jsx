@@ -1,15 +1,18 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import cn from 'classnames';
-import getDataAttrs from '../../getDataAttrs';
+import {
+  getDataAttrs,
+  getDataProps }
+from '../../dataUtils';
 import style from './style.scss';
 
-const Tag = ({ text }) => {
+const Tag = ({ text, data }) => {
   const tagClasses = cn(style.tag, style.small);
   return (
     <div
       className={tagClasses}
-      {...getDataAttrs(this.props.data)}
+      {...getDataAttrs(data)}
     >
       <span>{text}</span>
     </div>
@@ -18,6 +21,7 @@ const Tag = ({ text }) => {
 
 Tag.propTypes = {
   text: PropTypes.string.isRequired,
+  ...getDataProps(),
 };
 
 Tag.displayName = 'Plasma@Tag';

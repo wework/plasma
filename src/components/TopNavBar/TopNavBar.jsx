@@ -1,7 +1,10 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import style from './style.scss';
-import getDataAttrs from '../../getDataAttrs';
+import {
+  getDataAttrs,
+  getDataProps,
+} from '../../dataUtils';
 
 class TopNavBar extends React.Component {
   render() {
@@ -22,7 +25,7 @@ TopNavBar.defaultProps = {
 
 TopNavBar.propTypes = {
   children: PropTypes.node.isRequired,
-  data: PropTypes.object,
+  ...getDataProps(),
 };
 
 TopNavBar.displayName = 'Plasma@TopNavBar';

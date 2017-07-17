@@ -2,7 +2,10 @@ import { toUpper } from 'lodash';
 import React from 'react';
 import PropTypes from 'prop-types';
 import cx from 'classnames';
-import getDataAttrs from '../../getDataAttrs';
+import {
+  getDataAttrs,
+  getDataProps,
+} from '../../dataUtils';
 import style from './style.scss';
 
 const TextInput = (
@@ -81,7 +84,7 @@ TextInput.propTypes = {
   disabled: PropTypes.bool,
   size: PropTypes.bool,
   error: PropTypes.bool,
-  data: PropTypes.object,
+  ...getDataProps(),
 };
 
 TextInput.defaultProps = {

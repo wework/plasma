@@ -1,5 +1,8 @@
 import React, { Component, PropTypes } from 'react';
-import getDataAttrs from '../../getDataAttrs';
+import {
+  getDataAttrs,
+  getDataProps,
+} from '../../dataUtils';
 import style from './style.scss';
 
 class Search extends Component {
@@ -96,7 +99,7 @@ Search.propTypes = {
   onClear: PropTypes.func,
   placeholder: PropTypes.string.isRequired,
   value: PropTypes.string,
-  data: PropTypes.object,
+  ...getDataProps(),
 };
 
 Search.displayName = 'Plasma@Search';

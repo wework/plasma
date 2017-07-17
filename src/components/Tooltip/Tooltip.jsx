@@ -1,7 +1,10 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import style from './style.scss';
-import getDataAttrs from '../../getDataAttrs';
+import {
+  getDataAttrs,
+  getDataProps,
+} from '../../dataUtils';
 
 class Tooltip extends React.Component {
   render() {
@@ -28,6 +31,7 @@ Tooltip.propTypes = {
   children: PropTypes.node.isRequired,
   content: PropTypes.node,
   data: PropTypes.object,
+  ...getDataProps(),
 };
 
 Tooltip.displayName = 'Plasma@Tooltip';

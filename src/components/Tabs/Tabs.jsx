@@ -2,7 +2,10 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import cn from 'classnames';
 import { map } from 'lodash';
-import getDataAttrs from '../../getDataAttrs';
+import {
+  getDataAttrs,
+  getDataProps,
+} from '../../dataUtils';
 import style from './style.scss';
 
 class Tabs extends React.Component {
@@ -61,7 +64,7 @@ Tabs.propTypes = {
   onChange: PropTypes.func.isRequired,
   selectedIndex: PropTypes.number,
   selectedLabel: PropTypes.string,
-  data: PropTypes.object,
+  ...getDataProps(),
 };
 
 Tabs.displayName = 'Plasma@Tabs';

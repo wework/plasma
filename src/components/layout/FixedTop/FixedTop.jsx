@@ -1,6 +1,9 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import getDataAttrs from '../../../getDataAttrs';
+import {
+  getDataAttrs,
+  getDataProps,
+} from '../../../dataUtils';
 import style from './style.scss';
 
 class FixedTop extends React.Component {
@@ -50,7 +53,7 @@ FixedTop.defaultProps = {
 FixedTop.propTypes = {
   children: PropTypes.array.isRequired,
   backgroundColor: PropTypes.string,
-  data: PropTypes.object,
+  ...getDataProps(),
 };
 
 FixedTop.displayName = '!Plasma@FixedTop';

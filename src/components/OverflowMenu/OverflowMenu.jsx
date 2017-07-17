@@ -2,7 +2,10 @@ import cx from 'classnames';
 import { map } from 'lodash';
 import React from 'react';
 import PropTypes from 'prop-types';
-import getDataAttrs from '../../getDataAttrs';
+import {
+  getDataAttrs,
+  getDataProps,
+} from '../../dataUtils';
 import OverflowMenuItem from './OverflowMenuItem.jsx';
 import style from './style.scss';
 
@@ -83,10 +86,10 @@ OverflowMenu.defaultProps = {
 };
 
 OverflowMenu.propTypes = {
-  options: React.PropTypes.array,
-  onClick: React.PropTypes.func,
-  data: PropTypes.object,
-  openDirection: React.PropTypes.oneOf([direction.LEFT, direction.RIGHT]),
+  options: PropTypes.array,
+  onClick: PropTypes.func,
+  openDirection: PropTypes.oneOf([direction.LEFT, direction.RIGHT]),
+  ...getDataProps(),
 };
 
 OverflowMenu.displayName = 'Plasma@OverflowMenu';

@@ -1,6 +1,9 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import getDataAttrs from '../../../getDataAttrs';
+import {
+  getDataAttrs,
+  getDataProps,
+} from '../../../dataUtils';
 import style from './style.scss';
 import Label from '../../Label/Label.jsx';
 
@@ -59,9 +62,9 @@ FormField.propTypes = {
   isRequired: PropTypes.bool,
   label: PropTypes.string,
   labelType: PropTypes.string,
-  data: PropTypes.object,
   displayError: PropTypes.bool,
   errorMessage: PropTypes.string,
+  ...getDataProps(),
 };
 
 FormField.displayName = 'Plasma@FormField';

@@ -2,15 +2,14 @@ import { toUpper } from 'lodash';
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import cx from 'classnames';
-import getDataAttrs from '../../getDataAttrs';
+import {
+  getDataAttrs,
+  getDataProps,
+} from '../../dataUtils';
 import Autogrow from './autogrow';
 import style from './style.scss';
 
 class TextArea extends Component {
-
-  componentDidMount() {
-
-  }
 
   render() {
     const wrapperStyle = cx(style.wrapper, {
@@ -63,7 +62,7 @@ TextArea.propTypes = {
   size: PropTypes.string,
   rows: PropTypes.string,
   error: PropTypes.bool,
-  data: PropTypes.object,
+  ...getDataProps(),
 };
 
 TextArea.defaultProps = {

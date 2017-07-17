@@ -12,7 +12,10 @@ import {
 import React from 'react';
 import PropTypes from 'prop-types';
 import cx from 'classnames';
-import getDataAttrs from '../../getDataAttrs';
+import {
+  getDataAttrs,
+  getDataProps,
+} from '../../dataUtils';
 import style from './style.scss';
 
 class Table extends React.Component {
@@ -368,7 +371,7 @@ Table.propTypes = {
   spanMap: PropTypes.object,
   stickAt: PropTypes.number,
   style: PropTypes.object,
-  data: PropTypes.object,
+  ...getDataProps(),
 };
 
 Table.defaultProps = {

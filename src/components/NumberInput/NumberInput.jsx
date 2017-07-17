@@ -2,7 +2,10 @@ import { isNumber, toNumber } from 'lodash';
 import React from 'react';
 import PropTypes from 'prop-types';
 import style from './style.scss';
-import getDataAttrs from '../../getDataAttrs';
+import {
+  getDataAttrs,
+  getDataProps,
+} from '../../dataUtils';
 
 class NumberInput extends React.Component {
 
@@ -74,7 +77,7 @@ NumberInput.propTypes = {
   onChange: PropTypes.func,
   onPressIncrement: PropTypes.func,
   onPressDecrement: PropTypes.func,
-  data: PropTypes.object,
+  ...getDataProps(),
 };
 
 NumberInput.defaultProps = {

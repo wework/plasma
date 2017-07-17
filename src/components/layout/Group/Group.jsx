@@ -2,7 +2,10 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import cx from 'classnames';
 import { map, isArray, toArray } from 'lodash';
-import getDataAttrs from '../../../getDataAttrs';
+import {
+  getDataAttrs,
+  getDataProps,
+} from '../../../dataUtils';
 import style from './style.scss';
 
 class Group extends React.Component {
@@ -56,7 +59,7 @@ Group.propTypes = {
   vertical: PropTypes.bool,
   layout: PropTypes.array,
   style: PropTypes.object,
-  data: PropTypes.object,
+  ...getDataProps(),
 };
 
 Group.displayName = 'Plasma@Group';
