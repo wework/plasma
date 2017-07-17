@@ -24,6 +24,7 @@ import Search from './components/Search/Search';
 import Tabs from './components/Tabs/Tabs';
 import Toggle from './components/Toggle/Toggle';
 import TextArea from './components/TextArea/TextArea';
+import Tag from './components/Tag/Tag';
 
 // Page imports
 import Group from './components/layout/Group/Group';
@@ -112,4 +113,5 @@ export {
   Search,
   Toggle,
   TextArea,
+  Tag,
 };
