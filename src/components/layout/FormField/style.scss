@@ -14,3 +14,10 @@
 .disabledWrapper {
   @extend %input--wrapper--disabled;
 }
+
+.error {
+  font-weight: bold;
+  font-size: 11px;
+  color: $cWarningRed;
+  margin-top : 5px;
+}
