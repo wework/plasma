@@ -16,7 +16,6 @@ class Page extends React.Component {
     return (
       <div
         className={style.wrapper}
-        ref={(c) => { this.wrapper = c; }}
         {...getDataAttrs(this.props.data)}
       >
         <div className={style.content}>

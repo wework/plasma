@@ -1,17 +1,11 @@
 import React, { Component, PropTypes } from 'react';
-import { forEach, find } from 'lodash';
+import { find } from 'lodash';
 import SideNavBarItem from './SideNavBarItem';
 import style from './style.scss';
 
 class SideNavBarItemGroup extends Component {
 
-  constructor() {
-    super();
-    this.handleGroupClick = this.handleGroupClick.bind(this);
-    this.handleItemClick = this.handleItemClick.bind(this);
-  }
-
-  handleGroupClick() {
+  handleGroupClick = () => {
     if (this.props.items && this.props.items[0]) {
       this.props.onClick({ id: this.props.items[0].id });
     } else {
@@ -19,7 +13,7 @@ class SideNavBarItemGroup extends Component {
     }
   }
 
-  handleItemClick(itemId) {
+  handleItemClick = (itemId) => {
     this.props.onClick({ id: itemId });
   }
 
@@ -29,7 +23,7 @@ class SideNavBarItemGroup extends Component {
       return null;
     }
 
-    const renderIcon = icon && iconSize && (
+    const iconToRender = icon && iconSize && (
       <img
         className={style.icon}
         style={{
@@ -48,7 +42,7 @@ class SideNavBarItemGroup extends Component {
         className={style.iconAndLabelContainer}
       >
         <div className={style.iconWrapper}>
-          {renderIcon}
+          {iconToRender}
         </div>
         <div className={style.groupLabelWrapper}>
           {label}
@@ -58,9 +52,8 @@ class SideNavBarItemGroup extends Component {
   }
 
   renderSubItems() {
-    const items = [];
-    forEach(this.props.items, (groupedItem) => {
-      !groupedItem.hidden && items.push(
+    const items = this.props.items.map((groupedItem) => {
+      return !groupedItem.hidden && (
         <SideNavBarItem
           key={groupedItem.id}
           id={groupedItem.id}

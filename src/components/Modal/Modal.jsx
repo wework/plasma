@@ -37,7 +37,7 @@ class Modal extends React.Component {
                 {children}
                 { actions &&
                   <div className={style.pageActions}>
-                    { actions.map((action) => action)}
+                    { actions }
                   </div>
                 }
               </div>

@@ -1,6 +1,7 @@
 import React from 'react';
-import { storiesOf, action } from '@kadira/storybook';
+import { storiesOf } from '@kadira/storybook';
 import SideNavBar from '../src/components/SideNavBar/SideNavBar';
+import locationPin from '../src/icons/locationPin';
 
 class StatefulWrapper extends React.Component {
   constructor() {
@@ -15,6 +16,7 @@ class StatefulWrapper extends React.Component {
         onChange={(event) => { this.setState({ selectedId: event.id }); }}
         selectedId={this.state.selectedId}
         topText="Long Building Name"
+        topIcon={locationPin}
         data={{ qa: 'test' }}
       />
     );

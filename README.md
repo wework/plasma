@@ -23,7 +23,7 @@ Developing with Storybook
 
 ### Creating a Pull Request
 
-1. When you're ready, pushyour  branch to Github and create a pull request.
+1. When you're ready, push your  branch to Github and create a pull request.
 2. If you've made visual changes, include screenshots.
 3. PR will be reviewed
 4. When PR is accepted, it will be merged into master.

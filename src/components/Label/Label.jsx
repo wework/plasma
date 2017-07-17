@@ -22,7 +22,6 @@ const Label = (
     [style.labelSecondary]: type === types.SECONDARY,
     [style.labelDisabled]: type === types.DISABLED,
   });
-  console.log(children);
   return (
     <div
       {...getDataAttrs(data)}

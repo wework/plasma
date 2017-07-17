@@ -1,23 +1,13 @@
 import { isNull, clamp } from 'lodash';
 import React from 'react';
 import PropTypes from 'prop-types';
+import { getOffsetTop } from '../util';
 import getDataAttrs from '../../../getDataAttrs';
 import style from './style.scss';
 
 /**
   * The fixed right page is great.
  */
-
-/* eslint-disable */
-const getOffsetTop = (elem) => {
-  let offsetTop = 0;
-  do {
-    if (!isNaN(elem.offsetTop)) {
-      offsetTop += elem.offsetTop;
-    }
-  } while (elem = elem.offsetParent);
-  return offsetTop;
-};
 
 /* eslint-enable */
 class FixedRight extends React.Component {

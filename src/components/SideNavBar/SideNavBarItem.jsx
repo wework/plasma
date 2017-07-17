@@ -4,12 +4,7 @@ import style from './style.scss';
 
 class SideNavBarItem extends Component {
 
-  constructor() {
-    super();
-    this._onClick = this._onClick.bind(this);
-  }
-
-  _onClick() {
+  _onClick = () => {
     this.props.onClick(this.props.id);
   }
 
