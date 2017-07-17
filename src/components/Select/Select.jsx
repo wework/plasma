@@ -1,6 +1,5 @@
 import React from 'react';
 import ExternalSelect from 'react-select';
-import Base from '../Base.jsx';
 
 class Select extends React.Component {
   render() {
@@ -10,4 +9,4 @@ class Select extends React.Component {
   }
 }
 
-export default Base(Select);
+export default Select;

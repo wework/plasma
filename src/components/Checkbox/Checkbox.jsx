@@ -1,18 +1,34 @@
-import _ from 'lodash';
+import { uniqueId } from 'lodash';
 import React from 'react';
 import PropTypes from 'prop-types';
-import Base from '../Base.jsx';
 import style from './style.scss';
+import {
+  getDataAttrs,
+  getDataProps }
+from '../../dataUtils';
 
 class Checkbox extends React.Component {
 
   render() {
-    const { checked, indeterminate, name, text, onChange, disabled, value } = this.props;
-    const id = _.uniqueId('id');
+    const {
+      checked,
+      indeterminate,
+      name,
+      text,
+      onChange,
+      disabled,
+      value,
+      data,
+    } = this.props;
+    const id = uniqueId('id');
     const inputClassName = indeterminate ? style.indeterminate : style.original;
 
     return (
-      <label htmlFor={id} className={style.wrapper}>
+      <label
+        {...getDataAttrs(data)}
+        htmlFor={id}
+        className={style.wrapper}
+      >
         <input
           disabled={disabled}
           checked={checked || value}
@@ -51,8 +67,9 @@ Checkbox.propTypes = {
   name: PropTypes.string.isRequired,
   onChange: PropTypes.func,
   disabled: PropTypes.bool,
+  ...getDataProps(),
 };
 
-Checkbox.displayName = 'Checkbox';
+Checkbox.displayName = 'Plasma@Checkbox';
 
-export default Base(Checkbox);
+export default Checkbox;

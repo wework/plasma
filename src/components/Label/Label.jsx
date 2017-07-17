@@ -1,8 +1,10 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import cx from 'classnames';
-
-import Base from '../Base.jsx';
+import {
+  getDataAttrs,
+  getDataProps,
+} from '../../dataUtils';
 import style from './style.scss';
 
 const types = {
@@ -15,16 +17,20 @@ const Label = (
   {
     type,
     text,
+    data,
+    children,
   }
 ) => {
   const labelStyle = cx(style.label, {
     [style.labelSecondary]: type === types.SECONDARY,
     [style.labelDisabled]: type === types.DISABLED,
   });
-
   return (
-    <div className={labelStyle}>
-      {text}
+    <div
+      {...getDataAttrs(data)}
+      className={labelStyle}
+    >
+      {text || children}
     </div>
   );
 };
@@ -32,13 +38,14 @@ const Label = (
 Label.propTypes = {
   text: PropTypes.string,
   type: PropTypes.string,
+  children: PropTypes.node,
+  ...getDataProps(),
 };
 
 Label.defaultProps = {
-  text: 'Label',
   type: types.PRIMARY,
 };
 
-Label.displayName = 'Label';
+Label.displayName = 'Plasma@Label';
 
-export default Base(Label);
+export default Label;

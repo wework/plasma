@@ -1,6 +1,9 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import Base from '../../Base.jsx';
+import {
+  getDataAttrs,
+  getDataProps,
+} from '../../../dataUtils';
 import style from './style.scss';
 
 class FixedTop extends React.Component {
@@ -18,7 +21,10 @@ class FixedTop extends React.Component {
 
   render() {
     return (
-      <div className={style.wrapper}>
+      <div
+        {...getDataAttrs(this.props.data)}
+        className={style.wrapper}
+      >
         <div
           className={style.fixedWrapper}
           ref={(c) => (this.fixed = c)}
@@ -47,8 +53,9 @@ FixedTop.defaultProps = {
 FixedTop.propTypes = {
   children: PropTypes.array.isRequired,
   backgroundColor: PropTypes.string,
+  ...getDataProps(),
 };
 
-FixedTop.displayName = '!FixedTop';
+FixedTop.displayName = '!Plasma@FixedTop';
 
-export default Base(FixedTop);
+export default FixedTop;

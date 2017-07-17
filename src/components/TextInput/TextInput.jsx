@@ -1,9 +1,11 @@
-import _ from 'lodash';
+import { toUpper } from 'lodash';
 import React from 'react';
 import PropTypes from 'prop-types';
 import cx from 'classnames';
-
-import Base from '../Base.jsx';
+import {
+  getDataAttrs,
+  getDataProps,
+} from '../../dataUtils';
 import style from './style.scss';
 
 const TextInput = (
@@ -19,6 +21,7 @@ const TextInput = (
     disabled,
     size,
     error,
+    data,
   }
 ) => {
   const fixStyle = cx(style.fix, {
@@ -29,16 +32,19 @@ const TextInput = (
   const wrapperStyle = cx(style.wrapper, {
     [style.wrapperDisabled]: isDisabled || disabled,
     [style.wrapperError]: error,
-    [style.wrapperLarge]: _.toUpper(size) === 'LARGE',
+    [style.wrapperLarge]: toUpper(size) === 'LARGE',
   });
 
   const inputStyle = cx(style.input, {
     [style.disabled]: isDisabled || disabled,
-    [style.large]: _.toUpper(size) === 'LARGE',
+    [style.large]: toUpper(size) === 'LARGE',
   });
 
   return (
-    <div className={wrapperStyle}>
+    <div
+      {...getDataAttrs(data)}
+      className={wrapperStyle}
+    >
       <input
         className={inputStyle}
         disabled={isDisabled || disabled}
@@ -78,6 +84,7 @@ TextInput.propTypes = {
   disabled: PropTypes.bool,
   size: PropTypes.bool,
   error: PropTypes.bool,
+  ...getDataProps(),
 };
 
 TextInput.defaultProps = {
@@ -85,6 +92,6 @@ TextInput.defaultProps = {
   isDisabled: false,
 };
 
-TextInput.displayName = 'TextInput';
+TextInput.displayName = 'Plasma@TextInput';
 
-export default Base(TextInput);
+export default TextInput;

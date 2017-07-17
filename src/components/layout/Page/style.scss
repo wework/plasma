@@ -1,0 +1,23 @@
+@import '../../../styles/base';
+
+.wrapper {
+  @extend %type--body;
+  padding: 40px 30px;
+}
+
+.top {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 40px;
+}
+
+.pageActions {
+  display: flex;
+  *  {
+    margin-right: 20px;
+  }
+  :last-child {
+    margin-right: 0;
+  }
+}

@@ -1,10 +1,21 @@
-import _ from 'lodash';
+import {
+  pick,
+  keys,
+  forEach,
+  isNull,
+  throttle,
+  get,
+  map,
+  includes,
+  isEqual,
+} from 'lodash';
 import React from 'react';
 import PropTypes from 'prop-types';
 import cx from 'classnames';
-import $ from 'jquery';
-
-import Base from '../Base.jsx';
+import {
+  getDataAttrs,
+  getDataProps,
+} from '../../dataUtils';
 import style from './style.scss';
 
 class Table extends React.Component {
@@ -23,16 +34,16 @@ class Table extends React.Component {
     this.componentDidMount = this.componentDidMount.bind(this);
     this.componentDidUpdate = this.componentDidUpdate.bind(this);
     this.handleScroll = this.handleScroll.bind(this);
-    this.handleWindowResize = _.throttle(this.handleWindowResize, 100).bind(this);
+    this.handleWindowResize = throttle(this.handleWindowResize, 100).bind(this);
     this.handleColumnMouseEnter = this.handleColumnMouseEnter.bind(this);
     this.handleColumnMouseLeave = this.handleColumnMouseLeave.bind(this);
     this.updateState = this.updateState.bind(this);
   }
 
   componentDidMount() {
-    if (!_.isNull(this.props.stickAt)) {
-      $(document).on('scroll', this.handleScroll);
-      $(window).on('resize', this.handleWindowResize);
+    if (!isNull(this.props.stickAt)) {
+      document.addEventListener('scroll', this.handleScroll);
+      window.addEventListener('resize', this.handleWindowResize);
       const init = () => {
         this.handleWindowResize();
         this.handleScroll();
@@ -44,15 +55,19 @@ class Table extends React.Component {
   }
 
   componentDidUpdate() {
-    if (!_.isNull(this.props.stickAt)) {
+    if (!isNull(this.props.stickAt)) {
       this.calculateSizes();
     }
   }
 
   componentWillUnmount() {
-    $(document).off('scroll', this.handleScroll);
-    $(window).off('resize', this.handleWindowResize);
-    $(this.table).find('td').off('mouseenter mouseleave');
+    document.removeEventListener('scroll', this.handleScroll);
+    window.removeEventListener('resize', this.handleWindowResize);
+    const tdElems = this.table.getElementsByTagName('td');
+    forEach(tdElems, (td) => {
+      td.removeEventListener('mouseenter', this.handleColumnMouseEnter);
+      td.removeEventListener('mouseleav', this.handleColumnMouseLeave);
+    });
   }
 
   handleColumnMouseEnter() {
@@ -64,13 +79,13 @@ class Table extends React.Component {
   }
 
   handleWindowResize() {
-    this.fixedHeight = $(window).height();
+    this.fixedHeight = document.documentElement.clientHeight;
     this.calculateSizes();
     this.handleScroll();
   }
 
   handleScroll() {
-    if (!_.isNull(this.props.stickAt)) {
+    if (!isNull(this.props.stickAt)) {
       const tableTopOffset = this.table.getBoundingClientRect().top;
       const tableBottomOffset = this.table.getBoundingClientRect().bottom;
       const topAtOrAboveStickyPoint =
@@ -81,17 +96,16 @@ class Table extends React.Component {
       if (topAtOrAboveStickyPoint && !bottomAtOrAboveStickyPoint) {
         isVisible = true;
       }
-      $(this.fixed)
-        .css('height', `${this.props.stickAt + this.state.headerHeight}px`)
-        .css('pointer-events', isVisible ? 'auto' : 'none')
-        .css('opacity', isVisible ? 1 : 0);
+      this.fixed.style.height = `${this.props.stickAt + this.state.headerHeight}px`;
+      this.fixed.style['pointer-event'] = isVisible ? 'auto' : 'none';
+      this.fixed.style.opacity = isVisible ? 1 : 0;
     }
   }
 
   updateState(newState, callback) {
     // only update the state if it changed to save on updates
     // and prevent a render loop
-    if (!_(this.state).pick(_.keys(newState)).isEqual(newState)) {
+    if (!isEqual(pick(this.state, keys(newState)), newState)) {
       this.setState(newState, callback);
     }
   }
@@ -99,15 +113,17 @@ class Table extends React.Component {
   calculateSizes(callback) {
     const headerSizes = {};
     let maxHeaderHeight = 0;
-    _.forEach(this.headerComponents, (value, key) => {
-      const width = $(value).innerWidth();
-      const height = $(value).innerHeight();
+    forEach(this.headerComponents, (value, key) => {
+      // const width = $(value).innerWidth();
+      const headerCompStyle = window.getComputedStyle(value, null);
+      const width = parseInt(headerCompStyle.getPropertyValue('width'), 10);
+      const height = parseInt(headerCompStyle.getPropertyValue('height'), 10);
       headerSizes[key] = { width, height };
       if (height > maxHeaderHeight) {
         maxHeaderHeight = height;
       }
     });
-    const tableWidth = $(this.table).outerWidth();
+    const tableWidth = parseInt(this.table.offsetWidth, 10);
     this.updateState({
       columnSizes: headerSizes,
       headerHeight: maxHeaderHeight,
@@ -120,7 +136,7 @@ class Table extends React.Component {
   }
 
   renderHeader(opts = {}) {
-    const headerComponents = _.map(this.props.headerData, (value) => {
+    const headerComponents = map(this.props.headerData, (value) => {
       let colStyles = { width: value.width };
       const key = value.key;
       if (opts.sticky && this.state.columnSizes[key] && !value.width) {
@@ -215,20 +231,20 @@ class Table extends React.Component {
     }
 
     if (spanMap) {
-      spanKey = _.keys(spanMap)[0];
+      spanKey = keys(spanMap)[0];
       spannedHeaderKeys = spanMap[spanKey];
     }
 
-    const headerKeys = _.map(headerData, 'key');
+    const headerKeys = map(headerData, 'key');
     const rowComponents = [];
 
-    _.forEach(items, (itemValue, itemIndex) => {
-      const spanCount = _.get(itemValue[spanKey], 'length');
+    forEach(items, (itemValue, itemIndex) => {
+      const spanCount = get(itemValue[spanKey], 'length');
       const columnComponents = [];
       const isDisabledRow = itemValue.disabled;
 
-      _.forEach(headerKeys, (headerKey) => {
-        const isInnerKey = _.includes(spannedHeaderKeys, headerKey);
+      forEach(headerKeys, (headerKey) => {
+        const isInnerKey = includes(spannedHeaderKeys, headerKey);
         let cellValue;
         let rowsToSpan;
 
@@ -272,7 +288,7 @@ class Table extends React.Component {
       if (spanCount) {
         for (let i = 1; i < spanCount; i++) {
           const partialRowColumns = [];
-          _.forEach(spannedHeaderKeys, (key) => {
+          forEach(spannedHeaderKeys, (key) => {
             partialRowColumns.push(
               <td
                 key={key}
@@ -308,8 +324,12 @@ class Table extends React.Component {
 
   render() {
     return (
-      <div style={this.props.style} className={style.wrapper}>
-        { !_.isNull(this.props.stickAt) &&
+      <div
+        {...getDataAttrs(this.props.data)}
+        style={this.props.style}
+        className={style.wrapper}
+      >
+        { !isNull(this.props.stickAt) &&
           <div
             ref={(c) => (this.fixed = c)}
             className={cx(style.table, style.sticky)}
@@ -351,6 +371,7 @@ Table.propTypes = {
   spanMap: PropTypes.object,
   stickAt: PropTypes.number,
   style: PropTypes.object,
+  ...getDataProps(),
 };
 
 Table.defaultProps = {
@@ -360,6 +381,6 @@ Table.defaultProps = {
   stickAt: null,
 };
 
-Table.displayName = 'Table';
+Table.displayName = 'Plasma@Table';
 
-export default Base(Table);
+export default Table;

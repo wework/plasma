@@ -12,6 +12,7 @@ module.exports = {
   ],
   output: {
     path: path.resolve(__dirname, 'dist'),
+    publicPath: path.resolve(__dirname, 'dist'),
     filename: 'index.js',
     library: 'Plasma',
     libraryTarget: 'umd',
@@ -26,7 +27,7 @@ module.exports = {
     loaders: [
       {
         test: /.jsx?$/,
-        loaders: ['babel-loader?presets[]=es2015,presets[]=react'],
+        loaders: ['babel-loader'],
         exclude: /node_modules/,
       },
       {
@@ -44,7 +45,7 @@ module.exports = {
   },
   plugins: [
     new ExtractTextPlugin('styles.css'),
-    new webpack.HotModuleReplacementPlugin(),
+    // new webpack.HotModuleReplacementPlugin(),
   ],
   devtool: 'source-map',
   devServer: {

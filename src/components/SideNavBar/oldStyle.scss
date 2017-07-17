@@ -1,0 +1,58 @@
+@import '../../styles/base';
+
+.wrapper, .itemWrapper {
+  width: 100px;
+}
+
+.wrapper {
+  display: flex;
+  flex: 1;
+  background: $cPurple100;
+  @extend %type--tiny;
+  color: rgba(255,255,255,0.8);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  padding-top: 8px;
+  height: 100%;
+  box-sizing: border-box;
+}
+
+.itemWrapper {
+  align-self: flex-start;
+  box-sizing: border-box;
+  display: flex;
+  padding: $space10;
+  cursor: pointer;
+  align-items: center;
+  flex-direction: column;
+  justify-content: center;
+  text-align: center;
+  font-size: 13px;
+  position: relative;
+  border-bottom: 1px solid rgba(0,0,0,0.3);
+  transition: all 0.3s;
+  border-left: 5px solid $cPurple100;
+  border-right: 5px solid $cPurple100;
+
+  &:hover, &:active, &:focus {
+    background: $cPurple200;
+    border-left-color: $cPurple200;
+    border-right-color: $cPurple200;
+  }
+
+  .icon {
+    margin-bottom: 5px;
+  }
+}
+
+.darkBg {
+  background: fade-out(#000, 0.9);
+}
+
+.selected {
+  background: fade-out($cPurple200, 0.9);
+  border-left-color: $cPurple200;
+  border-right-color: #303a4c;
+}

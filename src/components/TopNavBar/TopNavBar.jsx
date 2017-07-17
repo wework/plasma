@@ -1,12 +1,18 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import Base from '../Base.jsx';
 import style from './style.scss';
+import {
+  getDataAttrs,
+  getDataProps,
+} from '../../dataUtils';
 
 class TopNavBar extends React.Component {
   render() {
     return (
-      <div className={style.wrapper}>
+      <div
+        {...getDataAttrs(this.props.data)}
+        className={style.wrapper}
+      >
         {this.props.children}
       </div>
     );
@@ -19,8 +25,9 @@ TopNavBar.defaultProps = {
 
 TopNavBar.propTypes = {
   children: PropTypes.node.isRequired,
+  ...getDataProps(),
 };
 
-TopNavBar.displayName = 'TopNavBar';
+TopNavBar.displayName = 'Plasma@TopNavBar';
 
-export default Base(TopNavBar);
+export default TopNavBar;

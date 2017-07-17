@@ -1,14 +1,28 @@
-import _ from 'lodash';
-import $ from 'jquery';
+import { isNull, clamp } from 'lodash';
 import React from 'react';
 import PropTypes from 'prop-types';
-import Base from '../../Base.jsx';
 import style from './style.scss';
+import {
+  getDataAttrs,
+  getDataProps,
+} from '../../../dataUtils';
 
 /**
   * The fixed left page is great.
  */
 
+/* eslint-disable */
+const getOffsetTop = (elem) => {
+  let offsetTop = 0;
+  do {
+    if (!isNaN(elem.offsetTop)) {
+      offsetTop += elem.offsetTop;
+    }
+  } while (elem = elem.offsetParent);
+  return offsetTop;
+};
+
+/* eslint-enable */
 class FixedLeft extends React.Component {
 
   constructor() {
@@ -22,38 +36,40 @@ class FixedLeft extends React.Component {
   }
 
   componentDidMount() {
-    if (!_.isNull(this.props.stickAt)) {
-      $(document).on('scroll', this.handleScroll);
+    if (!isNull(this.props.stickAt)) {
+      document.addEventListener('scroll', this.handleScroll);
     }
     this.setState({ fixedWidth: this.fixed.offsetWidth });
   }
 
   componentWillUnmount() {
-    $(document).off('scroll', this.handleScroll);
+    document.removeEventListener('scroll', this.handleScroll);
   }
 
   handleScroll() {
-    if (!_.isNull(this.props.stickAt)) {
-      const offsetViewport = $(this.fixed).position().top;
-      const offsetDoc = $(this.fixed).offset().top;
-      const ty = _.clamp(
+    if (!isNull(this.props.stickAt)) {
+      const offsetViewport = this.fixed.offsetTop;
+      const offsetDoc = getOffsetTop(this.fixed);
+      const ty = clamp(
         offsetDoc - offsetViewport, 0, this.fixedViewportOffsetOrigin - this.props.stickAt
       );
-      $(this.fixed).css(
-        'transform', `translateY(${-ty}px)`);
+      this.fixed.style.transform = `translateY(${-ty})`;
     }
   }
 
   render() {
     return (
-      <div className={style.wrapper}>
+      <div
+        {...getDataAttrs(this.props.data)}
+        className={style.wrapper}
+      >
         <div
           className={style.fixedWrapper}
           style={{ ...this.props.fixedStyle }}
           ref={(c) => {
             if (c) {
               if (!this.fixedViewportOffsetOrigin) {
-                this.fixedViewportOffsetOrigin = $(c).position().top;
+                this.fixedViewportOffsetOrigin = c.offsetTop;
               }
               this.fixed = c;
             }
@@ -85,8 +101,9 @@ FixedLeft.propTypes = {
   stickAt: PropTypes.number,
   contentStyle: PropTypes.object,
   fixedStyle: PropTypes.object,
+  ...getDataProps(),
 };
 
-FixedLeft.displayName = '!FixedLeft';
+FixedLeft.displayName = '!Plasma@FixedLeft';
 
-export default Base(FixedLeft);
+export default FixedLeft;

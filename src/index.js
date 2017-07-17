@@ -3,6 +3,7 @@ import Card from './components/Card/Card';
 import Checkbox from './components/Checkbox/Checkbox';
 import OverflowMenu from './components/OverflowMenu/OverflowMenu';
 import Header from './components/Header/Header';
+import Icon from './components/Icon/Icon';
 import Image from './components/Image/Image';
 import Label from './components/Label/Label';
 import Loader from './components/Loader/Loader';
@@ -17,9 +18,10 @@ import Text from './components/Text/Text';
 import TextInput from './components/TextInput/TextInput';
 import Tooltip from './components/Tooltip/Tooltip';
 import TopNavBar from './components/TopNavBar/TopNavBar';
-import SideNavBar from './components/SideNavBar/SideNavBar';
-import SideNavBarItem from './components/SideNavBar/SideNavBarItem';
-import DatePicker from './components/DatePicker/DatePicker';
+import SideNavBar from './components/SideNavBar/OldSideNavBar';
+import SideNavBarItem from './components/SideNavBar/OldSideNavBarItem';
+import SideNavBarV2 from './components/SideNavBar/SideNavBar';
+// import DatePicker from './components/DatePicker/DatePicker';
 import Search from './components/Search/Search';
 import Tabs from './components/Tabs/Tabs';
 import Toggle from './components/Toggle/Toggle';
@@ -27,6 +29,7 @@ import TextArea from './components/TextArea/TextArea';
 import Tag from './components/Tag/Tag';
 
 // Page imports
+import Page from './components/layout/Page/Page';
 import Group from './components/layout/Group/Group';
 import HorizontalScroll from './components/layout/HorizontalScroll/HorizontalScroll';
 import FormField from './components/layout/FormField/FormField';
@@ -43,6 +46,7 @@ const Plasma = {};
 Plasma.Header = Header;
 Plasma.Label = Label;
 Plasma.Image = Image;
+Plasma.Icon = Icon;
 Plasma.Text = Text;
 Plasma.Card = Card;
 Plasma.Checkbox = Checkbox;
@@ -54,33 +58,32 @@ Plasma.RadioButton = RadioButton;
 Plasma.Rule = Rule;
 Plasma.Loader = Loader;
 Plasma.OverflowMenu = OverflowMenu;
-Plasma.DatePicker = DatePicker;
+// Plasma.DatePicker = DatePicker;
 Plasma.Search = Search;
-
 Plasma.FormField = FormField;
 Plasma.Tooltip = Tooltip;
 Plasma.Tabs = Tabs;
-
 Plasma.SideNavBar = SideNavBar;
 Plasma.SideNavBarItem = SideNavBarItem;
+Plasma.SideNavBarV2 = SideNavBarV2;
 Plasma.Table = Table;
 Plasma.TopNavBar = TopNavBar;
-
 Plasma.Masthead = Masthead;
 Plasma.Modal = Modal;
-
 Plasma.Group = Group;
 Plasma.HorizontalScroll = HorizontalScroll;
 Plasma.FixedLeft = FixedLeft;
 Plasma.FixedRight = FixedRight;
 Plasma.FixedTop = FixedTop;
 Plasma.Toggle = Toggle;
+Plasma.Page = Page;
 
 Plasma._style = style;
 
 export default Plasma;
 
 export {
+  Icon,
   Header,
   Label,
   Image,
@@ -98,6 +101,7 @@ export {
   Tabs,
   SideNavBar,
   SideNavBarItem,
+  SideNavBarV2,
   Table,
   TopNavBar,
   Masthead,
@@ -109,9 +113,10 @@ export {
   NumberInput,
   Loader,
   OverflowMenu,
-  DatePicker,
+  // DatePicker,
   Search,
   Toggle,
+  Page,
   TextArea,
   Tag,
 };

@@ -1,4 +1,8 @@
 import React, { Component, PropTypes } from 'react';
+import {
+  getDataAttrs,
+  getDataProps,
+} from '../../dataUtils';
 import style from './style.scss';
 
 class Search extends Component {
@@ -48,7 +52,10 @@ class Search extends Component {
     } = this.props;
 
     return (
-      <div className={style.container}>
+      <div
+        {...getDataAttrs(this.props.data)}
+        className={style.container}
+      >
         <div className={style.inputWrapper}>
           <span className={style.searchIconContainer}>
             <img src={iconUrl} role="presentation" />
@@ -92,6 +99,9 @@ Search.propTypes = {
   onClear: PropTypes.func,
   placeholder: PropTypes.string.isRequired,
   value: PropTypes.string,
+  ...getDataProps(),
 };
+
+Search.displayName = 'Plasma@Search';
 
 export default Search;

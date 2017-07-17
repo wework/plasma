@@ -1,14 +1,18 @@
-import _ from 'lodash';
-import $ from 'jquery';
+import { isNull, clamp } from 'lodash';
 import React from 'react';
 import PropTypes from 'prop-types';
-import Base from '../../Base.jsx';
+import { getOffsetTop } from '../util';
+import {
+  getDataAttrs,
+  getDataProps,
+} from '../../../dataUtils';
 import style from './style.scss';
 
 /**
   * The fixed right page is great.
  */
 
+/* eslint-enable */
 class FixedRight extends React.Component {
 
   constructor() {
@@ -22,33 +26,33 @@ class FixedRight extends React.Component {
   }
 
   componentDidMount() {
-    if (!_.isNull(this.props.stickAt)) {
-      $(document).on('scroll', this.handleScroll);
+    if (!isNull(this.props.stickAt)) {
+      document.addEventListener('scroll', this.handleScroll);
     }
     this.setState({ fixedWidth: this.fixed.offsetWidth });
   }
 
   componentWillUnmount() {
-    $(document).off('scroll', this.handleScroll);
+    document.removeEventListener('scroll', this.handleScroll);
   }
 
   handleScroll() {
-    if (!_.isNull(this.props.stickAt)) {
-      const offsetViewport = $(this.fixed).position().top;
-      const offsetDoc = $(this.fixed).offset().top;
-      const ty = _.clamp(
+    if (!isNull(this.props.stickAt)) {
+      const offsetViewport = this.fixed.offsetTop;
+      const offsetDoc = getOffsetTop(this.fixed);
+      const ty = clamp(
         offsetDoc - offsetViewport, 0, this.fixedViewportOffsetOrigin - this.props.stickAt
       );
-      console.log(ty);
-      $(this.fixed).css(
-        'transform', `translateY(${-ty}px)`);
+      this.fixed.style.transform = `translateY(${-ty})`;
     }
   }
 
   render() {
-    console.log(this.props.fixedContainerStyle);
     return (
-      <div className={style.wrapper}>
+      <div
+        {...getDataAttrs(this.props.data)}
+        className={style.wrapper}
+      >
         <div className={style.contentWrapper}>
           <div className={style.content}>
             { this.props.children[0] }
@@ -64,7 +68,7 @@ class FixedRight extends React.Component {
           ref={(c) => {
             if (c) {
               if (!this.fixedViewportOffsetOrigin) {
-                this.fixedViewportOffsetOrigin = $(c).position().top;
+                this.fixedViewportOffsetOrigin = c.offsetTop;
               }
               this.fixed = c;
             }
@@ -86,8 +90,9 @@ FixedRight.propTypes = {
   children: PropTypes.array.isRequired,
   stickAt: PropTypes.number,
   fixedContainerStyle: PropTypes.object,
+  ...getDataProps(),
 };
 
-FixedRight.displayName = '!FixedRight';
+FixedRight.displayName = '!Plasma@FixedRight';
 
-export default Base(FixedRight);
+export default FixedRight;

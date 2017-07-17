@@ -1,58 +1,125 @@
 @import '../../styles/base';
 
-.wrapper, .itemWrapper {
-  width: 100px;
+.wrapper, .groupWrapper {
+  width: 180px;
 }
 
 .wrapper {
-  display: flex;
-  flex: 1;
-  background: $cPurple100;
-  @extend %type--tiny;
-  color: rgba(255,255,255,0.8);
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: flex-start;
-  padding-top: 8px;
+  font-family: $fontStack;
+  background: $cGray600;
   height: 100%;
   box-sizing: border-box;
 }
 
-.itemWrapper {
-  align-self: flex-start;
+.top {
+  font-size: 14px;
   box-sizing: border-box;
+  background-color: $cPurple50;
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 0;
+  height: 50px;
+  width: 100%;
   display: flex;
-  padding: $space10;
-  cursor: pointer;
+  justify-content: flex-start;
   align-items: center;
-  flex-direction: column;
-  justify-content: center;
-  text-align: center;
+  color: $cGray20;
+  cursor: pointer;
+  &:hover, &:focus {
+    color: $cGray40;
+  }
+  &:active {
+    color: $cGray20;
+  }
+}
+
+.sidebarContent {
+  height: 100%;
+  box-sizing: border-box;
+  border-right: 1px solid $cBorder;
+  padding: 70px 0 50px 0;
+}
+
+.groupWrapper {
+  box-sizing: border-box;
+  padding: 0 10px 0 0px;
+  margin-bottom: 12px;
+  font-size: 14px;
+  position: relative;
+  transition: all 0.1s;
+  box-sizing: border-box;
+  color: $cBlack30;
+  cursor: pointer;
+}
+
+.groupSubItems {
+  margin-top: 2px;
+}
+
+a {
+  color: $cBlack20;
+  text-decoration: none;
+}
+
+.itemWrapper {
+  box-sizing: border-box;
+  padding: 6px 0px 6px 40px;
   font-size: 13px;
   position: relative;
-  border-bottom: 1px solid rgba(0,0,0,0.3);
-  transition: all 0.3s;
-  border-left: 5px solid $cPurple100;
-  border-right: 5px solid $cPurple100;
-
-  &:hover, &:active, &:focus {
-    background: $cPurple200;
-    border-left-color: $cPurple200;
-    border-right-color: $cPurple200;
+  transition: all 0.1s;
+  color: $cBlack20;
+  box-sizing: border-box;
+  display: block;
+  &.selected, &.selected a {
+    color: $cPurple30;
+    &:hover {
+      color: $cPurple30;
+    }
   }
-
-  .icon {
-    margin-bottom: 5px;
+  &:hover, &:focus, a:hover {
+    color: $cBlack40;
   }
+  &:active, a:active {
+    color: $cBlack50;
+  }
+}
+
+.iconAndLabelContainer {
+  position: relative;
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: center;
+  overflow: hidden;
+  .iconWrapper {
+    width: 40px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    top: 1px;
+  }
+  .groupLabelWrapper {
+    color: $cPurple50;
+    font-weight: bold;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    overflow: hidden;
+    padding-right: 20px;
+    &.topText {
+      color: $cGray20;
+    }
+  }
+}
+
+.iconAndLabelContainer {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: center;
 }
 
 .darkBg {
   background: fade-out(#000, 0.9);
-}
-
-.selected {
-  background: fade-out($cPurple200, 0.9);
-  border-left-color: $cPurple200;
-  border-right-color: #303a4c;
 }

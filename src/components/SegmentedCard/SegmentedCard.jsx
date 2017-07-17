@@ -1,8 +1,11 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import cx from 'classnames';
-import Base from '../Base.jsx';
 import style from './style.scss';
+import {
+  getDataAttrs,
+  getDataProps,
+} from '../../dataUtils';
 
 class SegmentedCard extends React.Component {
   render() {
@@ -11,7 +14,11 @@ class SegmentedCard extends React.Component {
     });
 
     return (
-      <div className={className} style={this.props.style}>
+      <div
+        {...getDataAttrs(this.props.data)}
+        className={className}
+        style={this.props.style}
+      >
         <div className={style.first}>
           { this.props.children[0] }
         </div>
@@ -32,8 +39,9 @@ SegmentedCard.propTypes = {
   children: PropTypes.node.isRequired,
   style: PropTypes.object,
   vertical: PropTypes.bool,
+  ...getDataProps(),
 };
 
-SegmentedCard.displayName = 'SegmentedCard';
+SegmentedCard.displayName = 'Plasma@SegmentedCard';
 
-export default Base(SegmentedCard);
+export default SegmentedCard;

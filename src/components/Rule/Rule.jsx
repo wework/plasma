@@ -1,8 +1,11 @@
 import cx from 'classnames';
 import React from 'react';
 import PropTypes from 'prop-types';
-import Base from '../Base.jsx';
 import style from './style.scss';
+import {
+  getDataAttrs,
+  getDataProps,
+} from '../../dataUtils';
 
 const type = { SOLID: 'solid', DOTTED: 'dotted', DASHED: 'dashed' };
 
@@ -14,7 +17,10 @@ class Rule extends React.Component {
     });
 
     return (
-      <hr className={ruleStyle} />
+      <hr
+        {...getDataAttrs(this.props)}
+        className={ruleStyle}
+      />
     );
   }
 }
@@ -25,8 +31,9 @@ Rule.defaultProps = {
 
 Rule.propTypes = {
   type: PropTypes.string,
+  ...getDataProps(),
 };
 
-Rule.displayName = 'Rule';
+Rule.displayName = 'Plasma@Rule';
 
-export default Base(Rule);
+export default Rule;

@@ -1,12 +1,13 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import cx from 'classnames';
-
-import Base from '../../Base.jsx';
+import {
+  getDataAttrs,
+  getDataProps,
+} from '../../../dataUtils';
 import style from './style.scss';
 import Label from '../../Label/Label.jsx';
 
-const labelType = {
+const type = {
   PRIMARY: 'primary',
   SECONDARY: 'secondary',
 };
@@ -18,6 +19,7 @@ const FormField = (
     isRequired,
     labelType,
     label,
+    data,
     displayError,
     errorMessage,
   }
@@ -29,7 +31,10 @@ const FormField = (
   }
 
   return (
-    <div className={style.wrapper}>
+    <div
+      {...getDataAttrs(data)}
+      className={style.wrapper}
+    >
       <Label
         text={labelText}
         type={labelType}
@@ -48,19 +53,20 @@ FormField.defaultProps = {
   children: '',
   disabled: false,
   label: '',
-  labelType: labelType.PRIMARY,
+  labelType: type.PRIMARY,
 };
 
 FormField.propTypes = {
   children: PropTypes.node.isRequired,
-  disabled: PropTypes.bool,
+  isDisabled: PropTypes.bool,
   isRequired: PropTypes.bool,
   label: PropTypes.string,
   labelType: PropTypes.string,
   displayError: PropTypes.bool,
   errorMessage: PropTypes.string,
+  ...getDataProps(),
 };
 
-FormField.displayName = 'FormField';
+FormField.displayName = 'Plasma@FormField';
 
-export default Base(FormField);
+export default FormField;

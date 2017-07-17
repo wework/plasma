@@ -1,9 +1,11 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import cn from 'classnames';
-import _ from 'lodash';
-
-import Base from '../Base.jsx';
+import { map } from 'lodash';
+import {
+  getDataAttrs,
+  getDataProps,
+} from '../../dataUtils';
 import style from './style.scss';
 
 class Tabs extends React.Component {
@@ -17,8 +19,12 @@ class Tabs extends React.Component {
   }
   render() {
     return (
-      <ul className={style.tabs} role="tablist">
-        { _.map(this.props.items, (tab, index) => {
+      <ul
+        {...getDataAttrs(this.props.data)}
+        className={style.tabs}
+        role="tablist"
+      >
+        { map(this.props.items, (tab, index) => {
           const tabClasses = cn(style.tab, {
             [style.active]: (
               this.props.selectedIndex === index || this.props.selectedLabel === tab.label
@@ -58,8 +64,9 @@ Tabs.propTypes = {
   onChange: PropTypes.func.isRequired,
   selectedIndex: PropTypes.number,
   selectedLabel: PropTypes.string,
+  ...getDataProps(),
 };
 
-Tabs.displayName = 'Tabs';
+Tabs.displayName = 'Plasma@Tabs';
 
-export default Base(Tabs);
+export default Tabs;

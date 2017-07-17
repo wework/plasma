@@ -1,12 +1,18 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import Base from '../Base.jsx';
 import style from './style.scss';
+import {
+  getDataAttrs,
+  getDataProps,
+} from '../../dataUtils';
 
 class Tooltip extends React.Component {
   render() {
     return (
-      <div className={style.wrapper}>
+      <div
+        {...getDataAttrs(this.props.data)}
+        className={style.wrapper}
+      >
         { this.props.children }
         <div className={style.content}>
           {this.props.content}
@@ -24,8 +30,10 @@ Tooltip.defaultProps = {
 Tooltip.propTypes = {
   children: PropTypes.node.isRequired,
   content: PropTypes.node,
+  data: PropTypes.object,
+  ...getDataProps(),
 };
 
-Tooltip.displayName = 'Tooltip';
+Tooltip.displayName = 'Plasma@Tooltip';
 
-export default Base(Tooltip);
+export default Tooltip;

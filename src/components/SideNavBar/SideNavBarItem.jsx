@@ -1,59 +1,64 @@
 import React, { Component, PropTypes } from 'react';
 import cn from 'classnames';
-import Base from '../Base.jsx';
 import style from './style.scss';
 
 class SideNavBarItem extends Component {
-  renderIconAndLabel() {
-    const { icon, iconSize, iconStyle, label } = this.props;
 
-    const renderIcon = icon && iconSize && (
-      <img
-        className={style.icon}
-        style={{
-          width: iconSize,
-          height: iconSize,
-          ...iconStyle,
-        }}
-        src={icon}
-        alt={label}
-      />
-    );
+  _onClick = () => {
+    this.props.onClick(this.props.id);
+  }
+
+  renderIconAndLabel() {
+    const { label } = this.props;
 
     return (
-      <div>
-        {renderIcon}
+      <div className={style.iconAndLabelContainer}>
         <div className={style.label}>{label}</div>
       </div>
     );
   }
 
   render() {
-    const { children, darkBg, onClick, selected } = this.props;
+    const { darkBg, selected, linkComponent } = this.props;
 
     const wrapperClasses = cn(style.itemWrapper, {
       [style.darkBg]: darkBg,
       [style.selected]: selected,
     });
 
-    return (
-      <div
-        className={wrapperClasses}
-        onClick={onClick}
-      >
-        { children || this.renderIconAndLabel() }
-      </div>
-    );
+    let comp;
+
+    if (linkComponent) {
+      comp = (
+        <div
+          className={wrapperClasses}
+        >
+          { linkComponent }
+        </div>
+      );
+    } else {
+      comp = (
+        <div
+          className={wrapperClasses}
+          onClick={this._onClick}
+        >
+          { this.renderIconAndLabel() }
+        </div>
+      );
+    }
+
+    return comp;
   }
 }
 
 SideNavBarItem.defaultProps = {
   label: 'Label',
-  iconSize: 24,
+  iconSize: 16,
   selected: false,
 };
 
 SideNavBarItem.propTypes = {
+  id: PropTypes.string,
   /**
   * URL to an image
   */
@@ -69,8 +74,9 @@ SideNavBarItem.propTypes = {
   selected: PropTypes.bool,
   children: PropTypes.node,
   darkBg: PropTypes.bool,
+  linkComponent: PropTypes.node,
 };
 
-SideNavBarItem.displayName = 'SideNavBarItem';
+SideNavBarItem.displayName = 'Plasma@SideNavBarItem';
 
-export default Base(SideNavBarItem);
+export default SideNavBarItem;

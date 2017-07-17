@@ -2,6 +2,7 @@
 
 const path = require('path');
 const ExtractTextPlugin = require('extract-text-webpack-plugin');
+const BundleAnalyzerPlugin = require('webpack-bundle-analyzer').BundleAnalyzerPlugin;
 const webpack = require('webpack');
 
 module.exports = {
@@ -24,7 +25,7 @@ module.exports = {
     loaders: [
       {
         test: /.jsx?$/,
-        loaders: ['babel-loader?presets[]=es2015,presets[]=react'],
+        loaders: ['babel-loader?presets[]=es2015,presets[]=react,plugins[]=lodash'],
         exclude: /node_modules/,
       },
       {
@@ -37,10 +38,21 @@ module.exports = {
     ],
   },
   plugins: [
+    // new BundleAnalyzerPlugin(),
     new webpack.DefinePlugin({
-      'process.env.NODE_ENV': JSON.stringify("production"),
+      'process.env.NODE_ENV': JSON.stringify('production'),
     }),
     new ExtractTextPlugin('styles.css'),
     new webpack.NoErrorsPlugin(),
+    new webpack.optimize.OccurenceOrderPlugin(),
+    new webpack.optimize.DedupePlugin(),
+    new webpack.optimize.UglifyJsPlugin({
+      compress: {
+        warnings: false,
+      },
+      output: {
+        comments: false,
+      },
+    }),
   ],
 };

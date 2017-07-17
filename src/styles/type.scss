@@ -1,7 +1,40 @@
 $typeBase: 13px;
 
+$fontStack: 'Helvetica Neue', helvetica, arial, 'sans-serif';
+
+%display--extraLarge {
+  font-family: $fontStack;
+  font-size: 80px;
+  font-weight: bold;
+  letter-spacing: -3px;
+  line-height: 80px;
+}
+
+%display--large {
+  font-family: $fontStack;
+  font-size: 40px;
+  font-weight: bold;
+  letter-spacing: -1px;
+  line-height: 44px;
+}
+
+%display--medium {
+  font-family: $fontStack;
+  font-size: 30px;
+  font-weight: bold;
+  letter-spacing: -0.3px;
+  line-height: 30px;
+}
+
+%display--small {
+  font-family: $fontStack;
+  font-size: 16px;
+  font-weight: bold;
+  line-height: 20px;
+}
+
 %fontFamily--body {
-  font-family: 'Helvetica Neue', helvetica, arial, 'sans-serif';
+  font-family: $fontStack;
   text-rendering: geometricPrecision;
 }
 
@@ -35,6 +68,14 @@ $typeBase: 13px;
   font-size: $typeBase;
   color: $cWeWorkBlack;
   line-height: 20px;
+}
+
+%type--headline0 {
+  @extend %fontFamily--headline;
+  color: $cWeWorkBlack;
+  font-weight: bold;
+  font-size: 80px;
+  letter-spacing: -3px;
 }
 
 %type--headline1 {

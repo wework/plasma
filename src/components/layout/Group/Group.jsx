@@ -1,9 +1,11 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import cx from 'classnames';
-import _ from 'lodash';
-
-import Base from '../../Base.jsx';
+import { map, isArray, toArray } from 'lodash';
+import {
+  getDataAttrs,
+  getDataProps,
+} from '../../../dataUtils';
 import style from './style.scss';
 
 class Group extends React.Component {
@@ -13,13 +15,17 @@ class Group extends React.Component {
     });
 
     let children = this.props.children;
-    if (!_.isArray(this.props.children)) {
-      children = _.toArray(this.props.children);
+    if (!isArray(this.props.children)) {
+      children = toArray(this.props.children);
     }
 
     return (
-      <div className={groupStyle} style={this.props.style}>
-        {_.map(children, (child, index) => {
+      <div
+        {...getDataAttrs(this.props.data)}
+        className={groupStyle}
+        style={this.props.style}
+      >
+        {map(children, (child, index) => {
           const styleObj = {};
           if (this.props.layout[index] === 'shrink') {
             styleObj.flexShrink = '1';
@@ -53,8 +59,9 @@ Group.propTypes = {
   vertical: PropTypes.bool,
   layout: PropTypes.array,
   style: PropTypes.object,
+  ...getDataProps(),
 };
 
-Group.displayName = 'Group';
+Group.displayName = 'Plasma@Group';
 
-export default Base(Group);
+export default Group;
