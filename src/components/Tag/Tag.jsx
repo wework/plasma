@@ -7,8 +7,8 @@ import {
 from '../../dataUtils';
 import style from './style.scss';
 
-const Tag = ({ text, data }) => {
-  const tagClasses = cn(style.tag, style.small);
+const Tag = ({ text, data, className = '' }) => {
+  const tagClasses = cn(style.tag, style.small, className);
   return (
     <div
       className={tagClasses}
