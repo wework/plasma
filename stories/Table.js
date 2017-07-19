@@ -197,3 +197,38 @@ storiesOf('Table', module).add('with 2 spanned middle columns', () => {
     />
   );
 });
+
+storiesOf('Table', module).add('with condensed column', () => {
+  const hd = cloneDeep(headerData);
+  hd[2].condensed = true;
+
+  console.log(hd);
+
+  const items = [
+    {
+      firstname: 'Brad',
+      lastname: 'Pitt',
+      age: '45',
+      sex: 'Male',
+      location: 'Beverly Hills',
+    },
+    {
+      firstname: 'Jennifer',
+      lastname: 'Lawrence',
+      age: '26',
+      sex: 'Female',
+      location: 'NYC',
+    },
+  ];
+
+  return (
+    <Table
+      empty={false}
+      emptyText="The table is empty."
+      headerData={hd}
+      items={items}
+      loading={false}
+    />
+  );
+});
+

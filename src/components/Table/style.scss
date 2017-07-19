@@ -49,6 +49,9 @@
       position: relative;
       vertical-align: middle;
       box-sizing: border-box;
+      &.condensed {
+
+      }
       &.sortableColumn {
         cursor: pointer;
       }
@@ -99,6 +102,9 @@
   display: table-cell;
   text-align: left;
   line-height: 1.2em;
+  &.condensedCell {
+    padding: 10px 10px;
+  }
 }
 
 .headerCell {

@@ -8,6 +8,7 @@ import {
   map,
   includes,
   isEqual,
+  find,
 } from 'lodash';
 import React from 'react';
 import PropTypes from 'prop-types';
@@ -142,10 +143,14 @@ class Table extends React.Component {
       if (opts.sticky && this.state.columnSizes[key] && !value.width) {
         colStyles = { width: this.state.columnSizes[key].width };
       }
-      const cellStyle = cx(style.cell, { [style.sortableColumn]: value.sortable });
+      const cellStyle = cx(style.cell,
+        {
+          [style.sortableColumn]: value.sortable,
+        },
+      );
       return (
         <th
-          className={cellStyle}
+          className={cx({ [cellStyle]: true, [style.condensedCell]: value.condensed })}
           style={colStyles}
           key={key}
           ref={(c) => {
@@ -160,7 +165,9 @@ class Table extends React.Component {
             <div
               className={
                 cx(style.sortableColumnHighlight,
-                  { [style.sortableColumnHighlightSelected]: this.props.selectedColumnKey === key }
+                  {
+                    [style.sortableColumnHighlightSelected]: this.props.selectedColumnKey === key,
+                  }
                 )
               }
             />
@@ -245,6 +252,8 @@ class Table extends React.Component {
 
       forEach(headerKeys, (headerKey) => {
         const isInnerKey = includes(spannedHeaderKeys, headerKey);
+        const headerDataVal = find(headerData, { key: headerKey });
+        const isCondensed = headerDataVal && headerDataVal.condensed;
         let cellValue;
         let rowsToSpan;
 
@@ -261,7 +270,10 @@ class Table extends React.Component {
 
         columnComponents.push(
           <td
-            className={style.cell}
+            className={cx({
+              [style.cell]: true,
+              [style.condensedCell]: isCondensed,
+            })}
             key={headerKey}
             rowSpan={rowsToSpan}
           >
