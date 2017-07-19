@@ -4,28 +4,28 @@ import { storiesOf } from '@kadira/storybook';
 import Table from '../src/components/Table/Table';
 
 const headerData = [
-  { label: 'Header 1', key: 'header1' },
-  { label: 'Header 2', key: 'header2' },
-  { label: 'Header 3', key: 'header3' },
-  { label: 'Header 4', key: 'header4' },
-  { label: 'Header 5', key: 'header5' },
+  { label: 'First name', key: 'firstname' },
+  { label: 'Last name', key: 'lastname' },
+  { label: 'Age', key: 'age' },
+  { label: 'Sex', key: 'sex' },
+  { label: 'Location', key: 'location' },
 ];
 
 storiesOf('Table', module).add('default', () => {
   const items = [
     {
-      header1: 'Text text text',
-      header2: 'Text text text',
-      header3: 'Text text text',
-      header4: 'Text text text',
-      header5: 'Text text text',
+      firstname: 'Brad',
+      lastname: 'Pitt',
+      age: '45',
+      sex: 'Male',
+      location: 'Beverly Hills',
     },
     {
-      header1: 'Text text text',
-      header2: 'Text text text',
-      header3: 'Text text text',
-      header4: 'Text text text',
-      header5: 'Text text text',
+      firstname: 'Jennifer',
+      lastname: 'Lawrence',
+      age: '26',
+      sex: 'Female',
+      location: 'NYC',
     },
   ];
 
@@ -43,19 +43,19 @@ storiesOf('Table', module).add('default', () => {
 storiesOf('Table', module).add('with a disabled row', () => {
   const items = [
     {
-      header1: 'Text text text',
-      header2: 'Text text text',
-      header3: 'Text text text',
-      header4: 'Text text text',
-      header5: 'Text text text',
+      firstname: 'Brad',
+      lastname: 'Pitt',
+      age: '45',
+      sex: 'Male',
+      location: 'Beverly Hills',
       disabled: true,
     },
     {
-      header1: 'Text text text',
-      header2: 'Text text text',
-      header3: 'Text text text',
-      header4: 'Text text text',
-      header5: 'Text text text',
+      firstname: 'Jennifer',
+      lastname: 'Lawrence',
+      age: '26',
+      sex: 'Female',
+      location: 'NYC',
     },
   ];
 
@@ -75,12 +75,12 @@ storiesOf('Table', module).add('with explicit column width', () => {
   times(100, () => {
     items.push(
       {
-        header1: 'Text text text',
-        header2: 'Text text text',
-        header3: 'Text text text',
-        header4: 'Text text text',
-        header5: 'sooooo much text omg omg omg',
-      }
+        firstname: 'Brad',
+        lastname: 'Pitt',
+        age: '45',
+        sex: 'Male',
+        location: '149 Bobcat Lane, Beverly Hills, 90210',
+      },
     );
   });
 
@@ -95,6 +95,105 @@ storiesOf('Table', module).add('with explicit column width', () => {
       items={items}
       loading={false}
       stickAt={0}
+    />
+  );
+});
+
+storiesOf('Table', module).add('with 1 spanned column', () => {
+  const items = [
+    {
+      firstname: 'Brad',
+      lastname: 'Pitt',
+      age: '45',
+      sex: 'Male',
+      location: [{ location: 'Beverly Hills' }, { location: 'Tokyo' }],
+    },
+    {
+      firstname: 'Jennifer',
+      lastname: 'Lawrence',
+      age: '26',
+      sex: 'Female',
+      location: [{ location: 'NYC' }],
+    },
+  ];
+
+  return (
+    <Table
+      empty={false}
+      emptyText="The table is empty."
+      headerData={headerData}
+      spanMap={{ location: ['location'] }}
+      items={items}
+      loading={false}
+    />
+  );
+});
+
+storiesOf('Table', module).add('with 2 spanned columns', () => {
+  const items = [
+    {
+      firstname: 'Brad',
+      lastname: 'Pitt',
+      age: '45',
+      sex: [
+        { sex: 'Male', location: 'Beverly Hills' },
+        { sex: 'Female', location: 'Tokyo' }],
+    },
+    {
+      firstname: 'Jennifer',
+      lastname: 'Lawrence',
+      age: '26',
+      sex: [
+        { sex: 'Male', location: 'Beverly Hills' },
+        { sex: 'Female', location: 'Tokyo' }],
+    },
+  ];
+
+  return (
+    <Table
+      empty={false}
+      emptyText="The table is empty."
+      headerData={headerData}
+      spanMap={{ sex: ['sex', 'location'] }}
+      items={items}
+      loading={false}
+    />
+  );
+});
+
+storiesOf('Table', module).add('with 2 spanned middle columns', () => {
+  const hd = cloneDeep(headerData);
+  hd.push({ label: 'Nickname', key: 'nickname' });
+
+  const items = [
+    {
+      firstname: 'Brad',
+      lastname: 'Pitt',
+      age: '45',
+      sex: [
+        { sex: 'Male', location: 'Beverly Hills' },
+        { sex: 'Female', location: 'Tokyo' }],
+      nickname: 'The Bulldozer',
+    },
+    {
+      firstname: 'Jennifer',
+      lastname: 'Lawrence',
+      age: '26',
+      sex: [
+        { sex: 'Male', location: 'Beverly Hills' },
+        { sex: 'Female', location: 'Tokyo' }],
+      nickname: 'Slow Loris',
+    },
+  ];
+
+  return (
+    <Table
+      empty={false}
+      emptyText="The table is empty."
+      headerData={hd}
+      spanMap={{ sex: ['sex', 'location'] }}
+      items={items}
+      loading={false}
     />
   );
 });

@@ -18,16 +18,19 @@ class OverflowMenu extends React.Component {
     this.state = {
       revealed: false,
     };
-    this.handleMouseEnter = this.handleMouseEnter.bind(this);
-    this.handleMouseLeave = this.handleMouseLeave.bind(this);
   }
 
-  handleMouseEnter() {
+  handleMouseEnter = () => {
     this.setState({ revealed: true });
   }
 
-  handleMouseLeave() {
+  handleMouseLeave = () => {
     this.setState({ revealed: false });
+  }
+
+  handleClick = (event) => {
+    this.setState({ revealed: false });
+    this.props.onClick(event);
   }
 
   render() {
@@ -69,7 +72,7 @@ class OverflowMenu extends React.Component {
                   key={option.key}
                   optionKey={option.key}
                   text={option.text}
-                  onClick={this.props.onClick}
+                  onClick={this.handleClick}
                 />
               );
             })}
