@@ -2,7 +2,7 @@
 
 const path = require('path');
 const ExtractTextPlugin = require('extract-text-webpack-plugin');
-const BundleAnalyzerPlugin = require('webpack-bundle-analyzer').BundleAnalyzerPlugin;
+// const BundleAnalyzerPlugin = require('webpack-bundle-analyzer').BundleAnalyzerPlugin;
 const webpack = require('webpack');
 
 module.exports = {
@@ -16,24 +16,35 @@ module.exports = {
     libraryTarget: 'umd',
   },
   resolve: {
-    root: [
+    modules: [
       path.resolve('./node_modules'),
     ],
-    extensions: ['', '.js', '.jsx'],
+    extensions: ['.js', '.jsx'],
   },
   module: {
-    loaders: [
+    rules: [
       {
         test: /.jsx?$/,
-        loaders: ['babel-loader?plugins[]=lodash'],
+        loader: 'babel-loader',
         exclude: /node_modules/,
+        query: {
+          plugins: ['lodash'],
+        },
       },
       {
         test: /\.scss$/,
-        loader: ExtractTextPlugin.extract(
-          'style-loader',
-          'css-loader?modules&importLoaders=1&localIdentName=[path][local]__[hash:base64:5]!resolve-url!sass'
-        ),
+        loader: ExtractTextPlugin.extract({
+          fallback: 'style-loader',
+          use: [
+            'css-loader?modules&importLoaders=1&localIdentName=[path][local]__[hash:base64:5]',
+            'resolve-url-loader',
+            'sass-loader',
+          ],
+        }),
+      },
+      {
+        test: /\.png$/,
+        loader: 'url-loader?limit=100000&mimetype=image/png',
       },
     ],
   },
@@ -44,7 +55,7 @@ module.exports = {
     }),
     new ExtractTextPlugin('styles.css'),
     new webpack.NoErrorsPlugin(),
-    new webpack.optimize.OccurenceOrderPlugin(),
+    new webpack.optimize.OccurrenceOrderPlugin(),
     new webpack.optimize.DedupePlugin(),
     new webpack.optimize.UglifyJsPlugin({
       compress: {
