@@ -19,6 +19,22 @@ Developing with Storybook
 3. Add / update as necessary
 4. Add stories to the `stories/` directory as you add / update components!
 
+## Using the styleguide
+
+### Running
+
+1. Run `yarn run styleguide`.
+2. Load up http://0.0.0.0:6060
+
+### Building static version
+
+1. Run `yarn run styleguide:build`
+2. Files output to /styleguide
+
+### Documenting components
+
+Info here: https://react-styleguidist.js.org/docs/documenting.html
+
 ## Creating a Pull Request / Publishing
 
 ### Creating a Pull Request

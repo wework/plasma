@@ -18,24 +18,28 @@ module.exports = {
     libraryTarget: 'umd',
   },
   resolve: {
-    root: [
+    modules: [
       path.resolve('./node_modules'),
     ],
-    extensions: ['', '.js', '.jsx'],
+    extensions: ['.js', '.jsx'],
   },
   module: {
-    loaders: [
+    rules: [
       {
         test: /.jsx?$/,
-        loaders: ['babel-loader'],
+        loader: 'babel-loader',
         exclude: /node_modules/,
       },
       {
         test: /\.scss$/,
-        loader: ExtractTextPlugin.extract(
-          'style-loader',
-          'css-loader?modules&importLoaders=1&localIdentName=[path][local]__[hash:base64:5]!resolve-url!sass'
-        ),
+        loader: ExtractTextPlugin.extract({
+          fallback: 'style-loader',
+          use: [
+            'css-loader?modules&importLoaders=1&localIdentName=[path][local]__[hash:base64:5]',
+            'resolve-url-loader',
+            'sass-loader',
+          ],
+        }),
       },
       {
         test: /\.png$/,
