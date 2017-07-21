@@ -1,5 +1,7 @@
 import React from 'react';
-import { storiesOf, action, linkTo } from '@kadira/storybook';
+import { storiesOf } from '@storybook/react';
+import { action } from '@storybook/addon-actions';
+import { linkTo } from '@storybook/addon-links';
 import FormField from '../src/components/layout/FormField/FormField';
 import TextInput from '../src/components/TextInput/TextInput';
 

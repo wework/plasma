@@ -1,5 +1,7 @@
 import React from 'react';
-import { storiesOf } from '@kadira/storybook';
+import { storiesOf } from '@storybook/react';
+import { action } from '@storybook/addon-actions';
+import { linkTo } from '@storybook/addon-links';
 import SideNavBar from '../src/components/SideNavBar/SideNavBar';
 import locationPin from '../src/icons/locationPin';
 

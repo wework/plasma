@@ -1,5 +1,7 @@
 import React from 'react';
-import { storiesOf, action, linkTo } from '@kadira/storybook';
+import { storiesOf } from '@storybook/react';
+import { action } from '@storybook/addon-actions';
+import { linkTo } from '@storybook/addon-links';
 import Label from '../src/components/Label/Label';
 
 storiesOf('Label', module).add('primary', () => <Label text="A label" />);
