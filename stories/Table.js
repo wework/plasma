@@ -1,6 +1,8 @@
 import React from 'react';
 import { times, cloneDeep } from 'lodash';
-import { storiesOf } from '@kadira/storybook';
+import { storiesOf } from '@storybook/react';
+import { action } from '@storybook/addon-actions';
+import { linkTo } from '@storybook/addon-links';
 import Table from '../src/components/Table/Table';
 
 const headerData = [
@@ -201,8 +203,6 @@ storiesOf('Table', module).add('with 2 spanned middle columns', () => {
 storiesOf('Table', module).add('with condensed column', () => {
   const hd = cloneDeep(headerData);
   hd[2].condensed = true;
-
-  console.log(hd);
 
   const items = [
     {
