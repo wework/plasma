@@ -4,6 +4,10 @@ Plasma is a design system for creating sensible, modern interfaces.
 
 ---
 
+### IMPORTANT!
+
+Select and Datepicker components do not work right now. Use `react-select` and datepicker directly in Spacestation.
+
 ## Developing with Storybook
 
 Running Storybook
@@ -49,7 +53,7 @@ Info here: https://react-styleguidist.js.org/docs/documenting.html
 
 1.  Only publish from master and make sure you `git pull origin` the latest from master.
 2.  Run `yarn run pack` to bundle the .js and .css file into `/dist` folder.
-2.  Run `npm version patch`. This will bump the version in package.json and create a new tag and push the tag to Github.
+3.  Run `npm version patch`. This will bump the version in package.json and create a new tag and push the tag to Github.
 4.  Make sure you're logged in to NPM via `npm login`.
 5.  Run `npm publish` from the root directory to publish to NPM registry.
 6.  Check https://www.npmjs.com/~wework-dev to make sure package is updated.
@@ -67,15 +71,15 @@ Info here: https://react-styleguidist.js.org/docs/documenting.html
 ### Developing with Spacestation
 
 1. Create a new Plasma dev branch: `cd /plasma` `git checkout -b mybranch`
-2. Run the Plasma dev server: `yarn start`
+2. Run the Plasma dev server with watch: `yarn watch`
 3. Run Spacestion: `cd /spacestation` `yarn start`
 4. Changes you make in Plasma should automatically be picked up by Spacestation
-6. Follow "Creating a Pull Request / Publishing"
+5. Follow "Creating a Pull Request / Publishing"
 
 ## Using a published Plasma version from NPM 
 
 1.  Run `yarn add @wework-dev/plasma` in your project.
-3.  Include the Plasma object (or individual components) in your Javascript.
+2.  Include the Plasma object (or individual components) in your Javascript.
     Plasma object example:
     ```javascript
     import Plasma from '@wework-dev/plasma';

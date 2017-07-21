@@ -14,7 +14,8 @@
     "version": "node ./scripts/version.js",
     "postversion": "node ./scripts/postversion.js",
     "styleguide": "styleguidist server",
-    "styleguide:build": "styleguidist build"
+    "styleguide:build": "styleguidist build",
+    "watch": "webpack --watch --config webpack.config.dev"
   },
   "author": "WeWork",
   "license": "ISC",
