@@ -2,8 +2,9 @@
 
 Plasma is a design system for creating sensible, modern interfaces.
 
-Component documentation at https://plasma.guide
-Storybook at https://plasma.guide/storybook
+Component docs at http://plasma.guide
+
+Storybook at http://plasma.guide/storybook
 
 ---
 
