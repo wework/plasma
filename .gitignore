@@ -5,3 +5,5 @@ dist
 index.js
 style.css
 npm-debug.log
+storybook-static
+styleguide
