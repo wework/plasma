@@ -6,6 +6,11 @@
   list-style: none;
 }
 
+.verticalTabs {
+  padding-left: 0px;
+  list-style: none;
+}
+
 .tab {
   display: inline-block;
   @extend %fontFamily--body;
@@ -41,5 +46,24 @@
   &.active {
     background-color: $cGray600;
     border-bottom: 1px solid $cGray600;
+  }
+}
+
+.verticalTab {
+  @extend %fontFamily--body;
+  font-size: 13px;
+  font-weight: 500;
+  padding: 10px 12px;
+  color: $cWeWorkBlack;
+  border-radius: 3px;
+  cursor: pointer;
+
+  &:hover, &:focus {
+    background-color: rgba(0, 0, 0, 0.02);
+    outline: 0;
+  }
+
+  &.active {
+    background-color: $cWhite300;
   }
 }
