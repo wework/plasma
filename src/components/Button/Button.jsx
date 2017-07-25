@@ -47,6 +47,7 @@ class Button extends React.Component {
       <button
         {...getDataAttrs(this.props.data)}
         className={cx(buttonStyle)}
+        disabled={this.props.disabled}
         style={this.props.style}
         onClick={this.props.onClick}
         type={buttonType}
