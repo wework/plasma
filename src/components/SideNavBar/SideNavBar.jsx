@@ -1,4 +1,5 @@
 import React, { Component, PropTypes } from 'react';
+import cn from 'classnames';
 import {
   getDataAttrs,
   getDataProps,
@@ -6,7 +7,6 @@ import {
 import SideNavBarItemGroup from './SideNavBarItemGroup';
 import SideNavBarTop from './SideNavBarTop';
 import style from './style.scss';
-
 class SideNavBar extends Component {
 
   handleClick = (result) => {
@@ -31,7 +31,7 @@ class SideNavBar extends Component {
     return (
       <div
         {...getDataAttrs(this.props.data)}
-        className={style.wrapper}
+        className={cn(style.wrapper, style.a)}
       >
         <SideNavBarTop
           label={this.props.topText}

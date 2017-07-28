@@ -9,6 +9,11 @@
   background: $cGray600;
   height: 100%;
   box-sizing: border-box;
+
+  a {
+    color: $cBlack20;
+    text-decoration: none;
+  }
 }
 
 .top {
@@ -55,11 +60,6 @@
 
 .groupSubItems {
   margin-top: 2px;
-}
-
-a {
-  color: $cBlack20;
-  text-decoration: none;
 }
 
 .itemWrapper {
