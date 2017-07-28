@@ -1,5 +1,4 @@
 import React, { Component, PropTypes } from 'react';
-import cn from 'classnames';
 import {
   getDataAttrs,
   getDataProps,
@@ -31,7 +30,7 @@ class SideNavBar extends Component {
     return (
       <div
         {...getDataAttrs(this.props.data)}
-        className={cn(style.wrapper, style.a)}
+        className={style.wrapper}
       >
         <SideNavBarTop
           label={this.props.topText}
