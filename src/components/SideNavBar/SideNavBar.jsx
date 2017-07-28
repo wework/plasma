@@ -6,6 +6,7 @@ import {
 import SideNavBarItemGroup from './SideNavBarItemGroup';
 import SideNavBarTop from './SideNavBarTop';
 import style from './style.scss';
+
 class SideNavBar extends Component {
 
   handleClick = (result) => {
