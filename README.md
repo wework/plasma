@@ -95,3 +95,13 @@ Info here: https://react-styleguidist.js.org/docs/documenting.html
     import { Button } from '@wework-dev/plasma';
     <Button label='Click it'/>
     ```
+
+## Testing
+
+For testing, Plasma uses Jest (https://facebook.github.io/jest/) with Enzyme (http://airbnb.io/enzyme/).
+
+Tests are located in `src/tests`.
+
+### Running tests
+
+1. Run `yarn jest` for a single run or `yarn jest:watch` to watch for changes.

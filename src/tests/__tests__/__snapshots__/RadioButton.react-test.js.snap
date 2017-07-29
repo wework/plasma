@@ -1,0 +1,59 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`RadioButton Component render 1`] = `
+<div>
+  <label
+    className="wrapper"
+    htmlFor="id1"
+  >
+    <input
+      checked={undefined}
+      className="original"
+      id="id1"
+      name="radioButton"
+      onChange={undefined}
+      type="radio"
+    />
+    <div
+      className="faux"
+    />
+    <div
+      className="text"
+    >
+      <strong>
+        Option
+      </strong>
+    </div>
+  </label>
+</div>
+`;
+
+exports[`RadioButton Component render 2`] = `
+<div
+  checked={true}
+>
+  <label
+    className="wrapper"
+    htmlFor="id1"
+  >
+    <input
+      checked={undefined}
+      className="original"
+      id="id1"
+      name="radioButton"
+      onChange={undefined}
+      type="radio"
+    />
+    <div
+      className="faux"
+    />
+    <div
+      className="text"
+    >
+      <strong>
+        Option
+      </strong>
+    </div>
+  </label>
+</div>
+`;

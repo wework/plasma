@@ -104,20 +104,6 @@ exports[`SideNavBar Component render 1`] = `
             </div>
           </div>
         </div>
-        <div
-          className="itemWrapper"
-          onClick={[Function]}
-        >
-          <div
-            className="iconAndLabelContainer"
-          >
-            <div
-              className="label"
-            >
-              Two Two
-            </div>
-          </div>
-        </div>
       </div>
     </div>
     <div

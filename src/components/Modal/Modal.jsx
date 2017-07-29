@@ -57,9 +57,7 @@ class Modal extends React.Component {
   }
 }
 
-Modal.defaultProps = {
-  minWidth: 'auto',
-};
+Modal.defaultProps = {};
 
 Modal.propTypes = {
   title: PropTypes.string,

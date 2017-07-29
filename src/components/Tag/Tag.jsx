@@ -7,20 +7,33 @@ import {
 from '../../dataUtils';
 import style from './style.scss';
 
-const Tag = ({ text, data, className = '' }) => {
+const Tag = ({ text, children, data, className = '' }) => {
   const tagClasses = cn(style.tag, style.small, className);
   return (
     <div
       className={tagClasses}
       {...getDataAttrs(data)}
     >
-      <span>{text}</span>
+      <span>{text || children}</span>
     </div>
   );
 };
 
 Tag.propTypes = {
-  text: PropTypes.string.isRequired,
+  text: (props, propName, componentName) => {
+    if (!props.text && !props.children) {
+      // eslint-disable-next-line 
+      return new Error(`One of props 'text' or 'children' was not specified in '${componentName}'.`);
+    }
+    return null;
+  },
+  children: (props, propName, componentName) => {
+    if (!props.text && !props.children) {
+      // eslint-disable-next-line 
+      return new Error(`One of props 'text' or 'children' was not specified in '${componentName}'.`);
+    }
+    return null;
+  },
   ...getDataProps(),
 };
 

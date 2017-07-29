@@ -49,7 +49,7 @@ class SideNavBar extends Component {
 
 SideNavBar.propTypes = {
   items: PropTypes.arrayOf(PropTypes.shape({
-    id: PropTypes.string.required,
+    id: PropTypes.string.isRequired,
     icon: PropTypes.string,
     label: PropTypes.string,
     items: PropTypes.array,

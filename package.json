@@ -15,7 +15,9 @@
     "postversion": "node ./scripts/postversion.js",
     "styleguide": "styleguidist server",
     "styleguide:build": "styleguidist build",
-    "watch": "webpack --watch --config webpack.config.dev"
+    "watch": "webpack --watch --config webpack.config.dev",
+    "jest": "node_modules/.bin/jest",
+    "jest:watch": "node_modules/.bin/jest --watch --coverage"
   },
   "author": "WeWork",
   "license": "ISC",

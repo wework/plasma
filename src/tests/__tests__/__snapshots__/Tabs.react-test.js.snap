@@ -1,0 +1,8 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Tabs Component render 1`] = `
+<ul
+  className="tabs"
+  role="tablist"
+/>
+`;

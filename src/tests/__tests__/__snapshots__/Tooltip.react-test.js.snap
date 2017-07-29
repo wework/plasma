@@ -1,0 +1,14 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Tooltip Component render 1`] = `
+<div
+  className="wrapper"
+>
+  test
+  <div
+    className="content"
+  >
+    Protip: Tooltips can be used to reveal information.
+  </div>
+</div>
+`;

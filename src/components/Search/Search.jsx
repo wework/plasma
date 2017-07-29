@@ -1,4 +1,5 @@
-import React, { Component, PropTypes } from 'react';
+import React, { Component } from 'react';
+import PropTypes from 'prop-types';
 import {
   getDataAttrs,
   getDataProps,
@@ -89,15 +90,19 @@ class Search extends Component {
   }
 }
 
+Search.defaultProps = {
+  placeholder: 'Search...',
+};
+
 Search.propTypes = {
   clearable: PropTypes.bool,
   clearIconUrl: PropTypes.string,
   disabled: PropTypes.bool,
-  iconUrl: PropTypes.string.isRequired,
+  iconUrl: PropTypes.string,
   instructionText: PropTypes.string,
-  onChange: PropTypes.func.isRequired,
+  onChange: PropTypes.func,
   onClear: PropTypes.func,
-  placeholder: PropTypes.string.isRequired,
+  placeholder: PropTypes.string,
   value: PropTypes.string,
   ...getDataProps(),
 };

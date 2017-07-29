@@ -3,6 +3,8 @@
 import React from 'react';
 import SideNavBar from '../../components/SideNavBar/SideNavBar';
 import SideNavBarTop from '../../components/SideNavBar/SideNavBarTop';
+import SideNavBarItemGroup from '../../components/SideNavBar/SideNavBarItemGroup';
+import SideNavBarItem from '../../components/SideNavBar/SideNavBarItem';
 import renderer from 'react-test-renderer';
 import { shallow, mount } from 'enzyme';
 
@@ -30,8 +32,9 @@ describe('SideNavBar Component', () => {
             label: 'Two One',
           },
           {
-            id: 'two-two',
-            label: 'Two Two',
+            id: 'two-hidden',
+            label: 'Two Hidden',
+            hidden: true,
           },
         ],
       },
@@ -51,7 +54,7 @@ describe('SideNavBar Component', () => {
     expect(component).toMatchSnapshot()
   });
 
-  test('onClick', () => {
+  test('onClickTop', () => {
     const onClick = jest.fn();
     const component = mount(
       <SideNavBar
@@ -62,5 +65,14 @@ describe('SideNavBar Component', () => {
     );
     component.find(SideNavBarTop).simulate('click');
     expect(onClick).toHaveBeenCalledTimes(1);
+  });
+
+  test('hidden items', () => {
+    const component = mount(
+      <SideNavBar
+        items={items}
+      />
+    );
+    expect(component.find(SideNavBarItemGroup).at(1).find(SideNavBarItem)).toHaveLength(1);
   });
 });

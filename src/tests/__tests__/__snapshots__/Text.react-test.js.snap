@@ -1,0 +1,13 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Text Component render 1`] = `
+<div
+  className="wrapper"
+  style={
+    Object {
+      "height": "auto",
+      "width": 200,
+    }
+  }
+/>
+`;
