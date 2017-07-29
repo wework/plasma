@@ -51,7 +51,6 @@ class Button extends React.Component {
         style={this.props.style}
         onClick={this.props.onClick}
         type={buttonType}
-        {...getDataAttrs(this.props.data)}
       >
         {contentComponent}
       </button>

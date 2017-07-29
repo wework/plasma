@@ -1,0 +1,132 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`SideNavBar Component render 1`] = `
+<div
+  className="wrapper"
+>
+  <div
+    className="top"
+    onClick={undefined}
+  >
+    <div
+      className="iconAndLabelContainer"
+    >
+      <div
+        className="iconWrapper"
+      >
+        <div
+          className="wrapper"
+          dangerouslySetInnerHTML={
+            Object {
+              "__html": undefined,
+            }
+          }
+          style={
+            Object {
+              "fill": "#fff",
+            }
+          }
+        />
+      </div>
+      <div
+        className="groupLabelWrapper topText"
+      />
+    </div>
+  </div>
+  <div
+    className="sidebarContent"
+  >
+    <div
+      className="groupWrapper"
+    >
+      <div
+        className="iconAndLabelContainer"
+        onClick={[Function]}
+      >
+        <div
+          className="iconWrapper"
+        />
+        <div
+          className="groupLabelWrapper"
+        >
+          One
+        </div>
+      </div>
+      <div
+        className="groupSubItems"
+      >
+        <div
+          className="itemWrapper"
+          onClick={[Function]}
+        >
+          <div
+            className="iconAndLabelContainer"
+          >
+            <div
+              className="label"
+            >
+              One One
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div
+      className="groupWrapper"
+    >
+      <div
+        className="iconAndLabelContainer"
+        onClick={[Function]}
+      >
+        <div
+          className="iconWrapper"
+        />
+        <div
+          className="groupLabelWrapper"
+        >
+          Two
+        </div>
+      </div>
+      <div
+        className="groupSubItems"
+      >
+        <div
+          className="itemWrapper"
+          onClick={[Function]}
+        >
+          <div
+            className="iconAndLabelContainer"
+          >
+            <div
+              className="label"
+            >
+              Two One
+            </div>
+          </div>
+        </div>
+        <div
+          className="itemWrapper"
+          onClick={[Function]}
+        >
+          <div
+            className="iconAndLabelContainer"
+          >
+            <div
+              className="label"
+            >
+              Two Two
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div
+      className="groupWrapper"
+    >
+      <div
+        className="groupSubItems"
+      />
+    </div>
+  </div>
+</div>
+`;

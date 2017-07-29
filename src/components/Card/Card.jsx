@@ -10,7 +10,10 @@ import style from './style.scss';
 
 import Header from '../Header/Header';
 
-const cardTypes = { CONDENSED: 'condensed' };
+const cardTypes = {
+  REGULAR: 'regular',
+  CONDENSED: 'condensed',
+};
 const borderTypes = { DASHED: 'dashed' };
 
 class Card extends React.Component {
@@ -113,15 +116,13 @@ class Card extends React.Component {
   }
 }
 
-Card.defaultProps = {
-  children: 'Card',
-};
+Card.defaultProps = {};
 
 Card.propTypes = {
   title: PropTypes.string,
   actions: PropTypes.array,
   children: PropTypes.node.isRequired,
-  type: PropTypes.string,
+  type: PropTypes.oneOf([cardTypes.REGULAR, cardTypes.CONDENSED]),
   onClick: PropTypes.func,
   borderType: PropTypes.string,
   expandedComponent: PropTypes.node,

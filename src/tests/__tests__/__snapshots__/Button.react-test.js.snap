@@ -1,0 +1,13 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Button Component render 1`] = `
+<button
+  className="button primary"
+  disabled={false}
+  onClick={undefined}
+  style={undefined}
+  type="button"
+>
+  YOLO
+</button>
+`;

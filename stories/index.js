@@ -25,3 +25,4 @@ import TimePicker from './TimePicker';
 import Toggle from './Toggle';
 import Welcome from './Welcome';
 import Modal from './Modal';
+import Card from './Card';

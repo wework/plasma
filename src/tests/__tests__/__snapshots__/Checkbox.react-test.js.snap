@@ -1,0 +1,52 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Checkbox Component render 1`] = `
+<label
+  className="wrapper"
+  htmlFor="id1"
+>
+  <input
+    checked={false}
+    className="original"
+    disabled={undefined}
+    id="id1"
+    name="checkbox"
+    onChange={undefined}
+    type="checkbox"
+  />
+  <div
+    className="checkbox"
+  />
+  <div
+    className="text"
+  >
+    Option
+  </div>
+</label>
+`;
+
+exports[`Checkbox Component render 2`] = `
+<label
+  className="wrapper"
+  htmlFor="id1"
+  isChecked={true}
+>
+  <input
+    checked={false}
+    className="original"
+    disabled={undefined}
+    id="id1"
+    name="checkbox"
+    onChange={undefined}
+    type="checkbox"
+  />
+  <div
+    className="checkbox"
+  />
+  <div
+    className="text"
+  >
+    Option
+  </div>
+</label>
+`;
