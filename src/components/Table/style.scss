@@ -43,7 +43,7 @@
     th {
       padding-top: 0;
       padding-bottom: 0;
-      font-weight: bold;
+      // font-weight: bold;
       font-size: 13px;
       height: 60px;
       position: relative;
@@ -62,7 +62,7 @@
       }
       &:active {
         .sortableColumnHighlight {
-          background-color: darken($cWhite300, 5%);
+          background-color: darken($cBrandYellow, 5%);
         }
       }
       .sortableColumnHighlightSelected {
@@ -94,7 +94,7 @@
   left: 0;
   right: 0;
   height: 3px;
-  background-color: $cWhite300;
+  background-color: $cBrandYellow;
 }
 
 .cell {
@@ -108,7 +108,7 @@
 }
 
 .headerCell {
-  text-align: left;
+  text-align: right;
 }
 
 .emptyText, .loadingText {
