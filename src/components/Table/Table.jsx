@@ -139,19 +139,16 @@ class Table extends React.Component {
     return this.renderHeader({ sticky: true });
   }
 
-  renderCarat(){
+  renderCarat() {
     return this.props.sort.order === 'asc' ?
       <Icon color="#fff" icon={downArrow} />
-      : <Icon color="#fff" icon={upArrow} />
+      : <Icon color="#fff" icon={upArrow} />;
   }
 
   renderHeader(opts = {}) {
     const headerComponents = map(this.props.headerData, (value) => {
       let colStyles = { width: value.width };
       const key = value.key;
-
-      console.log('value', value)
-      console.log('key', key)
 
       if (opts.sticky && this.state.columnSizes[key] && !value.width) {
         colStyles = { width: this.state.columnSizes[key].width };
