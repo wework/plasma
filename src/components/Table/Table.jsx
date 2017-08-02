@@ -170,7 +170,7 @@ class Table extends React.Component {
           onClick={value.sortable && value.onClick}
         >
           { value.label }
-          { key === this.props.sort.key && this.renderCarat() }
+          { value.key === this.props.sort.key && this.renderCarat() }
           { value.sortable &&
             <div
               className={
