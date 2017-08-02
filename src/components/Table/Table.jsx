@@ -149,6 +149,10 @@ class Table extends React.Component {
     const headerComponents = map(this.props.headerData, (value) => {
       let colStyles = { width: value.width };
       const key = value.key;
+
+      console.log('value', value)
+      console.log('key', key)
+
       if (opts.sticky && this.state.columnSizes[key] && !value.width) {
         colStyles = { width: this.state.columnSizes[key].width };
       }
@@ -170,7 +174,7 @@ class Table extends React.Component {
           onClick={value.sortable && value.onClick}
         >
           { value.label }
-          { value.key === this.props.sort.key && this.renderCarat() }
+          { this.props.sort && key === this.props.sort.key && this.renderCarat() }
           { value.sortable &&
             <div
               className={
@@ -253,7 +257,7 @@ class Table extends React.Component {
     }
 
     const headerKeys = map(headerData, 'key');
-    
+
     const rowComponents = [];
 
     forEach(items, (itemValue, itemIndex) => {
