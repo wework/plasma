@@ -253,6 +253,7 @@ class Table extends React.Component {
     }
 
     const headerKeys = map(headerData, 'key');
+    
     const rowComponents = [];
 
     forEach(items, (itemValue, itemIndex) => {
