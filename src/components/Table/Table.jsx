@@ -140,7 +140,7 @@ class Table extends React.Component {
   }
 
   renderCarat() {
-    return <Icon color="#fff" icon={this.props.sort.order === 'asc' ? downArrow : upArrow} />
+    return <Icon color="#fff" icon={this.props.sort.order === 'asc' ? downArrow : upArrow} />;
   }
 
   renderHeader(opts = {}) {
