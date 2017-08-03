@@ -17,6 +17,9 @@ import {
   getDataAttrs,
   getDataProps,
 } from '../../dataUtils';
+import Icon from '../Icon/Icon';
+import upArrow from '../../icons/upArrow';
+import downArrow from '../../icons/downArrow';
 import style from './style.scss';
 
 class Table extends React.Component {
@@ -67,7 +70,7 @@ class Table extends React.Component {
     const tdElems = this.table.getElementsByTagName('td');
     forEach(tdElems, (td) => {
       td.removeEventListener('mouseenter', this.handleColumnMouseEnter);
-      td.removeEventListener('mouseleav', this.handleColumnMouseLeave);
+      td.removeEventListener('mouseleave', this.handleColumnMouseLeave);
     });
   }
 
@@ -136,10 +139,15 @@ class Table extends React.Component {
     return this.renderHeader({ sticky: true });
   }
 
+  renderCarat() {
+    return <Icon color="#fff" icon={this.props.sort.order === 'asc' ? downArrow : upArrow} />;
+  }
+
   renderHeader(opts = {}) {
     const headerComponents = map(this.props.headerData, (value) => {
       let colStyles = { width: value.width };
       const key = value.key;
+
       if (opts.sticky && this.state.columnSizes[key] && !value.width) {
         colStyles = { width: this.state.columnSizes[key].width };
       }
@@ -161,6 +169,7 @@ class Table extends React.Component {
           onClick={value.sortable && value.onClick}
         >
           { value.label }
+          { this.props.sort && key === this.props.sort.key && this.renderCarat() }
           { value.sortable &&
             <div
               className={
@@ -243,6 +252,7 @@ class Table extends React.Component {
     }
 
     const headerKeys = map(headerData, 'key');
+
     const rowComponents = [];
 
     forEach(items, (itemValue, itemIndex) => {

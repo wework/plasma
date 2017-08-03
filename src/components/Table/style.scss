@@ -49,6 +49,7 @@
       position: relative;
       vertical-align: middle;
       box-sizing: border-box;
+      white-space : nowrap;
       &.condensed {
 
       }
@@ -62,7 +63,7 @@
       }
       &:active {
         .sortableColumnHighlight {
-          background-color: darken($cWhite300, 5%);
+          background-color: darken($cBrandYellow, 5%);
         }
       }
       .sortableColumnHighlightSelected {
@@ -94,7 +95,7 @@
   left: 0;
   right: 0;
   height: 3px;
-  background-color: $cWhite300;
+  background-color: $cBrandYellow;
 }
 
 .cell {
@@ -108,7 +109,7 @@
 }
 
 .headerCell {
-  text-align: left;
+  text-align: right;
 }
 
 .emptyText, .loadingText {
