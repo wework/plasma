@@ -111,6 +111,13 @@ storiesOf('Tabs', module)
         { title: 'Bye bye', label: 'bye' },
       ]}
     />
+  ))
+  .add('vertical', () => (
+    <Tabs vertical selectedLabel="hello" items={[
+      { title: 'Hello', label: 'hello' },
+      { title: 'World', label: 'world' },
+      { title: 'Bye bye', label: 'bye' },
+      { title: 'привет', label: 'hello_russian' },
+      { title: '你好', label: 'hello_chinese' }
+    ]} />
   ));
-
-
