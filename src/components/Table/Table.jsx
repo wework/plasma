@@ -389,6 +389,7 @@ Table.propTypes = {
   highlightable: PropTypes.bool,
   items: PropTypes.array,
   loading: PropTypes.bool,
+  onSort: PropTypes.func,
   selectedColumnKey: PropTypes.string,
   spanMap: PropTypes.object,
   stickAt: PropTypes.number,
