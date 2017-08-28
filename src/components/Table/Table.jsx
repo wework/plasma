@@ -144,6 +144,7 @@ class Table extends React.Component {
   }
 
   renderHeader(opts = {}) {
+    const { sort, onSort } = this.props;
     const headerComponents = map(this.props.headerData, (value) => {
       let colStyles = { width: value.width };
       const key = value.key;
@@ -166,10 +167,10 @@ class Table extends React.Component {
               this.headerComponents[key] = c;
             }
           }}
-          onClick={() => value.sortable && this.props.onSort(key)}
+          onClick={() => value.sortable && onSort && onSort(key)}
         >
           { value.label }
-          { this.props.sort && key === this.props.sort.key && this.renderCarat() }
+          { sort && key === sort.key && this.renderCarat() }
           { value.sortable &&
             <div
               className={
