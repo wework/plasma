@@ -166,7 +166,7 @@ class Table extends React.Component {
               this.headerComponents[key] = c;
             }
           }}
-          onClick={value.sortable && this.props.onSort(key)}
+          onClick={() => value.sortable && this.props.onSort(key)}
         >
           { value.label }
           { this.props.sort && key === this.props.sort.key && this.renderCarat() }
