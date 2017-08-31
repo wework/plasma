@@ -1,0 +1,29 @@
+@import '../../styles/base';
+
+.component {
+  display: flex;
+  font-family: $fontStack;
+  font-size: 13px;
+  font-weight: 600;
+  border: 0;
+
+  &:focus {
+    outline: 0;
+  }
+
+  &::-webkit-datetime-edit-hour-field,
+  &::-webkit-datetime-edit-minute-field,
+  &::-webkit-datetime-edit-ampm-field {
+    display: inline-block;
+    border-bottom: 1px solid $cBlack50;
+
+    &:focus {
+      background: fade-out($cPurple20, 0.75);
+    }
+  }
+
+  &::-webkit-inner-spin-button,
+  &::-webkit-clear-button {
+    display: none;
+  }
+}
