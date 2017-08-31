@@ -27,6 +27,7 @@ import Tabs from './components/Tabs/Tabs';
 import Toggle from './components/Toggle/Toggle';
 import TextArea from './components/TextArea/TextArea';
 import Tag from './components/Tag/Tag';
+import TimePicker from './components/TimePicker/TimePicker';
 
 // Page imports
 import Page from './components/layout/Page/Page';
@@ -77,6 +78,7 @@ Plasma.FixedRight = FixedRight;
 Plasma.FixedTop = FixedTop;
 Plasma.Toggle = Toggle;
 Plasma.Page = Page;
+Plasma.TimePicker = TimePicker;
 
 Plasma._style = style;
 
@@ -119,4 +121,5 @@ export {
   Page,
   TextArea,
   Tag,
+  TimePicker,
 };
