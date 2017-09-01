@@ -71,3 +71,12 @@
   cursor: pointer;
 }
 
+.description {
+  display: inline-block;
+  @extend %fontFamily--body;
+  font-size: 11px;
+  color: $cGray200;
+  line-height: 20px;
+  margin-left: 26px;
+}
+

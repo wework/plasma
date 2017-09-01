@@ -8,6 +8,9 @@ storiesOf('Checkbox', module)
   .add('default', () => (
     <Checkbox />
   ))
+  .add('with description', () => (
+    <Checkbox description={'Hint: this is some text.'} />
+  ))
   .add('checked', () => (
     <Checkbox checked />
   ))
