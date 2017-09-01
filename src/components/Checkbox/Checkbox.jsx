@@ -24,25 +24,33 @@ class Checkbox extends React.Component {
     const inputClassName = indeterminate ? style.indeterminate : style.original;
 
     return (
-      <label
+      <div
         {...getDataAttrs(data)}
-        htmlFor={id}
-        className={style.wrapper}
       >
-        <input
-          disabled={disabled}
-          checked={checked || value}
-          className={inputClassName}
-          type="checkbox"
-          id={id}
-          name={name}
-          onChange={onChange}
-        />
-        <div className={style.checkbox} />
-        <div className={style.text}>
-          {text}
-        </div>
-      </label>
+        <label
+          htmlFor={id}
+          className={style.wrapper}
+        >
+          <input
+            disabled={disabled}
+            checked={checked || value}
+            className={inputClassName}
+            type="checkbox"
+            id={id}
+            name={name}
+            onChange={onChange}
+          />
+          <div className={style.checkbox} />
+          <div className={style.text}>
+            {text}
+          </div>
+        </label>
+        { this.props.description &&
+          <span className={style.description}>
+            { this.props.description }
+          </span>
+        }
+      </div>
     );
   }
 }
@@ -67,6 +75,7 @@ Checkbox.propTypes = {
   name: PropTypes.string.isRequired,
   onChange: PropTypes.func,
   disabled: PropTypes.bool,
+  description: PropTypes.string,
   ...getDataProps(),
 };
 
