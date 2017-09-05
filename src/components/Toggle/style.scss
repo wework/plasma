@@ -1,10 +1,11 @@
 @import '../../styles/base';
 
-
 .toggleWrapper {
   list-style: none;
   margin: 0px;
   padding: 0px;
+  display: flex;
+  flex-wrap: nowrap;
 }
 
 .toggle {
@@ -20,6 +21,14 @@
   padding: 0 20px;
   @extend %fontFamily--body;
 
+  &.small {
+    padding: 5px 20px;
+    line-height: 20px;
+    font-size: 13px;
+    width: 34px;
+    height: 19px;
+  }
+
   &:hover {
     background-color: rgba(0, 0, 0, 0.02);
   }
@@ -27,7 +36,6 @@
   &:focus {
     background-color: rgba(0, 0, 0, 0.05);
   }
-
 
   &.horizontal {
     border-radius: 0px;
