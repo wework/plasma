@@ -11,7 +11,7 @@ import style from './style.scss';
 const type = {
   HORIZONTAL: 'horizontal',
   VERTICAL: 'vertical',
-  SMALL: 'small'
+  SMALL: 'small',
 };
 
 class Toggle extends React.Component {
