@@ -11,6 +11,7 @@ import style from './style.scss';
 const type = {
   HORIZONTAL: 'horizontal',
   VERTICAL: 'vertical',
+  SMALL: 'small',
 };
 
 class Toggle extends React.Component {
@@ -38,6 +39,7 @@ class Toggle extends React.Component {
             [style.disabled]: this.props.items[index].disabled,
             [style.horizontal]: this.props.type === type.HORIZONTAL,
             [style.vertical]: this.props.type === type.VERTICAL,
+            [style.small]: this.props.size === type.SMALL,
           });
 
           return (
@@ -48,6 +50,7 @@ class Toggle extends React.Component {
               className={toggleClasses}
               key={index}
               type={this.props.type}
+
             >
               { toggle.title }
             </li>
