@@ -22,6 +22,12 @@
     }
   }
 
+  &[disabled]::-webkit-datetime-edit-hour-field,
+  &[disabled]::-webkit-datetime-edit-minute-field,
+  &[disabled]::-webkit-datetime-edit-ampm-field {
+    border-bottom-color: $cGray300;
+  }
+
   &::-webkit-inner-spin-button,
   &::-webkit-clear-button {
     display: none;

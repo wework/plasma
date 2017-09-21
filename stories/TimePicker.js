@@ -9,4 +9,11 @@ storiesOf('TimePicker', module).add('default', () => (
     onChange={action('changed')}
     time="20:00"
   />
+)).add('disabled', () => (
+  <TimePicker
+    disabled
+    onBlur={action('blurred')}
+    onChange={action('changed')}
+    time="20:00"
+  />
 ));
