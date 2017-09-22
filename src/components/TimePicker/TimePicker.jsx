@@ -26,10 +26,11 @@ class TimePicker extends Component {
   }
 
   render() {
-    const { time } = this.props;
+    const { time, disabled } = this.props;
 
     return (
       <input
+        disabled={disabled}
         className={style.component}
         type="time"
         name="timePicker"
