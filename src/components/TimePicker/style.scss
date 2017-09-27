@@ -6,6 +6,7 @@
   font-size: 13px;
   font-weight: 600;
   border: 0;
+  cursor: text;
 
   &:focus {
     outline: 0;
@@ -25,7 +26,8 @@
   &[disabled]::-webkit-datetime-edit-hour-field,
   &[disabled]::-webkit-datetime-edit-minute-field,
   &[disabled]::-webkit-datetime-edit-ampm-field {
-    border-bottom-color: $cGray300;
+    border-bottom: none;
+    cursor: not-allowed;
   }
 
   &::-webkit-inner-spin-button,
