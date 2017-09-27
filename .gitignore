@@ -3,7 +3,7 @@
 node_modules
 dist
 index.js
-style.css
+/style.css
 npm-debug.log
 storybook-static
 styleguide
