@@ -102,4 +102,13 @@ storiesOf('Modal', module).add('primary', () => (
   </Modal>
 )).add('click to open', () => (
   <ModalWithState />
+)).add('with action buttons', () => (
+  <Modal
+    title="Hi there!"
+    visible
+    actions={[
+      <Button>Done</Button>,
+      <Button type="secondary">Cancel</Button>,
+    ]}
+  />
 ));
