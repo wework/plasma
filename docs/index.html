@@ -9,23 +9,164 @@
     <script type="text/javascript" src="/scripts.js"></script>
   </head>
   <body>
+    <div class='topNav'>
+      <a href="/storybook">Storybook</a>
+      <a href="/components">Components</a>
+    </div>
   	<div class="frame">
-	  	<div class='wrapper'>
-		  <div class='plasmaBall'>
-		    <div class='plasma1 plasmaLayer'></div>
-		    <div class='plasma2 plasmaLayer'></div>
-		    <div class='plasma3 plasmaLayer'></div>
-		  </div>
-		</div>
-		<div class='content'>
-			<h1>Plasma</h1>
-			<h2>Product Design System</h2>
-			<div>
-	  			<a href="/storybook">Storybook</a>
-	  		</div>
-	  		<div>
-				<a href='/components'>Components</a>
-			</div>
+      <div class='content'>
+        <div class='head'>
+          <div class='wrapper'>
+            <div class='plasmaBall'>
+              <div class='plasma1 plasmaLayer'></div>
+              <div class='plasma2 plasmaLayer'></div>
+              <div class='plasma3 plasmaLayer'></div>
+            </div>
+          </div>
+          <h1>Plasma</h1>
+          <h3>Product Design System</h3>
+          <ol class='naked'>
+            <li>
+              <a href="/storybook">Storybook</a>
+            </li>
+            <li>
+              <a href='/components'>Components</a>
+            </li>
+          </ol>
+        </div>
+        <div class='overview'>
+          <h4 id="important">IMPORTANT!</h4>
+
+          <p>Select and Datepicker components do not work right now. Use <code>react-select</code> and datepicker directly in Spacestation.</p>
+
+          <h2 id="developingwithstorybook">Developing with Storybook</h2>
+
+          <h4>Running Storybook</h4>
+
+          <ol>
+          <li>Run the Plasma Webpack dev server: <code>yarn start</code></li>
+
+          <li>Run the Storybook server: <code>yarn storybook</code></li>
+
+          <li>Go to <a href="http://localhost:6006/">http://localhost:6006/</a> to view the Storybook</li>
+          </ol>
+
+          <h4>Developing with Storybook</h4>
+
+          <ol>
+          <li>Follow steps above "Running Storybook"</li>
+
+          <li>Create a new dev branch: <code>git checkout -b mybranch</code></li>
+
+          <li>Add / update as necessary</li>
+
+          <li>Add stories to the <code>stories/</code> directory as you add / update components!</li>
+          </ol>
+
+          <h2 id="usingthestyleguide">Using the styleguide</h2>
+
+          <h4 id="running">Running</h4>
+
+          <ol>
+          <li>Run <code>yarn run styleguide</code>.</li>
+
+          <li>Load up http://0.0.0.0:6060</li>
+          </ol>
+
+          <h4 id="buildingstaticversion">Building static version</h4>
+
+          <ol>
+          <li>Run <code>yarn run styleguide:build</code></li>
+
+          <li>Files output to /styleguide</li>
+          </ol>
+
+          <h4 id="documentingcomponents">Documenting components</h4>
+
+          <p>Info here: https://react-styleguidist.js.org/docs/documenting.html</p>
+
+          <h2 id="creatingapullrequestpublishing">Creating a Pull Request / Publishing</h2>
+
+          <h4 id="creatingapullrequest">Creating a Pull Request</h4>
+
+          <ol>
+          <li>When you're ready, push your  branch to Github and create a pull request.</li>
+
+          <li>If you've made visual changes, include screenshots.</li>
+
+          <li>PR will be reviewed</li>
+
+          <li>When PR is accepted, it will be merged into master.</li>
+
+          <li>(Optional) If you also need to publish a new Plasma version, read that section.</li>
+          </ol>
+
+          <h4 id="publishingtonpm">Publishing to NPM</h4>
+
+          <ol>
+          <li>Only publish from master and make sure you <code>git pull origin</code> the latest from master.</li>
+
+          <li>Run <code>yarn run pack</code> to bundle the .js and .css file into <code>/dist</code> folder.</li>
+
+          <li>Run <code>npm version patch</code>. This will bump the version in package.json and create a new tag and push the tag to Github.</li>
+
+          <li>Make sure you're logged in to NPM via <code>npm login</code>.</li>
+
+          <li>Run <code>npm publish</code> from the root directory to publish to NPM registry.</li>
+
+          <li>Check https://www.npmjs.com/~wework-dev to make sure package is updated.</li>
+          </ol>
+
+          <h2 id="developingwithspacestation">Developing with Spacestation</h2>
+
+          <h4 id="linkplasmayouonlyneedtodothisonce">Link Plasma (you only need to do this once)</h4>
+
+          <ol>
+          <li>In your terminal, <code>cd</code> to local Plasma repo.</li>
+
+          <li>Run <code>yarn link</code>.</li>
+
+          <li><code>cd</code> to local Spacestation repo.</li>
+
+          <li>Run <code>yarn link @wework-dev/plasma</code>. This creates a symlink in Spacestation's <code>node_modules/@wework-dev/plasma</code> folder that points to local Plasma repo.</li>
+
+          <li>(Optional) If you need to, you can unlink at any time with <code>yarn unlink @wework-dev/plasma</code></li>
+          </ol>
+
+          <h4 id="developingwithspacestation-1">Developing with Spacestation</h4>
+
+          <ol>
+          <li>Create a new Plasma dev branch: <code>cd /plasma</code> <code>git checkout -b mybranch</code></li>
+
+          <li>Run the Plasma dev server with watch: <code>yarn watch</code></li>
+
+          <li>Run Spacestion: <code>cd /spacestation</code> <code>yarn start</code></li>
+
+          <li>Changes you make in Plasma should automatically be picked up by Spacestation</li>
+
+          <li>Follow "Creating a Pull Request / Publishing"</li>
+          </ol>
+
+          <h2 id="usingapublishedplasmaversionfromnpm">Using a published Plasma version from NPM</h2>
+
+          <ol>
+          <li>Run <code>yarn add @wework-dev/plasma</code> in your project.</li>
+
+          <li>Include the Plasma object (or individual components) in your Javascript.
+          Plasma object example:
+
+          <pre><code class="javascript language-javascript">import Plasma from '@wework-dev/plasma';
+          &lt;Plasma.Button label='Click it'/&gt;
+          </code></pre>
+
+          <p>Individual components example:</p>
+
+          <pre><code class="javascript language-javascript">import { Button } from '@wework-dev/plasma';
+          &lt;Button label='Click it'/&gt;
+          </code></pre></li>
+          </ol>
+        </div>
+      </div>
 		</div>
 	</div>
   </body>

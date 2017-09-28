@@ -1,10 +1,60 @@
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed, 
+figure, figcaption, footer, header, hgroup, 
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font-size: 100%;
+  font: inherit;
+  vertical-align: baseline;
+}
+/* HTML5 display-role reset for older browsers */
+article, aside, details, figcaption, figure, 
+footer, header, hgroup, menu, nav, section {
+  display: block;
+}
+body {
+  line-height: 1;
+}
+ol, ul {
+  list-style: none;
+}
+blockquote, q {
+  quotes: none;
+}
+blockquote:before, blockquote:after,
+q:before, q:after {
+  content: '';
+  content: none;
+}
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+
+/* Styles */
+
 @keyframes grow {
   0% {
-    transform: scale(0.1);
-    opacity: 0;
+    transform: scale(0.75);
+    opacity: 1;
+  }
+  50% {
+    transform: scale(1);
+    opacity: 1;
   }
   100% {
-    transform: scale(1);
+    transform: scale(0.75);
     opacity: 1;
   }
 }
@@ -28,10 +78,23 @@
 }
 
 body {
-  background: #f2f2f2;
+  background: #fafafa;
   font-family: helvetica, 'helvetica neue', arial, sans-serif;
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
+}
+
+p, li {
+  line-height: 1.4em;
+}
+
+p {
+  margin: 20px auto 20px auto;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  margin-top: 1em;
+  margin-bottom: 1em;
 }
 
 h1 {
@@ -40,10 +103,78 @@ h1 {
 
 h2 {
   font-size: 28px;
+  border-bottom: 1px solid #eaeaea;
+  padding-bottom: 5px;
+}
+
+h3 {
+  font-size: 24px;
+}
+
+h4 {
+  font-size: 21px;
+}
+
+h5 {
+  font-size: 18px;
+}
+
+code {
+  font-family: monospace;
+  font-size: 13px;
+  background: #eaeaea;
+  padding: 3px 5px;
+  border-radius: 2px;
+}
+
+code.javascript {
+  line-height: auto;
+  background: #eaeaea;
+}
+
+ol li {
+  line-height: 1.8em;
+  list-style: decimal inside;
+}
+
+ol.naked li {
+  list-style: none;
 }
 
 .frame {
   padding: 60px 40px;
+}
+
+.topNav {
+  background: #3E4C65;
+  height: 50px;
+  width: 100%;
+  box-sizing: border-box;
+  display: flex;
+  align-items: center;
+  padding: 0 40px;
+  color: #fff;
+}
+
+.topNav a {
+  text-decoration: none;
+  margin-right: 50px;
+  color: #fff;
+}
+
+.content {
+  display: flex;
+  justify-content: flex-start;
+}
+
+.head {
+  width: 320px;
+  max-width: 320px;
+}
+
+.overview {
+  margin-left: 60px;
+  max-width: 650px;
 }
 
 .wrapper {
@@ -75,23 +206,23 @@ h2 {
 .plasmaLayer:nth-child(1) {
   animation-name: rotate, grow;
   animation-duration: 10s, 10s;
-  animation-iteration-count: infinite, 1;
+  animation-iteration-count: infinite, infinite;
   top: 0;
   left: 0;
 }
 
 .plasmaLayer:nth-child(2) {
   animation-name: rotate, grow;
-  animation-duration: 10s, 5s;
-  animation-iteration-count: infinite, 1;
+  animation-duration: 10s, 7s;
+  animation-iteration-count: infinite, infinite;
   top: -6px;
   left: 8px;
 }
 
 .plasmaLayer:nth-child(3) {
   animation-name: revRotate, grow;
-  animation-duration: 10s, 5s;
-  animation-iteration-count: infinite, 1;
+  animation-duration: 10s, 4s;
+  animation-iteration-count: infinite, infinite;
   top: 12px;
   left: 4px;
   width: 120px;

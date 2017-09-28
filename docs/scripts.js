@@ -1,5 +1,5 @@
 $(document).ready(function() {
-  var randomness = 80;
+  var randomness = 30;
   var threshold = 200;
   var anim_duration = 3000; //1000 = 1s
 
