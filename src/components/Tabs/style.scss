@@ -2,7 +2,7 @@
 
 .tabs {
   padding: 14px 0 0 14px; /* so first tab aligns with labels */
-  border-bottom: 1px solid $cGray200;;
+  border-bottom: 1px solid $cGray200;
   list-style: none;
 }
 
@@ -65,5 +65,30 @@
 
   &.active {
     background-color: $cWhite300;
+  }
+}
+
+.plainTabs {
+  padding: 14px 0;
+  border-bottom: 1px solid $cGray200;
+  list-style: none;
+}
+
+.plainTab {
+  display: inline-block;
+  @extend %fontFamily--body;
+  font-size: 14px;
+  color: $cWeWorkBlack;
+  padding-right: 15px;
+  line-height: 17px;
+  cursor: pointer;
+
+  &:hover, &:focus {
+    outline: 0;
+  }
+
+  &.active {
+    font-weight: bolder;
+    color: $cBlue50;
   }
 }
