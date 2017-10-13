@@ -33,7 +33,7 @@ class Tabs extends React.Component {
     return style.tab;
   }
 
-  getTabClassNames= (tab, index) => {
+  getTabClassNames = (tab, index) => {
     const baseTabClass = this.getTabStyle();
     return cn(baseTabClass, {
       [style.active]: (
@@ -60,11 +60,10 @@ class Tabs extends React.Component {
   }
 
   render() {
-    const tabsStyle = this.getTabsStyle();
     return (
       <ul
         {...getDataAttrs(this.props.data)}
-        className={tabsStyle}
+        className={this.getTabsStyle()}
         role="tablist"
       >
         { map(this.props.items, this.renderTab) }
