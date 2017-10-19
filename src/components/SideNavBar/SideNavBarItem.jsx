@@ -9,7 +9,7 @@ class SideNavBarItem extends Component {
   }
 
   renderIconAndLabel() {
-    const { label, tagText } = this.props;
+    const { label } = this.props;
 
     return (
       <div className={style.iconAndLabelContainer}>
