@@ -58,6 +58,7 @@ class SideNavBarItemGroup extends Component {
           key={groupedItem.id}
           id={groupedItem.id}
           label={groupedItem.label}
+          tagText={groupedItem.tagText}
           onClick={this.handleItemClick}
           selected={groupedItem.id === this.props.selectedId}
           linkComponent={groupedItem.linkComponent}

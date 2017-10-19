@@ -120,6 +120,18 @@
   align-items: center;
 }
 
+.tag {
+  position: absolute;
+  right: 0;
+  top: 3px;
+  background-color: $cPurple30;
+  color: $cGray20;
+  font-size: 11px;
+  padding: 3px 5px;
+  border-radius: 2px;
+  pointer-events: none;
+}
+
 .darkBg {
   background: fade-out(#000, 0.9);
 }
