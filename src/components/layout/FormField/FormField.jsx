@@ -37,7 +37,6 @@ const FormField = (
     >
       <Label
         text={labelText}
-        type={labelType}
         className={style.disabled}
         type={isDisabled ? 'disabled' : 'primary'}
       />
