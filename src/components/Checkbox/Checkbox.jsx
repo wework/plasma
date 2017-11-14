@@ -26,12 +26,12 @@ class Checkbox extends React.Component {
     const inputClassName = indeterminate ? style.indeterminate : style.original;
     const wrapperClassName = cx({
       [style.wrapper]: !disabled,
-      [style.wrapperDisabled]: disabled
+      [style.wrapperDisabled]: disabled,
     });
     const textClassName = cx({
       [style.textBold]: isBold,
       [style.text]: !disabled,
-      [style.textDisabled]: disabled
+      [style.textDisabled]: disabled,
     });
 
     return (
