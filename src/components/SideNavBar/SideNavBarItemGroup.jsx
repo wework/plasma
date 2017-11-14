@@ -99,7 +99,7 @@ SideNavBarItemGroup.propTypes = {
   * Prefer `iconSize`.
   */
   iconStyle: PropTypes.object,
-  label: PropTypes.string,
+  label: PropTypes.oneOfType([PropTypes.string, PropTypes.node]),
   onClick: PropTypes.func,
   items: PropTypes.array,
   darkBg: PropTypes.bool,

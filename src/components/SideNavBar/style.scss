@@ -110,6 +110,10 @@
     &.topText {
       color: $cGray20;
     }
+
+    > * {
+      color: $cPurple50;
+    }
   }
 }
 
