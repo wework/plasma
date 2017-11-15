@@ -24,13 +24,11 @@ class Checkbox extends React.Component {
     } = this.props;
     const id = uniqueId('id');
     const inputClassName = indeterminate ? style.indeterminate : style.original;
-    const wrapperClassName = cx({
-      [style.wrapper]: !disabled,
+    const wrapperClassName = cx(style.wrapper, {
       [style.wrapperDisabled]: disabled,
     });
-    const textClassName = cx({
+    const textClassName = cx(style.text, {
       [style.textBold]: isBold,
-      [style.text]: !disabled,
       [style.textDisabled]: disabled,
     });
 

@@ -1,16 +1,16 @@
 @import '../../styles/base';
+$checkboxBorder: 1px solid $cBorder;
 
-.wrapperBase {
+.wrapper {
   position: relative;
   display: inline-flex;
   flex-direction: row;
   justify-content: flex-start;
   align-items: center;
   cursor: pointer;
-}
-
-.wrapper {
-  composes: wrapperBase;
+  .original, .intermediate {
+    cursor: pointer;
+  }
   &:hover {
     .checkbox {
       border: 1px solid $cGray200;
@@ -19,10 +19,14 @@
 }
 
 .wrapperDisabled {
-  composes: wrapperBase;
   cursor: not-allowed;
   .original, .indeterminate {
     cursor: not-allowed;
+  }
+  &:hover {
+    .checkbox {
+      border: $checkboxBorder;
+    }
   }
 }
 
@@ -31,7 +35,6 @@
   position: absolute;
   opacity: 0;
   z-index: 10;
-  cursor: pointer;
   ~ .checkbox::before {
     width: 12px;
     height: 8px;
@@ -51,7 +54,6 @@
   position: absolute;
   opacity: 0;
   z-index: 10;
-  cursor: pointer;
 
   ~ .checkbox::before {
     content: '';
@@ -74,7 +76,7 @@
   width: 16px;
   height: 16px;
   background: $cWhite;
-  border: 1px solid $cBorder;
+  border: $checkboxBorder;
   border-radius: 3px;
   background: $cWhite;
   transition: border-color 0.1s ease-out;
@@ -89,14 +91,9 @@
   }
 }
 
-.textBase {
+.text {
   margin-left: 10px;
   @extend %type--body;
-}
-
-.text {
-  composes: textBase;
-  cursor: pointer;
 }
 
 .textBold {
@@ -104,7 +101,6 @@
 }
 
 .textDisabled {
-  composes: textBase;
   color: $cGray200;
 }
 
