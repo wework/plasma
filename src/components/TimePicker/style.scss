@@ -4,34 +4,21 @@
   display: flex;
   font-family: $fontStack;
   font-size: 13px;
-  font-weight: 600;
-  border: 0;
+  border: solid 1px $cWhite;
+  border-radius: 2px;
   cursor: text;
+
+  background-repeat: no-repeat;
+  background-position: 8px 10px;
+  padding: 9px 4px 9px 30px;
+
+  &:hover {
+    border-color: $cGray200;
+  }
 
   &:focus {
     outline: 0;
   }
 
-  &::-webkit-datetime-edit-hour-field,
-  &::-webkit-datetime-edit-minute-field,
-  &::-webkit-datetime-edit-ampm-field {
-    display: inline-block;
-    border-bottom: 1px solid $cBlack50;
-
-    &:focus {
-      background: fade-out($cPurple20, 0.75);
-    }
-  }
-
-  &[disabled]::-webkit-datetime-edit-hour-field,
-  &[disabled]::-webkit-datetime-edit-minute-field,
-  &[disabled]::-webkit-datetime-edit-ampm-field {
-    border-bottom: none;
-    cursor: not-allowed;
-  }
-
-  &::-webkit-inner-spin-button,
-  &::-webkit-clear-button {
-    display: none;
-  }
+  background-image: url("data:image/svg+xml,%3C?xml version='1.0' encoding='UTF-8' standalone='no'?%3E %3Csvg width='16px' height='16px' viewBox='0 0 16 16' version='1.1' xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink'%3E %3Cg id='Symbols' stroke='none' stroke-width='1' fill='none' fill-rule='evenodd'%3E %3Cg id='multipleoffices---moveout---editable' transform='translate(-397.000000, -10.000000)' fill-rule='nonzero' fill='%23BCBCBC'%3E %3Cg id='Group-6-Copy' transform='translate(397.000000, 9.000000)'%3E %3Cg id='clock' transform='translate(0.000000, 1.000000)'%3E %3Cg id='Group'%3E %3Cpath d='M8,0 C3.58176,0 0,3.58176 0,8 C0,12.41824 3.58176,16 8,16 C12.41824,16 16,12.41824 16,8 C16,3.58176 12.41824,0 8,0 Z M8,14.4 C4.46544,14.4 1.6,11.53472 1.6,8 C1.6,4.46544 4.46544,1.6 8,1.6 C11.53472,1.6 14.4,4.46544 14.4,8 C14.4,11.53472 11.53472,14.4 8,14.4 Z' id='Shape'%3E%3C/path%3E %3Cpath d='M8.6941176,8 C8.6941176,8.16291321 8.6941176,8.49624654 8.6941176,9 C8.30329987,9 8.02094694,9 7.8470588,9 C7.65676886,9 7.37441592,9 7,9 C7,8.47689148 7,8.14355814 7,8 L7,3.5826057 C7,3.03043903 7.37914352,2.76391602 7.8470588,2.76391602 C8.31497408,2.76391602 8.6941176,3.03043903 8.6941176,3.5826057 L8.6941176,8 Z' id='Shape'%3E%3C/path%3E %3Cpath d='M7.48642249,9.43174966 L7.00613403,9.00494385 C7.00151906,8.64389151 7.03852432,8.40532654 7.11714981,8.28924896 C7.36818406,7.91887703 7.94028983,7.83007702 8.39512767,8.09067606 L10.6541648,9.92191857 C11.1090027,10.1826664 11.1849258,10.7111998 10.9340533,11.0815717 C10.6831808,11.4519436 10.2002975,11.52374 9.74545964,11.2631409 L7.48642249,9.43174966 Z' id='Shape'%3E%3C/path%3E %3C/g%3E %3C/g%3E %3C/g%3E %3C/g%3E %3C/g%3E %3C/svg%3E");
 }
