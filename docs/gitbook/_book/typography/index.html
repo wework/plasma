@@ -4,7 +4,7 @@
     <head>
         <meta charset="UTF-8">
         <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
-        <title>Pagination · GitBook</title>
+        <title>Typography · GitBook</title>
         <meta http-equiv="X-UA-Compatible" content="IE=edge" />
         <meta name="description" content="">
         <meta name="generator" content="GitBook 3.2.3">
@@ -384,9 +384,9 @@
             
         </li>
     
-        <li class="chapter " data-level="1.6.2" data-path="../typography/">
+        <li class="chapter active" data-level="1.6.2" data-path="./">
             
-                <a href="../typography/">
+                <a href="./">
             
                     
                     Typography
@@ -1257,9 +1257,9 @@
             
         </li>
     
-        <li class="chapter active" data-level="1.7.8" data-path="./">
+        <li class="chapter " data-level="1.7.8" data-path="../pagination/">
             
-                <a href="./">
+                <a href="../pagination/">
             
                     
                     Pagination
@@ -1320,7 +1320,7 @@
     <!-- Title -->
     <h1>
         <i class="fa fa-circle-o-notch fa-spin"></i>
-        <a href=".." >Pagination</a>
+        <a href=".." >Typography</a>
     </h1>
 </div>
 
@@ -1335,54 +1335,29 @@
     
                                 <section class="normal markdown-section">
                                 
-                                <h1 id="pagination">Pagination</h1>
-<p>Displayed below tables when there are a significant number of table rows.</p>
-<h3 id="guidelines">Guidelines</h3>
+                                <h1 id="typography">Typography</h1>
+<p>These guidelines cover typography and <a href="../text-styles/">text styles</a>.</p>
+<h3 id="things-to-note">Things to note</h3>
 <ul>
-<li>Pagination is centrally aligned, with a top margin of 30px.</li>
-<li>If the user is on the first page of table results, the &#x2018;Back&#x2019; button is disabled. If they are on the last page of table results, &#x2018;Next&#x2019; is disabled.</li>
-<li>The current page of results has an active state applied to it.</li>
-<li>If &#x2264; 7 pages, no need for truncating the pagination (adding &quot;...&quot;).</li>
-<li>If a page &#x2265; 5 is selected, the first page should be available to the left and last page should be available to the right. The first and last page should always be visible.</li>
-<li>An ellipses (...) is shown between non-consecutive pages, using the disabled state style, but the ellipses itself has a 100% opacity, as opposed to 10%.</li>
+<li>Never end a header or label with a period (.)</li>
+<li>Only use a period (.) for sentences, paragraphs and copy.</li>
+<li>Always use <a href="https://en.wikipedia.org/wiki/Letter_case#Sentence_case" target="_blank">sentence case &#x2197;</a>. Though our Digital Foundations specify title case for headers and copy, sentence case is more appropriate for the data-heavy products Plasma is designed for.</li>
+<li>Avoid use of all caps wherever possible.</li>
 </ul>
-<p><span class="image-spec spec-typo"><img src="pagination-1.png" alt="Pagination"><img src="pagination-2.png" alt="Pagination"><img src="pagination-3.png" alt="Pagination"><img src="pagination-4.png" alt="Pagination"><img src="pagination-5.png" alt="Pagination"><img src="pagination-6.png" alt="Pagination"><img src="pagination-hover.png" alt="On-hover"><img src="pagination-focus.png" alt="On-focus"></span></p>
-<pre><code>/* Pagination */
-border-radius: 5px;
-background: $white;
-border: 1px solid $gray40;
-height: 38px;
-padding: 0 20px; /* on each toggle option */
-
-/* Numerical/text &apos;cell&apos; */
-padding: 0 15px;
-font-family: Helvetica;
+<p><span class="image-spec spec-code stacked"><img src="helvetica-regular.png" alt="Helvetica Regular"></span></p>
+<pre><code>font-family: Helvetica;
 font-weight: regular;
-font-size: 13px;
-color: $black50;
-
-/* Hover */
-background-color: rgba($black, 0.02);
-
-/* Focus */
-background-color: rgba($black, 0.05);
-
-/* Disabled */
-(same as disabled state for buttons)
-
-/* Null (&#x201C;...&#x201D;) */
-background: none;
-
-/* Active */
-(same as primary button style)
-</code></pre><p>Note: All CSS shown is for guiding purposes, it&apos;s not absolute. It&apos;s intended to help designers foster a greater understanding of both CSS and the specifications.</p>
-<p>See also: <a href="../button_specs/README.md#primary-button">Primary button</a></p>
-<hr>
-<h3 id="pagination-on-mobile">Pagination on mobile</h3>
-<p>On mobile the numerical pagination is replaced by a disabled &#x201C;1 of XX&#x201D; segment, in-between a &#x2018;Back&#x2019; and &#x2018;Next&#x2019; button.</p>
-<p><span class="image-spec spec-typo"><img src="pagination-mobile.png" alt="Pagination on mobile"></span></p>
-<pre><code>/* Pagination (on mobile) */
-(each tab is &#x2153; width of space available to it)
+</code></pre><h3 id="helvetica">Helvetica</h3>
+<p>Plasma uses exclusively Helvetica. A font that most computers have pre-installed, which means no third party scripts are needed to load fonts, meaning faster page load times. Also it&#x2019;s widely known for its legibility. All of which impact the scannability and speed/ease of use, which are particularly important for data heavy products like our internal business tools.</p>
+<ul>
+<li>Helvetica is the only font used in the Plasma design system.</li>
+<li>Used for all titles, copy, navigation, form elements and buttons.</li>
+<li>Should be styled as regular or <strong>bold</strong> only.</li>
+<li>Only use <em>italic</em> if absolutely necessary</li>
+</ul>
+<p><span class="image-spec spec-code stacked"><img src="helvetica-bold.png" alt="Helvetica Bold"></span></p>
+<pre><code>font-family: Helvetica;
+font-weight: bold;
 </code></pre>
                                 
                                 </section>
@@ -1415,12 +1390,12 @@ background: none;
 
             
                 
-                <a href="../tabs/" class="navigation navigation-prev " aria-label="Previous page: Tabs">
+                <a href="../colors/#background-colors" class="navigation navigation-prev " aria-label="Previous page: Background colors">
                     <i class="fa fa-angle-left"></i>
                 </a>
                 
                 
-                <a href="../patterns/" class="navigation navigation-next " aria-label="Next page: Patterns">
+                <a href="../text-styles/" class="navigation navigation-next " aria-label="Next page: Text styles">
                     <i class="fa fa-angle-right"></i>
                 </a>
                 
@@ -1431,7 +1406,7 @@ background: none;
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"Pagination","level":"1.7.8","depth":2,"next":{"title":"Patterns","level":"1.8","depth":1,"path":"patterns/README.md","ref":"patterns/README.md","articles":[]},"previous":{"title":"Tabs","level":"1.7.7","depth":2,"path":"tabs/README.md","ref":"tabs/README.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":["livereload"],"pluginsConfig":{"livereload":{},"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"pagination/README.md","mtime":"2017-12-08T17:26:21.000Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2017-12-08T17:26:46.392Z"},"basePath":"..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"Typography","level":"1.6.2","depth":2,"next":{"title":"Text styles","level":"1.6.3","depth":2,"path":"text-styles/README.md","ref":"text-styles/README.md","articles":[{"title":"Bold 1","level":"1.6.3.1","depth":3,"anchor":"#bold-1","path":"text-styles/README.md","ref":"text-styles/README.md#bold-1","articles":[]},{"title":"Bold 2","level":"1.6.3.2","depth":3,"anchor":"#bold-2","path":"text-styles/README.md","ref":"text-styles/README.md#bold-2","articles":[]},{"title":"Bold 3","level":"1.6.3.3","depth":3,"anchor":"#bold-3","path":"text-styles/README.md","ref":"text-styles/README.md#bold-3","articles":[]},{"title":"Bold 4","level":"1.6.3.4","depth":3,"anchor":"#bold-4","path":"text-styles/README.md","ref":"text-styles/README.md#bold-4","articles":[]},{"title":"Bold 5","level":"1.6.3.5","depth":3,"anchor":"#bold-5","path":"text-styles/README.md","ref":"text-styles/README.md#bold-5","articles":[]},{"title":"Bold 6","level":"1.6.3.6","depth":3,"anchor":"#bold-6","path":"text-styles/README.md","ref":"text-styles/README.md#bold-6","articles":[]},{"title":"Regular 1","level":"1.6.3.7","depth":3,"anchor":"#regular-1","path":"text-styles/README.md","ref":"text-styles/README.md#regular-1","articles":[]},{"title":"Regular 2","level":"1.6.3.8","depth":3,"anchor":"#regular-2","path":"text-styles/README.md","ref":"text-styles/README.md#regular-2","articles":[]},{"title":"Regular 3","level":"1.6.3.9","depth":3,"anchor":"#regular-3","path":"text-styles/README.md","ref":"text-styles/README.md#regular-3","articles":[]}]},"previous":{"title":"Background colors","level":"1.6.1.6","depth":3,"anchor":"#background-colors","path":"colors/README.md","ref":"colors/README.md#background-colors","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":["livereload"],"pluginsConfig":{"livereload":{},"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"typography/README.md","mtime":"2017-12-08T17:26:21.000Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2017-12-08T17:26:46.392Z"},"basePath":"..","book":{"language":""}});
         });
     </script>
 </div>

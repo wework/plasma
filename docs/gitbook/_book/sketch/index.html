@@ -4,7 +4,7 @@
     <head>
         <meta charset="UTF-8">
         <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
-        <title>Pagination · GitBook</title>
+        <title>Sketch · GitBook</title>
         <meta http-equiv="X-UA-Compatible" content="IE=edge" />
         <meta name="description" content="">
         <meta name="generator" content="GitBook 3.2.3">
@@ -105,9 +105,9 @@
             
         </li>
     
-        <li class="chapter " data-level="1.3" data-path="../sketch/">
+        <li class="chapter active" data-level="1.3" data-path="./">
             
-                <a href="../sketch/">
+                <a href="./">
             
                     
                     Sketch
@@ -119,9 +119,9 @@
             <ul class="articles">
                 
     
-        <li class="chapter " data-level="1.3.1" data-path="../sketch/">
+        <li class="chapter " data-level="1.3.1" data-path="./">
             
-                <a href="../sketch/#naming-conventions">
+                <a href="./#naming-conventions">
             
                     
                     Naming conventions
@@ -133,9 +133,9 @@
             <ul class="articles">
                 
     
-        <li class="chapter " data-level="1.3.1.1" data-path="../sketch/">
+        <li class="chapter " data-level="1.3.1.1" data-path="./">
             
-                <a href="../sketch/#color-system">
+                <a href="./#color-system">
             
                     
                     Color system
@@ -146,9 +146,9 @@
             
         </li>
     
-        <li class="chapter " data-level="1.3.1.2" data-path="../sketch/">
+        <li class="chapter " data-level="1.3.1.2" data-path="./">
             
-                <a href="../sketch/#naming-text-styles">
+                <a href="./#naming-text-styles">
             
                     
                     Naming text styles
@@ -159,9 +159,9 @@
             
         </li>
     
-        <li class="chapter " data-level="1.3.1.3" data-path="../sketch/">
+        <li class="chapter " data-level="1.3.1.3" data-path="./">
             
-                <a href="../sketch/#using-text-styles">
+                <a href="./#using-text-styles">
             
                     
                     Using text styles
@@ -172,9 +172,9 @@
             
         </li>
     
-        <li class="chapter " data-level="1.3.1.4" data-path="../sketch/">
+        <li class="chapter " data-level="1.3.1.4" data-path="./">
             
-                <a href="../sketch/#naming-symbols">
+                <a href="./#naming-symbols">
             
                     
                     Naming symbols
@@ -185,9 +185,9 @@
             
         </li>
     
-        <li class="chapter " data-level="1.3.1.5" data-path="../sketch/">
+        <li class="chapter " data-level="1.3.1.5" data-path="./">
             
-                <a href="../sketch/#using-symbols">
+                <a href="./#using-symbols">
             
                     
                     Using symbols
@@ -203,9 +203,9 @@
             
         </li>
     
-        <li class="chapter " data-level="1.3.2" data-path="../sketch/">
+        <li class="chapter " data-level="1.3.2" data-path="./">
             
-                <a href="../sketch/#control-symbols">
+                <a href="./#control-symbols">
             
                     
                     Control symbols
@@ -216,9 +216,9 @@
             
         </li>
     
-        <li class="chapter " data-level="1.3.3" data-path="../sketch/">
+        <li class="chapter " data-level="1.3.3" data-path="./">
             
-                <a href="../sketch/#auto-save-in-sketch">
+                <a href="./#auto-save-in-sketch">
             
                     
                     Auto save in Sketch
@@ -229,9 +229,9 @@
             
         </li>
     
-        <li class="chapter " data-level="1.3.4" data-path="../sketch/">
+        <li class="chapter " data-level="1.3.4" data-path="./">
             
-                <a href="../sketch/#importing-text-styles-into-sketch">
+                <a href="./#importing-text-styles-into-sketch">
             
                     
                     Importing text styles into Sketch
@@ -1257,9 +1257,9 @@
             
         </li>
     
-        <li class="chapter active" data-level="1.7.8" data-path="./">
+        <li class="chapter " data-level="1.7.8" data-path="../pagination/">
             
-                <a href="./">
+                <a href="../pagination/">
             
                     
                     Pagination
@@ -1320,7 +1320,7 @@
     <!-- Title -->
     <h1>
         <i class="fa fa-circle-o-notch fa-spin"></i>
-        <a href=".." >Pagination</a>
+        <a href=".." >Sketch</a>
     </h1>
 </div>
 
@@ -1335,55 +1335,60 @@
     
                                 <section class="normal markdown-section">
                                 
-                                <h1 id="pagination">Pagination</h1>
-<p>Displayed below tables when there are a significant number of table rows.</p>
-<h3 id="guidelines">Guidelines</h3>
+                                <h1 id="sketch">Sketch</h1>
+<p>Everything about the system in Sketch is designed so our designers spend less time needlessly creating and re-inventing our system components, and more time focussing on user experience, iteration and building the best product. All in the interest of consistency and efficiency.</p>
+<p>Below are notes on design system best practices for quality control, in <a href="https://www.sketchapp.com" target="_blank">Sketch &#x2197;</a>.</p>
+<h2 id="naming-conventions">Naming conventions</h2>
+<p>An important part of system design is naming conventions. The systems naming conventions should be used in all designs, specs and communication, and are reflected in the naming of text styles, symbols and libraries in Sketch. The ultimate goal is for the code (React and CSS) to also use the same names, so everyone is speaking the same language.</p>
+<h3 id="color-system">Color system</h3>
+<p>The system uses Sass variables to name the colors, and define a (CSS) <a href="#color-spectrum">color spectrum</a> based on a few base colors.</p>
+<p>For a quick preview, see:</p>
 <ul>
-<li>Pagination is centrally aligned, with a top margin of 30px.</li>
-<li>If the user is on the first page of table results, the &#x2018;Back&#x2019; button is disabled. If they are on the last page of table results, &#x2018;Next&#x2019; is disabled.</li>
-<li>The current page of results has an active state applied to it.</li>
-<li>If &#x2264; 7 pages, no need for truncating the pagination (adding &quot;...&quot;).</li>
-<li>If a page &#x2265; 5 is selected, the first page should be available to the left and last page should be available to the right. The first and last page should always be visible.</li>
-<li>An ellipses (...) is shown between non-consecutive pages, using the disabled state style, but the ellipses itself has a 100% opacity, as opposed to 10%.</li>
+<li><a href="https://www.dropbox.com/s/n0kctpodwk9sq55/brand-digital-primary-color-variables.png?dl=0" target="_blank">Primary colors &#x2197;</a></li>
+<li><a href="https://www.dropbox.com/s/hkft9jmdjxot4ji/brand-digital-secondary-color-variables.png?dl=0" target="_blank">Secondary colors &#x2197;</a></li>
+<li><a href="https://www.dropbox.com/s/glaa72ea5zh89cr/brand-digital-tertiary-color-variables.png?dl=0" target="_blank">Tertiary colors &#x2197;</a></li>
 </ul>
-<p><span class="image-spec spec-typo"><img src="pagination-1.png" alt="Pagination"><img src="pagination-2.png" alt="Pagination"><img src="pagination-3.png" alt="Pagination"><img src="pagination-4.png" alt="Pagination"><img src="pagination-5.png" alt="Pagination"><img src="pagination-6.png" alt="Pagination"><img src="pagination-hover.png" alt="On-hover"><img src="pagination-focus.png" alt="On-focus"></span></p>
-<pre><code>/* Pagination */
-border-radius: 5px;
-background: $white;
-border: 1px solid $gray40;
-height: 38px;
-padding: 0 20px; /* on each toggle option */
-
-/* Numerical/text &apos;cell&apos; */
-padding: 0 15px;
-font-family: Helvetica;
-font-weight: regular;
-font-size: 13px;
-color: $black50;
-
-/* Hover */
-background-color: rgba($black, 0.02);
-
-/* Focus */
-background-color: rgba($black, 0.05);
-
-/* Disabled */
-(same as disabled state for buttons)
-
-/* Null (&#x201C;...&#x201D;) */
-background: none;
-
-/* Active */
-(same as primary button style)
-</code></pre><p>Note: All CSS shown is for guiding purposes, it&apos;s not absolute. It&apos;s intended to help designers foster a greater understanding of both CSS and the specifications.</p>
-<p>See also: <a href="../button_specs/README.md#primary-button">Primary button</a></p>
+<p>See the <a href="../colors/">color section</a> for more information, guidelines and downloads for the system foundational colors.</p>
+<h3 id="naming-text-styles">Naming text styles</h3>
+<p>The text styles works much the same way as <a href="#naming-symbols">naming symbols</a>.</p>
+<ul>
+<li>Each text style should include the name, followed by a forward slash (&quot;/&quot;) so they are organized together for easy access.</li>
+<li>The default text style should be in <code>$black50</code> color.</li>
+<li>In order to avoid accidental overriding of text styles in use in Sketch it&apos;s also useful to define new text styles for different colors, for each text style (e.g. &quot;<code>Regular 2 /</code>&quot;, and &quot;<code>Regular 2 / $blue50</code>&quot; and &quot;<code>Regular 2 / $red50</code>&quot; ).</li>
+<li>Likewise, a new text style should be created for a bold (<code>&lt;strong&gt;</code>) font-weight (e.g. &quot;<code>Regular 2 / &lt;strong&gt;</code>&quot; or &quot;<code>Regular 2 / $blue50</code> <code>&lt;strong&gt;</code>&quot;)</li>
+</ul>
+<h3 id="using-text-styles">Using text styles</h3>
+<p>The system has defined <a href="../text-styles/">text styles</a>. All master, template and working Sketch files should have these system text styles loaded and ready to use. Please assign a text style to all text (where possible) in your working Sketch files &#x2014; this way we won&apos;t stray from the system.</p>
+<p>The system text styles are designed to cover a wide range of scenarios. Bespoke styles can be used (sparingly), but should be discussed with the design system team, and even integrated into the system if a new style is deemed a useful inclusion to the system. See the <a href="../typography/">typography section</a> for guidelines and downloads for the system foundational text styles.</p>
+<p>See also: <a href="#importing-text-styles-into-sketch">Importing text styles into Sketch</a></p>
+<h3 id="naming-symbols">Naming symbols</h3>
+<p>Naming symbols using forward slashes (<code>&quot;/&quot;</code>) sorts symbols into folders, for easy access.</p>
+<ul>
+<li>For example a symbol named &quot;<code>text input /</code>&quot; will create a folder called &quot;<code>text input</code>&quot;, with that symbol as the one symbol in that folder.</li>
+<li>Creating a second symbol called &quot;<code>text input / error</code>&quot; will add this new symbol into the &quot;<code>text input</code>&quot; folder.</li>
+<li>This practice is ideal when organizing nested symbols.</li>
+</ul>
+<h3 id="using-symbols">Using symbols</h3>
+<p>The system has <a href="#control-symbols">control symbols</a>, which should cover all components. Ideally these should be used in designs wherever possible, in the interest of consistency, and maintenance (the symbols are updated/kept in sync via <a href="../sketch-library/">Sketch Library</a>.</p>
+<p>Patterns are trickier to manage with symbols, but we should strive to be as consistent as possible when designing with our established patterns, featuring our component symbols and foundational text styles and colors.</p>
 <hr>
-<h3 id="pagination-on-mobile">Pagination on mobile</h3>
-<p>On mobile the numerical pagination is replaced by a disabled &#x201C;1 of XX&#x201D; segment, in-between a &#x2018;Back&#x2019; and &#x2018;Next&#x2019; button.</p>
-<p><span class="image-spec spec-typo"><img src="pagination-mobile.png" alt="Pagination on mobile"></span></p>
-<pre><code>/* Pagination (on mobile) */
-(each tab is &#x2153; width of space available to it)
-</code></pre>
+<h2 id="control-symbols">Control symbols</h2>
+<p>Control symbols are Sketch symbols containing a number of nested symbols. There are Sketch symbols for all components in the system. The idea is they are the only symbols you will need to create a UI. Via symbol overrides you can quickly switch between different states of each component (e.g. a form inputs placeholder, value, focus or error state, or different types of buttons and their normal and hover states), while maintaining all the symbols values. Any changes you make to the nested symbols (used in the control symbol) will be reflected in the control symbol and wherever it is used. <a href="https://medium.com/@andrewcouldwell/harness-the-power-of-symbols-204448baaef3" target="_blank">Learn about how control symbols are made &#x2197;</a></p>
+<hr>
+<h2 id="auto-save-in-sketch">Auto save in Sketch</h2>
+<p><span style="color:#D86262; font-weight:bold;">Please turn off the auto save feature in Sketch&apos;s preferences</span>, before viewing any Sketch files linked to from this documentation. It&apos;s turned on by default. It&apos;s very easy to unwittingly make changes while viewing a Sketch file with the auto save on.</p>
+<hr>
+<h2 id="importing-text-styles-into-sketch">Importing text styles into Sketch</h2>
+<p>There&apos;s a Sketch plugin for importing the system text styles into any Sketch file. Follow the instructions below to install and use it:</p>
+<ul>
+<li>Download the <a href="https://github.com/nilshoenson/shared-text-styles" target="_blank">Shared Text Styles &#x2197;</a> plugin for Sketch.</li>
+<li>In the downloaded folder, open the &apos;shared-textstyles.sketchplugin&apos; file in Sketch.</li>
+<li>In the file menu at the top of Sketch, you should now be able to access:</li>
+<li>Plugins &gt; Shared Text Styles &gt; Import Text Styles&#x2026;*</li>
+<li>Having clicked the above link, locate and import the <code>plasma-text-styles.json</code> file in &apos;Plasma&apos; folder on Dropbox.</li>
+<li>You should now have all the Plasma system text styles!</li>
+</ul>
+
                                 
                                 </section>
                             
@@ -1415,12 +1420,12 @@ background: none;
 
             
                 
-                <a href="../tabs/" class="navigation navigation-prev " aria-label="Previous page: Tabs">
+                <a href="../setup/" class="navigation navigation-prev " aria-label="Previous page: Getting started">
                     <i class="fa fa-angle-left"></i>
                 </a>
                 
                 
-                <a href="../patterns/" class="navigation navigation-next " aria-label="Next page: Patterns">
+                <a href="./#naming-conventions" class="navigation navigation-next " aria-label="Next page: Naming conventions">
                     <i class="fa fa-angle-right"></i>
                 </a>
                 
@@ -1431,7 +1436,7 @@ background: none;
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"Pagination","level":"1.7.8","depth":2,"next":{"title":"Patterns","level":"1.8","depth":1,"path":"patterns/README.md","ref":"patterns/README.md","articles":[]},"previous":{"title":"Tabs","level":"1.7.7","depth":2,"path":"tabs/README.md","ref":"tabs/README.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":["livereload"],"pluginsConfig":{"livereload":{},"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"pagination/README.md","mtime":"2017-12-08T17:26:21.000Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2017-12-08T17:26:46.392Z"},"basePath":"..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"Sketch","level":"1.3","depth":1,"next":{"title":"Naming conventions","level":"1.3.1","depth":2,"anchor":"#naming-conventions","path":"sketch/README.md","ref":"sketch/README.md#naming-conventions","articles":[{"title":"Color system","level":"1.3.1.1","depth":3,"anchor":"#color-system","path":"sketch/README.md","ref":"sketch/README.md#color-system","articles":[]},{"title":"Naming text styles","level":"1.3.1.2","depth":3,"anchor":"#naming-text-styles","path":"sketch/README.md","ref":"sketch/README.md#naming-text-styles","articles":[]},{"title":"Using text styles","level":"1.3.1.3","depth":3,"anchor":"#using-text-styles","path":"sketch/README.md","ref":"sketch/README.md#using-text-styles","articles":[]},{"title":"Naming symbols","level":"1.3.1.4","depth":3,"anchor":"#naming-symbols","path":"sketch/README.md","ref":"sketch/README.md#naming-symbols","articles":[]},{"title":"Using symbols","level":"1.3.1.5","depth":3,"anchor":"#using-symbols","path":"sketch/README.md","ref":"sketch/README.md#using-symbols","articles":[]}]},"previous":{"title":"Getting started","level":"1.2","depth":1,"path":"setup/README.md","ref":"setup/README.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":["livereload"],"pluginsConfig":{"livereload":{},"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"sketch/README.md","mtime":"2017-12-08T17:26:21.000Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2017-12-08T17:26:46.392Z"},"basePath":"..","book":{"language":""}});
         });
     </script>
 </div>

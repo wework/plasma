@@ -4,7 +4,7 @@
     <head>
         <meta charset="UTF-8">
         <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
-        <title>Pagination · GitBook</title>
+        <title>Toggles · GitBook</title>
         <meta http-equiv="X-UA-Compatible" content="IE=edge" />
         <meta name="description" content="">
         <meta name="generator" content="GitBook 3.2.3">
@@ -1218,9 +1218,9 @@
             
         </li>
     
-        <li class="chapter " data-level="1.7.5" data-path="../toggles/">
+        <li class="chapter active" data-level="1.7.5" data-path="./">
             
-                <a href="../toggles/">
+                <a href="./">
             
                     
                     Toggles
@@ -1257,9 +1257,9 @@
             
         </li>
     
-        <li class="chapter active" data-level="1.7.8" data-path="./">
+        <li class="chapter " data-level="1.7.8" data-path="../pagination/">
             
-                <a href="./">
+                <a href="../pagination/">
             
                     
                     Pagination
@@ -1320,7 +1320,7 @@
     <!-- Title -->
     <h1>
         <i class="fa fa-circle-o-notch fa-spin"></i>
-        <a href=".." >Pagination</a>
+        <a href=".." >Toggles</a>
     </h1>
 </div>
 
@@ -1335,31 +1335,25 @@
     
                                 <section class="normal markdown-section">
                                 
-                                <h1 id="pagination">Pagination</h1>
-<p>Displayed below tables when there are a significant number of table rows.</p>
+                                <h1 id="toggles">Toggles</h1>
+<p>Neither a <a href="../buttons/">button</a> or an <a href="../form-elements/">input</a>. The toggle simply allows the option to &#x2018;toggle&#x2019; between two or more options. This can be used to refresh the page content or filter content.</p>
 <h3 id="guidelines">Guidelines</h3>
 <ul>
-<li>Pagination is centrally aligned, with a top margin of 30px.</li>
-<li>If the user is on the first page of table results, the &#x2018;Back&#x2019; button is disabled. If they are on the last page of table results, &#x2018;Next&#x2019; is disabled.</li>
-<li>The current page of results has an active state applied to it.</li>
-<li>If &#x2264; 7 pages, no need for truncating the pagination (adding &quot;...&quot;).</li>
-<li>If a page &#x2265; 5 is selected, the first page should be available to the left and last page should be available to the right. The first and last page should always be visible.</li>
-<li>An ellipses (...) is shown between non-consecutive pages, using the disabled state style, but the ellipses itself has a 100% opacity, as opposed to 10%.</li>
+<li>Toggle can be horizontal or vertical.</li>
+<li>Horizontal toggles should be spaced 20px aside from other components.</li>
+<li>Vertical toggles should be spaced 20px above or below other components.</li>
+<li>Each option within the toggle has a left/right padding of 20px.</li>
+<li>The active toggle follows similar style to a <a href="../button_specs/README.md#primary-button">primary button</a>.</li>
+<li>The active toggle has no hover or focus state.</li>
 </ul>
-<p><span class="image-spec spec-typo"><img src="pagination-1.png" alt="Pagination"><img src="pagination-2.png" alt="Pagination"><img src="pagination-3.png" alt="Pagination"><img src="pagination-4.png" alt="Pagination"><img src="pagination-5.png" alt="Pagination"><img src="pagination-6.png" alt="Pagination"><img src="pagination-hover.png" alt="On-hover"><img src="pagination-focus.png" alt="On-focus"></span></p>
-<pre><code>/* Pagination */
+<p><span class="image-spec spec-typo"><img src="toggle-1.png" alt="Toggle"><img src="toggle-2.png" alt="Toggle"><img src="toggle-3.png" alt="Toggle"></span></p>
+<pre><code>/* Toggle */
 border-radius: 5px;
 background: $white;
 border: 1px solid $gray40;
+color: $black50;
 height: 38px;
 padding: 0 20px; /* on each toggle option */
-
-/* Numerical/text &apos;cell&apos; */
-padding: 0 15px;
-font-family: Helvetica;
-font-weight: regular;
-font-size: 13px;
-color: $black50;
 
 /* Hover */
 background-color: rgba($black, 0.02);
@@ -1370,20 +1364,14 @@ background-color: rgba($black, 0.05);
 /* Disabled */
 (same as disabled state for buttons)
 
-/* Null (&#x201C;...&#x201D;) */
-background: none;
-
 /* Active */
 (same as primary button style)
 </code></pre><p>Note: All CSS shown is for guiding purposes, it&apos;s not absolute. It&apos;s intended to help designers foster a greater understanding of both CSS and the specifications.</p>
 <p>See also: <a href="../button_specs/README.md#primary-button">Primary button</a></p>
 <hr>
-<h3 id="pagination-on-mobile">Pagination on mobile</h3>
-<p>On mobile the numerical pagination is replaced by a disabled &#x201C;1 of XX&#x201D; segment, in-between a &#x2018;Back&#x2019; and &#x2018;Next&#x2019; button.</p>
-<p><span class="image-spec spec-typo"><img src="pagination-mobile.png" alt="Pagination on mobile"></span></p>
-<pre><code>/* Pagination (on mobile) */
-(each tab is &#x2153; width of space available to it)
-</code></pre>
+<h3 id="responsively-or-stacked">Responsively or stacked</h3>
+<p><span class="image-spec"><img src="toggle-4.png" alt="Toggle"><img src="toggle-5.png" alt="Toggle"></span></p>
+
                                 
                                 </section>
                             
@@ -1415,12 +1403,12 @@ background: none;
 
             
                 
-                <a href="../tabs/" class="navigation navigation-prev " aria-label="Previous page: Tabs">
+                <a href="../button-specs/#icon--link-light-button" class="navigation navigation-prev " aria-label="Previous page: Icon & Link Light button">
                     <i class="fa fa-angle-left"></i>
                 </a>
                 
                 
-                <a href="../patterns/" class="navigation navigation-next " aria-label="Next page: Patterns">
+                <a href="../tooltips/" class="navigation navigation-next " aria-label="Next page: Tooltips">
                     <i class="fa fa-angle-right"></i>
                 </a>
                 
@@ -1431,7 +1419,7 @@ background: none;
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"Pagination","level":"1.7.8","depth":2,"next":{"title":"Patterns","level":"1.8","depth":1,"path":"patterns/README.md","ref":"patterns/README.md","articles":[]},"previous":{"title":"Tabs","level":"1.7.7","depth":2,"path":"tabs/README.md","ref":"tabs/README.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":["livereload"],"pluginsConfig":{"livereload":{},"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"pagination/README.md","mtime":"2017-12-08T17:26:21.000Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2017-12-08T17:26:46.392Z"},"basePath":"..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"Toggles","level":"1.7.5","depth":2,"next":{"title":"Tooltips","level":"1.7.6","depth":2,"path":"tooltips/README.md","ref":"tooltips/README.md","articles":[]},"previous":{"title":"Icon & Link Light button","level":"1.7.4.8","depth":3,"anchor":"#icon--link-light-button","path":"button-specs/README.md","ref":"button-specs/README.md#icon--link-light-button","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":["livereload"],"pluginsConfig":{"livereload":{},"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"toggles/README.md","mtime":"2017-12-08T17:26:21.000Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2017-12-08T17:26:46.392Z"},"basePath":"..","book":{"language":""}});
         });
     </script>
 </div>

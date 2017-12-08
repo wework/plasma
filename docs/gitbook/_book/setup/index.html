@@ -4,7 +4,7 @@
     <head>
         <meta charset="UTF-8">
         <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
-        <title>Pagination · GitBook</title>
+        <title>Getting started · GitBook</title>
         <meta http-equiv="X-UA-Compatible" content="IE=edge" />
         <meta name="description" content="">
         <meta name="generator" content="GitBook 3.2.3">
@@ -92,9 +92,9 @@
             
         </li>
     
-        <li class="chapter " data-level="1.2" data-path="../setup/">
+        <li class="chapter active" data-level="1.2" data-path="./">
             
-                <a href="../setup/">
+                <a href="./">
             
                     
                     Getting started
@@ -1257,9 +1257,9 @@
             
         </li>
     
-        <li class="chapter active" data-level="1.7.8" data-path="./">
+        <li class="chapter " data-level="1.7.8" data-path="../pagination/">
             
-                <a href="./">
+                <a href="../pagination/">
             
                     
                     Pagination
@@ -1320,7 +1320,7 @@
     <!-- Title -->
     <h1>
         <i class="fa fa-circle-o-notch fa-spin"></i>
-        <a href=".." >Pagination</a>
+        <a href=".." >Getting started</a>
     </h1>
 </div>
 
@@ -1335,54 +1335,90 @@
     
                                 <section class="normal markdown-section">
                                 
-                                <h1 id="pagination">Pagination</h1>
-<p>Displayed below tables when there are a significant number of table rows.</p>
-<h3 id="guidelines">Guidelines</h3>
+                                <h1 id="getting-started">Getting started</h1>
+<p>To get up and running developing with Plasma, follow these instructions:</p>
+<h4 id="important-note">Important note</h4>
+<pre><code>Select and Datepicker components do not work right now.
+Use react-select and datepicker directly in Spacestation.
+</code></pre><h2 id="storybook">Storybook</h2>
+<p>View: <a href="http://plasma.guide/storybook" target="_blank">http://plasma.guide/storybook</a></p>
+<h3 id="running-storybook">Running Storybook</h3>
 <ul>
-<li>Pagination is centrally aligned, with a top margin of 30px.</li>
-<li>If the user is on the first page of table results, the &#x2018;Back&#x2019; button is disabled. If they are on the last page of table results, &#x2018;Next&#x2019; is disabled.</li>
-<li>The current page of results has an active state applied to it.</li>
-<li>If &#x2264; 7 pages, no need for truncating the pagination (adding &quot;...&quot;).</li>
-<li>If a page &#x2265; 5 is selected, the first page should be available to the left and last page should be available to the right. The first and last page should always be visible.</li>
-<li>An ellipses (...) is shown between non-consecutive pages, using the disabled state style, but the ellipses itself has a 100% opacity, as opposed to 10%.</li>
+<li>Run the Plasma Webpack dev server: <code>yarn start</code></li>
+<li>Run the Storybook server: <code>yarn storybook</code></li>
+<li>Go to <a href="http://localhost:6006/" target="_blank">http://localhost:6006/</a> to view the Storybook.</li>
 </ul>
-<p><span class="image-spec spec-typo"><img src="pagination-1.png" alt="Pagination"><img src="pagination-2.png" alt="Pagination"><img src="pagination-3.png" alt="Pagination"><img src="pagination-4.png" alt="Pagination"><img src="pagination-5.png" alt="Pagination"><img src="pagination-6.png" alt="Pagination"><img src="pagination-hover.png" alt="On-hover"><img src="pagination-focus.png" alt="On-focus"></span></p>
-<pre><code>/* Pagination */
-border-radius: 5px;
-background: $white;
-border: 1px solid $gray40;
-height: 38px;
-padding: 0 20px; /* on each toggle option */
-
-/* Numerical/text &apos;cell&apos; */
-padding: 0 15px;
-font-family: Helvetica;
-font-weight: regular;
-font-size: 13px;
-color: $black50;
-
-/* Hover */
-background-color: rgba($black, 0.02);
-
-/* Focus */
-background-color: rgba($black, 0.05);
-
-/* Disabled */
-(same as disabled state for buttons)
-
-/* Null (&#x201C;...&#x201D;) */
-background: none;
-
-/* Active */
-(same as primary button style)
-</code></pre><p>Note: All CSS shown is for guiding purposes, it&apos;s not absolute. It&apos;s intended to help designers foster a greater understanding of both CSS and the specifications.</p>
-<p>See also: <a href="../button_specs/README.md#primary-button">Primary button</a></p>
+<h3 id="developing-with-storybook">Developing with Storybook</h3>
+<ul>
+<li>Follow steps above for &quot;Running Storybook&quot;.</li>
+<li>Create a new dev branch: <code>git checkout -b mybranch</code></li>
+<li>Add/update as necessary.</li>
+<li>Add stories to the <code>stories/</code> directory as you add/update components!</li>
+</ul>
 <hr>
-<h3 id="pagination-on-mobile">Pagination on mobile</h3>
-<p>On mobile the numerical pagination is replaced by a disabled &#x201C;1 of XX&#x201D; segment, in-between a &#x2018;Back&#x2019; and &#x2018;Next&#x2019; button.</p>
-<p><span class="image-spec spec-typo"><img src="pagination-mobile.png" alt="Pagination on mobile"></span></p>
-<pre><code>/* Pagination (on mobile) */
-(each tab is &#x2153; width of space available to it)
+<h2 id="using-the-styleguide">Using the styleguide</h2>
+<h3 id="running">Running</h3>
+<ul>
+<li>Run <code>yarn run styleguide</code></li>
+<li>Load up: <a href="http://0.0.0.0:6060" target="_blank">http://0.0.0.0:6060</a></li>
+</ul>
+<h3 id="building-static-version">Building static version</h3>
+<ul>
+<li>Run <code>yarn run styleguide:build</code></li>
+<li>Files output to <code>/styleguide</code>.</li>
+</ul>
+<h3 id="documenting-components">Documenting components</h3>
+<p>Info here: <a href="https://react-styleguidist.js.org/docs/documenting.html" target="_blank">https://react-styleguidist.js.org/docs/documenting.html</a></p>
+<hr>
+<h2 id="creating-a-pull-request--publishing">Creating a pull request / publishing</h2>
+<h3 id="creating-a-pull-request">Creating a pull request</h3>
+<ul>
+<li>When you&apos;re ready, push your  branch to Github and create a pull request.</li>
+<li>If you&apos;ve made visual changes, include screenshots.</li>
+<li>PR will be reviewed.</li>
+<li>When PR is accepted, it will be merged into master.</li>
+<li>(Optional) If you also need to publish a new Plasma version, read that section.</li>
+</ul>
+<h3 id="publishing-to-npm">Publishing to NPM</h3>
+<ul>
+<li>Only publish from master and make sure you <code>git pull origin</code> the latest from master.</li>
+<li>Run <code>yarn run pack</code> to bundle the .js and .css file into <code>/dist</code> folder.</li>
+<li>Run <code>npm version patch</code>. This will bump the version in package.json and create a new tag and push the tag to Github.</li>
+<li>Make sure you&apos;re logged in to NPM via <code>npm login</code></li>
+<li>Run <code>npm publish</code> from the root directory to publish to NPM registry.</li>
+<li>Check <a href="https://www.npmjs.com/~wework-dev" target="_blank">https://www.npmjs.com/~wework-dev</a> to make sure package is updated.</li>
+</ul>
+<hr>
+<h2 id="developing-with-spacestation">Developing with Spacestation</h2>
+<h3 id="link-plasma-you-only-need-to-do-this-once">Link Plasma (you only need to do this once)</h3>
+<ul>
+<li>In your terminal, <code>cd</code> to local Plasma repo.</li>
+<li>Run <code>yarn link</code></li>
+<li><code>cd</code> to local Spacestation repo.</li>
+<li>Run <code>yarn link @wework-dev/plasma</code>. This creates a symlink in Spacestation&apos;s <code>node_modules/@wework-dev/plasma</code> folder that points to local Plasma repo.</li>
+<li>(Optional) If you need to, you can unlink at any time with <code>yarn unlink @wework-dev/plasma</code></li>
+</ul>
+<h3 id="developing-with-spacestation">Developing with Spacestation</h3>
+<ul>
+<li>Create a new Plasma dev branch: <code>cd /plasma</code> <code>git checkout -b mybranch</code></li>
+<li>Run the Plasma dev server with watch: <code>yarn watch</code></li>
+<li>Run Spacestion: <code>cd /spacestation</code> <code>yarn start</code></li>
+<li>Changes you make in Plasma should automatically be picked up by Spacestation.</li>
+<li>Follow &quot;Creating a Pull Request / Publishing&quot;.</li>
+</ul>
+<h3 id="using-a-published-plasma-version-from-npm">Using a published Plasma version from NPM</h3>
+<ul>
+<li>Run <code>yarn add @wework-dev/plasma</code> in your project.</li>
+<li>Include the Plasma object (or individual components) in your Javascript.</li>
+</ul>
+<h4 id="plasma-object-example">Plasma object example:</h4>
+<pre><code>javascript
+import Plasma from &apos;@wework-dev/plasma&apos;;
+&lt;Plasma.Button label=&apos;Click it&apos;/&gt;
+</code></pre><h4 id="individual-components-example">Individual components example:</h4>
+<pre><code>javascript
+import { Button } from &apos;@wework-dev/plasma&apos;;
+&lt;Button label=&apos;Click it&apos;/&gt;
 </code></pre>
                                 
                                 </section>
@@ -1415,12 +1451,12 @@ background: none;
 
             
                 
-                <a href="../tabs/" class="navigation navigation-prev " aria-label="Previous page: Tabs">
+                <a href="../" class="navigation navigation-prev " aria-label="Previous page: Plasma design system">
                     <i class="fa fa-angle-left"></i>
                 </a>
                 
                 
-                <a href="../patterns/" class="navigation navigation-next " aria-label="Next page: Patterns">
+                <a href="../sketch/" class="navigation navigation-next " aria-label="Next page: Sketch">
                     <i class="fa fa-angle-right"></i>
                 </a>
                 
@@ -1431,7 +1467,7 @@ background: none;
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"Pagination","level":"1.7.8","depth":2,"next":{"title":"Patterns","level":"1.8","depth":1,"path":"patterns/README.md","ref":"patterns/README.md","articles":[]},"previous":{"title":"Tabs","level":"1.7.7","depth":2,"path":"tabs/README.md","ref":"tabs/README.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":["livereload"],"pluginsConfig":{"livereload":{},"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"pagination/README.md","mtime":"2017-12-08T17:26:21.000Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2017-12-08T17:26:46.392Z"},"basePath":"..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"Getting started","level":"1.2","depth":1,"next":{"title":"Sketch","level":"1.3","depth":1,"path":"sketch/README.md","ref":"sketch/README.md","articles":[{"title":"Naming conventions","level":"1.3.1","depth":2,"anchor":"#naming-conventions","path":"sketch/README.md","ref":"sketch/README.md#naming-conventions","articles":[{"title":"Color system","level":"1.3.1.1","depth":3,"anchor":"#color-system","path":"sketch/README.md","ref":"sketch/README.md#color-system","articles":[]},{"title":"Naming text styles","level":"1.3.1.2","depth":3,"anchor":"#naming-text-styles","path":"sketch/README.md","ref":"sketch/README.md#naming-text-styles","articles":[]},{"title":"Using text styles","level":"1.3.1.3","depth":3,"anchor":"#using-text-styles","path":"sketch/README.md","ref":"sketch/README.md#using-text-styles","articles":[]},{"title":"Naming symbols","level":"1.3.1.4","depth":3,"anchor":"#naming-symbols","path":"sketch/README.md","ref":"sketch/README.md#naming-symbols","articles":[]},{"title":"Using symbols","level":"1.3.1.5","depth":3,"anchor":"#using-symbols","path":"sketch/README.md","ref":"sketch/README.md#using-symbols","articles":[]}]},{"title":"Control symbols","level":"1.3.2","depth":2,"anchor":"#control-symbols","path":"sketch/README.md","ref":"sketch/README.md#control-symbols","articles":[]},{"title":"Auto save in Sketch","level":"1.3.3","depth":2,"anchor":"#auto-save-in-sketch","path":"sketch/README.md","ref":"sketch/README.md#auto-save-in-sketch","articles":[]},{"title":"Importing text styles into Sketch","level":"1.3.4","depth":2,"anchor":"#importing-text-styles-into-sketch","path":"sketch/README.md","ref":"sketch/README.md#importing-text-styles-into-sketch","articles":[]}]},"previous":{"title":"Plasma design system","level":"1.1","depth":1,"path":"README.md","ref":"./README.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":["livereload"],"pluginsConfig":{"livereload":{},"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"setup/README.md","mtime":"2017-12-08T17:26:21.000Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2017-12-08T17:26:46.392Z"},"basePath":"..","book":{"language":""}});
         });
     </script>
 </div>

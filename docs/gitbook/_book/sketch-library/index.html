@@ -4,7 +4,7 @@
     <head>
         <meta charset="UTF-8">
         <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
-        <title>Pagination · GitBook</title>
+        <title>Sketch Library · GitBook</title>
         <meta http-equiv="X-UA-Compatible" content="IE=edge" />
         <meta name="description" content="">
         <meta name="generator" content="GitBook 3.2.3">
@@ -247,9 +247,9 @@
             
         </li>
     
-        <li class="chapter " data-level="1.4" data-path="../sketch-library/">
+        <li class="chapter active" data-level="1.4" data-path="./">
             
-                <a href="../sketch-library/">
+                <a href="./">
             
                     
                     Sketch Library
@@ -1257,9 +1257,9 @@
             
         </li>
     
-        <li class="chapter active" data-level="1.7.8" data-path="./">
+        <li class="chapter " data-level="1.7.8" data-path="../pagination/">
             
-                <a href="./">
+                <a href="../pagination/">
             
                     
                     Pagination
@@ -1320,7 +1320,7 @@
     <!-- Title -->
     <h1>
         <i class="fa fa-circle-o-notch fa-spin"></i>
-        <a href=".." >Pagination</a>
+        <a href=".." >Sketch Library</a>
     </h1>
 </div>
 
@@ -1335,55 +1335,22 @@
     
                                 <section class="normal markdown-section">
                                 
-                                <h1 id="pagination">Pagination</h1>
-<p>Displayed below tables when there are a significant number of table rows.</p>
-<h3 id="guidelines">Guidelines</h3>
+                                <h1 id="sketch-library">Sketch Library</h1>
+<p><a href="https://blog.sketchapp.com/introducing-libraries-and-smooth-corners-in-sketch-47-2abc5dfc1fb3" target="_blank">Sketch Libraries &#x2197;</a> allows you to insert symbol(s) from a master Sketch file(s) into any Sketch file. Then any updates made to those symbols in the master file are synced to files using them!</p>
+<p>The added bonus is, the inserted symbols from the master file, are not actually stored in the destination Sketch files, which saves for a lot of bloat, and duplicate symbols, which was a problem with previous versions of Sketch and Craft Library.</p>
+<h3 id="how-to-install-the-sketch-library">How to install the Sketch Library</h3>
 <ul>
-<li>Pagination is centrally aligned, with a top margin of 30px.</li>
-<li>If the user is on the first page of table results, the &#x2018;Back&#x2019; button is disabled. If they are on the last page of table results, &#x2018;Next&#x2019; is disabled.</li>
-<li>The current page of results has an active state applied to it.</li>
-<li>If &#x2264; 7 pages, no need for truncating the pagination (adding &quot;...&quot;).</li>
-<li>If a page &#x2265; 5 is selected, the first page should be available to the left and last page should be available to the right. The first and last page should always be visible.</li>
-<li>An ellipses (...) is shown between non-consecutive pages, using the disabled state style, but the ellipses itself has a 100% opacity, as opposed to 10%.</li>
+<li>Open Preferences in Sketch.</li>
+<li>Navigate to the &apos;Libraries&apos; tab.</li>
+<li>Click the &apos;Add Library...&apos; button.</li>
+<li>Navigate to (and add) the <code>Plasma design system</code> master Sketch file on Dropbox.</li>
 </ul>
-<p><span class="image-spec spec-typo"><img src="pagination-1.png" alt="Pagination"><img src="pagination-2.png" alt="Pagination"><img src="pagination-3.png" alt="Pagination"><img src="pagination-4.png" alt="Pagination"><img src="pagination-5.png" alt="Pagination"><img src="pagination-6.png" alt="Pagination"><img src="pagination-hover.png" alt="On-hover"><img src="pagination-focus.png" alt="On-focus"></span></p>
-<pre><code>/* Pagination */
-border-radius: 5px;
-background: $white;
-border: 1px solid $gray40;
-height: 38px;
-padding: 0 20px; /* on each toggle option */
+<p>Once installed you will now have access to all symbols in the system (mainly form inputs and buttons), via the Insert menu in Sketch.</p>
+<h3 id="control-symbols">Control symbols</h3>
+<p>The library features &apos;control symbols&apos;, please <a href="../sketch/#control-symbols">see here</a> for an intro to this. You are best to use the Control symbols from the Insert menu, as these give you easy access to all states for each component!</p>
+<h3 id="dropbox">Dropbox</h3>
+<p>The Plasma master design system Sketch file needed for Sketch Library is hosted on Dropbox &#x2014; to gain access to this you will need to speak to a lead on the Plasma design system (project and Dropbox folder).</p>
 
-/* Numerical/text &apos;cell&apos; */
-padding: 0 15px;
-font-family: Helvetica;
-font-weight: regular;
-font-size: 13px;
-color: $black50;
-
-/* Hover */
-background-color: rgba($black, 0.02);
-
-/* Focus */
-background-color: rgba($black, 0.05);
-
-/* Disabled */
-(same as disabled state for buttons)
-
-/* Null (&#x201C;...&#x201D;) */
-background: none;
-
-/* Active */
-(same as primary button style)
-</code></pre><p>Note: All CSS shown is for guiding purposes, it&apos;s not absolute. It&apos;s intended to help designers foster a greater understanding of both CSS and the specifications.</p>
-<p>See also: <a href="../button_specs/README.md#primary-button">Primary button</a></p>
-<hr>
-<h3 id="pagination-on-mobile">Pagination on mobile</h3>
-<p>On mobile the numerical pagination is replaced by a disabled &#x201C;1 of XX&#x201D; segment, in-between a &#x2018;Back&#x2019; and &#x2018;Next&#x2019; button.</p>
-<p><span class="image-spec spec-typo"><img src="pagination-mobile.png" alt="Pagination on mobile"></span></p>
-<pre><code>/* Pagination (on mobile) */
-(each tab is &#x2153; width of space available to it)
-</code></pre>
                                 
                                 </section>
                             
@@ -1415,12 +1382,12 @@ background: none;
 
             
                 
-                <a href="../tabs/" class="navigation navigation-prev " aria-label="Previous page: Tabs">
+                <a href="../sketch/#importing-text-styles-into-sketch" class="navigation navigation-prev " aria-label="Previous page: Importing text styles into Sketch">
                     <i class="fa fa-angle-left"></i>
                 </a>
                 
                 
-                <a href="../patterns/" class="navigation navigation-next " aria-label="Next page: Patterns">
+                <a href="../craft-library/" class="navigation navigation-next " aria-label="Next page: Craft Library">
                     <i class="fa fa-angle-right"></i>
                 </a>
                 
@@ -1431,7 +1398,7 @@ background: none;
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"Pagination","level":"1.7.8","depth":2,"next":{"title":"Patterns","level":"1.8","depth":1,"path":"patterns/README.md","ref":"patterns/README.md","articles":[]},"previous":{"title":"Tabs","level":"1.7.7","depth":2,"path":"tabs/README.md","ref":"tabs/README.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":["livereload"],"pluginsConfig":{"livereload":{},"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"pagination/README.md","mtime":"2017-12-08T17:26:21.000Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2017-12-08T17:26:46.392Z"},"basePath":"..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"Sketch Library","level":"1.4","depth":1,"next":{"title":"Craft Library","level":"1.5","depth":1,"path":"craft-library/README.md","ref":"craft-library/README.md","articles":[]},"previous":{"title":"Importing text styles into Sketch","level":"1.3.4","depth":2,"anchor":"#importing-text-styles-into-sketch","path":"sketch/README.md","ref":"sketch/README.md#importing-text-styles-into-sketch","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":["livereload"],"pluginsConfig":{"livereload":{},"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"sketch-library/README.md","mtime":"2017-12-08T17:26:21.000Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2017-12-08T17:26:46.392Z"},"basePath":"..","book":{"language":""}});
         });
     </script>
 </div>
