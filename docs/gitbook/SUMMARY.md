@@ -1,6 +1,8 @@
 # Summary
 
 * [Plasma design system](./README.md)
+	* [System design](./README.md#system-design)
+	* [Further reading](./README.md#further-reading)
 
 * [Getting started](setup/README.md)
 

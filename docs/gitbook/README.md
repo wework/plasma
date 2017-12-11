@@ -1,6 +1,6 @@
 # Introduction
 
-WeWork creates inspiring shared workspaces, with an emphasis on community. Our operations are complicated, so we design and build our own internal digital tools to meet our business needs, and to manage our global network of buildings and members. Plasma is a design system created for these internal business tools.
+WeWork creates inspiring shared workspaces, with an emphasis on community. Our operations are complicated, so we design and build our own internal digital tools to meet our business needs, and to manage our global network of buildings and members. The [Plasma design system](#system-design) is created for these internal business tools.
 
 ### What is WeWork?
 
@@ -9,6 +9,8 @@ WeWork is a global network of workspaces where companies grow together. We are t
 ![Hero pattern](/styles/cms-hero.png)
 
 ## System design
+
+Design systems bring order and consistency to products. They help to protect the brand, elevate the user experience, and increase the speed and efficiency of how we design and build products. The Plasma design system is built on the founding principles of WeWork's [Digital Foundations ↗](https://digital-foundations.netlify.com).
 
 The illustration below demonstrates how the Plasma design system focusses on [foundational](/foundations/README.md) elements like [colors](/colors/README.md) and [text styles](/text-styles/README.md). [Components](/components/README.md) like [form inputs](/form-elements/README.md), [buttons](/buttons/README.md), [toggles](/toggles/README.md), [tabs](/tabs/README.md), [tooltips](/tooltips/README.md) and [pagination](/pagination/README.md). And a [pattern](/patterns/README.md) library designed to cover a range of product scenarios, tailored to data-heavy products and the WeWork brand.
 
