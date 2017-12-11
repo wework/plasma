@@ -9,9 +9,14 @@ Select and Datepicker components do not work right now.
 Use react-select and datepicker directly in Spacestation.
 ````
 
-## Storybook
+### Links
 
-View: http://plasma.guide/storybook
+* Storybook: http://plasma.guide/storybook
+* Components: http://plasma.guide/components
+
+---
+
+## Storybook
 
 ### Running Storybook
 
