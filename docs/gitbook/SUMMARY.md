@@ -5,6 +5,8 @@
 	* [Further reading](./README.md#further-reading)
 
 * [Getting started](setup/README.md)
+	* [Storybook](http://plasma.guide/storybook)
+	* [Components](http://plasma.guide/components)
 
 * [Sketch](sketch/README.md)
 	* [Naming conventions](sketch/README.md#naming-conventions)

@@ -1,12 +1,12 @@
 # Introduction
 
-WeWork creates inspiring shared workspaces, with an emphasis on community. Our operations are complicated, so we design and build our own internal digital tools to meet our business needs, and to manage our global network of buildings and members. The [Plasma design system](#system-design) is created for these internal business tools.
+WeWork creates inspiring shared workspaces, with an emphasis on community. Our operations are complicated, so we design and build our own internal digital tools to meet our business needs, and to manage our global network of buildings and members. The [Plasma design system](#system-design) is created for these internal business tools. [What is WeWork?](#what-is-wework)
 
-### What is WeWork?
+### Developer Links
 
-WeWork is a global network of workspaces where companies grow together. We are the platform for creators, supporting tens of thousands of businesses with more than 150 workspace locations in 14 countries. We provide refreshing workspace, powerful community, and meaningful business services to forward-thinking companies around the world. [Learn more ↗](https://digital-foundations.netlify.com/wework/)
+[Getting started](/setup/README.md) — [Storybook](http://plasma.guide/storybook) — [Components](http://plasma.guide/components)
 
-![Hero pattern](/styles/cms-hero.png)
+---
 
 ## System design
 
@@ -35,3 +35,11 @@ A design case study sharing insight in to the process, creation and documentatio
 ### Tutorial: [Harness the power of nested symbols in Sketch ↗](https://medium.com/@andrewcouldwell/harness-the-power-of-symbols-204448baaef3)
 
 A tutorial for designing efficient (design) system components for more consistent design. The article also links to a Sketch file download to really dig into how it works. _Written by Andrew Couldwell_
+
+---
+
+## What is WeWork?
+
+WeWork is a global network of workspaces where companies grow together. We are the platform for creators, supporting tens of thousands of businesses with more than 150 workspace locations in 14 countries. We provide refreshing workspace, powerful community, and meaningful business services to forward-thinking companies around the world. [Learn more ↗](https://digital-foundations.netlify.com/wework/)
+
+![Hero pattern](/styles/cms-hero.png)
