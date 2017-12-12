@@ -1414,15 +1414,19 @@ font-family: Helvetica;
 font-weight: bold;
 font-size: 13px;
 margin-bottom: 5px;
+color: $black50;
+
+/* Disabled */
+color: $gray40;
 </code></pre><hr>
 <h2 id="inline-label">Inline label</h2>
 <p>Special use case alternative to positioning a label above an input or select. Useful for layouts that need to conserve vertical space.</p>
 <p><span class="image-spec spec-typo"><img src="label-left.png" alt="Inline label"></span></p>
-<pre><code>/* Inline label */
-font-family: Helvetica;
-font-weight: bold;
-font-size: 13px;
+<pre><code>/* Inline label CSS largely the same as a label &amp; legend, with the below differences */
+
+/* Inline label */
 line-height: 40px;
+margin-bottom: 0;
 margin-right: 20px;
 </code></pre><hr>
 <h2 id="text-input">Text input</h2>
@@ -1450,10 +1454,11 @@ border-color: $gray50;
 box-shadow: 0 0 4px 1px $gray40;
 
 /* Disabled */
+border-color: $gray30;
 color: $gray40;
 cursor: not-allowed;
 
-/* Error (input) */
+/* Error */
 border-color: $red50;
 </code></pre><p>See also: <a href="#hint-text--field-caption">Hint text / Field caption</a></p>
 <hr>
@@ -1468,6 +1473,12 @@ font-size: 13px;
 color: $black50;
 background-color: $bg1;
 border-color: $gray40;
+
+/* Disabled */
+border-color: $gray30;
+
+/* Error */
+border-color: $red50;
 </code></pre><hr>
 <h2 id="hint-text--field-caption">Hint text / Field caption</h2>
 <p>An optional hint (text) below a form field or fieldset, with three use cases:</p>
@@ -1492,7 +1503,7 @@ color: $red50;
 font-weight: bold;
 color: $blue50;
 
-/* Disabled state */
+/* Disabled */
 color: $gray40;
 </code></pre><hr>
 <h2 id="textarea">Textarea</h2>
@@ -1528,7 +1539,7 @@ font-weight: regular;
 font-size: 13px;
 line-height: 30px;
 color: $black50;
-box-shadow: 0 2px 4px 0 rgba($black50,0.2);
+box-shadow: 0 2px 4px 0 rgba($black50, 0.2);
 
 /* Hover (an option) */
 background-color: rgba($black50, 0.05);
@@ -1685,8 +1696,11 @@ width: 30px;
 height: 30px;
 margin: 4px;
 
-/* Icon (hover) */
+/* Icon (input hover) */
 color: $gray50;
+
+/* Icon (input disabled) */
+color: $gray30;
 </code></pre><hr>
 <h2 id="phone-number-input-and-select">Phone number input (and select)</h2>
 <p>Prefixes a text input with a select to choose from a list of country codes.</p>
@@ -1774,7 +1788,7 @@ color: $gray50;
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"Input types","level":"1.7.2","depth":2,"next":{"title":"Label & legend","level":"1.7.2.1","depth":3,"anchor":"#label--legend","path":"form-specs/README.md","ref":"form-specs/README.md#label--legend","articles":[{"title":"Inline label","level":"1.7.2.1.1","depth":4,"anchor":"#inline-label","path":"form-specs/README.md","ref":"form-specs/README.md#inline-label","articles":[]}]},"previous":{"title":"Basic specification for inputs","level":"1.7.1.7","depth":3,"anchor":"#basic-specification-for-inputs","path":"form-elements/README.md","ref":"form-elements/README.md#basic-specification-for-inputs","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":["livereload"],"pluginsConfig":{"livereload":{},"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"form-specs/README.md","mtime":"2017-12-08T17:30:53.000Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2017-12-08T17:51:55.116Z"},"basePath":"..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"Input types","level":"1.7.2","depth":2,"next":{"title":"Label & legend","level":"1.7.2.1","depth":3,"anchor":"#label--legend","path":"form-specs/README.md","ref":"form-specs/README.md#label--legend","articles":[{"title":"Inline label","level":"1.7.2.1.1","depth":4,"anchor":"#inline-label","path":"form-specs/README.md","ref":"form-specs/README.md#inline-label","articles":[]}]},"previous":{"title":"Basic specification for inputs","level":"1.7.1.7","depth":3,"anchor":"#basic-specification-for-inputs","path":"form-elements/README.md","ref":"form-elements/README.md#basic-specification-for-inputs","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":["livereload"],"pluginsConfig":{"livereload":{},"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"form-specs/README.md","mtime":"2017-12-12T17:04:10.000Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2017-12-08T17:51:55.116Z"},"basePath":"..","book":{"language":""}});
         });
     </script>
 </div>
