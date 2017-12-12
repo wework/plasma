@@ -19,6 +19,10 @@ font-family: Helvetica;
 font-weight: bold;
 font-size: 13px;
 margin-bottom: 5px;
+color: $black50;
+
+/* Disabled */
+color: $gray40;
 ```
 
 ---
@@ -30,11 +34,11 @@ Special use case alternative to positioning a label above an input or select. Us
 <span class="image-spec spec-typo">![Inline label](./label-left.png)</span>
 
 ```
+/* Inline label CSS largely the same as a label & legend, with the below differences */
+
 /* Inline label */
-font-family: Helvetica;
-font-weight: bold;
-font-size: 13px;
 line-height: 40px;
+margin-bottom: 0;
 margin-right: 20px;
 ```
 
@@ -69,10 +73,11 @@ border-color: $gray50;
 box-shadow: 0 0 4px 1px $gray40;
 
 /* Disabled */
+border-color: $gray30;
 color: $gray40;
 cursor: not-allowed;
 
-/* Error (input) */
+/* Error */
 border-color: $red50;
 ```
 
@@ -95,6 +100,12 @@ font-size: 13px;
 color: $black50;
 background-color: $bg1;
 border-color: $gray40;
+
+/* Disabled */
+border-color: $gray30;
+
+/* Error */
+border-color: $red50;
 ```
 
 ---
@@ -125,7 +136,7 @@ color: $red50;
 font-weight: bold;
 color: $blue50;
 
-/* Disabled state */
+/* Disabled */
 color: $gray40;
 ```
 
@@ -178,7 +189,7 @@ font-weight: regular;
 font-size: 13px;
 line-height: 30px;
 color: $black50;
-box-shadow: 0 2px 4px 0 rgba($black50,0.2);
+box-shadow: 0 2px 4px 0 rgba($black50, 0.2);
 
 /* Hover (an option) */
 background-color: rgba($black50, 0.05);
@@ -371,8 +382,11 @@ width: 30px;
 height: 30px;
 margin: 4px;
 
-/* Icon (hover) */
+/* Icon (input hover) */
 color: $gray50;
+
+/* Icon (input disabled) */
+color: $gray30;
 ```
 
 ---

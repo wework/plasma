@@ -29,7 +29,8 @@ Please refer to the Digital Foundations document for guidelines for [accessibili
 
 ### Disabled state
 
-The label, input border and placeholder text are all `$gray30` color when that element is disabled.
+* The input border and any icons are all `$gray30` color when that element is disabled.
+* The label and placeholder text are all `$gray40` color when the input is disabled.
 
 ### Hint text
 
