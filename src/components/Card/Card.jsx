@@ -47,6 +47,7 @@ class Card extends React.Component {
       borderType,
       type,
       minWidth,
+      hasSmallHeader,
     } = this.props;
 
     const cardStyle = cx(style.card, {
@@ -80,7 +81,7 @@ class Card extends React.Component {
           { (title || actions) &&
             <div className={style.top}>
               { title &&
-                <Header h3>
+                <Header h4={hasSmallHeader} h3={!hasSmallHeader}>
                   { title }
                 </Header>
               }
@@ -127,6 +128,7 @@ Card.propTypes = {
   expandedComponent: PropTypes.node,
   isExpanded: PropTypes.bool,
   minWidth: PropTypes.number,
+  hasSmallHeader: PropTypes.bool,
   ...getDataProps(),
 };
 
