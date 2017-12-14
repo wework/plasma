@@ -1,7 +1,6 @@
 # Summary
 
 * [Plasma design system](./README.md)
-	* [System design](./README.md#system-design)
 	* [Further reading](./README.md#further-reading)
 
 * [Getting started](setup/README.md)
@@ -56,18 +55,18 @@
 * [Components](components/README.md)
 	* [Forms](form-elements/README.md)
 		* [General guidelines](form-elements/README.md#general-guidelines)
+		* [Basic specification for inputs](form-elements/README.md#basic-specification-for-inputs)
 		* [Spacing guidelines](form-elements/README.md#spacing-guidelines)
 		* [Focus state](form-elements/README.md#focus-state)
 		* [Disabled state](form-elements/README.md#disabled-state)
 		* [Hint text](form-elements/README.md#hint-text)
 		* [Error state](form-elements/README.md#error-state)
-		* [Basic specification for inputs](form-elements/README.md#basic-specification-for-inputs)
 	* [Input types](form-specs/README.md)
 		* [Label & legend](form-specs/README.md#label--legend)
 			* [Inline label](form-specs/README.md#inline-label)
 		* [Text input](form-specs/README.md#text-input)
 		* [Prefix & suffix](form-specs/README.md#prefix--suffix)
-		* [Hint text / Field caption](form-specs/README.md#hint-text--field-caption)
+		* [Hint text](form-specs/README.md#hint-text)
 		* [Textarea](form-specs/README.md#textarea)
 		* [Select](form-specs/README.md#select)
 			* [Options & option groups](form-specs/README.md#options--option-groups)
