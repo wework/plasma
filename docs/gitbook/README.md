@@ -1,4 +1,4 @@
-# Introduction
+# Plasma
 
 WeWork creates inspiring shared workspaces, with an emphasis on community. Our operations are complicated, so we design and build our own internal digital tools to meet our business needs, and to manage our global network of buildings and members. The Plasma design system is created for these internal business tools. [What is WeWork?](#what-is-wework)
 
@@ -8,7 +8,7 @@ WeWork creates inspiring shared workspaces, with an emphasis on community. Our o
 
 ---
 
-## Plasma design system
+## System design
 
 Design systems bring order and consistency to products. They help to protect the brand, elevate the user experience, and increase the speed and efficiency of how we design and build products. The Plasma design system is built on the founding principles of WeWork's [Digital Foundations ↗](https://digital-foundations.netlify.com).
 
@@ -38,8 +38,8 @@ A tutorial for designing efficient (design) system components for more consisten
 
 ---
 
+![Hero pattern](/styles/cms-hero.png)
+
 ## What is WeWork?
 
 WeWork is a global network of workspaces where companies grow together. We are the platform for creators, supporting tens of thousands of businesses with more than 150 workspace locations in 14 countries. We provide refreshing workspace, powerful community, and meaningful business services to forward-thinking companies around the world. [Learn more ↗](https://digital-foundations.netlify.com/wework/)
-
-![Hero pattern](/styles/cms-hero.png)

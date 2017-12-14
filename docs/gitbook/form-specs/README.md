@@ -110,7 +110,7 @@ border-color: $red50;
 
 ---
 
-## Hint text / Field caption
+## Hint text
 
 An optional hint (text) below a form field or fieldset, with three use cases:
 
@@ -269,18 +269,18 @@ top: 3px;
 left: 3px;
 transition: background 0.2s linear;
 
-/* Hover (input) */
+/* On hover (input) */
 border-color: $gray50;
 
-/* Hover (label) */
-opacity: 0.7;
+/* On hover (label) */
+color: $gray50;
 
-/* Focus (input) */
+/* On focus (input) */
 border-color: $gray50;
 box-shadow: 0 0 4px 1px $gray40;
 
-/* Focus (label) */
-opacity: 0.4;
+/* On focus (label) */
+color: $gray50;
 
 /* Error (input) */
 border-color: $red50;
@@ -422,7 +422,7 @@ border-radius: 100%;
 background-color: $gray40;
 margin: 7px 0 12px 0;
 
-/* Slider */
+/* Slider circle */
 width: 9px;
 height: 9px;
 border: 3px solid $purple20;
@@ -434,5 +434,17 @@ font-family: Helvetica;
 font-weight: regular;
 font-size: 11px;
 line-height: 18px;
-color: $gray50;
+color: $black50;
+
+/* Values (active value on left) */
+font-weight: bold;
+
+/* Slider bar (disabled) */
+background-color: $gray30;
+
+/* Slider circle (disabled) */
+border-color: $gray30;
+
+/* Values (disabled) */
+color: $gray40;
 ```
