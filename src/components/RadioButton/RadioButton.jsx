@@ -1,51 +1,49 @@
-import { uniqueId } from 'lodash';
-import React from 'react';
-import PropTypes from 'prop-types';
-import cx from 'classnames';
-import {
-  getDataAttrs,
-  getDataProps,
-} from '../../dataUtils';
-import style from './style.scss';
+import { uniqueId } from "lodash";
+import React from "react";
+import PropTypes from "prop-types";
+import cx from "classnames";
+import { getDataAttrs, getDataProps } from "../../dataUtils";
+import style from "./style.scss";
 
 class RadioButton extends React.Component {
+  handleChange = event => {
+    const value = event.target.value;
+    this.props.onChange(value === "on" ? this.props.text : "");
+  };
+
   render() {
-    const id = uniqueId('id');
+    const id = uniqueId("id");
     const wrapperClasses = cx(style.wrapper, {
-      [style.isLarge]: this.props.isLarge,
+      [style.isLarge]: this.props.isLarge
     });
 
     return (
-      <div
-        {...getDataAttrs(this.props.data)}
-      >
+      <div {...getDataAttrs(this.props.data)}>
         <label htmlFor={id} className={wrapperClasses}>
           <input
             className={style.original}
             type="radio"
             id={id}
             name={this.props.name}
-            onChange={this.props.onChange}
+            onChange={this.handleChange}
             checked={this.props.checked}
           />
           <div className={style.faux} />
           <div className={style.text}>
-            <strong>{ this.props.text }</strong>
+            <strong>{this.props.text}</strong>
           </div>
         </label>
-        { this.props.description &&
-          <span className={style.description}>
-            { this.props.description }
-          </span>
-        }
+        {this.props.description && (
+          <span className={style.description}>{this.props.description}</span>
+        )}
       </div>
     );
   }
 }
 
 RadioButton.defaultProps = {
-  text: 'Option',
-  name: 'radioButton',
+  text: "Option",
+  name: "radioButton"
 };
 
 RadioButton.propTypes = {
@@ -55,9 +53,9 @@ RadioButton.propTypes = {
   isLarge: PropTypes.bool,
   onChange: PropTypes.func,
   checked: PropTypes.bool,
-  ...getDataProps(),
+  ...getDataProps()
 };
 
-RadioButton.displayName = 'Plasma@RadioButton';
+RadioButton.displayName = "Plasma@RadioButton";
 
 export default RadioButton;

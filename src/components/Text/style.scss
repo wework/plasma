@@ -1,5 +1,9 @@
-@import '../../styles/base';
+@import "../../styles/base";
 
 .wrapper {
   @extend %type--body;
+}
+
+.large {
+  font-size: 16px;
 }
