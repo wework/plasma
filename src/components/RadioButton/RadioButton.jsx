@@ -6,11 +6,6 @@ import { getDataAttrs, getDataProps } from "../../dataUtils";
 import style from "./style.scss";
 
 class RadioButton extends React.Component {
-  handleChange = event => {
-    const value = event.target.value;
-    this.props.onChange(value === "on" ? this.props.text : "");
-  };
-
   render() {
     const id = uniqueId("id");
     const wrapperClasses = cx(style.wrapper, {
@@ -25,8 +20,9 @@ class RadioButton extends React.Component {
             type="radio"
             id={id}
             name={this.props.name}
-            onChange={this.handleChange}
+            onChange={this.props.onChange}
             checked={this.props.checked}
+            value={this.props.fieldValue}
           />
           <div className={style.faux} />
           <div className={style.text}>
@@ -53,6 +49,7 @@ RadioButton.propTypes = {
   isLarge: PropTypes.bool,
   onChange: PropTypes.func,
   checked: PropTypes.bool,
+  fieldValue: PropTypes.string,
   ...getDataProps()
 };
 
