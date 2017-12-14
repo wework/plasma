@@ -24,7 +24,9 @@ class RadioButton extends React.Component {
             id={id}
             name={this.props.name}
             onChange={this.props.onChange}
-            checked={this.props.checked}
+            checked={
+              this.props.checked || this.props.value === this.props.fieldValue
+            }
             value={this.props.fieldValue}
             disabled={this.props.disabled}
           />
