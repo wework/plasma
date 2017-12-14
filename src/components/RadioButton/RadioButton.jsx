@@ -9,24 +9,32 @@ class RadioButton extends React.Component {
   render() {
     const id = uniqueId("id");
     const wrapperClasses = cx(style.wrapper, {
-      [style.isLarge]: this.props.isLarge
+      [style.isLarge]: this.props.isLarge,
+      [style.disabled]: this.props.disabled
     });
 
     return (
       <div {...getDataAttrs(this.props.data)}>
         <label htmlFor={id} className={wrapperClasses}>
           <input
-            className={style.original}
+            className={cx(style.original, {
+              [style.disabled]: this.props.disabled
+            })}
             type="radio"
             id={id}
             name={this.props.name}
             onChange={this.props.onChange}
             checked={this.props.checked}
             value={this.props.fieldValue}
+            disabled={this.props.disabled}
           />
           <div className={style.faux} />
-          <div className={style.text}>
-            <strong>{this.props.text}</strong>
+          <div
+            className={cx(style.text, {
+              [style.disabled]: this.props.disabled
+            })}
+          >
+            {this.props.text}
           </div>
         </label>
         {this.props.description && (
@@ -50,6 +58,7 @@ RadioButton.propTypes = {
   onChange: PropTypes.func,
   checked: PropTypes.bool,
   fieldValue: PropTypes.string,
+  disabled: PropTypes.bool,
   ...getDataProps()
 };
 
