@@ -34,6 +34,6 @@ Please refer to the Digital Foundations documentation for guidelines on [call to
 
 ### Preview of button types
 
-<span class="image-spec">![Example use case for buttons](./button-use-1.png)![Example use case for buttons](./button-use-2.png)![Example use case for buttons](./button-use-3.png)![Example use case for buttons](./button-use-4.png)</span>
+<span class="image-spec">![Example use case for buttons](./button-use-1.png)![Example use case for buttons](./button-use-2.png)![Example use case for buttons](./button-use-3.png)![Example use case for buttons](./button-use-4.png)![Example use case for buttons](./button-use-5.png)</span>
 
 See next: [Button types](/button-specs/README.md)
