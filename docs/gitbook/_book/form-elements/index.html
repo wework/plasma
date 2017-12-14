@@ -95,19 +95,6 @@
     
         <li class="chapter " data-level="1.1.1" data-path="../">
             
-                <a href="../#system-design">
-            
-                    
-                    System design
-            
-                </a>
-            
-
-            
-        </li>
-    
-        <li class="chapter " data-level="1.1.2" data-path="../">
-            
                 <a href="../#further-reading">
             
                     
@@ -144,19 +131,6 @@
             
                     
                     Storybook
-            
-                </a>
-            
-
-            
-        </li>
-    
-        <li class="chapter " data-level="1.2.2" >
-            
-                <a target="_blank" href="http://plasma.guide/components">
-            
-                    
-                    Components
             
                 </a>
             
@@ -768,6 +742,19 @@
     
         <li class="chapter " data-level="1.7.1.2" data-path="./">
             
+                <a href="./#basic-specification-for-inputs">
+            
+                    
+                    Basic specification for inputs
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7.1.3" data-path="./">
+            
                 <a href="./#spacing-guidelines">
             
                     
@@ -779,7 +766,7 @@
             
         </li>
     
-        <li class="chapter " data-level="1.7.1.3" data-path="./">
+        <li class="chapter " data-level="1.7.1.4" data-path="./">
             
                 <a href="./#focus-state">
             
@@ -792,7 +779,7 @@
             
         </li>
     
-        <li class="chapter " data-level="1.7.1.4" data-path="./">
+        <li class="chapter " data-level="1.7.1.5" data-path="./">
             
                 <a href="./#disabled-state">
             
@@ -805,7 +792,7 @@
             
         </li>
     
-        <li class="chapter " data-level="1.7.1.5" data-path="./">
+        <li class="chapter " data-level="1.7.1.6" data-path="./">
             
                 <a href="./#hint-text">
             
@@ -818,25 +805,12 @@
             
         </li>
     
-        <li class="chapter " data-level="1.7.1.6" data-path="./">
+        <li class="chapter " data-level="1.7.1.7" data-path="./">
             
                 <a href="./#error-state">
             
                     
                     Error state
-            
-                </a>
-            
-
-            
-        </li>
-    
-        <li class="chapter " data-level="1.7.1.7" data-path="./">
-            
-                <a href="./#basic-specification-for-inputs">
-            
-                    
-                    Basic specification for inputs
             
                 </a>
             
@@ -923,10 +897,10 @@
     
         <li class="chapter " data-level="1.7.2.4" data-path="../form-specs/">
             
-                <a href="../form-specs/#hint-text--field-caption">
+                <a href="../form-specs/#hint-text">
             
                     
-                    Hint text / Field caption
+                    Hint text
             
                 </a>
             
@@ -1020,10 +994,10 @@
     
         <li class="chapter " data-level="1.7.2.9" data-path="../form-specs/">
             
-                <a href="../form-specs/#search-input-or-select">
+                <a href="../form-specs/#search-input">
             
                     
-                    Search (input or select)
+                    Search input
             
                 </a>
             
@@ -1033,10 +1007,10 @@
     
         <li class="chapter " data-level="1.7.2.10" data-path="../form-specs/">
             
-                <a href="../form-specs/#number-input">
+                <a href="../form-specs/#date-input">
             
                     
-                    Number input
+                    Date input
             
                 </a>
             
@@ -1046,10 +1020,10 @@
     
         <li class="chapter " data-level="1.7.2.11" data-path="../form-specs/">
             
-                <a href="../form-specs/#date-input">
+                <a href="../form-specs/#filter-input">
             
                     
-                    Date input
+                    Filter input
             
                 </a>
             
@@ -1071,6 +1045,19 @@
         </li>
     
         <li class="chapter " data-level="1.7.2.13" data-path="../form-specs/">
+            
+                <a href="../form-specs/#number-input">
+            
+                    
+                    Number input
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7.2.14" data-path="../form-specs/">
             
                 <a href="../form-specs/#range-input-slider">
             
@@ -1413,6 +1400,8 @@
 <li>Form labels use the <a href="../text-styles/#bold-5">Bold 5</a> text style.</li>
 <li>Text input, textarea and select have 10px left/right padding.</li>
 </ul>
+<h3 id="basic-specification-for-inputs">Basic specification for inputs</h3>
+<p><span class="image-spec"><img src="spec-inputs.png" alt="Spec for form inputs"></span></p>
 <h3 id="spacing-guidelines">Spacing guidelines</h3>
 <ul>
 <li>Text input, textarea and select have left/right padding of 10px.</li>
@@ -1427,11 +1416,14 @@
 <li>The border color of the input is the same as the hover state of that input.</li>
 </ul>
 <h3 id="disabled-state">Disabled state</h3>
-<p>The label, input border and placeholder text are all <code>$gray30</code> color when that element is disabled.</p>
+<ul>
+<li>The input border and any icons are all <code>$gray30</code> color when that element is disabled.</li>
+<li>The label and placeholder text are all <code>$gray40</code> color when the input is disabled.</li>
+</ul>
 <h3 id="hint-text">Hint text</h3>
 <p>An optional instruction can been included under each input. A simple line of text below an input for special instruction (e.g. &#x201C;Required for security purposes&#x201D;, or &#x201C;Password must be over 8 characters&#x201D;).</p>
 <ul>
-<li>Hint text should use the <a href="../text-styles/#regular-3">Regular 3</a> style.</li>
+<li><a href="../form-specs/#hint-text">Hint text</a> should use the <a href="../text-styles/#regular-3">Regular 3</a> style.</li>
 <li>Text should be <code>$gray50</code> color (to match placeholder text).</li>
 <li>5px margin separating instruction text from input above it.</li>
 </ul>
@@ -1442,10 +1434,8 @@
 <li>The text in input and label should retain their original color (no change).</li>
 <li>5px margin separating error text from input above it.</li>
 <li>The <code>$red50</code> color is used for communicating errors and warnings.</li>
-<li>An additional icon is included in text inputs, textareas and selects in the <code>$red50</code> color positioned to the right of that input (this icon is included in the UI Kit).</li>
+<li>An additional icon is included in text inputs, textareas and selects in the <code>$red50</code> color positioned to the right of that input.</li>
 </ul>
-<h3 id="basic-specification-for-inputs">Basic specification for inputs</h3>
-<p><span class="image-spec"><img src="spec-inputs.png" alt="Spec for form inputs"></span></p>
 
                                 
                                 </section>
@@ -1494,7 +1484,7 @@
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"Forms","level":"1.7.1","depth":2,"next":{"title":"General guidelines","level":"1.7.1.1","depth":3,"anchor":"#general-guidelines","path":"form-elements/README.md","ref":"form-elements/README.md#general-guidelines","articles":[]},"previous":{"title":"Components","level":"1.7","depth":1,"path":"components/README.md","ref":"components/README.md","articles":[{"title":"Forms","level":"1.7.1","depth":2,"path":"form-elements/README.md","ref":"form-elements/README.md","articles":[{"title":"General guidelines","level":"1.7.1.1","depth":3,"anchor":"#general-guidelines","path":"form-elements/README.md","ref":"form-elements/README.md#general-guidelines","articles":[]},{"title":"Spacing guidelines","level":"1.7.1.2","depth":3,"anchor":"#spacing-guidelines","path":"form-elements/README.md","ref":"form-elements/README.md#spacing-guidelines","articles":[]},{"title":"Focus state","level":"1.7.1.3","depth":3,"anchor":"#focus-state","path":"form-elements/README.md","ref":"form-elements/README.md#focus-state","articles":[]},{"title":"Disabled state","level":"1.7.1.4","depth":3,"anchor":"#disabled-state","path":"form-elements/README.md","ref":"form-elements/README.md#disabled-state","articles":[]},{"title":"Hint text","level":"1.7.1.5","depth":3,"anchor":"#hint-text","path":"form-elements/README.md","ref":"form-elements/README.md#hint-text","articles":[]},{"title":"Error state","level":"1.7.1.6","depth":3,"anchor":"#error-state","path":"form-elements/README.md","ref":"form-elements/README.md#error-state","articles":[]},{"title":"Basic specification for inputs","level":"1.7.1.7","depth":3,"anchor":"#basic-specification-for-inputs","path":"form-elements/README.md","ref":"form-elements/README.md#basic-specification-for-inputs","articles":[]}]},{"title":"Input types","level":"1.7.2","depth":2,"path":"form-specs/README.md","ref":"form-specs/README.md","articles":[{"title":"Label & legend","level":"1.7.2.1","depth":3,"anchor":"#label--legend","path":"form-specs/README.md","ref":"form-specs/README.md#label--legend","articles":[{"title":"Inline label","level":"1.7.2.1.1","depth":4,"anchor":"#inline-label","path":"form-specs/README.md","ref":"form-specs/README.md#inline-label","articles":[]}]},{"title":"Text input","level":"1.7.2.2","depth":3,"anchor":"#text-input","path":"form-specs/README.md","ref":"form-specs/README.md#text-input","articles":[]},{"title":"Prefix & suffix","level":"1.7.2.3","depth":3,"anchor":"#prefix--suffix","path":"form-specs/README.md","ref":"form-specs/README.md#prefix--suffix","articles":[]},{"title":"Hint text / Field caption","level":"1.7.2.4","depth":3,"anchor":"#hint-text--field-caption","path":"form-specs/README.md","ref":"form-specs/README.md#hint-text--field-caption","articles":[]},{"title":"Textarea","level":"1.7.2.5","depth":3,"anchor":"#textarea","path":"form-specs/README.md","ref":"form-specs/README.md#textarea","articles":[]},{"title":"Select","level":"1.7.2.6","depth":3,"anchor":"#select","path":"form-specs/README.md","ref":"form-specs/README.md#select","articles":[{"title":"Options & option groups","level":"1.7.2.6.1","depth":4,"anchor":"#options--option-groups","path":"form-specs/README.md","ref":"form-specs/README.md#options--option-groups","articles":[]},{"title":"Multi-select and option tags","level":"1.7.2.6.2","depth":4,"anchor":"#multi-select-and-option-tags","path":"form-specs/README.md","ref":"form-specs/README.md#multi-select-and-option-tags","articles":[]}]},{"title":"Radio buttons","level":"1.7.2.7","depth":3,"anchor":"#radio-buttons","path":"form-specs/README.md","ref":"form-specs/README.md#radio-buttons","articles":[]},{"title":"Checkboxes","level":"1.7.2.8","depth":3,"anchor":"#checkboxes","path":"form-specs/README.md","ref":"form-specs/README.md#checkboxes","articles":[]},{"title":"Search (input or select)","level":"1.7.2.9","depth":3,"anchor":"#search-input-or-select","path":"form-specs/README.md","ref":"form-specs/README.md#search-input-or-select","articles":[]},{"title":"Number input","level":"1.7.2.10","depth":3,"anchor":"#number-input","path":"form-specs/README.md","ref":"form-specs/README.md#number-input","articles":[]},{"title":"Date input","level":"1.7.2.11","depth":3,"anchor":"#date-input","path":"form-specs/README.md","ref":"form-specs/README.md#date-input","articles":[]},{"title":"Phone number input","level":"1.7.2.12","depth":3,"anchor":"#phone-number-input-and-select","path":"form-specs/README.md","ref":"form-specs/README.md#phone-number-input-and-select","articles":[]},{"title":"Range input (slider)","level":"1.7.2.13","depth":3,"anchor":"#range-input-slider","path":"form-specs/README.md","ref":"form-specs/README.md#range-input-slider","articles":[]}]},{"title":"Buttons","level":"1.7.3","depth":2,"path":"buttons/README.md","ref":"buttons/README.md","articles":[{"title":"General guidelines","level":"1.7.3.1","depth":3,"anchor":"#general-guidelines","path":"buttons/README.md","ref":"buttons/README.md#general-guidelines","articles":[]},{"title":"Spacing guidelines","level":"1.7.3.2","depth":3,"anchor":"#spacing-guidelines","path":"buttons/README.md","ref":"buttons/README.md#spacing-guidelines","articles":[]},{"title":"Animation","level":"1.7.3.3","depth":3,"anchor":"#animation","path":"buttons/README.md","ref":"buttons/README.md#animation","articles":[]},{"title":"Disabled state","level":"1.7.3.4","depth":3,"anchor":"#disabled-state","path":"buttons/README.md","ref":"buttons/README.md#disabled-state","articles":[]}]},{"title":"Button types","level":"1.7.4","depth":2,"path":"button-specs/README.md","ref":"button-specs/README.md","articles":[{"title":"Primary button","level":"1.7.4.1","depth":3,"anchor":"#primary-button","path":"button-specs/README.md","ref":"button-specs/README.md#primary-button","articles":[]},{"title":"Secondary button","level":"1.7.4.2","depth":3,"anchor":"#secondary-button","path":"button-specs/README.md","ref":"button-specs/README.md#secondary-button","articles":[]},{"title":"Tertiary button","level":"1.7.4.3","depth":3,"anchor":"#tertiary-button","path":"button-specs/README.md","ref":"button-specs/README.md#tertiary-button","articles":[]},{"title":"Tertiary Light button","level":"1.7.4.4","depth":3,"anchor":"#tertiary-light-button","path":"button-specs/README.md","ref":"button-specs/README.md#tertiary-light-button","articles":[]},{"title":"Link button","level":"1.7.4.5","depth":3,"anchor":"#link-button","path":"button-specs/README.md","ref":"button-specs/README.md#link-button","articles":[]},{"title":"Link Light button","level":"1.7.4.6","depth":3,"anchor":"#link-light-button","path":"button-specs/README.md","ref":"button-specs/README.md#link-light-button","articles":[]},{"title":"Icon & Link button","level":"1.7.4.7","depth":3,"anchor":"#icon--link-button","path":"button-specs/README.md","ref":"button-specs/README.md#icon--link-button","articles":[]},{"title":"Icon & Link Light button","level":"1.7.4.8","depth":3,"anchor":"#icon--link-light-button","path":"button-specs/README.md","ref":"button-specs/README.md#icon--link-light-button","articles":[]}]},{"title":"Toggles","level":"1.7.5","depth":2,"path":"toggles/README.md","ref":"toggles/README.md","articles":[]},{"title":"Tooltips","level":"1.7.6","depth":2,"path":"tooltips/README.md","ref":"tooltips/README.md","articles":[]},{"title":"Tabs","level":"1.7.7","depth":2,"path":"tabs/README.md","ref":"tabs/README.md","articles":[]},{"title":"Pagination","level":"1.7.8","depth":2,"path":"pagination/README.md","ref":"pagination/README.md","articles":[]}]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":["livereload"],"pluginsConfig":{"livereload":{},"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"form-elements/README.md","mtime":"2017-12-08T17:30:53.000Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2017-12-08T17:51:55.116Z"},"basePath":"..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"Forms","level":"1.7.1","depth":2,"next":{"title":"General guidelines","level":"1.7.1.1","depth":3,"anchor":"#general-guidelines","path":"form-elements/README.md","ref":"form-elements/README.md#general-guidelines","articles":[]},"previous":{"title":"Components","level":"1.7","depth":1,"path":"components/README.md","ref":"components/README.md","articles":[{"title":"Forms","level":"1.7.1","depth":2,"path":"form-elements/README.md","ref":"form-elements/README.md","articles":[{"title":"General guidelines","level":"1.7.1.1","depth":3,"anchor":"#general-guidelines","path":"form-elements/README.md","ref":"form-elements/README.md#general-guidelines","articles":[]},{"title":"Basic specification for inputs","level":"1.7.1.2","depth":3,"anchor":"#basic-specification-for-inputs","path":"form-elements/README.md","ref":"form-elements/README.md#basic-specification-for-inputs","articles":[]},{"title":"Spacing guidelines","level":"1.7.1.3","depth":3,"anchor":"#spacing-guidelines","path":"form-elements/README.md","ref":"form-elements/README.md#spacing-guidelines","articles":[]},{"title":"Focus state","level":"1.7.1.4","depth":3,"anchor":"#focus-state","path":"form-elements/README.md","ref":"form-elements/README.md#focus-state","articles":[]},{"title":"Disabled state","level":"1.7.1.5","depth":3,"anchor":"#disabled-state","path":"form-elements/README.md","ref":"form-elements/README.md#disabled-state","articles":[]},{"title":"Hint text","level":"1.7.1.6","depth":3,"anchor":"#hint-text","path":"form-elements/README.md","ref":"form-elements/README.md#hint-text","articles":[]},{"title":"Error state","level":"1.7.1.7","depth":3,"anchor":"#error-state","path":"form-elements/README.md","ref":"form-elements/README.md#error-state","articles":[]}]},{"title":"Input types","level":"1.7.2","depth":2,"path":"form-specs/README.md","ref":"form-specs/README.md","articles":[{"title":"Label & legend","level":"1.7.2.1","depth":3,"anchor":"#label--legend","path":"form-specs/README.md","ref":"form-specs/README.md#label--legend","articles":[{"title":"Inline label","level":"1.7.2.1.1","depth":4,"anchor":"#inline-label","path":"form-specs/README.md","ref":"form-specs/README.md#inline-label","articles":[]}]},{"title":"Text input","level":"1.7.2.2","depth":3,"anchor":"#text-input","path":"form-specs/README.md","ref":"form-specs/README.md#text-input","articles":[]},{"title":"Prefix & suffix","level":"1.7.2.3","depth":3,"anchor":"#prefix--suffix","path":"form-specs/README.md","ref":"form-specs/README.md#prefix--suffix","articles":[]},{"title":"Hint text","level":"1.7.2.4","depth":3,"anchor":"#hint-text","path":"form-specs/README.md","ref":"form-specs/README.md#hint-text","articles":[]},{"title":"Textarea","level":"1.7.2.5","depth":3,"anchor":"#textarea","path":"form-specs/README.md","ref":"form-specs/README.md#textarea","articles":[]},{"title":"Select","level":"1.7.2.6","depth":3,"anchor":"#select","path":"form-specs/README.md","ref":"form-specs/README.md#select","articles":[{"title":"Options & option groups","level":"1.7.2.6.1","depth":4,"anchor":"#options--option-groups","path":"form-specs/README.md","ref":"form-specs/README.md#options--option-groups","articles":[]},{"title":"Multi-select and option tags","level":"1.7.2.6.2","depth":4,"anchor":"#multi-select-and-option-tags","path":"form-specs/README.md","ref":"form-specs/README.md#multi-select-and-option-tags","articles":[]}]},{"title":"Radio buttons","level":"1.7.2.7","depth":3,"anchor":"#radio-buttons","path":"form-specs/README.md","ref":"form-specs/README.md#radio-buttons","articles":[]},{"title":"Checkboxes","level":"1.7.2.8","depth":3,"anchor":"#checkboxes","path":"form-specs/README.md","ref":"form-specs/README.md#checkboxes","articles":[]},{"title":"Search input","level":"1.7.2.9","depth":3,"anchor":"#search-input","path":"form-specs/README.md","ref":"form-specs/README.md#search-input","articles":[]},{"title":"Date input","level":"1.7.2.10","depth":3,"anchor":"#date-input","path":"form-specs/README.md","ref":"form-specs/README.md#date-input","articles":[]},{"title":"Filter input","level":"1.7.2.11","depth":3,"anchor":"#filter-input","path":"form-specs/README.md","ref":"form-specs/README.md#filter-input","articles":[]},{"title":"Phone number input","level":"1.7.2.12","depth":3,"anchor":"#phone-number-input-and-select","path":"form-specs/README.md","ref":"form-specs/README.md#phone-number-input-and-select","articles":[]},{"title":"Number input","level":"1.7.2.13","depth":3,"anchor":"#number-input","path":"form-specs/README.md","ref":"form-specs/README.md#number-input","articles":[]},{"title":"Range input (slider)","level":"1.7.2.14","depth":3,"anchor":"#range-input-slider","path":"form-specs/README.md","ref":"form-specs/README.md#range-input-slider","articles":[]}]},{"title":"Buttons","level":"1.7.3","depth":2,"path":"buttons/README.md","ref":"buttons/README.md","articles":[{"title":"General guidelines","level":"1.7.3.1","depth":3,"anchor":"#general-guidelines","path":"buttons/README.md","ref":"buttons/README.md#general-guidelines","articles":[]},{"title":"Spacing guidelines","level":"1.7.3.2","depth":3,"anchor":"#spacing-guidelines","path":"buttons/README.md","ref":"buttons/README.md#spacing-guidelines","articles":[]},{"title":"Animation","level":"1.7.3.3","depth":3,"anchor":"#animation","path":"buttons/README.md","ref":"buttons/README.md#animation","articles":[]},{"title":"Disabled state","level":"1.7.3.4","depth":3,"anchor":"#disabled-state","path":"buttons/README.md","ref":"buttons/README.md#disabled-state","articles":[]}]},{"title":"Button types","level":"1.7.4","depth":2,"path":"button-specs/README.md","ref":"button-specs/README.md","articles":[{"title":"Primary button","level":"1.7.4.1","depth":3,"anchor":"#primary-button","path":"button-specs/README.md","ref":"button-specs/README.md#primary-button","articles":[]},{"title":"Secondary button","level":"1.7.4.2","depth":3,"anchor":"#secondary-button","path":"button-specs/README.md","ref":"button-specs/README.md#secondary-button","articles":[]},{"title":"Tertiary button","level":"1.7.4.3","depth":3,"anchor":"#tertiary-button","path":"button-specs/README.md","ref":"button-specs/README.md#tertiary-button","articles":[]},{"title":"Tertiary Light button","level":"1.7.4.4","depth":3,"anchor":"#tertiary-light-button","path":"button-specs/README.md","ref":"button-specs/README.md#tertiary-light-button","articles":[]},{"title":"Link button","level":"1.7.4.5","depth":3,"anchor":"#link-button","path":"button-specs/README.md","ref":"button-specs/README.md#link-button","articles":[]},{"title":"Link Light button","level":"1.7.4.6","depth":3,"anchor":"#link-light-button","path":"button-specs/README.md","ref":"button-specs/README.md#link-light-button","articles":[]},{"title":"Icon & Link button","level":"1.7.4.7","depth":3,"anchor":"#icon--link-button","path":"button-specs/README.md","ref":"button-specs/README.md#icon--link-button","articles":[]},{"title":"Icon & Link Light button","level":"1.7.4.8","depth":3,"anchor":"#icon--link-light-button","path":"button-specs/README.md","ref":"button-specs/README.md#icon--link-light-button","articles":[]}]},{"title":"Toggles","level":"1.7.5","depth":2,"path":"toggles/README.md","ref":"toggles/README.md","articles":[]},{"title":"Tooltips","level":"1.7.6","depth":2,"path":"tooltips/README.md","ref":"tooltips/README.md","articles":[]},{"title":"Tabs","level":"1.7.7","depth":2,"path":"tabs/README.md","ref":"tabs/README.md","articles":[]},{"title":"Pagination","level":"1.7.8","depth":2,"path":"pagination/README.md","ref":"pagination/README.md","articles":[]}]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":["livereload"],"pluginsConfig":{"livereload":{},"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"form-elements/README.md","mtime":"2017-12-14T19:23:30.000Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2017-12-14T02:16:51.376Z"},"basePath":"..","book":{"language":""}});
         });
     </script>
 </div>

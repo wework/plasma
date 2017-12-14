@@ -14,6 +14,10 @@ Please refer to the Digital Foundations document for guidelines for [accessibili
 * Form labels use the [Bold 5](/text-styles/README.md#bold-5) text style.
 * Text input, textarea and select have 10px left/right padding.
 
+### Basic specification for inputs
+
+<span class="image-spec">![Spec for form inputs](./spec-inputs.png)</span>
+
 ### Spacing guidelines
 
 * Text input, textarea and select have left/right padding of 10px.
@@ -29,13 +33,14 @@ Please refer to the Digital Foundations document for guidelines for [accessibili
 
 ### Disabled state
 
-The label, input border and placeholder text are all `$gray30` color when that element is disabled.
+* The input border and any icons are all `$gray30` color when that element is disabled.
+* The label and placeholder text are all `$gray40` color when the input is disabled.
 
 ### Hint text
 
 An optional instruction can been included under each input. A simple line of text below an input for special instruction (e.g. “Required for security purposes”, or “Password must be over 8 characters”).
 
-* Hint text should use the [Regular 3](/text-styles/README.md#regular-3) style.
+* [Hint text](/form-specs/README.md#hint-text) should use the [Regular 3](/text-styles/README.md#regular-3) style.
 * Text should be `$gray50` color (to match placeholder text).
 * 5px margin separating instruction text from input above it.
 
@@ -47,8 +52,4 @@ Errors should always be explained — it’s not enough to flag an error (via a 
 * The text in input and label should retain their original color (no change).
 * 5px margin separating error text from input above it.
 * The `$red50` color is used for communicating errors and warnings.
-* An additional icon is included in text inputs, textareas and selects in the `$red50` color positioned to the right of that input (this icon is included in the UI Kit).
-
-### Basic specification for inputs
-
-<span class="image-spec">![Spec for form inputs](./spec-inputs.png)</span>
+* An additional icon is included in text inputs, textareas and selects in the `$red50` color positioned to the right of that input.

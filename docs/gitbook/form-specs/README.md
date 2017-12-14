@@ -19,6 +19,10 @@ font-family: Helvetica;
 font-weight: bold;
 font-size: 13px;
 margin-bottom: 5px;
+color: $black50;
+
+/* Disabled */
+color: $gray40;
 ```
 
 ---
@@ -27,14 +31,14 @@ margin-bottom: 5px;
 
 Special use case alternative to positioning a label above an input or select. Useful for layouts that need to conserve vertical space.
 
-<span class="image-spec spec-typo">![Inline label](./label-left.png)</span>
+<span class="image-spec spec-typo">![Inline label](./inline-label.png)</span>
 
 ```
+/* Inline label CSS largely the same as a label & legend, with the below differences */
+
 /* Inline label */
-font-family: Helvetica;
-font-weight: bold;
-font-size: 13px;
 line-height: 40px;
+margin-bottom: 0;
 margin-right: 20px;
 ```
 
@@ -69,10 +73,11 @@ border-color: $gray50;
 box-shadow: 0 0 4px 1px $gray40;
 
 /* Disabled */
+border-color: $gray30;
 color: $gray40;
 cursor: not-allowed;
 
-/* Error (input) */
+/* Error */
 border-color: $red50;
 ```
 
@@ -95,11 +100,17 @@ font-size: 13px;
 color: $black50;
 background-color: $bg1;
 border-color: $gray40;
+
+/* Disabled */
+border-color: $gray30;
+
+/* Error */
+border-color: $red50;
 ```
 
 ---
 
-## Hint text / Field caption
+## Hint text
 
 An optional hint (text) below a form field or fieldset, with three use cases:
 
@@ -125,7 +136,7 @@ color: $red50;
 font-weight: bold;
 color: $blue50;
 
-/* Disabled state */
+/* Disabled */
 color: $gray40;
 ```
 
@@ -178,10 +189,10 @@ font-weight: regular;
 font-size: 13px;
 line-height: 30px;
 color: $black50;
-box-shadow: 0 2px 4px 0 rgba($black50,0.2);
+box-shadow: 0 2px 4px 0 rgba($black50, 0.2);
 
 /* Hover (an option) */
-background-color: rgba($black50, 0.05);
+background-color: $bg3;
 
 /* <optgroup> */
 font-family: Helvetica;
@@ -258,18 +269,18 @@ top: 3px;
 left: 3px;
 transition: background 0.2s linear;
 
-/* Hover (input) */
+/* On hover (input) */
 border-color: $gray50;
 
-/* Hover (label) */
-opacity: 0.7;
+/* On hover (label) */
+color: $gray50;
 
-/* Focus (input) */
+/* On focus (input) */
 border-color: $gray50;
 box-shadow: 0 0 4px 1px $gray40;
 
-/* Focus (label) */
-opacity: 0.4;
+/* On focus (label) */
+color: $gray50;
 
 /* Error (input) */
 border-color: $red50;
@@ -296,11 +307,11 @@ border-radius: 2px;
 
 ---
 
-## Search (input or select)
+## Search input
 
-A search field can be a [text input](#text-input) or a [select](#select) — use whichever is most appropriate for the scenario. The styles are the same as an input or select, the only difference being the inclusion of a search icon before the text.
+A field designated for searching. The styles are largely the same as a [text input](#text-input), the only difference being the inclusion of a search icon before the text to clearly distinguish the search intent.
 
-<span class="image-spec spec-typo">![Search](./search.png)</span>
+<span class="image-spec spec-typo">![Search](./search-input.png)</span>
 
 ```
 /* Search CSS largely the same as a text input or select, with the below differences */
@@ -308,47 +319,17 @@ A search field can be a [text input](#text-input) or a [select](#select) — use
 /* Search */
 text-indent: 38px;
 
-/* Search icon (normal) */
+/* Icon (normal) */
 color: $gray40;
 width: 30px;
 height: 30px;
 margin: 4px;
 
-/* Search icon (hover) */
+/* Icon (input has value) */
 color: $gray50;
-```
 
----
-
-## Number input
-
-Used when a number is the only thing required of an input.
-
-<span class="image-spec spec-typo">![Number input](./number-input.png)</span>
-
-```
-/* Number input CSS largely the same as a text input, with the below differences */
-
-/* Number input */
-min-width: 60px;
-
-/* Plus/minus control (normal) */
-width: 15px;
-background-color: $bg1;
-border: 1px solid darken($bg1, 10%);
-
-/* Plus/minus (active) */
-background-color: darken($bg1, 10%);
-
-/* Plus/minus control (disabled) */
-border-color: $gray40;
-background-color: $white;
-color: $gray40;
-
-/* Plus/minus control (error) */
-border-color: $red50;
-background: $red50;
-color: $white;
+/* Icon (input disabled) */
+color: $gray30;
 ```
 
 ---
@@ -360,19 +341,19 @@ Used when a date is required to be entered. On-click of input launches a React d
 <span class="image-spec spec-typo">![Date input](./date-input.png)</span>
 
 ```
-/* Date input CSS largely the same as a text input, with the below differences */
+/* Date input CSS same as search input */
+```
 
-/* Date input */
-text-indent: 38px;
+---
 
-/* Icon */
-color: $gray40;
-width: 30px;
-height: 30px;
-margin: 4px;
+## Filter input
 
-/* Icon (hover) */
-color: $gray50;
+An alternative to a [search input](#search-input), if the intent is to refine results, as opposed to a broader search.
+
+<span class="image-spec spec-typo">![Filter input](./filter-input.png)</span>
+
+```
+/* Filter input CSS same as search input */
 ```
 
 ---
@@ -394,6 +375,39 @@ See also: [Text input](#text-input), [Select](#select) and [Prefix](#prefix-suff
 
 ---
 
+## Number input
+
+Used when a number is the only thing required of an input.
+
+<span class="image-spec spec-typo">![Number input](./number-input.png)</span>
+
+```
+/* Number input CSS largely the same as a text input, with the below differences */
+
+/* Number input */
+min-width: 60px;
+
+/* Plus/minus control (normal) */
+width: 15px;
+border: 1px solid $gray40;
+background-color: $bg1;
+
+/* Plus/minus control (hover/focus) */
+background-color: $bg5;
+
+/* Plus/minus control (disabled) */
+border-color: $gray30;
+background-color: $white;
+color: $gray40;
+
+/* Plus/minus control (error) */
+border-color: $red50;
+background-color: $red50;
+color: $white;
+```
+
+---
+
 ## Range input (slider)
 
 * A range input is useful to illustrate/communicate a sliding scale of an option.
@@ -408,7 +422,7 @@ border-radius: 100%;
 background-color: $gray40;
 margin: 7px 0 12px 0;
 
-/* Slider */
+/* Slider circle */
 width: 9px;
 height: 9px;
 border: 3px solid $purple20;
@@ -420,5 +434,17 @@ font-family: Helvetica;
 font-weight: regular;
 font-size: 11px;
 line-height: 18px;
-color: $gray50;
+color: $black50;
+
+/* Values (active value on left) */
+font-weight: bold;
+
+/* Slider bar (disabled) */
+background-color: $gray30;
+
+/* Slider circle (disabled) */
+border-color: $gray30;
+
+/* Values (disabled) */
+color: $gray40;
 ```
