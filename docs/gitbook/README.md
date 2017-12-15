@@ -4,7 +4,7 @@ WeWork creates inspiring shared workspaces, with an emphasis on community. Our o
 
 ### Developer Links
 
-[Getting started](/setup/README.md) — [Storybook](http://plasma.guide/storybook) — [Components](http://plasma.guide/components)
+[Getting started](/setup/README.md) — [Storybook](http://plasma.guide/dev/storybook) — [Components](http://plasma.guide/dev/components)
 
 ---
 

@@ -4,7 +4,9 @@
 	* [Further reading](./README.md#further-reading)
 
 * [Getting started](setup/README.md)
-	* [Storybook](http://plasma.guide/storybook)
+	* [Getting started](http://plasma.guide/setup)
+	* [Storybook](http://plasma.guide/dev/storybook)
+	* [Components](http://plasma.guide/dev/components)
 
 * [Sketch](sketch/README.md)
 	* [Naming conventions](sketch/README.md#naming-conventions)
