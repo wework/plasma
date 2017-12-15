@@ -1,0 +1,63 @@
+# Story Links Addon
+
+[![Build Status on CircleCI](https://circleci.com/gh/storybooks/storybook.svg?style=shield)](https://circleci.com/gh/storybooks/storybook)
+[![CodeFactor](https://www.codefactor.io/repository/github/storybooks/storybook/badge)](https://www.codefactor.io/repository/github/storybooks/storybook)
+[![Known Vulnerabilities](https://snyk.io/test/github/storybooks/storybook/8f36abfd6697e58cd76df3526b52e4b9dc894847/badge.svg)](https://snyk.io/test/github/storybooks/storybook/8f36abfd6697e58cd76df3526b52e4b9dc894847)
+[![BCH compliance](https://bettercodehub.com/edge/badge/storybooks/storybook)](https://bettercodehub.com/results/storybooks/storybook) [![codecov](https://codecov.io/gh/storybooks/storybook/branch/master/graph/badge.svg)](https://codecov.io/gh/storybooks/storybook)  
+[![Storybook Slack](https://now-examples-slackin-nqnzoygycp.now.sh/badge.svg)](https://now-examples-slackin-nqnzoygycp.now.sh/)
+[![Backers on Open Collective](https://opencollective.com/storybook/backers/badge.svg)](#backers) [![Sponsors on Open Collective](https://opencollective.com/storybook/sponsors/badge.svg)](#sponsors)
+
+* * *
+
+The Storybook Links addon can be used to create links that navigate between stories in [Storybook](https://storybook.js.org).
+
+This addon works with Storybook for:
+- [React](https://github.com/storybooks/storybook/tree/master/app/react)
+- [React Native](https://github.com/storybooks/storybook/tree/master/app/react-native)
+- [Vue](https://github.com/storybooks/storybook/tree/master/app/vue)
+
+## Getting Started
+
+Install this addon by adding the `@storybook/addon-links` dependency:
+```sh
+yarn add @storybook/addon-links
+```
+
+First configure it as an addon by adding it to your addons.js file (located in the Storybook config directory).
+
+```js
+import '@storybook/addon-links/register';
+```
+
+Then you can import `linkTo` in your stories and use like this:
+
+```js
+import { storiesOf } from '@storybook/react'
+import { linkTo } from '@storybook/addon-links'
+
+storiesOf('Button', module)
+  .add('First', () => (
+    <button onClick={linkTo('Button', 'Second')}>Go to "Second"</button>
+  ))
+  .add('Second', () => (
+    <button onClick={linkTo('Button', 'First')}>Go to "First"</button>
+  ));
+```
+
+Have a look at the linkTo function:
+
+```js
+import { linkTo } from '@storybook/addon-links'
+
+linkTo('Toggle', 'off')
+linkTo(() => 'Toggle', () => 'off')
+linkTo('Toggle') // Links to the first story in the 'Toggle' kind
+```
+
+With that, you can link an event in a component to any story in the Storybook.
+
+-   First parameter is the the story kind name (what you named with `storiesOf`).
+-   Second (optional) parameter is the story name (what you named with `.add`). If the second parameter is omitted, the link will point to the first story in the given kind.
+
+> You can also pass a function instead for any of above parameter. That function accepts arguments emitted by the event and it should return a string. <br/>
+> Have a look at [PR86](https://github.com/kadirahq/react-storybook/pull/86) for more information.
