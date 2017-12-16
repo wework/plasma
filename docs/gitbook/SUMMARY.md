@@ -4,7 +4,7 @@
 	* [Further reading](./README.md#further-reading)
 
 * [Getting started](setup/README.md)
-	* [Getting started](http://plasma.guide/setup)
+	* [Getting started](setup/README.md)
 	* [Storybook](http://plasma.guide/dev/storybook)
 	* [Components](http://plasma.guide/dev/components)
 
