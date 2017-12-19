@@ -1388,8 +1388,7 @@
                                 
                                 <h1 id="tabs">Tabs</h1>
 <p>Sometimes needs arise where it&#x2019;s helpful to group different types of content in a limited space (e.g. form elements into different tabs within a modal). This can help the user experience, and it can also be used to conserve space, or a pattern&#x2019;s height and complexity.</p>
-<p>The example below shows tabs in a modal pattern:</p>
-<p><span class="image-spec"><img src="tabs-spec.png" alt="Specification"></span></p>
+<p><span class="image-spec"><img src="tabs-example.png" alt="Example tabs"></span></p>
 <h2 id="tabs">Tabs</h2>
 <ul>
 <li>Tabs can be used first in order, above all form elements, or used above/below form elements to further divide content.</li>
@@ -1397,7 +1396,7 @@
 <li>You can use multiple tabs to divide/group content, or use one singular tab as a &#x2018;sub-title&#x2019; for form elements below.</li>
 <li>Each tab has left/right padding of 15px.</li>
 </ul>
-<p><span class="image-spec spec-typo"><img src="tabs-1.png" alt="Tabs in a modal"></span></p>
+<p><span class="image-spec spec-typo"><img src="tabs-single.png" alt="Single tab"><img src="tabs-1.png" alt="Tabs"><img src="tabs-2.png" alt="Tabs"><img src="tabs-3.png" alt="Tabs"></span></p>
 <pre><code>/* Tabs */
 padding: 14px 0 0 14px; /* so first tab aligns with labels */
 border-bottom: 1px solid $gray40;
@@ -1410,7 +1409,7 @@ font-weight: regular;
 font-size: 13px;
 line-height: 38px
 color: $black50;
-background-color: rgba($yellow50,0.05);
+background-color: $bg1;
 border: 1px solid $gray40;
 border-radius: 2px 2px 0 0; /* first tab */
 border-radius: 0; /* middle tab(s) */
@@ -1421,16 +1420,10 @@ background-color: $white;
 border-bottom: 1px solid $white;
 
 /* Hover (non-active tab) */
-background-color: rgba($black, 0.02);
-
-/* Focus (non-active tab) */
-background-color: rgba($black, 0.05);
-</code></pre><h2 id="multiple-tabs">Multiple tabs</h2>
-<p>Multiple tabs can be used to group specific groups of form elements.</p>
-<p><span class="image-spec"><img src="tabs-2.png" alt="Multiple tabs"><img src="tabs-3.png" alt="Multiple tabs"></span></p>
-<h2 id="single-tab">Single tab</h2>
-<p>Use sparingly. Could be useful if a sub-title (of sorts) is needed to draw focus to a particular or set of form elements.</p>
-<p><span class="image-spec"><img src="tabs-4.png" alt="Single tab"></span></p>
+background-color: $bg3;
+</code></pre><p>Note: All CSS shown is for guiding purposes, it&apos;s not absolute. It&apos;s intended to help designers foster a greater understanding of both CSS and the specifications.</p>
+<h3 id="tabs-specifications">Tabs specifications</h3>
+<p><span class="image-spec"><img src="tabs-spec.png" alt="Tabs spec"></span></p>
 
                                 
                                 </section>
@@ -1479,7 +1472,7 @@ background-color: rgba($black, 0.05);
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"Tabs","level":"1.7.7","depth":2,"next":{"title":"Pagination","level":"1.7.8","depth":2,"path":"pagination/README.md","ref":"pagination/README.md","articles":[]},"previous":{"title":"Tooltips","level":"1.7.6","depth":2,"path":"tooltips/README.md","ref":"tooltips/README.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":["livereload"],"pluginsConfig":{"livereload":{},"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"tabs/README.md","mtime":"2017-12-08T17:30:53.000Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2017-12-14T02:16:51.376Z"},"basePath":"..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"Tabs","level":"1.7.7","depth":2,"next":{"title":"Pagination","level":"1.7.8","depth":2,"path":"pagination/README.md","ref":"pagination/README.md","articles":[]},"previous":{"title":"Tooltips","level":"1.7.6","depth":2,"path":"tooltips/README.md","ref":"tooltips/README.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":["livereload"],"pluginsConfig":{"livereload":{},"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"tabs/README.md","mtime":"2017-12-19T16:12:10.000Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2017-12-15T17:37:03.171Z"},"basePath":"..","book":{"language":""}});
         });
     </script>
 </div>

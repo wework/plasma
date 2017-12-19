@@ -2,9 +2,7 @@
 
 Sometimes needs arise where it’s helpful to group different types of content in a limited space (e.g. form elements into different tabs within a modal). This can help the user experience, and it can also be used to conserve space, or a pattern’s height and complexity.
 
-The example below shows tabs in a modal pattern:
-
-<span class="image-spec">![Specification](./tabs-spec.png)</span>
+<span class="image-spec">![Example tabs](./tabs-example.png)</span>
 
 ## Tabs
 
@@ -13,7 +11,7 @@ The example below shows tabs in a modal pattern:
 * You can use multiple tabs to divide/group content, or use one singular tab as a ‘sub-title’ for form elements below.
 * Each tab has left/right padding of 15px.
 
-<span class="image-spec spec-typo">![Tabs in a modal](./tabs-1.png)</span>
+<span class="image-spec spec-typo">![Single tab](./tabs-single.png)![Tabs](./tabs-1.png)![Tabs](./tabs-2.png)![Tabs](./tabs-3.png)</span>
 
 ```
 /* Tabs */
@@ -28,7 +26,7 @@ font-weight: regular;
 font-size: 13px;
 line-height: 38px
 color: $black50;
-background-color: rgba($yellow50,0.05);
+background-color: $bg1;
 border: 1px solid $gray40;
 border-radius: 2px 2px 0 0; /* first tab */
 border-radius: 0; /* middle tab(s) */
@@ -39,20 +37,11 @@ background-color: $white;
 border-bottom: 1px solid $white;
 
 /* Hover (non-active tab) */
-background-color: rgba($black, 0.02);
-
-/* Focus (non-active tab) */
-background-color: rgba($black, 0.05);
+background-color: $bg3;
 ```
 
-## Multiple tabs
+Note: All CSS shown is for guiding purposes, it's not absolute. It's intended to help designers foster a greater understanding of both CSS and the specifications.
 
-Multiple tabs can be used to group specific groups of form elements.
+### Tabs specifications
 
-<span class="image-spec">![Multiple tabs](./tabs-2.png)![Multiple tabs](./tabs-3.png)</span>
-
-## Single tab
-
-Use sparingly. Could be useful if a sub-title (of sorts) is needed to draw focus to a particular or set of form elements.
-
-<span class="image-spec">![Single tab](./tabs-4.png)</span>
+<span class="image-spec">![Tabs spec](./tabs-spec.png)</span>

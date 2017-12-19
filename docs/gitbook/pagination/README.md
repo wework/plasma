@@ -29,24 +29,20 @@ font-size: 13px;
 color: $black50;
 
 /* Hover */
-background-color: rgba($black, 0.02);
-
-/* Focus */
-background-color: rgba($black, 0.05);
+background-color: $bg3;
 
 /* Disabled */
-(same as disabled state for buttons)
-
-/* Null (“...”) */
-background: none;
+border-color: $gray30;
 
 /* Active */
-(same as primary button style)
+background-color: $yellow50;
+border-color: $yellow60;
+
+/* Null (“...”) */
+background-color: none;
 ```
 
 Note: All CSS shown is for guiding purposes, it's not absolute. It's intended to help designers foster a greater understanding of both CSS and the specifications.
-
-See also: [Primary button](/button_specs/README.md#primary-button)
 
 ---
 

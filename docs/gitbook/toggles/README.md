@@ -23,21 +23,17 @@ height: 38px;
 padding: 0 20px; /* on each toggle option */
 
 /* Hover */
-background-color: rgba($black, 0.02);
-
-/* Focus */
-background-color: rgba($black, 0.05);
+background-color: $bg3;
 
 /* Disabled */
-(same as disabled state for buttons)
+border-color: $gray30;
 
 /* Active */
-(same as primary button style)
+background-color: $yellow50;
+border-color: $yellow60;
 ```
 
 Note: All CSS shown is for guiding purposes, it's not absolute. It's intended to help designers foster a greater understanding of both CSS and the specifications.
-
-See also: [Primary button](/button_specs/README.md#primary-button)
 
 ---
 
