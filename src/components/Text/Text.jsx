@@ -1,8 +1,8 @@
-import React from "react";
-import PropTypes from "prop-types";
-import cn from "classnames";
-import style from "./style.scss";
-import { getDataAttrs, getDataProps } from "../../dataUtils";
+import React from 'react';
+import PropTypes from 'prop-types';
+import cn from 'classnames';
+import style from './style.scss';
+import { getDataAttrs, getDataProps } from '../../dataUtils';
 
 class Text extends React.Component {
   render() {
@@ -20,16 +20,16 @@ class Text extends React.Component {
 }
 
 Text.defaultProps = {
-  style: { width: 200, height: "auto" }
+  style: { width: 200, height: 'auto' },
 };
 
 Text.propTypes = {
   style: PropTypes.object,
   children: PropTypes.element,
   large: PropTypes.bool,
-  ...getDataProps()
+  ...getDataProps(),
 };
 
-Text.displayName = "Plasma@Text";
+Text.displayName = 'Plasma@Text';
 
 export default Text;

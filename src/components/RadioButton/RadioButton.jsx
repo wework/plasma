@@ -1,16 +1,16 @@
-import { uniqueId } from "lodash";
-import React from "react";
-import PropTypes from "prop-types";
-import cx from "classnames";
-import { getDataAttrs, getDataProps } from "../../dataUtils";
-import style from "./style.scss";
+import { uniqueId } from 'lodash';
+import React from 'react';
+import PropTypes from 'prop-types';
+import cx from 'classnames';
+import { getDataAttrs, getDataProps } from '../../dataUtils';
+import style from './style.scss';
 
 class RadioButton extends React.Component {
   render() {
-    const id = uniqueId("id");
+    const id = uniqueId('id');
     const wrapperClasses = cx(style.wrapper, {
       [style.isLarge]: this.props.isLarge,
-      [style.disabled]: this.props.disabled
+      [style.disabled]: this.props.disabled,
     });
 
     return (
@@ -18,22 +18,20 @@ class RadioButton extends React.Component {
         <label htmlFor={id} className={wrapperClasses}>
           <input
             className={cx(style.original, {
-              [style.disabled]: this.props.disabled
+              [style.disabled]: this.props.disabled,
             })}
             type="radio"
             id={id}
             name={this.props.name}
             onChange={this.props.onChange}
-            checked={
-              this.props.checked || this.props.value === this.props.fieldValue
-            }
+            checked={this.props.checked || this.props.value === this.props.fieldValue}
             value={this.props.fieldValue}
             disabled={this.props.disabled}
           />
           <div className={style.faux} />
           <div
             className={cx(style.text, {
-              [style.disabled]: this.props.disabled
+              [style.disabled]: this.props.disabled,
             })}
           >
             {this.props.text}
@@ -48,8 +46,8 @@ class RadioButton extends React.Component {
 }
 
 RadioButton.defaultProps = {
-  text: "Option",
-  name: "radioButton"
+  text: 'Option',
+  name: 'radioButton',
 };
 
 RadioButton.propTypes = {
@@ -61,9 +59,9 @@ RadioButton.propTypes = {
   checked: PropTypes.bool,
   fieldValue: PropTypes.string,
   disabled: PropTypes.bool,
-  ...getDataProps()
+  ...getDataProps(),
 };
 
-RadioButton.displayName = "Plasma@RadioButton";
+RadioButton.displayName = 'Plasma@RadioButton';
 
 export default RadioButton;

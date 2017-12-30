@@ -1,18 +1,18 @@
-import cx from "classnames";
-import { map } from "lodash";
-import React from "react";
-import PropTypes from "prop-types";
-import { getDataAttrs, getDataProps } from "../../dataUtils";
-import OverflowMenuItem from "./OverflowMenuItem.jsx";
-import style from "./style.scss";
+import cx from 'classnames';
+import { map } from 'lodash';
+import React from 'react';
+import PropTypes from 'prop-types';
+import { getDataAttrs, getDataProps } from '../../dataUtils';
+import OverflowMenuItem from './OverflowMenuItem.jsx';
+import style from './style.scss';
 
-const direction = { RIGHT: "right", LEFT: "left" };
+const direction = { RIGHT: 'right', LEFT: 'left' };
 
 class OverflowMenu extends React.Component {
   constructor() {
     super();
     this.state = {
-      revealed: false
+      revealed: false,
     };
   }
 
@@ -40,11 +40,10 @@ class OverflowMenu extends React.Component {
 
   render() {
     const revealableStyle = cx(style.revealable, {
-      [style.revealed]: this.state.revealed
+      [style.revealed]: this.state.revealed,
     });
     const revealableListStyle = cx(style.revealableList, {
-      [style.openLeft]:
-        this.props.openDirection && this.props.openDirection === direction.LEFT
+      [style.openLeft]: this.props.openDirection && this.props.openDirection === direction.LEFT,
     });
     return (
       <div
@@ -90,16 +89,16 @@ class OverflowMenu extends React.Component {
 
 OverflowMenu.defaultProps = {
   options: {},
-  openDirection: direction.RIGHT
+  openDirection: direction.RIGHT,
 };
 
 OverflowMenu.propTypes = {
   options: PropTypes.array,
   onClick: PropTypes.func,
   openDirection: PropTypes.oneOf([direction.LEFT, direction.RIGHT]),
-  ...getDataProps()
+  ...getDataProps(),
 };
 
-OverflowMenu.displayName = "Plasma@OverflowMenu";
+OverflowMenu.displayName = 'Plasma@OverflowMenu';
 
 export default OverflowMenu;
