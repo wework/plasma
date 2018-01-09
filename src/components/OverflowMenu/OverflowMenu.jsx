@@ -17,7 +17,9 @@ class OverflowMenu extends React.Component {
   }
 
   handleMouseEnter = () => {
-    this.setState({ revealed: true });
+    if (!this.props.disabled) {
+      this.setState({ revealed: true });
+    }
   };
 
   handleMouseLeave = () => {
@@ -93,6 +95,7 @@ OverflowMenu.defaultProps = {
 };
 
 OverflowMenu.propTypes = {
+  disabled: PropTypes.bool,
   options: PropTypes.array,
   onClick: PropTypes.func,
   openDirection: PropTypes.oneOf([direction.LEFT, direction.RIGHT]),

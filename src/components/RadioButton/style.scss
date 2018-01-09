@@ -1,4 +1,4 @@
-@import "../../styles/base";
+@import '../../styles/base';
 
 .wrapper {
   position: relative;
@@ -49,7 +49,7 @@
   &::before {
     display: block;
     position: absolute;
-    content: "";
+    content: '';
     border-radius: 100%;
     width: 8px;
     height: 8px;
@@ -60,14 +60,7 @@
     top: -4px;
   }
 }
-/*
-.description,
-.text {
-  &:hover {
-    cursor: pointer;
-  }
-}
-*/
+
 .text {
   @extend %type--body;
   margin-left: 10px;
