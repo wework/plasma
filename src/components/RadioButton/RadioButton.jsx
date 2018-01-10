@@ -57,6 +57,7 @@ RadioButton.propTypes = {
   isLarge: PropTypes.bool,
   onChange: PropTypes.func,
   checked: PropTypes.bool,
+  value: PropTypes.string,
   fieldValue: PropTypes.string,
   disabled: PropTypes.bool,
   ...getDataProps(),
