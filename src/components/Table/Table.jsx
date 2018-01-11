@@ -118,7 +118,6 @@ class Table extends React.Component {
     const headerSizes = {};
     let maxHeaderHeight = 0;
     forEach(this.headerComponents, (value, key) => {
-      // const width = $(value).innerWidth();
       const headerCompStyle = window.getComputedStyle(value, null);
       const width = parseInt(headerCompStyle.getPropertyValue('width'), 10);
       const height = parseInt(headerCompStyle.getPropertyValue('height'), 10);
@@ -403,6 +402,7 @@ Table.defaultProps = {
   emptyText: '',
   loading: false,
   stickAt: null,
+  headerData: [],
 };
 
 Table.displayName = 'Plasma@Table';

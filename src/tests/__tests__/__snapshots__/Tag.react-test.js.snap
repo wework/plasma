@@ -1,0 +1,11 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Tag Component render 1`] = `
+<div
+  className="tag small"
+>
+  <span>
+    YOLO
+  </span>
+</div>
+`;

@@ -1,0 +1,18 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`TextInput Component render 1`] = `
+<div
+  className="wrapper"
+>
+  <input
+    className="input"
+    disabled={undefined}
+    onBlur={[Function]}
+    onChange={undefined}
+    onFocus={[Function]}
+    placeholder="Type something..."
+    type="text"
+    value={undefined}
+  />
+</div>
+`;

@@ -1,0 +1,21 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Table Component render 1`] = `
+<div
+  className="wrapper"
+  style={undefined}
+>
+  <table
+    className="table"
+  >
+    <thead>
+      <tr
+        className="row header"
+      />
+    </thead>
+    <tbody
+      className="tbody"
+    />
+  </table>
+</div>
+`;

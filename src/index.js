@@ -7,7 +7,6 @@ import Icon from './components/Icon/Icon';
 import Image from './components/Image/Image';
 import Label from './components/Label/Label';
 import Loader from './components/Loader/Loader';
-import Masthead from './components/Masthead/Masthead';
 import Modal from './components/Modal/Modal';
 import NumberInput from './components/NumberInput/NumberInput';
 import RadioButton from './components/RadioButton/RadioButton';
@@ -17,7 +16,6 @@ import Table from './components/Table/Table';
 import Text from './components/Text/Text';
 import TextInput from './components/TextInput/TextInput';
 import Tooltip from './components/Tooltip/Tooltip';
-import TopNavBar from './components/TopNavBar/TopNavBar';
 import SideNavBar from './components/SideNavBar/OldSideNavBar';
 import SideNavBarItem from './components/SideNavBar/OldSideNavBarItem';
 import SideNavBarV2 from './components/SideNavBar/SideNavBar';
@@ -29,7 +27,7 @@ import TextArea from './components/TextArea/TextArea';
 import Tag from './components/Tag/Tag';
 import TimePicker from './components/TimePicker/TimePicker';
 
-// Page imports
+// Layout imports
 import Page from './components/layout/Page/Page';
 import Group from './components/layout/Group/Group';
 import HorizontalScroll from './components/layout/HorizontalScroll/HorizontalScroll';
@@ -68,8 +66,6 @@ Plasma.SideNavBar = SideNavBar;
 Plasma.SideNavBarItem = SideNavBarItem;
 Plasma.SideNavBarV2 = SideNavBarV2;
 Plasma.Table = Table;
-Plasma.TopNavBar = TopNavBar;
-Plasma.Masthead = Masthead;
 Plasma.Modal = Modal;
 Plasma.Group = Group;
 Plasma.HorizontalScroll = HorizontalScroll;
@@ -105,8 +101,6 @@ export {
   SideNavBarItem,
   SideNavBarV2,
   Table,
-  TopNavBar,
-  Masthead,
   Modal,
   HorizontalScroll,
   FixedLeft,

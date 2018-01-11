@@ -84,12 +84,15 @@ class OverflowMenu extends React.Component {
 }
 
 OverflowMenu.defaultProps = {
-  options: {},
+  options: [],
   openDirection: direction.RIGHT,
 };
 
 OverflowMenu.propTypes = {
-  options: PropTypes.array,
+  options: PropTypes.arrayOf(PropTypes.shape({
+    key: PropTypes.string.isRequired,
+    text: PropTypes.string,
+  })),
   onClick: PropTypes.func,
   openDirection: PropTypes.oneOf([direction.LEFT, direction.RIGHT]),
   ...getDataProps(),

@@ -1,4 +1,5 @@
-import React, { Component, PropTypes } from 'react';
+import React, { Component } from 'react';
+import PropTypes from 'prop-types';
 import { find } from 'lodash';
 import SideNavBarItem from './SideNavBarItem';
 import style from './style.scss';
@@ -52,7 +53,7 @@ class SideNavBarItemGroup extends Component {
   }
 
   renderSubItems() {
-    const items = this.props.items.map((groupedItem) => {
+    const items = this.props.items && this.props.items.map((groupedItem) => {
       return !groupedItem.hidden && (
         <SideNavBarItem
           key={groupedItem.id}
