@@ -20,7 +20,7 @@ class SideNavBarItem extends Component {
   }
 
   render() {
-    const { darkBg, selected, linkComponent } = this.props;
+    const { darkBg, selected, linkComponent, tagText } = this.props;
 
     const wrapperClasses = cn(style.itemWrapper, {
       [style.darkBg]: darkBg,
@@ -35,6 +35,7 @@ class SideNavBarItem extends Component {
           className={wrapperClasses}
         >
           { linkComponent }
+          { tagText && <div className={style.tag}>{tagText}</div>}
         </div>
       );
     } else {
@@ -44,6 +45,7 @@ class SideNavBarItem extends Component {
           onClick={this._onClick}
         >
           { this.renderIconAndLabel() }
+          { tagText && <div className={style.tag}>{tagText}</div>}
         </div>
       );
     }
@@ -56,6 +58,7 @@ SideNavBarItem.defaultProps = {
   label: 'Label',
   iconSize: 16,
   selected: false,
+  tagText: null,
 };
 
 SideNavBarItem.propTypes = {
@@ -70,12 +73,13 @@ SideNavBarItem.propTypes = {
   * Prefer `iconSize`.
   */
   iconStyle: PropTypes.object,
-  label: PropTypes.string,
+  label: PropTypes.oneOfType([PropTypes.string, PropTypes.node]),
   onClick: PropTypes.func,
   selected: PropTypes.bool,
   children: PropTypes.node,
   darkBg: PropTypes.bool,
   linkComponent: PropTypes.node,
+  tagText: PropTypes.string,
 };
 
 SideNavBarItem.displayName = 'Plasma@SideNavBarItem';

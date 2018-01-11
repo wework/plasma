@@ -19,9 +19,22 @@ class Tabs extends React.Component {
     }
   }
 
-  getTabClasses = (tab, index) => {
-    const baseTabClass = this.props.vertical ? style.verticalTab : style.tab;
+  getTabsStyle() {
+    const { vertical, plain } = this.props;
+    if (vertical) return style.verticalTabs;
+    if (plain) return style.plainTabs;
+    return style.tabs;
+  }
 
+  getTabStyle() {
+    const { vertical, plain } = this.props;
+    if (vertical) return style.verticalTab;
+    if (plain) return style.plainTab;
+    return style.tab;
+  }
+
+  getTabClassNames = (tab, index) => {
+    const baseTabClass = this.getTabStyle();
     return cn(baseTabClass, {
       [style.active]: (
         this.props.selectedIndex === index || this.props.selectedLabel === tab.label
@@ -37,7 +50,7 @@ class Tabs extends React.Component {
         role="tab"
         onClick={() => this.onClick(tab, index)}
         onKeyDown={(event) => this.onKeyDown(event, tab, index)}
-        className={this.getTabClasses(tab, index)}
+        className={this.getTabClassNames(tab, index)}
         key={index}
         tabIndex="0"
       >
@@ -50,7 +63,7 @@ class Tabs extends React.Component {
     return (
       <ul
         {...getDataAttrs(this.props.data)}
-        className={this.props.vertical ? style.verticalTabs : style.tabs}
+        className={this.getTabsStyle()}
         role="tablist"
       >
         { map(this.props.items, this.renderTab) }

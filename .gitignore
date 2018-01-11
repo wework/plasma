@@ -3,4 +3,11 @@
 node_modules
 dist
 npm-debug.log
-/coverage
+coverage
+
+storybook-static
+styleguide
+
+docs/gitbook/_book
+docs/storybook
+docs/components

@@ -1,6 +1,6 @@
 {
   "name": "@wework-dev/plasma",
-  "version": "0.0.133",
+  "version": "0.0.138",
   "description": "",
   "main": "./dist/index.js",
   "scripts": {
@@ -112,7 +112,7 @@
       "\\.(gif|ttf|eot|svg)$": "<rootDir>/src/tests/__mocks__/fileMock.js"
     },
     "setupFiles": [
-        "<rootDir>/src/tests/setup.js"
+      "<rootDir>/src/tests/setup.js"
     ]
   }
 }

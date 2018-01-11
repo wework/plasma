@@ -110,6 +110,10 @@
     &.topText {
       color: $cGray20;
     }
+
+    > * {
+      color: $cPurple50;
+    }
   }
 }
 
@@ -118,6 +122,18 @@
   flex-direction: row;
   justify-content: flex-start;
   align-items: center;
+}
+
+.tag {
+  position: absolute;
+  right: 0;
+  top: 5px;
+  background-color: $cPurple30;
+  color: $cGray20;
+  font-size: 11px;
+  padding: 3px 5px;
+  border-radius: 2px;
+  pointer-events: none;
 }
 
 .darkBg {

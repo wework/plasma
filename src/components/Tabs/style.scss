@@ -2,7 +2,7 @@
 
 .tabs {
   padding: 14px 0 0 14px; /* so first tab aligns with labels */
-  border-bottom: 1px solid $cGray200;;
+  border-bottom: 1px solid $cGray40;
   list-style: none;
 }
 
@@ -17,9 +17,9 @@
   height: 38px;
   line-height: 38px;
   padding: 0 15px;
-  color: $cWeWorkBlack;
+  color: $cBlack50;
   background-color: rgba(255,207,113,0.05); /* $weworkyellow @ 5% opacity */
-  border: 1px solid $cGray200;
+  border: 1px solid $cGray40;
   border-right: 0px;
   border-radius: 0;
   position: relative;
@@ -40,7 +40,7 @@
   }
   &.last {
     border-radius: 0 2px 0 0;
-    border: 1px solid $cGray200;
+    border: 1px solid $cGray40;
   }
 
   &.active {
@@ -54,7 +54,7 @@
   font-size: 13px;
   font-weight: 500;
   padding: 10px 12px;
-  color: $cWeWorkBlack;
+  color: $cBlack50;
   border-radius: 3px;
   cursor: pointer;
 
@@ -65,5 +65,30 @@
 
   &.active {
     background-color: $cWhite300;
+  }
+}
+
+.plainTabs {
+  padding: 14px 0;
+  border-bottom: 1px solid $cGray40;
+  list-style: none;
+}
+
+.plainTab {
+  display: inline-block;
+  @extend %fontFamily--body;
+  font-size: 14px;
+  color: $cBlack50;
+  padding-right: 15px;
+  line-height: 17px;
+  cursor: pointer;
+
+  &:hover, &:focus {
+    outline: 0;
+  }
+
+  &.active {
+    font-weight: bolder;
+    color: $cBlue50;
   }
 }

@@ -59,6 +59,7 @@ class SideNavBarItemGroup extends Component {
           key={groupedItem.id}
           id={groupedItem.id}
           label={groupedItem.label}
+          tagText={groupedItem.tagText}
           onClick={this.handleItemClick}
           selected={groupedItem.id === this.props.selectedId}
           linkComponent={groupedItem.linkComponent}
@@ -99,7 +100,7 @@ SideNavBarItemGroup.propTypes = {
   * Prefer `iconSize`.
   */
   iconStyle: PropTypes.object,
-  label: PropTypes.string,
+  label: PropTypes.oneOfType([PropTypes.string, PropTypes.node]),
   onClick: PropTypes.func,
   items: PropTypes.array,
   darkBg: PropTypes.bool,

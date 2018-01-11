@@ -1,12 +1,16 @@
 @import '../../styles/base';
+$checkboxBorder: 1px solid $cBorder;
 
 .wrapper {
   position: relative;
-  display: flex;
+  display: inline-flex;
   flex-direction: row;
   justify-content: flex-start;
   align-items: center;
   cursor: pointer;
+  .original, .intermediate {
+    cursor: pointer;
+  }
   &:hover {
     .checkbox {
       border: 1px solid $cGray200;
@@ -14,14 +18,32 @@
   }
 }
 
+.wrapperDisabled {
+  cursor: not-allowed;
+  .original, .indeterminate {
+    cursor: not-allowed;
+  }
+  &:hover {
+    .checkbox {
+      border: $checkboxBorder;
+    }
+  }
+}
+
+
 .original {
   position: absolute;
   opacity: 0;
   z-index: 10;
-  cursor: pointer;
+  ~ .checkbox::before {
+    width: 12px;
+    height: 8px;
+    content: '';
+  }
 
   &:checked ~ .checkbox {
     &::before {
+      height: 20px;
       // content: url('data:image/svg+xml;utf8,<svg width="12px" height="10px" viewBox="2 5 12 10" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"><defs></defs><polygon id="Rectangle-34" stroke="none" fill="#282829" fill-rule="evenodd" points="6 15 2 10.8333333 3.6 9.16666667 6 11.6666667 12.4 5 14 6.66666667"></polygon></svg>');
       content: url('data:image/svg+xml;utf8,<svg width="12px" height="10px" viewBox="0 0 12 10" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"><!-- Generator: Sketch 43.1 (39012) - http://www.bohemiancoding.com/sketch --><title>checked</title><desc>Created with Sketch.</desc><defs></defs><g id="Symbols" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd"><g id="checkbox-/-selected" transform="translate(-2.000000, -8.000000)" fill="#252729"><polygon id="checked" points="6 18 2 13.8333333 3.6 12.1666667 6 14.6666667 12.4 8 14 9.66666667"></polygon></g></g></svg>');
     }
@@ -32,7 +54,11 @@
   position: absolute;
   opacity: 0;
   z-index: 10;
-  cursor: pointer;
+
+  ~ .checkbox::before {
+    content: '';
+    height: 2px;
+  }
 
   &:checked ~ .checkbox {
     &::before {
@@ -50,7 +76,7 @@
   width: 16px;
   height: 16px;
   background: $cWhite;
-  border: 1px solid $cBorder;
+  border: $checkboxBorder;
   border-radius: 3px;
   background: $cWhite;
   transition: border-color 0.1s ease-out;
@@ -68,7 +94,14 @@
 .text {
   margin-left: 10px;
   @extend %type--body;
-  cursor: pointer;
+}
+
+.textBold {
+  font-weight: bold;
+}
+
+.textDisabled {
+  color: $cGray200;
 }
 
 .description {
