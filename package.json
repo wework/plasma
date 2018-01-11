@@ -50,7 +50,7 @@
     "glob": "^7.0.5",
     "identity-obj-proxy": "^3.0.0",
     "image-webpack-loader": "^3.2.0",
-    "jest": "^20.0.4",
+    "jest": "^22.0.6",
     "lodash": "^4.14.1",
     "marked": "^0.3.6",
     "mkdirp": "^0.5.1",
@@ -79,6 +79,7 @@
     "@storybook/addon-links": "^3.1.6",
     "babel-runtime": "^6.9.2",
     "classnames": "^2.2.5",
+    "jest-cli": "^22.0.6",
     "jsdom": "^11.1.0",
     "lodash": "^4.14.1",
     "prop-types": "^15.5.7",
@@ -106,7 +107,6 @@
       "shared"
     ],
     "moduleNameMapper": {
-      "^react(.*)$": "<rootDir>/vendor/react-master$1",
       "^config$": "<rootDir>/configs/app-config.js",
       "\\.(css|scss)$": "identity-obj-proxy",
       "\\.(gif|ttf|eot|svg)$": "<rootDir>/src/tests/__mocks__/fileMock.js"

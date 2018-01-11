@@ -12,7 +12,7 @@ describe('Checkbox Component', () => {
     );
     let tree = component.toJSON();
     expect(tree).toMatchSnapshot();
-    tree.props.isChecked = true;
+    tree.props.checked = true;
     expect(tree).toMatchSnapshot();
   });
 });
