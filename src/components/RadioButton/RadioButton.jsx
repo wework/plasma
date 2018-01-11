@@ -6,6 +6,11 @@ import { getDataAttrs, getDataProps } from '../../dataUtils';
 import style from './style.scss';
 
 class RadioButton extends React.Component {
+  value = () => {
+    const { checked, value, fieldValue } = this.props;
+    return checked || (fieldValue && value === this.props.fieldValue);
+  };
+
   render() {
     const id = uniqueId('id');
     const wrapperClasses = cx(style.wrapper, {
@@ -24,7 +29,7 @@ class RadioButton extends React.Component {
             id={id}
             name={this.props.name}
             onChange={this.props.onChange}
-            checked={this.props.checked || this.props.value === this.props.fieldValue}
+            checked={this.value()}
             value={this.props.fieldValue}
             disabled={this.props.disabled}
           />

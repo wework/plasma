@@ -9,10 +9,12 @@ exports[`RadioButton Component render 1`] = `
     <input
       checked={undefined}
       className="original"
+      disabled={undefined}
       id="id1"
       name="radioButton"
       onChange={undefined}
       type="radio"
+      value={undefined}
     />
     <div
       className="faux"
@@ -20,9 +22,7 @@ exports[`RadioButton Component render 1`] = `
     <div
       className="text"
     >
-      <strong>
-        Option
-      </strong>
+      Option
     </div>
   </label>
 </div>
@@ -39,10 +39,12 @@ exports[`RadioButton Component render 2`] = `
     <input
       checked={undefined}
       className="original"
+      disabled={undefined}
       id="id1"
       name="radioButton"
       onChange={undefined}
       type="radio"
+      value={undefined}
     />
     <div
       className="faux"
@@ -50,9 +52,7 @@ exports[`RadioButton Component render 2`] = `
     <div
       className="text"
     >
-      <strong>
-        Option
-      </strong>
+      Option
     </div>
   </label>
 </div>
