@@ -11,8 +11,8 @@ Use react-select and datepicker directly in Spacestation.
 
 ### Links
 
-* Storybook: http://plasma.guide/storybook
-* Components: http://plasma.guide/components
+* Storybook: http://plasma.guide/dev/storybook
+* Components: http://plasma.guide/dev/components
 
 ---
 

@@ -1,0 +1,19 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`SegmentedCard Component render 1`] = `
+<div
+  className="card"
+  style={Object {}}
+>
+  <div
+    className="first"
+  >
+    Side
+  </div>
+  <div
+    className="second"
+  >
+    Content
+  </div>
+</div>
+`;

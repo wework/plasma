@@ -1,0 +1,35 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`OverflowMenu Component render 1`] = `
+<div
+  className="container"
+  onMouseEnter={[Function]}
+  onMouseLeave={[Function]}
+>
+  <div
+    className="action"
+  >
+    <div
+      className="overflow"
+    />
+  </div>
+  <div
+    className="revealable"
+  >
+    <div
+      className="revealableTopWrapper"
+    >
+      <div
+        className="revealableTop"
+      >
+        <div
+          className="overflow"
+        />
+      </div>
+    </div>
+    <ol
+      className="revealableList"
+    />
+  </div>
+</div>
+`;

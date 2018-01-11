@@ -1,0 +1,31 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`NumberInput Component render 1`] = `
+<div
+  className="wrapper"
+>
+  <input
+    className="input"
+    onChange={[Function]}
+    placeholder=""
+    type="number"
+    value={undefined}
+  />
+  <div
+    className="spinner"
+  >
+    <div
+      className="action"
+      onClick={[Function]}
+    >
+      +
+    </div>
+    <div
+      className="action"
+      onClick={[Function]}
+    >
+      -
+    </div>
+  </div>
+</div>
+`;

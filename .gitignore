@@ -2,8 +2,12 @@
 
 node_modules
 dist
-index.js
-/style.css
 npm-debug.log
+coverage
+
 storybook-static
 styleguide
+
+docs/gitbook/_book
+docs/storybook
+docs/components

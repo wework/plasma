@@ -1,0 +1,17 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Icon Component render 1`] = `
+<div
+  className="wrapper"
+  dangerouslySetInnerHTML={
+    Object {
+      "__html": undefined,
+    }
+  }
+  style={
+    Object {
+      "fill": "#000",
+    }
+  }
+/>
+`;

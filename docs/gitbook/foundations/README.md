@@ -14,3 +14,6 @@ For more on what we define as ‘foundations’, [see here ↗](https://digital-
 * [Typography](/typography/README.md)
 * [Text styles](/text-styles/README.md)
 * [Links](/links/README.md)
+* [Formatting](/formatting/README.md)
+* [Layout & spacing](/layout-spacing/README.md)
+* [Responsive](/responsive/README.md)

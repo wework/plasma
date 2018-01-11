@@ -1,4 +1,5 @@
-import React, { Component, PropTypes } from 'react';
+import React, { Component } from 'react';
+import PropTypes from 'prop-types';
 import {
   getDataAttrs,
   getDataProps,
@@ -14,7 +15,7 @@ class SideNavBar extends Component {
   }
 
   renderItems() {
-    return this.props.items.map((item) => (
+    return this.props.items && this.props.items.map((item) => (
       <SideNavBarItemGroup
         key={item.id}
         id={item.id}
@@ -47,7 +48,12 @@ class SideNavBar extends Component {
 }
 
 SideNavBar.propTypes = {
-  items: PropTypes.array,
+  items: PropTypes.arrayOf(PropTypes.shape({
+    id: PropTypes.string.isRequired,
+    icon: PropTypes.string,
+    label: PropTypes.string,
+    items: PropTypes.array,
+  })),
   onChange: PropTypes.func,
   selectedId: PropTypes.string,
   onClickTop: PropTypes.func,

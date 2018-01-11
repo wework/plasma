@@ -16,7 +16,7 @@ class Modal extends React.Component {
       data,
       children,
       onDismiss,
-      minWidth,
+      minWidth = 0,
     } = this.props;
     if (this.props.visible) {
       comp = (
@@ -57,9 +57,7 @@ class Modal extends React.Component {
   }
 }
 
-Modal.defaultProps = {
-  minWidth: 'auto',
-};
+Modal.defaultProps = {};
 
 Modal.propTypes = {
   title: PropTypes.string,

@@ -1,0 +1,106 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Card Component snapshots expanded 1`] = `
+<div
+  className="card"
+  onClick={undefined}
+  style={
+    Object {
+      "minWidth": undefined,
+    }
+  }
+>
+  <div
+    className="inner"
+  >
+    <div
+      className="default"
+      style={
+        Object {
+          "maxHeight": 80,
+        }
+      }
+    >
+      YOLO
+    </div>
+    <div
+      className="expanded"
+      style={
+        Object {
+          "maxHeight": 0,
+        }
+      }
+    >
+      <div>
+        expanded
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`Card Component snapshots expanded 2`] = `
+<div
+  className="card"
+  onClick={undefined}
+  style={
+    Object {
+      "minWidth": undefined,
+    }
+  }
+>
+  <div
+    className="inner"
+  >
+    <div
+      className="default"
+      style={
+        Object {
+          "maxHeight": 80,
+        }
+      }
+    >
+      YOLO
+    </div>
+    <div
+      className="expanded"
+      style={
+        Object {
+          "maxHeight": 0,
+        }
+      }
+    >
+      <div>
+        expanded
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`Card Component snapshots render 1`] = `
+<div
+  className="card"
+  onClick={undefined}
+  style={
+    Object {
+      "minWidth": undefined,
+    }
+  }
+>
+  <div
+    className="inner"
+  >
+    <div
+      className="default"
+      style={
+        Object {
+          "maxHeight": undefined,
+        }
+      }
+    >
+      YOLO
+    </div>
+  </div>
+</div>
+`;

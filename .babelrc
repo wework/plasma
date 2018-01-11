@@ -5,5 +5,10 @@
   	"react-hot-loader/babel",
   	"transform-object-rest-spread",
   	"lodash"
-  ]
+  ],
+  "env": {
+    "test": {
+      "plugins": ["transform-es2015-modules-commonjs"]
+    }
+  }
 }
