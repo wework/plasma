@@ -2,56 +2,60 @@
 
 exports[`Checkbox Component render 1`] = `
 <div>
-  <label
-    className="wrapper"
-    htmlFor="id1"
-  >
-    <input
-      checked={false}
-      className="original"
-      disabled={undefined}
-      id="id1"
-      name="checkbox"
-      onChange={undefined}
-      type="checkbox"
-    />
-    <div
-      className="checkbox"
-    />
-    <div
-      className="text"
+  <div>
+    <label
+      className="wrapper"
+      htmlFor="id1"
     >
-      Option
-    </div>
-  </label>
+      <input
+        checked={false}
+        className="original"
+        disabled={undefined}
+        id="id1"
+        name="checkbox"
+        onChange={undefined}
+        type="checkbox"
+      />
+      <div
+        className="checkbox"
+      />
+      <div
+        className="text"
+      >
+        Option
+      </div>
+    </label>
+  </div>
 </div>
 `;
 
 exports[`Checkbox Component render 2`] = `
 <div
-  isChecked={true}
+  checked={true}
 >
-  <label
-    className="wrapper"
-    htmlFor="id1"
-  >
-    <input
-      checked={false}
-      className="original"
-      disabled={undefined}
-      id="id1"
-      name="checkbox"
-      onChange={undefined}
-      type="checkbox"
-    />
-    <div
-      className="checkbox"
-    />
-    <div
-      className="text"
+  <div>
+    <label
+      className="wrapper"
+      htmlFor="id1"
     >
-      Option
-    </div>
-  </label>
+      <input
+        checked={false}
+        className="original"
+        disabled={undefined}
+        id="id1"
+        name="checkbox"
+        onChange={undefined}
+        type="checkbox"
+      />
+      <div
+        className="checkbox"
+      />
+      <div
+        className="text"
+      >
+        Option
+      </div>
+    </label>
+  </div>
 </div>
 `;
