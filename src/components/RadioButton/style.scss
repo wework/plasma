@@ -9,8 +9,15 @@
   cursor: pointer;
 
   &.isLarge {
-    .text { font-size: 18px; }
-    ~ .description { font-size: 16px; }
+    .text {
+      font-size: 18px;
+    }
+    ~ .description {
+      font-size: 16px;
+    }
+  }
+  &.disabled {
+    cursor: not-allowed;
   }
 }
 
@@ -24,6 +31,9 @@
     &::before {
       background: $cWeWorkBlack;
     }
+  }
+  &.disabled {
+    cursor: not-allowed;
   }
 }
 
@@ -51,15 +61,12 @@
   }
 }
 
-.description, .text {
-  &:hover {
-    cursor: pointer;
-  }
-}
-
 .text {
   @extend %type--body;
   margin-left: 10px;
+  &.disabled {
+    color: $cGray200;
+  }
 }
 
 .description {
@@ -70,4 +77,3 @@
   line-height: 20px;
   margin-left: 26px;
 }
-

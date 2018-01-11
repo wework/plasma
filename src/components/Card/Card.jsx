@@ -2,10 +2,7 @@ import cx from 'classnames';
 import React from 'react';
 import ReactDOM from 'react-dom';
 import PropTypes from 'prop-types';
-import {
-  getDataAttrs,
-  getDataProps }
-from '../../dataUtils';
+import { getDataAttrs, getDataProps } from '../../dataUtils';
 import style from './style.scss';
 
 import Header from '../Header/Header';
@@ -17,7 +14,6 @@ const cardTypes = {
 const borderTypes = { DASHED: 'dashed' };
 
 class Card extends React.Component {
-
   constructor() {
     super();
     this.state = {
@@ -73,43 +69,41 @@ class Card extends React.Component {
 
     return (
       <div
-        ref={(c) => { this.outer = c; }}
+        ref={c => {
+          this.outer = c;
+        }}
         className={cardStyle}
         style={{ minWidth }}
         onClick={onClick}
         {...getDataAttrs(data)}
       >
         <div className={style.inner}>
-          { (title || actions) &&
+          {(title || actions) && (
             <div className={style.top}>
-              { title &&
-                <Header h3>
-                  { title }
-                </Header>
-              }
-              { actions &&
-                <div className={style.cardActions}>
-                  { actions.map((action) => action)}
-                </div>
-              }
+              {title && <Header h4>{title}</Header>}
+              {actions && <div className={style.cardActions}>{actions.map(action => action)}</div>}
             </div>
-          }
+          )}
           <div
-            ref={(c) => { this.default = c; }}
+            ref={c => {
+              this.default = c;
+            }}
             className={style.default}
             style={{ maxHeight: defaultHeight }}
           >
-            { children }
+            {children}
           </div>
-          { expandedComponent &&
+          {expandedComponent && (
             <div
-              ref={(c) => { this.expanded = c; }}
+              ref={c => {
+                this.expanded = c;
+              }}
               className={style.expanded}
               style={{ maxHeight: expandedHeight }}
             >
-              { expandedComponent }
+              {expandedComponent}
             </div>
-          }
+          )}
         </div>
       </div>
     );

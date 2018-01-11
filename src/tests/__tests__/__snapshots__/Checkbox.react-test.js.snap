@@ -13,6 +13,7 @@ exports[`Checkbox Component render 1`] = `
         disabled={undefined}
         id="id1"
         name="checkbox"
+        onBlur={undefined}
         onChange={undefined}
         type="checkbox"
       />
@@ -44,6 +45,7 @@ exports[`Checkbox Component render 2`] = `
         disabled={undefined}
         id="id1"
         name="checkbox"
+        onBlur={undefined}
         onChange={undefined}
         type="checkbox"
       />

@@ -3,13 +3,9 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import cx from 'classnames';
 import style from './style.scss';
-import {
-  getDataAttrs,
-  getDataProps }
-from '../../dataUtils';
+import { getDataAttrs, getDataProps } from '../../dataUtils';
 
 class Checkbox extends React.Component {
-
   render() {
     const {
       isBold,
@@ -21,6 +17,7 @@ class Checkbox extends React.Component {
       disabled,
       value,
       data,
+      onBlur,
     } = this.props;
     const id = uniqueId('id');
     const inputClassName = indeterminate ? style.indeterminate : style.original;
@@ -33,14 +30,9 @@ class Checkbox extends React.Component {
     });
 
     return (
-      <div
-        {...getDataAttrs(data)}
-      >
+      <div {...getDataAttrs(data)}>
         <div>
-          <label
-            htmlFor={id}
-            className={wrapperClassName}
-          >
+          <label htmlFor={id} className={wrapperClassName}>
             <input
               disabled={disabled}
               checked={checked || value}
@@ -49,18 +41,15 @@ class Checkbox extends React.Component {
               id={id}
               name={name}
               onChange={onChange}
+              onBlur={onBlur}
             />
             <div className={style.checkbox} />
-            <div className={textClassName}>
-              {text}
-            </div>
+            <div className={textClassName}>{text}</div>
           </label>
         </div>
-        { this.props.description &&
-          <span className={style.description}>
-            { this.props.description }
-          </span>
-        }
+        {this.props.description && (
+          <span className={style.description}>{this.props.description}</span>
+        )}
       </div>
     );
   }
@@ -78,15 +67,12 @@ Checkbox.propTypes = {
   checked: PropTypes.bool,
   value: PropTypes.bool,
   indeterminate: PropTypes.bool,
-  text: PropTypes.oneOfType([
-    PropTypes.string,
-    PropTypes.node,
-    PropTypes.element,
-  ]).isRequired,
+  text: PropTypes.oneOfType([PropTypes.string, PropTypes.node, PropTypes.element]).isRequired,
   name: PropTypes.string.isRequired,
   onChange: PropTypes.func,
   disabled: PropTypes.bool,
   description: PropTypes.string,
+  onBlur: PropTypes.func,
   ...getDataProps(),
 };
 
