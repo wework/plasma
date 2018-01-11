@@ -16,7 +16,7 @@ class Modal extends React.Component {
       data,
       children,
       onDismiss,
-      minWidth,
+      minWidth = 0,
     } = this.props;
     if (this.props.visible) {
       comp = (
