@@ -1,4 +1,4 @@
-@import '../../styles/base';
+@import "../../styles/base";
 
 .wrapper {
   width: 100%;
@@ -9,6 +9,10 @@
   margin-bottom: 20px;
   background: none;
   height: 1px;
+}
+
+.withTopMargin {
+  margin-top: 20px;
 }
 
 .dotted {

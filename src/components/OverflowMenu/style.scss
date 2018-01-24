@@ -1,15 +1,13 @@
-@import '../../styles/base';
+@import "../../styles/base";
 
 .container {
   position: relative;
 }
 
 .action {
-  width: 40px;
   height: 35px;
   cursor: pointer;
   display: flex;
-  justify-content: center;
   align-items: center;
 }
 
@@ -35,7 +33,6 @@
   left: -4px;
   overflow: hidden;
   padding: 3px 4px 0 4px;
-  width: 48px;
   height: 33px;
   z-index: 10;
   cursor: pointer;
@@ -43,10 +40,9 @@
 
 .revealableTop {
   box-sizing: border-box;
-  width: 40px;
   height: 35px;
   background-color: $cWhite;
-  box-shadow: 0 2px 4px 0 rgba(0,0,0,0.2);
+  box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.2);
   display: flex;
   justify-content: center;
   align-items: center;
@@ -54,6 +50,17 @@
 
 .overflow {
   @extend %icon--overflow;
+}
+
+.labelWithText {
+  color: #252729;
+  font-size: 13px;
+  font-weight: bold;
+  line-height: 20px;
+  text-align: center;
+  padding-left: 3px;
+  padding-right: 3px;
+  white-space: nowrap;
 }
 
 .revealableList {
@@ -64,7 +71,7 @@
   z-index: 1;
   padding: 10px 0;
   margin-top: 30px;
-  box-shadow: 0 0px 4px 0 rgba(0,0,0,0.2);
+  box-shadow: 0 0px 4px 0 rgba(0, 0, 0, 0.2);
   min-width: 200px;
   &.openLeft {
     left: -100%;
