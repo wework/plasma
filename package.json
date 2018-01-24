@@ -1,6 +1,6 @@
 {
   "name": "@wework-dev/plasma",
-  "version": "0.0.138",
+  "version": "1.0.0",
   "description": "",
   "main": "./dist/index.js",
   "scripts": {
@@ -39,7 +39,7 @@
     "babel-register": "^6.9.0",
     "base64-image-loader": "^1.2.0",
     "css-loader": "^0.23.1",
-    "enzyme": "^2.9.1",
+    "enzyme": "^3.0.0",
     "eslint": "^3.3.0",
     "eslint-config-airbnb": "^10.0.1",
     "eslint-plugin-import": "^2.2.0",
@@ -57,13 +57,13 @@
     "moment": "^2.18.1",
     "node-sass": "^4.5.3",
     "proxy-middleware": "^0.15.0",
-    "react": "^15.6.1",
+    "react": "^16.0.0",
     "react-docgen-fixed": "^2.9.1",
-    "react-dom": "^15.6.1",
+    "react-dom": "^16.0.0",
     "react-hot-loader": "^3.0.0-beta.6",
     "react-router": "^2.6.0",
     "react-styleguidist": "^5.5.9",
-    "react-test-renderer": "^15.6.1",
+    "react-test-renderer": "^16.0.0",
     "regenerator-runtime": "^0.10.5",
     "resolve-url-loader": "^1.6.0",
     "sass-loader": "^4.0.0",
@@ -79,6 +79,7 @@
     "@storybook/addon-links": "^3.1.6",
     "babel-runtime": "^6.9.2",
     "classnames": "^2.2.5",
+    "enzyme-adapter-react-16": "^1.1.1",
     "jest-cli": "^22.0.6",
     "jsdom": "^11.1.0",
     "lodash": "^4.14.1",
@@ -89,8 +90,8 @@
     "react-select": "^0.9.1"
   },
   "peerDependencies": {
-    "react": "^15.6.1",
-    "react-dom": "^15.6.1",
+    "react": "^16.0.0",
+    "react-dom": "^16.0.0",
     "react-tap-event-plugin": "^2.0.1"
   },
   "jest": {
