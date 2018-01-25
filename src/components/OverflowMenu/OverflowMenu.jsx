@@ -9,12 +9,9 @@ import style from './style.scss';
 const direction = { RIGHT: 'right', LEFT: 'left' };
 
 class OverflowMenu extends React.Component {
-  constructor() {
-    super();
-    this.state = {
-      revealed: false,
-    };
-  }
+  state = {
+    revealed: false,
+  };
 
   handleMouseEnter = () => {
     if (!this.props.disabled) {
@@ -32,9 +29,9 @@ class OverflowMenu extends React.Component {
   };
 
   renderLabel = () => {
-    const { title } = this.props;
-    if (title) {
-      return <div className={style.labelWithText}>{title} &#9662;</div>;
+    const { label } = this.props;
+    if (label) {
+      return <div className={style.labelWithText}>{label} &#9662;</div>;
     }
 
     return <div className={style.overflow} />;
@@ -54,20 +51,8 @@ class OverflowMenu extends React.Component {
         onMouseLeave={this.handleMouseLeave}
         className={style.container}
       >
-        <div
-          ref={c => {
-            this.title = c;
-          }}
-          className={style.action}
-        >
-          {this.renderLabel()}
-        </div>
-        <div
-          ref={c => {
-            this.revealable = c;
-          }}
-          className={revealableStyle}
-        >
+        <div className={style.action}>{this.renderLabel()}</div>
+        <div className={revealableStyle}>
           <div className={style.revealableTopWrapper}>
             <div className={style.revealableTop}>{this.renderLabel()}</div>
           </div>
@@ -96,12 +81,15 @@ OverflowMenu.defaultProps = {
 
 OverflowMenu.propTypes = {
   disabled: PropTypes.bool,
-  options: PropTypes.arrayOf(PropTypes.shape({
-    key: PropTypes.string.isRequired,
-    text: PropTypes.string,
-  })),
+  options: PropTypes.arrayOf(
+    PropTypes.shape({
+      key: PropTypes.string.isRequired,
+      text: PropTypes.string,
+    })
+  ),
   onClick: PropTypes.func,
   openDirection: PropTypes.oneOf([direction.LEFT, direction.RIGHT]),
+  label: PropTypes.string,
   ...getDataProps(),
 };
 
