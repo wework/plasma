@@ -33,3 +33,43 @@ exports[`OverflowMenu Component render 1`] = `
   </div>
 </div>
 `;
+
+exports[`OverflowMenu Component render with label 1`] = `
+<div
+  className="container"
+  onMouseEnter={[Function]}
+  onMouseLeave={[Function]}
+>
+  <div
+    className="action"
+  >
+    <div
+      className="labelWithText"
+    >
+      Hello World!
+       ▾
+    </div>
+  </div>
+  <div
+    className="revealable"
+  >
+    <div
+      className="revealableTopWrapper"
+    >
+      <div
+        className="revealableTop"
+      >
+        <div
+          className="labelWithText"
+        >
+          Hello World!
+           ▾
+        </div>
+      </div>
+    </div>
+    <ol
+      className="revealableList"
+    />
+  </div>
+</div>
+`;
