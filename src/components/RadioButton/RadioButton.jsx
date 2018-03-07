@@ -12,38 +12,52 @@ class RadioButton extends React.Component {
   };
 
   render() {
+    const {
+      data,
+      description,
+      disabled,
+      fancy,
+      fieldValue,
+      isLarge,
+      name,
+      onChange,
+      text,
+    } = this.props;
     const id = uniqueId('id');
     const wrapperClasses = cx(style.wrapper, {
-      [style.isLarge]: this.props.isLarge,
-      [style.disabled]: this.props.disabled,
+      [style.disabled]: disabled,
+      [style.fancy]: fancy,
+      [style.fancyChecked]: fancy && this.value(),
+      [style.isLarge]: isLarge,
     });
-
+    const inlineClass = cx({ [style.inline]: fancy })
+    const fauxCircle = fancy ? null : <div className={style.faux} />;
     return (
-      <div {...getDataAttrs(this.props.data)}>
+      <div {...getDataAttrs(data)} className={inlineClass}>
         <label htmlFor={id} className={wrapperClasses}>
           <input
             className={cx(style.original, {
-              [style.disabled]: this.props.disabled,
+              [style.disabled]: disabled,
             })}
-            type="radio"
-            id={id}
-            name={this.props.name}
-            onChange={this.props.onChange}
             checked={this.value()}
-            value={this.props.fieldValue}
-            disabled={this.props.disabled}
+            disabled={disabled}
+            id={id}
+            name={name}
+            onChange={onChange}
+            type="radio"
+            value={fieldValue}
           />
-          <div className={style.faux} />
+        {fauxCircle}
           <div
             className={cx(style.text, {
-              [style.disabled]: this.props.disabled,
+              [style.disabled]: disabled,
             })}
           >
-            {this.props.text}
+            {text}
           </div>
         </label>
-        {this.props.description && (
-          <span className={style.description}>{this.props.description}</span>
+        {description && (
+          <span className={style.description}>{description}</span>
         )}
       </div>
     );
@@ -51,21 +65,22 @@ class RadioButton extends React.Component {
 }
 
 RadioButton.defaultProps = {
-  text: 'Option',
   name: 'radioButton',
+  text: 'Option',
 };
 
 RadioButton.propTypes = {
-  text: PropTypes.string.isRequired,
-  name: PropTypes.string.isRequired,
-  description: PropTypes.string,
-  isLarge: PropTypes.bool,
-  onChange: PropTypes.func,
-  checked: PropTypes.bool,
-  value: PropTypes.string,
-  fieldValue: PropTypes.string,
-  disabled: PropTypes.bool,
   ...getDataProps(),
+  checked: PropTypes.bool,
+  description: PropTypes.string,
+  disabled: PropTypes.bool,
+  fancy: PropTypes.bool,
+  fieldValue: PropTypes.string,
+  isLarge: PropTypes.bool,
+  name: PropTypes.string.isRequired,
+  onChange: PropTypes.func,
+  text: PropTypes.string.isRequired,
+  value: PropTypes.string,
 };
 
 RadioButton.displayName = 'Plasma@RadioButton';

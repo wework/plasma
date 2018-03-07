@@ -1,5 +1,10 @@
 @import '../../styles/base';
 
+.inline {
+  display: inline-block;
+  margin: 10px 10px 10px 0;
+}
+
 .wrapper {
   position: relative;
   display: flex;
@@ -16,6 +21,29 @@
       font-size: 16px;
     }
   }
+
+  &.fancy {
+    .text {
+      padding: 12px 15px;
+      margin: 0;
+      font-size: 13px;
+      font-weight: bold;
+      line-height: 16px;
+      color: $cBlue70;
+    }
+    display: inline-block;
+    height: 40px;
+    border-radius: 20px;
+    border: 1px solid $cBlue70;
+  }
+
+  &.fancyChecked {
+    .text {
+      color: $cWhite;
+    }
+    background-color: $cBlue70;
+  }
+
   &.disabled {
     cursor: not-allowed;
   }
