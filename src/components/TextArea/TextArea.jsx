@@ -2,15 +2,11 @@ import { toUpper } from 'lodash';
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import cx from 'classnames';
-import {
-  getDataAttrs,
-  getDataProps,
-} from '../../dataUtils';
+import { getDataAttrs, getDataProps } from '../../dataUtils';
 import Autogrow from './autogrow';
 import style from './style.scss';
 
 class TextArea extends Component {
-
   render() {
     const wrapperStyle = cx(style.wrapper, {
       [style.wrapperDisabled]: this.props.disabled,
@@ -24,28 +20,26 @@ class TextArea extends Component {
     });
 
     return (
-      <div
-        className={wrapperStyle}
-        {...getDataAttrs(this.props.data)}
-      >
+      <div className={wrapperStyle} {...getDataAttrs(this.props.data)}>
         <textarea
-          ref={(el) => el && new Autogrow(el)}
+          ref={el => el && new Autogrow(el)}
           className={textareaStyle}
           disabled={this.props.disabled}
           onChange={this.props.onChange}
           rows={this.props.rows}
-          onFocus={(e) => {
+          onFocus={e => {
             /* eslint-disable no-param-reassign */
             e.target.parentElement.className += ` ${style.wrapperFocused}`;
             /* eslint-enable no-param-reassign */
             this.props.onFocus && this.props.onFocus();
           }}
-          onBlur={(e) => {
+          onBlur={e => {
             e.target.parentElement.classList.remove(style.wrapperFocused);
             this.props.onBlur && this.props.onBlur();
           }}
           placeholder={this.props.placeholder}
           value={this.props.value}
+          maxLength={this.props.maxLength}
         />
       </div>
     );
@@ -62,6 +56,7 @@ TextArea.propTypes = {
   size: PropTypes.string,
   rows: PropTypes.string,
   error: PropTypes.bool,
+  maxLength: PropTypes.string,
   ...getDataProps(),
 };
 
