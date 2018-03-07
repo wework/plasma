@@ -3,6 +3,7 @@ import { storiesOf } from '@storybook/react';
 import { action } from '@storybook/addon-actions';
 import { linkTo } from '@storybook/addon-links';
 import RadioButton from '../src/components/RadioButton/RadioButton';
+import meetupLogo from '../src/icons/meetupLogo';
 
 class FancyRadioButtons extends React.Component {
   state = {
@@ -15,36 +16,51 @@ class FancyRadioButtons extends React.Component {
     return (
       <div>
         <RadioButton
-          text="Need To Know"
-          fieldValue="Need To Know"
+          text="Happy Hour"
+          fieldValue="Happy Hour"
           fancy
           onChange={this.handleCheck}
           value={this.state.selected}
         />
         <RadioButton
-          text="House Rules"
-          fieldValue="House Rules"
+          text="Networking"
+          fieldValue="Networking"
           fancy
           onChange={this.handleCheck}
           value={this.state.selected}
         />
         <RadioButton
-          text="Limited Staffing"
-          fieldValue="Limited Staffing"
+          text="Wellness"
+          fieldValue="Wellness"
           fancy
           onChange={this.handleCheck}
           value={this.state.selected}
         />
         <RadioButton
-          text="Fire Drill"
-          fieldValue="Fire Drill"
+          text="TGIM"
+          fieldValue="TGIM"
           fancy
           onChange={this.handleCheck}
           value={this.state.selected}
         />
         <RadioButton
-          text="Emergency"
-          fieldValue="Emergency"
+          text="Lunch and Learn"
+          fieldValue="Lunch and Learn"
+          fancy
+          onChange={this.handleCheck}
+          value={this.state.selected}
+        />
+       <RadioButton
+          text="Meetup"
+          fieldValue="Meetup"
+          fancy
+          icon={meetupLogo}
+          onChange={this.handleCheck}
+          value={this.state.selected}
+        />
+        <RadioButton
+          text="Community Event"
+          fieldValue="Community Event"
           fancy
           onChange={this.handleCheck}
           value={this.state.selected}
@@ -73,6 +89,6 @@ storiesOf('RadioButton', module)
       <RadioButton text="Two" description="This is the second RadioButton" />
     </div>
   ))
-  .add('fancy', () => (
+  .add('fancy with optional icon', () => (
     <FancyRadioButtons />
   ));
