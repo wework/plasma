@@ -2,6 +2,7 @@ import { uniqueId } from 'lodash';
 import React from 'react';
 import PropTypes from 'prop-types';
 import cx from 'classnames';
+import Icon from '../Icon/Icon';
 import { getDataAttrs, getDataProps } from '../../dataUtils';
 import style from './style.scss';
 
@@ -18,6 +19,7 @@ class RadioButton extends React.Component {
       disabled,
       fancy,
       fieldValue,
+      icon,
       isLarge,
       name,
       onChange,
@@ -32,6 +34,7 @@ class RadioButton extends React.Component {
     });
     const inlineClass = cx({ [style.inline]: fancy })
     const fauxCircle = fancy ? null : <div className={style.faux} />;
+    const fancyIcon = fancy && icon ? <div className={style.fancyIcon}><Icon icon={icon} /></div> : null;
     return (
       <div {...getDataAttrs(data)} className={inlineClass}>
         <label htmlFor={id} className={wrapperClasses}>
@@ -48,6 +51,7 @@ class RadioButton extends React.Component {
             value={fieldValue}
           />
         {fauxCircle}
+        {fancyIcon}
           <div
             className={cx(style.text, {
               [style.disabled]: disabled,
@@ -76,6 +80,7 @@ RadioButton.propTypes = {
   disabled: PropTypes.bool,
   fancy: PropTypes.bool,
   fieldValue: PropTypes.string,
+  icon: PropTypes.string,
   isLarge: PropTypes.bool,
   name: PropTypes.string.isRequired,
   onChange: PropTypes.func,

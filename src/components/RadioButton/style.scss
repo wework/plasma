@@ -2,6 +2,7 @@
 
 .inline {
   display: inline-block;
+  vertical-align: top;
   margin: 10px 10px 10px 0;
 }
 
@@ -24,14 +25,14 @@
 
   &.fancy {
     .text {
-      padding: 12px 15px;
+      padding: 12px 15px 12px 0;
       margin: 0;
       font-size: 13px;
       font-weight: bold;
-      line-height: 16px;
       color: $cBlue70;
+      line-height: 16px;
     }
-    display: inline-block;
+    padding-left: 15px;
     height: 40px;
     border-radius: 20px;
     border: 1px solid $cBlue70;
@@ -87,6 +88,11 @@
     margin-top: 50%;
     top: -4px;
   }
+}
+
+.fancyIcon {
+  margin: 0 0 0 -10px;
+  padding-right: 1px;
 }
 
 .text {
