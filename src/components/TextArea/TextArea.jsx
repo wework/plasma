@@ -34,34 +34,32 @@ class TextArea extends Component {
     });
 
     return (
-      <div>
-        <div className={wrapperStyle} {...getDataAttrs(data)}>
-          <textarea
-            ref={el => {
-              if (el && !el.props) {
-                new Autogrow(el);
-                this.props.parentRef && this.props.parentRef(el);
-              }
-            }}
-            className={textareaStyle}
-            disabled={disabled}
-            onChange={onChange}
-            rows={rows}
-            onFocus={e => {
-              /* eslint-disable no-param-reassign */
-              e.target.parentElement.className += ` ${style.wrapperFocused}`;
-              /* eslint-enable no-param-reassign */
-              onFocus && onFocus();
-            }}
-            onBlur={e => {
-              e.target.parentElement.classList.remove(style.wrapperFocused);
-              onBlur && onBlur();
-            }}
-            placeholder={placeholder}
-            value={value}
-            maxLength={maxLength}
-          />
-        </div>
+      <div className={wrapperStyle} {...getDataAttrs(data)}>
+        <textarea
+          ref={el => {
+            if (el && !el.props) {
+              new Autogrow(el);
+              this.props.parentRef && this.props.parentRef(el);
+            }
+          }}
+          className={textareaStyle}
+          disabled={disabled}
+          onChange={onChange}
+          rows={rows}
+          onFocus={e => {
+            /* eslint-disable no-param-reassign */
+            e.target.parentElement.className += ` ${style.wrapperFocused}`;
+            /* eslint-enable no-param-reassign */
+            onFocus && onFocus();
+          }}
+          onBlur={e => {
+            e.target.parentElement.classList.remove(style.wrapperFocused);
+            onBlur && onBlur();
+          }}
+          placeholder={placeholder}
+          value={value}
+          maxLength={maxLength}
+        />
       </div>
     );
   }
