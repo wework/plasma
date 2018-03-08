@@ -55,7 +55,7 @@ Info here: https://react-styleguidist.js.org/docs/documenting.html
 
 ### Publishing to NPM
 
-1.  Only publish from master and make sure you `git pull origin` the latest from master.
+1.  Create a separate PR or bump the npm version in the feature branch, do not publish from master.
 2.  Run `yarn run pack` to bundle the .js and .css file into `/dist` folder.
 3.  Run `npm version patch`. This will bump the version in package.json and create a new tag and push the tag to Github.
 4.  Make sure you're logged in to NPM via `npm login`.
@@ -80,7 +80,7 @@ Info here: https://react-styleguidist.js.org/docs/documenting.html
 4. Changes you make in Plasma should automatically be picked up by Spacestation
 5. Follow "Creating a Pull Request / Publishing"
 
-## Using a published Plasma version from NPM 
+## Using a published Plasma version from NPM
 
 1.  Run `yarn add @wework-dev/plasma` in your project.
 2.  Include the Plasma object (or individual components) in your Javascript.
@@ -89,7 +89,7 @@ Info here: https://react-styleguidist.js.org/docs/documenting.html
     import Plasma from '@wework-dev/plasma';
     <Plasma.Button label='Click it'/>
     ```
-    
+
     Individual components example:
     ```javascript
     import { Button } from '@wework-dev/plasma';
