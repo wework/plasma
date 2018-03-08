@@ -4,20 +4,18 @@ import { action } from '@storybook/addon-actions';
 import { linkTo } from '@storybook/addon-links';
 import TextInput from '../src/components/TextInput/TextInput';
 
-storiesOf('TextInput', module).add('default', () => (
-  <TextInput onChange={action('changed')} />
-));
+storiesOf('TextInput', module).add('default', () => <TextInput onChange={action('changed')} />);
 
 storiesOf('TextInput', module).add('custom placeholder', () => (
   <TextInput placeholder="Custom placeholder..." onChange={action('changed')} />
 ));
 
 storiesOf('TextInput', module).add('prefix', () => (
-  <TextInput onChange={action('changed')} prefix='$' />
+  <TextInput onChange={action('changed')} prefix="$" />
 ));
 
 storiesOf('TextInput', module).add('suffix', () => (
-  <TextInput onChange={action('changed')} suffix='.com' />
+  <TextInput onChange={action('changed')} suffix=".com" />
 ));
 
 storiesOf('TextInput', module).add('disabled placeholder', () => (
@@ -25,35 +23,33 @@ storiesOf('TextInput', module).add('disabled placeholder', () => (
 ));
 
 storiesOf('TextInput', module).add('disabled filled', () => (
-  <TextInput disabled onChange={action('changed')} value='Queen of hearts' />
+  <TextInput disabled onChange={action('changed')} value="Queen of hearts" />
 ));
 
 storiesOf('TextInput', module).add('disabled prefix', () => (
-  <TextInput disabled prefix='$' onChange={action('changed')} value='Queen of hearts' />
+  <TextInput disabled prefix="$" onChange={action('changed')} value="Queen of hearts" />
 ));
 
 storiesOf('TextInput', module).add('disabled suffix', () => (
-  <TextInput disabled suffix='.com' onChange={action('changed')} value='Queen of hearts' />
+  <TextInput disabled suffix=".com" onChange={action('changed')} value="Queen of hearts" />
 ));
 
-storiesOf('TextInput', module).add('error', () => (
-  <TextInput error onChange={action('changed')} />
-));
+storiesOf('TextInput', module).add('error', () => <TextInput error onChange={action('changed')} />);
 
 storiesOf('TextInput', module).add('suffix error', () => (
-  <TextInput suffix='.com' error onChange={action('changed')} />
+  <TextInput suffix=".com" error onChange={action('changed')} />
 ));
 
 storiesOf('TextInput', module).add('prefix error', () => (
-  <TextInput prefix='$' error onChange={action('changed')} />
+  <TextInput prefix="$" error onChange={action('changed')} />
 ));
 
 storiesOf('TextInput', module).add('large', () => (
-  <TextInput size='large' onChange={action('changed')} />
+  <TextInput size="large" onChange={action('changed')} />
 ));
 
 storiesOf('TextInput', module).add('large prefix', () => (
-  <TextInput prefix='http://' size='large' onChange={action('changed')} />
+  <TextInput prefix="http://" size="large" onChange={action('changed')} />
 ));
 
 storiesOf('TextInput', module).add('clipping parent', () => (
@@ -62,4 +58,8 @@ storiesOf('TextInput', module).add('clipping parent', () => (
       <TextInput />
     </div>
   </div>
+));
+
+storiesOf('TextInput', module).add('max length', () => (
+  <TextInput maxLength="10" onChange={action('changed')} />
 ));

@@ -20,4 +20,9 @@ storiesOf('TextArea', module)
     <div>
       <TextArea disabled placeholder="Type a note..." />
     </div>
+  ))
+  .add('maxLength', () => (
+    <div>
+      <TextArea maxLength="10" placeholder="Max length of 10" />
+    </div>
   ));
