@@ -51,3 +51,7 @@
 .disabled {
   @extend %input--disabled;
 }
+
+.counterStyle {
+  @extend %type--body;
+}

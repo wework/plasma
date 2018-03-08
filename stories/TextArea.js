@@ -25,4 +25,23 @@ storiesOf('TextArea', module)
     <div>
       <TextArea maxLength="10" placeholder="Max length of 10" />
     </div>
+  ))
+  .add('withCounter', () => (
+    <div>
+      <TextArea withCounter placeholder="Should show a counter" />
+    </div>
+  ))
+  .add('withCounter and initial value', () => (
+    <div>
+      <TextArea withCounter placeholder="Should show a counter" value="foo bar" />
+    </div>
+  ))
+  .add('withCounter and maxLength', () => (
+    <div>
+      <TextArea
+        withCounter
+        maxLength="20"
+        placeholder="Should show a counter and have a max length"
+      />
+    </div>
   ));

@@ -7,56 +7,92 @@ import Autogrow from './autogrow';
 import style from './style.scss';
 
 class TextArea extends Component {
+  onChange = (...args) => {
+    this.setState({
+      value: this.textarea.value,
+    });
+    return this.props.onChange && this.props.onChange(...args);
+  };
+  constructor(props) {
+    super(props);
+    this.state = {
+      value: this.props.value || '',
+    };
+  }
   render() {
+    const {
+      counterStyle,
+      data,
+      disabled,
+      error,
+      maxLength,
+      onBlur,
+      onFocus,
+      placeholder,
+      rows,
+      size,
+      withCounter,
+    } = this.props;
+
     const wrapperStyle = cx(style.wrapper, {
-      [style.wrapperDisabled]: this.props.disabled,
-      [style.wrapperError]: this.props.error,
-      [style.wrapperLarge]: toUpper(this.props.size) === 'LARGE',
+      [style.wrapperDisabled]: disabled,
+      [style.wrapperError]: error,
+      [style.wrapperLarge]: toUpper(size) === 'LARGE',
     });
 
     const textareaStyle = cx(style.textarea, {
-      [style.disabled]: this.props.disabled,
-      [style.large]: toUpper(this.props.size) === 'LARGE',
+      [style.disabled]: disabled,
+      [style.large]: toUpper(size) === 'LARGE',
     });
 
     return (
-      <div className={wrapperStyle} {...getDataAttrs(this.props.data)}>
-        <textarea
-          ref={el => el && new Autogrow(el)}
-          className={textareaStyle}
-          disabled={this.props.disabled}
-          onChange={this.props.onChange}
-          rows={this.props.rows}
-          onFocus={e => {
-            /* eslint-disable no-param-reassign */
-            e.target.parentElement.className += ` ${style.wrapperFocused}`;
-            /* eslint-enable no-param-reassign */
-            this.props.onFocus && this.props.onFocus();
-          }}
-          onBlur={e => {
-            e.target.parentElement.classList.remove(style.wrapperFocused);
-            this.props.onBlur && this.props.onBlur();
-          }}
-          placeholder={this.props.placeholder}
-          value={this.props.value}
-          maxLength={this.props.maxLength}
-        />
+      <div>
+        {withCounter && (
+          <div className={counterStyle || style.counterStyle}>
+            {this.state.value.length}
+            {maxLength && `/${maxLength}`} characters
+          </div>
+        )}
+        <div className={wrapperStyle} {...getDataAttrs(data)}>
+          <textarea
+            ref={el => el && (this.textarea = el) && new Autogrow(el)}
+            className={textareaStyle}
+            disabled={disabled}
+            onChange={this.onChange}
+            rows={rows}
+            onFocus={e => {
+              /* eslint-disable no-param-reassign */
+              e.target.parentElement.className += ` ${style.wrapperFocused}`;
+              /* eslint-enable no-param-reassign */
+              onFocus && onFocus();
+            }}
+            onBlur={e => {
+              e.target.parentElement.classList.remove(style.wrapperFocused);
+              onBlur && onBlur();
+            }}
+            placeholder={placeholder}
+            value={this.state.value}
+            maxLength={maxLength}
+          />
+        </div>
       </div>
     );
   }
 }
 
 TextArea.propTypes = {
-  placeholder: PropTypes.string,
-  value: PropTypes.string,
-  onChange: PropTypes.func,
-  onFocus: PropTypes.func,
-  onBlur: PropTypes.func,
+  counterStyle: PropTypes.object,
   disabled: PropTypes.bool,
-  size: PropTypes.string,
-  rows: PropTypes.string,
   error: PropTypes.bool,
   maxLength: PropTypes.string,
+  onBlur: PropTypes.func,
+  onChange: PropTypes.func,
+  onFocus: PropTypes.func,
+  placeholder: PropTypes.string,
+  rows: PropTypes.string,
+  size: PropTypes.string,
+  value: PropTypes.string,
+  withCounter: PropTypes.bool,
   ...getDataProps(),
 };
 
