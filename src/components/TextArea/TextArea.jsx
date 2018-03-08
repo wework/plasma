@@ -7,31 +7,19 @@ import Autogrow from './autogrow';
 import style from './style.scss';
 
 class TextArea extends Component {
-  onChange = (...args) => {
-    this.setState({
-      value: this.textarea.value,
-    });
-    return this.props.onChange && this.props.onChange(...args);
-  };
-  constructor(props) {
-    super(props);
-    this.state = {
-      value: this.props.value || '',
-    };
-  }
   render() {
     const {
-      counterStyle,
       data,
       disabled,
       error,
       maxLength,
       onBlur,
+      onChange,
       onFocus,
       placeholder,
       rows,
       size,
-      withCounter,
+      value,
     } = this.props;
 
     const wrapperStyle = cx(style.wrapper, {
@@ -47,18 +35,17 @@ class TextArea extends Component {
 
     return (
       <div>
-        {withCounter && (
-          <div className={counterStyle || style.counterStyle}>
-            {this.state.value.length}
-            {maxLength && `/${maxLength}`} characters
-          </div>
-        )}
         <div className={wrapperStyle} {...getDataAttrs(data)}>
           <textarea
-            ref={el => el && (this.textarea = el) && new Autogrow(el)}
+            ref={el => {
+              if (el && !el.props) {
+                new Autogrow(el);
+                this.props.parentRef && this.props.parentRef(el);
+              }
+            }}
             className={textareaStyle}
             disabled={disabled}
-            onChange={this.onChange}
+            onChange={onChange}
             rows={rows}
             onFocus={e => {
               /* eslint-disable no-param-reassign */
@@ -71,7 +58,7 @@ class TextArea extends Component {
               onBlur && onBlur();
             }}
             placeholder={placeholder}
-            value={this.state.value}
+            value={value}
             maxLength={maxLength}
           />
         </div>
@@ -81,7 +68,6 @@ class TextArea extends Component {
 }
 
 TextArea.propTypes = {
-  counterStyle: PropTypes.object,
   disabled: PropTypes.bool,
   error: PropTypes.bool,
   maxLength: PropTypes.string,
@@ -92,7 +78,6 @@ TextArea.propTypes = {
   rows: PropTypes.string,
   size: PropTypes.string,
   value: PropTypes.string,
-  withCounter: PropTypes.bool,
   ...getDataProps(),
 };
 
