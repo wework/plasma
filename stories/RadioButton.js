@@ -3,6 +3,72 @@ import { storiesOf } from '@storybook/react';
 import { action } from '@storybook/addon-actions';
 import { linkTo } from '@storybook/addon-links';
 import RadioButton from '../src/components/RadioButton/RadioButton';
+import meetupLogo from '../src/icons/meetupLogo';
+
+class FancyRadioButtons extends React.Component {
+  state = {
+    selected: "Building Announcements"
+  }
+  handleCheck = (e) => {
+    this.setState({ selected: e.target.value })
+  }
+  render() {
+    return (
+      <div>
+        <RadioButton
+          text="Happy Hour"
+          fieldValue="Happy Hour"
+          fancy
+          onChange={this.handleCheck}
+          value={this.state.selected}
+        />
+        <RadioButton
+          text="Networking"
+          fieldValue="Networking"
+          fancy
+          onChange={this.handleCheck}
+          value={this.state.selected}
+        />
+        <RadioButton
+          text="Wellness"
+          fieldValue="Wellness"
+          fancy
+          onChange={this.handleCheck}
+          value={this.state.selected}
+        />
+        <RadioButton
+          text="TGIM"
+          fieldValue="TGIM"
+          fancy
+          onChange={this.handleCheck}
+          value={this.state.selected}
+        />
+        <RadioButton
+          text="Lunch and Learn"
+          fieldValue="Lunch and Learn"
+          fancy
+          onChange={this.handleCheck}
+          value={this.state.selected}
+        />
+       <RadioButton
+          text="Meetup"
+          fieldValue="Meetup"
+          fancy
+          icon={meetupLogo}
+          onChange={this.handleCheck}
+          value={this.state.selected}
+        />
+        <RadioButton
+          text="Community Event"
+          fieldValue="Community Event"
+          fancy
+          onChange={this.handleCheck}
+          value={this.state.selected}
+        />
+      </div>
+    );
+  }
+}
 
 storiesOf('RadioButton', module)
   .add('with Text', () => (
@@ -16,10 +82,13 @@ storiesOf('RadioButton', module)
   ))
   .add('with Text and Long Description and isLarge', () => (
     <RadioButton text="Text" isLarge description="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec sed diam sem. Quisque mollis pulvinar metus eget dignissim. Pellentesque ac neque magna. Vivamus vel sapien lectus. Ut at aliquet urna. Proin volutpat odio sed diam maximus tristique. Ut pellentesque venenatis nisi, in faucibus risus feugiat at. Pellentesque consectetur auctor mollis. Morbi neque nulla, suscipit at leo suscipit, vestibulum tristique metus. Curabitur volutpat consectetur risus, nec commodo eros placerat interdum. Sed eget mi mi. Quisque eget pharetra dui, eu accumsan dui. Nullam non lacinia odio, ac pellentesque metus. Nulla purus metus, elementum eu tristique at, interdum sed urna. Vivamus vulputate enim ac orci lacinia elementum." />
-  ))  
+  ))
   .add('multiple', () => (
     <div>
       <RadioButton text="One" description="This is the first RadioButton" />
       <RadioButton text="Two" description="This is the second RadioButton" />
     </div>
+  ))
+  .add('fancy with optional icon', () => (
+    <FancyRadioButtons />
   ));
