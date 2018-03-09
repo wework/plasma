@@ -1,9 +1,8 @@
 import React from 'react';
 import { storiesOf } from '@storybook/react';
-import { action } from '@storybook/addon-actions';
-import { linkTo } from '@storybook/addon-links';
 import TextArea from '../src/components/TextArea/TextArea';
 import withCounter from '../src/decorators/withCounter/withCounter';
+import StoryState from '../StoryState';
 
 const TextAreaWithCounter = withCounter(TextArea);
 
@@ -31,19 +30,28 @@ storiesOf('TextArea', module)
   ))
   .add('withCounter', () => (
     <div>
-      <TextAreaWithCounter placeholder="Should show a counter" />
-    </div>
-  ))
-  .add('withCounter and initial value', () => (
-    <div>
-      <TextAreaWithCounter placeholder="Should show a counter" value="foo bar" />
+      <StoryState
+        render={(state, setState) => (
+          <TextAreaWithCounter
+            placeholder="Should show a counter"
+            onChange={e => setState({ text: e.target.value })}
+            value={state.text}
+          />
+        )}
+      />
     </div>
   ))
   .add('withCounter and maxLength', () => (
     <div>
-      <TextAreaWithCounter
-        maxLength="20"
-        placeholder="Should show a counter and have a max length"
+      <StoryState
+        render={(state, setState) => (
+          <TextAreaWithCounter
+            maxLength="20"
+            placeholder="Should show a counter and have a max length"
+            onChange={e => setState({ text: e.target.value })}
+            value={state.text}
+          />
+        )}
       />
     </div>
   ));
