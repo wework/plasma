@@ -1,8 +1,11 @@
 import React from 'react';
 import { storiesOf } from '@storybook/react';
 import { action } from '@storybook/addon-actions';
-import { linkTo } from '@storybook/addon-links';
 import TextInput from '../src/components/TextInput/TextInput';
+import withCounter from '../src/decorators/withCounter/withCounter';
+import StoryState from '../StoryState';
+
+const TextInputWithCounter = withCounter(TextInput);
 
 storiesOf('TextInput', module).add('default', () => <TextInput onChange={action('changed')} />);
 
@@ -62,4 +65,29 @@ storiesOf('TextInput', module).add('clipping parent', () => (
 
 storiesOf('TextInput', module).add('max length', () => (
   <TextInput maxLength="10" onChange={action('changed')} />
+));
+
+storiesOf('TextInput', module).add('with counter', () => (
+  <StoryState
+    render={(state, setState) => (
+      <TextInputWithCounter
+        placeholder="Should show a counter"
+        onChange={e => setState({ text: e.target.value })}
+        value={state.text}
+      />
+    )}
+  />
+));
+
+storiesOf('TextInput', module).add('with counter and maxLength', () => (
+  <StoryState
+    render={(state, setState) => (
+      <TextInputWithCounter
+        placeholder="Should show a counter and have max length"
+        maxLength="20"
+        onChange={e => setState({ text: e.target.value })}
+        value={state.text}
+      />
+    )}
+  />
 ));

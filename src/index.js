@@ -36,7 +36,12 @@ import FixedLeft from './components/layout/FixedLeft/FixedLeft';
 import FixedRight from './components/layout/FixedRight/FixedRight';
 import FixedTop from './components/layout/FixedTop/FixedTop';
 
+import withCounter from './decorators/withCounter/withCounter';
+
 import style from '../src/external';
+
+const CountedTextArea = withCounter(TextArea);
+const CountedTextInput = withCounter(TextInput);
 
 // Plasma object
 
@@ -75,6 +80,8 @@ Plasma.FixedTop = FixedTop;
 Plasma.Toggle = Toggle;
 Plasma.Page = Page;
 Plasma.TimePicker = TimePicker;
+Plasma.CountedTextArea = CountedTextArea;
+Plasma.CountedTextInput = CountedTextInput;
 
 Plasma._style = style;
 
@@ -116,4 +123,6 @@ export {
   TextArea,
   Tag,
   TimePicker,
+  CountedTextArea,
+  CountedTextInput,
 };
