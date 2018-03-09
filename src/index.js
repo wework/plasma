@@ -36,6 +36,8 @@ import FixedLeft from './components/layout/FixedLeft/FixedLeft';
 import FixedRight from './components/layout/FixedRight/FixedRight';
 import FixedTop from './components/layout/FixedTop/FixedTop';
 
+import withCounter from './decorators/withCounter/withCounter';
+
 import style from '../src/external';
 
 // Plasma object
@@ -116,4 +118,5 @@ export {
   TextArea,
   Tag,
   TimePicker,
+  withCounter,
 };
