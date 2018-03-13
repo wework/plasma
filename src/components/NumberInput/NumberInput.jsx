@@ -1,6 +1,7 @@
 import { isNumber, toNumber } from 'lodash';
 import React from 'react';
 import PropTypes from 'prop-types';
+import cx from 'classnames';
 import style from './style.scss';
 import {
   getDataAttrs,
@@ -8,7 +9,6 @@ import {
 } from '../../dataUtils';
 
 class NumberInput extends React.Component {
-
   constructor() {
     super();
     this.onPressIncrement = this.onPressIncrement.bind(this);
@@ -41,17 +41,29 @@ class NumberInput extends React.Component {
   }
 
   render() {
+    const wrapperStyle = cx(style.wrapper, {
+      [style.wrapperDisabled]: this.props.disabled,
+      [style.wrapperError]: this.props.error,
+    })
+
+    const inputStyle = cx(style.input, {
+      [style.disabled]: this.props.disabled,
+    })
     return (
       <div
         {...getDataAttrs(this.props.data)}
-        className={style.wrapper}
+        className={wrapperStyle}
       >
         <input
           type="number"
           placeholder={this.props.placeholder}
-          className={style.input}
+          className={inputStyle}
+          disabled={this.props.disabled}
           value={this.props.value}
           onChange={this.onChange}
+          onBlur={(e) => {
+            this.props.onBlur && this.props.onBlur();
+          }}
         />
         <div className={style.spinner}>
           <div
@@ -69,15 +81,18 @@ class NumberInput extends React.Component {
 }
 
 NumberInput.propTypes = {
-  placeholder: PropTypes.string,
-  minValue: PropTypes.number,
+  ...getDataProps(),
+  disabled: PropTypes.bool,
+  error: PropTypes.bool,
   maxValue: PropTypes.number,
+  minValue: PropTypes.number,
+  onBlur: PropTypes.func,
+  onChange: PropTypes.func,
+  onPressDecrement: PropTypes.func,
+  onPressIncrement: PropTypes.func,
+  placeholder: PropTypes.string,
   step: PropTypes.number,
   value: PropTypes.number,
-  onChange: PropTypes.func,
-  onPressIncrement: PropTypes.func,
-  onPressDecrement: PropTypes.func,
-  ...getDataProps(),
 };
 
 NumberInput.defaultProps = {

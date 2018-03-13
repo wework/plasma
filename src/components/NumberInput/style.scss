@@ -25,6 +25,38 @@
   height: 40px;
 }
 
+.wrapperDisabled {
+  @extend %input--wrapper--disabled;
+  .fix {
+    color: $cGray300;
+    border: 1px solid $cGray400;
+  }
+  &:hover {
+    .fix {
+      border: 1px solid $cGray400;
+    }
+  }
+}
+
+.wrapperError {
+  @extend %input--wrapper--error;
+  &:hover {
+    @extend %input--wrapper--error;
+  }
+  .fix {
+    border: 1px solid $cWarningRed;
+  }
+  &:hover {
+    .fix {
+      border: 1px solid $cWarningRed;
+    }
+  }
+}
+
+.disabled {
+  @extend %input--disabled;
+}
+
 .spinner {
   position: absolute;
   top: 0px;
