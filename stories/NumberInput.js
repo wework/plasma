@@ -14,6 +14,7 @@ storiesOf('NumberInput', module)
       step={1}
       value={1}
       onChange={()=>{}}
+      onBlur={()=>{}}
       onPressIncrement={()=>{}}
       onPressDecrement={()=>{}}
     />

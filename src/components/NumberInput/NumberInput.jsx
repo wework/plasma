@@ -9,60 +9,60 @@ import {
 } from '../../dataUtils';
 
 class NumberInput extends React.Component {
-  constructor() {
-    super();
-    this.onPressIncrement = this.onPressIncrement.bind(this);
-    this.onPressDecrement = this.onPressDecrement.bind(this);
-    this.onChange = this.onChange.bind(this);
-  }
-
-  onPressIncrement() {
-    if (!isNumber(this.props.maxValue) ||
-        this.props.maxValue >= this.props.value + this.props.step) {
-      this.props.onPressIncrement({ diff: this.props.step });
+  onPressIncrement = () => {
+    const { maxValue, value, step, onPressIncrement, onBlur } = this.props;
+    if (isNumber(maxValue) && maxValue >= value + step) {
+      onPressIncrement({ diff: step });
+      onBlur && onBlur();
     }
   }
 
-  onPressDecrement() {
-    if (!isNumber(this.props.minValue) ||
-        this.props.minValue <= this.props.value - this.props.step) {
-      this.props.onPressDecrement({ diff: -1 * this.props.step });
+  onPressDecrement = () => {
+    const { minValue, value, step, onPressDecrement, onBlur } = this.props;
+    if (isNumber(minValue) && minValue <= value - step) {
+      onPressDecrement({ diff: -1 * step });
+      onBlur && onBlur();
     }
   }
 
-  onChange(event) {
+  onChange = (event) => {
+    const { maxValue, minValue, onChange } = this.props;
     const value = toNumber(event.nativeEvent.target.value);
     if (
-      (!this.props.maxValue || value <= this.props.maxValue) &&
-      (!this.props.minValue || value >= this.props.minValue)
+      (!maxValue || value <= maxValue) &&
+      (!minValue || value >= minValue)
     ) {
-      this.props.onChange({ value });
+      onChange({ value });
     }
   }
 
   render() {
+    const { disabled, error, data, placeholder, value, onChange, onBlur, onFocus } = this.props;
     const wrapperStyle = cx(style.wrapper, {
-      [style.wrapperDisabled]: this.props.disabled,
-      [style.wrapperError]: this.props.error,
+      [style.wrapperDisabled]: disabled,
+      [style.wrapperError]: error,
     })
 
     const inputStyle = cx(style.input, {
-      [style.disabled]: this.props.disabled,
+      [style.disabled]: disabled,
     })
     return (
       <div
-        {...getDataAttrs(this.props.data)}
+        {...getDataAttrs(data)}
         className={wrapperStyle}
       >
         <input
           type="number"
-          placeholder={this.props.placeholder}
+          placeholder={placeholder}
           className={inputStyle}
-          disabled={this.props.disabled}
-          value={this.props.value}
+          disabled={disabled}
+          value={value}
           onChange={this.onChange}
           onBlur={(e) => {
-            this.props.onBlur && this.props.onBlur();
+            onBlur && onBlur();
+          }}
+          onFocus={(e) => {
+            onFocus && onFocus();
           }}
         />
         <div className={style.spinner}>
@@ -88,6 +88,7 @@ NumberInput.propTypes = {
   minValue: PropTypes.number,
   onBlur: PropTypes.func,
   onChange: PropTypes.func,
+  onFocus: PropTypes.func,
   onPressDecrement: PropTypes.func,
   onPressIncrement: PropTypes.func,
   placeholder: PropTypes.string,
@@ -98,6 +99,8 @@ NumberInput.propTypes = {
 NumberInput.defaultProps = {
   placeholder: '',
   step: 1,
+  maxValue: Number.MAX_SAFE_INTEGER,
+  minValue: Number.MIN_SAFE_INTEGER,
 };
 
 NumberInput.displayName = 'Plasma@NumberInput';
