@@ -1,4 +1,4 @@
-import { isNumber, toNumber } from 'lodash';
+import { isNumber, toNumber, trim } from 'lodash';
 import React from 'react';
 import PropTypes from 'prop-types';
 import cx from 'classnames';
@@ -26,18 +26,18 @@ class NumberInput extends React.Component {
   }
 
   onChange = (event) => {
-    const { maxValue, minValue, onChange } = this.props;
+    const { maxValue, minValue, onChange, isRedux } = this.props;
     const value = toNumber(event.nativeEvent.target.value);
     if (
       (!maxValue || value <= maxValue) &&
       (!minValue || value >= minValue)
     ) {
-      onChange({ value });
+      isRedux ? onChange(value) : onChange({ value });
     }
   }
 
   render() {
-    const { disabled, error, data, placeholder, value, onChange, onBlur, onFocus } = this.props;
+    const { disabled, error, data, placeholder, value, onBlur, onFocus } = this.props;
     const wrapperStyle = cx(style.wrapper, {
       [style.wrapperDisabled]: disabled,
       [style.wrapperError]: error,
@@ -84,6 +84,7 @@ NumberInput.propTypes = {
   ...getDataProps(),
   disabled: PropTypes.bool,
   error: PropTypes.bool,
+  isRedux: PropTypes.bool,
   maxValue: PropTypes.number,
   minValue: PropTypes.number,
   onBlur: PropTypes.func,
