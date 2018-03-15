@@ -10,17 +10,17 @@ import {
 
 class NumberInput extends React.Component {
   onPressIncrement = () => {
-    const { maxValue, value, step, onPressIncrement, onBlur } = this.props;
+    const { maxValue, value, step, onPressIncrement, onBlur, onChange } = this.props;
     if (isNumber(maxValue) && maxValue >= value + step) {
-      onPressIncrement({ diff: step });
+      onPressIncrement ? onPressIncrement({ diff: step }) : onChange(value + step);
       onBlur && onBlur();
     }
   }
 
   onPressDecrement = () => {
-    const { minValue, value, step, onPressDecrement, onBlur } = this.props;
+    const { minValue, value, step, onPressDecrement, onBlur, onChange } = this.props;
     if (isNumber(minValue) && minValue <= value - step) {
-      onPressDecrement({ diff: -1 * step });
+      onPressDecrement ? onPressDecrement({ diff: -1 * step }) : onChange(value - step);
       onBlur && onBlur();
     }
   }
