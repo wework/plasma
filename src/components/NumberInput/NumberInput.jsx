@@ -1,4 +1,4 @@
-import { isNumber, toNumber, trim } from 'lodash';
+import { isNumber, toNumber } from 'lodash';
 import React from 'react';
 import PropTypes from 'prop-types';
 import cx from 'classnames';
@@ -9,35 +9,43 @@ import {
 } from '../../dataUtils';
 
 class NumberInput extends React.Component {
-  onPressIncrement = () => {
-    const { maxValue, value, step, onPressIncrement, onBlur, onChange } = this.props;
-    if (isNumber(maxValue) && maxValue >= value + step) {
-      onPressIncrement ? onPressIncrement({ diff: step }) : onChange(value + step);
+  handleIncrement = () => {
+    const { maxValue, value, step, onBlur, onChange } = this.props;
+    if (maxValue >= value + step) {
+      onChange(value + step);
       onBlur && onBlur();
     }
   }
 
-  onPressDecrement = () => {
-    const { minValue, value, step, onPressDecrement, onBlur, onChange } = this.props;
-    if (isNumber(minValue) && minValue <= value - step) {
-      onPressDecrement ? onPressDecrement({ diff: -1 * step }) : onChange(value - step);
+  handleDecrement = () => {
+    const { minValue, value, step, onBlur, onChange } = this.props;
+    if (minValue <= value - step) {
+      onChange(value - step);
       onBlur && onBlur();
     }
   }
 
-  onChange = (event) => {
-    const { maxValue, minValue, onChange, isRedux } = this.props;
-    const value = toNumber(event.nativeEvent.target.value);
-    if (
-      (!maxValue || value <= maxValue) &&
-      (!minValue || value >= minValue)
-    ) {
-      isRedux ? onChange(value) : onChange({ value });
-    }
+  handleChange = (event) => {
+    const { maxValue, minValue, onChange } = this.props;
+    const eventValue = event.nativeEvent.target.value;
+    
+    // if the value is cleared, do not convert empty string to 0
+    if (eventValue === "") return onChange(null)
+    const value = toNumber(eventValue);
+    if (value <= maxValue && value >= minValue) onChange(value);
+  }
+
+  handleBlur = e => {
+    this.props.onBlur && this.props.onBlur();
+  }
+
+  handleFocus = e => {
+    this.props.onFocus && this.props.onFocus();
   }
 
   render() {
-    const { disabled, error, data, placeholder, value, onBlur, onFocus } = this.props;
+    const { disabled, error, data, placeholder, value, onFocus } = this.props;
+
     const wrapperStyle = cx(style.wrapper, {
       [style.wrapperDisabled]: disabled,
       [style.wrapperError]: error,
@@ -46,6 +54,7 @@ class NumberInput extends React.Component {
     const inputStyle = cx(style.input, {
       [style.disabled]: disabled,
     })
+
     return (
       <div
         {...getDataAttrs(data)}
@@ -57,22 +66,18 @@ class NumberInput extends React.Component {
           className={inputStyle}
           disabled={disabled}
           value={value}
-          onChange={this.onChange}
-          onBlur={(e) => {
-            onBlur && onBlur();
-          }}
-          onFocus={(e) => {
-            onFocus && onFocus();
-          }}
+          onChange={this.handleChange}
+          onBlur={this.handleBlur}
+          onFocus={this.handleFocus}
         />
         <div className={style.spinner}>
           <div
             className={style.action}
-            onClick={this.onPressIncrement}
+            onClick={this.handleIncrement}
           >+</div>
           <div
             className={style.action}
-            onClick={this.onPressDecrement}
+            onClick={this.handleDecrement}
           >-</div>
         </div>
       </div>
@@ -84,17 +89,14 @@ NumberInput.propTypes = {
   ...getDataProps(),
   disabled: PropTypes.bool,
   error: PropTypes.bool,
-  isRedux: PropTypes.bool,
   maxValue: PropTypes.number,
   minValue: PropTypes.number,
   onBlur: PropTypes.func,
-  onChange: PropTypes.func,
+  onChange: PropTypes.func.isRequired,
   onFocus: PropTypes.func,
-  onPressDecrement: PropTypes.func,
-  onPressIncrement: PropTypes.func,
   placeholder: PropTypes.string,
   step: PropTypes.number,
-  value: PropTypes.number,
+  value: PropTypes.oneOfType([ PropTypes.string, PropTypes.number ]).isRequired,
 };
 
 NumberInput.defaultProps = {
