@@ -11,28 +11,28 @@ import {
 class NumberInput extends React.Component {
   handleIncrement = () => {
     const { maxValue, value, step, onBlur, onChange } = this.props;
-    if (maxValue >= value + step) {
-      onChange(value + step);
+    const prev = toNumber(value);
+    if (maxValue >= prev + step) {
+      onChange(prev + step);
       onBlur && onBlur();
     }
   }
 
   handleDecrement = () => {
     const { minValue, value, step, onBlur, onChange } = this.props;
-    if (minValue <= value - step) {
-      onChange(value - step);
+    const prev = toNumber(value);
+    if (minValue <= prev - step) {
+      onChange(prev - step);
       onBlur && onBlur();
     }
   }
 
   handleChange = (event) => {
-    const { maxValue, minValue, onChange } = this.props;
+    const { onChange, maxValue, minValue } = this.props;
     const eventValue = event.nativeEvent.target.value;
-    
-    // if the value is cleared, do not convert empty string to 0
-    if (eventValue === "") return onChange(null)
+    //when input is cleared, the default value will be 0
     const value = toNumber(eventValue);
-    if (value <= maxValue && value >= minValue) onChange(value);
+    if(value <= maxValue && value >= minValue) onChange(value);
   }
 
   handleBlur = e => {
@@ -44,7 +44,7 @@ class NumberInput extends React.Component {
   }
 
   render() {
-    const { disabled, error, data, placeholder, value, onFocus } = this.props;
+    const { disabled, error, data, placeholder, value, step, minValue, maxValue, clearable } = this.props;
 
     const wrapperStyle = cx(style.wrapper, {
       [style.wrapperDisabled]: disabled,
@@ -54,6 +54,8 @@ class NumberInput extends React.Component {
     const inputStyle = cx(style.input, {
       [style.disabled]: disabled,
     })
+
+    const displayValue = clearable && value === 0 ? "" : value;
 
     return (
       <div
@@ -65,7 +67,10 @@ class NumberInput extends React.Component {
           placeholder={placeholder}
           className={inputStyle}
           disabled={disabled}
-          value={value}
+          value={displayValue}
+          step={step}
+          min={minValue}
+          max={maxValue}
           onChange={this.handleChange}
           onBlur={this.handleBlur}
           onFocus={this.handleFocus}
@@ -85,8 +90,18 @@ class NumberInput extends React.Component {
   }
 }
 
+const emptyStringProp = (props, propName, componentName) => {
+    if (props[propName] !== "") {
+      return new Error(
+        'Invalid prop `' + propName + '` supplied to' +
+        ' `' + componentName + '`. Validation failed.'
+      );
+    }
+  }
+
 NumberInput.propTypes = {
   ...getDataProps(),
+  clearable: PropTypes.bool,
   disabled: PropTypes.bool,
   error: PropTypes.bool,
   maxValue: PropTypes.number,
@@ -96,7 +111,7 @@ NumberInput.propTypes = {
   onFocus: PropTypes.func,
   placeholder: PropTypes.string,
   step: PropTypes.number,
-  value: PropTypes.oneOfType([ PropTypes.string, PropTypes.number ]).isRequired,
+  value: PropTypes.oneOfType([emptyStringProp, PropTypes.number]).isRequired,
 };
 
 NumberInput.defaultProps = {
