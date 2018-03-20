@@ -27,19 +27,20 @@ class NumberInput extends React.Component {
     }
   }
 
-  handleChange = (event) => {
+  handleChange = e => {
     const { onChange, maxValue, minValue } = this.props;
-    const eventValue = event.nativeEvent.target.value;
     //when input is cleared, the default value will be 0
-    const value = toNumber(eventValue);
+    const value = toNumber(e.nativeEvent.target.value);
     if(value <= maxValue && value >= minValue) onChange(value);
   }
 
   handleBlur = e => {
+    e.target.parentElement.classList.remove(style.wrapperFocused);
     this.props.onBlur && this.props.onBlur();
   }
 
   handleFocus = e => {
+    e.target.parentElement.className += ` ${style.wrapperFocused}`;
     this.props.onFocus && this.props.onFocus();
   }
 
@@ -52,7 +53,7 @@ class NumberInput extends React.Component {
     })
 
     const inputStyle = cx(style.input, {
-      [style.disabled]: disabled,
+      [style.inputDisabled]: disabled,
     })
 
     const displayValue = clearable && value === 0 ? "" : value;

@@ -25,17 +25,16 @@
   height: 40px;
 }
 
+.wrapperFocused {
+  @extend %input--wrapper--focus;
+}
+
 .wrapperDisabled {
   @extend %input--wrapper--disabled;
-  .fix {
-    color: $cGray300;
-    border: 1px solid $cGray400;
-  }
-  &:hover {
-    .fix {
-      border: 1px solid $cGray400;
-    }
-  }
+}
+
+.inputDisabled {
+  @extend %input--disabled;
 }
 
 .wrapperError {
@@ -43,18 +42,6 @@
   &:hover {
     @extend %input--wrapper--error;
   }
-  .fix {
-    border: 1px solid $cWarningRed;
-  }
-  &:hover {
-    .fix {
-      border: 1px solid $cWarningRed;
-    }
-  }
-}
-
-.disabled {
-  @extend %input--disabled;
 }
 
 .spinner {
