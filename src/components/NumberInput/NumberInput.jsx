@@ -91,7 +91,7 @@ class NumberInput extends React.Component {
   }
 }
 
-const emptyStringProp = (props, propName, componentName) => {
+const emptyStringType = (props, propName, componentName) => {
     if (props[propName] !== "") {
       return new Error(
         'Invalid prop `' + propName + '` supplied to' +
@@ -112,7 +112,7 @@ NumberInput.propTypes = {
   onFocus: PropTypes.func,
   placeholder: PropTypes.string,
   step: PropTypes.number,
-  value: PropTypes.oneOfType([emptyStringProp, PropTypes.number]).isRequired,
+  value: PropTypes.oneOfType([emptyStringType, PropTypes.number]).isRequired,
 };
 
 NumberInput.defaultProps = {
