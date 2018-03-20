@@ -40,7 +40,7 @@ class NumberInput extends React.Component {
   }
 
   handleFocus = e => {
-    e.target.parentElement.className += ` ${style.wrapperFocused}`;
+    e.target.parentElement.classList.add(style.wrapperFocused);
     this.props.onFocus && this.props.onFocus();
   }
 
