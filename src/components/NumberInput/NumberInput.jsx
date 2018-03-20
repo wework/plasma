@@ -31,7 +31,7 @@ class NumberInput extends React.Component {
     const { onChange, maxValue, minValue } = this.props;
     //when input is cleared, the default value will be 0
     const value = toNumber(e.nativeEvent.target.value);
-    if(value <= maxValue && value >= minValue) onChange(value);
+    onChange(value);
   }
 
   handleBlur = e => {
