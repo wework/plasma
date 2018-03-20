@@ -4,19 +4,29 @@ import { action } from '@storybook/addon-actions';
 import { linkTo } from '@storybook/addon-links';
 
 import NumberInput from '../src/components/NumberInput/NumberInput';
-
+import StoryState from '../StoryState'
 
 storiesOf('NumberInput', module)
   .add('numberInput', () =>(
-    <NumberInput
-      minValue={1}
-      maxValue={10}
-      step={1}
-      value={1}
-      onChange={()=>{}}
-      onBlur={()=>{}}
-      onPressIncrement={()=>{}}
-      onPressDecrement={()=>{}}
+    <StoryState render={(state, setState) => (
+        <NumberInput
+          step={1}
+          onChange={value => setState({ qty: value })}
+          value={state.qty | 0}
+        />
+      )}
+    />
+  ))
+  .add('clearable numberInput', () =>(
+    <StoryState render={(state, setState) => (
+        <NumberInput
+          step={0.1}
+          onChange={value => setState({ qty: value })}
+          value={state.qty | ""}
+          placeholder="i can be cleared"
+          clearable
+        />
+      )}
     />
   ))
   .add('disabled numberInput', () => (
@@ -26,8 +36,6 @@ storiesOf('NumberInput', module)
       step={1}
       value={1}
       onChange={()=>{}}
-      onPressIncrement={()=>{}}
-      onPressDecrement={()=>{}}
       disabled
     />
   ))
@@ -38,8 +46,6 @@ storiesOf('NumberInput', module)
       step={1}
       value={1}
       onChange={()=>{}}
-      onPressIncrement={()=>{}}
-      onPressDecrement={()=>{}}
       error
     />
   ))
