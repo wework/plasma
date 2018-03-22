@@ -103,6 +103,7 @@ NumberInput.propTypes = {
 };
 
 NumberInput.defaultProps = {
+  value: '',
   placeholder: '',
   step: 1,
   maxValue: Number.MAX_SAFE_INTEGER,
