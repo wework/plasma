@@ -28,10 +28,10 @@ class NumberInput extends React.Component {
   }
 
   handleChange = e => {
-    const { onChange, maxValue, minValue } = this.props;
-    //when input is cleared, the default value will be 0
-    const value = toNumber(e.nativeEvent.target.value);
-    onChange(value);
+    const { onChange } = this.props;
+    const value = e.nativeEvent.target.value;
+    //when input is cleared, the default value is an empty string
+    value === "" ? onChange("") : onChange(toNumber(value));
   }
 
   handleBlur = e => {
@@ -45,7 +45,7 @@ class NumberInput extends React.Component {
   }
 
   render() {
-    const { disabled, error, data, placeholder, value, step, minValue, maxValue, clearable } = this.props;
+    const { disabled, error, data, placeholder, value, step, minValue, maxValue } = this.props;
 
     const wrapperStyle = cx(style.wrapper, {
       [style.wrapperDisabled]: disabled,
@@ -55,8 +55,6 @@ class NumberInput extends React.Component {
     const inputStyle = cx(style.input, {
       [style.inputDisabled]: disabled,
     })
-
-    const displayValue = clearable && value === 0 ? "" : value;
 
     return (
       <div
@@ -68,7 +66,7 @@ class NumberInput extends React.Component {
           placeholder={placeholder}
           className={inputStyle}
           disabled={disabled}
-          value={displayValue}
+          value={value}
           step={step}
           min={minValue}
           max={maxValue}
@@ -102,7 +100,6 @@ const emptyStringType = (props, propName, componentName) => {
 
 NumberInput.propTypes = {
   ...getDataProps(),
-  clearable: PropTypes.bool,
   disabled: PropTypes.bool,
   error: PropTypes.bool,
   maxValue: PropTypes.number,

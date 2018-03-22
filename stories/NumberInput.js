@@ -17,18 +17,6 @@ storiesOf('NumberInput', module)
       )}
     />
   ))
-  .add('clearable numberInput', () =>(
-    <StoryState render={(state, setState) => (
-        <NumberInput
-          step={0.1}
-          onChange={value => setState({ qty: value })}
-          value={state.qty | ""}
-          placeholder="i can be cleared"
-          clearable
-        />
-      )}
-    />
-  ))
   .add('disabled numberInput', () => (
     <NumberInput
       minValue={1}
