@@ -11,27 +11,26 @@ import {
 class NumberInput extends React.Component {
   handleIncrement = () => {
     const { maxValue, value, step, onBlur, onChange } = this.props;
-    const prev = toNumber(value);
-    if (maxValue >= prev + step) {
-      onChange(prev + step);
+    const prevValue = toNumber(value);
+    const nextValue = prevValue + step;
+    if (maxValue >= nextValue) {
+      onChange(nextValue.toString());
       onBlur && onBlur();
     }
   }
 
   handleDecrement = () => {
     const { minValue, value, step, onBlur, onChange } = this.props;
-    const prev = toNumber(value);
-    if (minValue <= prev - step) {
-      onChange(prev - step);
+    const prevValue = toNumber(value);
+    const nextValue = prevValue - step;
+    if (minValue <= nextValue) {
+      onChange(nextValue.toString());
       onBlur && onBlur();
     }
   }
 
   handleChange = e => {
-    const { onChange } = this.props;
-    const value = e.nativeEvent.target.value;
-    //when input is cleared, the default value is an empty string
-    value === "" ? onChange("") : onChange(toNumber(value));
+    this.props.onChange(e.nativeEvent.target.value);
   }
 
   handleBlur = e => {
@@ -89,15 +88,6 @@ class NumberInput extends React.Component {
   }
 }
 
-const emptyStringType = (props, propName, componentName) => {
-    if (props[propName] !== "") {
-      return new Error(
-        'Invalid prop `' + propName + '` supplied to' +
-        ' `' + componentName + '`. Validation failed.'
-      );
-    }
-  }
-
 NumberInput.propTypes = {
   ...getDataProps(),
   disabled: PropTypes.bool,
@@ -109,7 +99,7 @@ NumberInput.propTypes = {
   onFocus: PropTypes.func,
   placeholder: PropTypes.string,
   step: PropTypes.number,
-  value: PropTypes.oneOfType([emptyStringType, PropTypes.number]).isRequired,
+  value: PropTypes.string.isRequired, // type="number" will prevent letters from being typed https://www.w3.org/wiki/HTML/Elements/input/number
 };
 
 NumberInput.defaultProps = {
