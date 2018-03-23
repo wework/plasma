@@ -25,6 +25,25 @@
   height: 40px;
 }
 
+.wrapperFocused {
+  @extend %input--wrapper--focus;
+}
+
+.wrapperDisabled {
+  @extend %input--wrapper--disabled;
+}
+
+.inputDisabled {
+  @extend %input--disabled;
+}
+
+.wrapperError {
+  @extend %input--wrapper--error;
+  &:hover {
+    @extend %input--wrapper--error;
+  }
+}
+
 .spinner {
   position: absolute;
   top: 0px;

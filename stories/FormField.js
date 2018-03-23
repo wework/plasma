@@ -4,6 +4,7 @@ import { action } from '@storybook/addon-actions';
 import { linkTo } from '@storybook/addon-links';
 import FormField from '../src/components/layout/FormField/FormField';
 import TextInput from '../src/components/TextInput/TextInput';
+import NumberInput from '../src/components/NumberInput/NumberInput';
 
 storiesOf('FormField', module).add('default', () => (
   <FormField>
@@ -32,5 +33,11 @@ storiesOf('FormField', module).add('isDisabled', () => (
 storiesOf('FormField', module).add('with errorMessage', () => (
   <FormField isDisabled displayError errorMessage="Required">
     <TextInput isDisabled error/>
+  </FormField>
+));
+
+storiesOf('FormField', module).add('numberInput with errorMessage', () => (
+  <FormField isDisabled displayError errorMessage="Required">
+    <NumberInput isDisabled error/>
   </FormField>
 ));

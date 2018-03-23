@@ -1,6 +1,7 @@
 import { isNumber, toNumber } from 'lodash';
 import React from 'react';
 import PropTypes from 'prop-types';
+import cx from 'classnames';
 import style from './style.scss';
 import {
   getDataAttrs,
@@ -8,59 +9,78 @@ import {
 } from '../../dataUtils';
 
 class NumberInput extends React.Component {
-
-  constructor() {
-    super();
-    this.onPressIncrement = this.onPressIncrement.bind(this);
-    this.onPressDecrement = this.onPressDecrement.bind(this);
-    this.onChange = this.onChange.bind(this);
-  }
-
-  onPressIncrement() {
-    if (!isNumber(this.props.maxValue) ||
-        this.props.maxValue >= this.props.value + this.props.step) {
-      this.props.onPressIncrement({ diff: this.props.step });
+  handleIncrement = () => {
+    const { maxValue, value, step, onBlur, onChange } = this.props;
+    const prevValue = toNumber(value);
+    const nextValue = prevValue + step;
+    if (maxValue >= nextValue) {
+      onChange(nextValue.toString());
+      onBlur && onBlur();
     }
   }
 
-  onPressDecrement() {
-    if (!isNumber(this.props.minValue) ||
-        this.props.minValue <= this.props.value - this.props.step) {
-      this.props.onPressDecrement({ diff: -1 * this.props.step });
+  handleDecrement = () => {
+    const { minValue, value, step, onBlur, onChange } = this.props;
+    const prevValue = toNumber(value);
+    const nextValue = prevValue - step;
+    if (minValue <= nextValue) {
+      onChange(nextValue.toString());
+      onBlur && onBlur();
     }
   }
 
-  onChange(event) {
-    const value = toNumber(event.nativeEvent.target.value);
-    if (
-      (!this.props.maxValue || value <= this.props.maxValue) &&
-      (!this.props.minValue || value >= this.props.minValue)
-    ) {
-      this.props.onChange({ value });
-    }
+  handleChange = e => {
+    this.props.onChange(e.nativeEvent.target.value);
+  }
+
+  handleBlur = e => {
+    e.target.parentElement.classList.remove(style.wrapperFocused);
+    this.props.onBlur && this.props.onBlur();
+  }
+
+  handleFocus = e => {
+    e.target.parentElement.classList.add(style.wrapperFocused);
+    this.props.onFocus && this.props.onFocus();
   }
 
   render() {
+    const { disabled, error, data, placeholder, value, step, minValue, maxValue } = this.props;
+
+    const wrapperStyle = cx(style.wrapper, {
+      [style.wrapperDisabled]: disabled,
+      [style.wrapperError]: error,
+    })
+
+    const inputStyle = cx(style.input, {
+      [style.inputDisabled]: disabled,
+    })
+
     return (
       <div
-        {...getDataAttrs(this.props.data)}
-        className={style.wrapper}
+        {...getDataAttrs(data)}
+        className={wrapperStyle}
       >
         <input
           type="number"
-          placeholder={this.props.placeholder}
-          className={style.input}
-          value={this.props.value}
-          onChange={this.onChange}
+          placeholder={placeholder}
+          className={inputStyle}
+          disabled={disabled}
+          value={value}
+          step={step}
+          min={minValue}
+          max={maxValue}
+          onChange={this.handleChange}
+          onBlur={this.handleBlur}
+          onFocus={this.handleFocus}
         />
         <div className={style.spinner}>
           <div
             className={style.action}
-            onClick={this.onPressIncrement}
+            onClick={this.handleIncrement}
           >+</div>
           <div
             className={style.action}
-            onClick={this.onPressDecrement}
+            onClick={this.handleDecrement}
           >-</div>
         </div>
       </div>
@@ -69,20 +89,25 @@ class NumberInput extends React.Component {
 }
 
 NumberInput.propTypes = {
-  placeholder: PropTypes.string,
-  minValue: PropTypes.number,
-  maxValue: PropTypes.number,
-  step: PropTypes.number,
-  value: PropTypes.number,
-  onChange: PropTypes.func,
-  onPressIncrement: PropTypes.func,
-  onPressDecrement: PropTypes.func,
   ...getDataProps(),
+  disabled: PropTypes.bool,
+  error: PropTypes.bool,
+  maxValue: PropTypes.number,
+  minValue: PropTypes.number,
+  onBlur: PropTypes.func,
+  onChange: PropTypes.func.isRequired,
+  onFocus: PropTypes.func,
+  placeholder: PropTypes.string,
+  step: PropTypes.number,
+  value: PropTypes.string.isRequired, // type="number" will prevent letters from being typed https://www.w3.org/wiki/HTML/Elements/input/number
 };
 
 NumberInput.defaultProps = {
+  value: '',
   placeholder: '',
   step: 1,
+  maxValue: Number.MAX_SAFE_INTEGER,
+  minValue: Number.MIN_SAFE_INTEGER,
 };
 
 NumberInput.displayName = 'Plasma@NumberInput';
