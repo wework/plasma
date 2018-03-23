@@ -44,6 +44,7 @@ class Card extends React.Component {
       data,
       isExpanded,
       borderType,
+      borderColorRed,
       type,
       minWidth,
     } = this.props;
@@ -51,6 +52,7 @@ class Card extends React.Component {
     const cardStyle = cx(style.card, {
       [style.condensed]: type === cardTypes.CONDENSED,
       [style.borderDashed]: borderType === borderTypes.DASHED,
+      [style.borderColorRed]: borderColorRed,
       [style.isExpanded]: isExpanded,
     });
 
@@ -119,6 +121,7 @@ Card.propTypes = {
   type: PropTypes.oneOf([cardTypes.REGULAR, cardTypes.CONDENSED]),
   onClick: PropTypes.func,
   borderType: PropTypes.string,
+  borderColorRed: PropTypes.bool,
   expandedComponent: PropTypes.node,
   isExpanded: PropTypes.bool,
   minWidth: PropTypes.number,
