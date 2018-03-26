@@ -1,4 +1,4 @@
-import { isNumber, toNumber } from 'lodash';
+import { toNumber, toString } from 'lodash';
 import React from 'react';
 import PropTypes from 'prop-types';
 import cx from 'classnames';
@@ -10,23 +10,17 @@ import {
 
 class NumberInput extends React.Component {
   handleIncrement = () => {
-    const { maxValue, value, step, onBlur, onChange } = this.props;
+    const { maxValue, value, step, onChange } = this.props;
     const prevValue = toNumber(value);
     const nextValue = prevValue + step;
-    if (maxValue >= nextValue) {
-      onChange(nextValue.toString());
-      onBlur && onBlur();
-    }
+    if (maxValue >= nextValue) onChange(toString(nextValue));
   }
 
   handleDecrement = () => {
-    const { minValue, value, step, onBlur, onChange } = this.props;
+    const { minValue, value, step, onChange } = this.props;
     const prevValue = toNumber(value);
     const nextValue = prevValue - step;
-    if (minValue <= nextValue) {
-      onChange(nextValue.toString());
-      onBlur && onBlur();
-    }
+    if (minValue <= nextValue) onChange(toString(nextValue));
   }
 
   handleChange = e => {
@@ -35,12 +29,12 @@ class NumberInput extends React.Component {
 
   handleBlur = e => {
     e.target.parentElement.classList.remove(style.wrapperFocused);
-    this.props.onBlur && this.props.onBlur();
+    this.props.onBlur && this.props.onBlur(e.nativeEvent.target.value);
   }
 
   handleFocus = e => {
     e.target.parentElement.classList.add(style.wrapperFocused);
-    this.props.onFocus && this.props.onFocus();
+    this.props.onFocus && this.props.onFocus(e.nativeEvent.target.value);
   }
 
   render() {
