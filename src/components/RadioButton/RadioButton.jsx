@@ -32,9 +32,11 @@ class RadioButton extends React.Component {
       [style.fancyChecked]: fancy && this.value(),
       [style.isLarge]: isLarge,
     });
-    const inlineClass = cx({ [style.inline]: fancy })
+    const inlineClass = cx({ [style.inline]: fancy });
     const fauxCircle = fancy ? null : <div className={style.faux} />;
-    const fancyIcon = fancy && icon ? <div className={style.fancyIcon}><Icon icon={icon} /></div> : null;
+    const fancyIcon = fancy && icon ?
+      <div className={style.fancyIcon}><Icon icon={icon} /></div>
+      : null;
     return (
       <div {...getDataAttrs(data)} className={inlineClass}>
         <label htmlFor={id} className={wrapperClasses}>
@@ -50,8 +52,8 @@ class RadioButton extends React.Component {
             type="radio"
             value={fieldValue}
           />
-        {fauxCircle}
-        {fancyIcon}
+          {fauxCircle}
+          {fancyIcon}
           <div
             className={cx(style.text, {
               [style.disabled]: disabled,
