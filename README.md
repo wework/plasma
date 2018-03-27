@@ -49,9 +49,10 @@ Info here: https://react-styleguidist.js.org/docs/documenting.html
 
 1. When you're ready, push your  branch to Github and create a pull request.
 2. If you've made visual changes, include screenshots.
-3. PR will be reviewed
-4. When PR is accepted, it will be merged into master.
-5. (Optional) If you also need to publish a new Plasma version, read that section.
+3. If you've made implementation changes, run `yarn jest:update` to update jest snapshots.
+4. PR will be reviewed
+5. When PR is accepted, it will be merged into master.
+6. (Optional) If you also need to publish a new Plasma version, read that section.
 
 ### Publishing to NPM
 
@@ -76,9 +77,10 @@ Info here: https://react-styleguidist.js.org/docs/documenting.html
 
 1. Create a new Plasma dev branch: `cd /plasma` `git checkout -b mybranch`
 2. Run the Plasma dev server with watch: `yarn watch`
-3. Run Spacestion: `cd /spacestation` `yarn start`
-4. Changes you make in Plasma should automatically be picked up by Spacestation
-5. Follow "Creating a Pull Request / Publishing"
+3. Save any changes in Plasma, webpack should bundle changes in `/dist`
+4. Run Spacestion: `cd /spacestation` `yarn start`
+5. Changes you make in Plasma should automatically be picked up by Spacestation
+6. Follow "Creating a Pull Request / Publishing"
 
 ## Using a published Plasma version from NPM
 

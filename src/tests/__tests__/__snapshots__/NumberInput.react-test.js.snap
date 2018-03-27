@@ -6,10 +6,16 @@ exports[`NumberInput Component render 1`] = `
 >
   <input
     className="input"
+    disabled={undefined}
+    max={9007199254740991}
+    min={-9007199254740991}
+    onBlur={[Function]}
     onChange={[Function]}
+    onFocus={[Function]}
     placeholder=""
+    step={1}
     type="number"
-    value={undefined}
+    value=""
   />
   <div
     className="spinner"
