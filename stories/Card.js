@@ -14,7 +14,7 @@ storiesOf('Card', module)
   ))
   .add('red border color', () => (
     <div style={{ display: 'flex' }}>
-      <Card borderColorRed>Hello</Card>
+      <Card borderColor="red">Hello</Card>
     </div>
   ))
   .add('min width', () => (
