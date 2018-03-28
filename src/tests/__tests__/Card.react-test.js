@@ -99,7 +99,7 @@ describe('Card Component unit', () => {
   });
 
   test('red border color', () => {
-    const component = shallow(<Card borderColorRed>Test Red Card</Card>);
+    const component = shallow(<Card borderColor="red">Test Red Card</Card>);
     expect(component.is('.borderColorRed')).toBe(true);
   });
 });

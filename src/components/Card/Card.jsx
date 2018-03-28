@@ -12,6 +12,7 @@ const cardTypes = {
   CONDENSED: 'condensed',
 };
 const borderTypes = { DASHED: 'dashed' };
+const borderColors = { RED: 'red' };
 
 class Card extends React.Component {
   constructor() {
@@ -44,7 +45,7 @@ class Card extends React.Component {
       data,
       isExpanded,
       borderType,
-      borderColorRed,
+      borderColor,
       type,
       minWidth,
     } = this.props;
@@ -52,7 +53,7 @@ class Card extends React.Component {
     const cardStyle = cx(style.card, {
       [style.condensed]: type === cardTypes.CONDENSED,
       [style.borderDashed]: borderType === borderTypes.DASHED,
-      [style.borderColorRed]: borderColorRed,
+      [style.borderColorRed]: borderColor === borderColors.RED,
       [style.isExpanded]: isExpanded,
     });
 
