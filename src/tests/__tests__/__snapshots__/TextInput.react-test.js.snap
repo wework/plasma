@@ -7,6 +7,7 @@ exports[`TextInput Component render 1`] = `
   <input
     className="input"
     disabled={undefined}
+    maxLength={undefined}
     onBlur={[Function]}
     onChange={undefined}
     onFocus={[Function]}

@@ -17,7 +17,8 @@
     "styleguide:build": "styleguidist build",
     "watch": "webpack --watch --config webpack.config.dev",
     "jest": "node_modules/.bin/jest",
-    "jest:watch": "node_modules/.bin/jest --watch --coverage"
+    "jest:watch": "node_modules/.bin/jest --watch --coverage",
+    "jest:update": "node_modules/.bin/jest --updateSnapshot"
   },
   "author": "WeWork",
   "license": "ISC",

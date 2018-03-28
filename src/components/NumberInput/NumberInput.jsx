@@ -43,11 +43,11 @@ class NumberInput extends React.Component {
     const wrapperStyle = cx(style.wrapper, {
       [style.wrapperDisabled]: disabled,
       [style.wrapperError]: error,
-    })
+    });
 
     const inputStyle = cx(style.input, {
       [style.inputDisabled]: disabled,
-    })
+    });
 
     return (
       <div
