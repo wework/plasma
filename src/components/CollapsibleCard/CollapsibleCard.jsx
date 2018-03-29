@@ -11,7 +11,7 @@ import style from './style.scss';
 class CollapsibleCard extends Component {
   static propTypes = {
     headerText: PropTypes.node.isRequired,
-    expandableText: PropTypes.node,
+    collapsibleText: PropTypes.node,
     children: PropTypes.node.isRequired,
     styleColor: PropTypes.oneOf([styleColors.RED]),
     isCollapsed: PropTypes.bool,
@@ -33,7 +33,7 @@ class CollapsibleCard extends Component {
   render() {
     const {
       headerText,
-      expandableText,
+      collapsibleText,
       children,
       styleColor,
       disabled,
@@ -43,12 +43,9 @@ class CollapsibleCard extends Component {
       shouldDisplayCard,
     } = this.state;
 
-    const collapsibleCardStyle = cx(
-      style.collapsibleCard,
-      {
-        [style.styleColorRed]: styleColor === styleColors.RED,
-      }
-    );
+    const collapsibleCardStyle = cx(style.collapsibleCard, {
+      [style.styleColorRed]: styleColor === styleColors.RED,
+    });
 
     return (
       <div className={collapsibleCardStyle}>
@@ -56,7 +53,7 @@ class CollapsibleCard extends Component {
           {headerText}
           {!disabled && (
             <div className={style.textLink} onClick={this.onClick}>
-              {expandableText}
+              {collapsibleText}
               <div
                 className={shouldDisplayCard ? style.textLinkArrowUp : style.textLinkArrowDown}
               />

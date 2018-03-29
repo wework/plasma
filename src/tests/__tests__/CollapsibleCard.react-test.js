@@ -11,7 +11,7 @@ describe('CollapsibleCard Component unit', () => {
     component = shallow(
       <CollapsibleCard
         headerText="Header Text"
-        expandableText="more"
+        collapsibleText="more"
       >
         Test Card
       </CollapsibleCard>
@@ -74,7 +74,7 @@ describe('CollapsibleCard Component unit', () => {
       component = shallow(
         <CollapsibleCard
           headerText="Header Text"
-          expandableText="more"
+          collapsibleText="more"
           disabled
         >
           Test Card

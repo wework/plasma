@@ -16,7 +16,7 @@ storiesOf('CollapsibleCard', module)
     <div style={{ display: 'flex' }}>
       <CollapsibleCard
         headerText="Header Text"
-        expandableText="more"
+        collapsibleText="more"
       >
         Hello
       </CollapsibleCard>
