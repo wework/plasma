@@ -56,7 +56,7 @@ class CollapsibleCard extends Component {
         </div>
         {!disabled &&
           displayCard && (
-            <Card borderColor={styleColor}>
+            <Card borderColor={(styleColor === styleColors.RED) && styleColor}>
               {children}
             </Card>
         )}
