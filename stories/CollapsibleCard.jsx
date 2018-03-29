@@ -22,6 +22,16 @@ storiesOf('CollapsibleCard', module)
       </CollapsibleCard>
     </div>
   ))
+  .add('is collapsed', () => (
+    <div style={{ display: 'flex' }}>
+      <CollapsibleCard
+        headerText="Header Text"
+        isCollapsed
+      >
+        Hello
+      </CollapsibleCard>
+    </div>
+  ))
   .add('red style color', () => (
     <div style={{ display: 'flex' }}>
       <CollapsibleCard

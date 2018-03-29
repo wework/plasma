@@ -26,8 +26,8 @@ describe('CollapsibleCard Component unit', () => {
     expect(component.contains('more')).toBe(true);
   });
 
-  test('displays arrow down', () => {
-    expect(component.find('.textLinkArrowDown').exists()).toBe(true);
+  test('displays arrow up', () => {
+    expect(component.find('.textLinkArrowUp').exists()).toBe(true);
   });
 
   test('no red border color', () => {
@@ -46,15 +46,26 @@ describe('CollapsibleCard Component unit', () => {
     expect(component.is('.styleColorRed')).toBe(true);
   });
 
+  test('displays children', () => {
+    component = shallow(
+      <CollapsibleCard
+        headerText="Header Text"
+      >
+        Test Card
+      </CollapsibleCard>
+    );
+    expect(component.contains('Test Card')).toBe(true);
+  });
+
   describe('when clicked ', () => {
-    test('displays children', () => {
+    test('does not display children', () => {
       component.find('.textLink').simulate('click');
-      expect(component.contains('Test Card')).toBe(true);
+      expect(component.contains('Test Card')).toBe(false);
     });
 
-    test('displays arrow up', () => {
+    test('displays arrow down', () => {
       component.find('.textLink').simulate('click');
-      expect(component.find('.textLinkArrowUp').exists()).toBe(true);
+      expect(component.find('.textLinkArrowDown').exists()).toBe(true);
     });
   });
 

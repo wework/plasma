@@ -14,11 +14,16 @@ class CollapsibleCard extends Component {
     expandableText: PropTypes.node,
     children: PropTypes.node.isRequired,
     styleColor: PropTypes.oneOf([styleColors.RED]),
+    isCollapsed: PropTypes.bool,
     disabled: PropTypes.bool,
   };
 
+  static defaultProps = {
+    isCollapsed: false,
+  }
+
   state = {
-    shouldDisplayCard: false,
+    shouldDisplayCard: !this.props.isCollapsed,
   }
 
   onClick = () => {
