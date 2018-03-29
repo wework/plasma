@@ -48,7 +48,7 @@ class CollapsibleCard extends Component {
               <b>{expandableText}</b>
               <div
                 className={
-                  ((displayCard) ? style.textLinkArrowUp : style.textLinkArrowDown )
+                  ((displayCard) ? style.textLinkArrowUp : style.textLinkArrowDown)
                 }
               />
             </div>
