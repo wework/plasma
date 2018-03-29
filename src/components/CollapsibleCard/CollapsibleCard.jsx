@@ -3,20 +3,26 @@ import PropTypes from 'prop-types';
 import cx from 'classnames';
 
 // Components
-import Card from '../Card/Card';
+import Card, { borderColors as styleColors } from '../Card/Card';
 
 // Style
 import style from './style.scss';
 
-const styleColors = { RED: 'red' };
-
 class CollapsibleCard extends Component {
+  static propTypes = {
+    headerText: PropTypes.node.isRequired,
+    expandableText: PropTypes.node,
+    children: PropTypes.node.isRequired,
+    styleColor: PropTypes.oneOf([styleColors.RED]),
+    disabled: PropTypes.bool,
+  };
+
   state = {
-    displayCard: false,
+    shouldDisplayCard: false,
   }
 
   onClick = () => {
-    this.setState({ displayCard: !this.state.displayCard });
+    this.setState(prevState => ({ shouldDisplayCard: !prevState.shouldDisplayCard }));
   }
 
   render() {
@@ -29,7 +35,7 @@ class CollapsibleCard extends Component {
     } = this.props;
 
     const {
-      displayCard,
+      shouldDisplayCard,
     } = this.state;
 
     const collapsibleCardStyle = cx(
@@ -45,18 +51,16 @@ class CollapsibleCard extends Component {
           {headerText}
           {!disabled && (
             <div className={style.textLink} onClick={this.onClick}>
-              <b>{expandableText}</b>
+              {expandableText}
               <div
-                className={
-                  ((displayCard) ? style.textLinkArrowUp : style.textLinkArrowDown)
-                }
+                className={shouldDisplayCard ? style.textLinkArrowUp : style.textLinkArrowDown}
               />
             </div>
           )}
         </div>
         {!disabled &&
-          displayCard && (
-            <Card borderColor={(styleColor === styleColors.RED) && styleColor}>
+          shouldDisplayCard && (
+            <Card borderColor={styleColor}>
               {children}
             </Card>
         )}
@@ -64,16 +68,6 @@ class CollapsibleCard extends Component {
     );
   }
 }
-
-CollapsibleCard.defaultProps = {};
-
-CollapsibleCard.propTypes = {
-  headerText: PropTypes.node.isRequired,
-  expandableText: PropTypes.string,
-  children: PropTypes.node.isRequired,
-  styleColor: PropTypes.string,
-  disabled: PropTypes.bool,
-};
 
 CollapsibleCard.displayName = 'Plasma@CollapsibleCard';
 
