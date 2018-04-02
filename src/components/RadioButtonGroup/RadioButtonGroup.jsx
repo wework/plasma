@@ -1,6 +1,6 @@
 // @flow
+/* eslint react/prop-types: 0 */
 import React from 'react';
-import PropTypes from 'prop-types';
 import RadioButton from '../RadioButton/RadioButton';
 
 type Option = {
@@ -54,15 +54,6 @@ class RadioButtonGroup extends React.Component<Props> {
     );
   }
 }
-
-RadioButtonGroup.propTypes = {
-  fancy: PropTypes.bool,
-  isLarge: PropTypes.bool,
-  name: PropTypes.string.isRequired,
-  onChange: PropTypes.func.isRequired,
-  options: PropTypes.array.isRequired,
-  value: PropTypes.string,
-};
 
 RadioButtonGroup.displayName = 'Plasma@RadioButtonGroup';
 
