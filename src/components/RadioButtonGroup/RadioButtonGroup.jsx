@@ -1,0 +1,70 @@
+// @flow
+import React from 'react';
+import PropTypes from 'prop-types';
+import RadioButton from '../RadioButton/RadioButton';
+
+type Option = {
+  description?: string,
+  disabled?: boolean,
+  icon?: string,
+  label: string,
+  value: string,
+}
+
+type Props = {
+  fancy?: boolean,
+  isLarge?: boolean,
+  name: string,
+  onChange: () => mixed,
+  options: Array<Option>,
+  value?: string,
+}
+
+class RadioButtonGroup extends React.Component<Props> {
+  renderRadioButtons = () => {
+    const { options, value, fancy, isLarge, name, onChange } = this.props;
+    // TODO: replace fieldValue with value={opt.value}
+    return (
+        options && options.map(opt => (
+          <RadioButton
+            checked={value === opt.value}
+            description={opt.description}
+            disabled={opt.disabled}
+            icon={opt.icon}
+            key={opt.value}
+            text={opt.label}
+            fieldValue={opt.value}
+            fancy={fancy}
+            isLarge={isLarge}
+            name={name}
+            onChange={onChange}
+          />
+      ))
+    );
+  }
+
+  render() {
+    return (
+      <div>
+        { this.renderRadioButtons() }
+      </div>
+    );
+  }
+}
+
+RadioButtonGroup.defaultProps = {
+  value: null,
+};
+
+RadioButtonGroup.propTypes = {
+  fancy: PropTypes.bool,
+  isLarge: PropTypes.bool,
+  name: PropTypes.string.isRequired,
+  onChange: PropTypes.func.isRequired,
+  options: PropTypes.array.isRequired,
+  value: PropTypes.string,
+};
+
+RadioButtonGroup.displayName = 'Plasma@RadioButtonGroup';
+
+export default RadioButtonGroup;
