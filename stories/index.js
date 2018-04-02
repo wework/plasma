@@ -10,6 +10,7 @@ import NumberInput from './NumberInput';
 import OverflowMenu from './OverflowMenu';
 import Page from './Page';
 import RadioButton from './RadioButton';
+import RadioButtonGroup from './RadioButtonGroup';
 import React from 'react';
 import Rule from './Rule';
 import Search from './Search';
