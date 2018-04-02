@@ -1,6 +1,7 @@
 import Button from './components/Button/Button';
 import Card from './components/Card/Card';
 import Checkbox from './components/Checkbox/Checkbox';
+import CollapsibleCard from './components/CollapsibleCard/CollapsibleCard';
 import OverflowMenu from './components/OverflowMenu/OverflowMenu';
 import Header from './components/Header/Header';
 import Icon from './components/Icon/Icon';
@@ -54,6 +55,7 @@ Plasma.Icon = Icon;
 Plasma.Text = Text;
 Plasma.Card = Card;
 Plasma.Checkbox = Checkbox;
+Plasma.CollapsibleCard = CollapsibleCard;
 Plasma.SegmentedCard = SegmentedCard;
 Plasma.Button = Button;
 Plasma.TextInput = TextInput;
@@ -95,6 +97,7 @@ export {
   Text,
   Card,
   Checkbox,
+  CollapsibleCard,
   SegmentedCard,
   Button,
   TextInput,

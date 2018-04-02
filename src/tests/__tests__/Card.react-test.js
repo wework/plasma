@@ -92,4 +92,14 @@ describe('Card Component unit', () => {
     );
     expect(component.find('.action')).toHaveLength(2);
   });
+
+  test('no red border color', () => {
+    const component = shallow(<Card>Test Card</Card>);
+    expect(component.is('.borderRed')).toBe(false);
+  });
+
+  test('red border color', () => {
+    const component = shallow(<Card borderColor="red">Test Red Card</Card>);
+    expect(component.is('.borderRed')).toBe(true);
+  });
 });
