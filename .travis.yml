@@ -12,3 +12,4 @@ before_script:
 script:
   - npm run lint
   - yarn jest
+  - yarn run flow
