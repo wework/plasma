@@ -2,73 +2,10 @@ import React from 'react';
 import { storiesOf } from '@storybook/react';
 import { action } from '@storybook/addon-actions';
 import { linkTo } from '@storybook/addon-links';
+
+import StoryState from '../StoryState'
 import RadioButton from '../src/components/RadioButton/RadioButton';
 import meetupLogo from '../src/icons/meetupLogo';
-
-class FancyRadioButtons extends React.Component {
-  state = {
-    selected: "Building Announcements"
-  }
-  handleCheck = (e) => {
-    this.setState({ selected: e.target.value })
-  }
-  render() {
-    return (
-      <div>
-        <RadioButton
-          text="Happy Hour"
-          fieldValue="Happy Hour"
-          fancy
-          onChange={this.handleCheck}
-          value={this.state.selected}
-        />
-        <RadioButton
-          text="Networking"
-          fieldValue="Networking"
-          fancy
-          onChange={this.handleCheck}
-          value={this.state.selected}
-        />
-        <RadioButton
-          text="Wellness"
-          fieldValue="Wellness"
-          fancy
-          onChange={this.handleCheck}
-          value={this.state.selected}
-        />
-        <RadioButton
-          text="TGIM"
-          fieldValue="TGIM"
-          fancy
-          onChange={this.handleCheck}
-          value={this.state.selected}
-        />
-        <RadioButton
-          text="Lunch and Learn"
-          fieldValue="Lunch and Learn"
-          fancy
-          onChange={this.handleCheck}
-          value={this.state.selected}
-        />
-       <RadioButton
-          text="Meetup"
-          fieldValue="Meetup"
-          fancy
-          icon={meetupLogo}
-          onChange={this.handleCheck}
-          value={this.state.selected}
-        />
-        <RadioButton
-          text="Community Event"
-          fieldValue="Community Event"
-          fancy
-          onChange={this.handleCheck}
-          value={this.state.selected}
-        />
-      </div>
-    );
-  }
-}
 
 storiesOf('RadioButton', module)
   .add('with Text', () => (
@@ -90,5 +27,59 @@ storiesOf('RadioButton', module)
     </div>
   ))
   .add('fancy with optional icon', () => (
-    <FancyRadioButtons />
+    <StoryState render={(state, setState) => (
+      <div>
+        <RadioButton
+          text="Happy Hour"
+          fieldValue="Happy Hour"
+          fancy
+          onChange={e => setState({selected: e.target.value})}
+          value={state.selected}
+        />
+        <RadioButton
+          text="Networking"
+          fieldValue="Networking"
+          fancy
+          onChange={e => setState({selected: e.target.value})}
+          value={state.selected}
+        />
+        <RadioButton
+          text="Wellness"
+          fieldValue="Wellness"
+          fancy
+          onChange={e => setState({selected: e.target.value})}
+          value={state.selected}
+        />
+        <RadioButton
+          text="TGIM"
+          fieldValue="TGIM"
+          fancy
+          onChange={e => setState({selected: e.target.value})}
+          value={state.selected}
+        />
+        <RadioButton
+          text="Lunch and Learn"
+          fieldValue="Lunch and Learn"
+          fancy
+          onChange={e => setState({selected: e.target.value})}
+          value={state.selected}
+        />
+        <RadioButton
+          text="Meetup"
+          fieldValue="Meetup"
+          fancy
+          icon={meetupLogo}
+          onChange={e => setState({selected: e.target.value})}
+          value={state.selected}
+        />
+        <RadioButton
+          text="Community Event"
+          fieldValue="Community Event"
+          fancy
+          onChange={e => setState({selected: e.target.value})}
+          value={state.selected}
+        />
+      </div>
+      )}
+    />
   ));

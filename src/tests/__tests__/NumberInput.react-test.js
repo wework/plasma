@@ -8,7 +8,9 @@ import { shallow, mount } from 'enzyme';
 describe('NumberInput Component', () => {
   test('render', () => {
     const component = renderer.create(
-      <NumberInput />
+      <NumberInput
+        onChange={()=>{}}
+      />
     );
     let tree = component.toJSON();
     expect(tree).toMatchSnapshot();

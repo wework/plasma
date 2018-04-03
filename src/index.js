@@ -11,6 +11,7 @@ import Loader from './components/Loader/Loader';
 import Modal from './components/Modal/Modal';
 import NumberInput from './components/NumberInput/NumberInput';
 import RadioButton from './components/RadioButton/RadioButton';
+import RadioButtonGroup from './components/RadioButtonGroup/RadioButtonGroup';
 import Rule from './components/Rule/Rule';
 import SegmentedCard from './components/SegmentedCard/SegmentedCard';
 import Table from './components/Table/Table';
@@ -61,6 +62,7 @@ Plasma.Button = Button;
 Plasma.TextInput = TextInput;
 Plasma.NumberInput = NumberInput;
 Plasma.RadioButton = RadioButton;
+Plasma.RadioButtonGroup = RadioButtonGroup;
 Plasma.Rule = Rule;
 Plasma.Loader = Loader;
 Plasma.OverflowMenu = OverflowMenu;
@@ -102,6 +104,7 @@ export {
   Button,
   TextInput,
   RadioButton,
+  RadioButtonGroup,
   Rule,
   Group,
   FormField,
