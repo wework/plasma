@@ -20,6 +20,7 @@ import SideNavBar from './SideNavBar';
 import Table from './Table';
 import Tabs from './Tabs';
 import Tag from './Tag';
+import Text from './Text';
 import TextArea from './TextArea';
 import TextInput from './TextInput';
 import TimePicker from './TimePicker';
