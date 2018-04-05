@@ -1,16 +1,36 @@
+// @flow
+/* eslint react/prop-types: 0 */
 import React from 'react';
-import PropTypes from 'prop-types';
-import cn from 'classnames';
+import cx from 'classnames';
 import style from './style.scss';
-import { getDataAttrs, getDataProps } from '../../dataUtils';
+import type { Data } from '../../dataUtils';
+import { getDataAttrs } from '../../dataUtils';
+
+export type Props = {
+  children: React.Node,
+  data?: Data,
+  large?: boolean,
+  style?: Object,
+  type?: string,
+};
+
+const types = {
+  PRIMARY: 'primary',
+  SECONDARY: 'secondary',
+};
 
 class Text extends React.Component {
   render() {
-    const { large } = this.props;
+    const { large, type } = this.props;
+    const textStyle = cx(style.wrapper, {
+      [style.large]: large,
+      [style.primary]: type === types.PRIMARY,
+      [style.secondary]: type === types.SECONDARY,
+    });
     return (
       <div
         {...getDataAttrs(this.props.data)}
-        className={cn(style.wrapper, { [style.large]: large })}
+        className={textStyle}
         style={this.props.style}
       >
         {this.props.children}
@@ -21,13 +41,6 @@ class Text extends React.Component {
 
 Text.defaultProps = {
   style: { width: 200, height: 'auto' },
-};
-
-Text.propTypes = {
-  style: PropTypes.object,
-  children: PropTypes.element,
-  large: PropTypes.bool,
-  ...getDataProps(),
 };
 
 Text.displayName = 'Plasma@Text';
