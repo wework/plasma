@@ -25,7 +25,7 @@ class Modal extends React.Component {
           {...getDataAttrs(data)}
           className={style.wrapper}
         >
-          <div className={style.innerWrapper}yar>
+          <div className={style.innerWrapper}>
             <div
               style={{ minWidth, maxWidth }}
               className={style.card}
