@@ -1,5 +1,5 @@
 [ignore]
-.*/node_modules
+.*/node_modules/findup
 
 [include]
 
@@ -8,5 +8,7 @@
 [lints]
 
 [options]
+module.name_mapper.extension='css' -> '<PROJECT_ROOT>/flow/CSSModule.js.flow'
+module.name_mapper.extension='scss' -> '<PROJECT_ROOT>/flow/CSSModule.js.flow'
 
 [strict]
