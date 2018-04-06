@@ -1,9 +1,9 @@
 // @flow
 /* eslint react/prop-types: 0 */
-import React from 'react';
+import * as React from 'react';
 import cx from 'classnames';
 import style from './style.scss';
-import type { Data } from '../../dataUtils';
+import type { Data } from '../../types';
 import { getDataAttrs } from '../../dataUtils';
 
 export type Props = {
@@ -19,7 +19,10 @@ const types = {
   SECONDARY: 'secondary',
 };
 
-class Text extends React.Component {
+class Text extends React.Component<Props> {
+  static defaultProps = {
+    style: { width: 200, height: 'auto' },
+  };
   render() {
     const { large, type } = this.props;
     const textStyle = cx(style.wrapper, {
@@ -38,10 +41,6 @@ class Text extends React.Component {
     );
   }
 }
-
-Text.defaultProps = {
-  style: { width: 200, height: 'auto' },
-};
 
 Text.displayName = 'Plasma@Text';
 

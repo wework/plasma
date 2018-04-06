@@ -1,11 +1,5 @@
-// @flow
 import PropTypes from 'prop-types';
 import { mapKeys, kebabCase } from 'lodash';
-
-export type Data = {
-  key: string,
-  value: string,
-};
 
 export const getDataAttrs = (data) => {
   if (!data) return {};
