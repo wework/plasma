@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import cx from 'classnames';
-import style from './style.scss'
+import style from './style.scss';
 
 const withCounter = Component => {
   return class extends React.Component {
