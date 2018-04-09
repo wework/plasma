@@ -17,6 +17,7 @@ class Modal extends React.Component {
       children,
       onDismiss,
       minWidth = 0,
+      maxWidth,
     } = this.props;
     if (this.props.visible) {
       comp = (
@@ -26,7 +27,7 @@ class Modal extends React.Component {
         >
           <div className={style.innerWrapper}>
             <div
-              style={{ minWidth }}
+              style={{ minWidth, maxWidth }}
               className={style.card}
             >
               <div className={style.content}>
@@ -67,6 +68,7 @@ Modal.propTypes = {
   onDismiss: PropTypes.func,
   style: PropTypes.object,
   minWidth: PropTypes.number,
+  maxWidth: PropTypes.number,
   ...getDataProps(),
 };
 
