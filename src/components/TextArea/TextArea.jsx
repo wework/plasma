@@ -7,6 +7,10 @@ import Autogrow from './autogrow';
 import style from './style.scss';
 
 class TextArea extends Component {
+  setAutogrowRef = element => {
+    this.autogrowRef = new Autogrow(element);
+  };
+
   render() {
     const {
       data,
@@ -36,7 +40,7 @@ class TextArea extends Component {
     return (
       <div className={wrapperStyle} {...getDataAttrs(data)}>
         <textarea
-          ref={el => el && new Autogrow(el)}
+          ref={this.setAutogrowRef}
           className={textareaStyle}
           disabled={disabled}
           onChange={onChange}
