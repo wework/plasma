@@ -41,6 +41,8 @@ Developing with Storybook
 
 ### Documenting components
 
+1. Run `./docs/publish.sh` from the root dir. This will update the docs, commit to gh-pages, and push to github (updating http://plasma.guide)
+
 Info here: https://react-styleguidist.js.org/docs/documenting.html
 
 ## Creating a Pull Request / Publishing
