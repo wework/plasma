@@ -8,16 +8,16 @@ import { getDataAttrs, getDataProps } from '../../dataUtils';
 class Checkbox extends React.Component {
   render() {
     const {
-      isBold,
       checked,
-      indeterminate,
-      name,
-      text,
-      onChange,
-      disabled,
-      value,
       data,
+      disabled,
+      indeterminate,
+      isBold,
+      name,
       onBlur,
+      onChange,
+      text,
+      value,
     } = this.props;
     const id = uniqueId('id');
     const inputClassName = indeterminate ? style.indeterminate : style.original;
@@ -34,14 +34,14 @@ class Checkbox extends React.Component {
         <div>
           <label htmlFor={id} className={wrapperClassName}>
             <input
-              disabled={disabled}
               checked={checked || value}
               className={inputClassName}
-              type="checkbox"
+              disabled={disabled}
               id={id}
               name={name}
               onChange={onChange}
               onBlur={onBlur}
+              type="checkbox"
             />
             <div className={style.checkbox} />
             <div className={textClassName}>{text}</div>
@@ -57,22 +57,22 @@ class Checkbox extends React.Component {
 
 Checkbox.defaultProps = {
   checked: false,
-  value: false,
   indeterminate: false,
-  text: 'Option',
   name: 'checkbox',
+  text: 'Option',
+  value: false,
 };
 
 Checkbox.propTypes = {
   checked: PropTypes.bool,
-  value: PropTypes.bool,
-  indeterminate: PropTypes.bool,
-  text: PropTypes.oneOfType([PropTypes.string, PropTypes.node, PropTypes.element]).isRequired,
-  name: PropTypes.string.isRequired,
-  onChange: PropTypes.func,
-  disabled: PropTypes.bool,
   description: PropTypes.string,
+  disabled: PropTypes.bool,
+  indeterminate: PropTypes.bool,
+  name: PropTypes.string.isRequired,
   onBlur: PropTypes.func,
+  onChange: PropTypes.func,
+  text: PropTypes.oneOfType([PropTypes.string, PropTypes.node, PropTypes.element]).isRequired,
+  value: PropTypes.bool,
   ...getDataProps(),
 };
 
