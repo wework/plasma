@@ -1,5 +1,3 @@
-import { throttle } from 'lodash';
-
 (function(root, factory) {
   if (typeof define === 'function' && define.amd) {
     define([], factory);
@@ -36,7 +34,7 @@ import { throttle } from 'lodash';
      * Sets textarea height as exact height of content
      * @returns {boolean}
      */
-    self.autogrowFn = throttle(function() {
+    self.autogrowFn = function() {
       var newHeight = 0,
         hasGrown = false;
       if ((textarea.scrollHeight - offset) > self.maxAllowedHeight) {
@@ -50,7 +48,7 @@ import { throttle } from 'lodash';
       }
       textarea.style.height = newHeight + 'px';
       return hasGrown;
-    }, 750);
+    };
 
     var offset = self.getOffset(textarea);
     self.rows = textarea.rows || 1;
