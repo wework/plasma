@@ -1,7 +1,9 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`Checkbox Component render 1`] = `
-<div>
+<div
+  className=""
+>
   <div>
     <label
       className="wrapper"
@@ -33,6 +35,7 @@ exports[`Checkbox Component render 1`] = `
 exports[`Checkbox Component render 2`] = `
 <div
   checked={true}
+  className=""
 >
   <div>
     <label

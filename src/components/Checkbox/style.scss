@@ -1,6 +1,12 @@
 @import '../../styles/base';
 $checkboxBorder: 1px solid $cBorder;
 
+.inline {
+  display: inline-block;
+  vertical-align: top;
+  margin: 10px 10px 10px 0;
+}
+
 .wrapper {
   position: relative;
   display: inline-flex;
@@ -8,13 +14,36 @@ $checkboxBorder: 1px solid $cBorder;
   justify-content: flex-start;
   align-items: center;
   cursor: pointer;
+
   .original, .intermediate {
     cursor: pointer;
   }
+
   &:hover {
     .checkbox {
       border: 1px solid $cGray200;
     }
+  }
+
+  &.fancy {
+    .text {
+      padding: 12px 15px 12px 0;
+      margin: 0;
+      font-size: 13px;
+      color: $cBlue70;
+      line-height: 16px;
+    }
+    padding-left: 15px;
+    height: 40px;
+    border-radius: 20px;
+    border: 1px solid $cBlue70;
+  }
+
+  &.fancyChecked {
+    .text {
+      color: $cWhite;
+    }
+    background-color: $cBlue70;
   }
 }
 
@@ -29,7 +58,6 @@ $checkboxBorder: 1px solid $cBorder;
     }
   }
 }
-
 
 .original {
   position: absolute;

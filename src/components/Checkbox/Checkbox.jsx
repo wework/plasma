@@ -11,6 +11,7 @@ class Checkbox extends React.Component {
       checked,
       data,
       disabled,
+      fancy,
       indeterminate,
       isBold,
       name,
@@ -19,10 +20,14 @@ class Checkbox extends React.Component {
       text,
       value,
     } = this.props;
+
     const id = uniqueId('id');
+    const inlineClass = cx({ [style.inline]: fancy });
     const inputClassName = indeterminate ? style.indeterminate : style.original;
     const wrapperClassName = cx(style.wrapper, {
       [style.wrapperDisabled]: disabled,
+      [style.fancy]: fancy,
+      [style.fancyChecked]: fancy && value,
     });
     const textClassName = cx(style.text, {
       [style.textBold]: isBold,
@@ -30,7 +35,7 @@ class Checkbox extends React.Component {
     });
 
     return (
-      <div {...getDataAttrs(data)}>
+      <div {...getDataAttrs(data)} className={inlineClass}>
         <div>
           <label htmlFor={id} className={wrapperClassName}>
             <input
@@ -43,7 +48,7 @@ class Checkbox extends React.Component {
               onBlur={onBlur}
               type="checkbox"
             />
-            <div className={style.checkbox} />
+            {!fancy && <div className={style.checkbox} />}
             <div className={textClassName}>{text}</div>
           </label>
         </div>
@@ -67,6 +72,7 @@ Checkbox.propTypes = {
   checked: PropTypes.bool,
   description: PropTypes.string,
   disabled: PropTypes.bool,
+  fancy: PropTypes.bool,
   indeterminate: PropTypes.bool,
   name: PropTypes.string.isRequired,
   onBlur: PropTypes.func,

@@ -3,7 +3,6 @@
 import React from 'react';
 import Checkbox from '../../components/Checkbox/Checkbox';
 import renderer from 'react-test-renderer';
-import { shallow, mount } from 'enzyme';
 
 describe('Checkbox Component', () => {
   test('render', () => {

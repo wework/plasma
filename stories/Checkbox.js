@@ -1,7 +1,7 @@
 import React from 'react';
 import { storiesOf } from '@storybook/react';
-import { action } from '@storybook/addon-actions';
-import { linkTo } from '@storybook/addon-links';
+
+import StoryState from '../StoryState';
 import Checkbox from '../src/components/Checkbox/Checkbox';
 
 storiesOf('Checkbox', module)
@@ -22,4 +22,15 @@ storiesOf('Checkbox', module)
   ))
   .add('indeterminate checked', () => (
     <Checkbox indeterminate checked />
+  ))
+  .add('fancy', () => (
+    <StoryState render={(state, setState) => (
+      <Checkbox
+        fancy
+        name="optionOne"
+        onChange={e => setState({selected: e.target.name})}
+        value={state.selected === 'optionOne'}
+      />
+    )}
+    />
   ));
