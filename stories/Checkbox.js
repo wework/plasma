@@ -33,4 +33,49 @@ storiesOf('Checkbox', module)
       />
     )}
     />
+  ))
+  .add('multiple fancy', () => (
+    <div>
+      <StoryState render={(state, setState) => (
+        <Checkbox
+          fancy
+          name="dog"
+          onChange={e => setState({selected: e.target.name})}
+          text="Dog"
+          value={state.selected === 'dog'}
+        />
+      )}
+      />
+      <StoryState render={(state, setState) => (
+        <Checkbox
+          fancy
+          name="cat"
+          onChange={e => setState({selected: e.target.name})}
+          text="Cat"
+          value={state.selected === 'cat'}
+        />
+      )}
+      />
+      <StoryState render={(state, setState) => (
+        <Checkbox
+          fancy
+          name="snake"
+          onChange={e => setState({selected: e.target.name})}
+          text="Snake"
+          value={state.selected === 'snake'}
+        />
+      )}
+      />
+      <StoryState render={(state, setState) => (
+        <Checkbox
+          fancy
+          name="bird"
+          onChange={e => setState({selected: e.target.name})}
+          text="Bird"
+          value={state.selected === 'bird'}
+        />
+      )}
+      />
+    </div>
   ));
+;
