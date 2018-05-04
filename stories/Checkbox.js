@@ -29,7 +29,7 @@ storiesOf('Checkbox', module)
         fancy
         name="optionOne"
         onChange={e => setState({selected: e.target.name})}
-        value={state.selected === 'optionOne'}
+        checked={state.selected === 'optionOne'}
       />
     )}
     />
@@ -42,7 +42,7 @@ storiesOf('Checkbox', module)
           name="dog"
           onChange={e => setState({selected: e.target.name})}
           text="Dog"
-          value={state.selected === 'dog'}
+          checked={state.selected === 'dog'}
         />
       )}
       />
@@ -52,7 +52,7 @@ storiesOf('Checkbox', module)
           name="cat"
           onChange={e => setState({selected: e.target.name})}
           text="Cat"
-          value={state.selected === 'cat'}
+          checked={state.selected === 'cat'}
         />
       )}
       />
@@ -62,7 +62,7 @@ storiesOf('Checkbox', module)
           name="snake"
           onChange={e => setState({selected: e.target.name})}
           text="Snake"
-          value={state.selected === 'snake'}
+          checked={state.selected === 'snake'}
         />
       )}
       />
@@ -72,7 +72,7 @@ storiesOf('Checkbox', module)
           name="bird"
           onChange={e => setState({selected: e.target.name})}
           text="Bird"
-          value={state.selected === 'bird'}
+          checked={state.selected === 'bird'}
         />
       )}
       />

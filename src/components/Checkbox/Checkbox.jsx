@@ -21,13 +21,14 @@ class Checkbox extends React.Component {
       value,
     } = this.props;
 
+    const isChecked = (checked || value);
     const id = uniqueId('id');
     const inlineClass = cx({ [style.inline]: fancy });
     const inputClassName = indeterminate ? style.indeterminate : style.original;
     const wrapperClassName = cx(style.wrapper, {
       [style.wrapperDisabled]: disabled,
       [style.fancy]: fancy,
-      [style.fancyChecked]: fancy && value,
+      [style.fancyChecked]: fancy && isChecked,
     });
     const textClassName = cx(style.text, {
       [style.textBold]: isBold,
@@ -39,7 +40,7 @@ class Checkbox extends React.Component {
         <div>
           <label htmlFor={id} className={wrapperClassName}>
             <input
-              checked={checked || value}
+              checked={isChecked}
               className={inputClassName}
               disabled={disabled}
               id={id}
