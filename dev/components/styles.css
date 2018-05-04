@@ -219,6 +219,10 @@
   border: 1px dashed #EAEBEC;
 }
 
+.src-components-Card-borderRed__2iuXV {
+  border-color: #eb1700;
+}
+
 .src-components-Card-top__3CYbl {
   display: flex;
   justify-content: space-between;
@@ -339,6 +343,12 @@
   height: 0;
 }
 
+.src-components-Checkbox-inline__1JEED {
+  display: inline-block;
+  vertical-align: top;
+  margin: 10px 10px 10px 0;
+}
+
 .src-components-Checkbox-wrapper__3JmR1 {
   position: relative;
   display: inline-flex;
@@ -355,6 +365,29 @@
 
 .src-components-Checkbox-wrapper__3JmR1:hover .src-components-Checkbox-checkbox__3nwSj {
   border: 1px solid #C2C2C2;
+}
+
+.src-components-Checkbox-wrapper__3JmR1.src-components-Checkbox-fancy__1M2lj {
+  padding-left: 15px;
+  height: 40px;
+  border-radius: 20px;
+  border: 1px solid #0764d9;
+}
+
+.src-components-Checkbox-wrapper__3JmR1.src-components-Checkbox-fancy__1M2lj .src-components-Checkbox-text__17XBM {
+  padding: 12px 15px 12px 0;
+  margin: 0;
+  font-size: 13px;
+  color: #0764d9;
+  line-height: 16px;
+}
+
+.src-components-Checkbox-wrapper__3JmR1.src-components-Checkbox-fancyChecked__CF2m3 {
+  background-color: #0764d9;
+}
+
+.src-components-Checkbox-wrapper__3JmR1.src-components-Checkbox-fancyChecked__CF2m3 .src-components-Checkbox-text__17XBM {
+  color: #FFFFFF;
 }
 
 .src-components-Checkbox-wrapperDisabled__2Gx22 {
@@ -439,6 +472,14 @@
   color: #C2C2C2;
 }
 
+.src-components-Checkbox-icon__1C2sv {
+  margin: 0px -10px 0px 0px;
+}
+
+.src-components-Checkbox-fancyIcon__2hKYH {
+  margin: 0px 0px 0px -10px;
+}
+
 .src-components-Checkbox-description__1-816 {
   display: inline-block;
   font-size: 11px;
@@ -457,6 +498,60 @@
   fill: #c1c1c2;
   display: inline-block;
   margin: 0 10px;
+}.src-components-CollapsibleCard-clearfix__F6p1f:after {
+  visibility: hidden;
+  display: block;
+  font-size: 0;
+  content: " ";
+  height: 0;
+}
+
+.src-components-CollapsibleCard-collapsibleCard__32LcH .src-components-CollapsibleCard-cardHeader__RObOz {
+  min-height: 20px;
+  background: #FAF9F8;
+  border: 1px solid #EAEBEC;
+  color: #555a5f;
+  padding: 5px;
+  border-top-right-radius: 2px;
+  border-top-left-radius: 2px;
+}
+
+.src-components-CollapsibleCard-collapsibleCard__32LcH .src-components-CollapsibleCard-textLink__105PP {
+  margin-left: 10px;
+  float: right;
+}
+
+.src-components-CollapsibleCard-collapsibleCard__32LcH .src-components-CollapsibleCard-textLinkArrowUp__2_TZf,
+.src-components-CollapsibleCard-collapsibleCard__32LcH .src-components-CollapsibleCard-textLinkArrowDown__RDKsF {
+  display: inline-block;
+  margin-left: 5px;
+  margin-right: 5px;
+  width: 0;
+  height: 0;
+  border-left: 5px solid transparent;
+  border-right: 5px solid transparent;
+}
+
+.src-components-CollapsibleCard-collapsibleCard__32LcH .src-components-CollapsibleCard-textLinkArrowUp__2_TZf {
+  border-bottom: 5px solid #555a5f;
+}
+
+.src-components-CollapsibleCard-collapsibleCard__32LcH .src-components-CollapsibleCard-textLinkArrowDown__RDKsF {
+  border-top: 5px solid #555a5f;
+}
+
+.src-components-CollapsibleCard-styleColorRed__1vmwl .src-components-CollapsibleCard-cardHeader__RObOz {
+  background: #ff6352;
+  border-color: #eb1700;
+  color: #FFFFFF;
+}
+
+.src-components-CollapsibleCard-styleColorRed__1vmwl .src-components-CollapsibleCard-textLinkArrowUp__2_TZf {
+  border-bottom-color: #FFFFFF;
+}
+
+.src-components-CollapsibleCard-styleColorRed__1vmwl .src-components-CollapsibleCard-textLinkArrowDown__RDKsF {
+  border-top-color: #FFFFFF;
 }.src-components-Image-image__213Z- {
   width: 100%;
 }.src-components-Label-label__270Um {
@@ -942,6 +1037,26 @@
   border: 1px solid #C2C2C2;
 }
 
+.src-components-NumberInput-wrapperFocused__rtCoG {
+  border: 1px solid #C2C2C2;
+  box-shadow: 0 0 4px 1px #E0E0E0;
+}
+
+.src-components-NumberInput-wrapperDisabled__29kyT {
+  cursor: not-allowed;
+  color: #EAEBEC;
+  border: 1px solid #EAEBEC;
+}
+
+.src-components-NumberInput-wrapperDisabled__29kyT:hover {
+  border: 1px solid #EAEBEC;
+}
+
+.src-components-NumberInput-wrapperError__3JQdd,
+.src-components-NumberInput-wrapperError__3JQdd:hover {
+  border: 1px solid #D86262;
+}
+
 .src-components-NumberInput-input__2iPjS {
   color: #252729;
   background-color: #FFFFFF;
@@ -966,6 +1081,31 @@
 .src-components-NumberInput-input__2iPjS:-moz-placeholder {
   /* Firefox 18- */
   color: #C2C2C2;
+}
+
+.src-components-NumberInput-inputDisabled__3f-wf {
+  cursor: not-allowed;
+  color: #EAEBEC;
+}
+
+.src-components-NumberInput-inputDisabled__3f-wf::-webkit-input-placeholder {
+  /* Chrome/Opera/Safari */
+  color: #EAEBEC;
+}
+
+.src-components-NumberInput-inputDisabled__3f-wf::-moz-placeholder {
+  /* Firefox 19+ */
+  color: #EAEBEC;
+}
+
+.src-components-NumberInput-inputDisabled__3f-wf:-ms-input-placeholder {
+  /* IE 10+ */
+  color: #EAEBEC;
+}
+
+.src-components-NumberInput-inputDisabled__3f-wf:-moz-placeholder {
+  /* Firefox 18- */
+  color: #EAEBEC;
 }
 
 .src-components-NumberInput-input__2iPjS {
@@ -1967,6 +2107,14 @@
 
 .src-components-Text-large__1NrVV {
   font-size: 16px;
+}
+
+.src-components-Text-primary__2rUI- {
+  color: #252729;
+}
+
+.src-components-Text-secondary__2O7IS {
+  color: #8e8e8f;
 }.src-components-TextArea-textarea__3-ToC {
   font-family: "Helvetica Neue", helvetica, arial, "sans-serif";
   text-rendering: geometricPrecision;

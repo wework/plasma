@@ -1,0 +1,642 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<coverage generated="1522353313972" clover="3.2.0">
+  <project timestamp="1522353313972" name="All files">
+    <metrics statements="449" coveredstatements="364" conditionals="231" coveredconditionals="140" methods="122" coveredmethods="92" elements="802" coveredelements="596" complexity="0" loc="449" ncloc="449" packages="28" files="34" classes="34">
+      <package name="src">
+        <metrics statements="5" coveredstatements="5" conditionals="2" coveredconditionals="2" methods="3" coveredmethods="3"/>
+        <file name="dataUtils.js" path="/Users/chelsea.kochan/source/plasma/src/dataUtils.js">
+          <metrics statements="5" coveredstatements="5" conditionals="2" coveredconditionals="2" methods="3" coveredmethods="3"/>
+          <line num="4" count="25" type="stmt"/>
+          <line num="5" count="71" type="cond" truecount="2" falsecount="0"/>
+          <line num="6" count="2" type="stmt"/>
+          <line num="9" count="25" type="stmt"/>
+          <line num="10" count="32" type="stmt"/>
+        </file>
+      </package>
+      <package name="src.components.Button">
+        <metrics statements="15" coveredstatements="15" conditionals="10" coveredconditionals="10" methods="1" coveredmethods="1"/>
+        <file name="Button.jsx" path="/Users/chelsea.kochan/source/plasma/src/components/Button/Button.jsx">
+          <metrics statements="15" coveredstatements="15" conditionals="10" coveredconditionals="10" methods="1" coveredmethods="1"/>
+          <line num="11" count="1" type="stmt"/>
+          <line num="12" count="1" type="stmt"/>
+          <line num="17" count="12" type="stmt"/>
+          <line num="27" count="12" type="cond" truecount="2" falsecount="0"/>
+          <line num="31" count="2" type="stmt"/>
+          <line num="35" count="12" type="cond" truecount="2" falsecount="0"/>
+          <line num="36" count="1" type="stmt"/>
+          <line num="38" count="11" type="cond" truecount="2" falsecount="0"/>
+          <line num="41" count="12" type="stmt"/>
+          <line num="42" count="12" type="cond" truecount="2" falsecount="0"/>
+          <line num="43" count="1" type="stmt"/>
+          <line num="46" count="12" type="stmt"/>
+          <line num="61" count="1" type="stmt"/>
+          <line num="67" count="1" type="stmt"/>
+          <line num="83" count="1" type="stmt"/>
+        </file>
+      </package>
+      <package name="src.components.Card">
+        <metrics statements="30" coveredstatements="28" conditionals="15" coveredconditionals="13" methods="7" coveredmethods="7"/>
+        <file name="Card.jsx" path="/Users/chelsea.kochan/source/plasma/src/components/Card/Card.jsx">
+          <metrics statements="30" coveredstatements="28" conditionals="15" coveredconditionals="13" methods="7" coveredmethods="7"/>
+          <line num="10" count="2" type="stmt"/>
+          <line num="14" count="2" type="stmt"/>
+          <line num="15" count="2" type="stmt"/>
+          <line num="19" count="9" type="stmt"/>
+          <line num="20" count="9" type="stmt"/>
+          <line num="27" count="2" type="cond" truecount="2" falsecount="0"/>
+          <line num="28" count="1" type="stmt"/>
+          <line num="29" count="1" type="stmt"/>
+          <line num="30" count="1" type="stmt"/>
+          <line num="31" count="1" type="stmt"/>
+          <line num="32" count="1" type="stmt"/>
+          <line num="34" count="2" type="stmt"/>
+          <line num="51" count="11" type="stmt"/>
+          <line num="53" count="11" type="stmt"/>
+          <line num="60" count="11" type="stmt"/>
+          <line num="61" count="11" type="stmt"/>
+          <line num="63" count="11" type="cond" truecount="2" falsecount="0"/>
+          <line num="64" count="2" type="cond" truecount="1" falsecount="1"/>
+          <line num="65" count="0" type="stmt"/>
+          <line num="66" count="0" type="stmt"/>
+          <line num="68" count="2" type="stmt"/>
+          <line num="69" count="2" type="stmt"/>
+          <line num="73" count="11" type="stmt"/>
+          <line num="76" count="6" type="stmt"/>
+          <line num="87" count="2" type="cond" truecount="2" falsecount="0"/>
+          <line num="92" count="6" type="stmt"/>
+          <line num="102" count="3" type="stmt"/>
+          <line num="116" count="2" type="stmt"/>
+          <line num="118" count="2" type="stmt"/>
+          <line num="132" count="2" type="stmt"/>
+        </file>
+      </package>
+      <package name="src.components.Checkbox">
+        <metrics statements="9" coveredstatements="9" conditionals="6" coveredconditionals="4" methods="1" coveredmethods="1"/>
+        <file name="Checkbox.jsx" path="/Users/chelsea.kochan/source/plasma/src/components/Checkbox/Checkbox.jsx">
+          <metrics statements="9" coveredstatements="9" conditionals="6" coveredconditionals="4" methods="1" coveredmethods="1"/>
+          <line num="21" count="1" type="stmt"/>
+          <line num="22" count="1" type="stmt"/>
+          <line num="23" count="1" type="cond" truecount="1" falsecount="1"/>
+          <line num="24" count="1" type="stmt"/>
+          <line num="27" count="1" type="stmt"/>
+          <line num="32" count="1" type="stmt"/>
+          <line num="58" count="1" type="stmt"/>
+          <line num="66" count="1" type="stmt"/>
+          <line num="79" count="1" type="stmt"/>
+        </file>
+      </package>
+      <package name="src.components.CollapsibleCard">
+        <metrics statements="6" coveredstatements="6" conditionals="7" coveredconditionals="7" methods="3" coveredmethods="3"/>
+        <file name="CollapsibleCard.jsx" path="/Users/chelsea.kochan/source/plasma/src/components/CollapsibleCard/CollapsibleCard.jsx">
+          <metrics statements="6" coveredstatements="6" conditionals="7" coveredconditionals="7" methods="3" coveredmethods="3"/>
+          <line num="30" count="2" type="stmt"/>
+          <line num="40" count="20" type="stmt"/>
+          <line num="44" count="20" type="stmt"/>
+          <line num="46" count="20" type="stmt"/>
+          <line num="50" count="20" type="stmt"/>
+          <line num="74" count="1" type="stmt"/>
+        </file>
+      </package>
+      <package name="src.components.Header">
+        <metrics statements="5" coveredstatements="5" conditionals="4" coveredconditionals="3" methods="1" coveredmethods="1"/>
+        <file name="Header.jsx" path="/Users/chelsea.kochan/source/plasma/src/components/Header/Header.jsx">
+          <metrics statements="5" coveredstatements="5" conditionals="4" coveredconditionals="3" methods="1" coveredmethods="1"/>
+          <line num="12" count="1" type="stmt"/>
+          <line num="23" count="1" type="stmt"/>
+          <line num="39" count="4" type="stmt"/>
+          <line num="55" count="4" type="stmt"/>
+          <line num="57" count="4" type="stmt"/>
+        </file>
+      </package>
+      <package name="src.components.Icon">
+        <metrics statements="5" coveredstatements="5" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="1"/>
+        <file name="Icon.jsx" path="/Users/chelsea.kochan/source/plasma/src/components/Icon/Icon.jsx">
+          <metrics statements="5" coveredstatements="5" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="1"/>
+          <line num="9" count="4" type="stmt"/>
+          <line num="10" count="4" type="stmt"/>
+          <line num="20" count="4" type="stmt"/>
+          <line num="26" count="4" type="stmt"/>
+          <line num="31" count="4" type="stmt"/>
+        </file>
+      </package>
+      <package name="src.components.Image">
+        <metrics statements="4" coveredstatements="4" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="1"/>
+        <file name="Image.jsx" path="/Users/chelsea.kochan/source/plasma/src/components/Image/Image.jsx">
+          <metrics statements="4" coveredstatements="4" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="1"/>
+          <line num="11" count="1" type="stmt"/>
+          <line num="27" count="1" type="stmt"/>
+          <line num="33" count="1" type="stmt"/>
+          <line num="41" count="1" type="stmt"/>
+        </file>
+      </package>
+      <package name="src.components.Label">
+        <metrics statements="7" coveredstatements="7" conditionals="2" coveredconditionals="2" methods="1" coveredmethods="1"/>
+        <file name="Label.jsx" path="/Users/chelsea.kochan/source/plasma/src/components/Label/Label.jsx">
+          <metrics statements="7" coveredstatements="7" conditionals="2" coveredconditionals="2" methods="1" coveredmethods="1"/>
+          <line num="10" count="1" type="stmt"/>
+          <line num="16" count="1" type="stmt"/>
+          <line num="24" count="1" type="stmt"/>
+          <line num="28" count="1" type="stmt"/>
+          <line num="38" count="1" type="stmt"/>
+          <line num="45" count="1" type="stmt"/>
+          <line num="49" count="1" type="stmt"/>
+        </file>
+      </package>
+      <package name="src.components.Loader">
+        <metrics statements="4" coveredstatements="4" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="1"/>
+        <file name="Loader.jsx" path="/Users/chelsea.kochan/source/plasma/src/components/Loader/Loader.jsx">
+          <metrics statements="4" coveredstatements="4" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="1"/>
+          <line num="11" count="1" type="stmt"/>
+          <line num="38" count="2" type="stmt"/>
+          <line num="40" count="2" type="stmt"/>
+          <line num="46" count="2" type="stmt"/>
+        </file>
+      </package>
+      <package name="src.components.Modal">
+        <metrics statements="8" coveredstatements="7" conditionals="7" coveredconditionals="2" methods="1" coveredmethods="1"/>
+        <file name="Modal.jsx" path="/Users/chelsea.kochan/source/plasma/src/components/Modal/Modal.jsx">
+          <metrics statements="8" coveredstatements="7" conditionals="7" coveredconditionals="2" methods="1" coveredmethods="1"/>
+          <line num="12" count="1" type="stmt"/>
+          <line num="20" count="1" type="stmt"/>
+          <line num="21" count="1" type="cond" truecount="1" falsecount="1"/>
+          <line num="22" count="0" type="stmt"/>
+          <line num="56" count="1" type="stmt"/>
+          <line num="60" count="1" type="stmt"/>
+          <line num="62" count="1" type="stmt"/>
+          <line num="73" count="1" type="stmt"/>
+        </file>
+      </package>
+      <package name="src.components.NumberInput">
+        <metrics statements="20" coveredstatements="7" conditionals="8" coveredconditionals="0" methods="6" coveredmethods="1"/>
+        <file name="NumberInput.jsx" path="/Users/chelsea.kochan/source/plasma/src/components/NumberInput/NumberInput.jsx">
+          <metrics statements="20" coveredstatements="7" conditionals="8" coveredconditionals="0" methods="6" coveredmethods="1"/>
+          <line num="13" count="0" type="stmt"/>
+          <line num="14" count="0" type="stmt"/>
+          <line num="15" count="0" type="stmt"/>
+          <line num="16" count="0" type="cond" truecount="0" falsecount="2"/>
+          <line num="20" count="0" type="stmt"/>
+          <line num="21" count="0" type="stmt"/>
+          <line num="22" count="0" type="stmt"/>
+          <line num="23" count="0" type="cond" truecount="0" falsecount="2"/>
+          <line num="27" count="0" type="stmt"/>
+          <line num="31" count="0" type="stmt"/>
+          <line num="32" count="0" type="cond" truecount="0" falsecount="2"/>
+          <line num="36" count="0" type="stmt"/>
+          <line num="37" count="0" type="cond" truecount="0" falsecount="2"/>
+          <line num="41" count="1" type="stmt"/>
+          <line num="43" count="1" type="stmt"/>
+          <line num="48" count="1" type="stmt"/>
+          <line num="52" count="1" type="stmt"/>
+          <line num="85" count="1" type="stmt"/>
+          <line num="99" count="1" type="stmt"/>
+          <line num="107" count="1" type="stmt"/>
+        </file>
+      </package>
+      <package name="src.components.OverflowMenu">
+        <metrics statements="22" coveredstatements="14" conditionals="6" coveredconditionals="4" methods="8" coveredmethods="2"/>
+        <file name="OverflowMenu.jsx" path="/Users/chelsea.kochan/source/plasma/src/components/OverflowMenu/OverflowMenu.jsx">
+          <metrics statements="17" coveredstatements="11" conditionals="6" coveredconditionals="4" methods="6" coveredmethods="2"/>
+          <line num="9" count="1" type="stmt"/>
+          <line num="17" count="0" type="cond" truecount="0" falsecount="2"/>
+          <line num="18" count="0" type="stmt"/>
+          <line num="23" count="0" type="stmt"/>
+          <line num="27" count="0" type="stmt"/>
+          <line num="28" count="0" type="stmt"/>
+          <line num="32" count="4" type="stmt"/>
+          <line num="33" count="4" type="cond" truecount="2" falsecount="0"/>
+          <line num="34" count="2" type="stmt"/>
+          <line num="37" count="2" type="stmt"/>
+          <line num="41" count="2" type="stmt"/>
+          <line num="44" count="2" type="stmt"/>
+          <line num="47" count="2" type="stmt"/>
+          <line num="61" count="0" type="stmt"/>
+          <line num="77" count="1" type="stmt"/>
+          <line num="82" count="1" type="stmt"/>
+          <line num="96" count="1" type="stmt"/>
+        </file>
+        <file name="OverflowMenuItem.jsx" path="/Users/chelsea.kochan/source/plasma/src/components/OverflowMenu/OverflowMenuItem.jsx">
+          <metrics statements="5" coveredstatements="3" conditionals="0" coveredconditionals="0" methods="2" coveredmethods="0"/>
+          <line num="5" count="1" type="stmt"/>
+          <line num="6" count="0" type="stmt"/>
+          <line num="9" count="0" type="stmt"/>
+          <line num="16" count="1" type="stmt"/>
+          <line num="22" count="1" type="stmt"/>
+        </file>
+      </package>
+      <package name="src.components.RadioButton">
+        <metrics statements="12" coveredstatements="12" conditionals="13" coveredconditionals="8" methods="2" coveredmethods="2"/>
+        <file name="RadioButton.jsx" path="/Users/chelsea.kochan/source/plasma/src/components/RadioButton/RadioButton.jsx">
+          <metrics statements="12" coveredstatements="12" conditionals="13" coveredconditionals="8" methods="2" coveredmethods="2"/>
+          <line num="11" count="2" type="stmt"/>
+          <line num="12" count="2" type="cond" truecount="2" falsecount="1"/>
+          <line num="27" count="2" type="stmt"/>
+          <line num="28" count="2" type="stmt"/>
+          <line num="29" count="2" type="stmt"/>
+          <line num="35" count="2" type="stmt"/>
+          <line num="36" count="2" type="cond" truecount="1" falsecount="1"/>
+          <line num="37" count="2" type="cond" truecount="2" falsecount="2"/>
+          <line num="40" count="2" type="stmt"/>
+          <line num="73" count="1" type="stmt"/>
+          <line num="78" count="1" type="stmt"/>
+          <line num="93" count="1" type="stmt"/>
+        </file>
+      </package>
+      <package name="src.components.Rule">
+        <metrics statements="6" coveredstatements="6" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="1"/>
+        <file name="Rule.jsx" path="/Users/chelsea.kochan/source/plasma/src/components/Rule/Rule.jsx">
+          <metrics statements="6" coveredstatements="6" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="1"/>
+          <line num="7" count="1" type="stmt"/>
+          <line num="11" count="1" type="stmt"/>
+          <line num="17" count="1" type="stmt"/>
+          <line num="21" count="1" type="stmt"/>
+          <line num="25" count="1" type="stmt"/>
+          <line num="31" count="1" type="stmt"/>
+        </file>
+      </package>
+      <package name="src.components.Search">
+        <metrics statements="19" coveredstatements="16" conditionals="12" coveredconditionals="8" methods="5" coveredmethods="4"/>
+        <file name="Search.jsx" path="/Users/chelsea.kochan/source/plasma/src/components/Search/Search.jsx">
+          <metrics statements="19" coveredstatements="16" conditionals="12" coveredconditionals="8" methods="5" coveredmethods="4"/>
+          <line num="11" count="3" type="stmt"/>
+          <line num="12" count="3" type="stmt"/>
+          <line num="13" count="3" type="stmt"/>
+          <line num="14" count="3" type="stmt"/>
+          <line num="20" count="0" type="stmt"/>
+          <line num="22" count="0" type="cond" truecount="0" falsecount="2"/>
+          <line num="23" count="0" type="stmt"/>
+          <line num="28" count="1" type="stmt"/>
+          <line num="30" count="1" type="stmt"/>
+          <line num="32" count="1" type="cond" truecount="2" falsecount="0"/>
+          <line num="36" count="1" type="stmt"/>
+          <line num="38" count="1" type="stmt"/>
+          <line num="40" count="1" type="cond" truecount="1" falsecount="1"/>
+          <line num="41" count="1" type="stmt"/>
+          <line num="53" count="6" type="stmt"/>
+          <line num="55" count="6" type="stmt"/>
+          <line num="93" count="1" type="stmt"/>
+          <line num="97" count="1" type="stmt"/>
+          <line num="110" count="1" type="stmt"/>
+        </file>
+      </package>
+      <package name="src.components.SegmentedCard">
+        <metrics statements="5" coveredstatements="5" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="1"/>
+        <file name="SegmentedCard.jsx" path="/Users/chelsea.kochan/source/plasma/src/components/SegmentedCard/SegmentedCard.jsx">
+          <metrics statements="5" coveredstatements="5" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="1"/>
+          <line num="12" count="1" type="stmt"/>
+          <line num="16" count="1" type="stmt"/>
+          <line num="33" count="1" type="stmt"/>
+          <line num="38" count="1" type="stmt"/>
+          <line num="45" count="1" type="stmt"/>
+        </file>
+      </package>
+      <package name="src.components.SideNavBar">
+        <metrics statements="37" coveredstatements="30" conditionals="23" coveredconditionals="11" methods="15" coveredmethods="11"/>
+        <file name="SideNavBar.jsx" path="/Users/chelsea.kochan/source/plasma/src/components/SideNavBar/SideNavBar.jsx">
+          <metrics statements="6" coveredstatements="5" conditionals="4" coveredconditionals="2" methods="4" coveredmethods="3"/>
+          <line num="14" count="0" type="cond" truecount="0" falsecount="2"/>
+          <line num="18" count="3" type="cond" truecount="2" falsecount="0"/>
+          <line num="19" count="9" type="stmt"/>
+          <line num="32" count="3" type="stmt"/>
+          <line num="50" count="1" type="stmt"/>
+          <line num="65" count="1" type="stmt"/>
+        </file>
+        <file name="SideNavBarItem.jsx" path="/Users/chelsea.kochan/source/plasma/src/components/SideNavBar/SideNavBarItem.jsx">
+          <metrics statements="12" coveredstatements="10" conditionals="6" coveredconditionals="2" methods="3" coveredmethods="2"/>
+          <line num="9" count="0" type="stmt"/>
+          <line num="13" count="6" type="stmt"/>
+          <line num="15" count="6" type="stmt"/>
+          <line num="23" count="6" type="stmt"/>
+          <line num="25" count="6" type="stmt"/>
+          <line num="32" count="6" type="cond" truecount="1" falsecount="1"/>
+          <line num="33" count="0" type="stmt"/>
+          <line num="42" count="6" type="stmt"/>
+          <line num="53" count="6" type="stmt"/>
+          <line num="57" count="1" type="stmt"/>
+          <line num="64" count="1" type="stmt"/>
+          <line num="85" count="1" type="stmt"/>
+        </file>
+        <file name="SideNavBarItemGroup.jsx" path="/Users/chelsea.kochan/source/plasma/src/components/SideNavBar/SideNavBarItemGroup.jsx">
+          <metrics statements="16" coveredstatements="12" conditionals="13" coveredconditionals="7" methods="7" coveredmethods="5"/>
+          <line num="10" count="0" type="cond" truecount="0" falsecount="4"/>
+          <line num="11" count="0" type="stmt"/>
+          <line num="13" count="0" type="stmt"/>
+          <line num="18" count="0" type="stmt"/>
+          <line num="22" count="9" type="stmt"/>
+          <line num="23" count="9" type="cond" truecount="2" falsecount="0"/>
+          <line num="24" count="3" type="stmt"/>
+          <line num="27" count="6" type="cond" truecount="1" falsecount="2"/>
+          <line num="40" count="6" type="stmt"/>
+          <line num="56" count="9" type="cond" truecount="2" falsecount="0"/>
+          <line num="57" count="9" type="cond" truecount="2" falsecount="0"/>
+          <line num="69" count="9" type="stmt"/>
+          <line num="73" count="9" type="stmt"/>
+          <line num="86" count="1" type="stmt"/>
+          <line num="91" count="1" type="stmt"/>
+          <line num="110" count="1" type="stmt"/>
+        </file>
+        <file name="SideNavBarTop.jsx" path="/Users/chelsea.kochan/source/plasma/src/components/SideNavBar/SideNavBarTop.jsx">
+          <metrics statements="3" coveredstatements="3" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="1"/>
+          <line num="7" count="1" type="stmt"/>
+          <line num="8" count="3" type="stmt"/>
+          <line num="28" count="1" type="stmt"/>
+        </file>
+      </package>
+      <package name="src.components.Table">
+        <metrics statements="107" coveredstatements="71" conditionals="54" coveredconditionals="22" methods="26" coveredmethods="15"/>
+        <file name="Table.jsx" path="/Users/chelsea.kochan/source/plasma/src/components/Table/Table.jsx">
+          <metrics statements="107" coveredstatements="71" conditionals="54" coveredconditionals="22" methods="26" coveredmethods="15"/>
+          <line num="28" count="2" type="stmt"/>
+          <line num="29" count="2" type="stmt"/>
+          <line num="37" count="2" type="stmt"/>
+          <line num="38" count="2" type="stmt"/>
+          <line num="39" count="2" type="stmt"/>
+          <line num="40" count="2" type="stmt"/>
+          <line num="41" count="2" type="stmt"/>
+          <line num="42" count="2" type="stmt"/>
+          <line num="43" count="2" type="stmt"/>
+          <line num="44" count="2" type="stmt"/>
+          <line num="48" count="2" type="cond" truecount="1" falsecount="1"/>
+          <line num="49" count="0" type="stmt"/>
+          <line num="50" count="0" type="stmt"/>
+          <line num="51" count="0" type="stmt"/>
+          <line num="52" count="0" type="stmt"/>
+          <line num="53" count="0" type="stmt"/>
+          <line num="55" count="0" type="stmt"/>
+          <line num="57" count="2" type="stmt"/>
+          <line num="62" count="2" type="cond" truecount="1" falsecount="1"/>
+          <line num="63" count="0" type="stmt"/>
+          <line num="68" count="0" type="stmt"/>
+          <line num="69" count="0" type="stmt"/>
+          <line num="70" count="0" type="stmt"/>
+          <line num="71" count="0" type="stmt"/>
+          <line num="72" count="0" type="stmt"/>
+          <line num="73" count="0" type="stmt"/>
+          <line num="86" count="0" type="stmt"/>
+          <line num="87" count="0" type="stmt"/>
+          <line num="88" count="0" type="stmt"/>
+          <line num="92" count="0" type="cond" truecount="0" falsecount="2"/>
+          <line num="93" count="0" type="stmt"/>
+          <line num="94" count="0" type="stmt"/>
+          <line num="96" count="0" type="stmt"/>
+          <line num="98" count="0" type="stmt"/>
+          <line num="99" count="0" type="stmt"/>
+          <line num="100" count="0" type="cond" truecount="0" falsecount="4"/>
+          <line num="101" count="0" type="stmt"/>
+          <line num="103" count="0" type="stmt"/>
+          <line num="104" count="0" type="cond" truecount="0" falsecount="2"/>
+          <line num="105" count="0" type="cond" truecount="0" falsecount="2"/>
+          <line num="112" count="2" type="cond" truecount="1" falsecount="1"/>
+          <line num="113" count="2" type="stmt"/>
+          <line num="118" count="2" type="stmt"/>
+          <line num="119" count="2" type="stmt"/>
+          <line num="120" count="2" type="stmt"/>
+          <line num="121" count="6" type="stmt"/>
+          <line num="122" count="6" type="stmt"/>
+          <line num="123" count="6" type="stmt"/>
+          <line num="124" count="6" type="stmt"/>
+          <line num="125" count="6" type="cond" truecount="1" falsecount="1"/>
+          <line num="126" count="0" type="stmt"/>
+          <line num="129" count="2" type="stmt"/>
+          <line num="130" count="2" type="stmt"/>
+          <line num="138" count="0" type="stmt"/>
+          <line num="142" count="0" type="cond" truecount="0" falsecount="2"/>
+          <line num="146" count="4" type="stmt"/>
+          <line num="147" count="4" type="stmt"/>
+          <line num="148" count="12" type="stmt"/>
+          <line num="149" count="12" type="stmt"/>
+          <line num="151" count="12" type="cond" truecount="2" falsecount="3"/>
+          <line num="152" count="0" type="stmt"/>
+          <line num="154" count="12" type="stmt"/>
+          <line num="159" count="12" type="stmt"/>
+          <line num="165" count="18" type="cond" truecount="1" falsecount="1"/>
+          <line num="166" count="18" type="stmt"/>
+          <line num="169" count="0" type="cond" truecount="0" falsecount="3"/>
+          <line num="187" count="4" type="stmt"/>
+          <line num="211" count="4" type="stmt"/>
+          <line num="213" count="4" type="stmt"/>
+          <line num="215" count="4" type="cond" truecount="1" falsecount="1"/>
+          <line num="216" count="0" type="stmt"/>
+          <line num="232" count="4" type="cond" truecount="2" falsecount="2"/>
+          <line num="233" count="0" type="stmt"/>
+          <line num="249" count="4" type="cond" truecount="2" falsecount="0"/>
+          <line num="250" count="2" type="stmt"/>
+          <line num="251" count="2" type="stmt"/>
+          <line num="254" count="4" type="stmt"/>
+          <line num="256" count="4" type="stmt"/>
+          <line num="258" count="4" type="stmt"/>
+          <line num="259" count="4" type="stmt"/>
+          <line num="260" count="4" type="stmt"/>
+          <line num="261" count="4" type="stmt"/>
+          <line num="263" count="4" type="stmt"/>
+          <line num="264" count="24" type="stmt"/>
+          <line num="265" count="24" type="stmt"/>
+          <line num="266" count="24" type="cond" truecount="2" falsecount="0"/>
+          <line num="270" count="24" type="cond" truecount="2" falsecount="0"/>
+          <line num="271" count="16" type="stmt"/>
+          <line num="272" count="16" type="stmt"/>
+          <line num="274" count="8" type="stmt"/>
+          <line num="277" count="24" type="cond" truecount="1" falsecount="1"/>
+          <line num="278" count="0" type="stmt"/>
+          <line num="281" count="24" type="stmt"/>
+          <line num="295" count="4" type="stmt"/>
+          <line num="310" count="4" type="cond" truecount="1" falsecount="1"/>
+          <line num="311" count="4" type="stmt"/>
+          <line num="312" count="4" type="stmt"/>
+          <line num="313" count="4" type="stmt"/>
+          <line num="314" count="8" type="stmt"/>
+          <line num="323" count="4" type="stmt"/>
+          <line num="340" count="4" type="stmt"/>
+          <line num="348" count="4" type="stmt"/>
+          <line num="356" count="0" type="stmt"/>
+          <line num="373" count="6" type="stmt"/>
+          <line num="384" count="1" type="stmt"/>
+          <line num="400" count="1" type="stmt"/>
+          <line num="408" count="1" type="stmt"/>
+        </file>
+      </package>
+      <package name="src.components.Tabs">
+        <metrics statements="20" coveredstatements="20" conditionals="12" coveredconditionals="7" methods="10" coveredmethods="9"/>
+        <file name="Tabs.jsx" path="/Users/chelsea.kochan/source/plasma/src/components/Tabs/Tabs.jsx">
+          <metrics statements="20" coveredstatements="20" conditionals="12" coveredconditionals="7" methods="10" coveredmethods="9"/>
+          <line num="13" count="4" type="stmt"/>
+          <line num="17" count="2" type="cond" truecount="1" falsecount="1"/>
+          <line num="18" count="2" type="stmt"/>
+          <line num="23" count="6" type="stmt"/>
+          <line num="24" count="6" type="cond" truecount="1" falsecount="1"/>
+          <line num="25" count="6" type="cond" truecount="1" falsecount="1"/>
+          <line num="26" count="6" type="stmt"/>
+          <line num="30" count="12" type="stmt"/>
+          <line num="31" count="12" type="cond" truecount="1" falsecount="1"/>
+          <line num="32" count="12" type="cond" truecount="1" falsecount="1"/>
+          <line num="33" count="12" type="stmt"/>
+          <line num="37" count="12" type="stmt"/>
+          <line num="38" count="12" type="stmt"/>
+          <line num="48" count="12" type="stmt"/>
+          <line num="51" count="2" type="stmt"/>
+          <line num="52" count="2" type="stmt"/>
+          <line num="63" count="6" type="stmt"/>
+          <line num="75" count="1" type="stmt"/>
+          <line num="80" count="1" type="stmt"/>
+          <line num="91" count="1" type="stmt"/>
+        </file>
+      </package>
+      <package name="src.components.Tag">
+        <metrics statements="11" coveredstatements="9" conditionals="11" coveredconditionals="9" methods="3" coveredmethods="3"/>
+        <file name="Tag.jsx" path="/Users/chelsea.kochan/source/plasma/src/components/Tag/Tag.jsx">
+          <metrics statements="11" coveredstatements="9" conditionals="11" coveredconditionals="9" methods="3" coveredmethods="3"/>
+          <line num="9" count="1" type="cond" truecount="1" falsecount="0"/>
+          <line num="10" count="1" type="stmt"/>
+          <line num="11" count="1" type="stmt"/>
+          <line num="21" count="1" type="stmt"/>
+          <line num="23" count="1" type="cond" truecount="3" falsecount="1"/>
+          <line num="25" count="0" type="stmt"/>
+          <line num="27" count="1" type="stmt"/>
+          <line num="30" count="1" type="cond" truecount="3" falsecount="1"/>
+          <line num="32" count="0" type="stmt"/>
+          <line num="34" count="1" type="stmt"/>
+          <line num="39" count="1" type="stmt"/>
+        </file>
+      </package>
+      <package name="src.components.Text">
+        <metrics statements="5" coveredstatements="5" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="1"/>
+        <file name="Text.jsx" path="/Users/chelsea.kochan/source/plasma/src/components/Text/Text.jsx">
+          <metrics statements="5" coveredstatements="5" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="1"/>
+          <line num="9" count="1" type="stmt"/>
+          <line num="10" count="1" type="stmt"/>
+          <line num="22" count="1" type="stmt"/>
+          <line num="26" count="1" type="stmt"/>
+          <line num="33" count="1" type="stmt"/>
+        </file>
+      </package>
+      <package name="src.components.TextArea">
+        <metrics statements="46" coveredstatements="33" conditionals="20" coveredconditionals="13" methods="9" coveredmethods="8"/>
+        <file name="TextArea.jsx" path="/Users/chelsea.kochan/source/plasma/src/components/TextArea/TextArea.jsx">
+          <metrics statements="12" coveredstatements="12" conditionals="6" coveredconditionals="6" methods="4" coveredmethods="4"/>
+          <line num="23" count="3" type="stmt"/>
+          <line num="25" count="3" type="stmt"/>
+          <line num="31" count="3" type="stmt"/>
+          <line num="36" count="3" type="stmt"/>
+          <line num="39" count="3" type="cond" truecount="2" falsecount="0"/>
+          <line num="46" count="1" type="stmt"/>
+          <line num="48" count="1" type="cond" truecount="2" falsecount="0"/>
+          <line num="51" count="1" type="stmt"/>
+          <line num="52" count="1" type="cond" truecount="2" falsecount="0"/>
+          <line num="63" count="1" type="stmt"/>
+          <line num="77" count="1" type="stmt"/>
+          <line num="82" count="1" type="stmt"/>
+        </file>
+        <file name="autogrow.js" path="/Users/chelsea.kochan/source/plasma/src/components/TextArea/autogrow.js">
+          <metrics statements="34" coveredstatements="21" conditionals="14" coveredconditionals="7" methods="5" coveredmethods="4"/>
+          <line num="1" count="1" type="stmt"/>
+          <line num="2" count="1" type="cond" truecount="2" falsecount="2"/>
+          <line num="3" count="0" type="stmt"/>
+          <line num="4" count="1" type="cond" truecount="3" falsecount="1"/>
+          <line num="5" count="1" type="stmt"/>
+          <line num="7" count="0" type="stmt"/>
+          <line num="10" count="1" type="stmt"/>
+          <line num="11" count="2" type="stmt"/>
+          <line num="13" count="2" type="cond" truecount="1" falsecount="1"/>
+          <line num="14" count="2" type="stmt"/>
+          <line num="22" count="2" type="stmt"/>
+          <line num="23" count="2" type="stmt"/>
+          <line num="24" count="2" type="stmt"/>
+          <line num="25" count="2" type="stmt"/>
+          <line num="27" count="2" type="stmt"/>
+          <line num="28" count="4" type="stmt"/>
+          <line num="30" count="2" type="stmt"/>
+          <line num="37" count="2" type="stmt"/>
+          <line num="38" count="0" type="stmt"/>
+          <line num="39" count="0" type="stmt"/>
+          <line num="40" count="0" type="cond" truecount="0" falsecount="2"/>
+          <line num="41" count="0" type="stmt"/>
+          <line num="42" count="0" type="stmt"/>
+          <line num="44" count="0" type="stmt"/>
+          <line num="45" count="0" type="stmt"/>
+          <line num="46" count="0" type="stmt"/>
+          <line num="47" count="0" type="stmt"/>
+          <line num="49" count="0" type="stmt"/>
+          <line num="50" count="0" type="stmt"/>
+          <line num="53" count="2" type="stmt"/>
+          <line num="54" count="2" type="cond" truecount="1" falsecount="1"/>
+          <line num="55" count="2" type="stmt"/>
+          <line num="56" count="2" type="stmt"/>
+          <line num="59" count="2" type="stmt"/>
+        </file>
+      </package>
+      <package name="src.components.TextInput">
+        <metrics statements="12" coveredstatements="12" conditionals="15" coveredconditionals="12" methods="3" coveredmethods="3"/>
+        <file name="TextInput.jsx" path="/Users/chelsea.kochan/source/plasma/src/components/TextInput/TextInput.jsx">
+          <metrics statements="12" coveredstatements="12" conditionals="15" coveredconditionals="12" methods="3" coveredmethods="3"/>
+          <line num="8" count="1" type="stmt"/>
+          <line num="23" count="3" type="stmt"/>
+          <line num="28" count="3" type="stmt"/>
+          <line num="34" count="3" type="stmt"/>
+          <line num="39" count="3" type="stmt"/>
+          <line num="47" count="1" type="stmt"/>
+          <line num="49" count="1" type="cond" truecount="2" falsecount="0"/>
+          <line num="52" count="1" type="stmt"/>
+          <line num="53" count="1" type="cond" truecount="2" falsecount="0"/>
+          <line num="65" count="1" type="stmt"/>
+          <line num="82" count="1" type="stmt"/>
+          <line num="87" count="1" type="stmt"/>
+        </file>
+      </package>
+      <package name="src.components.Toggle">
+        <metrics statements="12" coveredstatements="12" conditionals="4" coveredconditionals="3" methods="7" coveredmethods="6"/>
+        <file name="Toggle.jsx" path="/Users/chelsea.kochan/source/plasma/src/components/Toggle/Toggle.jsx">
+          <metrics statements="12" coveredstatements="12" conditionals="4" coveredconditionals="3" methods="7" coveredmethods="6"/>
+          <line num="11" count="1" type="stmt"/>
+          <line num="19" count="2" type="stmt"/>
+          <line num="23" count="1" type="cond" truecount="1" falsecount="1"/>
+          <line num="24" count="1" type="stmt"/>
+          <line num="29" count="4" type="stmt"/>
+          <line num="36" count="7" type="stmt"/>
+          <line num="45" count="7" type="stmt"/>
+          <line num="48" count="1" type="stmt"/>
+          <line num="49" count="1" type="stmt"/>
+          <line num="64" count="1" type="stmt"/>
+          <line num="70" count="1" type="stmt"/>
+          <line num="83" count="1" type="stmt"/>
+        </file>
+      </package>
+      <package name="src.components.Tooltip">
+        <metrics statements="4" coveredstatements="4" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="1"/>
+        <file name="Tooltip.jsx" path="/Users/chelsea.kochan/source/plasma/src/components/Tooltip/Tooltip.jsx">
+          <metrics statements="4" coveredstatements="4" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="1"/>
+          <line num="11" count="1" type="stmt"/>
+          <line num="25" count="1" type="stmt"/>
+          <line num="30" count="1" type="stmt"/>
+          <line num="37" count="1" type="stmt"/>
+        </file>
+      </package>
+      <package name="src.icons">
+        <metrics statements="2" coveredstatements="2" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
+        <file name="downArrow.js" path="/Users/chelsea.kochan/source/plasma/src/icons/downArrow.js">
+          <metrics statements="1" coveredstatements="1" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
+          <line num="1" count="1" type="stmt"/>
+        </file>
+        <file name="upArrow.js" path="/Users/chelsea.kochan/source/plasma/src/icons/upArrow.js">
+          <metrics statements="1" coveredstatements="1" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
+          <line num="1" count="1" type="stmt"/>
+        </file>
+      </package>
+      <package name="src.tests">
+        <metrics statements="11" coveredstatements="11" conditionals="0" coveredconditionals="0" methods="3" coveredmethods="3"/>
+        <file name="setup.js" path="/Users/chelsea.kochan/source/plasma/src/tests/setup.js">
+          <metrics statements="11" coveredstatements="11" conditionals="0" coveredconditionals="0" methods="3" coveredmethods="3"/>
+          <line num="1" count="25" type="stmt"/>
+          <line num="3" count="25" type="stmt"/>
+          <line num="4" count="25" type="stmt"/>
+          <line num="7" count="25" type="stmt"/>
+          <line num="8" count="5350" type="stmt"/>
+          <line num="9" count="125" type="stmt"/>
+          <line num="10" count="25" type="stmt"/>
+          <line num="13" count="25" type="stmt"/>
+          <line num="14" count="25" type="stmt"/>
+          <line num="15" count="25" type="stmt"/>
+          <line num="18" count="25" type="stmt"/>
+        </file>
+      </package>
+    </metrics>
+  </project>
+</coverage>

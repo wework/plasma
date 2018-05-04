@@ -1,0 +1,68 @@
+Index: stories/Checkbox.js
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>import React from 'react';\nimport { storiesOf } from '@storybook/react';\nimport { action } from '@storybook/addon-actions';\nimport { linkTo } from '@storybook/addon-links';\nimport Checkbox from '../src/components/Checkbox/Checkbox';\n\nstoriesOf('Checkbox', module)\n  .add('default', () => (\n    <Checkbox />\n  ))\n  .add('with description', () => (\n    <Checkbox description={'Hint: this is some text.'} />\n  ))\n  .add('checked', () => (\n    <Checkbox checked />\n  ))\n  .add('unchecked', () => (\n    <Checkbox checked={false} />\n  ))\n  .add('indeterminate unchecked', () => (\n    <Checkbox indeterminate />\n  ))\n  .add('indeterminate checked', () => (\n    <Checkbox indeterminate checked />\n  ));\n
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+--- stories/Checkbox.js	(date 1525438741000)
++++ stories/Checkbox.js	(date 1525438764000)
+@@ -1,7 +1,6 @@
+ import React from 'react';
+ import { storiesOf } from '@storybook/react';
+-import { action } from '@storybook/addon-actions';
+-import { linkTo } from '@storybook/addon-links';
++import StoryState from '../StoryState';
+ import Checkbox from '../src/components/Checkbox/Checkbox';
+ 
+ storiesOf('Checkbox', module)
+@@ -20,6 +19,49 @@
+   .add('indeterminate unchecked', () => (
+     <Checkbox indeterminate />
+   ))
++  .add('fancy', () => (
++    <StoryState render={(state, setState) => (
++      <div>
++        <Checkbox
++          fancy
++          name="dogs"
++          onChange={e => setState({selected: e.target.name})}
++          text="Dogs"
++          value={state.selected === 'dogs'}
++        />
++        <Checkbox
++          fancy
++          name="cats"
++          onChange={e => setState({selected: e.target.name})}
++          text="Cats"
++          value={state.selected === 'cats'}
++        />
++        <Checkbox
++          fancy
++          name="fish"
++          onChange={e => setState({selected: e.target.name})}
++          text="Fish"
++          value={state.selected === 'fish'}
++        />
++        <Checkbox
++          fancy
++          name="bird"
++          onChange={e => setState({selected: e.target.name})}
++          text="Bird"
++          value={state.selected === 'bird'}
++        />
++        <Checkbox
++          fancy
++          isBold
++          name="hamster"
++          onChange={e => setState({selected: e.target.name})}
++          text="Hamster"
++          value={state.selected === 'hamster'}
++        />
++      </div>
++    )}
++    />
++  ))
+   .add('indeterminate checked', () => (
+     <Checkbox indeterminate checked />
+   ));

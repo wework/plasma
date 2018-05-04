@@ -1,0 +1,170 @@
+Index: src/components/Checkbox/style.scss
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>@import '../../styles/base';\n$checkboxBorder: 1px solid $cBorder;\n\n.wrapper {\n  position: relative;\n  display: inline-flex;\n  flex-direction: row;\n  justify-content: flex-start;\n  align-items: center;\n  cursor: pointer;\n  .original, .intermediate {\n    cursor: pointer;\n  }\n  &:hover {\n    .checkbox {\n      border: 1px solid $cGray200;\n    }\n  }\n}\n\n.wrapperDisabled {\n  cursor: not-allowed;\n  .original, .indeterminate {\n    cursor: not-allowed;\n  }\n  &:hover {\n    .checkbox {\n      border: $checkboxBorder;\n    }\n  }\n}\n\n\n.original {\n  position: absolute;\n  opacity: 0;\n  z-index: 10;\n  ~ .checkbox::before {\n    width: 12px;\n    height: 8px;\n    content: '';\n  }\n\n  &:checked ~ .checkbox {\n    &::before {\n      height: 20px;\n      // content: url('data:image/svg+xml;utf8,<svg width=\"12px\" height=\"10px\" viewBox=\"2 5 12 10\" version=\"1.1\" xmlns=\"http://www.w3.org/2000/svg\" xmlns:xlink=\"http://www.w3.org/1999/xlink\"><defs></defs><polygon id=\"Rectangle-34\" stroke=\"none\" fill=\"#282829\" fill-rule=\"evenodd\" points=\"6 15 2 10.8333333 3.6 9.16666667 6 11.6666667 12.4 5 14 6.66666667\"></polygon></svg>');\n      content: url('data:image/svg+xml;utf8,<svg width=\"12px\" height=\"10px\" viewBox=\"0 0 12 10\" version=\"1.1\" xmlns=\"http://www.w3.org/2000/svg\" xmlns:xlink=\"http://www.w3.org/1999/xlink\"><!-- Generator: Sketch 43.1 (39012) - http://www.bohemiancoding.com/sketch --><title>checked</title><desc>Created with Sketch.</desc><defs></defs><g id=\"Symbols\" stroke=\"none\" stroke-width=\"1\" fill=\"none\" fill-rule=\"evenodd\"><g id=\"checkbox-/-selected\" transform=\"translate(-2.000000, -8.000000)\" fill=\"#252729\"><polygon id=\"checked\" points=\"6 18 2 13.8333333 3.6 12.1666667 6 14.6666667 12.4 8 14 9.66666667\"></polygon></g></g></svg>');\n    }\n  }\n}\n\n.indeterminate {\n  position: absolute;\n  opacity: 0;\n  z-index: 10;\n\n  ~ .checkbox::before {\n    content: '';\n    height: 2px;\n  }\n\n  &:checked ~ .checkbox {\n    &::before {\n      display: block;\n      width: 8px;\n      height: 2px;\n      background: $cWeWorkBlack;\n      position: relative;\n      top: 0;\n    }\n  }\n}\n\n.checkbox {\n  width: 16px;\n  height: 16px;\n  background: $cWhite;\n  border: $checkboxBorder;\n  border-radius: 3px;\n  background: $cWhite;\n  transition: border-color 0.1s ease-out;\n  box-sizing: border-box;\n  display: flex;\n  justify-content: center;\n  align-items: center;\n  &::before {\n    display: block;\n    content: '';\n    background: none;\n  }\n}\n\n.text {\n  margin-left: 10px;\n  @extend %type--body;\n}\n\n.textBold {\n  font-weight: bold;\n}\n\n.textDisabled {\n  color: $cGray200;\n}\n\n.description {\n  display: inline-block;\n  @extend %fontFamily--body;\n  font-size: 11px;\n  color: $cGray200;\n  line-height: 20px;\n  margin-left: 26px;\n}\n\n
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+--- src/components/Checkbox/style.scss	(date 1525355478000)
++++ src/components/Checkbox/style.scss	(date 1525359855000)
+@@ -8,14 +8,38 @@
+   justify-content: flex-start;
+   align-items: center;
+   cursor: pointer;
++
+   .original, .intermediate {
+     cursor: pointer;
+   }
++
+   &:hover {
+     .checkbox {
+       border: 1px solid $cGray200;
+     }
+   }
++
++  &.fancy {
++    .text {
++      padding: 12px 15px 12px 0;
++      margin: 0;
++      font-size: 13px;
++      font-weight: bold;
++      color: $cBlue70;
++      line-height: 16px;
++    }
++    padding-left: 15px;
++    height: 40px;
++    border-radius: 20px;
++    border: 1px solid $cBlue70;
++  }
++
++  &.fancyChecked {
++    .text {
++      color: $cWhite;
++    }
++    background-color: $cBlue70;
++  }
+ }
+ 
+ .wrapperDisabled {
+Index: src/components/Checkbox/Checkbox.jsx
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>import { uniqueId } from 'lodash';\nimport React from 'react';\nimport PropTypes from 'prop-types';\nimport cx from 'classnames';\nimport style from './style.scss';\nimport { getDataAttrs, getDataProps } from '../../dataUtils';\n\nclass Checkbox extends React.Component {\n  render() {\n    const {\n      checked,\n      data,\n      disabled,\n      indeterminate,\n      isBold,\n      name,\n      onBlur,\n      onChange,\n      text,\n      value,\n    } = this.props;\n    const id = uniqueId('id');\n    const inputClassName = indeterminate ? style.indeterminate : style.original;\n    const wrapperClassName = cx(style.wrapper, {\n      [style.wrapperDisabled]: disabled,\n    });\n    const textClassName = cx(style.text, {\n      [style.textBold]: isBold,\n      [style.textDisabled]: disabled,\n    });\n\n    return (\n      <div {...getDataAttrs(data)}>\n        <div>\n          <label htmlFor={id} className={wrapperClassName}>\n            <input\n              checked={checked || value}\n              className={inputClassName}\n              disabled={disabled}\n              id={id}\n              name={name}\n              onChange={onChange}\n              onBlur={onBlur}\n              type=\"checkbox\"\n            />\n            <div className={style.checkbox} />\n            <div className={textClassName}>{text}</div>\n          </label>\n        </div>\n        {this.props.description && (\n          <span className={style.description}>{this.props.description}</span>\n        )}\n      </div>\n    );\n  }\n}\n\nCheckbox.defaultProps = {\n  checked: false,\n  indeterminate: false,\n  name: 'checkbox',\n  text: 'Option',\n  value: false,\n};\n\nCheckbox.propTypes = {\n  checked: PropTypes.bool,\n  description: PropTypes.string,\n  disabled: PropTypes.bool,\n  indeterminate: PropTypes.bool,\n  name: PropTypes.string.isRequired,\n  onBlur: PropTypes.func,\n  onChange: PropTypes.func,\n  text: PropTypes.oneOfType([PropTypes.string, PropTypes.node, PropTypes.element]).isRequired,\n  value: PropTypes.bool,\n  ...getDataProps(),\n};\n\nCheckbox.displayName = 'Plasma@Checkbox';\n\nexport default Checkbox;\n
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+--- src/components/Checkbox/Checkbox.jsx	(date 1525355478000)
++++ src/components/Checkbox/Checkbox.jsx	(date 1525360981000)
+@@ -11,6 +11,7 @@
+       checked,
+       data,
+       disabled,
++      fancy,
+       indeterminate,
+       isBold,
+       name,
+@@ -19,15 +20,18 @@
+       text,
+       value,
+     } = this.props;
++
+     const id = uniqueId('id');
+     const inputClassName = indeterminate ? style.indeterminate : style.original;
+     const wrapperClassName = cx(style.wrapper, {
+       [style.wrapperDisabled]: disabled,
++      [style.fancy]: fancy,
+     });
+     const textClassName = cx(style.text, {
+       [style.textBold]: isBold,
+       [style.textDisabled]: disabled,
+     });
++    const fauxCircle = fancy ? null : <div className={style.faux} />;
+ 
+     return (
+       <div {...getDataAttrs(data)}>
+@@ -43,7 +47,8 @@
+               onBlur={onBlur}
+               type="checkbox"
+             />
+-            <div className={style.checkbox} />
++            {!fancy && <div className={style.checkbox} />}
++            {fauxCircle}
+             <div className={textClassName}>{text}</div>
+           </label>
+         </div>
+@@ -67,6 +72,7 @@
+   checked: PropTypes.bool,
+   description: PropTypes.string,
+   disabled: PropTypes.bool,
++  fancy: PropTypes.bool,
+   indeterminate: PropTypes.bool,
+   name: PropTypes.string.isRequired,
+   onBlur: PropTypes.func,
+Index: stories/Checkbox.js
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>import React from 'react';\nimport { storiesOf } from '@storybook/react';\nimport { action } from '@storybook/addon-actions';\nimport { linkTo } from '@storybook/addon-links';\nimport Checkbox from '../src/components/Checkbox/Checkbox';\n\nstoriesOf('Checkbox', module)\n  .add('default', () => (\n    <Checkbox />\n  ))\n  .add('with description', () => (\n    <Checkbox description={'Hint: this is some text.'} />\n  ))\n  .add('checked', () => (\n    <Checkbox checked />\n  ))\n  .add('unchecked', () => (\n    <Checkbox checked={false} />\n  ))\n  .add('indeterminate unchecked', () => (\n    <Checkbox indeterminate />\n  ))\n  .add('indeterminate checked', () => (\n    <Checkbox indeterminate checked />\n  ));\n
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+--- stories/Checkbox.js	(date 1525355478000)
++++ stories/Checkbox.js	(date 1525360109000)
+@@ -2,6 +2,8 @@
+ import { storiesOf } from '@storybook/react';
+ import { action } from '@storybook/addon-actions';
+ import { linkTo } from '@storybook/addon-links';
++
++import StoryState from '../StoryState';
+ import Checkbox from '../src/components/Checkbox/Checkbox';
+ 
+ storiesOf('Checkbox', module)
+@@ -20,6 +22,31 @@
+   .add('indeterminate unchecked', () => (
+     <Checkbox indeterminate />
+   ))
++  .add('fancy', () => (
++    <StoryState render={(state, setState) => (
++      <div>
++        <Checkbox
++          fancy
++          text="DOGS"
++          onChange={e => setState({selected: e.target.value})}
++          value={state.selected}
++        />
++        <Checkbox
++          fancy
++          text="What up?"
++          onChange={e => setState({selected: e.target.value})}
++          value={state.selected}
++        />
++        <Checkbox
++          fancy
++          text="YES"
++          onChange={e => setState({selected: e.target.value})}
++          value={state.selected}
++        />
++      </div>
++    )}
++    />
++  ))
+   .add('indeterminate checked', () => (
+     <Checkbox indeterminate checked />
+   ));
+Index: stories/RadioButton.js
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>import React from 'react';\nimport { storiesOf } from '@storybook/react';\nimport { action } from '@storybook/addon-actions';\nimport { linkTo } from '@storybook/addon-links';\n\nimport StoryState from '../StoryState'\nimport RadioButton from '../src/components/RadioButton/RadioButton';\nimport meetupLogo from '../src/icons/meetupLogo';\n\nstoriesOf('RadioButton', module)\n  .add('with Text', () => (\n    <RadioButton text=\"Text\" />\n  ))\n  .add('with Text and Description', () => (\n    <RadioButton text=\"Text\" description=\"This is a short description for RadioButton\" />\n  ))\n  .add('with Text and Description and isLarge', () => (\n    <RadioButton text=\"Text\" isLarge description=\"This is a short description for RadioButton\" />\n  ))\n  .add('with Text and Long Description and isLarge', () => (\n    <RadioButton text=\"Text\" isLarge description=\"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec sed diam sem. Quisque mollis pulvinar metus eget dignissim. Pellentesque ac neque magna. Vivamus vel sapien lectus. Ut at aliquet urna. Proin volutpat odio sed diam maximus tristique. Ut pellentesque venenatis nisi, in faucibus risus feugiat at. Pellentesque consectetur auctor mollis. Morbi neque nulla, suscipit at leo suscipit, vestibulum tristique metus. Curabitur volutpat consectetur risus, nec commodo eros placerat interdum. Sed eget mi mi. Quisque eget pharetra dui, eu accumsan dui. Nullam non lacinia odio, ac pellentesque metus. Nulla purus metus, elementum eu tristique at, interdum sed urna. Vivamus vulputate enim ac orci lacinia elementum.\" />\n  ))\n  .add('multiple', () => (\n    <div>\n      <RadioButton text=\"One\" description=\"This is the first RadioButton\" />\n      <RadioButton text=\"Two\" description=\"This is the second RadioButton\" />\n    </div>\n  ))\n  .add('fancy with optional icon', () => (\n    <StoryState render={(state, setState) => (\n      <div>\n        <RadioButton\n          text=\"Happy Hour\"\n          fieldValue=\"Happy Hour\"\n          fancy\n          onChange={e => setState({selected: e.target.value})}\n          value={state.selected}\n        />\n        <RadioButton\n          text=\"Networking\"\n          fieldValue=\"Networking\"\n          fancy\n          onChange={e => setState({selected: e.target.value})}\n          value={state.selected}\n        />\n        <RadioButton\n          text=\"Wellness\"\n          fieldValue=\"Wellness\"\n          fancy\n          onChange={e => setState({selected: e.target.value})}\n          value={state.selected}\n        />\n        <RadioButton\n          text=\"TGIM\"\n          fieldValue=\"TGIM\"\n          fancy\n          onChange={e => setState({selected: e.target.value})}\n          value={state.selected}\n        />\n        <RadioButton\n          text=\"Lunch and Learn\"\n          fieldValue=\"Lunch and Learn\"\n          fancy\n          onChange={e => setState({selected: e.target.value})}\n          value={state.selected}\n        />\n        <RadioButton\n          text=\"Meetup\"\n          fieldValue=\"Meetup\"\n          fancy\n          icon={meetupLogo}\n          onChange={e => setState({selected: e.target.value})}\n          value={state.selected}\n        />\n        <RadioButton\n          text=\"Community Event\"\n          fieldValue=\"Community Event\"\n          fancy\n          onChange={e => setState({selected: e.target.value})}\n          value={state.selected}\n        />\n      </div>\n      )}\n    />\n  ));\n
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+--- stories/RadioButton.js	(date 1525355478000)
++++ stories/RadioButton.js	(date 1525360109000)
+@@ -3,7 +3,7 @@
+ import { action } from '@storybook/addon-actions';
+ import { linkTo } from '@storybook/addon-links';
+ 
+-import StoryState from '../StoryState'
++import StoryState from '../StoryState';
+ import RadioButton from '../src/components/RadioButton/RadioButton';
+ import meetupLogo from '../src/icons/meetupLogo';
+ 
