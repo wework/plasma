@@ -64,3 +64,32 @@ exports[`Checkbox Component render 2`] = `
   </div>
 </div>
 `;
+
+exports[`Checkbox Component render 3`] = `
+<div
+  className="inline"
+>
+  <div>
+    <label
+      className="wrapper fancy"
+      htmlFor="id2"
+    >
+      <input
+        checked={false}
+        className="original"
+        disabled={undefined}
+        id="id2"
+        name="checkbox"
+        onBlur={undefined}
+        onChange={undefined}
+        type="checkbox"
+      />
+      <div
+        className="text"
+      >
+        Option
+      </div>
+    </label>
+  </div>
+</div>
+`;
