@@ -1,16 +1,42 @@
+// @flow
+/* eslint react/prop-types: 0 */
 import { uniqueId } from 'lodash';
-import React from 'react';
-import PropTypes from 'prop-types';
+import React, { type Node } from 'react';
 import cx from 'classnames';
 import style from './style.scss';
 import Icon from '../Icon/Icon';
-import { getDataAttrs, getDataProps } from '../../dataUtils';
+import { getDataAttrs } from '../../dataUtils';
+import type { Data } from '../../types';
 
-class Checkbox extends React.Component {
+type Props = {
+  checked?: boolean,
+  data?: Data,
+  description?: string,
+  disabled?: boolean,
+  fancy?: boolean,
+  icon?: string,
+  indeterminate?: boolean,
+  name: string,
+  onBlur?: () => mixed,
+  onChange?: () => mixed,
+  text: string | Node,
+  value?: boolean,
+};
+
+class Checkbox extends React.Component<Props> {
+  static defaultProps = {
+    checked: false,
+    indeterminate: false,
+    name: 'checkbox',
+    text: 'Option',
+    value: false,
+  };
+
   render() {
     const {
       checked,
       data,
+      description,
       disabled,
       fancy,
       icon,
@@ -60,36 +86,13 @@ class Checkbox extends React.Component {
             <div className={textClassName}>{text}</div>
           </label>
         </div>
-        {this.props.description && (
-          <span className={style.description}>{this.props.description}</span>
+        {description && (
+          <span className={style.description}>{description}</span>
         )}
       </div>
     );
   }
 }
-
-Checkbox.defaultProps = {
-  checked: false,
-  indeterminate: false,
-  name: 'checkbox',
-  text: 'Option',
-  value: false,
-};
-
-Checkbox.propTypes = {
-  checked: PropTypes.bool,
-  description: PropTypes.string,
-  disabled: PropTypes.bool,
-  fancy: PropTypes.bool,
-  icon: PropTypes.string,
-  indeterminate: PropTypes.bool,
-  name: PropTypes.string.isRequired,
-  onBlur: PropTypes.func,
-  onChange: PropTypes.func,
-  text: PropTypes.oneOfType([PropTypes.string, PropTypes.node, PropTypes.element]).isRequired,
-  value: PropTypes.bool,
-  ...getDataProps(),
-};
 
 Checkbox.displayName = 'Plasma@Checkbox';
 
