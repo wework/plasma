@@ -19,7 +19,6 @@ describe('Checkbox Component', () => {
     const component = renderer.create(
       <Checkbox fancy />
     );
-    let tree = component.toJSON();
-    expect(tree).toMatchSnapshot();
+    expect(component.toJSON()).toMatchSnapshot();
   });
 });
