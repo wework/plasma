@@ -3,6 +3,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import cx from 'classnames';
 import style from './style.scss';
+import Icon from '../Icon/Icon';
 import { getDataAttrs, getDataProps } from '../../dataUtils';
 
 class Checkbox extends React.Component {
@@ -12,6 +13,7 @@ class Checkbox extends React.Component {
       data,
       disabled,
       fancy,
+      icon,
       indeterminate,
       isBold,
       name,
@@ -50,6 +52,11 @@ class Checkbox extends React.Component {
               type="checkbox"
             />
             {!fancy && <div className={style.checkbox} />}
+            {icon && (
+              <div className={fancy ? style.fancyIcon : style.icon}>
+                <Icon icon={icon} />
+              </div>
+            )}
             <div className={textClassName}>{text}</div>
           </label>
         </div>
@@ -74,6 +81,7 @@ Checkbox.propTypes = {
   description: PropTypes.string,
   disabled: PropTypes.bool,
   fancy: PropTypes.bool,
+  icon: PropTypes.string,
   indeterminate: PropTypes.bool,
   name: PropTypes.string.isRequired,
   onBlur: PropTypes.func,

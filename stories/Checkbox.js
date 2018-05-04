@@ -3,6 +3,7 @@ import { storiesOf } from '@storybook/react';
 
 import StoryState from '../StoryState';
 import Checkbox from '../src/components/Checkbox/Checkbox';
+import meetupLogo from '../src/icons/meetupLogo';
 
 storiesOf('Checkbox', module)
   .add('default', () => (
@@ -23,6 +24,18 @@ storiesOf('Checkbox', module)
   .add('indeterminate checked', () => (
     <Checkbox indeterminate checked />
   ))
+  .add('icon', () => (
+    <StoryState render={(state, setState) => (
+      <Checkbox
+        icon={meetupLogo}
+        name="optionOne"
+        text="Meetup"
+        onChange={e => setState({selected: e.target.name})}
+        checked={state.selected === 'optionOne'}
+      />
+    )}
+    />
+  ))
   .add('fancy', () => (
     <StoryState render={(state, setState) => (
       <Checkbox
@@ -34,7 +47,7 @@ storiesOf('Checkbox', module)
     )}
     />
   ))
-  .add('multiple fancy', () => (
+  .add('multiple fancy with optional icon', () => (
     <div>
       <StoryState render={(state, setState) => (
         <Checkbox
@@ -69,10 +82,11 @@ storiesOf('Checkbox', module)
       <StoryState render={(state, setState) => (
         <Checkbox
           fancy
-          name="bird"
+          icon={meetupLogo}
+          name="optionOne"
+          text="Meetup"
           onChange={e => setState({selected: e.target.name})}
-          text="Bird"
-          checked={state.selected === 'bird'}
+          checked={state.selected === 'optionOne'}
         />
       )}
       />

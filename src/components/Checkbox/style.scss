@@ -132,6 +132,14 @@ $checkboxBorder: 1px solid $cBorder;
   color: $cGray200;
 }
 
+.icon {
+  margin: 0px -10px 0px 0px;
+}
+
+.fancyIcon {
+  margin: 0px 0px 0px -10px;
+}
+
 .description {
   display: inline-block;
   @extend %fontFamily--body;
