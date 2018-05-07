@@ -1,9 +1,7 @@
 import React from 'react';
 import { storiesOf } from '@storybook/react';
-import { action } from '@storybook/addon-actions';
-import { linkTo } from '@storybook/addon-links';
 
-import StoryState from '../StoryState'
+import StoryState from '../StoryState';
 import RadioButton from '../src/components/RadioButton/RadioButton';
 import meetupLogo from '../src/icons/meetupLogo';
 
