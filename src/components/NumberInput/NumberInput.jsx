@@ -10,17 +10,17 @@ import {
 
 class NumberInput extends React.Component {
   handleIncrement = () => {
-    const { maxValue, value, step, onChange } = this.props;
+    const { maxValue, value, step, onChange, disabled } = this.props;
     const prevValue = toNumber(value);
     const nextValue = prevValue + step;
-    if (maxValue >= nextValue) onChange(toString(nextValue));
+    if (!disabled && maxValue >= nextValue) onChange(toString(nextValue));
   }
 
   handleDecrement = () => {
-    const { minValue, value, step, onChange } = this.props;
+    const { minValue, value, step, onChange, disabled } = this.props;
     const prevValue = toNumber(value);
     const nextValue = prevValue - step;
-    if (minValue <= nextValue) onChange(toString(nextValue));
+    if (!disabled && minValue <= nextValue) onChange(toString(nextValue));
   }
 
   handleChange = e => {
@@ -49,6 +49,11 @@ class NumberInput extends React.Component {
       [style.inputDisabled]: disabled,
     });
 
+    const actionStyle = cx(style.input, {
+      [style.action]: true,
+      [style.inputDisabled]: disabled,
+    });
+
     return (
       <div
         {...getDataAttrs(data)}
@@ -69,11 +74,11 @@ class NumberInput extends React.Component {
         />
         <div className={style.spinner}>
           <div
-            className={style.action}
+            className={actionStyle}
             onClick={this.handleIncrement}
           >+</div>
           <div
-            className={style.action}
+            className={actionStyle}
             onClick={this.handleDecrement}
           >-</div>
         </div>
