@@ -61,7 +61,7 @@ Info here: https://react-styleguidist.js.org/docs/documenting.html
 1.  Create a separate PR or bump the npm version in the feature branch, do not publish from master.
 2.  Run `yarn run pack` to bundle the .js and .css file into `/dist` folder.
 3.  Run `npm version patch`. This will bump the version in package.json and create a new tag and push the tag to Github.
-4.  Make sure you're logged in to NPM via `npm login`.
+4.  Make sure you're logged in to NPM via `npm login`. login is in 1password, when prompted for email please use: dev-team@wework.com
 5.  Run `npm publish` from the root directory to publish to NPM registry.
 6.  Check https://www.npmjs.com/~wework-dev to make sure package is updated.
 
