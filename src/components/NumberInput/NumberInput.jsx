@@ -45,13 +45,16 @@ class NumberInput extends React.Component {
       [style.wrapperError]: error,
     });
 
+    const spinnerStyle = cx(style.spinner, {
+      [style.spinnerDisabled]: disabled,
+    });
+
     const inputStyle = cx(style.input, {
       [style.inputDisabled]: disabled,
     });
 
-    const actionStyle = cx(style.input, {
-      [style.action]: true,
-      [style.inputDisabled]: disabled,
+    const actionStyle = cx(style.action, {
+      [style.buttonDisabled]: disabled,
     });
 
     return (
@@ -72,7 +75,7 @@ class NumberInput extends React.Component {
           onBlur={this.handleBlur}
           onFocus={this.handleFocus}
         />
-        <div className={style.spinner}>
+        <div className={spinnerStyle}>
           <div
             className={actionStyle}
             onClick={this.handleIncrement}

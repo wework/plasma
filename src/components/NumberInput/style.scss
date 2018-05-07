@@ -81,3 +81,12 @@
     }
   }
 }
+
+.buttonDisabled {
+  @extend %button--disabled;
+  background-color: transparent;
+}
+
+.spinnerDisabled {
+  background-color: transparent;
+}
