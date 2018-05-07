@@ -20,7 +20,7 @@ type Props = {
   name: string,
   onBlur?: () => mixed,
   onChange?: () => mixed,
-  text: string | Node,
+  text: Node,
   value?: boolean,
 };
 
