@@ -38,7 +38,9 @@ import FixedLeft from './components/layout/FixedLeft/FixedLeft';
 import FixedRight from './components/layout/FixedRight/FixedRight';
 import FixedTop from './components/layout/FixedTop/FixedTop';
 
+// Misc
 import withCounter from './decorators/withCounter/withCounter';
+import LocationPin from './icons/locationPin';
 
 import style from '../src/external';
 
@@ -86,6 +88,7 @@ Plasma.Page = Page;
 Plasma.TimePicker = TimePicker;
 Plasma.CountedTextArea = CountedTextArea;
 Plasma.CountedTextInput = CountedTextInput;
+Plasma.LocationPin = LocationPin;
 
 Plasma._style = style;
 
@@ -131,4 +134,5 @@ export {
   TimePicker,
   CountedTextArea,
   CountedTextInput,
+  LocationPin,
 };
