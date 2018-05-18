@@ -36,7 +36,7 @@ class TextArea extends Component {
     return (
       <div className={wrapperStyle} {...getDataAttrs(data)}>
         <textarea
-          ref={el => el && new Autogrow(el)}
+          ref={el => el && autosize && new Autogrow(el)}
           className={textareaStyle}
           disabled={disabled}
           onChange={onChange}
@@ -61,6 +61,7 @@ class TextArea extends Component {
 }
 
 TextArea.propTypes = {
+  autosize: PropTypes.bool,
   disabled: PropTypes.bool,
   error: PropTypes.bool,
   maxLength: PropTypes.string,
@@ -77,6 +78,7 @@ TextArea.propTypes = {
 TextArea.defaultProps = {
   placeholder: '',
   rows: '3',
+  autosize: true,
 };
 
 TextArea.displayName = 'Plasma@TextArea';
