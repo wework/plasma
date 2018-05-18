@@ -9,6 +9,7 @@ import style from './style.scss';
 class TextArea extends Component {
   render() {
     const {
+      autosize,
       data,
       disabled,
       error,
