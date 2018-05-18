@@ -50,6 +50,10 @@
       return hasGrown;
     };
 
+    self.destroy = function() {
+      textarea.removeEventListener('input', self.autogrowFn);
+    };
+
     var offset = self.getOffset(textarea);
     self.rows = textarea.rows || 1;
     self.lineHeight = (textarea.scrollHeight / self.rows) - (offset / self.rows);
@@ -57,5 +61,6 @@
 
     // Call autogrowFn() when textarea's value is changed
     textarea.addEventListener('input', self.autogrowFn);
+
   };
 });

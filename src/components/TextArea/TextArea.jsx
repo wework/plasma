@@ -7,6 +7,14 @@ import Autogrow from './autogrow';
 import style from './style.scss';
 
 class TextArea extends Component {
+  componentWillUnmount() {
+    this.autogrow && this.autogrow.destroy();
+  }
+  onRef = (el) => {
+    if (el && this.props.autosize) {
+      this.autogrow = new Autogrow(el);
+    }
+  };
   render() {
     const {
       data,
@@ -36,7 +44,7 @@ class TextArea extends Component {
     return (
       <div className={wrapperStyle} {...getDataAttrs(data)}>
         <textarea
-          ref={el => el && new Autogrow(el)}
+          ref={this.onRef}
           className={textareaStyle}
           disabled={disabled}
           onChange={onChange}
@@ -61,6 +69,7 @@ class TextArea extends Component {
 }
 
 TextArea.propTypes = {
+  autosize: PropTypes.bool,
   disabled: PropTypes.bool,
   error: PropTypes.bool,
   maxLength: PropTypes.string,
@@ -77,6 +86,7 @@ TextArea.propTypes = {
 TextArea.defaultProps = {
   placeholder: '',
   rows: '3',
+  autosize: true,
 };
 
 TextArea.displayName = 'Plasma@TextArea';
