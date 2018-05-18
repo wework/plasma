@@ -17,6 +17,11 @@ storiesOf('TextArea', module)
       <TextArea disabled placeholder="Type a note..." />
     </div>
   ))
+  .add('without autosize', () => (
+    <div>
+      <TextArea placeholder="Type a note..." autosize={false} />
+    </div>
+  ))
   .add('maxLength', () => (
     <div>
       <TextArea maxLength="10" placeholder="Max length of 10" />
