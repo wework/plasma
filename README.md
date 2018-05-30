@@ -41,6 +41,8 @@ Developing with Storybook
 
 ### Documenting components
 
+1. Run `./docs/publish.sh` from the root dir. This will update the docs, commit to gh-pages, and push to github (updating http://plasma.guide)
+
 Info here: https://react-styleguidist.js.org/docs/documenting.html
 
 ## Creating a Pull Request / Publishing
@@ -49,16 +51,17 @@ Info here: https://react-styleguidist.js.org/docs/documenting.html
 
 1. When you're ready, push your  branch to Github and create a pull request.
 2. If you've made visual changes, include screenshots.
-3. PR will be reviewed
-4. When PR is accepted, it will be merged into master.
-5. (Optional) If you also need to publish a new Plasma version, read that section.
+3. If you've made implementation changes, run `yarn jest:update` to update jest snapshots.
+4. PR will be reviewed
+5. When PR is accepted, it will be merged into master.
+6. (Optional) If you also need to publish a new Plasma version, read that section.
 
 ### Publishing to NPM
 
-1.  Only publish from master and make sure you `git pull origin` the latest from master.
+1.  Create a separate PR or bump the npm version in the feature branch, do not publish from master.
 2.  Run `yarn run pack` to bundle the .js and .css file into `/dist` folder.
 3.  Run `npm version patch`. This will bump the version in package.json and create a new tag and push the tag to Github.
-4.  Make sure you're logged in to NPM via `npm login`.
+4.  Make sure you're logged in to NPM via `npm login`. login is in 1password, when prompted for email please use: dev-team@wework.com
 5.  Run `npm publish` from the root directory to publish to NPM registry.
 6.  Check https://www.npmjs.com/~wework-dev to make sure package is updated.
 
@@ -76,11 +79,12 @@ Info here: https://react-styleguidist.js.org/docs/documenting.html
 
 1. Create a new Plasma dev branch: `cd /plasma` `git checkout -b mybranch`
 2. Run the Plasma dev server with watch: `yarn watch`
-3. Run Spacestion: `cd /spacestation` `yarn start`
-4. Changes you make in Plasma should automatically be picked up by Spacestation
-5. Follow "Creating a Pull Request / Publishing"
+3. Save any changes in Plasma, webpack should bundle changes in `/dist`
+4. Run Spacestion: `cd /spacestation` `yarn start`
+5. Changes you make in Plasma should automatically be picked up by Spacestation
+6. Follow "Creating a Pull Request / Publishing"
 
-## Using a published Plasma version from NPM 
+## Using a published Plasma version from NPM
 
 1.  Run `yarn add @wework-dev/plasma` in your project.
 2.  Include the Plasma object (or individual components) in your Javascript.
@@ -89,7 +93,7 @@ Info here: https://react-styleguidist.js.org/docs/documenting.html
     import Plasma from '@wework-dev/plasma';
     <Plasma.Button label='Click it'/>
     ```
-    
+
     Individual components example:
     ```javascript
     import { Button } from '@wework-dev/plasma';

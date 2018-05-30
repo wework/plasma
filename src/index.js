@@ -1,6 +1,7 @@
 import Button from './components/Button/Button';
 import Card from './components/Card/Card';
 import Checkbox from './components/Checkbox/Checkbox';
+import CollapsibleCard from './components/CollapsibleCard/CollapsibleCard';
 import OverflowMenu from './components/OverflowMenu/OverflowMenu';
 import Header from './components/Header/Header';
 import Icon from './components/Icon/Icon';
@@ -10,6 +11,7 @@ import Loader from './components/Loader/Loader';
 import Modal from './components/Modal/Modal';
 import NumberInput from './components/NumberInput/NumberInput';
 import RadioButton from './components/RadioButton/RadioButton';
+import RadioButtonGroup from './components/RadioButtonGroup/RadioButtonGroup';
 import Rule from './components/Rule/Rule';
 import SegmentedCard from './components/SegmentedCard/SegmentedCard';
 import Table from './components/Table/Table';
@@ -36,7 +38,14 @@ import FixedLeft from './components/layout/FixedLeft/FixedLeft';
 import FixedRight from './components/layout/FixedRight/FixedRight';
 import FixedTop from './components/layout/FixedTop/FixedTop';
 
+// Misc
+import withCounter from './decorators/withCounter/withCounter';
+import LocationPin from './icons/locationPin';
+
 import style from '../src/external';
+
+const CountedTextArea = withCounter(TextArea);
+const CountedTextInput = withCounter(TextInput);
 
 // Plasma object
 
@@ -49,11 +58,13 @@ Plasma.Icon = Icon;
 Plasma.Text = Text;
 Plasma.Card = Card;
 Plasma.Checkbox = Checkbox;
+Plasma.CollapsibleCard = CollapsibleCard;
 Plasma.SegmentedCard = SegmentedCard;
 Plasma.Button = Button;
 Plasma.TextInput = TextInput;
 Plasma.NumberInput = NumberInput;
 Plasma.RadioButton = RadioButton;
+Plasma.RadioButtonGroup = RadioButtonGroup;
 Plasma.Rule = Rule;
 Plasma.Loader = Loader;
 Plasma.OverflowMenu = OverflowMenu;
@@ -75,6 +86,9 @@ Plasma.FixedTop = FixedTop;
 Plasma.Toggle = Toggle;
 Plasma.Page = Page;
 Plasma.TimePicker = TimePicker;
+Plasma.CountedTextArea = CountedTextArea;
+Plasma.CountedTextInput = CountedTextInput;
+Plasma.LocationPin = LocationPin;
 
 Plasma._style = style;
 
@@ -88,10 +102,12 @@ export {
   Text,
   Card,
   Checkbox,
+  CollapsibleCard,
   SegmentedCard,
   Button,
   TextInput,
   RadioButton,
+  RadioButtonGroup,
   Rule,
   Group,
   FormField,
@@ -116,4 +132,7 @@ export {
   TextArea,
   Tag,
   TimePicker,
+  CountedTextArea,
+  CountedTextInput,
+  LocationPin,
 };

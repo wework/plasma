@@ -34,6 +34,10 @@
   border: 1px dashed $cBorder;
 }
 
+.borderRed {
+  border-color: $cRed70;
+}
+
 .top {
   display: flex;
   justify-content: space-between;

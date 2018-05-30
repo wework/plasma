@@ -2,28 +2,24 @@ import { toUpper } from 'lodash';
 import React from 'react';
 import PropTypes from 'prop-types';
 import cx from 'classnames';
-import {
-  getDataAttrs,
-  getDataProps,
-} from '../../dataUtils';
+import { getDataAttrs, getDataProps } from '../../dataUtils';
 import style from './style.scss';
 
-const TextInput = (
-  {
-    suffix,
-    prefix,
-    placeholder,
-    value,
-    onChange,
-    onFocus,
-    onBlur,
-    isDisabled,
-    disabled,
-    size,
-    error,
-    data,
-  }
-) => {
+const TextInput = ({
+  suffix,
+  prefix,
+  placeholder,
+  value,
+  onChange,
+  onFocus,
+  onBlur,
+  isDisabled,
+  disabled,
+  size,
+  error,
+  data,
+  maxLength,
+}) => {
   const fixStyle = cx(style.fix, {
     [style.suffix]: suffix,
     [style.prefix]: prefix,
@@ -41,32 +37,27 @@ const TextInput = (
   });
 
   return (
-    <div
-      {...getDataAttrs(data)}
-      className={wrapperStyle}
-    >
+    <div {...getDataAttrs(data)} className={wrapperStyle}>
       <input
         className={inputStyle}
         disabled={isDisabled || disabled}
         onChange={onChange}
-        onFocus={(e) => {
+        onFocus={e => {
           /* eslint-disable no-param-reassign */
           e.target.parentElement.className += ` ${style.wrapperFocused}`;
           /* eslint-enable no-param-reassign */
           onFocus && onFocus();
         }}
-        onBlur={(e) => {
+        onBlur={e => {
           e.target.parentElement.classList.remove(style.wrapperFocused);
           onBlur && onBlur();
         }}
         placeholder={placeholder}
         type="text"
         value={value}
+        maxLength={maxLength}
       />
-      {(suffix || prefix) &&
-        <div className={fixStyle}>
-          {suffix || prefix}
-        </div>}
+      {(suffix || prefix) && <div className={fixStyle}>{suffix || prefix}</div>}
     </div>
   );
 };
@@ -84,6 +75,7 @@ TextInput.propTypes = {
   disabled: PropTypes.bool,
   size: PropTypes.bool,
   error: PropTypes.bool,
+  maxLength: PropTypes.string,
   ...getDataProps(),
 };
 

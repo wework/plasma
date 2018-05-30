@@ -1,0 +1,52 @@
+@import '../../styles/base';
+
+.collapsibleCard {
+  .cardHeader {
+    min-height: 20px;
+    background: $cGray600;
+    border: 1px solid $cBorder;
+    color: $cBlack30;
+    padding: 5px;
+    border-top-right-radius: 2px;
+    border-top-left-radius: 2px;
+  }
+
+  .textLink {
+    margin-left: 10px;
+    float: right;
+  }
+
+  .textLinkArrowUp, .textLinkArrowDown {
+    display: inline-block;
+    margin-left: 5px;
+    margin-right: 5px;
+    width: 0;
+    height: 0;
+    border-left: 5px solid transparent;
+    border-right: 5px solid transparent;
+  }
+
+  .textLinkArrowUp {
+    border-bottom: 5px solid $cBlack30;
+  }
+
+  .textLinkArrowDown {
+    border-top: 5px solid $cBlack30;
+  }
+}
+
+.styleColorRed {
+  .cardHeader {
+    background: $cRed50;
+    border-color: $cRed70;
+    color: $cWhite;
+  }
+
+  .textLinkArrowUp {
+    border-bottom-color: $cWhite;
+  }
+
+  .textLinkArrowDown {
+    border-top-color: $cWhite;
+  }
+}

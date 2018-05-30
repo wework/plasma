@@ -1,7 +1,9 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`RadioButton Component render 1`] = `
-<div>
+<div
+  className=""
+>
   <label
     className="wrapper"
     htmlFor="id1"
@@ -31,6 +33,7 @@ exports[`RadioButton Component render 1`] = `
 exports[`RadioButton Component render 2`] = `
 <div
   checked={true}
+  className=""
 >
   <label
     className="wrapper"
