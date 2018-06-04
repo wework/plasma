@@ -42,22 +42,33 @@ class Tabs extends React.Component {
       [style.first]: index === 0,
       [style.last]: index === this.props.items.length - 1,
     });
-  }
+  };
 
   renderTab = (tab, index) => {
+    const tabAttrs = {
+      role: 'tab',
+      onClick: () => this.onClick(tab, index),
+      onKeyDown: (event) => this.onKeyDown(event, tab, index),
+      className: this.getTabClassNames(tab, index),
+      key: index,
+      tabIndex: '0',
+    };
+    if (tab.renderType && tab.renderType === 'html') {
+      return (
+        <li
+          {...tabAttrs}
+          dangerouslySetInnerHTML={{ __html: tab.title }}
+        />
+      );
+    }
     return (
       <li
-        role="tab"
-        onClick={() => this.onClick(tab, index)}
-        onKeyDown={(event) => this.onKeyDown(event, tab, index)}
-        className={this.getTabClassNames(tab, index)}
-        key={index}
-        tabIndex="0"
+        {...tabAttrs}
       >
         { tab.title }
       </li>
     );
-  }
+  };
 
   render() {
     return (
