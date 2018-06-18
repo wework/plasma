@@ -1,15 +1,20 @@
-import React from 'react';
-import PropTypes from 'prop-types';
+// @flow
+import React, { type Node } from 'react';
 import {
   getDataAttrs,
-  getDataProps,
 } from '../../../dataUtils';
-import style from './style.scss';
+import styles from './style.scss';
 import Label from '../../Label/Label.jsx';
 
-const type = {
-  PRIMARY: 'primary',
-  SECONDARY: 'secondary',
+type Props = {
+  children: Node,
+  isDisabled: boolean,
+  isRequired: boolean,
+  label: string,
+  displayError: boolean,
+  errorMessage: string,
+  data: Object,
+  style: Object,
 };
 
 const FormField = (
@@ -17,12 +22,12 @@ const FormField = (
     children,
     isDisabled,
     isRequired,
-    labelType,
     label,
     data,
     displayError,
     errorMessage,
-  }
+    style,
+  }: Props
 ) => {
   let labelText = label;
 
@@ -33,17 +38,18 @@ const FormField = (
   return (
     <div
       {...getDataAttrs(data)}
-      className={style.wrapper}
+      className={styles.wrapper}
+      style={style}
     >
       <Label
         text={labelText}
-        className={style.disabled}
+        className={styles.disabled}
         type={isDisabled ? 'disabled' : 'primary'}
       />
-      <div className={style.input}>
+      <div className={styles.input}>
         {children}
       </div>
-      {displayError && errorMessage && <div className={style.error}>{errorMessage}</div>}
+      {displayError && errorMessage && <div className={styles.error}>{errorMessage}</div>}
     </div>
   );
 };
@@ -52,18 +58,7 @@ FormField.defaultProps = {
   children: '',
   disabled: false,
   label: '',
-  labelType: type.PRIMARY,
-};
-
-FormField.propTypes = {
-  children: PropTypes.node.isRequired,
-  isDisabled: PropTypes.bool,
-  isRequired: PropTypes.bool,
-  label: PropTypes.string,
-  labelType: PropTypes.string,
-  displayError: PropTypes.bool,
-  errorMessage: PropTypes.string,
-  ...getDataProps(),
+  style: { },
 };
 
 FormField.displayName = 'Plasma@FormField';
