@@ -6,7 +6,7 @@
   "scripts": {
     "start": "babel-node server.js",
     "lint": "./node_modules/.bin/eslint src/components/**/*.jsx",
-    "pack": "webpack --config webpack.config.prod",
+    "pack": "NODE_ENV=production webpack --config webpack.config.prod -p",
     "createRelease": "webpack --config webpack.config.prod && npm publish --access public",
     "storybook": "start-storybook -p 6006",
     "build-storybook": "build-storybook -c .storybook -o docs/storybook",

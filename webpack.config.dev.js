@@ -1,10 +1,8 @@
 /* eslint-disable import/no-extraneous-dependencies, no-console */
 
 const path = require('path');
-const ExtractTextPlugin = require('extract-text-webpack-plugin');
-const webpack = require('webpack');
 
-const port = process.env.PORT || 8082;
+const ExtractTextPlugin = require('extract-text-webpack-plugin');
 
 module.exports = {
   entry: [
