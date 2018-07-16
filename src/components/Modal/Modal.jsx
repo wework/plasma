@@ -7,7 +7,20 @@ import {
   getDataProps,
 } from '../../dataUtils';
 
+const ESC_KEY_CODE = 27;
+
 class Modal extends React.Component {
+  componentDidMount() {
+    document.addEventListener('keydown', this.dismissOnEscKey, false);
+  }
+
+  dismissOnEscKey = ({ keyCode }) => {
+    const { visible, onDismiss } = this.props;
+    if (visible && keyCode === ESC_KEY_CODE) {
+      onDismiss();
+    }
+  }
+
   render() {
     let comp = null;
     const {
@@ -18,8 +31,9 @@ class Modal extends React.Component {
       onDismiss,
       minWidth = 0,
       maxWidth,
+      visible,
     } = this.props;
-    if (this.props.visible) {
+    if (visible) {
       comp = (
         <div
           {...getDataAttrs(data)}
