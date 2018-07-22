@@ -14,6 +14,10 @@ class Modal extends React.Component {
     document.addEventListener('keydown', this.dismissOnEscKey, false);
   }
 
+  componentWillUnmount() {
+    document.removeEventListener('keydown', this.dismissOnEscKey, false);
+  }
+
   dismissOnEscKey = ({ keyCode }) => {
     const { visible, onDismiss } = this.props;
     if (visible && keyCode === ESC_KEY_CODE) {
