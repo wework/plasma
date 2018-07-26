@@ -12,6 +12,8 @@ exports[`Image Component render 1`] = `
   <img
     alt="Image"
     className="image"
+    onClick={undefined}
+    onError={[Function]}
     src="https://cdn.spacetelescope.org/archives/images/screen/s82e5407.jpg"
     style={undefined}
   />
