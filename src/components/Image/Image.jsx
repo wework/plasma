@@ -11,12 +11,9 @@ import {
 const defaultImage = 'https://cdn.spacetelescope.org/archives/images/screen/s82e5407.jpg';
 
 class Image extends React.Component {
-  constructor() {
-    super();
-    this.state = {
-      errored: false,
-    };
-  }
+  state = {
+    errored: false,
+  };
 
   getImageUrl() {
     const { src, fallback } = this.props;
