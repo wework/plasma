@@ -1,12 +1,17 @@
+// @flow
 import React from 'react';
-import PropTypes from 'prop-types';
 import style from './style.scss';
 import {
   getDataAttrs,
-  getDataProps,
 } from '../../dataUtils';
 
-class Loader extends React.Component {
+type Props = {
+  data: { [string]: mixed },
+  style: { [string]: mixed },
+  dotStyle: { [string]: mixed }
+};
+
+class Loader extends React.Component<Props> {
   render() {
     return (
       <div
@@ -34,14 +39,6 @@ class Loader extends React.Component {
     );
   }
 }
-
-Loader.defaultProps = {};
-
-Loader.propTypes = {
-  style: PropTypes.object,
-  dotStyle: PropTypes.object,
-  ...getDataProps(),
-};
 
 Loader.displayName = 'Plasma@Loader';
 

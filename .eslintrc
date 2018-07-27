@@ -4,15 +4,21 @@
     "node": true,
     "browser": true,
   },
-  "extends": "airbnb",
+  "extends": [
+    "airbnb",
+    "plugin:flowtype/recommended"
+  ],
   "rules": {
     "react/prefer-stateless-function": "off",
     "new-cap": "off",
     "react/no-find-dom-node": "off",
     "arrow-body-style": "off",
     "no-underscore-dangle": "off",
-    "no-unused-expressions": [2, {
-      "allowShortCircuit": true
-    }]
+    "no-unused-expressions": [
+      2,
+      {
+        "allowShortCircuit": true
+      }
+    ]
   }
 }
