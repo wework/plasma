@@ -1,17 +1,16 @@
 {
   "parser": "babel-eslint",
+  "plugins": ["flowtype"],
   "env": {
     "node": true,
-    "browser": true,
+    "browser": true
   },
-  "extends": [
-    "airbnb",
-    "plugin:flowtype/recommended"
-  ],
+  "extends": ["airbnb", "plugin:flowtype/recommended"],
   "rules": {
     "react/prefer-stateless-function": "off",
     "new-cap": "off",
     "react/no-find-dom-node": "off",
+    "react/prop-types": "off",
     "arrow-body-style": "off",
     "no-underscore-dangle": "off",
     "no-unused-expressions": [

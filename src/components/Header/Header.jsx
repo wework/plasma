@@ -1,13 +1,27 @@
-import cx from 'classnames';
-import React from 'react';
-import PropTypes from 'prop-types';
-import style from './style.scss';
-import {
-  getDataAttrs,
-  getDataProps }
-from '../../dataUtils';
+// @flow
 
-class Header extends React.Component {
+import cx from 'classnames';
+import React, { type Node } from 'react';
+import style from './style.scss';
+import { getDataAttrs } from '../../dataUtils';
+
+type Props = {
+  text: string,
+  children: Node,
+  underline: boolean,
+  h1: boolean,
+  h2: boolean,
+  h3: boolean,
+  h4: boolean,
+  h5: boolean,
+  h6: boolean,
+  invert: boolean,
+  style: { [string]: mixed },
+  noMargin: boolean,
+  data: Object
+};
+
+class Header extends React.Component<Props> {
   render() {
     const headerStyle = cx(style.header, {
       [style.header1]: this.props.h1,
@@ -21,38 +35,15 @@ class Header extends React.Component {
     });
 
     return (
-      <div
-        {...getDataAttrs(this.props.data)}
-        className={[headerStyle]}
-      >
+      <div {...getDataAttrs(this.props.data)} className={[headerStyle]}>
         <div className={style.content}>
-          { this.props.text || this.props.children }
+          {this.props.text || this.props.children}
         </div>
-        { this.props.underline &&
-          <div className={style.rule} />
-        }
+        {this.props.underline && <div className={style.rule} />}
       </div>
     );
   }
 }
-
-Header.propTypes = {
-  text: PropTypes.string,
-  children: PropTypes.string,
-  underline: PropTypes.bool,
-  h1: PropTypes.bool,
-  h2: PropTypes.bool,
-  h3: PropTypes.bool,
-  h4: PropTypes.bool,
-  h5: PropTypes.bool,
-  h6: PropTypes.bool,
-  invert: PropTypes.bool,
-  style: PropTypes.object,
-  noMargin: PropTypes.bool,
-  ...getDataProps(),
-};
-
-Header.defaultProps = {};
 
 Header.displayName = 'Plasma@Header';
 
