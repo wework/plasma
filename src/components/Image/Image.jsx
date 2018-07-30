@@ -1,23 +1,47 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import style from './style.scss';
+import cn from 'classnames';
+import styles from './style.scss';
+
 import {
   getDataAttrs,
   getDataProps,
 } from '../../dataUtils';
 
+const defaultImage = 'https://cdn.spacetelescope.org/archives/images/screen/s82e5407.jpg';
+
 class Image extends React.Component {
+  state = {
+    errored: false,
+  };
+
+  getImageUrl() {
+    const { src, fallback } = this.props;
+    if (this.state.errored || !src) {
+      return fallback;
+    }
+    return src;
+  }
+
+  handleError() {
+    this.setState({ errored: true });
+  }
+
   render() {
+    const { className, data, style, altText, imageStyle, onClick } = this.props;
+    const imageCn = cn(styles.image, className);
     return (
       <div
-        {...getDataAttrs(this.props.data)}
-        style={this.props.style}
+        {...getDataAttrs(data)}
+        style={style}
       >
         <img
-          alt={this.props.altText}
-          className={style.image}
-          src={this.props.src}
-          style={this.props.imageStyle}
+          alt={altText}
+          className={imageCn}
+          src={this.getImageUrl()}
+          style={imageStyle}
+          onError={this.handleError}
+          onClick={onClick}
         />
       </div>
     );
@@ -26,7 +50,8 @@ class Image extends React.Component {
 
 Image.defaultProps = {
   style: { width: 200, height: 'auto' },
-  src: 'https://cdn.spacetelescope.org/archives/images/screen/s82e5407.jpg',
+  src: defaultImage,
+  fallback: defaultImage,
   altText: 'Image',
 };
 
