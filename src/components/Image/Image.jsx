@@ -23,9 +23,9 @@ class Image extends React.Component {
     return src;
   }
 
-  handleError() {
+  handleError = () => {
     this.setState({ errored: true });
-  }
+  };
 
   render() {
     const { className, data, style, altText, imageStyle, onClick } = this.props;
