@@ -29,3 +29,4 @@ import Welcome from './Welcome';
 import Modal from './Modal';
 import Card from './Card';
 import CollapsibleCard from './CollapsibleCard';
+import Image from './Image';
