@@ -1,6 +1,6 @@
 {
   "name": "@wework-dev/plasma",
-  "version": "0.0.168",
+  "version": "0.0.169",
   "description": "",
   "main": "./dist/index.js",
   "scripts": {
@@ -89,7 +89,6 @@
     "jest-cli": "^22.0.6",
     "jsdom": "^11.1.0",
     "lodash": "^4.14.1",
-    "prop-types": "^15.5.7",
     "proxy-middleware": "^0.15.0",
     "react-datepicker": "^1.4.0",
     "react-input-autosize": "^1.1.0",

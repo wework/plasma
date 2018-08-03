@@ -1,7 +1,10 @@
+// @flow
 import React from 'react';
 import ExternalSelect from 'react-select';
 
-class Select extends React.Component {
+type Props = ExternalSelect.propTypes;
+
+class Select extends React.Component<Props> {
   render() {
     return (
       <ExternalSelect {...this.props} />

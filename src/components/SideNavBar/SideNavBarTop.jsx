@@ -1,10 +1,16 @@
+// @flow
 import React from 'react';
-import PropTypes from 'prop-types';
 import cn from 'classnames';
 import Icon from '../Icon/Icon';
 import style from './style.scss';
 
-const SideBarNavTop = ({ label, onClick, icon }) => {
+type Props = {|
+  label: string,
+  icon: string,
+  onClick: () => void,
+|};
+
+const SideBarNavTop = ({ label, onClick, icon }: Props) => {
   return (
     <div
       className={style.top}
@@ -23,12 +29,6 @@ const SideBarNavTop = ({ label, onClick, icon }) => {
       </div>
     </div>
   );
-};
-
-SideBarNavTop.propTypes = {
-  label: PropTypes.string,
-  icon: PropTypes.string,
-  onClick: PropTypes.func,
 };
 
 export default SideBarNavTop;

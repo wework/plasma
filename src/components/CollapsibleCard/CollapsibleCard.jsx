@@ -1,5 +1,5 @@
-import React, { Component } from 'react';
-import PropTypes from 'prop-types';
+// @flow
+import React, { Component, type Node } from 'react';
 import cx from 'classnames';
 
 // Components
@@ -8,27 +8,33 @@ import Card, { borderColors as styleColors } from '../Card/Card';
 // Style
 import style from './style.scss';
 
-class CollapsibleCard extends Component {
-  static propTypes = {
-    headerText: PropTypes.node.isRequired,
-    collapsibleText: PropTypes.node,
-    children: PropTypes.node.isRequired,
-    styleColor: PropTypes.oneOf([styleColors.RED]),
-    isCollapsed: PropTypes.bool,
-    disabled: PropTypes.bool,
-  };
+type Props = {|
+  headerText: Node,
+  collapsibleText: Node,
+  children: Node,
+  styleColor: $Values<typeof styleColors>,
+  isCollapsed: boolean,
+  disabled: boolean,
+|};
+
+type State = {|
+  shouldDisplayCard: boolean
+|};
+
+class CollapsibleCard extends Component<Props, State> {
+
 
   static defaultProps = {
     isCollapsed: false,
-  }
+  };
 
   state = {
     shouldDisplayCard: !this.props.isCollapsed,
-  }
+  };
 
   onClick = () => {
     this.setState(prevState => ({ shouldDisplayCard: !prevState.shouldDisplayCard }));
-  }
+  };
 
   render() {
     const {
