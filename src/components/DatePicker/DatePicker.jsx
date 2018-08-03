@@ -1,7 +1,12 @@
+// @flow
 import React from 'react';
 import ExternalDatePicker from 'react-datepicker';
 
-class DatePicker extends React.Component {
+type Props = ExternalDatePicker.propTypes;
+
+class DatePicker extends React.Component<Props> {
+  static defaultProps = ExternalDatePicker.defaultProps;
+
   render() {
     return (
       <ExternalDatePicker {...this.props} />
@@ -9,8 +14,6 @@ class DatePicker extends React.Component {
   }
 }
 
-DatePicker.defaultProps = ExternalDatePicker.defaultProps;
-DatePicker.propTypes = ExternalDatePicker.propTypes;
 DatePicker.displayName = 'DatePicker';
 
 export default DatePicker;

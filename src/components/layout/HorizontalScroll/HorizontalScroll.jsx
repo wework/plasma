@@ -1,17 +1,22 @@
-import React from 'react';
-import PropTypes from 'prop-types';
-import {
-  getDataAttrs,
-  getDataProps,
-} from '../../../dataUtils';
+// @flow
+/* eslint react/prop-types: 0 */
+import React, { type Node } from 'react';
+import { getDataAttrs } from '../../../dataUtils';
+import type { Data } from '../../../types';
 import style from './style.scss';
 
-class HorizontalScroll extends React.Component {
+type Props = {|
+    children: Node,
+    onScroll: (evt: MouseEvent) => void,
+    style: Object,
+    data: Data,
+|};
 
-  constructor() {
-    super();
-    this.handleScroll = this.handleScroll.bind(this);
-  }
+class HorizontalScroll extends React.Component<Props> {
+  static defaultProps = {
+    children: null,
+    onScroll: () => {},
+  };
 
   componentDidMount() {
     this.wrapper.addEventListener('scroll', this.handleScroll);
@@ -21,10 +26,11 @@ class HorizontalScroll extends React.Component {
     this.wrapper.removeEventListener('scroll', this.handleScroll);
   }
 
-  handleScroll(e) {
+  handleScroll = (e: MouseEvent) => {
     this.props.onScroll(e);
-  }
+  };
 
+  wrapper: Object;
   render() {
     return (
       <div
@@ -40,18 +46,6 @@ class HorizontalScroll extends React.Component {
     );
   }
 }
-
-HorizontalScroll.defaultProps = {
-  children: null,
-  onScroll: () => {},
-};
-
-HorizontalScroll.propTypes = {
-  children: PropTypes.node,
-  onScroll: PropTypes.func,
-  style: PropTypes.object,
-  ...getDataProps(),
-};
 
 HorizontalScroll.displayName = 'Plasma@HorizontalScroll';
 

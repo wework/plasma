@@ -1,22 +1,38 @@
+// @flow
 import React, { Component } from 'react';
-import PropTypes from 'prop-types';
-import {
-  getDataAttrs,
-  getDataProps,
-} from '../../dataUtils';
+import { getDataAttrs } from '../../dataUtils';
+import type { Data } from '../../types';
 import style from './style.scss';
 
-class Search extends Component {
-  constructor(props) {
+type Props = {|
+  clearable: boolean,
+  clearIconUrl: string,
+  disabled: boolean,
+  iconUrl: string,
+  instructionText: string,
+  onChange: ({target: {value: string}}) => void,
+  onClear: (event: Event) => void,
+  placeholder: string,
+  value: string,
+  data: Data,
+|};
+
+type State = {|
+    text: string
+|};
+
+class Search extends Component<Props, State> {
+  static defaultProps = {
+    placeholder: 'Search...',
+  };
+  constructor(props: Props) {
     super(props);
-    this.onChange = this.onChange.bind(this);
-    this.onClear = this.onClear.bind(this);
     this.state = {
       text: '',
     };
   }
 
-  componentWillReceiveProps(nextProps) {
+  componentWillReceiveProps(nextProps: Props) {
     const { value } = nextProps;
 
     if (value) {
@@ -24,15 +40,15 @@ class Search extends Component {
     }
   }
 
-  onChange(event) {
+  onChange = (event: {target: {value: string}}): void => {
     const { onChange } = this.props;
 
     this.setState({ text: event.target.value });
 
     onChange && onChange(event);
-  }
+  };
 
-  onClear(event) {
+  onClear = (event: Event): void => {
     const { onClear } = this.props;
 
     this.setState({ text: '' });
@@ -40,7 +56,7 @@ class Search extends Component {
     if (onClear) {
       onClear(event);
     }
-  }
+  };
 
   render() {
     const {
@@ -89,23 +105,6 @@ class Search extends Component {
     );
   }
 }
-
-Search.defaultProps = {
-  placeholder: 'Search...',
-};
-
-Search.propTypes = {
-  clearable: PropTypes.bool,
-  clearIconUrl: PropTypes.string,
-  disabled: PropTypes.bool,
-  iconUrl: PropTypes.string,
-  instructionText: PropTypes.string,
-  onChange: PropTypes.func,
-  onClear: PropTypes.func,
-  placeholder: PropTypes.string,
-  value: PropTypes.string,
-  ...getDataProps(),
-};
 
 Search.displayName = 'Plasma@Search';
 

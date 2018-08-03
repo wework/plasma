@@ -1,17 +1,34 @@
+// @flow
+/* eslint react/prop-types: 0 */
 import cx from 'classnames';
-import React from 'react';
-import PropTypes from 'prop-types';
-import {
-  getDataAttrs,
-  getDataProps }
-from '../../dataUtils';
+import React, { type Node } from 'react';
+import { getDataAttrs } from '../../dataUtils';
 import Loader from '../Loader/Loader.jsx';
 import style from './style.scss';
+import type { Data } from '../../types';
 
 const type = { PRIMARY: 'primary', SECONDARY: 'secondary', TERTIARY: 'tertiary' };
 const size = { SMALL: 'small' };
 
-class Button extends React.Component {
+type Props = {|
+    label: string,
+    onClick: (evt: MouseEvent) => void,
+    type?: string,
+    disabled: boolean,
+    loading: boolean,
+    children: Node,
+    style: Object,
+    isSubmit: boolean,
+    size: string,
+    data: Data,
+|};
+
+class Button extends React.Component<Props> {
+  static defaultProps = {
+    type: type.PRIMARY,
+    disabled: false,
+    loading: false,
+  };
 
   render() {
     const buttonStyle = cx(style.button, {
@@ -24,10 +41,7 @@ class Button extends React.Component {
     });
 
     let loaderDotStyle;
-    if (
-      this.props.type === type.SECONDARY
-      || this.props.type === type.TERTIARY
-    ) {
+    if (this.props.type === type.SECONDARY || this.props.type === type.TERTIARY) {
       loaderDotStyle = { backgroundColor: '#000', opacity: '0.1' };
     }
 
@@ -58,27 +72,6 @@ class Button extends React.Component {
   }
 }
 
-Button.defaultProps = {
-  type: type.PRIMARY,
-  disabled: false,
-  loading: false,
-};
-
-Button.propTypes = {
-  label: PropTypes.string,
-  /**
-  * Callback to handle click event
-  */
-  onClick: PropTypes.func,
-  type: PropTypes.string,
-  disabled: PropTypes.bool,
-  loading: PropTypes.bool,
-  children: PropTypes.node,
-  style: PropTypes.object,
-  isSubmit: PropTypes.bool,
-  size: PropTypes.string,
-  ...getDataProps(),
-};
 
 Button.displayName = 'Plasma@Button';
 

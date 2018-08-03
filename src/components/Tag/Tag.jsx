@@ -1,12 +1,18 @@
-import React from 'react';
+// @flow
+import React, { type Node } from 'react';
 import cn from 'classnames';
-import {
-  getDataAttrs,
-  getDataProps }
-from '../../dataUtils';
+import { getDataAttrs } from '../../dataUtils';
+import type { Data } from '../../types';
 import style from './style.scss';
 
-const Tag = ({ text, children, data, className = '' }) => {
+type Props = {|
+    text: Node,
+    children: Node,
+    data: Data,
+    className: string,
+|};
+
+const Tag = ({ text, children, data, className = '' }: Props) => {
   const tagClasses = cn(style.tag, style.small, className);
   return (
     <div
@@ -16,24 +22,6 @@ const Tag = ({ text, children, data, className = '' }) => {
       <span>{text || children}</span>
     </div>
   );
-};
-
-Tag.propTypes = {
-  text: (props, propName, componentName) => {
-    if (!props.text && !props.children) {
-      // eslint-disable-next-line 
-      return new Error(`One of props 'text' or 'children' was not specified in '${componentName}'.`);
-    }
-    return null;
-  },
-  children: (props, propName, componentName) => {
-    if (!props.text && !props.children) {
-      // eslint-disable-next-line 
-      return new Error(`One of props 'text' or 'children' was not specified in '${componentName}'.`);
-    }
-    return null;
-  },
-  ...getDataProps(),
 };
 
 Tag.displayName = 'Plasma@Tag';

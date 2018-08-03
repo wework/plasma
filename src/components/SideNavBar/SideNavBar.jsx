@@ -1,20 +1,36 @@
-import React, { Component } from 'react';
-import PropTypes from 'prop-types';
-import {
-  getDataAttrs,
-  getDataProps,
-} from '../../dataUtils';
+// @flow
+/* eslint react/prop-types: 0 */
+import React, { Component, type Node } from 'react';
+import { getDataAttrs } from '../../dataUtils';
+import type { Data } from '../../types';
 import SideNavBarItemGroup from './SideNavBarItemGroup';
 import SideNavBarTop from './SideNavBarTop';
 import style from './style.scss';
 
-class SideNavBar extends Component {
+type Item = {|
+    id: string,
+    icon: string,
+    label: string,
+    items: Array<Item>,
+|};
 
-  handleClick = (result) => {
+type Props = {|
+    items: Array<Item>,
+    onChange: ({ id: number }) => void,
+    selectedId: string,
+    onClickTop: () => void,
+    topText: string,
+    topIcon: string,
+    data: Data,
+|};
+
+class SideNavBar extends Component<Props> {
+
+  handleClick = (result: Object): void => {
     this.props.onChange && this.props.onChange({ id: result.id });
-  }
+  };
 
-  renderItems() {
+  renderItems(): Array<Node> {
     return this.props.items && this.props.items.map((item) => (
       <SideNavBarItemGroup
         key={item.id}
@@ -46,21 +62,6 @@ class SideNavBar extends Component {
     );
   }
 }
-
-SideNavBar.propTypes = {
-  items: PropTypes.arrayOf(PropTypes.shape({
-    id: PropTypes.string.isRequired,
-    icon: PropTypes.string,
-    label: PropTypes.string,
-    items: PropTypes.array,
-  })),
-  onChange: PropTypes.func,
-  selectedId: PropTypes.string,
-  onClickTop: PropTypes.func,
-  topText: PropTypes.string,
-  topIcon: PropTypes.string,
-  ...getDataProps(),
-};
 
 SideNavBar.displayName = 'Plasma@SideNavBar';
 

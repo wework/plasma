@@ -1,13 +1,28 @@
+// @flow
+/* eslint react/prop-types: 0 */
 import cx from 'classnames';
 import React from 'react';
-import PropTypes from 'prop-types';
 import style from './style.scss';
-import {
-  getDataAttrs,
-  getDataProps }
-from '../../dataUtils';
+import { getDataAttrs } from '../../dataUtils';
+import type { Data } from '../../types';
 
-class Header extends React.Component {
+type Props = {|
+    text?: string,
+    children: string,
+    underline?: boolean,
+    h1?: boolean,
+    h2?: boolean,
+    h3?: boolean,
+    h4?: boolean,
+    h5?: boolean,
+    h6?: boolean,
+    invert?: boolean,
+    style?: boolean,
+    noMargin?: boolean,
+    data?: Data,
+|};
+
+class Header extends React.Component<Props> {
   render() {
     const headerStyle = cx(style.header, {
       [style.header1]: this.props.h1,
@@ -35,24 +50,6 @@ class Header extends React.Component {
     );
   }
 }
-
-Header.propTypes = {
-  text: PropTypes.string,
-  children: PropTypes.string,
-  underline: PropTypes.bool,
-  h1: PropTypes.bool,
-  h2: PropTypes.bool,
-  h3: PropTypes.bool,
-  h4: PropTypes.bool,
-  h5: PropTypes.bool,
-  h6: PropTypes.bool,
-  invert: PropTypes.bool,
-  style: PropTypes.object,
-  noMargin: PropTypes.bool,
-  ...getDataProps(),
-};
-
-Header.defaultProps = {};
 
 Header.displayName = 'Plasma@Header';
 

@@ -1,14 +1,25 @@
-import React from 'react';
-import PropTypes from 'prop-types';
+// @flow
+/* eslint react/prop-types: 0 */
+import React, { type Node } from 'react';
 import cx from 'classnames';
 import { map, isArray, toArray } from 'lodash';
-import {
-  getDataAttrs,
-  getDataProps,
-} from '../../../dataUtils';
+import { getDataAttrs } from '../../../dataUtils';
+import type { Data } from '../../../types';
 import style from './style.scss';
 
-class Group extends React.Component {
+type Props = {|
+    children: Array<Node>,
+    vertical: boolean,
+    layout: Array<Object>,
+    style: Object,
+    data: Data,
+|};
+
+class Group extends React.Component<Props> {
+  static defaultProps = {
+    children: [],
+    layout: [],
+  };
   render() {
     const groupStyle = cx(style.wrapper, {
       [style.vertical]: this.props.vertical,
@@ -48,19 +59,6 @@ class Group extends React.Component {
     );
   }
 }
-
-Group.defaultProps = {
-  children: [],
-  layout: [],
-};
-
-Group.propTypes = {
-  children: PropTypes.node,
-  vertical: PropTypes.bool,
-  layout: PropTypes.array,
-  style: PropTypes.object,
-  ...getDataProps(),
-};
 
 Group.displayName = 'Plasma@Group';
 

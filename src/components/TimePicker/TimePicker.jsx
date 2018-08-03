@@ -1,29 +1,31 @@
+// @flow
+/* eslint react/prop-types: 0 */
 import React, { Component } from 'react';
-import PropTypes from 'prop-types';
-import { getDataProps } from '../../dataUtils';
 import style from './style.scss';
+import type { Data } from '../../types';
 
-class TimePicker extends Component {
-  static displayName = 'Plasma@TimePicker'
+type Props = {|
+    onBlur: (event: { target: {value: Object} }) => void,
+    onChange: (event: { target: {value: Object} }) => void,
+    time: string,
+    data: Data,
+    disabled: boolean,
+|};
 
-  static propTypes = {
-    onBlur: PropTypes.func.isRequired,
-    onChange: PropTypes.func.isRequired,
-    time: PropTypes.string.isRequired,
-    ...getDataProps(),
-  }
+class TimePicker extends Component<Props> {
+  static displayName = 'Plasma@TimePicker';
 
-  handleBlur = (event) => {
+  handleBlur = (event: { target: {value: Object} }): void => {
     const newTime = event.target.value;
 
     this.props.onBlur(newTime);
-  }
+  };
 
-  handleChange = (event) => {
+  handleChange = (event: { target: {value: Object} }): void => {
     const newTime = event.target.value;
 
     this.props.onChange(newTime);
-  }
+  };
 
   render() {
     const { time, disabled } = this.props;

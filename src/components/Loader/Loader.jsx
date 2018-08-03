@@ -1,12 +1,17 @@
+// @flow
+/* eslint react/prop-types: 0 */
 import React from 'react';
-import PropTypes from 'prop-types';
 import style from './style.scss';
-import {
-  getDataAttrs,
-  getDataProps,
-} from '../../dataUtils';
+import { getDataAttrs } from '../../dataUtils';
+import type { Data } from '../../types';
 
-class Loader extends React.Component {
+type Props = {|
+    style?: Object,
+    dotStyle: ?Object,
+    data?: Data,
+|};
+
+class Loader extends React.Component<Props> {
   render() {
     return (
       <div
@@ -34,14 +39,6 @@ class Loader extends React.Component {
     );
   }
 }
-
-Loader.defaultProps = {};
-
-Loader.propTypes = {
-  style: PropTypes.object,
-  dotStyle: PropTypes.object,
-  ...getDataProps(),
-};
 
 Loader.displayName = 'Plasma@Loader';
 

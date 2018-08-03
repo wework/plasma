@@ -1,8 +1,10 @@
+// @flow
+/* eslint react/prop-types: 0 */
 import cx from 'classnames';
-import React from 'react';
+import React, { type Node } from 'react';
 import ReactDOM from 'react-dom';
-import PropTypes from 'prop-types';
-import { getDataAttrs, getDataProps } from '../../dataUtils';
+import { getDataAttrs } from '../../dataUtils';
+import type { Data } from '../../types';
 import style from './style.scss';
 
 import Header from '../Header/Header';
@@ -14,7 +16,28 @@ const cardTypes = {
 const borderTypes = { DASHED: 'dashed' };
 export const borderColors = { RED: 'red' };
 
-class Card extends React.Component {
+type Props = {|
+    title: string,
+    actions: Array<Object>,
+    children: Node,
+    type: $Values<typeof cardTypes>,
+    onClick: (evt: MouseEvent) => void,
+    borderType: string,
+    borderColor: $Values<typeof borderColors>,
+    expandedComponent: Node,
+    isExpanded: boolean,
+    minWidth: number,
+    data?: Data,
+|};
+
+type State = {|
+    defaultHeight?: number,
+    expandedHeight?: number,
+    isMounted: boolean,
+|};
+
+
+class Card extends React.Component<Props, State> {
   constructor() {
     super();
     this.state = {
@@ -25,15 +48,21 @@ class Card extends React.Component {
   componentDidMount() {
     /* eslint-disable */
     if (this.props.expandedComponent) {
-      const defaultEl = ReactDOM.findDOMNode(this.default);
+      const defaultEl = ReactDOM.findDOMNode(this.default); //$FlowFixMe
       const defaultHeight = defaultEl.offsetHeight;
-      const expandedEl = ReactDOM.findDOMNode(this.expanded);
+      const expandedEl
+
+          = ReactDOM.findDOMNode(this.expanded); //$FlowFixMe
       const expandedHeight = expandedEl.offsetHeight;
       this.setState({ defaultHeight, expandedHeight });
     }
     this.setState({ isMounted: true });
     /* eslint-enable */
   }
+
+  expanded: ?Object;
+  outer: ?Object;
+  default: ?Object;
 
   render() {
     const {
@@ -113,21 +142,6 @@ class Card extends React.Component {
   }
 }
 
-Card.defaultProps = {};
-
-Card.propTypes = {
-  title: PropTypes.string,
-  actions: PropTypes.array,
-  children: PropTypes.node.isRequired,
-  type: PropTypes.oneOf([cardTypes.REGULAR, cardTypes.CONDENSED]),
-  onClick: PropTypes.func,
-  borderType: PropTypes.string,
-  borderColor: PropTypes.oneOf([borderColors.RED]),
-  expandedComponent: PropTypes.node,
-  isExpanded: PropTypes.bool,
-  minWidth: PropTypes.number,
-  ...getDataProps(),
-};
 
 Card.displayName = 'Plasma@Card';
 

@@ -1,9 +1,27 @@
+// @flow
+/* eslint react/prop-types: 0 */
 import { toUpper } from 'lodash';
-import React from 'react';
-import PropTypes from 'prop-types';
+import React, { type Node } from 'react';
 import cx from 'classnames';
-import { getDataAttrs, getDataProps } from '../../dataUtils';
+import { getDataAttrs } from '../../dataUtils';
+import type { Data } from '../../types';
 import style from './style.scss';
+
+type Props = {|
+    placeholder: string,
+    value: string,
+    onChange: () => void,
+    onFocus: () => void,
+    onBlur: () => void,
+    suffix: Node,
+    prefix: Node,
+    isDisabled: boolean,
+    disabled: boolean,
+    size: boolean,
+    error: boolean,
+    maxLength: string,
+    data: Data,
+|};
 
 const TextInput = ({
   suffix,
@@ -19,7 +37,7 @@ const TextInput = ({
   error,
   data,
   maxLength,
-}) => {
+}: Props) => {
   const fixStyle = cx(style.fix, {
     [style.suffix]: suffix,
     [style.prefix]: prefix,
@@ -60,23 +78,6 @@ const TextInput = ({
       {(suffix || prefix) && <div className={fixStyle}>{suffix || prefix}</div>}
     </div>
   );
-};
-
-TextInput.propTypes = {
-  placeholder: PropTypes.string,
-  value: PropTypes.string,
-  onChange: PropTypes.func,
-  onFocus: PropTypes.func,
-  onBlur: PropTypes.func,
-  suffix: PropTypes.node,
-  prefix: PropTypes.node,
-  // DEPRECATED - Use 'disabled' instead
-  isDisabled: PropTypes.bool,
-  disabled: PropTypes.bool,
-  size: PropTypes.bool,
-  error: PropTypes.bool,
-  maxLength: PropTypes.string,
-  ...getDataProps(),
 };
 
 TextInput.defaultProps = {

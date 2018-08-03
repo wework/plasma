@@ -1,12 +1,17 @@
+// @flow
 import React from 'react';
-import PropTypes from 'prop-types';
-import {
-  getDataAttrs,
-  getDataProps,
-} from '../../dataUtils';
+import { getDataAttrs } from '../../dataUtils';
+import type { Data } from '../../types';
 import style from './style.scss';
 
-const Icon = ({ icon, color, data }) => {
+type Props = {|
+    icon: string,
+    color: string,
+    data?: Data,
+    size?: number,
+|};
+
+const Icon = ({ icon, color, data }: Props) => {
   return (
     <div
       className={style.wrapper}
@@ -15,12 +20,6 @@ const Icon = ({ icon, color, data }) => {
       {...getDataAttrs(data)}
     />
   );
-};
-
-Icon.propTypes = {
-  icon: PropTypes.string,
-  color: PropTypes.string,
-  ...getDataProps(),
 };
 
 Icon.defaultProps = {

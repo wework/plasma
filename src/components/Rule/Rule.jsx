@@ -1,12 +1,24 @@
+// @flow
+/* eslint react/prop-types: 0 */
 import cx from 'classnames';
 import React from 'react';
-import PropTypes from 'prop-types';
 import style from './style.scss';
-import { getDataAttrs, getDataProps } from '../../dataUtils';
+import { getDataAttrs } from '../../dataUtils';
+import type { Data } from '../../types';
 
 const type = { SOLID: 'solid', DOTTED: 'dotted', DASHED: 'dashed' };
 
-class Rule extends React.Component {
+type Props = {|
+    type: string,
+    withTopMargin: boolean,
+    data: Data,
+|};
+
+class Rule extends React.Component<Props> {
+  static defaultProps = {
+    type: type.SOLID,
+  };
+
   render() {
     const ruleStyle = cx(style.wrapper, {
       [style.dotted]: this.props.type === type.DOTTED,
@@ -17,16 +29,6 @@ class Rule extends React.Component {
     return <hr {...getDataAttrs(this.props)} className={ruleStyle} />;
   }
 }
-
-Rule.defaultProps = {
-  type: type.SOLID,
-};
-
-Rule.propTypes = {
-  type: PropTypes.string,
-  withTopMargin: PropTypes.bool,
-  ...getDataProps(),
-};
 
 Rule.displayName = 'Plasma@Rule';
 

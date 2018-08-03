@@ -1,16 +1,36 @@
+// @flow
+/* eslint react/prop-types: 0 */
 import React from 'react';
-import PropTypes from 'prop-types';
 import cn from 'classnames';
 import styles from './style.scss';
 
-import {
-  getDataAttrs,
-  getDataProps,
-} from '../../dataUtils';
+import { getDataAttrs } from '../../dataUtils';
+import type { Data } from '../../types';
 
 const defaultImage = 'https://cdn.spacetelescope.org/archives/images/screen/s82e5407.jpg';
 
-class Image extends React.Component {
+type Props = {|
+    style: Object,
+    imageStyle: Object,
+    src: string,
+    altText: string,
+    data: Data,
+    onClick: (evt: MouseEvent) => void,
+    className: Object,
+    fallback: string,
+|};
+
+type State = {|
+    errored: boolean,
+|};
+
+class Image extends React.Component<Props, State> {
+  static defaultProps = {
+    style: { width: 200, height: 'auto' },
+    src: defaultImage,
+    fallback: defaultImage,
+    altText: 'Image',
+  };
   state = {
     errored: false,
   };
@@ -47,21 +67,6 @@ class Image extends React.Component {
     );
   }
 }
-
-Image.defaultProps = {
-  style: { width: 200, height: 'auto' },
-  src: defaultImage,
-  fallback: defaultImage,
-  altText: 'Image',
-};
-
-Image.propTypes = {
-  style: PropTypes.object,
-  imageStyle: PropTypes.object,
-  src: PropTypes.string,
-  altText: PropTypes.string,
-  ...getDataProps(),
-};
 
 Image.displayName = 'Plasma@Image';
 

@@ -1,13 +1,23 @@
-import React from 'react';
-import PropTypes from 'prop-types';
+// @flow
+/* eslint react/prop-types: 0 */
+import React, { type Node } from 'react';
 import cx from 'classnames';
 import style from './style.scss';
-import {
-  getDataAttrs,
-  getDataProps,
-} from '../../dataUtils';
+import { getDataAttrs } from '../../dataUtils';
+import type { Data } from '../../types';
 
-class SegmentedCard extends React.Component {
+type Props = {|
+  children: Array<Node>,
+  style: Object,
+  vertical: Boolean,
+  data: Data,
+|};
+
+class SegmentedCard extends React.Component<Props> {
+  static defaultProps = {
+    children: ['Side', 'Content'],
+    style: {},
+  };
   render() {
     const className = cx(style.card, {
       [style.vertical]: this.props.vertical,
@@ -29,18 +39,6 @@ class SegmentedCard extends React.Component {
     );
   }
 }
-
-SegmentedCard.defaultProps = {
-  children: ['Side', 'Content'],
-  style: {},
-};
-
-SegmentedCard.propTypes = {
-  children: PropTypes.node.isRequired,
-  style: PropTypes.object,
-  vertical: PropTypes.bool,
-  ...getDataProps(),
-};
 
 SegmentedCard.displayName = 'Plasma@SegmentedCard';
 

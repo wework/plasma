@@ -1,12 +1,22 @@
-import React from 'react';
-import PropTypes from 'prop-types';
+// @flow
+/* eslint react/prop-types: 0 */
+import React, { type Node } from 'react';
 import style from './style.scss';
-import {
-  getDataAttrs,
-  getDataProps,
-} from '../../dataUtils';
+import { getDataAttrs } from '../../dataUtils';
+import type { Data } from '../../types';
 
-class Tooltip extends React.Component {
+type Props = {|
+    children: Node,
+    content: Node,
+    data: Data,
+|};
+
+class Tooltip extends React.Component<Props> {
+
+  static defaultProps = {
+    children: 'test',
+    content: 'Protip: Tooltips can be used to reveal information.',
+  };
   render() {
     return (
       <div
@@ -21,18 +31,6 @@ class Tooltip extends React.Component {
     );
   }
 }
-
-Tooltip.defaultProps = {
-  children: 'test',
-  content: 'Protip: Tooltips can be used to reveal information.',
-};
-
-Tooltip.propTypes = {
-  children: PropTypes.node.isRequired,
-  content: PropTypes.node,
-  data: PropTypes.object,
-  ...getDataProps(),
-};
 
 Tooltip.displayName = 'Plasma@Tooltip';
 
