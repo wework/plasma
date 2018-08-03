@@ -12,7 +12,7 @@ const direction = { RIGHT: 'right', LEFT: 'left' };
 type Props = {|
   disabled: boolean,
   options: Array<Data>,
-  onClick: (event: Event) => mixed,
+  onClick: (event: Event) => void,
   openDirection: $Values<typeof direction>,
   label: string,
   data: Data,

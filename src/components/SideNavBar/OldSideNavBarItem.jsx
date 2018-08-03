@@ -1,10 +1,27 @@
-import React, { Component } from 'react';
-import PropTypes from 'prop-types';
+// @flow
+import React, { Component, type Node } from 'react';
 import cn from 'classnames';
 import style from './oldStyle.scss';
 
-class SideNavBarItem extends Component {
-  renderIconAndLabel() {
+type Props = {|
+  icon: string,
+  iconSize: number,
+  iconStyle: Object,
+  label: string,
+  onClick: () => mixed,
+  selected: boolean,
+  children: Node,
+  darkBg: boolean,
+|};
+
+class SideNavBarItem extends Component<Props> {
+  static defaultProps = {
+    label: 'Label',
+    iconSize: 24,
+    selected: false,
+  };
+
+  renderIconAndLabel(): Node {
     const { icon, iconSize, iconStyle, label } = this.props;
 
     const renderIcon = icon && iconSize && (
@@ -46,30 +63,6 @@ class SideNavBarItem extends Component {
     );
   }
 }
-
-SideNavBarItem.defaultProps = {
-  label: 'Label',
-  iconSize: 24,
-  selected: false,
-};
-
-SideNavBarItem.propTypes = {
-  /**
-  * URL to an image
-  */
-  icon: PropTypes.string,
-  iconSize: PropTypes.number,
-  /**
-  * Only override iconStyle when absolutely necessary.
-  * Prefer `iconSize`.
-  */
-  iconStyle: PropTypes.object,
-  label: PropTypes.string,
-  onClick: PropTypes.func,
-  selected: PropTypes.bool,
-  children: PropTypes.node,
-  darkBg: PropTypes.bool,
-};
 
 SideNavBarItem.displayName = 'Plasma@SideNavBarItem';
 

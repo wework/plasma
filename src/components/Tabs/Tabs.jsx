@@ -6,10 +6,11 @@ import { getDataAttrs } from '../../dataUtils';
 import type { Data } from '../../types';
 import style from './style.scss';
 
-type Tab = {
+type Tab = {|
     label: string,
     title: string,
-};
+|};
+
 type Props = {|
   items: Array<Tab>,
   onChange: (string, number) => void,

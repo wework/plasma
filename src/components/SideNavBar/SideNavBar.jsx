@@ -6,11 +6,14 @@ import SideNavBarItemGroup from './SideNavBarItemGroup';
 import SideNavBarTop from './SideNavBarTop';
 import style from './style.scss';
 
-type Item = {|
+export type Item = {|
   id: string,
   icon: string,
   label: string,
   items: Array<Item>,
+  linkComponent?: Node,
+  tagText?: string,
+  hidden?: boolean,
 |};
 
 type Props = {|

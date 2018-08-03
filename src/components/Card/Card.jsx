@@ -16,16 +16,16 @@ const borderTypes = { DASHED: 'dashed' };
 export const borderColors = { RED: 'red' };
 
 type Props = {|
-  title: string,
-  actions: Array<Object>,
-  children: Node,
-  type: $Values<typeof cardTypes>,
-  onClick: (evt: MouseEvent) => void,
-  borderType: string,
-  borderColor: $Values<typeof borderColors>,
-  expandedComponent: Node,
-  isExpanded: boolean,
-  minWidth: number,
+  title?: string,
+  actions?: Array<Object>,
+  children?: Node,
+  type?: $Values<typeof cardTypes>,
+  onClick?: (evt: MouseEvent) => void,
+  borderType?: string,
+  borderColor?: $Values<typeof borderColors>,
+  expandedComponent?: Node,
+  isExpanded?: boolean,
+  minWidth?: number,
   data?: Data,
 |};
 
