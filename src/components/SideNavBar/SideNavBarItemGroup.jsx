@@ -6,17 +6,17 @@ import { type Item } from './SideNavBar';
 import style from './style.scss';
 
 
-type Props = {
+type Props = {|
   id: string,
   icon: string,
   iconSize: number,
   iconStyle?: Object,
-  label: Node | string,
+  label: Node,
   onClick: ({ id: string }) => mixed,
   items: Array<Item>,
   darkBg?: boolean,
   selectedId: string,
-};
+|};
 
 class SideNavBarItemGroup extends Component<Props> {
   static defaultProps = {

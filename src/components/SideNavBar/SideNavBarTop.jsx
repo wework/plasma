@@ -4,11 +4,11 @@ import cn from 'classnames';
 import Icon from '../Icon/Icon';
 import style from './style.scss';
 
-type Props = {
+type Props = {|
   label: string,
   icon: string,
-  onClick: () => mixed,
-};
+  onClick: () => void,
+|};
 
 const SideBarNavTop = ({ label, onClick, icon }: Props) => {
   return (

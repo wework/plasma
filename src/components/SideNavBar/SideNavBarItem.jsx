@@ -3,19 +3,19 @@ import React, { Component, type Node } from 'react';
 import cn from 'classnames';
 import style from './style.scss';
 
-type Props = {
+type Props = {|
   id: string,
   icon?: string,
   iconSize: number,
   iconStyle?: Object,
-  label: Node | string,
+  label: Node,
   onClick: (string) => mixed,
   selected: boolean,
   children?: Node,
   darkBg?: boolean,
   linkComponent: Node,
   tagText: ?string,
-};
+|};
 
 class SideNavBarItem extends Component<Props> {
   static defaultProps = {

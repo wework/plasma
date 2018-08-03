@@ -2,9 +2,9 @@
 import React, { Component, type Node } from 'react';
 import style from './oldStyle.scss';
 
-type Props = {
+type Props = {|
   children: Node,
-};
+|};
 
 class SideNavBar extends Component<Props> {
   render() {

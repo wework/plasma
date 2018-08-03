@@ -3,7 +3,7 @@ import React, { Component, type Node } from 'react';
 import cn from 'classnames';
 import style from './oldStyle.scss';
 
-type Props = {
+type Props = {|
   icon: string,
   iconSize: number,
   iconStyle: Object,
@@ -12,7 +12,7 @@ type Props = {
   selected: boolean,
   children: Node,
   darkBg: boolean,
-};
+|};
 
 class SideNavBarItem extends Component<Props> {
   static defaultProps = {
