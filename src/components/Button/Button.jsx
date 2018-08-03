@@ -10,16 +10,16 @@ const buttontType = { PRIMARY: 'primary', SECONDARY: 'secondary', TERTIARY: 'ter
 const size = { SMALL: 'small' };
 
 type Props = {|
-  label: string,
-  onClick: (evt: MouseEvent) => void,
+  label?: string,
+  onClick?: (evt: MouseEvent) => void,
   type?: string,
   disabled: boolean,
   loading: boolean,
   children: Node,
-  style: Object,
-  isSubmit: boolean,
-  size: string,
-  data: Data,
+  style?: Object,
+  isSubmit?: boolean,
+  size?: string,
+  data?: Data,
 |};
 
 class Button extends React.Component<Props> {

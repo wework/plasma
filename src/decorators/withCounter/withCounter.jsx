@@ -1,15 +1,16 @@
-import React from 'react';
-import PropTypes from 'prop-types';
+// @flow
+import React, { type ComponentType } from 'react';
 import cx from 'classnames';
 import style from './style.scss';
 
-const withCounter = Component => {
-  return class extends React.Component {
-    static propTypes = {
-      value: PropTypes.string,
-      counterStyle: PropTypes.object,
-      maxLength: PropTypes.string,
-    };
+type Props = {
+  value: string,
+  counterStyle: any,
+  maxLength: string,
+};
+
+const withCounter = (Component: ComponentType<Object>) => {
+  return class extends React.Component<Props> {
 
     render() {
       const wrapperStyle = cx(style.wrapper, {

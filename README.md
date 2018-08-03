@@ -106,6 +106,8 @@ For testing, Plasma uses Jest (https://facebook.github.io/jest/) with Enzyme (ht
 
 Tests are located in `src/tests`.
 
+Flow coverage can be checked via `yarn flow:coverage`.
+
 ### Running tests
 
 1. Run `yarn jest` for a single run or `yarn jest:watch` to watch for changes.
