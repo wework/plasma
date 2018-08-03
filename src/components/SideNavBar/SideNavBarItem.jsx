@@ -1,15 +1,35 @@
-import React, { Component } from 'react';
-import PropTypes from 'prop-types';
+// @flow
+import React, { Component, type Node } from 'react';
 import cn from 'classnames';
 import style from './style.scss';
 
-class SideNavBarItem extends Component {
+type Props = {
+  id: string,
+  icon?: string,
+  iconSize: number,
+  iconStyle?: Object,
+  label: Node | string,
+  onClick: (string) => mixed,
+  selected: boolean,
+  children?: Node,
+  darkBg?: boolean,
+  linkComponent: Node,
+  tagText: ?string,
+};
 
-  _onClick = () => {
+class SideNavBarItem extends Component<Props> {
+  static defaultProps = {
+    label: 'Label',
+    iconSize: 16,
+    selected: false,
+    tagText: null,
+  };
+
+  _onClick = (): void => {
     this.props.onClick(this.props.id);
-  }
+  };
 
-  renderIconAndLabel() {
+  renderIconAndLabel(): Node {
     const { label } = this.props;
 
     return (
@@ -53,34 +73,6 @@ class SideNavBarItem extends Component {
     return comp;
   }
 }
-
-SideNavBarItem.defaultProps = {
-  label: 'Label',
-  iconSize: 16,
-  selected: false,
-  tagText: null,
-};
-
-SideNavBarItem.propTypes = {
-  id: PropTypes.string,
-  /**
-  * URL to an image
-  */
-  icon: PropTypes.string,
-  iconSize: PropTypes.number,
-  /**
-  * Only override iconStyle when absolutely necessary.
-  * Prefer `iconSize`.
-  */
-  iconStyle: PropTypes.object,
-  label: PropTypes.oneOfType([PropTypes.string, PropTypes.node]),
-  onClick: PropTypes.func,
-  selected: PropTypes.bool,
-  children: PropTypes.node,
-  darkBg: PropTypes.bool,
-  linkComponent: PropTypes.node,
-  tagText: PropTypes.string,
-};
 
 SideNavBarItem.displayName = 'Plasma@SideNavBarItem';
 

@@ -1,10 +1,28 @@
-import React, { Component } from 'react';
-import PropTypes from 'prop-types';
+// @flow
+import React, { Component, type Node } from 'react';
 import { find } from 'lodash';
 import SideNavBarItem from './SideNavBarItem';
+import { type Item } from './SideNavBar';
 import style from './style.scss';
 
-class SideNavBarItemGroup extends Component {
+
+type Props = {
+  id: string,
+  icon: string,
+  iconSize: number,
+  iconStyle?: Object,
+  label: Node | string,
+  onClick: ({ id: string }) => mixed,
+  items: Array<Item>,
+  darkBg?: boolean,
+  selectedId: string,
+};
+
+class SideNavBarItemGroup extends Component<Props> {
+  static defaultProps = {
+    label: 'Label',
+    iconSize: 22,
+  };
 
   handleGroupClick = () => {
     if (this.props.items && this.props.items[0]) {
@@ -12,11 +30,11 @@ class SideNavBarItemGroup extends Component {
     } else {
       this.props.onClick({ id: this.props.id });
     }
-  }
+  };
 
-  handleItemClick = (itemId) => {
+  handleItemClick = (itemId: string): void => {
     this.props.onClick({ id: itemId });
-  }
+  };
 
   renderIconAndLabel() {
     const { icon, iconSize, iconStyle, label, items } = this.props;
@@ -82,30 +100,6 @@ class SideNavBarItemGroup extends Component {
     );
   }
 }
-
-SideNavBarItemGroup.defaultProps = {
-  label: 'Label',
-  iconSize: 22,
-};
-
-SideNavBarItemGroup.propTypes = {
-  id: PropTypes.string,
-  /**
-  * URL to an image
-  */
-  icon: PropTypes.string,
-  iconSize: PropTypes.number,
-  /**
-  * Only override iconStyle when absolutely necessary.
-  * Prefer `iconSize`.
-  */
-  iconStyle: PropTypes.object,
-  label: PropTypes.oneOfType([PropTypes.string, PropTypes.node]),
-  onClick: PropTypes.func,
-  items: PropTypes.array,
-  darkBg: PropTypes.bool,
-  selectedId: PropTypes.string,
-};
 
 SideNavBarItemGroup.displayName = 'Plasma@SideNavBarItemGroup';
 

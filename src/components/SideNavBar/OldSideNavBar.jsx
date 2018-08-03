@@ -1,8 +1,12 @@
-import React, { Component } from 'react';
-import PropTypes from 'prop-types';
+// @flow
+import React, { Component, type Node } from 'react';
 import style from './oldStyle.scss';
 
-class SideNavBar extends Component {
+type Props = {
+  children: Node,
+};
+
+class SideNavBar extends Component<Props> {
   render() {
     return (
       <div className={style.wrapper}>
@@ -11,10 +15,6 @@ class SideNavBar extends Component {
     );
   }
 }
-
-SideNavBar.propTypes = {
-  children: PropTypes.node.isRequired,
-};
 
 SideNavBar.displayName = 'Plasma@SideNavBar';
 
