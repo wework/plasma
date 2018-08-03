@@ -1,15 +1,14 @@
 // @flow
 import React from 'react';
 import style from './style.scss';
-import {
-  getDataAttrs,
-} from '../../dataUtils';
+import { getDataAttrs } from '../../dataUtils';
+import type { Data } from '../../types';
 
-type Props = {
-  data: { [string]: mixed },
-  style: { [string]: mixed },
-  dotStyle: { [string]: mixed }
-};
+type Props = {|
+  style?: Object,
+  dotStyle: ?Object,
+  data?: Data,
+|};
 
 class Loader extends React.Component<Props> {
   render() {

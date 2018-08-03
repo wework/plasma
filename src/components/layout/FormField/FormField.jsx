@@ -6,7 +6,7 @@ import {
 import styles from './style.scss';
 import Label from '../../Label/Label.jsx';
 
-type Props = {
+type Props = {|
   children: Node,
   isDisabled: boolean,
   isRequired: boolean,
@@ -15,7 +15,7 @@ type Props = {
   errorMessage: string,
   data: Object,
   style: Object,
-};
+|};
 
 const FormField = (
   {

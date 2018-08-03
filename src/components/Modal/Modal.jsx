@@ -1,13 +1,24 @@
-import React from 'react';
-import PropTypes from 'prop-types';
+// @flow
+import React, { type Node } from 'react';
 import style from './style.scss';
 import Header from '../Header/Header';
-import {
-  getDataAttrs,
-  getDataProps,
-} from '../../dataUtils';
+import { getDataAttrs } from '../../dataUtils';
+import type { Data } from '../../types';
 
-class Modal extends React.Component {
+
+type Props = {|
+  title: string,
+  actions: Array<Node>,
+  children: Node,
+  visible: boolean,
+  onDismiss: (evt: MouseEvent) => void,
+  style: Object,
+  minWidth: number,
+  maxWidth: number,
+  data: Data,
+|};
+
+class Modal extends React.Component<Props> {
   render() {
     let comp = null;
     const {
@@ -57,20 +68,6 @@ class Modal extends React.Component {
     return comp;
   }
 }
-
-Modal.defaultProps = {};
-
-Modal.propTypes = {
-  title: PropTypes.string,
-  actions: PropTypes.arrayOf(PropTypes.element),
-  children: PropTypes.node.isRequired,
-  visible: PropTypes.bool,
-  onDismiss: PropTypes.func,
-  style: PropTypes.object,
-  minWidth: PropTypes.number,
-  maxWidth: PropTypes.number,
-  ...getDataProps(),
-};
 
 Modal.displayName = 'Plasma@Modal';
 

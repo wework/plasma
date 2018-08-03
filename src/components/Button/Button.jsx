@@ -1,33 +1,46 @@
+// @flow
 import cx from 'classnames';
-import React from 'react';
-import PropTypes from 'prop-types';
-import {
-  getDataAttrs,
-  getDataProps }
-from '../../dataUtils';
+import React, { type Node } from 'react';
+import { getDataAttrs } from '../../dataUtils';
 import Loader from '../Loader/Loader.jsx';
 import style from './style.scss';
+import type { Data } from '../../types';
 
-const type = { PRIMARY: 'primary', SECONDARY: 'secondary', TERTIARY: 'tertiary' };
+const buttontType = { PRIMARY: 'primary', SECONDARY: 'secondary', TERTIARY: 'tertiary' };
 const size = { SMALL: 'small' };
 
-class Button extends React.Component {
+type Props = {|
+  label: string,
+  onClick: (evt: MouseEvent) => void,
+  type?: string,
+  disabled: boolean,
+  loading: boolean,
+  children: Node,
+  style: Object,
+  isSubmit: boolean,
+  size: string,
+  data: Data,
+|};
+
+class Button extends React.Component<Props> {
+  static defaultProps = {
+    type: buttontType.PRIMARY,
+    disabled: false,
+    loading: false,
+  };
 
   render() {
     const buttonStyle = cx(style.button, {
-      [style.primary]: this.props.type === type.PRIMARY,
-      [style.secondary]: this.props.type === type.SECONDARY,
-      [style.tertiary]: this.props.type === type.TERTIARY,
+      [style.primary]: this.props.type === buttontType.PRIMARY,
+      [style.secondary]: this.props.type === buttontType.SECONDARY,
+      [style.tertiary]: this.props.type === buttontType.TERTIARY,
       [style.small]: this.props.size === size.SMALL,
       [style.loading]: this.props.loading,
       [style.disabled]: this.props.disabled,
     });
 
     let loaderDotStyle;
-    if (
-      this.props.type === type.SECONDARY
-      || this.props.type === type.TERTIARY
-    ) {
+    if (this.props.type === buttontType.SECONDARY || this.props.type === buttontType.TERTIARY) {
       loaderDotStyle = { backgroundColor: '#000', opacity: '0.1' };
     }
 
@@ -58,27 +71,6 @@ class Button extends React.Component {
   }
 }
 
-Button.defaultProps = {
-  type: type.PRIMARY,
-  disabled: false,
-  loading: false,
-};
-
-Button.propTypes = {
-  label: PropTypes.string,
-  /**
-  * Callback to handle click event
-  */
-  onClick: PropTypes.func,
-  type: PropTypes.string,
-  disabled: PropTypes.bool,
-  loading: PropTypes.bool,
-  children: PropTypes.node,
-  style: PropTypes.object,
-  isSubmit: PropTypes.bool,
-  size: PropTypes.string,
-  ...getDataProps(),
-};
 
 Button.displayName = 'Plasma@Button';
 

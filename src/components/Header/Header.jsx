@@ -1,25 +1,25 @@
 // @flow
-
 import cx from 'classnames';
 import React, { type Node } from 'react';
 import style from './style.scss';
 import { getDataAttrs } from '../../dataUtils';
+import type { Data } from '../../types';
 
-type Props = {
-  text: string,
-  children: Node,
-  underline: boolean,
-  h1: boolean,
-  h2: boolean,
-  h3: boolean,
-  h4: boolean,
-  h5: boolean,
-  h6: boolean,
-  invert: boolean,
-  style: { [string]: mixed },
-  noMargin: boolean,
-  data: Object
-};
+type Props = {|
+  text?: string,
+  children?: Node,
+  underline?: boolean,
+  h1?: boolean,
+  h2?: boolean,
+  h3?: boolean,
+  h4?: boolean,
+  h5?: boolean,
+  h6?: boolean,
+  invert?: boolean,
+  style?: boolean,
+  noMargin?: boolean,
+  data?: Data,
+|};
 
 class Header extends React.Component<Props> {
   render() {

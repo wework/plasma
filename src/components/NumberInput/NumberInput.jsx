@@ -1,41 +1,76 @@
+// @flow
 import { toNumber, toString } from 'lodash';
 import React from 'react';
-import PropTypes from 'prop-types';
 import cx from 'classnames';
 import style from './style.scss';
-import {
-  getDataAttrs,
-  getDataProps,
-} from '../../dataUtils';
+import { getDataAttrs } from '../../dataUtils';
+import type { Data } from '../../types';
 
-class NumberInput extends React.Component {
-  handleIncrement = () => {
+type HandleEvent = {|
+  target: {
+    parentElement: {
+      classList: {
+        remove: (string) => mixed,
+        add: (string) => mixed,
+      }
+    }
+    },
+    nativeEvent: {
+    target: {
+      value: Object
+    }
+  }
+|};
+type Props = {|
+  data: Data,
+  disabled: boolean,
+  error: boolean,
+  maxValue: number,
+  minValue: number,
+  onBlur: (HandleEvent) => void,
+  onChange: (HandleEvent) => void,
+  onFocus: (HandleEvent) => void,
+  placeholder: string,
+  step: number,
+  value: string,
+|};
+
+class NumberInput extends React.Component<Props> {
+  static defaultProps = {
+    value: '',
+    placeholder: '',
+    step: 1,
+    maxValue: Number.MAX_SAFE_INTEGER,
+    minValue: Number.MIN_SAFE_INTEGER,
+  };
+
+  handleIncrement = (): void => {
     const { maxValue, value, step, onChange } = this.props;
     const prevValue = toNumber(value);
     const nextValue = prevValue + step;
     if (maxValue >= nextValue) onChange(toString(nextValue));
-  }
+  };
 
-  handleDecrement = () => {
+  handleDecrement = (): void => {
     const { minValue, value, step, onChange } = this.props;
     const prevValue = toNumber(value);
     const nextValue = prevValue - step;
     if (minValue <= nextValue) onChange(toString(nextValue));
-  }
+  };
 
-  handleChange = e => {
+  handleChange = (e: HandleEvent): void => {
     this.props.onChange(e.nativeEvent.target.value);
-  }
+  };
 
-  handleBlur = e => {
+  handleBlur = (e: HandleEvent): void => {
     e.target.parentElement.classList.remove(style.wrapperFocused);
     this.props.onBlur && this.props.onBlur(e.nativeEvent.target.value);
-  }
+  };
 
-  handleFocus = e => {
+  handleFocus = (e: HandleEvent): void => {
     e.target.parentElement.classList.add(style.wrapperFocused);
     this.props.onFocus && this.props.onFocus(e.nativeEvent.target.value);
-  }
+  };
 
   render() {
     const { disabled, error, data, placeholder, value, step, minValue, maxValue } = this.props;
@@ -89,28 +124,6 @@ class NumberInput extends React.Component {
     );
   }
 }
-
-NumberInput.propTypes = {
-  ...getDataProps(),
-  disabled: PropTypes.bool,
-  error: PropTypes.bool,
-  maxValue: PropTypes.number,
-  minValue: PropTypes.number,
-  onBlur: PropTypes.func,
-  onChange: PropTypes.func.isRequired,
-  onFocus: PropTypes.func,
-  placeholder: PropTypes.string,
-  step: PropTypes.number,
-  value: PropTypes.string.isRequired, // type="number" will prevent letters from being typed https://www.w3.org/wiki/HTML/Elements/input/number
-};
-
-NumberInput.defaultProps = {
-  value: '',
-  placeholder: '',
-  step: 1,
-  maxValue: Number.MAX_SAFE_INTEGER,
-  minValue: Number.MIN_SAFE_INTEGER,
-};
 
 NumberInput.displayName = 'Plasma@NumberInput';
 

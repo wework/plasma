@@ -1,9 +1,9 @@
+// @flow
 import {
   pick,
   keys,
   forEach,
   isNull,
-  throttle,
   get,
   map,
   includes,
@@ -11,18 +11,49 @@ import {
   find,
 } from 'lodash';
 import React from 'react';
-import PropTypes from 'prop-types';
 import cx from 'classnames';
-import {
-  getDataAttrs,
-  getDataProps,
-} from '../../dataUtils';
+import { getDataAttrs } from '../../dataUtils';
+import type { Data } from '../../types';
 import Icon from '../Icon/Icon';
 import upArrow from '../../icons/upArrow';
 import downArrow from '../../icons/downArrow';
 import style from './style.scss';
 
-class Table extends React.Component {
+type Props = {|
+  clickable: boolean,
+  empty: boolean,
+  emptyText: string,
+  headerData: Array<Object>,
+  highlightable: boolean,
+  items: Array<Object>,
+  loading: boolean,
+  onSort: (string) => void,
+  selectedColumnKey: string,
+  spanMap: Object,
+  stickAt: number,
+  style: Object,
+  data: Data,
+  sort: {key: string, order: string},
+|};
+
+type State = {|
+  columnSizes: Object,
+  tableWidth: number,
+  backgroundColor?: ?string,
+  stickyCoverHeight?: number,
+  translateY?: number,
+  showSticky?: boolean,
+  headerHeight: number,
+|};
+
+class Table extends React.Component<Props, State> {
+  static defaultProps = {
+    empty: false,
+    emptyText: '',
+    loading: false,
+    stickAt: null,
+    headerData: [],
+  };
 
   constructor() {
     super();
@@ -33,15 +64,9 @@ class Table extends React.Component {
       stickyCoverHeight: 0,
       translateY: 0,
       showSticky: false,
+      headerHeight: 0,
     };
     this.headerComponents = {};
-    this.componentDidMount = this.componentDidMount.bind(this);
-    this.componentDidUpdate = this.componentDidUpdate.bind(this);
-    this.handleScroll = this.handleScroll.bind(this);
-    this.handleWindowResize = throttle(this.handleWindowResize, 100).bind(this);
-    this.handleColumnMouseEnter = this.handleColumnMouseEnter.bind(this);
-    this.handleColumnMouseLeave = this.handleColumnMouseLeave.bind(this);
-    this.updateState = this.updateState.bind(this);
   }
 
   componentDidMount() {
@@ -73,22 +98,24 @@ class Table extends React.Component {
       td.removeEventListener('mouseleave', this.handleColumnMouseLeave);
     });
   }
+  table: any;
+  fixed: any;
+  headerComponents: Object;
 
-  handleColumnMouseEnter() {
+  handleColumnMouseEnter = () => {
 
-  }
+  };
 
-  handleColumnMouseLeave() {
+  handleColumnMouseLeave = () => {
 
-  }
+  };
 
-  handleWindowResize() {
-    this.fixedHeight = document.documentElement.clientHeight;
+  handleWindowResize = () => {
     this.calculateSizes();
     this.handleScroll();
-  }
+  };
 
-  handleScroll() {
+  handleScroll = () => {
     if (!isNull(this.props.stickAt)) {
       const tableTopOffset = this.table.getBoundingClientRect().top;
       const tableBottomOffset = this.table.getBoundingClientRect().bottom;
@@ -104,17 +131,17 @@ class Table extends React.Component {
       this.fixed.style['pointer-event'] = isVisible ? 'auto' : 'none';
       this.fixed.style.opacity = isVisible ? 1 : 0;
     }
-  }
+  };
 
-  updateState(newState, callback) {
+  updateState = (newState: State, callback?: () => mixed) => {
     // only update the state if it changed to save on updates
     // and prevent a render loop
     if (!isEqual(pick(this.state, keys(newState)), newState)) {
       this.setState(newState, callback);
     }
-  }
+  };
 
-  calculateSizes(callback) {
+  calculateSizes = (callback?: () => mixed) => {
     const headerSizes = {};
     let maxHeaderHeight = 0;
     forEach(this.headerComponents, (value, key) => {
@@ -142,7 +169,7 @@ class Table extends React.Component {
     return <Icon color="#fff" icon={this.props.sort.order === 'asc' ? downArrow : upArrow} />;
   }
 
-  renderHeader(opts = {}) {
+  renderHeader(opts: Object = {}) {
     const { sort, onSort } = this.props;
     const headerComponents = map(this.props.headerData, (value) => {
       let colStyles = { width: value.width };
@@ -380,30 +407,6 @@ class Table extends React.Component {
     );
   }
 }
-
-Table.propTypes = {
-  clickable: PropTypes.bool,
-  empty: PropTypes.bool,
-  emptyText: PropTypes.string,
-  headerData: PropTypes.array,
-  highlightable: PropTypes.bool,
-  items: PropTypes.array,
-  loading: PropTypes.bool,
-  onSort: PropTypes.func,
-  selectedColumnKey: PropTypes.string,
-  spanMap: PropTypes.object,
-  stickAt: PropTypes.number,
-  style: PropTypes.object,
-  ...getDataProps(),
-};
-
-Table.defaultProps = {
-  empty: false,
-  emptyText: '',
-  loading: false,
-  stickAt: null,
-  headerData: [],
-};
 
 Table.displayName = 'Plasma@Table';
 

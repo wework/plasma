@@ -1,24 +1,23 @@
 // @flow
-/* eslint react/prop-types: 0 */
 import React from 'react';
 import RadioButton from '../RadioButton/RadioButton';
 
-type Option = {
+type Option = {|
   description?: string,
   disabled?: boolean,
   icon?: string,
   label: string,
   value: string,
-}
+|}
 
-type Props = {
+type Props = {|
   fancy?: boolean,
   isLarge?: boolean,
   name: string,
   onChange: () => mixed,
   options: Array<Option>,
   value?: string,
-}
+|}
 
 class RadioButtonGroup extends React.Component<Props> {
   static defaultProps = {
