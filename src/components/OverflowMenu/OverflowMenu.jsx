@@ -1,34 +1,53 @@
+// @flow
 import cx from 'classnames';
 import { map } from 'lodash';
-import React from 'react';
-import PropTypes from 'prop-types';
-import { getDataAttrs, getDataProps } from '../../dataUtils';
+import React, { type Node } from 'react';
+import { getDataAttrs } from '../../dataUtils';
+import type { Data } from '../../types';
 import OverflowMenuItem from './OverflowMenuItem.jsx';
 import style from './style.scss';
 
 const direction = { RIGHT: 'right', LEFT: 'left' };
 
-class OverflowMenu extends React.Component {
+type Props = {|
+  disabled: boolean,
+  options: Array<Data>,
+  onClick: (event: Event) => mixed,
+  openDirection: $Values<typeof direction>,
+  label: string,
+  data: Data,
+|};
+
+type State = {|
+    revealed: boolean,
+|};
+
+class OverflowMenu extends React.Component<Props, State> {
+  static defaultProps = {
+    options: [],
+    openDirection: direction.RIGHT,
+  };
+
   state = {
     revealed: false,
   };
 
-  handleMouseEnter = () => {
+  handleMouseEnter = (): void => {
     if (!this.props.disabled) {
       this.setState({ revealed: true });
     }
   };
 
-  handleMouseLeave = () => {
+  handleMouseLeave = (): void => {
     this.setState({ revealed: false });
   };
 
-  handleClick = event => {
+  handleClick = (event: Event) => {
     this.setState({ revealed: false });
     this.props.onClick(event);
   };
 
-  renderLabel = () => {
+  renderLabel = (): Node => {
     const { label } = this.props;
     if (label) {
       return <div className={style.labelWithText}>{label} &#9662;</div>;
@@ -73,25 +92,6 @@ class OverflowMenu extends React.Component {
     );
   }
 }
-
-OverflowMenu.defaultProps = {
-  options: [],
-  openDirection: direction.RIGHT,
-};
-
-OverflowMenu.propTypes = {
-  disabled: PropTypes.bool,
-  options: PropTypes.arrayOf(
-    PropTypes.shape({
-      key: PropTypes.string.isRequired,
-      text: PropTypes.string,
-    })
-  ),
-  onClick: PropTypes.func,
-  openDirection: PropTypes.oneOf([direction.LEFT, direction.RIGHT]),
-  label: PropTypes.string,
-  ...getDataProps(),
-};
 
 OverflowMenu.displayName = 'Plasma@OverflowMenu';
 

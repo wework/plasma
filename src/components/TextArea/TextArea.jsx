@@ -1,20 +1,42 @@
+// @flow
 import { toUpper } from 'lodash';
 import React, { Component } from 'react';
-import PropTypes from 'prop-types';
 import cx from 'classnames';
-import { getDataAttrs, getDataProps } from '../../dataUtils';
+import { getDataAttrs } from '../../dataUtils';
+import type { Data } from '../../types';
 import Autogrow from './autogrow';
 import style from './style.scss';
 
-class TextArea extends Component {
+type Props = {|
+  autosize: boolean,
+  disabled: boolean,
+  error: boolean,
+  maxLength: string,
+  onBlur: () => void,
+  onChange: () => void,
+  onFocus: () => void,
+  placeholder: string,
+  rows: string,
+  size: string,
+  value: string,
+  data: Data,
+|};
+
+class TextArea extends Component<Props> {
+  static defaultProps = {
+    placeholder: '',
+    rows: '3',
+    autosize: true,
+  };
   componentWillUnmount() {
     this.autogrow && this.autogrow.destroy();
   }
-  onRef = (el) => {
+  onRef = (el: ?Object) => {
     if (el && this.props.autosize) {
       this.autogrow = new Autogrow(el);
     }
   };
+  autogrow: Object;
   render() {
     const {
       data,
@@ -49,13 +71,13 @@ class TextArea extends Component {
           disabled={disabled}
           onChange={onChange}
           rows={rows}
-          onFocus={e => {
+          onFocus={(e: { target: {parentElement: {className: string}} }) => {
             /* eslint-disable no-param-reassign */
             e.target.parentElement.className += ` ${style.wrapperFocused}`;
             /* eslint-enable no-param-reassign */
             onFocus && onFocus();
           }}
-          onBlur={e => {
+          onBlur={(e: { target: {parentElement: {classList: Object}} }) => {
             e.target.parentElement.classList.remove(style.wrapperFocused);
             onBlur && onBlur();
           }}
@@ -67,27 +89,6 @@ class TextArea extends Component {
     );
   }
 }
-
-TextArea.propTypes = {
-  autosize: PropTypes.bool,
-  disabled: PropTypes.bool,
-  error: PropTypes.bool,
-  maxLength: PropTypes.string,
-  onBlur: PropTypes.func,
-  onChange: PropTypes.func,
-  onFocus: PropTypes.func,
-  placeholder: PropTypes.string,
-  rows: PropTypes.string,
-  size: PropTypes.string,
-  value: PropTypes.string,
-  ...getDataProps(),
-};
-
-TextArea.defaultProps = {
-  placeholder: '',
-  rows: '3',
-  autosize: true,
-};
 
 TextArea.displayName = 'Plasma@TextArea';
 

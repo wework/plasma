@@ -1,11 +1,9 @@
+// @flow
 import React from 'react';
-import PropTypes from 'prop-types';
 import cx from 'classnames';
 import _ from 'lodash';
-import {
-  getDataAttrs,
-  getDataProps,
-} from '../../dataUtils';
+import { getDataAttrs } from '../../dataUtils';
+import type { Data } from '../../types';
 import style from './style.scss';
 
 const type = {
@@ -14,12 +12,31 @@ const type = {
   SMALL: 'small',
 };
 
-class Toggle extends React.Component {
-  onClick(toggle, index) {
+type Props = {|
+  items: {
+    label: string,
+	title: string,
+	disabled: boolean,
+    },
+  onChange: (string, number) => void,
+  selectedIndex: number,
+  selectedLabel: string,
+  type: string,
+  data: Data,
+  size: string,
+|};
+
+class Toggle extends React.Component<Props> {
+  static defaultProps = {
+    items: [],
+    type: type.HORIZONTAL,
+    onChange: () => { },
+  };
+  onClick(toggle: Object, index: number) {
     this.props.onChange(toggle.label, index);
   }
 
-  onKeyDown(event, toggle, index) {
+  onKeyDown(event: Object, toggle: Object, index: number) {
     if (event.keyCode === 13 /* enter */) {
       this.onClick(toggle, index);
     }
@@ -60,25 +77,6 @@ class Toggle extends React.Component {
     );
   }
 }
-
-Toggle.defaultProps = {
-  items: [],
-  type: type.HORIZONTAL,
-  onChange: () => { },
-};
-
-Toggle.propTypes = {
-  items: PropTypes.arrayOf(PropTypes.shape({
-    label: PropTypes.string.isRequired,
-    title: PropTypes.string.isRequired,
-    disabled: PropTypes.bool,
-  })).isRequired,
-  onChange: PropTypes.func.isRequired,
-  selectedIndex: PropTypes.number,
-  selectedLabel: PropTypes.string,
-  type: PropTypes.string,
-  ...getDataProps(),
-};
 
 Toggle.displayName = 'Plasma@Toggle';
 

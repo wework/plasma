@@ -1,10 +1,8 @@
+// @flow
 import React from 'react';
-import PropTypes from 'prop-types';
 import cx from 'classnames';
-import {
-  getDataAttrs,
-  getDataProps,
-} from '../../dataUtils';
+import { getDataAttrs } from '../../dataUtils';
+import type { Data } from '../../types';
 import style from './style.scss';
 
 const types = {
@@ -13,13 +11,21 @@ const types = {
   DISABLED: 'disabled',
 };
 
+type Props = {|
+  text: string,
+  type: string,
+  children?: Node,
+  data?: Data,
+  className?: string,
+|};
+
 const Label = (
   {
     type,
     text,
     data,
     children,
-  }
+  }: Props
 ) => {
   const labelStyle = cx(style.label, {
     [style.labelSecondary]: type === types.SECONDARY,
@@ -33,13 +39,6 @@ const Label = (
       {text || children}
     </div>
   );
-};
-
-Label.propTypes = {
-  text: PropTypes.string,
-  type: PropTypes.string,
-  children: PropTypes.node,
-  ...getDataProps(),
 };
 
 Label.defaultProps = {

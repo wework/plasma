@@ -1,16 +1,38 @@
+// @flow
 import { uniqueId } from 'lodash';
 import React from 'react';
-import PropTypes from 'prop-types';
 import cx from 'classnames';
 import Icon from '../Icon/Icon';
-import { getDataAttrs, getDataProps } from '../../dataUtils';
+import { getDataAttrs } from '../../dataUtils';
+import type { Data } from '../../types';
 import style from './style.scss';
 
-class RadioButton extends React.Component {
-  value = () => {
+
+type Props = {|
+  data?: Data,
+  checked: boolean,
+  description: ?string,
+  disabled: ?boolean,
+  fancy: ?boolean,
+  fieldValue: string,
+  icon: ?string,
+  isLarge: ?boolean,
+  name: string,
+  onChange: () => mixed,
+  text: string,
+  value?: string,
+|};
+
+class RadioButton extends React.Component<Props> {
+  static defaultProps = {
+    name: 'radioButton',
+    text: 'Option',
+  };
+
+  value = (): mixed => {
     const { checked, value, fieldValue } = this.props;
     return checked || (fieldValue && value === this.props.fieldValue);
-  }
+  };
   render() {
     const {
       data,
@@ -68,26 +90,6 @@ class RadioButton extends React.Component {
     );
   }
 }
-
-RadioButton.defaultProps = {
-  name: 'radioButton',
-  text: 'Option',
-};
-
-RadioButton.propTypes = {
-  ...getDataProps(),
-  checked: PropTypes.bool,
-  description: PropTypes.string,
-  disabled: PropTypes.bool,
-  fancy: PropTypes.bool,
-  fieldValue: PropTypes.string,
-  icon: PropTypes.string,
-  isLarge: PropTypes.bool,
-  name: PropTypes.string.isRequired,
-  onChange: PropTypes.func,
-  text: PropTypes.string.isRequired,
-  value: PropTypes.string,
-};
 
 RadioButton.displayName = 'Plasma@RadioButton';
 

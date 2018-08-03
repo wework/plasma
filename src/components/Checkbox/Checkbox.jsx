@@ -1,5 +1,4 @@
 // @flow
-/* eslint react/prop-types: 0 */
 import { uniqueId } from 'lodash';
 import React, { type Node } from 'react';
 import cx from 'classnames';
@@ -8,7 +7,7 @@ import Icon from '../Icon/Icon';
 import { getDataAttrs } from '../../dataUtils';
 import type { Data } from '../../types';
 
-type Props = {
+type Props = {|
   checked?: boolean,
   data?: Data,
   description?: string,
@@ -22,7 +21,7 @@ type Props = {
   onChange?: () => mixed,
   text: Node,
   value?: boolean,
-};
+|};
 
 class Checkbox extends React.Component<Props> {
   static defaultProps = {

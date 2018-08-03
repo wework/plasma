@@ -1,13 +1,19 @@
-import React from 'react';
-import PropTypes from 'prop-types';
+// @flow
+import React, { type Node } from 'react';
 import Header from '../../Header/Header';
-import {
-  getDataAttrs,
-  getDataProps,
-} from '../../../dataUtils';
+import { getDataAttrs } from '../../../dataUtils';
+import type { Data } from '../../../types';
 import style from './style.scss';
 
-class Page extends React.Component {
+type Props = {|
+  title: string,
+  children: Node,
+  actions: Array<Object>,
+  breadcrumb: Node,
+  data: Data,
+|};
+
+class Page extends React.Component<Props> {
   render() {
     const {
       title,
@@ -47,16 +53,6 @@ class Page extends React.Component {
     );
   }
 }
-
-Page.defaultProps = {};
-
-Page.propTypes = {
-  title: PropTypes.string,
-  children: PropTypes.node,
-  actions: PropTypes.array,
-  breadcrumb: PropTypes.node,
-  ...getDataProps(),
-};
 
 Page.displayName = 'Plasma@Page';
 

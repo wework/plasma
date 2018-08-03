@@ -1,19 +1,34 @@
+// @flow
 import { isNull, clamp } from 'lodash';
-import React from 'react';
-import PropTypes from 'prop-types';
+import React, { type Node } from 'react';
 import { getOffsetTop } from '../util';
-import {
-  getDataAttrs,
-  getDataProps,
-} from '../../../dataUtils';
+import { getDataAttrs } from '../../../dataUtils';
+import type { Data } from '../../../types';
 import style from './style.scss';
 
 /**
   * The fixed right page is great.
  */
 
+type State = {|
+  fixedWidth: number,
+  translateY: number,
+|};
+
+type Props = {|
+  children: Array<Node>,
+  stickAt: number,
+  fixedContainerStyle: Object,
+  data: Data,
+|};
+
 /* eslint-enable */
-class FixedRight extends React.Component {
+class FixedRight extends React.Component<Props, State> {
+
+  static defaultProps = {
+    children: [null, null],
+    stickAt: null,
+  };
 
   constructor() {
     super();
@@ -21,8 +36,6 @@ class FixedRight extends React.Component {
       fixedWidth: 0,
       translateY: 0,
     };
-    this.handleScroll = this.handleScroll.bind(this);
-    this.componentWillUnmount = this.componentWillUnmount.bind(this);
   }
 
   componentDidMount() {
@@ -36,7 +49,7 @@ class FixedRight extends React.Component {
     document.removeEventListener('scroll', this.handleScroll);
   }
 
-  handleScroll() {
+  handleScroll = () => {
     if (!isNull(this.props.stickAt)) {
       const offsetViewport = this.fixed.offsetTop;
       const offsetDoc = getOffsetTop(this.fixed);
@@ -45,7 +58,9 @@ class FixedRight extends React.Component {
       );
       this.fixed.style.transform = `translateY(${-ty})`;
     }
-  }
+  };
+  fixed: Object;
+  fixedViewportOffsetOrigin: number;
 
   render() {
     return (
@@ -80,18 +95,6 @@ class FixedRight extends React.Component {
     );
   }
 }
-
-FixedRight.defaultProps = {
-  children: [null, null],
-  stickAt: null,
-};
-
-FixedRight.propTypes = {
-  children: PropTypes.array.isRequired,
-  stickAt: PropTypes.number,
-  fixedContainerStyle: PropTypes.object,
-  ...getDataProps(),
-};
 
 FixedRight.displayName = '!Plasma@FixedRight';
 

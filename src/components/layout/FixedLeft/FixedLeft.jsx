@@ -1,11 +1,9 @@
+// @flow
 import { isNull, clamp } from 'lodash';
-import React from 'react';
-import PropTypes from 'prop-types';
+import React, { type Node } from 'react';
 import style from './style.scss';
-import {
-  getDataAttrs,
-  getDataProps,
-} from '../../../dataUtils';
+import { getDataAttrs } from '../../../dataUtils';
+import type { Data } from '../../../types';
 
 /**
   * The fixed left page is great.
@@ -22,8 +20,26 @@ const getOffsetTop = (elem) => {
   return offsetTop;
 };
 
+type State = {|
+  fixedWidth: number,
+  translateY: number,
+|};
+
+type Props = {|
+  children: Array<Node>,
+  stickAt: number,
+  contentStyle: Object,
+  fixedStyle: Object,
+  data: Data,
+|};
+
 /* eslint-enable */
-class FixedLeft extends React.Component {
+class FixedLeft extends React.Component<Props, State> {
+
+  static defaultProps = {
+    children: [null, null],
+    stickAt: null,
+  };
 
   constructor() {
     super();
@@ -31,8 +47,6 @@ class FixedLeft extends React.Component {
       fixedWidth: 0,
       translateY: 0,
     };
-    this.handleScroll = this.handleScroll.bind(this);
-    this.componentWillUnmount = this.componentWillUnmount.bind(this);
   }
 
   componentDidMount() {
@@ -45,8 +59,7 @@ class FixedLeft extends React.Component {
   componentWillUnmount() {
     document.removeEventListener('scroll', this.handleScroll);
   }
-
-  handleScroll() {
+  handleScroll = () => {
     if (!isNull(this.props.stickAt)) {
       const offsetViewport = this.fixed.offsetTop;
       const offsetDoc = getOffsetTop(this.fixed);
@@ -55,7 +68,9 @@ class FixedLeft extends React.Component {
       );
       this.fixed.style.transform = `translateY(${-ty})`;
     }
-  }
+  };
+  fixed: Object;
+  fixedViewportOffsetOrigin: number;
 
   render() {
     return (
@@ -90,19 +105,6 @@ class FixedLeft extends React.Component {
     );
   }
 }
-
-FixedLeft.defaultProps = {
-  children: [null, null],
-  stickAt: null,
-};
-
-FixedLeft.propTypes = {
-  children: PropTypes.array.isRequired,
-  stickAt: PropTypes.number,
-  contentStyle: PropTypes.object,
-  fixedStyle: PropTypes.object,
-  ...getDataProps(),
-};
 
 FixedLeft.displayName = '!Plasma@FixedLeft';
 

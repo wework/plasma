@@ -1,12 +1,26 @@
-import React from 'react';
-import PropTypes from 'prop-types';
-import {
-  getDataAttrs,
-  getDataProps,
-} from '../../../dataUtils';
+// @flow
+import React, { type Node } from 'react';
+import { getDataAttrs } from '../../../dataUtils';
+import type { Data } from '../../../types';
 import style from './style.scss';
 
-class FixedTop extends React.Component {
+
+type State = {|
+  fixedHeight: number,
+|};
+
+type Props = {|
+  children: Array<Node>,
+  backgroundColor: string,
+  data: Data,
+|};
+
+class FixedTop extends React.Component<Props, State> {
+
+  static defaultProps = {
+    children: ['', ''],
+    backgroundColor: 'transparent',
+  };
 
   constructor() {
     super();
@@ -18,7 +32,7 @@ class FixedTop extends React.Component {
   componentDidMount() {
     this.setState({ fixedHeight: this.fixed.offsetHeight });
   }
-
+  fixed: any;
   render() {
     return (
       <div
@@ -48,12 +62,6 @@ class FixedTop extends React.Component {
 FixedTop.defaultProps = {
   children: ['', ''],
   backgroundColor: 'transparent',
-};
-
-FixedTop.propTypes = {
-  children: PropTypes.array.isRequired,
-  backgroundColor: PropTypes.string,
-  ...getDataProps(),
 };
 
 FixedTop.displayName = '!Plasma@FixedTop';
