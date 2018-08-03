@@ -1,5 +1,5 @@
 // @flow
-import React from 'react';
+import React, { type Node } from 'react';
 import cx from 'classnames';
 import { getDataAttrs } from '../../dataUtils';
 import type { Data } from '../../types';

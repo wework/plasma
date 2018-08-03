@@ -1,0 +1,7 @@
+{
+  "concurrentFiles": 10,
+  "excludeGlob": "src/components/TextArea/autogrow.js",
+  "includeGlob": ["src/components/**/*.js", "src/components/**/*.jsx", "src/decorators/**/*.jsx", "src/*.js" ],
+  "threshold": 10,
+  "type": "text"
+}
