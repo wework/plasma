@@ -82,6 +82,7 @@
     "@storybook/react": "^3.0.0",
     "babel-runtime": "^6.9.2",
     "classnames": "^2.2.5",
+    "eslint-plugin-flowtype": "^2.46.1",
     "jest-cli": "^22.0.6",
     "jsdom": "^11.1.0",
     "lodash": "^4.14.1",

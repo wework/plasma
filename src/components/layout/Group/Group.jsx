@@ -1,5 +1,4 @@
 // @flow
-/* eslint react/prop-types: 0 */
 import React, { type Node } from 'react';
 import cx from 'classnames';
 import { map, isArray, toArray } from 'lodash';
@@ -8,11 +7,11 @@ import type { Data } from '../../../types';
 import style from './style.scss';
 
 type Props = {|
-    children: Array<Node>,
-    vertical: boolean,
-    layout: Array<Object>,
-    style: Object,
-    data: Data,
+  children: Array<Node>,
+  vertical: boolean,
+  layout: Array<Object>,
+  style: Object,
+  data: Data,
 |};
 
 class Group extends React.Component<Props> {

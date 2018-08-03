@@ -1,5 +1,4 @@
 // @flow
-/* eslint react/prop-types: 0 */
 import { toUpper } from 'lodash';
 import React, { type Node } from 'react';
 import cx from 'classnames';
@@ -8,19 +7,19 @@ import type { Data } from '../../types';
 import style from './style.scss';
 
 type Props = {|
-    placeholder: string,
-    value: string,
-    onChange: () => void,
-    onFocus: () => void,
-    onBlur: () => void,
-    suffix: Node,
-    prefix: Node,
-    isDisabled: boolean,
-    disabled: boolean,
-    size: boolean,
-    error: boolean,
-    maxLength: string,
-    data: Data,
+  placeholder: string,
+  value: string,
+  onChange: () => void,
+  onFocus: () => void,
+  onBlur: () => void,
+  suffix: Node,
+  prefix: Node,
+  isDisabled: boolean,
+  disabled: boolean,
+  size: number,
+  error: boolean,
+  maxLength: string,
+  data: Data,
 |};
 
 const TextInput = ({

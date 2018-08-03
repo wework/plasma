@@ -21,16 +21,16 @@ const getOffsetTop = (elem) => {
 };
 
 type State = {|
-    fixedWidth: number,
-    translateY: number,
+  fixedWidth: number,
+  translateY: number,
 |};
 
 type Props = {|
-    children: Array<Node>,
-    stickAt: number,
-    contentStyle: Object,
-    fixedStyle: Object,
-    data: Data,
+  children: Array<Node>,
+  stickAt: number,
+  contentStyle: Object,
+  fixedStyle: Object,
+  data: Data,
 |};
 
 /* eslint-enable */

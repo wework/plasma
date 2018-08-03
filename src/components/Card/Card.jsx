@@ -1,5 +1,4 @@
 // @flow
-/* eslint react/prop-types: 0 */
 import cx from 'classnames';
 import React, { type Node } from 'react';
 import ReactDOM from 'react-dom';
@@ -17,23 +16,23 @@ const borderTypes = { DASHED: 'dashed' };
 export const borderColors = { RED: 'red' };
 
 type Props = {|
-    title: string,
-    actions: Array<Object>,
-    children: Node,
-    type: $Values<typeof cardTypes>,
-    onClick: (evt: MouseEvent) => void,
-    borderType: string,
-    borderColor: $Values<typeof borderColors>,
-    expandedComponent: Node,
-    isExpanded: boolean,
-    minWidth: number,
-    data?: Data,
+  title: string,
+  actions: Array<Object>,
+  children: Node,
+  type: $Values<typeof cardTypes>,
+  onClick: (evt: MouseEvent) => void,
+  borderType: string,
+  borderColor: $Values<typeof borderColors>,
+  expandedComponent: Node,
+  isExpanded: boolean,
+  minWidth: number,
+  data?: Data,
 |};
 
 type State = {|
-    defaultHeight?: number,
-    expandedHeight?: number,
-    isMounted: boolean,
+  defaultHeight?: number,
+  expandedHeight?: number,
+  isMounted: boolean,
 |};
 
 
@@ -61,7 +60,7 @@ class Card extends React.Component<Props, State> {
   }
 
   expanded: ?Object;
-  outer: ?Object;
+  outer: ?Element;
   default: ?Object;
 
   render() {

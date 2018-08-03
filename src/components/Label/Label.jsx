@@ -1,5 +1,4 @@
 // @flow
-/* eslint react/prop-types: 0 */
 import React from 'react';
 import cx from 'classnames';
 import { getDataAttrs } from '../../dataUtils';
@@ -13,11 +12,11 @@ const types = {
 };
 
 type Props = {|
-    text: string,
-    type: string,
-    children?: Node,
-    data?: Data,
-    className?: string,
+  text: string,
+  type: string,
+  children?: Node,
+  data?: Data,
+  className?: string,
 |};
 
 const Label = (

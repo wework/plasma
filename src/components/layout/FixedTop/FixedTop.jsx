@@ -1,5 +1,4 @@
 // @flow
-/* eslint react/prop-types: 0 */
 import React, { type Node } from 'react';
 import { getDataAttrs } from '../../../dataUtils';
 import type { Data } from '../../../types';
@@ -7,13 +6,13 @@ import style from './style.scss';
 
 
 type State = {|
-    fixedHeight: number,
+  fixedHeight: number,
 |};
 
 type Props = {|
-    children: Array<Node>,
-    backgroundColor: string,
-    data: Data,
+  children: Array<Node>,
+  backgroundColor: string,
+  data: Data,
 |};
 
 class FixedTop extends React.Component<Props, State> {

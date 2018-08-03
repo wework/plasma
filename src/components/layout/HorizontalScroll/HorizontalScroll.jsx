@@ -1,15 +1,14 @@
 // @flow
-/* eslint react/prop-types: 0 */
 import React, { type Node } from 'react';
 import { getDataAttrs } from '../../../dataUtils';
 import type { Data } from '../../../types';
 import style from './style.scss';
 
 type Props = {|
-    children: Node,
-    onScroll: (evt: MouseEvent) => void,
-    style: Object,
-    data: Data,
+  children: Node,
+  onScroll: (evt: MouseEvent) => void,
+  style: Object,
+  data: Data,
 |};
 
 class HorizontalScroll extends React.Component<Props> {

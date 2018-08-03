@@ -1,5 +1,4 @@
 // @flow
-/* eslint react/prop-types: 0 */
 import { uniqueId } from 'lodash';
 import React from 'react';
 import cx from 'classnames';
@@ -10,18 +9,18 @@ import style from './style.scss';
 
 
 type Props = {|
-    data?: Data,
-    checked: boolean,
-    description: ?string,
-    disabled: ?boolean,
-    fancy: ?boolean,
-    fieldValue: string,
-    icon: ?string,
-    isLarge: ?boolean,
-    name: string,
-    onChange: () => mixed,
-    text: string,
-    value?: string,
+  data?: Data,
+  checked: boolean,
+  description: ?string,
+  disabled: ?boolean,
+  fancy: ?boolean,
+  fieldValue: string,
+  icon: ?string,
+  isLarge: ?boolean,
+  name: string,
+  onChange: () => mixed,
+  text: string,
+  value?: string,
 |};
 
 class RadioButton extends React.Component<Props> {

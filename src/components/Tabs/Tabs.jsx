@@ -1,5 +1,4 @@
 // @flow
-/* eslint react/prop-types: 0 */
 import React from 'react';
 import cn from 'classnames';
 import { map } from 'lodash';
@@ -12,13 +11,13 @@ type Tab = {
     title: string,
 };
 type Props = {|
-    items: Array<Tab>,
-    onChange: (string, number) => void,
-    selectedIndex: number,
-    selectedLabel: string,
-    data: Data,
-    plain: string,
-    vertical: string,
+  items: Array<Tab>,
+  onChange: (string, number) => void,
+  selectedIndex: number,
+  selectedLabel: string,
+  data: Data,
+  plain: string,
+  vertical: string,
 |};
 
 

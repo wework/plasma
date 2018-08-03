@@ -1,5 +1,4 @@
 // @flow
-/* eslint react/prop-types: 0 */
 import React from 'react';
 import cx from 'classnames';
 import _ from 'lodash';
@@ -14,17 +13,17 @@ const type = {
 };
 
 type Props = {|
-    items: {
-        label: string,
-        title: string,
-        disabled: boolean,
+  items: {
+    label: string,
+	title: string,
+	disabled: boolean,
     },
-    onChange: (string, number) => void,
-    selectedIndex: number,
-    selectedLabel: string,
-    type: string,
-    data: Data,
-    size: string,
+  onChange: (string, number) => void,
+  selectedIndex: number,
+  selectedLabel: string,
+  type: string,
+  data: Data,
+  size: string,
 |};
 
 class Toggle extends React.Component<Props> {

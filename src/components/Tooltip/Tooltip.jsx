@@ -1,14 +1,13 @@
 // @flow
-/* eslint react/prop-types: 0 */
 import React, { type Node } from 'react';
 import style from './style.scss';
 import { getDataAttrs } from '../../dataUtils';
 import type { Data } from '../../types';
 
 type Props = {|
-    children: Node,
-    content: Node,
-    data: Data,
+  children: Node,
+  content: Node,
+  data: Data,
 |};
 
 class Tooltip extends React.Component<Props> {

@@ -5,10 +5,10 @@ import type { Data } from '../../types';
 import style from './style.scss';
 
 type Props = {|
-    icon: string,
-    color: string,
-    data?: Data,
-    size?: number,
+  icon: string,
+  color: string,
+  data?: Data,
+  size?: number,
 |};
 
 const Icon = ({ icon, color, data }: Props) => {

@@ -1,5 +1,4 @@
 // @flow
-/* eslint react/prop-types: 0 */
 import cx from 'classnames';
 import { map } from 'lodash';
 import React, { type Node } from 'react';
@@ -11,12 +10,12 @@ import style from './style.scss';
 const direction = { RIGHT: 'right', LEFT: 'left' };
 
 type Props = {|
-    disabled: boolean,
-    options: Array<Data>,
-    onClick: (event: Event) => mixed,
-    openDirection: $Values<typeof direction>,
-    label: string,
-    data: Data,
+  disabled: boolean,
+  options: Array<Data>,
+  onClick: (event: Event) => mixed,
+  openDirection: $Values<typeof direction>,
+  label: string,
+  data: Data,
 |};
 
 type State = {|

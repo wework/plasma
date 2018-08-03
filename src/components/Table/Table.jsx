@@ -1,5 +1,4 @@
 // @flow
-/* eslint react/prop-types: 0 */
 import {
   pick,
   keys,
@@ -21,31 +20,30 @@ import downArrow from '../../icons/downArrow';
 import style from './style.scss';
 
 type Props = {|
-    clickable: boolean,
-    empty: boolean,
-    emptyText: string,
-    headerData: Array<Object>,
-    highlightable: boolean,
-    items: Array<Object>,
-    loading: boolean,
-    onSort: (string) => void,
-    selectedColumnKey: string,
-    spanMap: Object,
-    stickAt: number,
-    style: Object,
-    data: Data,
-    sort: {key: string, order: string},
+  clickable: boolean,
+  empty: boolean,
+  emptyText: string,
+  headerData: Array<Object>,
+  highlightable: boolean,
+  items: Array<Object>,
+  loading: boolean,
+  onSort: (string) => void,
+  selectedColumnKey: string,
+  spanMap: Object,
+  stickAt: number,
+  style: Object,
+  data: Data,
+  sort: {key: string, order: string},
 |};
 
 type State = {|
-    columnSizes: Object,
-    tableWidth: number,
-    backgroundColor?: ?string,
-    stickyCoverHeight?: number,
-    translateY?: number,
-    showSticky?: boolean,
-    headerHeight: number,
-
+  columnSizes: Object,
+  tableWidth: number,
+  backgroundColor?: ?string,
+  stickyCoverHeight?: number,
+  translateY?: number,
+  showSticky?: boolean,
+  headerHeight: number,
 |};
 
 class Table extends React.Component<Props, State> {

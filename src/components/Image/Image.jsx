@@ -1,5 +1,4 @@
 // @flow
-/* eslint react/prop-types: 0 */
 import React from 'react';
 import cn from 'classnames';
 import styles from './style.scss';
@@ -10,14 +9,14 @@ import type { Data } from '../../types';
 const defaultImage = 'https://cdn.spacetelescope.org/archives/images/screen/s82e5407.jpg';
 
 type Props = {|
-    style: Object,
-    imageStyle: Object,
-    src: string,
-    altText: string,
-    data: Data,
-    onClick: (evt: MouseEvent) => void,
-    className: Object,
-    fallback: string,
+  style: Object,
+  imageStyle: Object,
+  src: string,
+  altText: string,
+  data: Data,
+  onClick: (evt: MouseEvent) => void,
+  className: Object,
+  fallback: string,
 |};
 
 type State = {|

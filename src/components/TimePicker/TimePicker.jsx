@@ -1,15 +1,14 @@
 // @flow
-/* eslint react/prop-types: 0 */
 import React, { Component } from 'react';
 import style from './style.scss';
 import type { Data } from '../../types';
 
 type Props = {|
-    onBlur: (event: { target: {value: Object} }) => void,
-    onChange: (event: { target: {value: Object} }) => void,
-    time: string,
-    data: Data,
-    disabled: boolean,
+  onBlur: (event: { target: {value: Object} }) => void,
+  onChange: (event: { target: {value: Object} }) => void,
+  time: string,
+  data: Data,
+  disabled: boolean,
 |};
 
 class TimePicker extends Component<Props> {

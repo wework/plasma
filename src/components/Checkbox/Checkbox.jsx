@@ -1,5 +1,4 @@
 // @flow
-/* eslint react/prop-types: 0 */
 import { uniqueId } from 'lodash';
 import React, { type Node } from 'react';
 import cx from 'classnames';

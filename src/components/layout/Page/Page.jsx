@@ -1,5 +1,4 @@
 // @flow
-/* eslint react/prop-types: 0 */
 import React, { type Node } from 'react';
 import Header from '../../Header/Header';
 import { getDataAttrs } from '../../../dataUtils';
@@ -7,11 +6,11 @@ import type { Data } from '../../../types';
 import style from './style.scss';
 
 type Props = {|
-    title: string,
-    children: Node,
-    actions: Array<Object>,
-    breadcrumb: Node,
-    data: Data,
+  title: string,
+  children: Node,
+  actions: Array<Object>,
+  breadcrumb: Node,
+  data: Data,
 |};
 
 class Page extends React.Component<Props> {

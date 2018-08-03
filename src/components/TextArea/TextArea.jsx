@@ -1,8 +1,6 @@
 // @flow
-/* eslint react/prop-types: 0 */
 import { toUpper } from 'lodash';
 import React, { Component } from 'react';
-import PropTypes from 'prop-types';
 import cx from 'classnames';
 import { getDataAttrs } from '../../dataUtils';
 import type { Data } from '../../types';
@@ -10,18 +8,18 @@ import Autogrow from './autogrow';
 import style from './style.scss';
 
 type Props = {|
-    autosize: boolean,
-    disabled: boolean,
-    error: boolean,
-    maxLength: string,
-    onBlur: () => void,
-    onChange: () => void,
-    onFocus: PropTypes.func,
-    placeholder: string,
-    rows: string,
-    size: string,
-    value: string,
-    data: Data,
+  autosize: boolean,
+  disabled: boolean,
+  error: boolean,
+  maxLength: string,
+  onBlur: () => void,
+  onChange: () => void,
+  onFocus: () => void,
+  placeholder: string,
+  rows: string,
+  size: string,
+  value: string,
+  data: Data,
 |};
 
 class TextArea extends Component<Props> {

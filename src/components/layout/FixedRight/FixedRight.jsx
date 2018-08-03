@@ -1,5 +1,4 @@
 // @flow
-/* eslint react/prop-types: 0 */
 import { isNull, clamp } from 'lodash';
 import React, { type Node } from 'react';
 import { getOffsetTop } from '../util';
@@ -12,15 +11,15 @@ import style from './style.scss';
  */
 
 type State = {|
-    fixedWidth: number,
-    translateY: number,
+  fixedWidth: number,
+  translateY: number,
 |};
 
 type Props = {|
-    children: Array<Node>,
-    stickAt: number,
-    fixedContainerStyle: Object,
-    data: Data,
+  children: Array<Node>,
+  stickAt: number,
+  fixedContainerStyle: Object,
+  data: Data,
 |};
 
 /* eslint-enable */

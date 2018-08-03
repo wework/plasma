@@ -1,14 +1,13 @@
 // @flow
-/* eslint react/prop-types: 0 */
 import React from 'react';
 import style from './style.scss';
 import { getDataAttrs } from '../../dataUtils';
 import type { Data } from '../../types';
 
 type Props = {|
-    style?: Object,
-    dotStyle: ?Object,
-    data?: Data,
+  style?: Object,
+  dotStyle: ?Object,
+  data?: Data,
 |};
 
 class Loader extends React.Component<Props> {

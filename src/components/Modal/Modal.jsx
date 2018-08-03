@@ -1,5 +1,4 @@
 // @flow
-/* eslint react/prop-types: 0 */
 import React, { type Node } from 'react';
 import style from './style.scss';
 import Header from '../Header/Header';
@@ -8,15 +7,15 @@ import type { Data } from '../../types';
 
 
 type Props = {|
-    title: string,
-    actions: Array<Node>,
-    children: Node,
-    visible: boolean,
-    onDismiss: (evt: MouseEvent) => void,
-    style: Object,
-    minWidth: number,
-    maxWidth: number,
-    data: Data,
+  title: string,
+  actions: Array<Node>,
+  children: Node,
+  visible: boolean,
+  onDismiss: (evt: MouseEvent) => void,
+  style: Object,
+  minWidth: number,
+  maxWidth: number,
+  data: Data,
 |};
 
 class Modal extends React.Component<Props> {

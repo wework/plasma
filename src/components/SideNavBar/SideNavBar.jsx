@@ -1,5 +1,4 @@
 // @flow
-/* eslint react/prop-types: 0 */
 import React, { Component, type Node } from 'react';
 import { getDataAttrs } from '../../dataUtils';
 import type { Data } from '../../types';
@@ -8,20 +7,20 @@ import SideNavBarTop from './SideNavBarTop';
 import style from './style.scss';
 
 type Item = {|
-    id: string,
-    icon: string,
-    label: string,
-    items: Array<Item>,
+  id: string,
+  icon: string,
+  label: string,
+  items: Array<Item>,
 |};
 
 type Props = {|
-    items: Array<Item>,
-    onChange: ({ id: number }) => void,
-    selectedId: string,
-    onClickTop: () => void,
-    topText: string,
-    topIcon: string,
-    data: Data,
+  items: Array<Item>,
+  onChange: ({ id: number }) => void,
+  selectedId: string,
+  onClickTop: () => void,
+  topText: string,
+  topIcon: string,
+  data: Data,
 |};
 
 class SideNavBar extends Component<Props> {
