@@ -52,7 +52,6 @@
     "eslint-plugin-flowtype": "^2.46.1",
     "extract-text-webpack-plugin": "^2.1.2",
     "flow-bin": "^0.69.0",
-    "flow-coverage-report": "^0.5.0",
     "fs-promise": "^0.5.0",
     "glob": "^7.0.5",
     "identity-obj-proxy": "^3.0.0",
