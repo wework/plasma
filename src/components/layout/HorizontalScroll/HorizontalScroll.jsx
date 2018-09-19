@@ -18,18 +18,22 @@ class HorizontalScroll extends React.Component<Props> {
   };
 
   componentDidMount() {
-    this.wrapper.addEventListener('scroll', this.handleScroll);
+    if (this.wrapper) {
+      this.wrapper.addEventListener('scroll', this.handleScroll);
+    }
   }
 
   componentWillUnmount() {
-    this.wrapper.removeEventListener('scroll', this.handleScroll);
+    if (this.wrapper) {
+      this.wrapper.removeEventListener('scroll', this.handleScroll);
+    }
   }
 
   handleScroll = (e: MouseEvent) => {
     this.props.onScroll(e);
   };
 
-  wrapper: Object;
+  wrapper: ?Object;
   render() {
     return (
       <div

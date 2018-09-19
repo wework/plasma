@@ -18,7 +18,8 @@
     "watch": "webpack --watch --config webpack.config.dev",
     "jest": "node_modules/.bin/jest",
     "jest:watch": "node_modules/.bin/jest --watch --coverage",
-    "jest:update": "node_modules/.bin/jest --updateSnapshot"
+    "jest:update": "node_modules/.bin/jest --updateSnapshot",
+    "flow:coverage": "flow-coverage-report --config .flow-coverage.config.json --strict-coverage"
   },
   "author": "WeWork",
   "license": "ISC",
@@ -51,6 +52,7 @@
     "eslint-plugin-flowtype": "^2.46.1",
     "extract-text-webpack-plugin": "^2.1.2",
     "flow-bin": "^0.69.0",
+    "flow-coverage-report": "^0.5.0",
     "fs-promise": "^0.5.0",
     "glob": "^7.0.5",
     "identity-obj-proxy": "^3.0.0",

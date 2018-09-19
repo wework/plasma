@@ -1,5 +1,8 @@
+// @flow
 /* eslint-disable */
-export const getOffsetTop = (elem) => {
+import React from 'react';
+
+export const getOffsetTop = (elem: {offsetTop: number, offsetParent: Object }) => {
   let offsetTop = 0;
   do {
     if (!isNaN(elem.offsetTop)) {
