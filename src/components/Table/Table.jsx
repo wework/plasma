@@ -92,23 +92,10 @@ class Table extends React.Component<Props, State> {
   componentWillUnmount() {
     document.removeEventListener('scroll', this.handleScroll);
     window.removeEventListener('resize', this.handleWindowResize);
-    const tdElems = this.table.getElementsByTagName('td');
-    forEach(tdElems, (td) => {
-      td.removeEventListener('mouseenter', this.handleColumnMouseEnter);
-      td.removeEventListener('mouseleave', this.handleColumnMouseLeave);
-    });
   }
   table: any;
   fixed: any;
   headerComponents: Object;
-
-  handleColumnMouseEnter = () => {
-
-  };
-
-  handleColumnMouseLeave = () => {
-
-  };
 
   handleWindowResize = () => {
     this.calculateSizes();
