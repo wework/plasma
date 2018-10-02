@@ -7,55 +7,57 @@ import StoryState from '../StoryState';
 
 const TextInputWithCounter = withCounter(TextInput);
 
-storiesOf('TextInput', module).add('default', () => <TextInput onChange={action('changed')} />);
+const stories = storiesOf('TextInput', module);
 
-storiesOf('TextInput', module).add('custom placeholder', () => (
+stories.add('default', () => <TextInput onChange={action('changed')} />);
+
+stories.add('custom placeholder', () => (
   <TextInput placeholder="Custom placeholder..." onChange={action('changed')} />
 ));
 
-storiesOf('TextInput', module).add('prefix', () => (
+stories.add('prefix', () => (
   <TextInput onChange={action('changed')} prefix="$" />
 ));
 
-storiesOf('TextInput', module).add('suffix', () => (
+stories.add('suffix', () => (
   <TextInput onChange={action('changed')} suffix=".com" />
 ));
 
-storiesOf('TextInput', module).add('disabled placeholder', () => (
+stories.add('disabled placeholder', () => (
   <TextInput disabled onChange={action('changed')} />
 ));
 
-storiesOf('TextInput', module).add('disabled filled', () => (
+stories.add('disabled filled', () => (
   <TextInput disabled onChange={action('changed')} value="Queen of hearts" />
 ));
 
-storiesOf('TextInput', module).add('disabled prefix', () => (
+stories.add('disabled prefix', () => (
   <TextInput disabled prefix="$" onChange={action('changed')} value="Queen of hearts" />
 ));
 
-storiesOf('TextInput', module).add('disabled suffix', () => (
+stories.add('disabled suffix', () => (
   <TextInput disabled suffix=".com" onChange={action('changed')} value="Queen of hearts" />
 ));
 
-storiesOf('TextInput', module).add('error', () => <TextInput error onChange={action('changed')} />);
+stories.add('error', () => <TextInput error onChange={action('changed')} />);
 
-storiesOf('TextInput', module).add('suffix error', () => (
+stories.add('suffix error', () => (
   <TextInput suffix=".com" error onChange={action('changed')} />
 ));
 
-storiesOf('TextInput', module).add('prefix error', () => (
+stories.add('prefix error', () => (
   <TextInput prefix="$" error onChange={action('changed')} />
 ));
 
-storiesOf('TextInput', module).add('large', () => (
+stories.add('large', () => (
   <TextInput size="large" onChange={action('changed')} />
 ));
 
-storiesOf('TextInput', module).add('large prefix', () => (
+stories.add('large prefix', () => (
   <TextInput prefix="http://" size="large" onChange={action('changed')} />
 ));
 
-storiesOf('TextInput', module).add('clipping parent', () => (
+stories.add('clipping parent', () => (
   <div>
     <div style={{ overflow: 'hidden', width: 100, height: 100 }}>
       <TextInput />
@@ -63,11 +65,11 @@ storiesOf('TextInput', module).add('clipping parent', () => (
   </div>
 ));
 
-storiesOf('TextInput', module).add('max length', () => (
+stories.add('max length', () => (
   <TextInput maxLength="10" onChange={action('changed')} />
 ));
 
-storiesOf('TextInput', module).add('with counter', () => (
+stories.add('with counter', () => (
   <StoryState
     render={(state, setState) => (
       <TextInputWithCounter
@@ -79,7 +81,7 @@ storiesOf('TextInput', module).add('with counter', () => (
   />
 ));
 
-storiesOf('TextInput', module).add('with counter and maxLength', () => (
+stories.add('with counter and maxLength', () => (
   <StoryState
     render={(state, setState) => (
       <TextInputWithCounter

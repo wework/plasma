@@ -1,8 +1,8 @@
 import React from 'react';
 import { storiesOf } from '@storybook/react';
-import { action } from '@storybook/addon-actions';
-import { linkTo } from '@storybook/addon-links';
 import Select from '../src/components/Select/Select';
+
+import '../node_modules/react-select/dist/react-select.css';
 
 const options = [
   { value: 'one', label: 'One' },
@@ -10,6 +10,12 @@ const options = [
 ];
 
 storiesOf('Select', module)
-  .add('basic', () => (
+  .add('Basic', () => (
     <Select options={options} />
+  ))
+  .add('Placeholder', () => (
+    <Select options={options} placeholder="This is a placeholder..." />
+  ))
+  .add('Multi', () => (
+    <Select options={options} multi />
   ));
