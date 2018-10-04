@@ -17,10 +17,11 @@ type Props = {|
   onClick: (evt: MouseEvent) => void,
   className: Object,
   fallback: string,
+  onLoad?: (evt: MouseEvent) => void,
 |};
 
 type State = {|
-    errored: boolean,
+  errored: boolean,
 |};
 
 class Image extends React.Component<Props, State> {
@@ -47,7 +48,7 @@ class Image extends React.Component<Props, State> {
   };
 
   render() {
-    const { className, data, style, altText, imageStyle, onClick } = this.props;
+    const { className, data, style, altText, imageStyle, onClick, onLoad } = this.props;
     const imageCn = cn(styles.image, className);
     return (
       <div
@@ -61,6 +62,7 @@ class Image extends React.Component<Props, State> {
           style={imageStyle}
           onError={this.handleError}
           onClick={onClick}
+          onLoad={onLoad}
         />
       </div>
     );
