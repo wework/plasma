@@ -1,4 +1,4 @@
-**PLASMA** *by WeWork*
+**PLASMA** _by WeWork_
 
 Plasma is a design system for creating sensible, modern interfaces.
 
@@ -49,9 +49,9 @@ Info here: https://react-styleguidist.js.org/docs/documenting.html
 
 ### Creating a Pull Request
 
-1. When you're ready, push your  branch to Github and create a pull request.
+1. When you're ready, push your branch to Github and create a pull request.
 2. If you've made visual changes, include screenshots.
-3. If you've made implementation changes, run `yarn jest:update` to update jest snapshots.
+3. If you've made implementation changes, run `yarn test:update` to update jest snapshots.
 4. PR will be reviewed
 5. When PR is accepted, it will be merged into master.
 6. (Optional) If you also need to publish a new Plasma version, read that section.
@@ -89,15 +89,17 @@ Info here: https://react-styleguidist.js.org/docs/documenting.html
 1.  Run `yarn add @wework-dev/plasma` in your project.
 2.  Include the Plasma object (or individual components) in your Javascript.
     Plasma object example:
+
     ```javascript
     import Plasma from '@wework-dev/plasma';
-    <Plasma.Button label='Click it'/>
+    <Plasma.Button label="Click it" />;
     ```
 
     Individual components example:
+
     ```javascript
     import { Button } from '@wework-dev/plasma';
-    <Button label='Click it'/>
+    <Button label="Click it" />;
     ```
 
 ## Testing
@@ -110,4 +112,4 @@ Flow coverage can be checked via `yarn flow:coverage`.
 
 ### Running tests
 
-1. Run `yarn jest` for a single run or `yarn jest:watch` to watch for changes.
+1. Run `yarn test` for a single run or `yarn test:watch` to watch for changes.

@@ -5,11 +5,11 @@ cache:
   directories:
     - node_modules
 node_js:
-  - 8.9.3 
+  - 8.9.3
 before_script:
   - yarn global add gulp-cli
   - yarn
 script:
   - npm run lint
-  - yarn jest
+  - yarn test
   - yarn run flow
