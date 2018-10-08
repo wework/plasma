@@ -9,6 +9,7 @@
     "pack": "webpack --config webpack.config.prod",
     "createRelease": "webpack --config webpack.config.prod && npm publish --access public",
     "storybook": "start-storybook -p 6006",
+    "storybook:snapshot": "build-storybook -c .storybook && percy-storybook --widths=320,1280",
     "build-storybook": "build-storybook -c .storybook -o docs/storybook",
     "preversion": "node ./scripts/preversion.js",
     "version": "node ./scripts/version.js",
@@ -24,6 +25,11 @@
   "author": "WeWork",
   "license": "ISC",
   "devDependencies": {
+    "@percy-io/percy-storybook": "^2.0.0",
+    "@percy/react": "^0.4.4",
+    "@storybook/addon-actions": "^3.1.9",
+    "@storybook/addon-links": "^3.1.6",
+    "@storybook/react": "^3.0.0",
     "anchorate": "^1.1.0",
     "babel-cli": "^6.24.1",
     "babel-core": "^6.10.4",
@@ -79,9 +85,6 @@
     "webpack-dev-server": "^1.14.1"
   },
   "dependencies": {
-    "@storybook/addon-actions": "^3.1.9",
-    "@storybook/addon-links": "^3.1.6",
-    "@storybook/react": "^3.0.0",
     "babel-runtime": "^6.9.2",
     "classnames": "^2.2.5",
     "eslint-plugin-flowtype": "^2.46.1",
