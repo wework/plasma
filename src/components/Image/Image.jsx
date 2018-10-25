@@ -1,7 +1,6 @@
 // @flow
 import React from 'react';
 import cn from 'classnames';
-import styles from './style.scss';
 
 import { getDataAttrs } from '../../dataUtils';
 import type { Data } from '../../types';
@@ -26,7 +25,8 @@ type State = {|
 
 class Image extends React.Component<Props, State> {
   static defaultProps = {
-    style: { width: 200, height: 'auto' },
+    style: { width: 'inherit', height: 'auto' },
+    imageStyle: { width: 100% },
     src: defaultImage,
     fallback: defaultImage,
     altText: 'Image',
@@ -49,7 +49,7 @@ class Image extends React.Component<Props, State> {
 
   render() {
     const { className, data, style, altText, imageStyle, onClick, onLoad } = this.props;
-    const imageCn = cn(styles.image, className);
+    const imageCn = cn(className);
     return (
       <div
         {...getDataAttrs(data)}
