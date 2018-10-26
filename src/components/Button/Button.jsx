@@ -6,13 +6,13 @@ import Loader from '../Loader/Loader.jsx';
 import style from './style.scss';
 import type { Data } from '../../types';
 
-const buttontType = { PRIMARY: 'primary', SECONDARY: 'secondary', TERTIARY: 'tertiary' };
+const variants = { PRIMARY: 'primary', SECONDARY: 'secondary', TERTIARY: 'tertiary' };
 const size = { SMALL: 'small' };
 
 type Props = {|
   label?: string,
   onClick?: (evt: MouseEvent) => void,
-  type?: string,
+  type?: 'primary' | 'secondary' | 'tertiary',
   disabled: boolean,
   loading: boolean,
   children: Node,
@@ -24,23 +24,23 @@ type Props = {|
 
 class Button extends React.Component<Props> {
   static defaultProps = {
-    type: buttontType.PRIMARY,
+    type: variants.PRIMARY,
     disabled: false,
     loading: false,
   };
 
   render() {
     const buttonStyle = cx(style.button, {
-      [style.primary]: this.props.type === buttontType.PRIMARY,
-      [style.secondary]: this.props.type === buttontType.SECONDARY,
-      [style.tertiary]: this.props.type === buttontType.TERTIARY,
+      [style.primary]: this.props.type === variants.PRIMARY,
+      [style.secondary]: this.props.type === variants.SECONDARY,
+      [style.tertiary]: this.props.type === variants.TERTIARY,
       [style.small]: this.props.size === size.SMALL,
       [style.loading]: this.props.loading,
       [style.disabled]: this.props.disabled,
     });
 
     let loaderDotStyle;
-    if (this.props.type === buttontType.SECONDARY || this.props.type === buttontType.TERTIARY) {
+    if (this.props.type === variants.SECONDARY || this.props.type === variants.TERTIARY) {
       loaderDotStyle = { backgroundColor: '#000', opacity: '0.1' };
     }
 
