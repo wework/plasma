@@ -16,9 +16,10 @@
     "styleguide": "styleguidist server",
     "styleguide:build": "styleguidist build",
     "watch": "webpack --watch --config webpack.config.dev",
-    "jest": "node_modules/.bin/jest",
-    "jest:watch": "node_modules/.bin/jest --watch --coverage",
-    "jest:update": "node_modules/.bin/jest --updateSnapshot",
+    "test": "node_modules/.bin/jest",
+    "test:watch": "yarn test --watch --coverage",
+    "test:update": "yarn test --updateSnapshot",
+    "test:coverage": "yarn test --coverage --coverageReporters=text-lcov",
     "flow:coverage": "flow-coverage-report --config .flow-coverage.config.json --strict-coverage"
   },
   "author": "WeWork",
@@ -59,7 +60,7 @@
     "marked": "^0.3.6",
     "mkdirp": "^0.5.1",
     "moment": "^2.18.1",
-    "node-sass": "^4.5.3",
+    "node-sass": "^4.9.3",
     "proxy-middleware": "^0.15.0",
     "react": "^15.6.1",
     "react-docgen-fixed": "^2.9.1",
@@ -118,6 +119,7 @@
     },
     "setupFiles": [
       "<rootDir>/src/tests/setup.js"
-    ]
+    ],
+    "testURL": "http://localhost"
   }
 }
