@@ -1,0 +1,75 @@
+@import '../../styles/base';
+
+:global {
+  .react-phone-number-input {
+    @extend %input--wrapper;
+
+    display: flex;
+
+    &:hover {
+      @extend %input--wrapper--hover;
+
+      .react-phone-number-input__country {
+        border-right-color: $cGray200;
+      }
+    }
+
+    &--focus {
+      @extend %input--wrapper--focus;
+    }
+
+    &--invalid,
+    &--invalid:hover {
+      @extend %input--wrapper--error;
+    }
+
+    //&--disabled {
+    //  @extend %input--wrapper--disabled;
+    //}
+  }
+
+  .react-phone-number-input__row {
+    flex: 1 1 0;
+  }
+
+  .react-phone-number-input__country {
+    border-right: 1px solid $cGray300;
+    display: flex;
+    justify-content: stretch;
+    min-width: 100px;
+    height: 38px;
+  }
+
+  .react-phone-number-input__input {
+    @extend %input;
+    @extend %type--body;
+
+    border-bottom: 0;
+    height: 28px;
+    padding-top: 5px;
+    padding-bottom: 5px;
+
+    &--disabled {
+      @extend %input--disabled;
+    }
+  }
+}
+
+.countrySelectButton {
+  align-items: center;
+  border: 0;
+  background: $cGray600;
+  display: flex;
+  justify-content: space-between;
+  flex: 1 0 0;
+  outline: 0;
+  padding: 13px 10px;
+
+  &::after {
+    border-width: 6px 5px 0 5px;
+    border-style: solid;
+    border-color: $cWeWorkBlack transparent;
+    content: '';
+    display: inline-block;
+  }
+}
