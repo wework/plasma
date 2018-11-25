@@ -31,43 +31,43 @@ class Modal extends React.Component<Props> {
       visible,
     } = this.props;
 
-    if (visible) {
-      return (
-        <div
-          {...getDataAttrs(data)}
-          className={style.wrapper}
-        >
-          <div className={style.innerWrapper}>
-            <div
-              style={{ minWidth, maxWidth }}
-              className={style.card}
-            >
-              <div className={style.content}>
-                { title &&
-                  <div className={style.top}>
-                    <Header h3>
-                      { title }
-                    </Header>
-                  </div>
-                }
-                {children}
-                { actions &&
-                  <div className={style.pageActions}>
-                    { actions }
-                  </div>
-                }
-              </div>
-            </div>
-          </div>
-          <div
-            className={style.overlay}
-            onClick={onDismiss}
-          />
-        </div>
-      );
+    if (!visible) {
+      return null;
     }
 
-    return null;
+    return (
+      <div
+        {...getDataAttrs(data)}
+        className={style.wrapper}
+      >
+        <div className={style.innerWrapper}>
+          <div
+            style={{ minWidth, maxWidth }}
+            className={style.card}
+          >
+            <div className={style.content}>
+              {title &&
+              <div className={style.top}>
+                <Header h3>
+                  {title}
+                </Header>
+              </div>
+              }
+              {children}
+              {actions &&
+              <div className={style.pageActions}>
+                {actions}
+              </div>
+              }
+            </div>
+          </div>
+        </div>
+        <div
+          className={style.overlay}
+          onClick={onDismiss}
+        />
+      </div>
+    );
   }
 }
 
