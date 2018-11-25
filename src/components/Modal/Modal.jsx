@@ -20,7 +20,6 @@ type Props = {|
 
 class Modal extends React.Component<Props> {
   render() {
-    let comp = null;
     const {
       title,
       actions,
@@ -29,9 +28,11 @@ class Modal extends React.Component<Props> {
       onDismiss,
       minWidth = 0,
       maxWidth,
+      visible,
     } = this.props;
-    if (this.props.visible) {
-      comp = (
+
+    if (visible) {
+      return (
         <div
           {...getDataAttrs(data)}
           className={style.wrapper}
@@ -65,7 +66,8 @@ class Modal extends React.Component<Props> {
         </div>
       );
     }
-    return comp;
+
+    return null;
   }
 }
 
