@@ -52,8 +52,8 @@ module.exports = {
         }),
       },
       {
-        test: /\.png$/,
-        loader: 'url-loader?limit=100000&mimetype=image/png',
+        test: /\.(png|svg)$/,
+        loader: 'url-loader?limit=10000',
       },
     ],
   },

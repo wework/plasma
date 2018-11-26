@@ -2,74 +2,160 @@
 
 :global {
   .react-phone-number-input {
-    @extend %input--wrapper;
-
-    display: flex;
-
-    &:hover {
-      @extend %input--wrapper--hover;
-
-      .react-phone-number-input__country {
-        border-right-color: $cGray200;
-      }
-    }
-
-    &--focus {
-      @extend %input--wrapper--focus;
-    }
+    @extend %type--body;
 
     &--invalid,
     &--invalid:hover {
-      @extend %input--wrapper--error;
+      .react-phone-number-input__input {
+        @extend %input--wrapper--error;
+      }
     }
 
-    //&--disabled {
-    //  @extend %input--wrapper--disabled;
-    //}
+    &:hover {
+      .react-phone-number-input__input {
+        @extend %input--wrapper--hover;
+      }
+
+      .react-phone-number-input__input--disabled {
+        @extend %input--wrapper--disabled;
+      }
+
+      .react-phone-number-input__country .Select-control {
+        border-right-color: $cGray200;
+      }
+
+      .react-phone-number-input__input--disabled ~ .react-phone-number-input__country .Select-control {
+        border-right-color: $cGray400;
+      }
+    }
+  }
+
+  .react-phone-number-input * {
+    box-sizing: border-box;
   }
 
   .react-phone-number-input__row {
-    flex: 1 1 0;
+    height: 40px;
+    position: relative;
   }
 
-  .react-phone-number-input__country {
-    border-right: 1px solid $cGray300;
+  .Select.react-phone-number-input__country {
     display: flex;
     justify-content: stretch;
     min-width: 100px;
-    height: 38px;
+    position: absolute;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+
+    .Select-control {
+      background: $cGray600;
+      border: 0;
+      border-right: 1px solid $cGray300;
+      border-radius: $inputRadius 0 0 $inputRadius;
+      margin: 1px 0 1px 1px;
+      width: 100px;
+      height: 38px;
+      z-index: 20;
+
+      &:hover {
+        box-shadow: none;
+      }
+    }
+
+    &.is-disabled,
+    &.is-disabled:hover {
+      .Select-control {
+        border-right-color: $cGray400;
+        cursor: not-allowed;
+      }
+    }
+
+    &.is-focused:not(.is-open) > .Select-control {
+      border-color: $cGray300;
+      box-shadow: none;
+    }
+
+    .Select-placeholder {
+      line-height: 40px;
+    }
+    .Select-input {
+      height: 100%;
+    }
+
+    > .Select-control {
+      .Select-value,
+      .Select-placeholder {
+
+        align-items: center;
+        color: $cWeWorkBlack;
+        display: flex;
+        line-height: 38px;
+        height: 38px;
+
+        * + * {
+          margin-left: 5px;
+        }
+      }
+      
+      .Select-placeholder {
+        color: $cGray200;
+      }
+    }
+
   }
 
   .react-phone-number-input__input {
     @extend %input;
-    @extend %type--body;
+    @extend %input--wrapper;
 
-    border-bottom: 0;
-    height: 28px;
-    padding-top: 5px;
-    padding-bottom: 5px;
+    padding: 5px 5px 5px 105px;
+    position: absolute;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    z-index: 10;
+
+    &:focus {
+      @extend %input--wrapper--focus;
+    }
 
     &--disabled {
-      @extend %input--disabled;
+      @extend %input--wrapper--disabled;
     }
+  }
+
+  .react-phone-number-input__icon {
+    border: 0;
+    display: inline-block;
+    width: auto;
+    height: 100%;
+  }
+
+  .flag-icon-none {
+    height: 1em;
+    background: $cGray200;
   }
 }
 
-.countrySelectButton {
-  align-items: center;
-  border: 0;
-  background: $cGray600;
+.optionRow {
   display: flex;
-  justify-content: space-between;
-  flex: 1 0 0;
-  outline: 0;
-  padding: 13px 10px;
+  align-items: center;
 
-  &::after {
-    border-width: 6px 5px 0 5px;
-    border-style: solid;
-    border-color: $cWeWorkBlack transparent;
-    content: '';
-    display: inline-block;
+  > * + * {
+    margin-left: 5px;
+  }
+
+  .dialCode {
+    font-size: 12px;
+    color: $cGray200;
+  }
+
+  .countryName {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
   }
 }
