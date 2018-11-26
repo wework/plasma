@@ -4,6 +4,7 @@ import React, {
   type Node,
   type ComponentType,
 } from 'react';
+import Select from 'react-select';
 import cx from 'classnames';
 import { PhoneInput as ReactPhoneInput } from 'react-phone-number-input';
 import { SmartInput } from 'react-phone-number-input/smart-input';
@@ -14,9 +15,7 @@ import labels from 'react-phone-number-input/locale/default.json';
 // import type { Data } from '../../types';
 
 import 'flag-icon-css/css/flag-icon.css';
-import 'react-phone-number-input/style.css';
 import styles from './style.scss';
-import Select from '../Select/Select';
 
 export type Metadata = {|
   country_calling_codes: {},
@@ -124,23 +123,29 @@ function FlagComponent(props: FlagComponentProps) {
   return <span className={classes} />;
 }
 
-class CountrySelectComponent extends Component<CountrySelectComponentProps> {
-  optionRenderer(item) {
-    return (
-      <div className={styles.optionRow}>
-        {
-          item.value ? item.icon(item) : <FlagComponent country="none" />
-        }
-        <span className={styles.countryName}>{item.label}</span>
-        {
-          item.value && (
-            <span className={styles.dialCode}>{`+${dialCodeForCountryCode(item.value)}`}</span>
-          )
-        }
-      </div>
-    );
-  }
+function OptionComponent(props: Country) {
+  const {
+    value,
+    label,
+    icon,
+  } = props;
 
+  return (
+    <div className={styles.optionRow}>
+      {
+        value ? icon(props) : <FlagComponent country="none" />
+      }
+      <span className={styles.countryName}>{label}</span>
+      {
+        value && (
+          <span className={styles.dialCode}>{`+${dialCodeForCountryCode(value)}`}</span>
+        )
+      }
+    </div>
+  );
+}
+
+class CountrySelectComponent extends Component<CountrySelectComponentProps> {
   placeholder() {
     return (
       <div>
@@ -179,7 +184,7 @@ class CountrySelectComponent extends Component<CountrySelectComponentProps> {
       <Select
         className={className}
         options={options}
-        optionRenderer={this.optionRenderer}
+        optionRenderer={OptionComponent}
         valueComponent={ValueComponent}
         searchable={false}
         clearable={false}
@@ -203,6 +208,7 @@ export default function PhoneInput(
 ): Node {
   return (
     <ReactPhoneInput
+      className={styles.phoneInput}
       countrySelectComponent={CountrySelectComponent}
       internationalIcon={() => <div />}
       inputComponent={SmartInput}

@@ -95,7 +95,8 @@
     "react-datepicker": "^1.4.0",
     "react-input-autosize": "^1.1.0",
     "react-phone-number-input": "2.2.17",
-    "react-select": "1.3.0"
+    "react-select": "1.3.0",
+    "libphonenumber-js": "latest"
   },
   "peerDependencies": {
     "react": "^15.6.1",
