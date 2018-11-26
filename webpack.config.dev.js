@@ -32,25 +32,21 @@ module.exports = {
       },
       {
         test: /\.scss$/,
-        loader: ExtractTextPlugin.extract({
-          fallback: 'style-loader',
-          use: [
-            'css-loader?modules&importLoaders=2&localIdentName=[path][local]__[hash:base64:5]',
-            'resolve-url-loader',
-            'sass-loader',
-          ],
-        }),
+        loader: [
+          'style-loader',
+          'css-loader?modules&importLoaders=2&localIdentName=[path][local]__[hash:base64:5]',
+          'resolve-url-loader',
+          'sass-loader',
+        ],
       },
       {
         test: /\.css$/,
-        loader: ExtractTextPlugin.extract({
-          fallback: 'style-loader',
-          use: [
-            'css-loader?importLoaders=1&localIdentName=[path][local]__[hash:base64:5]',
-            'resolve-url-loader',
-          ],
-        }),
-      },
+        loader: [
+          'style-loader',
+          'css-loader?importLoaders=1&localIdentName=[path][local]__[hash:base64:5]',
+          'resolve-url-loader',
+        ],
+      } ,
       {
         test: /\.(png|svg)$/,
         loader: 'url-loader?limit=10000',
