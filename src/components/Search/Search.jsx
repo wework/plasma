@@ -35,7 +35,7 @@ class Search extends Component<Props, State> {
   componentWillReceiveProps(nextProps: Props) {
     const { value } = nextProps;
 
-    if (value) {
+    if (value !== this.props.value) {
       this.setState({ text: value });
     }
   }

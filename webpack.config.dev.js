@@ -33,9 +33,19 @@ module.exports = {
         loader: ExtractTextPlugin.extract({
           fallback: 'style-loader',
           use: [
-            'css-loader?modules&importLoaders=1&localIdentName=[path][local]__[hash:base64:5]',
+            'css-loader?modules&importLoaders=2&localIdentName=[path][local]__[hash:base64:5]',
             'resolve-url-loader',
             'sass-loader',
+          ],
+        }),
+      },
+      {
+        test: /\.css$/,
+        loader: ExtractTextPlugin.extract({
+          fallback: 'style-loader',
+          use: [
+            'css-loader?importLoaders=1&localIdentName=[path][local]__[hash:base64:5]',
+            'resolve-url-loader',
           ],
         }),
       },
