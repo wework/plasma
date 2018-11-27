@@ -116,7 +116,7 @@
       align-items: center;
 
       display: flex;
-      line-height: 38px;
+      line-height: 20px;
       height: 38px;
 
       * + * {
@@ -124,7 +124,7 @@
       }
     }
 
-    .Select--single .Select-value {
+    .Select--single > .Select-control .Select-value {
       color: $cWeWorkBlack;
     }
 
