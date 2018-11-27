@@ -11,6 +11,7 @@ import Label from './components/Label/Label';
 import Loader from './components/Loader/Loader';
 import Modal from './components/Modal/Modal';
 import NumberInput from './components/NumberInput/NumberInput';
+import PhoneInput from './components/PhoneInput/PhoneInput';
 import RadioButton from './components/RadioButton/RadioButton';
 import RadioButtonGroup from './components/RadioButtonGroup/RadioButtonGroup';
 import Rule from './components/Rule/Rule';
@@ -90,6 +91,7 @@ Plasma.TimePicker = TimePicker;
 Plasma.CountedTextArea = CountedTextArea;
 Plasma.CountedTextInput = CountedTextInput;
 Plasma.LocationPin = LocationPin;
+Plasma.PhoneInput = PhoneInput;
 
 Plasma._style = style;
 
@@ -136,4 +138,5 @@ export {
   CountedTextArea,
   CountedTextInput,
   LocationPin,
+  PhoneInput,
 };

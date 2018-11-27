@@ -126,3 +126,4 @@ export default class PhoneInput extends Component<Props, State> {
     );
   }
 }
+PhoneInput.displayName = 'Plasma@PhoneInput';
