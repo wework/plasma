@@ -5,6 +5,20 @@
     @extend %type--body;
 
     &.react-phone-number-input {
+      &:hover {
+        .react-phone-number-input__input {
+          @extend %input--wrapper--hover;
+        }
+
+        .react-phone-number-input__input--disabled {
+          @extend %input--wrapper--disabled;
+        }
+
+        .Select-control {
+          border-right-color: $cGray200;
+        }
+      }
+
       &--invalid,
       &--invalid:hover {
         .react-phone-number-input__input {
@@ -15,20 +29,6 @@
       &--focus {
         .react-phone-number-input__input {
           @extend %input--wrapper--focus;
-        }
-
-        .Select-control {
-          border-right-color: $cGray200;
-        }
-      }
-
-      &:hover {
-        .react-phone-number-input__input {
-          @extend %input--wrapper--hover;
-        }
-
-        .react-phone-number-input__input--disabled {
-          @extend %input--wrapper--disabled;
         }
 
         .Select-control {
@@ -59,9 +59,26 @@
       &.is-disabled,
       &.is-disabled:hover {
         .Select-control {
+          background-color: white;
           border-right-color: $cGray400;
           cursor: not-allowed;
         }
+
+        .Select-placeholder {
+          color: $cGray40;
+        }
+
+        .flag-icon-none {
+          background-color: $cGray30;
+        }
+
+        .Select-arrow {
+          border-color: $cGray40 transparent transparent;
+        }
+      }
+
+      &.is-focused > .Select-control {
+        background: $cGray600;
       }
 
       &.is-focused:not(.is-open) > .Select-control {
@@ -109,9 +126,29 @@
     .Select-input {
       height: 100%;
     }
+    .Select-option {
+      padding: 10px 5px;
+    }
     .Select-option,
     .Select-option.is-focused {
       color: $cWeWorkBlack;
+    }
+    .Select-option.is-focused,
+    .Select-option.is-selected {
+      background: $cGray30;
+    }
+
+    .Select-arrow,
+    .Select-arrow-zone:hover .Select-arrow,
+    .Select.is-open > .Select-control .Select-arrow {
+      border-width: 6px 5px 0;
+      border-color: $cGray200 transparent transparent;
+      top: 0;
+    }
+
+    .Select-menu-outer {
+      border: 0;
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
     }
 
     .react-phone-number-input__input {
@@ -133,9 +170,6 @@
 
     .react-phone-number-input__icon {
       border: 0;
-      display: inline-block;
-      width: auto;
-      height: 100%;
     }
 
     .flag-icon-none {
@@ -154,7 +188,7 @@
   }
 
   .dialCode {
-    font-size: 12px;
+    font-size: 11px;
     color: $cGray200;
   }
 

@@ -4,53 +4,21 @@ import React, {
   type Node,
   type ComponentType,
 } from 'react';
-import Select from 'react-select';
 import cx from 'classnames';
 import { PhoneInput as ReactPhoneInput } from 'react-phone-number-input';
 import { SmartInput } from 'react-phone-number-input/smart-input';
 import metadata from 'libphonenumber-js/metadata.min.json';
+import examples from 'libphonenumber-js/examples.mobile.json';
 import labels from 'react-phone-number-input/locale/default.json';
+import { getExampleNumber, AsYouType } from 'libphonenumber-js';
 
 // import { getDataAttrs } from '../../dataUtils';
 // import type { Data } from '../../types';
 
-import 'flag-icon-css/css/flag-icon.css';
 import styles from './style.scss';
-
-export type Metadata = {|
-  country_calling_codes: {},
-  countries: {}
-|};
-
-export type Labels = { [key: string]: string };
-
-export type Flags = { [key: string]: () => Node };
-
-export type FlagComponentProps = {|
-  country: string,
-  flags: Flags,
-  flagsPath: string,
-|};
-
-type Country = {|
-  value: ?string,
-  label: string,
-  icon: ComponentType<*>
-|};
-
-export type CountrySelectComponentProps = {|
-  name?: string,
-  value?: ?string,
-  onChange: (value: ?string) => void,
-  onFocus: () => void,
-  onBlur: () => void,
-  options: Array<Country>,
-  disabled?: boolean,
-  tabIndex?: number | string,
-  className?: string,
-  focusPhoneInputField: () => void,
-  name: ?string
-|};
+import CountrySelectComponent from './CountrySelectComponent';
+import FlagComponent from './FlagComponent';
+import type { PhoneNumber } from './types';
 
 export type InputComponentProps = {|
   value: string,
@@ -59,6 +27,10 @@ export type InputComponentProps = {|
   onBlur?: () => void,
   country?: ?string,
   metadata: Metadata,
+|};
+
+type State = {|
+  country: ?string,
 |};
 
 export type Props = {|
@@ -93,129 +65,54 @@ export type Props = {|
   indicateInvalid?: boolean,
   locale?: { [key: string]: string },
   metadata: Metadata,
-  onCountryChange: (country: string) => void,
+  onCountryChange: (country: ?string) => void,
   placeholder?: string,
   [prop: string]: any,
 |};
 
-function dialCodeForCountryCode(countryCode: string): string | null {
-  const country = metadata.countries[countryCode];
-
+function generateExampleNumber(country: ?string): string {
   if (!country) {
-    return null;
+    return '';
   }
 
-  return country[0];
+  const number: PhoneNumber = getExampleNumber(country, examples);
+
+  return number
+    .formatNational()
+    .replace(/\d/g, '0');
 }
 
-function ValueComponent({ value, id }: {| value: Country, id: string |}) {
-  return (
-    <div className="Select-value" id={id}>
-      {value.icon(value)}
-      <span className={styles.dialCode}>{`+${dialCodeForCountryCode(value.value)}`}</span>
-    </div>
-  );
-}
-
-function FlagComponent(props: FlagComponentProps) {
-  const classes = cx('flag-icon', `flag-icon-${props.country.toLowerCase()}`);
-
-  return <span className={classes} />;
-}
-
-function OptionComponent(props: Country) {
-  const {
-    value,
-    label,
-    icon,
-  } = props;
-
-  return (
-    <div className={styles.optionRow}>
-      {
-        value ? icon(props) : <FlagComponent country="none" />
-      }
-      <span className={styles.countryName}>{label}</span>
-      {
-        value && (
-          <span className={styles.dialCode}>{`+${dialCodeForCountryCode(value)}`}</span>
-        )
-      }
-    </div>
-  );
-}
-
-class CountrySelectComponent extends Component<CountrySelectComponentProps> {
-  placeholder() {
-    return (
-      <div>
-        <FlagComponent country="none" />
-        <span className={styles.dialCode}>+</span>
-      </div>
-    );
-  }
-
-  handleBlur = (evt: SyntheticFocusEvent<>) => {
-    const {
-      onBlur,
-      focusPhoneInputField,
-    } = this.props;
-
-    onBlur(evt);
-    focusPhoneInputField();
+export default class PhoneInput extends Component<Props, State> {
+  state = {
+    country: this.props.country,
   };
 
-  handleChange = (item) => {
-    this.props.onChange(item.value);
-  };
+  handleCountryChange = (country: string) => {
+    this.setState({
+      country,
+    });
 
-  render() {
     const {
-      className,
-      disabled,
-      name,
-      options,
-      onFocus,
-      value,
-      tabIndex,
+      onCountryChange,
     } = this.props;
 
+    onCountryChange && onCountryChange(country);
+  };
+
+  render(): Node {
     return (
-      <Select
-        className={className}
-        options={options}
-        optionRenderer={OptionComponent}
-        valueComponent={ValueComponent}
-        searchable={false}
-        clearable={false}
-        disabled={disabled}
-        onFocus={onFocus}
-        onBlur={this.handleBlur}
-        onChange={this.handleChange}
-        value={value}
-        tabIndex={tabIndex}
-        name={name}
-        placeholder={this.placeholder()}
+      <ReactPhoneInput
+        className={styles.phoneInput}
+        countrySelectComponent={CountrySelectComponent}
+        internationalIcon={() => <FlagComponent country="none" />}
+        inputComponent={SmartInput}
+        flagComponent={FlagComponent}
+        labels={labels}
+        metadata={metadata}
+        placeholder={generateExampleNumber(this.state.country)}
+        {...this.props}
+        onCountryChange={this.handleCountryChange}
       />
     );
   }
-}
-
-export default function PhoneInput(
-  {
-    ...rest
-  }: Props,
-): Node {
-  return (
-    <ReactPhoneInput
-      className={styles.phoneInput}
-      countrySelectComponent={CountrySelectComponent}
-      internationalIcon={() => <div />}
-      inputComponent={SmartInput}
-      flagComponent={FlagComponent}
-      labels={labels}
-      metadata={metadata}
-      {...rest}
-    />
-  );
 }
