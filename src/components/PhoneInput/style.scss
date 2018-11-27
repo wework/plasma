@@ -24,6 +24,10 @@
         .react-phone-number-input__input {
           @extend %input--wrapper--error;
         }
+
+        .Select-control {
+          border-right-color: $cWarningRed;
+        }
       }
 
       &--focus {
@@ -44,6 +48,10 @@
     .react-phone-number-input__row {
       height: 40px;
       position: relative;
+    }
+
+    .react-phone-number-input__error {
+      display: none;
     }
 
     .Select {

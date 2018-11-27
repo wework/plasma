@@ -13,3 +13,8 @@ const defaultProps = {
 stories.add('default', () => <PhoneInput {...defaultProps} />);
 
 stories.add('disabled', () => <PhoneInput {...defaultProps} disabled />);
+
+stories.add(
+  'error',
+  () => <PhoneInput {...defaultProps} error="Some kind of error." />
+);
