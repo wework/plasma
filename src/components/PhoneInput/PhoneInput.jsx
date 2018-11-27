@@ -4,21 +4,24 @@ import React, {
   type Node,
   type ComponentType,
 } from 'react';
-import cx from 'classnames';
 import { PhoneInput as ReactPhoneInput } from 'react-phone-number-input';
 import { SmartInput } from 'react-phone-number-input/smart-input';
+import { getExampleNumber } from 'libphonenumber-js';
+
 import metadata from 'libphonenumber-js/metadata.min.json';
 import examples from 'libphonenumber-js/examples.mobile.json';
 import labels from 'react-phone-number-input/locale/default.json';
-import { getExampleNumber, AsYouType } from 'libphonenumber-js';
 
-// import { getDataAttrs } from '../../dataUtils';
-// import type { Data } from '../../types';
+import { getDataAttrs } from '../../dataUtils';
+import type { Data } from '../../types';
 
 import styles from './style.scss';
 import CountrySelectComponent from './CountrySelectComponent';
 import FlagComponent from './FlagComponent';
-import type { PhoneNumber } from './types';
+import type {
+  Metadata,
+  PhoneNumber,
+} from './types';
 
 export type InputComponentProps = {|
   value: string,
@@ -67,6 +70,7 @@ export type Props = {|
   metadata: Metadata,
   onCountryChange: (country: ?string) => void,
   placeholder?: string,
+  data: Data,
   [prop: string]: any,
 |};
 
@@ -100,6 +104,11 @@ export default class PhoneInput extends Component<Props, State> {
   };
 
   render(): Node {
+    const {
+      data,
+      ...props
+    } = this.props;
+
     return (
       <ReactPhoneInput
         className={styles.phoneInput}
@@ -110,7 +119,8 @@ export default class PhoneInput extends Component<Props, State> {
         labels={labels}
         metadata={metadata}
         placeholder={generateExampleNumber(this.state.country)}
-        {...this.props}
+        {...getDataAttrs(data)}
+        {...props}
         onCountryChange={this.handleCountryChange}
       />
     );
