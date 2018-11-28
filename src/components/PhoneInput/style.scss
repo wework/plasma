@@ -134,16 +134,15 @@
     .Select-input {
       height: 100%;
     }
-    .Select-option {
-      padding: 10px 5px;
+    .Select-menu-outer {
+      @extend %dropdown;
     }
-    .Select-option,
-    .Select-option.is-focused {
-      color: $cWeWorkBlack;
+    .Select-option {
+      @extend %dropdown-item;
     }
     .Select-option.is-focused,
     .Select-option.is-selected {
-      background: $cGray30;
+      @extend %dropdown-item--focus;
     }
 
     .Select-arrow,
@@ -154,10 +153,6 @@
       top: 0;
     }
 
-    .Select-menu-outer {
-      border: 0;
-      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
-    }
 
     .react-phone-number-input__input {
       @extend %input;

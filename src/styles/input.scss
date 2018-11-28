@@ -83,3 +83,16 @@ $inputRadius: 2px;
   font-size: 16px;
 }
 
+%dropdown {
+  border: 0;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+}
+%dropdown-item {
+  color: $cWeWorkBlack;
+  line-height: 20px;
+  padding: 10px 5px;
+}
+%dropdown-item--focus {
+  background: $cGray30;
+}
+

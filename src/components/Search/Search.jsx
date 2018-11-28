@@ -1,106 +1,175 @@
 // @flow
-import React, { Component } from 'react';
+import React, {
+  Component,
+  type Node,
+} from 'react';
+import cx from 'classnames';
+import Autocomplete from 'react-autocomplete';
+
 import { getDataAttrs } from '../../dataUtils';
 import type { Data } from '../../types';
-import style from './style.scss';
+import styles from './style.scss';
+
+type Hash<V> = { [key: string]: V };
+
+type Item = {| value: string, label: string |} & Hash<any>;
 
 type Props = {|
+  autoHighlight?: boolean,
   clearable: boolean,
-  clearIconUrl: string,
-  disabled: boolean,
-  iconUrl: string,
-  instructionText: string,
-  onChange: ({target: {value: string}}) => void,
-  onClear: (event: Event) => void,
-  placeholder: string,
-  value: string,
+  clearIcon: Node,
   data: Data,
+  disabled: boolean,
+  getItemValue: (item: Item) => any,
+  icon: Node,
+  isItemSelectable: (item: Item) => boolean,
+  items: Array<Item>,
+  onChange: (value: string) => void,
+  onClear: () => void,
+  onMenuVisibilityChange: (isOpen: boolean) => void,
+  onSelect?: (value: string, item: Item) => void,
+  open?: boolean,
+  placeholder: string,
+  selectOnBlur?: boolean,
+  shouldItemRender?: (item: Item, value: string) => boolean,
+  sortItems?: (itemA: Item, itemB: Item, value: string) => number,
+  renderInput?: (props: Hash<any>) => Node,
+  renderItem: (item: Item, isHighlighted: boolean, styles: Hash<any>) => Node,
+  renderMenu?: (items: Array<Node>, value: string, styles: Hash<any>) => Node,
+  value?: string,
 |};
 
 type State = {|
-    text: string
+  value: ?string,
 |};
 
 class Search extends Component<Props, State> {
   static defaultProps = {
-    placeholder: 'Search...',
+    clearable: true,
+    clearIcon: <span className={styles.defaultClearIcon}>&times;</span>,
+    getItemValue: (item: Item) => item.value,
+    renderItem: (item: Item, isHighlighted: boolean) => {
+      const classes = cx(styles.defaultItem, {
+        [styles.defaultItemHighlighted]: isHighlighted,
+      });
+
+      return <div key={item.value} className={classes}>{item.label}</div>;
+    },
+    renderMenu: (children: Array<Node>) => {
+      return (
+        <div className={styles.defaultMenu}>
+          {children}
+        </div>
+      );
+    },
+    shouldItemRender(item: Item, value: string) {
+      return item.label.toLowerCase().indexOf(value.toLowerCase()) !== -1;
+    },
   };
-  constructor(props: Props) {
-    super(props);
-    this.state = {
-      text: '',
-    };
-  }
+
+  state = {
+    value: this.props.value,
+  };
 
   componentWillReceiveProps(nextProps: Props) {
     const { value } = nextProps;
 
     if (value !== this.props.value) {
-      this.setState({ text: value });
+      this.setState({ value });
     }
   }
 
-  onChange = (event: {target: {value: string}}): void => {
-    const { onChange } = this.props;
+  handleChange = (evt: SyntheticKeyboardEvent<HTMLInputElement>, value: string): void => {
+    const {
+      onChange,
+    } = this.props;
 
-    this.setState({ text: event.target.value });
+    this.setState({ value: evt.target.value });
 
-    onChange && onChange(event);
+    onChange && onChange(value);
   };
 
-  onClear = (event: Event): void => {
-    const { onClear } = this.props;
+  handleSelect = (value: string, item: Item) => {
+    const {
+      onSelect,
+    } = this.props;
 
-    this.setState({ text: '' });
+    this.setState({
+      value,
+    });
 
-    if (onClear) {
-      onClear(event);
-    }
+    onSelect && onSelect(value, item);
+  };
+
+  handleClear = (): void => {
+    const {
+      onClear,
+    } = this.props;
+
+    this.setState({ value: '' });
+
+    onClear && onClear();
   };
 
   render() {
     const {
       clearable,
-      clearIconUrl,
+      clearIcon,
+      data,
       disabled,
-      iconUrl,
-      instructionText,
+      icon,
       placeholder,
+      ...rest
     } = this.props;
+
+    const showClearIcon = clearable && this.state.value;
+    const showInputIcon = !!icon;
+
+    const wrapperProps = {
+      ...getDataAttrs(data),
+      style: {},
+      className: styles.inputWrapper,
+    };
+
+    const inputProps = {
+      className: cx(styles.input, {
+        [styles.inputHasIcon]: showInputIcon,
+        [styles.inputHasClearIcon]: showClearIcon,
+      }),
+      disabled,
+      placeholder,
+    };
 
     return (
       <div
         {...getDataAttrs(this.props.data)}
-        className={style.container}
+        className={styles.container}
       >
-        <div className={style.inputWrapper}>
-          <span className={style.searchIconContainer}>
-            <img src={iconUrl} role="presentation" />
-          </span>
-          <input
-            className={style.input}
-            disabled={disabled}
-            onChange={this.onChange}
-            placeholder={placeholder}
-            type="text"
-            value={this.state.text}
-          />
-          {
-            clearable && clearIconUrl && (this.state.text !== '') &&
-            <img
-              className={style.clearableIcon}
-              onClick={this.onClear}
-              src={clearIconUrl}
-              role="presentation"
-            />
-          }
-        </div>
         {
-          instructionText &&
-          <div className={style.instructionText}>
-            {instructionText}
-          </div>
+          showInputIcon && (
+            <div className={cx(styles.iconContainer, styles.inputIconContainer)}>
+              {icon}
+            </div>
+          )
         }
+        {
+          showClearIcon && (
+            <button
+              className={cx(styles.iconContainer, styles.clearableIconContainer)}
+              onClick={this.handleClear}
+            >
+              {clearIcon}
+            </button>
+          )
+        }
+        <Autocomplete
+          {...rest}
+          wrapperProps={wrapperProps}
+          inputProps={inputProps}
+          value={this.state.value}
+          onChange={this.handleChange}
+          onSelect={this.handleSelect}
+        />
       </div>
     );
   }
