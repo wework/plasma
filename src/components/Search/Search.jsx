@@ -55,10 +55,20 @@ class Search extends Component<Props, State> {
 
       return <div key={item.value} className={classes}>{item.label}</div>;
     },
-    renderMenu: (children: Array<Node>) => {
+    renderMenu: (children: Array<Node>, value: string) => {
+      const showEmpty = value && !children.length;
+
       return (
         <div className={styles.defaultMenu}>
-          {children}
+          {
+            showEmpty ?
+              (
+                <div className={cx(styles.defaultItem, styles.defaultItemEmpty)}>
+                  No results found
+                </div>
+              ) :
+              children
+          }
         </div>
       );
     },
