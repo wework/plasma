@@ -15,13 +15,15 @@ import labels from 'react-phone-number-input/locale/default.json';
 import { getDataAttrs } from '../../dataUtils';
 import type { Data } from '../../types';
 
-import styles from './style.scss';
 import CountrySelectComponent from './CountrySelectComponent';
 import FlagComponent from './FlagComponent';
+
 import type {
   Metadata,
   PhoneNumber,
 } from './types';
+
+import styles from './style.scss';
 
 export type InputComponentProps = {|
   value: string,
