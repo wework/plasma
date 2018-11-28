@@ -20,7 +20,7 @@ type Props = {|
   clearIcon: Node,
   data: Data,
   disabled: boolean,
-  getItemValue: (item: Item) => any,
+  getItemValue: (item: Item) => string,
   icon: Node,
   isItemSelectable: (item: Item) => boolean,
   items: Array<Item>,
@@ -47,15 +47,15 @@ class Search extends Component<Props, State> {
   static defaultProps = {
     clearable: true,
     clearIcon: <span className={styles.defaultClearIcon}>&times;</span>,
-    getItemValue: (item: Item) => item.value,
-    renderItem: (item: Item, isHighlighted: boolean) => {
+    getItemValue: (item: Item): string => item.value,
+    renderItem: (item: Item, isHighlighted: boolean): Node => {
       const classes = cx(styles.defaultItem, {
         [styles.defaultItemHighlighted]: isHighlighted,
       });
 
       return <div key={item.value} className={classes}>{item.label}</div>;
     },
-    renderMenu: (children: Array<Node>, value: string) => {
+    renderMenu: (children: Array<Node>, value: string): Node => {
       const showEmpty = value && !children.length;
 
       return (
@@ -72,7 +72,7 @@ class Search extends Component<Props, State> {
         </div>
       );
     },
-    shouldItemRender(item: Item, value: string) {
+    shouldItemRender(item: Item, value: string): boolean {
       return item.label.toLowerCase().indexOf(value.toLowerCase()) !== -1;
     },
   };
@@ -99,7 +99,7 @@ class Search extends Component<Props, State> {
     onChange && onChange(value);
   };
 
-  handleSelect = (value: string, item: Item) => {
+  handleSelect = (value: string, item: Item): void => {
     const {
       onSelect,
     } = this.props;
@@ -152,7 +152,7 @@ class Search extends Component<Props, State> {
 
     return (
       <div
-        {...getDataAttrs(this.props.data)}
+        {...getDataAttrs(data)}
         className={styles.container}
       >
         {
