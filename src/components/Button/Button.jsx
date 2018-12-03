@@ -1,68 +1,80 @@
 // @flow
 import cx from 'classnames';
 import React, { type Node } from 'react';
-import { getDataAttrs } from '../../dataUtils';
+
 import Loader from '../Loader/Loader.jsx';
-import style from './style.scss';
+
+import { getDataAttrs } from '../../dataUtils';
+
 import type { Data } from '../../types';
 
-const variants = { PRIMARY: 'primary', SECONDARY: 'secondary', TERTIARY: 'tertiary' };
-const size = { SMALL: 'small' };
+import style from './style.scss';
+
+const Variants = { PRIMARY: 'primary', SECONDARY: 'secondary', TERTIARY: 'tertiary' };
+const Sizes = { SMALL: 'small' };
 
 type Props = {|
   label?: string,
   onClick?: (evt: MouseEvent) => void,
-  type?: 'primary' | 'secondary' | 'tertiary',
+  type?: $Values<typeof Variants>,
   disabled: boolean,
   loading: boolean,
   children: Node,
   style?: Object,
   isSubmit?: boolean,
-  size?: string,
+  size?: $Values<typeof Sizes>,
   data?: Data,
 |};
 
 class Button extends React.Component<Props> {
   static defaultProps = {
-    type: variants.PRIMARY,
+    type: Variants.PRIMARY,
     disabled: false,
     loading: false,
   };
 
   render() {
-    const buttonStyle = cx(style.button, {
-      [style.primary]: this.props.type === variants.PRIMARY,
-      [style.secondary]: this.props.type === variants.SECONDARY,
-      [style.tertiary]: this.props.type === variants.TERTIARY,
-      [style.small]: this.props.size === size.SMALL,
-      [style.loading]: this.props.loading,
-      [style.disabled]: this.props.disabled,
+    const {
+      children,
+      className,
+      data,
+      disabled,
+      isSubmit,
+      label,
+      loading,
+      onClick,
+      size,
+      type,
+    } = this.props;
+
+    const classes = cx(style.button, className, {
+      [style.primary]: type === Variants.PRIMARY,
+      [style.secondary]: type === Variants.SECONDARY,
+      [style.tertiary]: type === Variants.TERTIARY,
+      [style.small]: size === Sizes.SMALL,
+      [style.loading]: loading,
     });
 
-    let loaderDotStyle;
-    if (this.props.type === variants.SECONDARY || this.props.type === variants.TERTIARY) {
-      loaderDotStyle = { backgroundColor: '#000', opacity: '0.1' };
-    }
-
     let contentComponent;
-    if (this.props.loading) {
+    if (loading) {
+      const loaderDotStyle = (type === Variants.SECONDARY || type === Variants.TERTIARY) ?
+        { backgroundColor: '#000', opacity: '0.1' } :
+        null;
+
       contentComponent = <Loader dotStyle={loaderDotStyle} />;
     } else {
-      contentComponent = this.props.label || this.props.children;
+      contentComponent = children || label;
     }
 
-    let buttonType = 'button';
-    if (this.props.isSubmit) {
-      buttonType = 'submit';
-    }
+    const buttonType = isSubmit ? 'submit' : 'button';
 
     return (
       <button
-        {...getDataAttrs(this.props.data)}
-        className={cx(buttonStyle)}
-        disabled={this.props.disabled}
-        style={this.props.style}
-        onClick={this.props.onClick}
+        {...getDataAttrs(data)}
+        className={classes}
+        disabled={disabled}
+        style={style}
+        onClick={onClick}
         type={buttonType}
       >
         {contentComponent}
@@ -70,7 +82,6 @@ class Button extends React.Component<Props> {
     );
   }
 }
-
 
 Button.displayName = 'Plasma@Button';
 
