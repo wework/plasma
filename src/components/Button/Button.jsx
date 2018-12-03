@@ -26,61 +26,53 @@ type Props = {|
   data?: Data,
 |};
 
-class Button extends React.Component<Props> {
-  static defaultProps = {
-    type: Variants.PRIMARY,
-    disabled: false,
-    loading: false,
-  };
+function Button(props: Props): Node {
+  const {
+    children,
+    className,
+    data,
+    disabled = false,
+    isSubmit,
+    label,
+    loading = false,
+    onClick,
+    size,
+    type = Variants.PRIMARY,
+  } = props;
 
-  render() {
-    const {
-      children,
-      className,
-      data,
-      disabled,
-      isSubmit,
-      label,
-      loading,
-      onClick,
-      size,
-      type,
-    } = this.props;
+  const classes = cx(style.button, className, {
+    [style.primary]: type === Variants.PRIMARY,
+    [style.secondary]: type === Variants.SECONDARY,
+    [style.tertiary]: type === Variants.TERTIARY,
+    [style.small]: size === Sizes.SMALL,
+    [style.loading]: loading,
+  });
 
-    const classes = cx(style.button, className, {
-      [style.primary]: type === Variants.PRIMARY,
-      [style.secondary]: type === Variants.SECONDARY,
-      [style.tertiary]: type === Variants.TERTIARY,
-      [style.small]: size === Sizes.SMALL,
-      [style.loading]: loading,
-    });
+  let contentComponent;
+  if (loading) {
+    const loaderDotStyle = (type === Variants.SECONDARY || type === Variants.TERTIARY) ?
+      { backgroundColor: '#000', opacity: '0.1' } :
+      null;
 
-    let contentComponent;
-    if (loading) {
-      const loaderDotStyle = (type === Variants.SECONDARY || type === Variants.TERTIARY) ?
-        { backgroundColor: '#000', opacity: '0.1' } :
-        null;
-
-      contentComponent = <Loader dotStyle={loaderDotStyle} />;
-    } else {
-      contentComponent = children || label;
-    }
-
-    const buttonType = isSubmit ? 'submit' : 'button';
-
-    return (
-      <button
-        {...getDataAttrs(data)}
-        className={classes}
-        disabled={disabled}
-        style={style}
-        onClick={onClick}
-        type={buttonType}
-      >
-        {contentComponent}
-      </button>
-    );
+    contentComponent = <Loader dotStyle={loaderDotStyle} />;
+  } else {
+    contentComponent = children || label;
   }
+
+  const buttonType = isSubmit ? 'submit' : 'button';
+
+  return (
+    <button
+      {...getDataAttrs(data)}
+      className={classes}
+      disabled={disabled}
+      style={style}
+      onClick={onClick}
+      type={buttonType}
+    >
+      {contentComponent}
+    </button>
+  );
 }
 
 Button.displayName = 'Plasma@Button';
