@@ -14,16 +14,23 @@ const Variants = { PRIMARY: 'primary', SECONDARY: 'secondary', TERTIARY: 'tertia
 const Sizes = { SMALL: 'small' };
 
 type Props = {|
-  label?: string,
-  onClick?: (evt: MouseEvent) => void,
-  type?: $Values<typeof Variants>,
-  disabled?: boolean,
-  loading?: boolean,
+  autofocus?: boolean,
   children?: Node,
-  style?: { [key: string]: any },
+  data?: Data,
+  disabled?: boolean,
+  hidden?: boolean,
+  label?: string,
+  loading?: boolean,
+  name?: string,
+  onClick?: (evt: MouseEvent) => void,
+  id?: string,
   isSubmit?: boolean,
   size?: $Values<typeof Sizes>,
-  data?: Data,
+  style?: { [key: string]: any },
+  type?: $Values<typeof Variants>,
+  value?: string,
+  tabIndex?: number,
+  title?: string,
 |};
 
 function Button(props: Props): Node {
@@ -38,6 +45,7 @@ function Button(props: Props): Node {
     onClick,
     size,
     type = Variants.PRIMARY,
+    ...rest
   } = props;
 
   const classes = cx(style.button, className, {
@@ -59,16 +67,15 @@ function Button(props: Props): Node {
     contentComponent = children || label;
   }
 
-  const buttonType = isSubmit ? 'submit' : 'button';
-
   return (
     <button
       {...getDataAttrs(data)}
       className={classes}
       disabled={disabled}
-      style={style}
       onClick={onClick}
-      type={buttonType}
+      style={style}
+      type={isSubmit ? 'submit' : 'button'}
+      {...rest}
     >
       {contentComponent}
     </button>
