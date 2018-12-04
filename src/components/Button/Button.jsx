@@ -10,8 +10,14 @@ import type { Data } from '../../types';
 
 import style from './style.scss';
 
-const Variants = { PRIMARY: 'primary', SECONDARY: 'secondary', TERTIARY: 'tertiary' };
-const Sizes = { SMALL: 'small' };
+const Variants = Object.freeze({
+  PRIMARY: 'primary',
+  SECONDARY: 'secondary',
+  TERTIARY: 'tertiary',
+});
+const Sizes = Object.freeze({
+  SMALL: 'small',
+});
 
 type Props = {|
   autofocus?: boolean,
