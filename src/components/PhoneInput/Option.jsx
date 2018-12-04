@@ -1,5 +1,5 @@
 // @flow
-import React from 'react';
+import React, { type Node } from 'react';
 
 import dialCodeFromCountry from './dialCodeFromCountry';
 
@@ -11,16 +11,18 @@ export default function Option(props: Country): Node {
   const {
     value,
     label,
-    icon,
+    icon: Icon,
   } = props;
+
+  const dialCode = dialCodeFromCountry(value) || '';
 
   return (
     <div className={styles.optionRow}>
-      {icon(props)}
+      <Icon {...props} />
       <span className={styles.countryName}>{label}</span>
       {
         value && (
-          <span className={styles.dialCode}>{`+${dialCodeFromCountry(value)}`}</span>
+          <span className={styles.dialCode}>{`+${dialCode}`}</span>
         )
       }
     </div>

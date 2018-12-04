@@ -276,7 +276,7 @@ type NumberFormat =
   | 'RFC3966'
   | 'IDD';
 type NumberType =
-  undefined
+  void
   | 'PREMIUM_RATE'
   | 'TOLL_FREE'
   | 'SHARED_COST'

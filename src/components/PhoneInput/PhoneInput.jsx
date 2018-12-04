@@ -43,9 +43,9 @@ type State = {|
 export type Props = {|
   value?: ?string,
   onChange?: (value: ?string) => void,
-  onFocus?: <+T: EventTarget = EventTarget>(SyntheticFocusEvent<T>) => void,
-  onBlur?: <+T: EventTarget = EventTarget>(SyntheticFocusEvent<T>) => void,
-  onKeyDown?: <+T: EventTarget = EventTarget>(SyntheticKeyboardEvent<T>) => void,
+  onFocus?: (SyntheticFocusEvent<*>) => void,
+  onBlur?: (SyntheticFocusEvent<*>) => void,
+  onKeyDown?: (SyntheticKeyboardEvent<*>) => void,
   disabled: boolean,
   autoComplete: string,
   displayInitialValueAsLocalNumber: boolean,
@@ -56,7 +56,7 @@ export type Props = {|
   flags: Flags,
   flagComponent: ComponentType<$Shape<Props>>,
   international: boolean,
-  internationalIcon: () => ComponentType<*>,
+  internationalIcon: ComponentType<*>,
   showCountrySelect: boolean,
   countrySelectTabIndex?: number,
   countryOptions?: Array<string>,
@@ -90,6 +90,8 @@ function generateExampleNumber(country: ?string): string {
     .replace(/\d/g, '0');
 }
 
+const InternationalIcon: ComponentType<Props> = (): Node => <FlagIcon country="none" />;
+
 export default class PhoneInput extends Component<Props, State> {
   state = {
     country: this.props.country,
@@ -117,7 +119,7 @@ export default class PhoneInput extends Component<Props, State> {
       <ReactPhoneInput
         className={styles.phoneInput}
         countrySelectComponent={CountrySelect}
-        internationalIcon={() => <FlagIcon country="none" />}
+        internationalIcon={InternationalIcon}
         inputComponent={SmartInput}
         flagComponent={FlagIcon}
         labels={labels}

@@ -1,5 +1,5 @@
 // @flow
-import React, { Component } from 'react';
+import React, { Component, type Node } from 'react';
 import Select from 'react-select';
 
 import FlagIcon from './FlagIcon';
@@ -14,8 +14,8 @@ export type Props = {|
   name?: string,
   value?: ?string,
   onChange: (value: ?string) => void,
-  onFocus: () => void,
-  onBlur: () => void,
+  onFocus: (SyntheticFocusEvent<>) => void,
+  onBlur: (SyntheticFocusEvent<>) => void,
   options: Array<Country>,
   disabled?: boolean,
   tabIndex?: number | string,

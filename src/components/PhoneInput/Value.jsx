@@ -1,5 +1,5 @@
 // @flow
-import React from 'react';
+import React, { type Node } from 'react';
 
 import dialCodeFromCountry from './dialCodeFromCountry';
 
@@ -13,10 +13,14 @@ export type Props = {|
 |};
 
 export default function Value({ value, id }: Props): Node {
+  const dialCode = dialCodeFromCountry(value.value) || '';
+
+  const Icon = value.icon;
+
   return (
     <div className="Select-value" id={id}>
-      {value.icon(value)}
-      <span className={styles.dialCode}>{`+${dialCodeFromCountry(value.value)}`}</span>
+      <Icon value={value} />
+      <span className={styles.dialCode}>{`+${dialCode}`}</span>
     </div>
   );
 }
