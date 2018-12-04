@@ -5,23 +5,65 @@ exports[`Search Component render 1`] = `
   className="container"
 >
   <div
-    className="inputWrapper"
+    className="iconContainer inputIconContainer"
   >
-    <span
-      className="searchIconContainer"
-    >
-      <img
-        role="presentation"
-        src={undefined}
-      />
-    </span>
+    <img
+      src="http://yolo.com/icon.png"
+    />
+  </div>
+  <div
+    className="inputWrapper"
+    style={Object {}}
+  >
     <input
-      className="input"
+      aria-autocomplete="list"
+      aria-expanded={false}
+      autoComplete="off"
+      className="input inputHasIcon"
       disabled={undefined}
+      onBlur={[Function]}
       onChange={[Function]}
-      placeholder="Search..."
-      type="text"
+      onClick={[Function]}
+      onFocus={[Function]}
+      onKeyDown={[Function]}
+      placeholder={undefined}
+      role="combobox"
       value=""
+    />
+  </div>
+</div>
+`;
+
+exports[`Search Component render value 1`] = `
+<div
+  className="container"
+>
+  <button
+    className="iconContainer clearableIconContainer"
+    onClick={[Function]}
+  >
+    <img
+      src="http://yolo.com/icon.png"
+    />
+  </button>
+  <div
+    className="inputWrapper"
+    style={Object {}}
+  >
+    <input
+      aria-autocomplete="list"
+      aria-expanded={false}
+      autoComplete="off"
+      className="input inputHasClearIcon"
+      disabled={undefined}
+      onBlur={[Function]}
+      onChange={[Function]}
+      onClick={[Function]}
+      onFocus={[Function]}
+      onKeyDown={[Function]}
+      placeholder={undefined}
+      role="combobox"
+      value="test"
     />
   </div>
 </div>
