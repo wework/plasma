@@ -36,14 +36,24 @@ module.exports = {
         loader: ExtractTextPlugin.extract({
           fallback: 'style-loader',
           use: [
-            'css-loader?modules&importLoaders=1&localIdentName=[path][local]__[hash:base64:5]',
+            'css-loader?modules&importLoaders=2&localIdentName=[path][local]__[hash:base64:5]',
             'resolve-url-loader',
             'sass-loader',
           ],
         }),
       },
       {
-        test: /\.png$/,
+        test: /\.css$/,
+        loader: ExtractTextPlugin.extract({
+          fallback: 'style-loader',
+          use: [
+            'css-loader?modules&importLoaders=1&localIdentName=[path][local]__[hash:base64:5]',
+            'resolve-url-loader',
+          ],
+        }),
+      },
+      {
+        test: /\.(png|svg)$/,
         loader: 'url-loader?limit=100000&mimetype=image/png',
       },
     ],
@@ -56,7 +66,6 @@ module.exports = {
     new ExtractTextPlugin('styles.css'),
     new webpack.NoErrorsPlugin(),
     new webpack.optimize.OccurrenceOrderPlugin(),
-    new webpack.optimize.DedupePlugin(),
     new webpack.optimize.UglifyJsPlugin({
       compress: {
         warnings: false,
