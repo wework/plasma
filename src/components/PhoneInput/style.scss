@@ -171,7 +171,7 @@
       right: 0;
       z-index: 10;
 
-      &--disabled {
+      &:disabled {
         @extend %input--wrapper--disabled;
       }
     }
