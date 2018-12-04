@@ -1,32 +1,49 @@
 $buttonRadius: 5px;
 
+%button--disabled {
+  background: none;
+  color: $cGray100;
+  border-color: $cGray100;
+  cursor: not-allowed;
+  opacity: 0.15;
+
+  &:hover {
+    border-color: $cGray100;
+    background: none;
+  }
+}
+
 %button--base {
-  font-weight: bold;
-  font-size: 13px;
-  cursor: pointer;
-  box-sizing: border-box;
-  text-align: center;
-  height: 38px;
-  padding-left: 20px;
-  padding-right: 20px;
-  display: flex;
   align-items: center;
-  justify-content: center;
+  box-sizing: border-box;
   border-radius: $buttonRadius;
+  cursor: pointer;
+  display: flex;
+  font-weight: bold;
   font-size: $typeBase;
-  line-height: 0;
-  transition: all 0.2s;
+  height: 40px;
+  justify-content: center;
+  line-height: 20px;
   outline: none;
+  padding: 5px 20px;
+  text-align: center;
+  transition: all 0.2s;
+
+  &:disabled {
+    @extend %button--disabled;
+  }
 }
 
 %button--primary {
   color: $cWeWorkBlack;
   background-color: $cBrandYellow;
   border: 1px solid darken($cBrandYellow, 15%);
+
   &:hover {
     background-color: darken($cBrandYellow, 5%);
     border-color: darken($cBrandYellow, 20%);
   }
+
   &:active {
     background-color: darken($cBrandYellow, 10%);
     border-color: darken($cBrandYellow, 30%);
@@ -37,10 +54,12 @@ $buttonRadius: 5px;
   color: $cWeWorkBlack;
   background-color: $cWhite300;
   border: 1px solid darken($cWhite300, 10%);
+
   &:hover {
     background-color: darken($cWhite300, 5%);
     border-color: darken($cWhite300, 20%)
   }
+
   &:active {
     background-color: darken($cWhite300, 10%);
     border-color: darken($cWhite300, 30%)
@@ -51,26 +70,17 @@ $buttonRadius: 5px;
   color: $cWeWorkBlack;
   background-color: transparent;
   border: 1px solid $cGray100;
+
   &:hover {
     background-color: rgba(37, 39, 41, 0.05);
   }
+
   &:active {
     background-color: rgba(37, 39, 41, 0.1);
   }
 }
 
-%button--disabled {
-  background: none;
-  color: $cGray100;
-  border-color: $cGray100;
-  cursor: not-allowed;
-  opacity: 0.15;
-  &:hover {
-    border-color: $cGray100;
-    background: none;
-  }
-}
-
 %button--small {
-  height: 29px;
+  height: 28px;
+  line-height: 18px;
 }

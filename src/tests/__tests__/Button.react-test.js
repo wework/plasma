@@ -44,7 +44,7 @@ describe('Button Component', () => {
 
   test('disabled', () => {
     const component = shallow(<Button disabled>YOLO</Button>);
-    expect(component.find('.disabled')).toHaveLength(1);
+    expect(component.find('[disabled]')).toHaveLength(1);
     expect(component.prop('disabled')).toBe(true);
   });
 
