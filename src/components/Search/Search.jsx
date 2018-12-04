@@ -94,7 +94,7 @@ class Search extends Component<Props, State> {
       onChange,
     } = this.props;
 
-    this.setState({ value: evt.target.value });
+    this.setState({ value: evt.currentTarget.value });
 
     onChange && onChange(value);
   };
