@@ -46,7 +46,7 @@ module.exports = {
           'css-loader?importLoaders=1&localIdentName=[path][local]__[hash:base64:5]',
           'resolve-url-loader',
         ],
-      } ,
+      },
       {
         test: /\.(png|svg)$/,
         loader: 'url-loader?limit=10000',

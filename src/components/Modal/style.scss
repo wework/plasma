@@ -3,7 +3,7 @@
 @keyframes slidein {
   from {
     opacity: .5;
-    top: 20px; 
+    top: 20px;
   }
 
   to {
@@ -74,11 +74,7 @@
 .pageActions {
   display: flex;
 
-  * {
-    margin-right: 20px;
-  }
-
-  :last-child {
-    margin-right: 0;
+  > * + * {
+    margin-left: 20px;
   }
 }

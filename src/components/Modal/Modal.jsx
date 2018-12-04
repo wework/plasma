@@ -20,7 +20,6 @@ type Props = {|
 
 class Modal extends React.Component<Props> {
   render() {
-    let comp = null;
     const {
       title,
       actions,
@@ -29,43 +28,46 @@ class Modal extends React.Component<Props> {
       onDismiss,
       minWidth = 0,
       maxWidth,
+      visible,
     } = this.props;
-    if (this.props.visible) {
-      comp = (
-        <div
-          {...getDataAttrs(data)}
-          className={style.wrapper}
-        >
-          <div className={style.innerWrapper}>
-            <div
-              style={{ minWidth, maxWidth }}
-              className={style.card}
-            >
-              <div className={style.content}>
-                { title &&
-                  <div className={style.top}>
-                    <Header h3>
-                      { title }
-                    </Header>
-                  </div>
-                }
-                {children}
-                { actions &&
-                  <div className={style.pageActions}>
-                    { actions }
-                  </div>
-                }
+
+    if (!visible) {
+      return null;
+    }
+
+    return (
+      <div
+        {...getDataAttrs(data)}
+        className={style.wrapper}
+      >
+        <div className={style.innerWrapper}>
+          <div
+            style={{ minWidth, maxWidth }}
+            className={style.card}
+          >
+            <div className={style.content}>
+              {title &&
+              <div className={style.top}>
+                <Header h3>
+                  {title}
+                </Header>
               </div>
+              }
+              {children}
+              {actions &&
+              <div className={style.pageActions}>
+                {actions}
+              </div>
+              }
             </div>
           </div>
-          <div
-            className={style.overlay}
-            onClick={onDismiss}
-          />
         </div>
-      );
-    }
-    return comp;
+        <div
+          className={style.overlay}
+          onClick={onDismiss}
+        />
+      </div>
+    );
   }
 }
 

@@ -15,10 +15,12 @@ import labels from 'react-phone-number-input/locale/default.json';
 import { getDataAttrs } from '../../dataUtils';
 import type { Data } from '../../types';
 
-import CountrySelectComponent from './CountrySelectComponent';
-import FlagComponent from './FlagComponent';
+import CountrySelect from './CountrySelect';
+import FlagIcon from './FlagIcon';
 
 import type {
+  Flags,
+  Labels,
   Metadata,
   PhoneNumber,
 } from './types';
@@ -41,9 +43,9 @@ type State = {|
 export type Props = {|
   value?: ?string,
   onChange?: (value: ?string) => void,
-  onFocus?: <+T: EventTarget = EventTarget>(SyntheticFocusEvent<T>) => void,
-  onBlur?: <+T: EventTarget = EventTarget>(SyntheticFocusEvent<T>) => void,
-  onKeyDown?: <+T: EventTarget = EventTarget>(SyntheticKeyboardEvent<T>) => void,
+  onFocus?: (SyntheticFocusEvent<*>) => void,
+  onBlur?: (SyntheticFocusEvent<*>) => void,
+  onKeyDown?: (SyntheticKeyboardEvent<*>) => void,
   disabled: boolean,
   autoComplete: string,
   displayInitialValueAsLocalNumber: boolean,
@@ -52,9 +54,9 @@ export type Props = {|
   labels: Labels,
   flagsPath: string,
   flags: Flags,
-  flagComponent: ComponentType<$Shape<FlagComponentProps>>,
+  flagComponent: ComponentType<$Shape<Props>>,
   international: boolean,
-  internationalIcon: () => ComponentType<*>,
+  internationalIcon: ComponentType<*>,
   showCountrySelect: boolean,
   countrySelectTabIndex?: number,
   countryOptions?: Array<string>,
@@ -62,7 +64,7 @@ export type Props = {|
   className?: string,
   inputClassName?: string,
   getInputClassName?: ({| disabled?: boolean, invalid?: boolean |}) => string,
-  countrySelectComponent: ComponentType<$Shape<CountrySelectComponentProps>>,
+  countrySelectComponent: ComponentType<$Shape<Props>>,
   inputComponent: ComponentType<$Shape<InputComponentProps>>,
   ext?: Node,
   limitMaxLength: boolean,
@@ -87,6 +89,8 @@ function generateExampleNumber(country: ?string): string {
     .formatNational()
     .replace(/\d/g, '0');
 }
+
+const InternationalIcon: ComponentType<Props> = (): Node => <FlagIcon country="none" />;
 
 export default class PhoneInput extends Component<Props, State> {
   state = {
@@ -114,10 +118,10 @@ export default class PhoneInput extends Component<Props, State> {
     return (
       <ReactPhoneInput
         className={styles.phoneInput}
-        countrySelectComponent={CountrySelectComponent}
-        internationalIcon={() => <FlagComponent country="none" />}
+        countrySelectComponent={CountrySelect}
+        internationalIcon={InternationalIcon}
         inputComponent={SmartInput}
-        flagComponent={FlagComponent}
+        flagComponent={FlagIcon}
         labels={labels}
         metadata={metadata}
         placeholder={generateExampleNumber(this.state.country)}
@@ -128,4 +132,5 @@ export default class PhoneInput extends Component<Props, State> {
     );
   }
 }
+
 PhoneInput.displayName = 'Plasma@PhoneInput';

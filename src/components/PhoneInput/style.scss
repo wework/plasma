@@ -48,6 +48,7 @@
     .react-phone-number-input__row {
       height: 40px;
       position: relative;
+      z-index: 0;
     }
 
     .react-phone-number-input__error {
@@ -166,7 +167,7 @@
       right: 0;
       z-index: 10;
 
-      &--disabled {
+      &:disabled {
         @extend %input--wrapper--disabled;
       }
     }

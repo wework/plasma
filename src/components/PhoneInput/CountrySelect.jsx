@@ -1,38 +1,39 @@
 // @flow
-import React, { Component } from 'react';
+import React, { Component, type Node } from 'react';
 import Select from 'react-select';
 
-import FlagComponent from './FlagComponent';
-import OptionComponent from './OptionComponent';
-import ValueComponent from './ValueComponent';
+import FlagIcon from './FlagIcon';
+import OptionComponent from './Option';
+import Value from './Value';
 
 import styles from './style.scss';
 
-export type CountrySelectComponentProps = {|
+import type { Country } from './types';
+
+export type Props = {|
   name?: string,
   value?: ?string,
   onChange: (value: ?string) => void,
-  onFocus: () => void,
-  onBlur: () => void,
+  onFocus: (SyntheticFocusEvent<>) => void,
+  onBlur: (SyntheticFocusEvent<>) => void,
   options: Array<Country>,
   disabled?: boolean,
   tabIndex?: number | string,
   className?: string,
   focusPhoneInputField: () => void,
-  name: ?string
 |};
 
-export default class CountrySelectComponent extends Component<CountrySelectComponentProps> {
-  placeholder() {
+export default class CountrySelect extends Component<Props> {
+  placeholder(): Node {
     return (
       <div>
-        <FlagComponent country="none" />
+        <FlagIcon country="none" />
         <span className={styles.dialCode}>+</span>
       </div>
     );
   }
 
-  handleBlur = (evt: SyntheticFocusEvent<>) => {
+  handleBlur = (evt: SyntheticFocusEvent<>): void => {
     const {
       onBlur,
       focusPhoneInputField,
@@ -42,7 +43,7 @@ export default class CountrySelectComponent extends Component<CountrySelectCompo
     focusPhoneInputField();
   };
 
-  handleChange = (item) => {
+  handleChange = (item: Country): void => {
     this.props.onChange(item.value);
   };
 
@@ -62,7 +63,7 @@ export default class CountrySelectComponent extends Component<CountrySelectCompo
         className={className}
         options={options}
         optionRenderer={OptionComponent}
-        valueComponent={ValueComponent}
+        valueComponent={Value}
         searchable={false}
         clearable={false}
         disabled={disabled}
