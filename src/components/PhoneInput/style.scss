@@ -48,6 +48,7 @@
     .react-phone-number-input__row {
       height: 40px;
       position: relative;
+      z-index: 0;
     }
 
     .react-phone-number-input__error {
