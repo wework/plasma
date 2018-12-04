@@ -8,7 +8,7 @@ import { getDataAttrs } from '../../dataUtils';
 
 import type { Data } from '../../types';
 
-import style from './style.scss';
+import styles from './style.scss';
 
 const Variants = Object.freeze({
   PRIMARY: 'primary',
@@ -51,16 +51,17 @@ function Button(props: Props): Node {
     loading = false,
     onClick,
     size,
+    style,
     type = Variants.PRIMARY,
     ...rest
   } = props;
 
-  const classes = cx(style.button, className, {
-    [style.primary]: type === Variants.PRIMARY,
-    [style.secondary]: type === Variants.SECONDARY,
-    [style.tertiary]: type === Variants.TERTIARY,
-    [style.small]: size === Sizes.SMALL,
-    [style.loading]: loading,
+  const classes = cx(styles.button, className, {
+    [styles.primary]: type === Variants.PRIMARY,
+    [styles.secondary]: type === Variants.SECONDARY,
+    [styles.tertiary]: type === Variants.TERTIARY,
+    [styles.small]: size === Sizes.SMALL,
+    [styles.loading]: loading,
   });
 
   let contentComponent;
