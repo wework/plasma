@@ -16,6 +16,7 @@ const Sizes = { SMALL: 'small' };
 type Props = {|
   autofocus?: boolean,
   children?: Node,
+  className?: string,
   data?: Data,
   disabled?: boolean,
   hidden?: boolean,
