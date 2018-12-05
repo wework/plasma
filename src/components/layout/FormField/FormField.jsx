@@ -84,7 +84,7 @@ class FormField extends Component<Props> {
           />
           {
             showHint && (
-              <Hint className={styles.hint} error={showError}>
+              <Hint className={styles.hint} error={!!showError}>
                 {showError ? errorMessage : hint}
               </Hint>
             )
