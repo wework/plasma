@@ -39,6 +39,13 @@ describe('TextInput Component', () => {
     expect(component).toMatchSnapshot();
   });
 
+  test('render error', () => {
+    const component = renderer.create(
+      <TextInput error />
+    );
+    expect(component).toMatchSnapshot();
+  });
+
   test('change', () => {
     const onChange = jest.fn();
     const component = mount(

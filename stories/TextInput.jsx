@@ -49,14 +49,6 @@ stories.add('prefix error', () => (
   <TextInput prefix="$" error onChange={action('changed')} />
 ));
 
-stories.add('large', () => (
-  <TextInput size="large" onChange={action('changed')} />
-));
-
-stories.add('large prefix', () => (
-  <TextInput prefix="http://" size="large" onChange={action('changed')} />
-));
-
 stories.add('clipping parent', () => (
   <div>
     <div style={{ overflow: 'hidden', width: 100, height: 100 }}>
