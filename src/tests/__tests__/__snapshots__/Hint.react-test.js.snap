@@ -1,0 +1,37 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Icon Component render 1`] = `
+<div
+  className="hint test"
+  style={undefined}
+>
+  Hint
+</div>
+`;
+
+exports[`Icon Component render disabled 1`] = `
+<div
+  className="hint hintDisabled"
+  style={undefined}
+>
+  Hint
+</div>
+`;
+
+exports[`Icon Component render error 1`] = `
+<div
+  className="hint hintError"
+  style={undefined}
+>
+  Hint
+</div>
+`;
+
+exports[`Icon Component render with text 1`] = `
+<div
+  className="hint"
+  style={undefined}
+>
+  Hint
+</div>
+`;
