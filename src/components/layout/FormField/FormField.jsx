@@ -1,65 +1,99 @@
 // @flow
-import React, { type Node } from 'react';
+import React, {
+  Component,
+  type ComponentType,
+} from 'react';
+import cx from 'classnames';
 import {
   getDataAttrs,
 } from '../../../dataUtils';
-import styles from './style.scss';
+
+import Hint from '../../Hint/Hint';
 import Label from '../../Label/Label.jsx';
 
+import type { Data } from '../../../types';
+
+import styles from './style.scss';
+
 type Props = {|
-  children: Node,
-  isDisabled: boolean,
-  isRequired: boolean,
-  label: string,
-  displayError: boolean,
-  errorMessage: string,
-  data: Object,
-  style: Object,
+  className?: string,
+  component: ComponentType<*>,
+  data?: Data,
+  disabled?: boolean,
+  error?: boolean,
+  errorMessage?: string,
+  hint?: string,
+  id?: string,
+  inline?: boolean,
+  onChange: (SyntheticEvent<*>) => void,
+  label?: string,
+  name?: string,
+  required?: boolean,
+  style?: { [key: string]: any },
+  value?: any,
 |};
 
-const FormField = (
-  {
-    children,
-    isDisabled,
-    isRequired,
-    label,
-    data,
-    displayError,
-    errorMessage,
-    style,
-  }: Props
-) => {
-  let labelText = label;
+// This component must be a class component, in case some inner component uses refs.
+// See: https://reactjs.org/warnings/refs-must-have-owner.html
+class FormField extends Component<Props> {
+  render() {
+    const {
+      className,
+      component: WrappedComponent,
+      disabled,
+      data,
+      error,
+      errorMessage,
+      hint,
+      inline,
+      label,
+      required,
+      style,
+      ...rest
+    } = this.props;
 
-  if (isRequired) {
-    labelText += ' *';
-  }
+    const showError = error && errorMessage;
+    const showHint = hint || showError;
 
-  return (
-    <div
-      {...getDataAttrs(data)}
-      className={styles.wrapper}
-      style={style}
-    >
-      <Label
-        text={labelText}
-        className={styles.disabled}
-        disabled={isDisabled}
-      />
-      <div className={styles.input}>
-        {children}
+    const classes = cx(styles.formfield, className, {
+      [styles.formfieldInline]: inline,
+    });
+
+    return (
+      <div
+        {...getDataAttrs(data)}
+        className={classes}
+        style={style}
+      >
+        {
+          label && (
+            <Label
+              className={styles.label}
+              disabled={disabled}
+              required={required}
+              text={label}
+              inline={inline}
+            />
+          )
+        }
+        <div className={styles.control}>
+          <WrappedComponent
+            disabled={disabled}
+            error={error}
+            {...rest}
+          />
+          {
+            showHint && (
+              <Hint className={styles.hint} error={showError}>
+                {showError ? errorMessage : hint}
+              </Hint>
+            )
+          }
+        </div>
       </div>
-      {displayError && errorMessage && <div className={styles.error}>{errorMessage}</div>}
-    </div>
-  );
-};
-
-FormField.defaultProps = {
-  children: '',
-  disabled: false,
-  label: '',
-  style: { },
-};
+    );
+  }
+}
 
 FormField.displayName = 'Plasma@FormField';
 

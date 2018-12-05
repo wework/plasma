@@ -1,23 +1,33 @@
 @import '../../../styles/base';
 
-.wrapper {
+$labelWidth: 10rem;
+
+.formfield {
   display: flex;
-  flex-grow: 1;
   flex-direction: column;
-  margin-bottom: 20px;
-}
 
-.disabled {
-  @extend %input--disabled;
-}
+  > * + * {
+    margin-top: 5px;
+  }
 
-.disabledWrapper {
-  @extend %input--wrapper--disabled;
-}
+  & + .formfield {
+    margin-top: 20px;
+  }
 
-.error {
-  font-weight: bold;
-  font-size: 11px;
-  color: $cWarningRed;
-  margin-top : 5px;
+  &.formfieldInline {
+    align-items: flex-start;
+    flex-direction: row;
+
+    > * + * {
+      margin-top: 0;
+    }
+
+    .label {
+      flex: 0 0 $labelWidth;
+    }
+
+    .control {
+      flex: 1;
+    }
+  }
 }
