@@ -18,6 +18,20 @@ exports[`TextInput Component render 1`] = `
 </div>
 `;
 
+exports[`TextInput Component render error 1`] = `
+<div
+  className="wrapper wrapperError"
+  style={undefined}
+>
+  <input
+    className="input"
+    disabled={undefined}
+    placeholder="Type something..."
+    type="text"
+  />
+</div>
+`;
+
 exports[`TextInput Component render placeholder 1`] = `
 <div
   className="wrapper"
