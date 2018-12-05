@@ -44,7 +44,7 @@ const FormField = (
       <Label
         text={labelText}
         className={styles.disabled}
-        type={isDisabled ? 'disabled' : 'primary'}
+        disabled={isDisabled}
       />
       <div className={styles.input}>
         {children}
