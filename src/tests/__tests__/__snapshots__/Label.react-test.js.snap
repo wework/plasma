@@ -1,7 +1,37 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`Label Component render 1`] = `
-<div
+<label
   className="label"
-/>
+  htmlFor={undefined}
+>
+  Test
+</label>
+`;
+
+exports[`Label Component render disabled 1`] = `
+<label
+  className="label labelDisabled"
+  htmlFor={undefined}
+>
+  Test
+</label>
+`;
+
+exports[`Label Component render inline 1`] = `
+<label
+  className="label labelInline"
+  htmlFor={undefined}
+>
+  Test
+</label>
+`;
+
+exports[`Label Component render required 1`] = `
+<label
+  className="label labelRequired"
+  htmlFor={undefined}
+>
+  Test
+</label>
 `;
