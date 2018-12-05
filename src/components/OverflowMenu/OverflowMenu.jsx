@@ -10,16 +10,16 @@ import style from './style.scss';
 const direction = { RIGHT: 'right', LEFT: 'left' };
 
 type Props = {|
-  disabled: boolean,
-  options: Array<Data>,
-  onClick: (event: Event) => void,
-  openDirection: $Values<typeof direction>,
-  label: string,
-  data: Data,
+  disabled?: boolean,
+  options: Array<{| key: string, text: string |}>,
+  onClick: string => void,
+  openDirection?: $Values<typeof direction>,
+  label?: string,
+  data?: Data,
 |};
 
 type State = {|
-    revealed: boolean,
+  revealed: boolean,
 |};
 
 class OverflowMenu extends React.Component<Props, State> {

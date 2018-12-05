@@ -8,10 +8,10 @@ import style from './style.scss';
 
 type Props = {|
   children: Array<Node>,
-  vertical: boolean,
-  layout: Array<Object>,
-  style: Object,
-  data: Data,
+  vertical?: boolean,
+  layout?: Array<Object>,
+  style?: { [string]: string },
+  data?: Data,
 |};
 
 class Group extends React.Component<Props> {
@@ -30,11 +30,7 @@ class Group extends React.Component<Props> {
     }
 
     return (
-      <div
-        {...getDataAttrs(this.props.data)}
-        className={groupStyle}
-        style={this.props.style}
-      >
+      <div {...getDataAttrs(this.props.data)} className={groupStyle} style={this.props.style}>
         {map(children, (child, index) => {
           const styleObj = {};
           if (this.props.layout[index] === 'shrink') {
@@ -47,12 +43,11 @@ class Group extends React.Component<Props> {
             styleObj.flexBasis = `${100 / this.props.children.length}%`;
           }
 
-          return (<div
-            key={index}
-            style={styleObj}
-          >
-            {child}
-          </div>);
+          return (
+            <div key={index} style={styleObj}>
+              {child}
+            </div>
+          );
         })}
       </div>
     );

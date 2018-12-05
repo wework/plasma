@@ -5,27 +5,19 @@ import Icon from '../Icon/Icon';
 import style from './style.scss';
 
 type Props = {|
-  label: string,
+  label: Node,
   icon: string,
   onClick: () => void,
 |};
 
 const SideBarNavTop = ({ label, onClick, icon }: Props) => {
   return (
-    <div
-      className={style.top}
-      onClick={onClick}
-    >
+    <div className={style.top} onClick={onClick}>
       <div className={style.iconAndLabelContainer}>
         <div className={style.iconWrapper}>
-          <Icon
-            color="#fff"
-            icon={icon}
-          />
+          <Icon color="#fff" icon={icon} />
         </div>
-        <div className={cn(style.groupLabelWrapper, style.topText)}>
-          {label}
-        </div>
+        <div className={cn(style.groupLabelWrapper, style.topText)}>{label}</div>
       </div>
     </div>
   );

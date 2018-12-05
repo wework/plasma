@@ -7,19 +7,19 @@ import type { Data } from '../../types';
 import style from './style.scss';
 
 type Props = {|
-  placeholder: string,
+  placeholder?: string,
   value: string,
-  onChange: () => void,
-  onFocus: () => void,
-  onBlur: () => void,
-  suffix: Node,
-  prefix: Node,
-  isDisabled: boolean,
-  disabled: boolean,
-  size: number,
-  error: boolean,
-  maxLength: string,
-  data: Data,
+  onChange?: (ev: SyntheticInputEvent<HTMLInputElement>) => void,
+  onFocus?: () => void,
+  onBlur?: () => void,
+  suffix?: Node,
+  prefix?: Node,
+  isDisabled?: boolean,
+  disabled?: boolean,
+  size?: number,
+  error?: boolean,
+  maxLength?: string,
+  data?: Data,
 |};
 
 const TextInput = ({

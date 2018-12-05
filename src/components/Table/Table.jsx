@@ -1,15 +1,5 @@
 // @flow
-import {
-  pick,
-  keys,
-  forEach,
-  isNull,
-  get,
-  map,
-  includes,
-  isEqual,
-  find,
-} from 'lodash';
+import { pick, keys, forEach, isNull, get, map, includes, isEqual, find } from 'lodash';
 import React from 'react';
 import cx from 'classnames';
 import { getDataAttrs } from '../../dataUtils';
@@ -20,20 +10,20 @@ import downArrow from '../../icons/downArrow';
 import style from './style.scss';
 
 type Props = {|
-  clickable: boolean,
+  clickable?: boolean,
   empty: boolean,
   emptyText: string,
   headerData: Array<Object>,
-  highlightable: boolean,
-  items: Array<Object>,
+  highlightable?: boolean,
+  items: ?Array<Object>,
   loading: boolean,
-  onSort: (string) => void,
-  selectedColumnKey: string,
-  spanMap: Object,
-  stickAt: number,
-  style: Object,
-  data: Data,
-  sort: {key: string, order: string},
+  onSort?: string => void,
+  selectedColumnKey?: string,
+  spanMap?: Object,
+  stickAt?: number,
+  style?: { [string]: string },
+  data?: Data,
+  sort?: { key: string, order: string },
 |};
 
 type State = {|
@@ -106,8 +96,7 @@ class Table extends React.Component<Props, State> {
     if (!isNull(this.props.stickAt)) {
       const tableTopOffset = this.table.getBoundingClientRect().top;
       const tableBottomOffset = this.table.getBoundingClientRect().bottom;
-      const topAtOrAboveStickyPoint =
-        tableTopOffset < this.props.stickAt;
+      const topAtOrAboveStickyPoint = tableTopOffset < this.props.stickAt;
       const bottomAtOrAboveStickyPoint =
         tableBottomOffset - this.state.headerHeight < this.props.stickAt;
       let isVisible = false;
@@ -141,12 +130,15 @@ class Table extends React.Component<Props, State> {
       }
     });
     const tableWidth = parseInt(this.table.offsetWidth, 10);
-    this.updateState({
-      columnSizes: headerSizes,
-      headerHeight: maxHeaderHeight,
-      tableWidth,
-    }, callback);
-  }
+    this.updateState(
+      {
+        columnSizes: headerSizes,
+        headerHeight: maxHeaderHeight,
+        tableWidth,
+      },
+      callback
+    );
+  };
 
   renderStickyHeader() {
     return this.renderHeader({ sticky: true });
@@ -158,53 +150,43 @@ class Table extends React.Component<Props, State> {
 
   renderHeader(opts: Object = {}) {
     const { sort, onSort } = this.props;
-    const headerComponents = map(this.props.headerData, (value) => {
+    const headerComponents = map(this.props.headerData, value => {
       let colStyles = { width: value.width };
       const key = value.key;
 
       if (opts.sticky && this.state.columnSizes[key] && !value.width) {
         colStyles = { width: this.state.columnSizes[key].width };
       }
-      const cellStyle = cx(style.cell,
-        {
-          [style.sortableColumn]: value.sortable,
-        },
-      );
+      const cellStyle = cx(style.cell, {
+        [style.sortableColumn]: value.sortable,
+      });
       return (
         <th
           className={cx({ [cellStyle]: true, [style.condensedCell]: value.condensed })}
           style={colStyles}
           key={key}
-          ref={(c) => {
+          ref={c => {
             if (!opts.sticky) {
               this.headerComponents[key] = c;
             }
           }}
           onClick={() => value.sortable && onSort && onSort(key)}
         >
-          { value.label }
-          { sort && key === sort.key && this.renderCarat() }
-          { value.sortable &&
+          {value.label}
+          {sort && key === sort.key && this.renderCarat()}
+          {value.sortable && (
             <div
-              className={
-                cx(style.sortableColumnHighlight,
-                  {
-                    [style.sortableColumnHighlightSelected]: this.props.selectedColumnKey === key,
-                  }
-                )
-              }
+              className={cx(style.sortableColumnHighlight, {
+                [style.sortableColumnHighlightSelected]: this.props.selectedColumnKey === key,
+              })}
             />
-          }
+          )}
         </th>
       );
     });
     return (
       <thead>
-        <tr
-          className={cx(style.row, style.header)}
-        >
-          { headerComponents }
-        </tr>
+        <tr className={cx(style.row, style.header)}>{headerComponents}</tr>
       </thead>
     );
   }
@@ -230,13 +212,8 @@ class Table extends React.Component<Props, State> {
       return (
         <tbody className={style.tbody}>
           <tr className={style.row}>
-            <td
-              className={style.cell}
-              colSpan={totalColumns}
-            >
-              <span className={style.loadingText}>
-                Loading...
-              </span>
+            <td className={style.cell} colSpan={totalColumns}>
+              <span className={style.loadingText}>Loading...</span>
             </td>
           </tr>
         </tbody>
@@ -247,13 +224,8 @@ class Table extends React.Component<Props, State> {
       return (
         <tbody className={style.tbody}>
           <tr className={style.row}>
-            <td
-              className={style.cell}
-              colSpan={totalColumns}
-            >
-              <span className={style.emptyText}>
-                {emptyText}
-              </span>
+            <td className={style.cell} colSpan={totalColumns}>
+              <span className={style.emptyText}>{emptyText}</span>
             </td>
           </tr>
         </tbody>
@@ -274,7 +246,7 @@ class Table extends React.Component<Props, State> {
       const columnComponents = [];
       const isDisabledRow = itemValue.disabled;
 
-      forEach(headerKeys, (headerKey) => {
+      forEach(headerKeys, headerKey => {
         const isInnerKey = includes(spannedHeaderKeys, headerKey);
         const headerDataVal = find(headerData, { key: headerKey });
         const isCondensed = headerDataVal && headerDataVal.condensed;
@@ -324,12 +296,9 @@ class Table extends React.Component<Props, State> {
       if (spanCount) {
         for (let i = 1; i < spanCount; i++) {
           const partialRowColumns = [];
-          forEach(spannedHeaderKeys, (key) => {
+          forEach(spannedHeaderKeys, key => {
             partialRowColumns.push(
-              <td
-                key={key}
-                className={style.cell}
-              >
+              <td key={key} className={style.cell}>
                 {itemValue[spanKey][i][key]}
               </td>
             );
@@ -351,23 +320,15 @@ class Table extends React.Component<Props, State> {
       }
     });
 
-    return (
-      <tbody className={style.tbody}>
-        {rowComponents}
-      </tbody>
-    );
+    return <tbody className={style.tbody}>{rowComponents}</tbody>;
   }
 
   render() {
     return (
-      <div
-        {...getDataAttrs(this.props.data)}
-        style={this.props.style}
-        className={style.wrapper}
-      >
-        { !isNull(this.props.stickAt) &&
+      <div {...getDataAttrs(this.props.data)} style={this.props.style} className={style.wrapper}>
+        {!isNull(this.props.stickAt) && (
           <div
-            ref={(c) => (this.fixed = c)}
+            ref={c => (this.fixed = c)}
             className={cx(style.table, style.sticky)}
             style={{
               backgroundColor: this.state.backgroundColor,
@@ -379,16 +340,18 @@ class Table extends React.Component<Props, State> {
                 width: this.state.tableWidth,
               }}
             >
-              { this.renderStickyHeader() }
+              {this.renderStickyHeader()}
             </table>
           </div>
-        }
+        )}
         <table
-          ref={(c) => { this.table = c; }}
+          ref={c => {
+            this.table = c;
+          }}
           className={style.table}
         >
-          { this.renderHeader() }
-          { this.renderItems() }
+          {this.renderHeader()}
+          {this.renderItems()}
         </table>
       </div>
     );

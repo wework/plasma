@@ -1,10 +1,10 @@
 /* eslint-disable */
 
 import React from 'react';
-import SideNavBar from '../../components/SideNavBar/SideNavBar';
+import SideNavBar from '../../components/SideNavBar/SideNavBarV2';
 import SideNavBarTop from '../../components/SideNavBar/SideNavBarTop';
 import SideNavBarItemGroup from '../../components/SideNavBar/SideNavBarItemGroup';
-import SideNavBarItem from '../../components/SideNavBar/SideNavBarItem';
+import SideNavBarItem from '../../components/SideNavBar/SideNavBarItemV2';
 import renderer from 'react-test-renderer';
 import { shallow, mount } from 'enzyme';
 
@@ -41,38 +41,29 @@ describe('SideNavBar Component', () => {
       {
         id: 'three',
         label: 'Three',
-      }
-    ]
+      },
+    ];
   });
 
   test('render', () => {
-    const component = renderer.create(
-      <SideNavBar
-        items={items}
-      />
-    );
-    expect(component).toMatchSnapshot()
+    const component = renderer.create(<SideNavBar items={items} />);
+    expect(component).toMatchSnapshot();
   });
 
   test('onClickTop', () => {
     const onClick = jest.fn();
-    const component = mount(
-      <SideNavBar
-        topText="YOLO"
-        onClickTop={onClick}
-        items={items}
-      />
-    );
+    const component = mount(<SideNavBar topText="YOLO" onClickTop={onClick} items={items} />);
     component.find(SideNavBarTop).simulate('click');
     expect(onClick).toHaveBeenCalledTimes(1);
   });
 
   test('hidden items', () => {
-    const component = mount(
-      <SideNavBar
-        items={items}
-      />
-    );
-    expect(component.find(SideNavBarItemGroup).at(1).find(SideNavBarItem)).toHaveLength(1);
+    const component = mount(<SideNavBar items={items} />);
+    expect(
+      component
+        .find(SideNavBarItemGroup)
+        .at(1)
+        .find(SideNavBarItem)
+    ).toHaveLength(1);
   });
 });

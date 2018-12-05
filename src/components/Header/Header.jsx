@@ -16,7 +16,7 @@ type Props = {|
   h5?: boolean,
   h6?: boolean,
   invert?: boolean,
-  style?: boolean,
+  style?: { [string]: string },
   noMargin?: boolean,
   data?: Data,
 |};
@@ -35,16 +35,9 @@ class Header extends React.Component<Props> {
     });
 
     return (
-      <div
-        {...getDataAttrs(this.props.data)}
-        className={[headerStyle]}
-      >
-        <div className={style.content}>
-          { this.props.text || this.props.children }
-        </div>
-        { this.props.underline &&
-          <div className={style.rule} />
-        }
+      <div {...getDataAttrs(this.props.data)} className={[headerStyle]}>
+        <div className={style.content}>{this.props.text || this.props.children}</div>
+        {this.props.underline && <div className={style.rule} />}
       </div>
     );
   }

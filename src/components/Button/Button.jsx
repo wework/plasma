@@ -66,9 +66,10 @@ function Button(props: Props): Node {
 
   let contentComponent;
   if (loading) {
-    const loaderDotStyle = (type === Variants.SECONDARY || type === Variants.TERTIARY) ?
-      { backgroundColor: '#000', opacity: '0.1' } :
-      null;
+    const loaderDotStyle =
+      type === Variants.SECONDARY || type === Variants.TERTIARY
+        ? { backgroundColor: '#000', opacity: '0.1' }
+        : null;
 
     contentComponent = <Loader dotStyle={loaderDotStyle} />;
   } else {

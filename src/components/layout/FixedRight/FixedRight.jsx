@@ -7,7 +7,7 @@ import type { Data } from '../../../types';
 import style from './style.scss';
 
 /**
-  * The fixed right page is great.
+ * The fixed right page is great.
  */
 
 type State = {|
@@ -19,12 +19,11 @@ type Props = {|
   children: Array<Node>,
   stickAt: number,
   fixedContainerStyle: Object,
-  data: Data,
+  data?: Data,
 |};
 
 /* eslint-enable */
 class FixedRight extends React.Component<Props, State> {
-
   static defaultProps = {
     children: [null, null],
     stickAt: null,
@@ -54,7 +53,9 @@ class FixedRight extends React.Component<Props, State> {
       const offsetViewport = this.fixed.offsetTop;
       const offsetDoc = getOffsetTop(this.fixed);
       const ty = clamp(
-        offsetDoc - offsetViewport, 0, this.fixedViewportOffsetOrigin - this.props.stickAt
+        offsetDoc - offsetViewport,
+        0,
+        this.fixedViewportOffsetOrigin - this.props.stickAt
       );
       this.fixed.style.transform = `translateY(${-ty})`;
     }
@@ -64,14 +65,9 @@ class FixedRight extends React.Component<Props, State> {
 
   render() {
     return (
-      <div
-        {...getDataAttrs(this.props.data)}
-        className={style.wrapper}
-      >
+      <div {...getDataAttrs(this.props.data)} className={style.wrapper}>
         <div className={style.contentWrapper}>
-          <div className={style.content}>
-            { this.props.children[0] }
-          </div>
+          <div className={style.content}>{this.props.children[0]}</div>
           <div
             className={style.stub}
             style={{ width: this.state.fixedWidth, minWidth: this.state.fixedWidth }}
@@ -80,7 +76,7 @@ class FixedRight extends React.Component<Props, State> {
         <div
           className={style.fixedWrapper}
           style={this.props.fixedContainerStyle}
-          ref={(c) => {
+          ref={c => {
             if (c) {
               if (!this.fixedViewportOffsetOrigin) {
                 this.fixedViewportOffsetOrigin = c.offsetTop;
@@ -89,7 +85,7 @@ class FixedRight extends React.Component<Props, State> {
             }
           }}
         >
-          { this.props.children[1] }
+          {this.props.children[1]}
         </div>
       </div>
     );

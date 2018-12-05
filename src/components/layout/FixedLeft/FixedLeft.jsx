@@ -6,17 +6,17 @@ import { getDataAttrs } from '../../../dataUtils';
 import type { Data } from '../../../types';
 
 /**
-  * The fixed left page is great.
+ * The fixed left page is great.
  */
 
 /* eslint-disable */
-const getOffsetTop = (elem) => {
+const getOffsetTop = elem => {
   let offsetTop = 0;
   do {
     if (!isNaN(elem.offsetTop)) {
       offsetTop += elem.offsetTop;
     }
-  } while (elem = elem.offsetParent);
+  } while ((elem = elem.offsetParent));
   return offsetTop;
 };
 
@@ -27,15 +27,14 @@ type State = {|
 
 type Props = {|
   children: Array<Node>,
-  stickAt: number,
-  contentStyle: Object,
-  fixedStyle: Object,
-  data: Data,
+  stickAt?: number,
+  contentStyle?: Object,
+  fixedStyle?: Object,
+  data?: Data,
 |};
 
 /* eslint-enable */
 class FixedLeft extends React.Component<Props, State> {
-
   static defaultProps = {
     children: [null, null],
     stickAt: null,
@@ -64,7 +63,9 @@ class FixedLeft extends React.Component<Props, State> {
       const offsetViewport = this.fixed.offsetTop;
       const offsetDoc = getOffsetTop(this.fixed);
       const ty = clamp(
-        offsetDoc - offsetViewport, 0, this.fixedViewportOffsetOrigin - this.props.stickAt
+        offsetDoc - offsetViewport,
+        0,
+        this.fixedViewportOffsetOrigin - this.props.stickAt
       );
       this.fixed.style.transform = `translateY(${-ty})`;
     }
@@ -74,14 +75,11 @@ class FixedLeft extends React.Component<Props, State> {
 
   render() {
     return (
-      <div
-        {...getDataAttrs(this.props.data)}
-        className={style.wrapper}
-      >
+      <div {...getDataAttrs(this.props.data)} className={style.wrapper}>
         <div
           className={style.fixedWrapper}
           style={{ ...this.props.fixedStyle }}
-          ref={(c) => {
+          ref={c => {
             if (c) {
               if (!this.fixedViewportOffsetOrigin) {
                 this.fixedViewportOffsetOrigin = c.offsetTop;
@@ -90,7 +88,7 @@ class FixedLeft extends React.Component<Props, State> {
             }
           }}
         >
-          { this.props.children[0] }
+          {this.props.children[0]}
         </div>
         <div className={style.contentWrapper}>
           <div
@@ -98,7 +96,7 @@ class FixedLeft extends React.Component<Props, State> {
             style={{ width: this.state.fixedWidth, minWidth: this.state.fixedWidth }}
           />
           <div className={style.content} style={{ ...this.props.contentStyle }}>
-            { this.props.children[1] }
+            {this.props.children[1]}
           </div>
         </div>
       </div>
