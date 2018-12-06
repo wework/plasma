@@ -23,7 +23,7 @@ type Props = {|
   selectedLabel: string,
   type: string,
   data?: Data,
-  size: string,
+  size?: string,
 |};
 
 class Toggle extends React.Component<Props> {

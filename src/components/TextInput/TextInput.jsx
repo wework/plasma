@@ -16,7 +16,7 @@ type Props = {|
   prefix?: Node,
   isDisabled?: boolean,
   disabled?: boolean,
-  size?: number,
+  size?: string,
   error?: boolean,
   maxLength?: string,
   data?: Data,
