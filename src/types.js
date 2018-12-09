@@ -14,6 +14,9 @@ export type GlobalAttributes = $Shape<{|
 
 // Event handlers
 
+export type SyntheticInputEventHandler<T: EventTarget = EventTarget> =
+  (SyntheticInputEvent<T>) => void;
+
 export type SyntheticMouseEventHandler<T: EventTarget = EventTarget> =
   (SyntheticMouseEvent<T>) => void;
 
@@ -22,6 +25,12 @@ export type SyntheticKeyboardEventHandler<T: EventTarget = EventTarget> =
 
 export type SyntheticFocusEventHandler<T: EventTarget = EventTarget> =
   (SyntheticFocusEvent<T>) => void;
+
+// Common event handler props
+
+export type ChangeEventHanlders<T: EventTarget = EventTarget> = $Shape<{
+  onChange: SyntheticInputEventHandler<T>,
+}>;
 
 export type MouseEventHandlers<T: EventTarget = EventTarget> = $Shape<{|
   onClick: SyntheticMouseEventHandler<T>,
