@@ -3,27 +3,25 @@ import React, { Component, type Node } from 'react';
 import cx from 'classnames';
 
 import { getDataAttrs } from '../../dataUtils';
-import type { Data } from '../../types';
+import type {
+  Data,
+  InputProps,
+} from '../../types';
 
 import styles from './style.scss';
 
 type Props = {|
   data?: Data,
-  disabled?: boolean,
-  error?: boolean,
   maxLength?: number | string,
-  name?: string,
-  onChange?: (SyntheticKeyboardEvent<HTMLInputElement>) => void,
   onClick?: (SyntheticMouseEvent<HTMLInputElement>) => void,
   onFocus?: (SyntheticFocusEvent<HTMLInputElement>) => void,
   onBlur?: (SyntheticFocusEvent<HTMLInputElement>) => void,
   placeholder?: string,
   prefix?: Node,
-  id?: string,
   style?: { [key: string]: any },
   suffix?: Node,
   type?: 'text' | 'password' | 'email' | 'url',
-  value?: string,
+  ...$Exact<InputProps>
 |};
 
 class TextInput extends Component<Props> {

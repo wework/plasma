@@ -1,3 +1,4 @@
+// @flow
 import React from 'react';
 import { storiesOf } from '@storybook/react';
 import { action } from '@storybook/addon-actions';
@@ -8,27 +9,25 @@ import NumberInput from '../src/components/NumberInput/NumberInput';
 
 const stories = storiesOf('FormField', module);
 
-const defaultProps = {
-  component: TextInput,
-  onChange: action('changed'),
-};
-
 stories.add('default', () => (
   <FormField
-    {...defaultProps}
+    component={TextInput}
+    onChange={action('changed')}
   />
 ));
 
 stories.add('label', () => (
   <FormField
-    {...defaultProps}
+    component={TextInput}
+    onChange={action('changed')}
     label="Charlie don't surf"
   />
 ));
 
 stories.add('hint', () => (
   <FormField
-    {...defaultProps}
+    component={TextInput}
+    onChange={action('changed')}
     label="Charlie don't surf"
     hint="Boo."
   />
@@ -36,7 +35,8 @@ stories.add('hint', () => (
 
 stories.add('inline', () => (
   <FormField
-    {...defaultProps}
+    component={TextInput}
+    onChange={action('changed')}
     label="Inline label"
     hint="This is a hint"
     inline
@@ -45,7 +45,8 @@ stories.add('inline', () => (
 
 stories.add('required', () => (
   <FormField
-    {...defaultProps}
+    component={TextInput}
+    onChange={action('changed')}
     label="Tacos"
     required
   />
@@ -53,7 +54,8 @@ stories.add('required', () => (
 
 stories.add('disabled', () => (
   <FormField
-    {...defaultProps}
+    component={TextInput}
+    onChange={action('changed')}
     label="Disabled"
     disabled
   />
@@ -61,7 +63,8 @@ stories.add('disabled', () => (
 
 stories.add('with error message', () => (
   <FormField
-    {...defaultProps}
+    component={TextInput}
+    onChange={action('changed')}
     label="Error"
     errorMessage="Required"
     error
@@ -70,8 +73,8 @@ stories.add('with error message', () => (
 
 stories.add('NumberInput with error message', () => (
   <FormField
-    {...defaultProps}
     component={NumberInput}
+    onChange={action('changed')}
     label="Error"
     errorMessage="Required"
     error

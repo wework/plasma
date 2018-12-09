@@ -1,7 +1,7 @@
 // @flow
 import React, {
-  Component,
   type ComponentType,
+  type ElementConfig
 } from 'react';
 import cx from 'classnames';
 import {
@@ -11,31 +11,32 @@ import {
 import Hint from '../../Hint/Hint';
 import Label from '../../Label/Label.jsx';
 
-import type { Data } from '../../../types';
+import type {
+  Data,
+  InputProps,
+} from '../../../types';
 
 import styles from './style.scss';
 
-type Props = {|
+type FieldProps = {|
   className?: string,
-  component: ComponentType<*>,
   data?: Data,
-  disabled?: boolean,
-  error?: boolean,
   errorMessage?: string,
   hint?: string,
-  id?: string,
   inline?: boolean,
-  onChange: (SyntheticEvent<*>) => void,
   label?: string,
-  name?: string,
-  required?: boolean,
   style?: { [key: string]: any },
-  value?: any,
+  ...$Exact<InputProps>
 |};
 
-// This component must be a class component, in case some inner component uses refs.
-// See: https://reactjs.org/warnings/refs-must-have-owner.html
-class FormField extends Component<Props> {
+type FormFieldProps<C> = {|
+  ...FieldProps,
+  component: C,
+|};
+
+class FormField<P: InputProps, C: ComponentType<$Exact<P>>>
+  extends React.Component<FormFieldProps<ComponentType<ElementConfig<C>>> & $Diff<P, FieldProps>>
+{
   render() {
     const {
       className,
@@ -47,8 +48,11 @@ class FormField extends Component<Props> {
       hint,
       inline,
       label,
+      name,
+      onChange,
       required,
       style,
+      value,
       ...rest
     } = this.props;
 
@@ -80,6 +84,10 @@ class FormField extends Component<Props> {
           <WrappedComponent
             disabled={disabled}
             error={error}
+            required={required}
+            name={name}
+            value={value}
+            onChange={onChange}
             {...rest}
           />
           {
