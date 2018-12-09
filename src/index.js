@@ -34,7 +34,7 @@ import TimePicker from './components/TimePicker/TimePicker';
 import Page from './components/layout/Page/Page';
 import Group from './components/layout/Group/Group';
 import HorizontalScroll from './components/layout/HorizontalScroll/HorizontalScroll';
-import FormField from './components/layout/FormField/FormField';
+import FormField from './components/FormField/FormField';
 import FixedLeft from './components/layout/FixedLeft/FixedLeft';
 import FixedRight from './components/layout/FixedRight/FixedRight';
 import FixedTop from './components/layout/FixedTop/FixedTop';

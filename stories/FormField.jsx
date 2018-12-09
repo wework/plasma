@@ -3,7 +3,7 @@ import React from 'react';
 import { storiesOf } from '@storybook/react';
 import { action } from '@storybook/addon-actions';
 
-import FormField from '../src/components/layout/FormField/FormField';
+import FormField from '../src/components/FormField/FormField';
 import TextInput from '../src/components/TextInput/TextInput';
 import NumberInput from '../src/components/NumberInput/NumberInput';
 

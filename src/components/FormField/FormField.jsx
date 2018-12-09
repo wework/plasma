@@ -1,20 +1,21 @@
 // @flow
 import React, {
+  Component,
   type ComponentType,
   type ElementConfig
 } from 'react';
 import cx from 'classnames';
 import {
   getDataAttrs,
-} from '../../../dataUtils';
+} from '../../dataUtils';
 
-import Hint from '../../Hint/Hint';
-import Label from '../../Label/Label.jsx';
+import Hint from '../Hint/Hint';
+import Label from '../Label/Label.jsx';
 
 import type {
   Data,
   InputProps,
-} from '../../../types';
+} from '../../types';
 
 import styles from './style.scss';
 
@@ -34,8 +35,8 @@ type FormFieldProps<C> = {|
   component: C,
 |};
 
-class FormField<P: InputProps, C: ComponentType<$Exact<P>>>
-  extends React.Component<FormFieldProps<ComponentType<ElementConfig<C>>> & $Diff<P, FieldProps>>
+class FormField<P: InputProps, C: ComponentType<P>>
+  extends Component<FormFieldProps<ComponentType<ElementConfig<C>>> & $Diff<P, FieldProps>>
 {
   render() {
     const {
