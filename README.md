@@ -39,6 +39,12 @@ Developing with Storybook
 1. Run `yarn run styleguide:build`
 2. Files output to /styleguide
 
+### Building flow-typed definitions
+
+1. Run `yarn flow:buildTypeDefs`
+
+This will output flow-typed compatible definitions of Flow types for Plasma. For Spacestation, you likely want to `yarn flow:buildTypeDefs | pbcopy` (if on Mac) and paste the contents to the `plasma_vx.x.x.js` under flow-typed/
+
 ### Documenting components
 
 1. Run `./docs/publish.sh` from the root dir. This will update the docs, commit to gh-pages, and push to github (updating http://plasma.guide)

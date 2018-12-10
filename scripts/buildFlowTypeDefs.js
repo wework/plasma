@@ -1,4 +1,4 @@
-const execSync = require('child_process').execSync;
+const { execSync } = require('child_process');
 
 const p = require('../package.json');
 
@@ -20,7 +20,6 @@ declare module '@wework-dev/plasma' {
   ${String(declarations)
     .replace('ExternalSelect.propTypes', 'Object')
     .replace('ExternalDatePicker.propTypes', 'Object')}
-
 
   declare export class CountedTextInput extends React$Component<{ ...$PropertyType<TextInput, 'props'>, counterStyle: string }> { }
   declare export class CountedTextArea extends React$Component<{ ...$PropertyType<TextArea, 'props'>, counterStyle: string }> { }

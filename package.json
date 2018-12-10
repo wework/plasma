@@ -20,7 +20,8 @@
     "test:watch": "yarn test --watch --coverage",
     "test:update": "yarn test --updateSnapshot",
     "test:coverage": "yarn test --coverage --coverageReporters=text-lcov",
-    "flow:coverage": "flow-coverage-report --config .flow-coverage.config.json --strict-coverage"
+    "flow:coverage": "flow-coverage-report --config .flow-coverage.config.json --strict-coverage",
+    "flow:buildTypeDefs": "node ./scripts/buildFlowTypeDefs.js"
   },
   "author": "WeWork",
   "license": "ISC",
