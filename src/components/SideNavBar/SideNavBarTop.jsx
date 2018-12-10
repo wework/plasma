@@ -1,5 +1,5 @@
 // @flow
-import React from 'react';
+import React, { type Node } from 'react';
 import cn from 'classnames';
 import Icon from '../Icon/Icon';
 import style from './style.scss';

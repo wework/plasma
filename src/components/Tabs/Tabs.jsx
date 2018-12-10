@@ -13,7 +13,7 @@ type Tab = {|
 
 type Props = {|
   items: Array<Tab>,
-  onChange?: (string, number) => void,
+  onChange?: (Node, number) => void,
   selectedIndex?: number,
   selectedLabel?: string,
   data?: Data,
@@ -28,7 +28,7 @@ class Tabs extends React.Component<Props> {
   };
 
   onClick = (tab: Tab, index: number): void => {
-    this.props.onChange(tab.label, index);
+    this.props.onChange && this.props.onChange(tab.label, index);
   };
 
   onKeyDown = (event: { keyCode: number }, tab: Tab, index: number): void => {

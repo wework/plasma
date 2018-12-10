@@ -7,14 +7,14 @@ import style from './style.scss';
 
 type Props = {|
   id: string,
-  icon: string,
+  icon?: string,
   iconSize: number,
   iconStyle?: { [string]: string },
   label: Node,
   onClick: ({ id: string }) => mixed,
-  items: Array<ItemV2>,
+  items?: Array<ItemV2>,
   darkBg?: boolean,
-  selectedId: string,
+  selectedId?: string,
 |};
 
 class SideNavBarItemGroup extends Component<Props> {

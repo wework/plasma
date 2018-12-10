@@ -42,9 +42,9 @@ class OverflowMenu extends React.Component<Props, State> {
     this.setState({ revealed: false });
   };
 
-  handleClick = (event: Event) => {
+  handleClick = (optionKey: string) => {
     this.setState({ revealed: false });
-    this.props.onClick(event);
+    this.props.onClick(optionKey);
   };
 
   renderLabel = (): Node => {

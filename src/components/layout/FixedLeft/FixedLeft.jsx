@@ -27,7 +27,7 @@ type State = {|
 
 type Props = {|
   children: Array<Node>,
-  stickAt?: number,
+  stickAt: number,
   contentStyle?: Object,
   fixedStyle?: Object,
   data?: Data,
@@ -37,7 +37,7 @@ type Props = {|
 class FixedLeft extends React.Component<Props, State> {
   static defaultProps = {
     children: [null, null],
-    stickAt: null,
+    stickAt: 0,
   };
 
   constructor() {

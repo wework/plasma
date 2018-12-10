@@ -9,7 +9,7 @@ import style from './style.scss';
 type Props = {|
   children: Array<Node>,
   vertical?: boolean,
-  layout?: Array<Object>,
+  layout: Array<Object>,
   style?: { [string]: string },
   data?: Data,
 |};

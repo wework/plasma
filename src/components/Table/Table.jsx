@@ -23,7 +23,7 @@ type Props = {|
   stickAt?: number,
   style?: { [string]: string },
   data?: Data,
-  sort?: { key: string, order: string },
+  sort: { key: string, order: string },
 |};
 
 type State = {|
@@ -43,6 +43,7 @@ class Table extends React.Component<Props, State> {
     loading: false,
     stickAt: null,
     headerData: [],
+    sort: {},
   };
 
   constructor() {
@@ -97,7 +98,9 @@ class Table extends React.Component<Props, State> {
       const tableTopOffset = this.table.getBoundingClientRect().top;
       const tableBottomOffset = this.table.getBoundingClientRect().bottom;
       const topAtOrAboveStickyPoint = tableTopOffset < this.props.stickAt;
+
       const bottomAtOrAboveStickyPoint =
+        // $FlowFixMe TODO isNull is not recognized as refinement
         tableBottomOffset - this.state.headerHeight < this.props.stickAt;
       let isVisible = false;
       if (topAtOrAboveStickyPoint && !bottomAtOrAboveStickyPoint) {

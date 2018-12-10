@@ -40,15 +40,15 @@ class Search extends Component<Props, State> {
     }
   }
 
-  onChange = (event: { target: { value: string } }): void => {
+  onChange = (event: SyntheticEvent<HTMLInputElement>): void => {
     const { onChange } = this.props;
 
-    this.setState({ text: event.target.value });
+    this.setState({ text: event.currentTarget.value });
 
     onChange && onChange(event);
   };
 
-  onClear = (event: Event): void => {
+  onClear = (event: SyntheticEvent<HTMLInputElement>): void => {
     const { onClear } = this.props;
 
     this.setState({ text: '' });
