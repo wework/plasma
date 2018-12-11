@@ -17,10 +17,6 @@ import type { ComponentType, ElementConfig, Node, Component } from 'react';
 declare module '@wework-dev/plasma' {
   declare type Data = { key: string, value: string };
 
-  ${String(declarations)
-    .replace('<propTypes>', '<Object>')
-    .replace('<propTypes>', '<Object>')}
-
   declare export class CountedTextInput extends React$Component<{ ...$PropertyType<TextInput, 'props'>, counterStyle: string }> { }
   declare export class CountedTextArea extends React$Component<{ ...$PropertyType<TextArea, 'props'>, counterStyle: string }> { }
 
