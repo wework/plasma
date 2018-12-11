@@ -7,9 +7,7 @@ import { shallow, mount } from 'enzyme';
 
 describe('RadioButton Component', () => {
   test('render', () => {
-    const component = renderer.create(
-      <RadioButton />
-    );
+    const component = renderer.create(<RadioButton />);
     let tree = component.toJSON();
     expect(tree).toMatchSnapshot();
     tree.props.checked = true;
@@ -17,11 +15,7 @@ describe('RadioButton Component', () => {
   });
 
   test('description', () => {
-    const component = shallow(
-      <RadioButton
-        description="wow such description"
-      />
-    );
+    const component = shallow(<RadioButton description="wow such description" />);
     expect(component.find('.description')).toHaveLength(1);
   });
 });

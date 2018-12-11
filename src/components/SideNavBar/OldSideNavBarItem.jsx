@@ -54,11 +54,8 @@ class SideNavBarItem extends Component<Props> {
     });
 
     return (
-      <div
-        className={wrapperClasses}
-        onClick={onClick}
-      >
-        { children || this.renderIconAndLabel() }
+      <div className={wrapperClasses} onClick={onClick}>
+        {children || this.renderIconAndLabel()}
       </div>
     );
   }

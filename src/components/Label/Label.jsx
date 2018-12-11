@@ -19,23 +19,13 @@ type Props = {|
   className?: string,
 |};
 
-const Label = (
-  {
-    type,
-    text,
-    data,
-    children,
-  }: Props
-) => {
+const Label = ({ type, text, data, children }: Props) => {
   const labelStyle = cx(style.label, {
     [style.labelSecondary]: type === types.SECONDARY,
     [style.labelDisabled]: type === types.DISABLED,
   });
   return (
-    <div
-      {...getDataAttrs(data)}
-      className={labelStyle}
-    >
+    <div {...getDataAttrs(data)} className={labelStyle}>
       {text || children}
     </div>
   );

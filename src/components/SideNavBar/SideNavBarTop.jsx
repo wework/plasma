@@ -12,20 +12,12 @@ type Props = {|
 
 const SideBarNavTop = ({ label, onClick, icon }: Props) => {
   return (
-    <div
-      className={style.top}
-      onClick={onClick}
-    >
+    <div className={style.top} onClick={onClick}>
       <div className={style.iconAndLabelContainer}>
         <div className={style.iconWrapper}>
-          <Icon
-            color="#fff"
-            icon={icon}
-          />
+          <Icon color="#fff" icon={icon} />
         </div>
-        <div className={cn(style.groupLabelWrapper, style.topText)}>
-          {label}
-        </div>
+        <div className={cn(style.groupLabelWrapper, style.topText)}>{label}</div>
       </div>
     </div>
   );

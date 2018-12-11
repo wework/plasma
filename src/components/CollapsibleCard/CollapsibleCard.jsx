@@ -18,12 +18,10 @@ type Props = {|
 |};
 
 type State = {|
-  shouldDisplayCard: boolean
+  shouldDisplayCard: boolean,
 |};
 
 class CollapsibleCard extends Component<Props, State> {
-
-
   static defaultProps = {
     isCollapsed: false,
   };
@@ -37,17 +35,9 @@ class CollapsibleCard extends Component<Props, State> {
   };
 
   render() {
-    const {
-      headerText,
-      collapsibleText,
-      children,
-      styleColor,
-      disabled,
-    } = this.props;
+    const { headerText, collapsibleText, children, styleColor, disabled } = this.props;
 
-    const {
-      shouldDisplayCard,
-    } = this.state;
+    const { shouldDisplayCard } = this.state;
 
     const collapsibleCardStyle = cx(style.collapsibleCard, {
       [style.styleColorRed]: styleColor === styleColors.RED,
@@ -66,12 +56,7 @@ class CollapsibleCard extends Component<Props, State> {
             </div>
           )}
         </div>
-        {!disabled &&
-          shouldDisplayCard && (
-            <Card borderColor={styleColor}>
-              {children}
-            </Card>
-        )}
+        {!disabled && shouldDisplayCard && <Card borderColor={styleColor}>{children}</Card>}
       </div>
     );
   }

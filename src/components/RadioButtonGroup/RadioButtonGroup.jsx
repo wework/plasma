@@ -8,7 +8,7 @@ type Option = {|
   icon?: string,
   label: string,
   value: string,
-|}
+|};
 
 type Props = {|
   fancy?: boolean,
@@ -17,7 +17,7 @@ type Props = {|
   onChange: () => mixed,
   options: Array<Option>,
   value?: string,
-|}
+|};
 
 class RadioButtonGroup extends React.Component<Props> {
   static defaultProps = {
@@ -27,30 +27,27 @@ class RadioButtonGroup extends React.Component<Props> {
     const { options, value, fancy, isLarge, name, onChange } = this.props;
     // TODO: replace fieldValue with value={opt.value}
     return (
-        options && options.map(opt => (
-          <RadioButton
-            checked={value === opt.value}
-            description={opt.description}
-            disabled={opt.disabled}
-            icon={opt.icon}
-            key={opt.value}
-            text={opt.label}
-            fieldValue={opt.value}
-            fancy={fancy}
-            isLarge={isLarge}
-            name={name}
-            onChange={onChange}
-          />
+      options &&
+      options.map(opt => (
+        <RadioButton
+          checked={value === opt.value}
+          description={opt.description}
+          disabled={opt.disabled}
+          icon={opt.icon}
+          key={opt.value}
+          text={opt.label}
+          fieldValue={opt.value}
+          fancy={fancy}
+          isLarge={isLarge}
+          name={name}
+          onChange={onChange}
+        />
       ))
     );
-  }
+  };
 
   render() {
-    return (
-      <div>
-        { this.renderRadioButtons() }
-      </div>
-    );
+    return <div>{this.renderRadioButtons()}</div>;
   }
 }
 

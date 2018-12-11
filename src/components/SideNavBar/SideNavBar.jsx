@@ -27,39 +27,36 @@ type Props = {|
 |};
 
 class SideNavBar extends Component<Props> {
-
   handleClick = (result: Object): void => {
     this.props.onChange && this.props.onChange({ id: result.id });
   };
 
   renderItems(): Array<Node> {
-    return this.props.items && this.props.items.map((item) => (
-      <SideNavBarItemGroup
-        key={item.id}
-        id={item.id}
-        icon={item.icon}
-        label={item.label}
-        onClick={this.handleClick}
-        items={item.items}
-        selectedId={this.props.selectedId}
-      />)
+    return (
+      this.props.items &&
+      this.props.items.map(item => (
+        <SideNavBarItemGroup
+          key={item.id}
+          id={item.id}
+          icon={item.icon}
+          label={item.label}
+          onClick={this.handleClick}
+          items={item.items}
+          selectedId={this.props.selectedId}
+        />
+      ))
     );
   }
 
   render() {
     return (
-      <div
-        {...getDataAttrs(this.props.data)}
-        className={style.wrapper}
-      >
+      <div {...getDataAttrs(this.props.data)} className={style.wrapper}>
         <SideNavBarTop
           label={this.props.topText}
           icon={this.props.topIcon}
           onClick={this.props.onClickTop}
         />
-        <div className={style.sidebarContent}>
-          {this.renderItems()}
-        </div>
+        <div className={style.sidebarContent}>{this.renderItems()}</div>
       </div>
     );
   }

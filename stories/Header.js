@@ -8,7 +8,7 @@ function buildHeaders(extra = {}) {
   const children = [];
 
   for (let i = 1; i < 7; i++) {
-    const hSize = `h${i}`
+    const hSize = `h${i}`;
 
     const props = {
       ...extra,
@@ -16,9 +16,7 @@ function buildHeaders(extra = {}) {
       [hSize]: true,
     };
 
-    children.push(
-      <Header {...props}>Header</Header>
-    );
+    children.push(<Header {...props}>Header</Header>);
   }
 
   return children;
@@ -28,31 +26,19 @@ stories
   .add('Basic', () => {
     const headers = buildHeaders();
 
-    return (
-      <div>
-        {headers}
-      </div>
-    );
+    return <div>{headers}</div>;
   })
   .add('Inverted', () => {
     const headers = buildHeaders({
       invert: true,
     });
 
-    return (
-      <div style={{ background: 'black' }}>
-        {headers}
-      </div>
-    );
+    return <div style={{ background: 'black' }}>{headers}</div>;
   })
   .add('No margin', () => {
     const headers = buildHeaders({
       noMargin: true,
     });
 
-    return (
-      <div>
-        {headers}
-      </div>
-    );
+    return <div>{headers}</div>;
   });

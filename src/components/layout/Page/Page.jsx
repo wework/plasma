@@ -15,39 +15,23 @@ type Props = {|
 
 class Page extends React.Component<Props> {
   render() {
-    const {
-      title,
-      children,
-      actions,
-      breadcrumb,
-    } = this.props;
+    const { title, children, actions, breadcrumb } = this.props;
 
     return (
-      <div
-        className={style.wrapper}
-        {...getDataAttrs(this.props.data)}
-      >
+      <div className={style.wrapper} {...getDataAttrs(this.props.data)}>
         <div className={style.content}>
-          { breadcrumb &&
-            <div className={style.breadcrumb}>
-              { breadcrumb }
-            </div>
-          }
-          { (title || actions) &&
+          {breadcrumb && <div className={style.breadcrumb}>{breadcrumb}</div>}
+          {(title || actions) && (
             <div className={style.top}>
-              { title &&
+              {title && (
                 <Header h2 noMargin>
-                  { title }
+                  {title}
                 </Header>
-              }
-              { actions &&
-                <div className={style.pageActions}>
-                  { actions.map((action) => action)}
-                </div>
-              }
+              )}
+              {actions && <div className={style.pageActions}>{actions.map(action => action)}</div>}
             </div>
-          }
-          { children }
+          )}
+          {children}
         </div>
       </div>
     );

@@ -2,12 +2,16 @@
   "parser": "babel-eslint",
   "env": {
     "node": true,
-    "browser": true,
+    "browser": true
   },
-  "plugins": [
-    "flowtype"
+  "plugins": ["flowtype"],
+  "extends": [
+    "airbnb",
+    "plugin:flowtype/recommended",
+    "prettier",
+    "prettier/react",
+    "prettier/flowtype"
   ],
-  "extends": ["airbnb","plugin:flowtype/recommended"],
   "rules": {
     "react/prefer-stateless-function": "off",
     "new-cap": "off",
@@ -15,8 +19,11 @@
     "arrow-body-style": "off",
     "no-underscore-dangle": "off",
     "react/prop-types": 0,
-    "no-unused-expressions": [2, {
-      "allowShortCircuit": true
-    }]
+    "no-unused-expressions": [
+      2,
+      {
+        "allowShortCircuit": true
+      }
+    ]
   }
 }

@@ -10,6 +10,4 @@ storiesOf('Label', module).add('secondary', () => (
   <Label type="secondary" text="A secondary label" />
 ));
 
-storiesOf('Label', module).add('disabled', () => (
-  <Label type="disabled" text="A disabled label" />
-));
+storiesOf('Label', module).add('disabled', () => <Label type="disabled" text="A disabled label" />);

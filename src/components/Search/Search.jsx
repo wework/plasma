@@ -10,7 +10,7 @@ type Props = {|
   disabled: boolean,
   iconUrl: string,
   instructionText: string,
-  onChange: ({target: {value: string}}) => void,
+  onChange: ({ target: { value: string } }) => void,
   onClear: (event: Event) => void,
   placeholder: string,
   value: string,
@@ -18,7 +18,7 @@ type Props = {|
 |};
 
 type State = {|
-    text: string
+  text: string,
 |};
 
 class Search extends Component<Props, State> {
@@ -40,7 +40,7 @@ class Search extends Component<Props, State> {
     }
   }
 
-  onChange = (event: {target: {value: string}}): void => {
+  onChange = (event: { target: { value: string } }): void => {
     const { onChange } = this.props;
 
     this.setState({ text: event.target.value });
@@ -59,20 +59,10 @@ class Search extends Component<Props, State> {
   };
 
   render() {
-    const {
-      clearable,
-      clearIconUrl,
-      disabled,
-      iconUrl,
-      instructionText,
-      placeholder,
-    } = this.props;
+    const { clearable, clearIconUrl, disabled, iconUrl, instructionText, placeholder } = this.props;
 
     return (
-      <div
-        {...getDataAttrs(this.props.data)}
-        className={style.container}
-      >
+      <div {...getDataAttrs(this.props.data)} className={style.container}>
         <div className={style.inputWrapper}>
           <span className={style.searchIconContainer}>
             <img src={iconUrl} role="presentation" />
@@ -85,22 +75,16 @@ class Search extends Component<Props, State> {
             type="text"
             value={this.state.text}
           />
-          {
-            clearable && clearIconUrl && (this.state.text !== '') &&
+          {clearable && clearIconUrl && this.state.text !== '' && (
             <img
               className={style.clearableIcon}
               onClick={this.onClear}
               src={clearIconUrl}
               role="presentation"
             />
-          }
+          )}
         </div>
-        {
-          instructionText &&
-          <div className={style.instructionText}>
-            {instructionText}
-          </div>
-        }
+        {instructionText && <div className={style.instructionText}>{instructionText}</div>}
       </div>
     );
   }

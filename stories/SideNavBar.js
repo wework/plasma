@@ -15,7 +15,9 @@ class StatefulWrapper extends React.Component {
     return (
       <SideNavBar
         items={this.props.items}
-        onChange={(event) => { this.setState({ selectedId: event.id }); }}
+        onChange={event => {
+          this.setState({ selectedId: event.id });
+        }}
         selectedId={this.state.selectedId}
         topText="Long Building Name"
         topIcon={locationPin}
@@ -89,10 +91,9 @@ storiesOf('SideNavBar', module)
         ],
       },
     ];
-    return (
-      <StatefulWrapper items={items} />
-    );
-  }).add('hidden items', () => {
+    return <StatefulWrapper items={items} />;
+  })
+  .add('hidden items', () => {
     const items = [
       {
         label: 'Building',
@@ -156,10 +157,9 @@ storiesOf('SideNavBar', module)
         ],
       },
     ];
-    return (
-      <StatefulWrapper items={items} />
-    );
-  }).add('w/ tag', () => {
+    return <StatefulWrapper items={items} />;
+  })
+  .add('w/ tag', () => {
     const items = [
       {
         label: 'Building',
@@ -226,13 +226,12 @@ storiesOf('SideNavBar', module)
         ],
       },
     ];
-    return (
-      <StatefulWrapper items={items} />
-    );
-  }).add('w/ nodes as labels', () => {
+    return <StatefulWrapper items={items} />;
+  })
+  .add('w/ nodes as labels', () => {
     const items = [
       {
-        label: <a href='#'>Building</a>,
+        label: <a href="#">Building</a>,
         id: 'building',
         icon: 'http://simpleicon.com/wp-content/uploads/rocket.svg',
         items: [
@@ -249,7 +248,7 @@ storiesOf('SideNavBar', module)
         ],
       },
       {
-        label: <a href='#'>Inventory</a>,
+        label: <a href="#">Inventory</a>,
         id: 'inventory',
         icon: 'http://simpleicon.com/wp-content/uploads/rocket.svg',
         items: [
@@ -264,7 +263,7 @@ storiesOf('SideNavBar', module)
         ],
       },
       {
-        label: <a href='#'>Members</a>,
+        label: <a href="#">Members</a>,
         id: 'members',
         icon: 'http://simpleicon.com/wp-content/uploads/rocket.svg',
         items: [
@@ -280,7 +279,7 @@ storiesOf('SideNavBar', module)
         ],
       },
       {
-        label: <a href='#'>Sales</a>,
+        label: <a href="#">Sales</a>,
         id: 'sales',
         icon: 'http://simpleicon.com/wp-content/uploads/rocket.svg',
         items: [
@@ -296,7 +295,5 @@ storiesOf('SideNavBar', module)
         ],
       },
     ];
-    return (
-      <StatefulWrapper items={items} />
-    );
+    return <StatefulWrapper items={items} />;
   });

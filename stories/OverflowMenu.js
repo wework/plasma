@@ -11,17 +11,9 @@ const options = [
 ];
 
 storiesOf('OverflowMenu', module)
-  .add('default', () => (
-    <OverflowMenu
-      options={options}
-      onClick={action('clicked')}
-    />
-  )).add('open left', () => (
+  .add('default', () => <OverflowMenu options={options} onClick={action('clicked')} />)
+  .add('open left', () => (
     <div style={{ float: 'right' }}>
-      <OverflowMenu
-        openDirection="left"
-        options={options}
-        onClick={action('clicked')}
-      />
+      <OverflowMenu openDirection="left" options={options} onClick={action('clicked')} />
     </div>
   ));
