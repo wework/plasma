@@ -45,12 +45,12 @@ const TextInput = ({
   const wrapperStyle = cx(style.wrapper, {
     [style.wrapperDisabled]: isDisabled || disabled,
     [style.wrapperError]: error,
-    [style.wrapperLarge]: toUpper(size) === 'LARGE',
+    [style.wrapperLarge]: toUpper(size + '') === 'LARGE',
   });
 
   const inputStyle = cx(style.input, {
     [style.disabled]: isDisabled || disabled,
-    [style.large]: toUpper(size) === 'LARGE',
+    [style.large]: toUpper(size + '') === 'LARGE',
   });
 
   return (

@@ -15,9 +15,9 @@ const type = {
 type Props = {|
   items: {
     label: string,
-	title: string,
-	disabled: boolean,
-    },
+    title: string,
+    disabled: boolean,
+  },
   onChange: (string, number) => void,
   selectedIndex: number,
   selectedLabel: string,
@@ -30,7 +30,7 @@ class Toggle extends React.Component<Props> {
   static defaultProps = {
     items: [],
     type: type.HORIZONTAL,
-    onChange: () => { },
+    onChange: () => {},
   };
   onClick(toggle: Object, index: number) {
     this.props.onChange(toggle.label, index);
@@ -44,15 +44,11 @@ class Toggle extends React.Component<Props> {
 
   render() {
     return (
-      <ul
-        {...getDataAttrs(this.props.data)}
-        className={style.toggleWrapper}
-        role="tablist"
-      >
-        { _.map(this.props.items, (toggle, index) => {
+      <ul {...getDataAttrs(this.props.data)} className={style.toggleWrapper} role="tablist">
+        {_.map(this.props.items, (toggle, index) => {
           const toggleClasses = cx(style.toggle, {
-            [style.active]: (this.props.selectedIndex === index ||
-                             this.props.selectedLabel === toggle.label),
+            [style.active]:
+              this.props.selectedIndex === index || this.props.selectedLabel === toggle.label,
             [style.disabled]: this.props.items[index].disabled,
             [style.horizontal]: this.props.type === type.HORIZONTAL,
             [style.vertical]: this.props.type === type.VERTICAL,
@@ -62,14 +58,15 @@ class Toggle extends React.Component<Props> {
           return (
             <li
               role="tab"
+              // $FlowFixMe TODO issue in lodash index being string rather than number
               onClick={() => this.onClick(toggle, index)}
-              onKeyDown={(event) => this.onKeyDown(event, toggle, index)}
+              // $FlowFixMe TODO issue in lodash index being string rather than number
+              onKeyDown={event => this.onKeyDown(event, toggle, index)}
               className={toggleClasses}
               key={index}
               type={this.props.type}
-
             >
-              { toggle.title }
+              {toggle.title}
             </li>
           );
         })}

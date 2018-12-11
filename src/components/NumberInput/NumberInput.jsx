@@ -10,16 +10,16 @@ type HandleEvent = {|
   target: {
     parentElement: {
       classList: {
-        remove: (string) => mixed,
-        add: (string) => mixed,
-      }
-    }
+        remove: string => mixed,
+        add: string => mixed,
+      },
     },
-    nativeEvent: {
+  },
+  nativeEvent: {
     target: {
-      value: Object
-    }
-  }
+      value: string,
+    },
+  },
 |};
 type Props = {|
   data: Data,
@@ -27,9 +27,9 @@ type Props = {|
   error: boolean,
   maxValue: number,
   minValue: number,
-  onBlur: (HandleEvent) => void,
-  onChange: (HandleEvent) => void,
-  onFocus: (HandleEvent) => void,
+  onBlur: string => void,
+  onChange: string => void,
+  onFocus: string => void,
   placeholder: string,
   step: number,
   value: string,
@@ -93,10 +93,7 @@ class NumberInput extends React.Component<Props> {
     });
 
     return (
-      <div
-        {...getDataAttrs(data)}
-        className={wrapperStyle}
-      >
+      <div {...getDataAttrs(data)} className={wrapperStyle}>
         <input
           type="number"
           placeholder={placeholder}
@@ -111,14 +108,12 @@ class NumberInput extends React.Component<Props> {
           onFocus={this.handleFocus}
         />
         <div className={spinnerStyle}>
-          <div
-            className={actionStyle}
-            onClick={!disabled && this.handleIncrement}
-          >+</div>
-          <div
-            className={actionStyle}
-            onClick={!disabled && this.handleDecrement}
-          >-</div>
+          <div className={actionStyle} onClick={!disabled && this.handleIncrement}>
+            +
+          </div>
+          <div className={actionStyle} onClick={!disabled && this.handleDecrement}>
+            -
+          </div>
         </div>
       </div>
     );
