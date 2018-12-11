@@ -35,16 +35,11 @@ class Header extends React.Component<Props> {
     });
 
     return (
-      <div
-        {...getDataAttrs(this.props.data)}
-        className={[headerStyle]}
-      >
+      <div {...getDataAttrs(this.props.data)} className={[headerStyle]}>
         <div className={style.content}>
-          { this.props.text || this.props.children }
+          {this.props.text || this.props.children}
         </div>
-        { this.props.underline &&
-          <div className={style.rule} />
-        }
+        {this.props.underline && <div className={style.rule} />}
       </div>
     );
   }
