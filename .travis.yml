@@ -11,6 +11,6 @@ before_script:
   - yarn
 script:
   - yarn lint
-  - yarn prettier
+  - yarn prettier:ci
   - yarn test
   - yarn flow
