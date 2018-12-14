@@ -20,15 +20,14 @@ type Props = {|
   items: Array<Item>,
   onChange: ({ id: number }) => void,
   selectedId: string,
-  onClickTop: () => void,
-  topText: string,
-  topIcon: string,
+  onClickTop?: () => void,
+  topText?: string,
+  topIcon?: string,
   data: Data,
-  editingTopText: boolean,
-  topTextValue: string,
-  onTopTextChange: ({ value: string }) => void,
-  onClickTop: () => void,
-  onBlurTop: () => void,
+  editingTopText?: boolean,
+  topTextValue?: string,
+  onTopTextChange?: ({ value: string }) => void,
+  onBlurTop?: () => void,
 |};
 
 class SideNavBar extends Component<Props> {
