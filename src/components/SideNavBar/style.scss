@@ -1,6 +1,7 @@
 @import '../../styles/base';
 
-.wrapper, .groupWrapper {
+.wrapper,
+.groupWrapper {
   width: 180px;
 }
 
@@ -16,11 +17,16 @@
   }
 }
 
-.top {
+.top,
+.input {
   font-size: 14px;
+  color: $cGray20;
+  font-weight: bold;
+}
+
+.top {
   box-sizing: border-box;
   background-color: $cPurple50;
-  position: absolute;
   left: 0;
   right: 0;
   top: 0;
@@ -29,13 +35,17 @@
   display: flex;
   justify-content: flex-start;
   align-items: center;
-  color: $cGray20;
   cursor: pointer;
-  &:hover, &:focus {
+  &:hover,
+  &:focus {
     color: $cGray40;
   }
   &:active {
     color: $cGray20;
+  }
+
+  &.fullWidth {
+    width: 100vw;
   }
 }
 
@@ -43,7 +53,11 @@
   height: 100%;
   box-sizing: border-box;
   border-right: 1px solid $cBorder;
-  padding: 70px 0 50px 0;
+  padding: 20px 0 50px 0;
+
+  &:focus {
+    outline: none;
+  }
 }
 
 .groupWrapper {
@@ -71,16 +85,20 @@
   color: $cBlack20;
   box-sizing: border-box;
   display: block;
-  &.selected, &.selected a {
+  &.selected,
+  &.selected a {
     color: $cPurple30;
     &:hover {
       color: $cPurple30;
     }
   }
-  &:hover, &:focus, a:hover {
+  &:hover,
+  &:focus,
+  a:hover {
     color: $cBlack40;
   }
-  &:active, a:active {
+  &:active,
+  a:active {
     color: $cBlack50;
   }
 }
@@ -100,6 +118,15 @@
     position: relative;
     top: 1px;
   }
+
+  .topText {
+    color: $cGray20;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    overflow: hidden;
+    padding-right: 20px;
+  }
+
   .groupLabelWrapper {
     color: $cPurple50;
     font-weight: bold;
@@ -107,9 +134,6 @@
     white-space: nowrap;
     overflow: hidden;
     padding-right: 20px;
-    &.topText {
-      color: $cGray20;
-    }
 
     > * {
       color: $cPurple50;
@@ -138,4 +162,28 @@
 
 .darkBg {
   background: fade-out(#000, 0.9);
+}
+
+.input {
+  font-family: $fontStack;
+  background-color: transparent;
+  border: none;
+  width: 100%;
+  padding: 0px;
+
+  &:focus {
+    outline: none;
+    color: $cGray20;
+  }
+
+  &::-webkit-input-placeholder,
+  &::placeholder,
+  &[placeholder] {
+    text-overflow: ellipsis;
+    white-space: nowrap;
+  }
+}
+
+.fullWidth .input {
+  width: 80vw;
 }

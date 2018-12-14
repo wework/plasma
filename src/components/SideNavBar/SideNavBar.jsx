@@ -24,42 +24,51 @@ type Props = {|
   topText: string,
   topIcon: string,
   data: Data,
+  editingTopText: boolean,
+  topTextValue: string,
+  onTopTextChange: ({ value: string }) => void,
+  onClickTop: () => void,
+  onBlurTop: () => void,
 |};
 
 class SideNavBar extends Component<Props> {
-
   handleClick = (result: Object): void => {
     this.props.onChange && this.props.onChange({ id: result.id });
   };
 
   renderItems(): Array<Node> {
-    return this.props.items && this.props.items.map((item) => (
-      <SideNavBarItemGroup
-        key={item.id}
-        id={item.id}
-        icon={item.icon}
-        label={item.label}
-        onClick={this.handleClick}
-        items={item.items}
-        selectedId={this.props.selectedId}
-      />)
+    return (
+      this.props.items &&
+      this.props.items.map(item => (
+        <SideNavBarItemGroup
+          key={item.id}
+          id={item.id}
+          icon={item.icon}
+          label={item.label}
+          onClick={this.handleClick}
+          items={item.items}
+          selectedId={this.props.selectedId}
+        />
+      ))
     );
   }
 
   render() {
     return (
-      <div
-        {...getDataAttrs(this.props.data)}
-        className={style.wrapper}
-      >
-        <SideNavBarTop
-          label={this.props.topText}
-          icon={this.props.topIcon}
-          onClick={this.props.onClickTop}
-        />
-        <div className={style.sidebarContent}>
-          {this.renderItems()}
-        </div>
+      <div {...getDataAttrs(this.props.data)} className={style.wrapper}>
+        {(this.props.topText || this.props.topIcon) && (
+          <SideNavBarTop
+            label={this.props.topText}
+            icon={this.props.topIcon}
+            onClick={this.props.onClickTop}
+            onBlur={this.props.onBlurTop}
+            editing={this.props.editingTopText}
+            placeholder={this.props.topText}
+            value={this.props.topTextValue}
+            onChange={this.props.onTopTextChange}
+          />
+        )}
+        <div className={style.sidebarContent}>{this.renderItems()}</div>
       </div>
     );
   }
