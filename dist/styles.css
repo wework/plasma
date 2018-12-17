@@ -1805,6 +1805,7 @@
 
 .src-components-SideNavBar-iconAndLabelContainer__23y53 .src-components-SideNavBar-iconWrapper__Ozjr4 {
   width: 40px;
+  min-width: 40px;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -1831,13 +1832,6 @@
 
 .src-components-SideNavBar-iconAndLabelContainer__23y53 .src-components-SideNavBar-groupLabelWrapper__1wdlJ > * {
   color: #2b3445;
-}
-
-.src-components-SideNavBar-iconAndLabelContainer__23y53 {
-  display: flex;
-  flex-direction: row;
-  justify-content: flex-start;
-  align-items: center;
 }
 
 .src-components-SideNavBar-tag__3qOGh {

@@ -110,8 +110,10 @@
   justify-content: flex-start;
   align-items: center;
   overflow: hidden;
+
   .iconWrapper {
     width: 40px;
+    min-width: 40px;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -139,13 +141,6 @@
       color: $cPurple50;
     }
   }
-}
-
-.iconAndLabelContainer {
-  display: flex;
-  flex-direction: row;
-  justify-content: flex-start;
-  align-items: center;
 }
 
 .tag {
