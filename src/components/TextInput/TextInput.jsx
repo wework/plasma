@@ -22,7 +22,6 @@ type Props = {|
   data: Data,
   id?: string,
   name?: string,
-  style?: { [key: string]: any },
 |};
 
 const TextInput = ({
@@ -41,7 +40,6 @@ const TextInput = ({
   maxLength,
   id,
   name,
-  style,
 }: Props) => {
   const fixStyle = cx(styles.fix, {
     [styles.suffix]: suffix,
@@ -60,7 +58,7 @@ const TextInput = ({
   });
 
   return (
-    <div {...getDataAttrs(data)} className={wrapperStyle} style={style}>
+    <div {...getDataAttrs(data)} className={wrapperStyle}>
       <input
         className={inputStyle}
         disabled={isDisabled || disabled}

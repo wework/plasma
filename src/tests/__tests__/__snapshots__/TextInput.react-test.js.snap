@@ -3,7 +3,6 @@
 exports[`TextInput Component render 1`] = `
 <div
   className="wrapper"
-  style={undefined}
 >
   <input
     className="input"
