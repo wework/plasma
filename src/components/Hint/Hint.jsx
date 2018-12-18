@@ -15,7 +15,7 @@ type Props = {|
   text?: string,
 |};
 
-const Hint = ({ children, className, data, disabled, error, style, text }: Props) => {
+const Hint = ({ children, className, data, disabled, error, text }: Props) => {
   const classes = cx(styles.hint, className, {
     [styles.hintDisabled]: disabled,
     [styles.hintError]: error,
@@ -24,7 +24,6 @@ const Hint = ({ children, className, data, disabled, error, style, text }: Props
   return (
     <div
       className={classes}
-      style={style}
       {...getDataAttrs(data)}
     >
       {children || text}
