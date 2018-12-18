@@ -12,7 +12,6 @@ type Props = {|
   data?: Data,
   disabled?: boolean,
   error?: boolean,
-  style?: { [key: string]: any },
   text?: string,
 |};
 

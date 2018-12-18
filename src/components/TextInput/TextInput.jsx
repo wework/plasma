@@ -18,7 +18,7 @@ type Props = {|
   onBlur?: (SyntheticFocusEvent<HTMLInputElement>) => void,
   placeholder?: string,
   prefix?: Node,
-  style?: { [key: string]: any },
+  id?: string,
   suffix?: Node,
   type?: 'text' | 'password' | 'email' | 'url',
   ...$Exact<InputProps>
@@ -35,7 +35,6 @@ class TextInput extends Component<Props> {
       error,
       data,
       prefix,
-      style,
       suffix,
       type,
       ...rest
@@ -52,7 +51,6 @@ class TextInput extends Component<Props> {
       <div
         {...getDataAttrs(data)}
         className={classes}
-        style={style}
       >
         {
           prefix && <div className={styles.prefix}>{prefix}</div>

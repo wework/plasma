@@ -1,8 +1,10 @@
 // @flow
 import React, { type Node } from 'react';
 import cx from 'classnames';
+
 import { getDataAttrs } from '../../dataUtils';
 import type { Data } from '../../types';
+
 import styles from './style.scss';
 
 type Props = {|
@@ -13,7 +15,6 @@ type Props = {|
   htmlFor?: string,
   inline?: boolean,
   required?: boolean,
-  style?: { [key: string]: any },
   text?: string,
   title?: string,
 |};
