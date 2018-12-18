@@ -3,7 +3,6 @@
 exports[`TextInput Component render 1`] = `
 <div
   className="wrapper"
-  style={undefined}
 >
   <input
     className="input"
@@ -21,7 +20,6 @@ exports[`TextInput Component render 1`] = `
 exports[`TextInput Component render error 1`] = `
 <div
   className="wrapper wrapperError"
-  style={undefined}
 >
   <input
     className="input"
@@ -35,7 +33,6 @@ exports[`TextInput Component render error 1`] = `
 exports[`TextInput Component render placeholder 1`] = `
 <div
   className="wrapper"
-  style={undefined}
 >
   <input
     className="input"
@@ -49,7 +46,6 @@ exports[`TextInput Component render placeholder 1`] = `
 exports[`TextInput Component render prefix 1`] = `
 <div
   className="wrapper"
-  style={undefined}
 >
   <div
     className="prefix"
@@ -68,7 +64,6 @@ exports[`TextInput Component render prefix 1`] = `
 exports[`TextInput Component render suffix 1`] = `
 <div
   className="wrapper"
-  style={undefined}
 >
   <input
     className="input"
