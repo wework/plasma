@@ -20,7 +20,6 @@ type Props = {|
   placeholder?: string,
   prefix?: Node,
   id?: string,
-  style?: { [key: string]: any },
   suffix?: Node,
   type?: 'text' | 'password' | 'email' | 'url',
   value?: string,
@@ -37,7 +36,6 @@ class TextInput extends Component<Props> {
       error,
       data,
       prefix,
-      style,
       suffix,
       type,
       ...rest
@@ -54,7 +52,6 @@ class TextInput extends Component<Props> {
       <div
         {...getDataAttrs(data)}
         className={classes}
-        style={style}
       >
         {
           prefix && <div className={styles.prefix}>{prefix}</div>
