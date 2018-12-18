@@ -26,7 +26,6 @@ type FieldProps = {|
   hint?: string,
   inline?: boolean,
   label?: string,
-  style?: { [key: string]: any },
   ...$Exact<InputProps>
 |};
 
@@ -92,7 +91,6 @@ class FormField<P: InputProps, C: ComponentType<P>>
       name,
       onChange,
       required,
-      style,
       value,
       ...rest
     } = this.props;
@@ -108,7 +106,6 @@ class FormField<P: InputProps, C: ComponentType<P>>
       <div
         {...getDataAttrs(data)}
         className={classes}
-        style={style}
       >
         {
           label && (
