@@ -60,7 +60,6 @@ export type Props = {|
   showCountrySelect: boolean,
   countrySelectTabIndex?: number,
   countryOptions?: Array<string>,
-  style?: { [key: string]: string },
   className?: string,
   inputClassName?: string,
   getInputClassName?: ({| disabled?: boolean, invalid?: boolean |}) => string,
