@@ -1711,9 +1711,6 @@
 .src-components-SideNavBar-top__1PMat {
   box-sizing: border-box;
   background-color: #2b3445;
-  left: 0;
-  right: 0;
-  top: 0;
   height: 50px;
   width: 100%;
   display: flex;
@@ -3232,3 +3229,4 @@
 .react-datepicker__portal .react-datepicker__navigation--next:hover {
   border-left-color: #b3b2b2;
 }
+/*# sourceMappingURL=styles.css.map*/

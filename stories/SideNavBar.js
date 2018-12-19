@@ -1,7 +1,6 @@
 import React from 'react';
 import { storiesOf } from '@storybook/react';
 import { action } from '@storybook/addon-actions';
-import { linkTo } from '@storybook/addon-links';
 import SideNavBar from '../src/components/SideNavBar/SideNavBar';
 import locationPin from '../src/icons/locationPin';
 
@@ -11,12 +10,14 @@ class StatefulWrapper extends React.Component {
     this.state = { selectedId: null };
   }
 
+  handleChange = event => {
+    this.setState({ selectedId: event.id });
+  };
+
   render() {
     return (
       <SideNavBar
-        onChange={event => {
-          this.setState({ selectedId: event.id });
-        }}
+        onChange={this.handleChange}
         selectedId={this.state.selectedId}
         topText="Long Building Name"
         topIcon={locationPin}
@@ -33,17 +34,25 @@ class StatefulWrapperWithEditableTop extends React.Component {
     this.state = { selectedId: null, editingTopText: false };
   }
 
+  handleClickTop = () => {
+    this.props.onClickTop && this.props.onClickTop();
+    this.setState({ editingTopText: true });
+  };
+
+  handleBlurTop = () => {
+    this.setState({ editingTopText: false });
+  };
+
+  handleChange = event => {
+    this.setState({ selectedId: event.id });
+  };
+
   render() {
     return (
       <StatefulWrapper
-        onClickTop={event => {
-          this.props.onClickTop && this.props.onClickTop();
-          this.setState({ editingTopText: true });
-        }}
-        onBlurTop={() => this.setState({ editingTopText: false })}
-        onChange={event => {
-          this.setState({ selectedId: event.id });
-        }}
+        onClickTop={this.handleClickTop}
+        onBlurTop={this.handleBlurTop}
+        onChange={this.handleChange}
         editingTopText={this.state.editingTopText}
         {...this.props}
       />
