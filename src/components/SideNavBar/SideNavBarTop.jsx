@@ -19,12 +19,6 @@ type Props = {|
 |};
 
 class SideBarNavTop extends React.Component<Props> {
-  constructor(props: Props) {
-    super(props);
-    // $FlowFixMe (https://github.com/facebook/flow/issues/6103)
-    this.input = props.forwardedRef || React.createRef();
-  }
-
   componentDidUpdate(prevProps: Props) {
     if (this.props.editing && !prevProps.editing) {
       this.input.current && this.input.current.focus();
@@ -32,6 +26,9 @@ class SideBarNavTop extends React.Component<Props> {
   }
 
   input: { current: null | HTMLInputElement };
+
+  // $FlowFixMe (https://github.com/facebook/flow/issues/6103)
+  input = this.props.forwardedRef || React.createRef();
 
   render() {
     const {

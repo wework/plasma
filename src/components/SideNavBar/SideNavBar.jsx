@@ -36,35 +36,43 @@ class SideNavBar extends Component<Props> {
   };
 
   renderItems(): Array<Node> {
-    return (
-      this.props.items &&
-      this.props.items.map(item => (
-        <SideNavBarItemGroup
-          key={item.id}
-          id={item.id}
-          icon={item.icon}
-          label={item.label}
-          onClick={this.handleClick}
-          items={item.items}
-          selectedId={this.props.selectedId}
-        />
-      ))
-    );
+    return this.props.items.map(item => (
+      <SideNavBarItemGroup
+        key={item.id}
+        id={item.id}
+        icon={item.icon}
+        label={item.label}
+        onClick={this.handleClick}
+        items={item.items}
+        selectedId={this.props.selectedId}
+      />
+    ));
   }
 
   render() {
+    const {
+      data,
+      editingTopText,
+      onBlurTop,
+      onClickTop,
+      onTopTextChange,
+      topIcon,
+      topText,
+      topTextValue,
+    } = this.props;
+
     return (
-      <div {...getDataAttrs(this.props.data)} className={style.wrapper}>
-        {(this.props.topText || this.props.topIcon) && (
+      <div {...getDataAttrs(data)} className={style.wrapper}>
+        {(topText || topIcon) && (
           <SideNavBarTop
-            label={this.props.topText}
-            icon={this.props.topIcon}
-            onClick={this.props.onClickTop}
-            onBlur={this.props.onBlurTop}
-            editing={this.props.editingTopText}
-            placeholder={this.props.topText}
-            value={this.props.topTextValue}
-            onChange={this.props.onTopTextChange}
+            label={topText}
+            icon={topIcon}
+            onClick={onClickTop}
+            onBlur={onBlurTop}
+            editing={editingTopText}
+            placeholder={topText}
+            value={topTextValue}
+            onChange={onTopTextChange}
           />
         )}
         <div className={style.sidebarContent}>{this.renderItems()}</div>
