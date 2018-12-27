@@ -5,9 +5,9 @@ export type Data = {
 };
 
 export type GlobalAttributes = $Shape<{|
+  className: string,
   hidden: boolean,
   id: string,
-  style: { [key: string]: any },
   tabIndex: string | number,
   title: string,
 |}>;
