@@ -2,7 +2,7 @@
 import React, {
   Component,
   type ComponentType,
-  type ElementConfig
+  type ElementConfig,
 } from 'react';
 import cx from 'classnames';
 import {
@@ -45,14 +45,14 @@ type FormFieldProps<C> = {|
 //
 // The FormField component itself is then defined such that its props will contain:
 // - The expected component as `ComponentType<ElementConfig<C>>`.
-// - `$Diff<P, FieldProps>` allows any props from the inner component to be set on the FormField component,
-//   and those will be passed through to the inner component.
-
-// By using `ElementConfig` we also take into consideration the component's `defaultProps`, so Flow will not break
-// on any props marked as required which have default values (see above link).
+// - `$Diff<P, FieldProps>` allows any props from the inner component to be set on the
+//   FormField component, and those will be passed through to the inner component.
+// By using `ElementConfig` we also take into consideration the component's `defaultProps`,
+// so Flow will not break on any props marked as required which have
+// default values (see above link).
 //
-// In other words, if the inner component has a _required_ prop `foo` with a default prop value, Flow will allow `foo`
-// to remain optional on FormField.
+// In other words, if the inner component has a _required_ prop `foo` with a default prop value,
+// Flow will allow `foo` to remain optional on FormField.
 // For example:
 //
 // ```jsx
@@ -75,8 +75,7 @@ type FormFieldProps<C> = {|
 // <FormField component={Foo} foo="bar2" />
 // ```
 class FormField<P: InputProps, C: ComponentType<P>>
-  extends Component<FormFieldProps<ComponentType<ElementConfig<C>>> & $Diff<P, FieldProps>>
-{
+  extends Component<FormFieldProps<ComponentType<ElementConfig<C>>> & $Diff<P, FieldProps>> {
   render() {
     const {
       className,
