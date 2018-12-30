@@ -5,35 +5,6 @@ exports[`SideNavBar Component render 1`] = `
   className="wrapper"
 >
   <div
-    className="top"
-    onClick={undefined}
-  >
-    <div
-      className="iconAndLabelContainer"
-    >
-      <div
-        className="iconWrapper"
-      >
-        <div
-          className="wrapper"
-          dangerouslySetInnerHTML={
-            Object {
-              "__html": undefined,
-            }
-          }
-          style={
-            Object {
-              "fill": "#fff",
-            }
-          }
-        />
-      </div>
-      <div
-        className="groupLabelWrapper topText"
-      />
-    </div>
-  </div>
-  <div
     className="sidebarContent"
   >
     <div
