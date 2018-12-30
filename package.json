@@ -83,7 +83,7 @@
     "uuid": "^3.1.0",
     "webpack": "^2.6.0",
     "webpack-bundle-analyzer": "^2.8.2",
-    "webpack-dev-server": "^1.14.1"
+    "webpack-dev-server": "2.9.7"
   },
   "dependencies": {
     "classnames": "^2.2.5",
