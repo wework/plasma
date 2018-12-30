@@ -38,7 +38,7 @@ class TextInput extends Component<Props> {
       prefix,
       suffix,
       type,
-      ...rest,
+      ...rest
     } = this.props;
 
     const inputType = type || 'text';
