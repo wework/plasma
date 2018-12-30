@@ -29,7 +29,7 @@ const Label = (
     inline,
     required,
     text,
-    ...rest
+    ...rest,
   }: Props
 ) => {
   const classes = cx(styles.label, className, {
