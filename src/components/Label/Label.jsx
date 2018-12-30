@@ -19,7 +19,7 @@ type Props = {|
   title?: string,
 |};
 
-const Label = (
+function Label(
   {
     children,
     className,
@@ -29,9 +29,9 @@ const Label = (
     inline,
     required,
     text,
-    ...rest,
+    ...rest
   }: Props
-) => {
+) {
   const classes = cx(styles.label, className, {
     [styles.labelInline]: inline,
     [styles.labelDisabled]: disabled,
@@ -48,7 +48,7 @@ const Label = (
       {children || text}
     </label>
   );
-};
+}
 
 Label.displayName = 'Plasma@Label';
 
