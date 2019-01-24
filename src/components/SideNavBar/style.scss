@@ -51,6 +51,7 @@
   box-sizing: border-box;
   border-right: 1px solid $cBorder;
   padding: 20px 0 50px 0;
+  overflow-y: scroll;
 
   &:focus {
     outline: none;

@@ -3,20 +3,22 @@ import React, { type Node } from 'react';
 import cx from 'classnames';
 
 import { getDataAttrs } from '../../dataUtils';
-import type { Data } from '../../types';
+import type {
+  Data,
+  GlobalAttributes,
+} from '../../types';
 
 import styles from './style.scss';
 
 type Props = {|
   children?: Node,
-  className?: string,
   data?: Data,
   disabled?: boolean,
   htmlFor?: string,
   inline?: boolean,
   required?: boolean,
   text?: string,
-  title?: string,
+  ...GlobalAttributes,
 |};
 
 function Label(

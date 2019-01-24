@@ -11,6 +11,7 @@ type Props = {|
   iconUrl: string,
   instructionText: string,
   onChange: ({target: {value: string}}) => void,
+  onKeyDown: (event: Event) => void,
   onClear: (event: Event) => void,
   placeholder: string,
   value: string,
@@ -18,13 +19,15 @@ type Props = {|
 |};
 
 type State = {|
-    text: string
+  text: string
 |};
 
 class Search extends Component<Props, State> {
   static defaultProps = {
     placeholder: 'Search...',
+    onKeyDown: null,
   };
+
   constructor(props: Props) {
     super(props);
     this.state = {
@@ -81,6 +84,7 @@ class Search extends Component<Props, State> {
             className={style.input}
             disabled={disabled}
             onChange={this.onChange}
+            onKeyDown={this.props.onKeyDown}
             placeholder={placeholder}
             type="text"
             value={this.state.text}

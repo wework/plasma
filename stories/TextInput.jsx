@@ -24,6 +24,10 @@ stories.add('suffix', () => (
   <TextInput onChange={action('changed')} suffix=".com" />
 ));
 
+stories.add('prefix and suffix', () => (
+  <TextInput onChange={action('changed')} prefix="https://" suffix=".com" />
+));
+
 stories.add('disabled placeholder', () => (
   <TextInput disabled onChange={action('changed')} />
 ));
@@ -40,6 +44,10 @@ stories.add('disabled suffix', () => (
   <TextInput disabled suffix=".com" onChange={action('changed')} value="Queen of hearts" />
 ));
 
+stories.add('disabled prefix and suffix', () => (
+  <TextInput disabled onChange={action('changed')} prefix="https://" suffix=".com" />
+));
+
 stories.add('error', () => <TextInput error onChange={action('changed')} />);
 
 stories.add('suffix error', () => (
@@ -48,6 +56,10 @@ stories.add('suffix error', () => (
 
 stories.add('prefix error', () => (
   <TextInput prefix="$" error onChange={action('changed')} />
+));
+
+stories.add('prefix and suffix error', () => (
+  <TextInput prefix="https://" suffix=".com" error onChange={action('changed')} />
 ));
 
 stories.add('clipping parent', () => (
