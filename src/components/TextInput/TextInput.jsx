@@ -3,7 +3,12 @@ import React, { Component, type Node } from 'react';
 import cx from 'classnames';
 
 import { getDataAttrs } from '../../dataUtils';
-import type { Data } from '../../types';
+import type {
+  ChangeEventHanlders,
+  Data,
+  GlobalAttributes,
+  SyntheticMouseEventHandler,
+} from '../../types';
 
 import styles from './style.scss';
 
@@ -13,16 +18,15 @@ type Props = {|
   error?: boolean,
   maxLength?: number | string,
   name?: string,
-  onChange?: (SyntheticKeyboardEvent<HTMLInputElement>) => void,
-  onClick?: (SyntheticMouseEvent<HTMLInputElement>) => void,
-  onFocus?: (SyntheticFocusEvent<HTMLInputElement>) => void,
-  onBlur?: (SyntheticFocusEvent<HTMLInputElement>) => void,
   placeholder?: string,
   prefix?: Node,
-  id?: string,
   suffix?: Node,
   type?: 'text' | 'password' | 'email' | 'url',
   value?: string,
+  onClick?: SyntheticMouseEventHandler<HTMLInputElement>,
+  ...FocusEventTypes<HTMLInputElement>,
+  ...ChangeEventHanlders<HTMLInputElement>,
+  ...GlobalAttributes,
 |};
 
 class TextInput extends Component<Props> {
@@ -32,6 +36,7 @@ class TextInput extends Component<Props> {
 
   render() {
     const {
+      className,
       disabled,
       error,
       data,
@@ -43,7 +48,7 @@ class TextInput extends Component<Props> {
 
     const inputType = type || 'text';
 
-    const classes = cx(styles.wrapper, {
+    const classes = cx(styles.wrapper, className, {
       [styles.wrapperDisabled]: disabled,
       [styles.wrapperError]: error,
     });
