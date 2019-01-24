@@ -28,14 +28,14 @@ export type SyntheticFocusEventHandler<T: EventTarget = EventTarget> =
 
 // Common event handler props
 
-export type ChangeEventHanlders<T: EventTarget = EventTarget> = $Shape<{
-  onChange: SyntheticInputEventHandler<T>,
-}>;
+export type ChangeEventHanlders<T: EventTarget = EventTarget> = {|
+  onChange?: SyntheticInputEventHandler<T>,
+|};
 
-export type MouseEventHandlers<T: EventTarget = EventTarget> = $Shape<{|
-  onClick: SyntheticMouseEventHandler<T>,
+export type MouseEventHandlers<T: EventTarget = EventTarget> = {|
+  onClick?: SyntheticMouseEventHandler<T>,
   // onContextMenu
-  onDoubleClick: SyntheticMouseEventHandler<T>,
+  onDoubleClick?: SyntheticMouseEventHandler<T>,
   // onDrag
   // onDragEnd
   // onDragEnter
@@ -44,22 +44,22 @@ export type MouseEventHandlers<T: EventTarget = EventTarget> = $Shape<{|
   // onDragOver
   // onDragStart
   // onDrop
-  onMouseDown: SyntheticMouseEventHandler<T>,
-  onMouseEnter: SyntheticMouseEventHandler<T>,
-  onMouseLeave: SyntheticMouseEventHandler<T>,
-  onMouseMove: SyntheticMouseEventHandler<T>,
-  onMouseOut: SyntheticMouseEventHandler<T>,
-  onMouseOver: SyntheticMouseEventHandler<T>,
-  onMouseUp: SyntheticMouseEventHandler<T>,
-|}>;
+  onMouseDown?: SyntheticMouseEventHandler<T>,
+  onMouseEnter?: SyntheticMouseEventHandler<T>,
+  onMouseLeave?: SyntheticMouseEventHandler<T>,
+  onMouseMove?: SyntheticMouseEventHandler<T>,
+  onMouseOut?: SyntheticMouseEventHandler<T>,
+  onMouseOver?: SyntheticMouseEventHandler<T>,
+  onMouseUp?: SyntheticMouseEventHandler<T>,
+|};
 
-export type KeyboardEventHandlers<T: EventTarget = EventTarget> = $Shape<{|
-  onKeyDown: SyntheticKeyboardEventHandler<T>,
-  onKeyPress: SyntheticKeyboardEventHandler<T>,
-  onKeyUp: SyntheticKeyboardEventHandler<T>,
-|}>;
+export type KeyboardEventHandlers<T: EventTarget = EventTarget> = {|
+  onKeyDown?: SyntheticKeyboardEventHandler<T>,
+  onKeyPress?: SyntheticKeyboardEventHandler<T>,
+  onKeyUp?: SyntheticKeyboardEventHandler<T>,
+|};
 
-export type FocusEventHandlers<T: EventTarget = EventTarget> = $Shape<{|
-  onFocus: SyntheticFocusEventHandler<T>,
-  onBlur: SyntheticFocusEventHandler<T>,
-|}>;
+export type FocusEventHandlers<T: EventTarget = EventTarget> = {|
+  onFocus?: SyntheticFocusEventHandler<T>,
+  onBlur?: SyntheticFocusEventHandler<T>,
+|};
