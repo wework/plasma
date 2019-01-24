@@ -15,7 +15,7 @@ fs.access('./dist/styles.css', fs.constants.R_OK, (err) => {
   }
 });
 
-const webpack = exec('webpack --config webpack.config.prod', (err, stdout, stderr) => {
+const webpack = exec('webpack --config webpack.config.prod -p', (err, stdout, stderr) => {
   if (err) {
     console.error(err);
   }
