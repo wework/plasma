@@ -27,28 +27,28 @@ class RadioButtonGroup extends React.Component<Props> {
     const { options, value, fancy, isLarge, name, onChange } = this.props;
     // TODO: replace fieldValue with value={opt.value}
     return (
-        options && options.map(opt => (
-          <RadioButton
-            checked={value === opt.value}
-            description={opt.description}
-            disabled={opt.disabled}
-            icon={opt.icon}
-            key={opt.value}
-            text={opt.label}
-            fieldValue={opt.value}
-            fancy={fancy}
-            isLarge={isLarge}
-            name={name}
-            onChange={onChange}
-          />
+      options && options.map(opt => (
+        <RadioButton
+          checked={value === opt.value}
+          description={opt.description}
+          disabled={opt.disabled}
+          icon={opt.icon}
+          key={opt.value}
+          text={opt.label}
+          fieldValue={opt.value}
+          fancy={fancy}
+          isLarge={isLarge}
+          name={name}
+          onChange={onChange}
+        />
       ))
     );
-  }
+  };
 
   render() {
     return (
       <div>
-        { this.renderRadioButtons() }
+        {this.renderRadioButtons()}
       </div>
     );
   }
