@@ -6,6 +6,7 @@ import { getDataAttrs } from '../../dataUtils';
 import type {
   ChangeEventHanlders,
   Data,
+  FocusEventHandlers,
   GlobalAttributes,
   SyntheticMouseEventHandler,
 } from '../../types';
@@ -24,7 +25,7 @@ type Props = {|
   type?: 'text' | 'password' | 'email' | 'url',
   value?: string,
   onClick?: SyntheticMouseEventHandler<HTMLInputElement>,
-  ...FocusEventTypes<HTMLInputElement>,
+  ...FocusEventHandlers<HTMLInputElement>,
   ...ChangeEventHanlders<HTMLInputElement>,
   ...GlobalAttributes,
 |};
