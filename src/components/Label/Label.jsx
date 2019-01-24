@@ -18,7 +18,8 @@ type Props = {|
   inline?: boolean,
   required?: boolean,
   text?: string,
-|} & GlobalAttributes;
+  ...GlobalAttributes,
+|};
 
 function Label(
   {
