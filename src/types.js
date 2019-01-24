@@ -4,13 +4,13 @@ export type Data = {
   value: string,
 };
 
-export type GlobalAttributes = $Shape<{|
-  className: string,
-  hidden: boolean,
-  id: string,
-  tabIndex: string | number,
-  title: string,
-|}>;
+export type GlobalAttributes = {|
+  className?: string,
+  hidden?: boolean,
+  id?: string,
+  tabIndex?: string | number,
+  title?: string,
+|};
 
 // Event handlers
 
