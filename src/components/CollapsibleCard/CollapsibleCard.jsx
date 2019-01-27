@@ -1,5 +1,8 @@
 // @flow
-import React, { Component, type Node } from 'react';
+import React, {
+  Component,
+  type Node,
+} from 'react';
 import cx from 'classnames';
 
 // Components
@@ -22,8 +25,6 @@ type State = {|
 |};
 
 class CollapsibleCard extends Component<Props, State> {
-
-
   static defaultProps = {
     isCollapsed: false,
   };
@@ -67,10 +68,10 @@ class CollapsibleCard extends Component<Props, State> {
           )}
         </div>
         {!disabled &&
-          shouldDisplayCard && (
-            <Card borderColor={styleColor}>
-              {children}
-            </Card>
+        shouldDisplayCard && (
+          <Card borderColor={styleColor}>
+            {children}
+          </Card>
         )}
       </div>
     );
