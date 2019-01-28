@@ -4395,10 +4395,10 @@ eslint-config-airbnb@10.0.1:
   dependencies:
     eslint-config-airbnb-base "^5.0.2"
 
-eslint-config-prettier@^3.3.0:
-  version "3.3.0"
-  resolved "https://registry.yarnpkg.com/eslint-config-prettier/-/eslint-config-prettier-3.3.0.tgz#41afc8d3b852e757f06274ed6c44ca16f939a57d"
-  integrity sha512-Bc3bh5bAcKNvs3HOpSi6EfGA2IIp7EzWcg2tS4vP7stnXu/J1opihHDM7jI9JCIckyIDTgZLSWn7J3HY0j2JfA==
+eslint-config-prettier@4.0.0:
+  version "4.0.0"
+  resolved "https://registry.yarnpkg.com/eslint-config-prettier/-/eslint-config-prettier-4.0.0.tgz#16cedeea0a56e74de60dcbbe3be0ab2c645405b9"
+  integrity sha512-kWuiJxzV5NwOwZcpyozTzDT5KJhBw292bbYro9Is7BWnbNMg15Gmpluc1CTetiCatF8DRkNvgPAOaSyg+bYr3g==
   dependencies:
     get-stdin "^6.0.0"
 
@@ -4450,10 +4450,10 @@ eslint-plugin-jsx-a11y@2.2.3:
     jsx-ast-utils "^1.0.0"
     object-assign "^4.0.1"
 
-eslint-plugin-prettier@^3.0.0:
-  version "3.0.0"
-  resolved "https://registry.yarnpkg.com/eslint-plugin-prettier/-/eslint-plugin-prettier-3.0.0.tgz#f6b823e065f8c36529918cdb766d7a0e975ec30c"
-  integrity sha512-4g11opzhqq/8+AMmo5Vc2Gn7z9alZ4JqrbZ+D4i8KlSyxeQhZHlmIrY8U9Akf514MoEhogPa87Jgkq87aZ2Ohw==
+eslint-plugin-prettier@3.0.1:
+  version "3.0.1"
+  resolved "https://registry.yarnpkg.com/eslint-plugin-prettier/-/eslint-plugin-prettier-3.0.1.tgz#19d521e3981f69dd6d14f64aec8c6a6ac6eb0b0d"
+  integrity sha512-/PMttrarPAY78PLvV3xfWibMOdMDl57hmlQ2XqFeA37wd+CJ7WSxV7txqjVPHi/AAFKd2lX0ZqfsOc/i5yFCSQ==
   dependencies:
     prettier-linter-helpers "^1.0.0"
 
@@ -9917,10 +9917,10 @@ prettier-linter-helpers@^1.0.0:
   dependencies:
     fast-diff "^1.1.2"
 
-prettier@1.15.3:
-  version "1.15.3"
-  resolved "https://registry.yarnpkg.com/prettier/-/prettier-1.15.3.tgz#1feaac5bdd181237b54dbe65d874e02a1472786a"
-  integrity sha512-gAU9AGAPMaKb3NNSUUuhhFAS7SCO4ALTN4nRIn6PJ075Qd28Yn2Ig2ahEJWdJwJmlEBTUfC7mMUSFy8MwsOCfg==
+prettier@1.16.1:
+  version "1.16.1"
+  resolved "https://registry.yarnpkg.com/prettier/-/prettier-1.16.1.tgz#534c2c9d7853f8845e5e078384e71973bd74089f"
+  integrity sha512-XXUITwIkGb3CPJ2hforHah/zTINRyie5006Jd2HKy2qz7snEJXl0KLfsJZW/wst9g6R2rFvqba3VpNYdu1hDcA==
 
 pretty-error@^2.0.2:
   version "2.1.1"
