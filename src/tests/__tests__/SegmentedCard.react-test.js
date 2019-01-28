@@ -7,9 +7,7 @@ import { shallow, mount } from 'enzyme';
 
 describe('SegmentedCard Component', () => {
   test('render', () => {
-    const component = renderer.create(
-      <SegmentedCard />
-    );
+    const component = renderer.create(<SegmentedCard />);
     let tree = component.toJSON();
     expect(tree).toMatchSnapshot();
   });

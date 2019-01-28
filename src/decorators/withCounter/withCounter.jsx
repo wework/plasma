@@ -11,7 +11,6 @@ type Props = {
 
 const withCounter = (Component: ComponentType<Object>) => {
   return class extends React.Component<Props> {
-
     render() {
       const wrapperStyle = cx(style.wrapper, {
         [this.props.counterStyle]: this.props.counterStyle,

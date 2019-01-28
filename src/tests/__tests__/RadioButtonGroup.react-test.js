@@ -7,14 +7,8 @@ import renderer from 'react-test-renderer';
 describe('RadioButtonGroup Component', () => {
   test('render', () => {
     const tree = renderer
-      .create(
-        <RadioButtonGroup
-          name="test"
-          options={[]}
-          onChange={()=>{}}
-        />
-      )
-      .toJSON()
+      .create(<RadioButtonGroup name="test" options={[]} onChange={() => {}} />)
+      .toJSON();
 
     expect(tree).toMatchSnapshot();
   });

@@ -32,12 +32,12 @@ storiesOf('FormField', module).add('isDisabled', () => (
 
 storiesOf('FormField', module).add('with errorMessage', () => (
   <FormField isDisabled displayError errorMessage="Required">
-    <TextInput isDisabled error/>
+    <TextInput isDisabled error />
   </FormField>
 ));
 
 storiesOf('FormField', module).add('numberInput with errorMessage', () => (
   <FormField isDisabled displayError errorMessage="Required">
-    <NumberInput isDisabled error/>
+    <NumberInput isDisabled error />
   </FormField>
 ));

@@ -9,14 +9,11 @@ describe('CollapsibleCard Component unit', () => {
   let component;
   beforeEach(() => {
     component = shallow(
-      <CollapsibleCard
-        headerText="Header Text"
-        collapsibleText="more"
-      >
+      <CollapsibleCard headerText="Header Text" collapsibleText="more">
         Test Card
       </CollapsibleCard>
     );
-  })
+  });
 
   test('displays header text', () => {
     expect(component.contains('Header Text')).toBe(true);
@@ -36,10 +33,7 @@ describe('CollapsibleCard Component unit', () => {
 
   test('red border color', () => {
     component = shallow(
-      <CollapsibleCard
-        headerText="Header Text"
-        styleColor="red"
-      >
+      <CollapsibleCard headerText="Header Text" styleColor="red">
         Test Red Card
       </CollapsibleCard>
     );
@@ -47,13 +41,7 @@ describe('CollapsibleCard Component unit', () => {
   });
 
   test('displays children', () => {
-    component = shallow(
-      <CollapsibleCard
-        headerText="Header Text"
-      >
-        Test Card
-      </CollapsibleCard>
-    );
+    component = shallow(<CollapsibleCard headerText="Header Text">Test Card</CollapsibleCard>);
     expect(component.contains('Test Card')).toBe(true);
   });
 
@@ -72,11 +60,7 @@ describe('CollapsibleCard Component unit', () => {
   describe('when disabled ', () => {
     beforeEach(() => {
       component = shallow(
-        <CollapsibleCard
-          headerText="Header Text"
-          collapsibleText="more"
-          disabled
-        >
+        <CollapsibleCard headerText="Header Text" collapsibleText="more" disabled>
           Test Card
         </CollapsibleCard>
       );

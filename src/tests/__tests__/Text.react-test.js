@@ -7,9 +7,7 @@ import { shallow, mount } from 'enzyme';
 
 describe('Text Component', () => {
   test('render', () => {
-    const component = renderer.create(
-      <Text />
-    );
+    const component = renderer.create(<Text />);
     let tree = component.toJSON();
     expect(tree).toMatchSnapshot();
   });

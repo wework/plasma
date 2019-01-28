@@ -14,17 +14,21 @@ export type GlobalAttributes = $Shape<{|
 
 // Event handlers
 
-export type SyntheticInputEventHandler<T: EventTarget = EventTarget> =
-  (SyntheticInputEvent<T>) => void;
+export type SyntheticInputEventHandler<T: EventTarget = EventTarget> = (
+  SyntheticInputEvent<T>
+) => void;
 
-export type SyntheticMouseEventHandler<T: EventTarget = EventTarget> =
-  (SyntheticMouseEvent<T>) => void;
+export type SyntheticMouseEventHandler<T: EventTarget = EventTarget> = (
+  SyntheticMouseEvent<T>
+) => void;
 
-export type SyntheticKeyboardEventHandler<T: EventTarget = EventTarget> =
-  (SyntheticKeyboardEvent<T>) => void;
+export type SyntheticKeyboardEventHandler<T: EventTarget = EventTarget> = (
+  SyntheticKeyboardEvent<T>
+) => void;
 
-export type SyntheticFocusEventHandler<T: EventTarget = EventTarget> =
-  (SyntheticFocusEvent<T>) => void;
+export type SyntheticFocusEventHandler<T: EventTarget = EventTarget> = (
+  SyntheticFocusEvent<T>
+) => void;
 
 // Common event handler props
 

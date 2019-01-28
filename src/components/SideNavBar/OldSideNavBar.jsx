@@ -8,11 +8,7 @@ type Props = {|
 
 class SideNavBar extends Component<Props> {
   render() {
-    return (
-      <div className={style.wrapper}>
-        {this.props.children}
-      </div>
-    );
+    return <div className={style.wrapper}>{this.props.children}</div>;
   }
 }
 

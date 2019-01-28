@@ -1,8 +1,5 @@
 // @flow
-import React, {
-  Component,
-  type Node,
-} from 'react';
+import React, { Component, type Node } from 'react';
 import cx from 'classnames';
 
 // Components
@@ -21,7 +18,7 @@ type Props = {|
 |};
 
 type State = {|
-  shouldDisplayCard: boolean
+  shouldDisplayCard: boolean,
 |};
 
 class CollapsibleCard extends Component<Props, State> {
@@ -38,17 +35,9 @@ class CollapsibleCard extends Component<Props, State> {
   };
 
   render() {
-    const {
-      headerText,
-      collapsibleText,
-      children,
-      styleColor,
-      disabled,
-    } = this.props;
+    const { headerText, collapsibleText, children, styleColor, disabled } = this.props;
 
-    const {
-      shouldDisplayCard,
-    } = this.state;
+    const { shouldDisplayCard } = this.state;
 
     const collapsibleCardStyle = cx(style.collapsibleCard, {
       [style.styleColorRed]: styleColor === styleColors.RED,
@@ -67,12 +56,7 @@ class CollapsibleCard extends Component<Props, State> {
             </div>
           )}
         </div>
-        {!disabled &&
-        shouldDisplayCard && (
-          <Card borderColor={styleColor}>
-            {children}
-          </Card>
-        )}
+        {!disabled && shouldDisplayCard && <Card borderColor={styleColor}>{children}</Card>}
       </div>
     );
   }
