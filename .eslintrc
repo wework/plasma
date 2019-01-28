@@ -16,9 +16,9 @@
     "react/prefer-stateless-function": "off",
     "new-cap": "off",
     "react/no-find-dom-node": "off",
+    "react/prop-types": "off",
     "arrow-body-style": "off",
     "no-underscore-dangle": "off",
-    "react/prop-types": 0,
     "no-unused-expressions": [
       2,
       {
