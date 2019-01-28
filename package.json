@@ -32,6 +32,11 @@
       "git add"
     ]
   },
+  "husky": {
+    "hooks": {
+      "pre-commit": "yarn flow && yarn lint-staged"
+    }
+  },
   "author": "WeWork",
   "license": "ISC",
   "devDependencies": {
@@ -70,6 +75,7 @@
     "flow-bin": "^0.69.0",
     "fs-promise": "^0.5.0",
     "glob": "^7.0.5",
+    "husky": "1.3.1",
     "identity-obj-proxy": "^3.0.0",
     "image-webpack-loader": "^3.2.0",
     "jest": "^23.4.2",
