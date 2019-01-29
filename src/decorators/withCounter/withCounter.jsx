@@ -13,11 +13,7 @@ type Props = {
 const withCounter = <P: {}>(Component: ComponentType<P>) => {
   return class extends React.Component<Props & P> {
     render() {
-      const {
-        counterClassName,
-        value,
-        maxLength,
-      } = this.props;
+      const { counterClassName, value, maxLength } = this.props;
 
       const counterClasses = cx(styles.counter, counterClassName);
 
@@ -31,9 +27,7 @@ const withCounter = <P: {}>(Component: ComponentType<P>) => {
 
       return (
         <div>
-          <div className={counterClasses}>
-            {counter}
-          </div>
+          <div className={counterClasses}>{counter}</div>
           <Component {...this.props} />
         </div>
       );

@@ -36,16 +36,7 @@ class TextInput extends Component<Props> {
   };
 
   render() {
-    const {
-      className,
-      disabled,
-      error,
-      data,
-      prefix,
-      suffix,
-      type,
-      ...rest
-    } = this.props;
+    const { className, disabled, error, data, prefix, suffix, type, ...rest } = this.props;
 
     const inputType = type || 'text';
 
@@ -55,22 +46,10 @@ class TextInput extends Component<Props> {
     });
 
     return (
-      <div
-        {...getDataAttrs(data)}
-        className={classes}
-      >
-        {
-          prefix && <div className={styles.prefix}>{prefix}</div>
-        }
-        <input
-          className={styles.input}
-          disabled={disabled}
-          type={inputType}
-          {...rest}
-        />
-        {
-          suffix && <div className={styles.suffix}>{suffix}</div>
-        }
+      <div {...getDataAttrs(data)} className={classes}>
+        {prefix && <div className={styles.prefix}>{prefix}</div>}
+        <input className={styles.input} disabled={disabled} type={inputType} {...rest} />
+        {suffix && <div className={styles.suffix}>{suffix}</div>}
       </div>
     );
   }
