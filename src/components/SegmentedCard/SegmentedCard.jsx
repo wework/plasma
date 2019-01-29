@@ -23,17 +23,9 @@ class SegmentedCard extends React.Component<Props> {
     });
 
     return (
-      <div
-        {...getDataAttrs(this.props.data)}
-        className={className}
-        style={this.props.style}
-      >
-        <div className={style.first}>
-          { this.props.children[0] }
-        </div>
-        <div className={style.second}>
-          { this.props.children[1] }
-        </div>
+      <div {...getDataAttrs(this.props.data)} className={className} style={this.props.style}>
+        <div className={style.first}>{this.props.children[0]}</div>
+        <div className={style.second}>{this.props.children[1]}</div>
       </div>
     );
   }

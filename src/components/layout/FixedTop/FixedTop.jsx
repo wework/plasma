@@ -4,7 +4,6 @@ import { getDataAttrs } from '../../../dataUtils';
 import type { Data } from '../../../types';
 import style from './style.scss';
 
-
 type State = {|
   fixedHeight: number,
 |};
@@ -16,7 +15,6 @@ type Props = {|
 |};
 
 class FixedTop extends React.Component<Props, State> {
-
   static defaultProps = {
     children: ['', ''],
     backgroundColor: 'transparent',
@@ -35,15 +33,9 @@ class FixedTop extends React.Component<Props, State> {
   fixed: any;
   render() {
     return (
-      <div
-        {...getDataAttrs(this.props.data)}
-        className={style.wrapper}
-      >
-        <div
-          className={style.fixedWrapper}
-          ref={(c) => (this.fixed = c)}
-        >
-          { this.props.children[0] }
+      <div {...getDataAttrs(this.props.data)} className={style.wrapper}>
+        <div className={style.fixedWrapper} ref={c => (this.fixed = c)}>
+          {this.props.children[0]}
         </div>
         <div className={style.contentWrapper}>
           <div
@@ -51,7 +43,7 @@ class FixedTop extends React.Component<Props, State> {
             style={{ height: this.state.fixedHeight, minHeight: this.state.fixedHeight }}
           />
           <div className={style.content} style={{ backgroundColor: this.props.backgroundColor }}>
-            { this.props.children[1] }
+            {this.props.children[1]}
           </div>
         </div>
       </div>

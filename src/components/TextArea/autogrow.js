@@ -37,7 +37,7 @@
     self.autogrowFn = function() {
       var newHeight = 0,
         hasGrown = false;
-      if ((textarea.scrollHeight - offset) > self.maxAllowedHeight) {
+      if (textarea.scrollHeight - offset > self.maxAllowedHeight) {
         textarea.style.overflowY = 'scroll';
         newHeight = self.maxAllowedHeight;
       } else {
@@ -56,11 +56,10 @@
 
     var offset = self.getOffset(textarea);
     self.rows = textarea.rows || 1;
-    self.lineHeight = (textarea.scrollHeight / self.rows) - (offset / self.rows);
-    self.maxAllowedHeight = (self.lineHeight * maxLines) - offset;
+    self.lineHeight = textarea.scrollHeight / self.rows - offset / self.rows;
+    self.maxAllowedHeight = self.lineHeight * maxLines - offset;
 
     // Call autogrowFn() when textarea's value is changed
     textarea.addEventListener('input', self.autogrowFn);
-
   };
 });

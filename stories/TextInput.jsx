@@ -15,17 +15,11 @@ stories.add('custom placeholder', () => (
   <TextInput placeholder="Custom placeholder..." onChange={action('changed')} />
 ));
 
-stories.add('prefix', () => (
-  <TextInput onChange={action('changed')} prefix="$" />
-));
+stories.add('prefix', () => <TextInput onChange={action('changed')} prefix="$" />);
 
-stories.add('suffix', () => (
-  <TextInput onChange={action('changed')} suffix=".com" />
-));
+stories.add('suffix', () => <TextInput onChange={action('changed')} suffix=".com" />);
 
-stories.add('disabled placeholder', () => (
-  <TextInput disabled onChange={action('changed')} />
-));
+stories.add('disabled placeholder', () => <TextInput disabled onChange={action('changed')} />);
 
 stories.add('disabled filled', () => (
   <TextInput disabled onChange={action('changed')} value="Queen of hearts" />
@@ -41,17 +35,11 @@ stories.add('disabled suffix', () => (
 
 stories.add('error', () => <TextInput error onChange={action('changed')} />);
 
-stories.add('suffix error', () => (
-  <TextInput suffix=".com" error onChange={action('changed')} />
-));
+stories.add('suffix error', () => <TextInput suffix=".com" error onChange={action('changed')} />);
 
-stories.add('prefix error', () => (
-  <TextInput prefix="$" error onChange={action('changed')} />
-));
+stories.add('prefix error', () => <TextInput prefix="$" error onChange={action('changed')} />);
 
-stories.add('large', () => (
-  <TextInput size="large" onChange={action('changed')} />
-));
+stories.add('large', () => <TextInput size="large" onChange={action('changed')} />);
 
 stories.add('large prefix', () => (
   <TextInput prefix="http://" size="large" onChange={action('changed')} />
@@ -65,9 +53,7 @@ stories.add('clipping parent', () => (
   </div>
 ));
 
-stories.add('max length', () => (
-  <TextInput maxLength="10" onChange={action('changed')} />
-));
+stories.add('max length', () => <TextInput maxLength="10" onChange={action('changed')} />);
 
 stories.add('with counter', () => (
   <StoryState

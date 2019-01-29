@@ -1,8 +1,6 @@
 // @flow
 import React, { type Node } from 'react';
-import {
-  getDataAttrs,
-} from '../../../dataUtils';
+import { getDataAttrs } from '../../../dataUtils';
 import styles from './style.scss';
 import Label from '../../Label/Label.jsx';
 
@@ -17,18 +15,16 @@ type Props = {|
   style: Object,
 |};
 
-const FormField = (
-  {
-    children,
-    isDisabled,
-    isRequired,
-    label,
-    data,
-    displayError,
-    errorMessage,
-    style,
-  }: Props
-) => {
+const FormField = ({
+  children,
+  isDisabled,
+  isRequired,
+  label,
+  data,
+  displayError,
+  errorMessage,
+  style,
+}: Props) => {
   let labelText = label;
 
   if (isRequired) {
@@ -36,19 +32,9 @@ const FormField = (
   }
 
   return (
-    <div
-      {...getDataAttrs(data)}
-      className={styles.wrapper}
-      style={style}
-    >
-      <Label
-        text={labelText}
-        className={styles.disabled}
-        disabled={isDisabled}
-      />
-      <div className={styles.input}>
-        {children}
-      </div>
+    <div {...getDataAttrs(data)} className={styles.wrapper} style={style}>
+      <Label text={labelText} className={styles.disabled} disabled={isDisabled} />
+      <div className={styles.input}>{children}</div>
       {displayError && errorMessage && <div className={styles.error}>{errorMessage}</div>}
     </div>
   );
@@ -58,7 +44,7 @@ FormField.defaultProps = {
   children: '',
   disabled: false,
   label: '',
-  style: { },
+  style: {},
 };
 
 FormField.displayName = 'Plasma@FormField';

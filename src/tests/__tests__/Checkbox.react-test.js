@@ -6,9 +6,7 @@ import renderer from 'react-test-renderer';
 
 describe('Checkbox Component', () => {
   test('render', () => {
-    const component = renderer.create(
-      <Checkbox />
-    );
+    const component = renderer.create(<Checkbox />);
     let tree = component.toJSON();
     expect(tree).toMatchSnapshot();
     tree.props.checked = true;
@@ -16,9 +14,7 @@ describe('Checkbox Component', () => {
   });
 
   test('render', () => {
-    const component = renderer.create(
-      <Checkbox fancy />
-    );
+    const component = renderer.create(<Checkbox fancy />);
     expect(component.toJSON()).toMatchSnapshot();
   });
 });

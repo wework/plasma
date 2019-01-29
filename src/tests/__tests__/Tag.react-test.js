@@ -7,11 +7,7 @@ import { shallow, mount } from 'enzyme';
 
 describe('Tag Component', () => {
   test('render', () => {
-    const component = renderer.create(
-      <Tag>
-        YOLO
-      </Tag>
-    );
+    const component = renderer.create(<Tag>YOLO</Tag>);
     let tree = component.toJSON();
     expect(tree).toMatchSnapshot();
   });

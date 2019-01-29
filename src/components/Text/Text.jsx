@@ -30,11 +30,7 @@ class Text extends React.Component<Props> {
       [style.secondary]: type === types.SECONDARY,
     });
     return (
-      <div
-        {...getDataAttrs(this.props.data)}
-        className={textStyle}
-        style={this.props.style}
-      >
+      <div {...getDataAttrs(this.props.data)} className={textStyle} style={this.props.style}>
         {this.props.children}
       </div>
     );

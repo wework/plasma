@@ -8,9 +8,7 @@ class DatePicker extends React.Component<Props> {
   static defaultProps = ExternalDatePicker.defaultProps;
 
   render() {
-    return (
-      <ExternalDatePicker {...this.props} />
-    );
+    return <ExternalDatePicker {...this.props} />;
   }
 }
 
