@@ -4,7 +4,7 @@ import React, { type Node } from 'react';
 import cx from 'classnames';
 import { getDataAttrs } from '../../dataUtils';
 import type { Data } from '../../types';
-import style from './style.scss';
+import styles from './style.scss';
 
 type Props = {|
   placeholder: string,
@@ -20,6 +20,8 @@ type Props = {|
   error: boolean,
   maxLength: string,
   data: Data,
+  id?: string,
+  name?: string,
 |};
 
 const TextInput = ({
@@ -36,21 +38,23 @@ const TextInput = ({
   error,
   data,
   maxLength,
+  id,
+  name,
 }: Props) => {
-  const fixStyle = cx(style.fix, {
-    [style.suffix]: suffix,
-    [style.prefix]: prefix,
+  const fixStyle = cx(styles.fix, {
+    [styles.suffix]: suffix,
+    [styles.prefix]: prefix,
   });
 
-  const wrapperStyle = cx(style.wrapper, {
-    [style.wrapperDisabled]: isDisabled || disabled,
-    [style.wrapperError]: error,
-    [style.wrapperLarge]: toUpper(size) === 'LARGE',
+  const wrapperStyle = cx(styles.wrapper, {
+    [styles.wrapperDisabled]: isDisabled || disabled,
+    [styles.wrapperError]: error,
+    [styles.wrapperLarge]: toUpper(size) === 'LARGE',
   });
 
-  const inputStyle = cx(style.input, {
-    [style.disabled]: isDisabled || disabled,
-    [style.large]: toUpper(size) === 'LARGE',
+  const inputStyle = cx(styles.input, {
+    [styles.disabled]: isDisabled || disabled,
+    [styles.large]: toUpper(size) === 'LARGE',
   });
 
   return (
@@ -58,15 +62,17 @@ const TextInput = ({
       <input
         className={inputStyle}
         disabled={isDisabled || disabled}
+        id={id}
+        name={name}
         onChange={onChange}
         onFocus={e => {
           /* eslint-disable no-param-reassign */
-          e.target.parentElement.className += ` ${style.wrapperFocused}`;
+          e.target.parentElement.className += ` ${styles.wrapperFocused}`;
           /* eslint-enable no-param-reassign */
           onFocus && onFocus();
         }}
         onBlur={e => {
-          e.target.parentElement.classList.remove(style.wrapperFocused);
+          e.target.parentElement.classList.remove(styles.wrapperFocused);
           onBlur && onBlur();
         }}
         placeholder={placeholder}
