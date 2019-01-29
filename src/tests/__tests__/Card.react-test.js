@@ -10,30 +10,23 @@ describe('Card Component snapshots', () => {
   beforeEach(() => {
     jest.mock('react-dom', () => {
       return {
-        findDOMNode: (ref) => { return { offsetHeight: 80 }; }
+        findDOMNode: ref => {
+          return { offsetHeight: 80 };
+        },
       };
     });
     Card = require('../../components/Card/Card').default;
   });
 
   test('render', () => {
-    const component = renderer.create(
-      <Card>YOLO</Card>
-    );
+    const component = renderer.create(<Card>YOLO</Card>);
     let tree = component.toJSON();
     expect(tree).toMatchSnapshot();
   });
 
   test('expanded', () => {
-
     const expandedComponent = <div>expanded</div>;
-    const component = renderer.create(
-      <Card
-        expandedComponent={expandedComponent}
-      >
-        YOLO
-      </Card>,
-    );
+    const component = renderer.create(<Card expandedComponent={expandedComponent}>YOLO</Card>);
 
     let tree = component.toJSON();
     expect(tree).toMatchSnapshot();
@@ -67,10 +60,7 @@ describe('Card Component unit', () => {
   test('expanded', () => {
     const expandedComponent = <div>expanded</div>;
     const component = shallow(
-      <Card
-        isExpanded
-        expandedComponent={expandedComponent}
-      >
+      <Card isExpanded expandedComponent={expandedComponent}>
         YOLO
       </Card>
     );
@@ -80,16 +70,10 @@ describe('Card Component unit', () => {
   });
   test('actions', () => {
     const actions = [
-      <div key='action1' className='action'></div>,
-      <div key='action2' className='action'></div>,
+      <div key="action1" className="action" />,
+      <div key="action2" className="action" />,
     ];
-    const component = shallow(
-      <Card
-        actions={actions}
-      >
-        YOLO
-      </Card>
-    );
+    const component = shallow(<Card actions={actions}>YOLO</Card>);
     expect(component.find('.action')).toHaveLength(2);
   });
 

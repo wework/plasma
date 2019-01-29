@@ -7,7 +7,6 @@ import { getDataAttrs } from '../../dataUtils';
 import type { Data } from '../../types';
 import style from './style.scss';
 
-
 type Props = {|
   data?: Data,
   checked: boolean,
@@ -55,9 +54,12 @@ class RadioButton extends React.Component<Props> {
     });
     const inlineClass = cx({ [style.inline]: fancy });
     const fauxCircle = fancy ? null : <div className={style.faux} />;
-    const fancyIcon = fancy && icon ?
-      <div className={style.fancyIcon}><Icon icon={icon} /></div>
-      : null;
+    const fancyIcon =
+      fancy && icon ? (
+        <div className={style.fancyIcon}>
+          <Icon icon={icon} />
+        </div>
+      ) : null;
     return (
       <div {...getDataAttrs(data)} className={inlineClass}>
         <label htmlFor={id} className={wrapperClasses}>
@@ -83,9 +85,7 @@ class RadioButton extends React.Component<Props> {
             {text}
           </div>
         </label>
-        {description && (
-          <span className={style.description}>{description}</span>
-        )}
+        {description && <span className={style.description}>{description}</span>}
       </div>
     );
   }

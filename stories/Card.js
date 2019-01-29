@@ -24,6 +24,8 @@ storiesOf('Card', module)
   ))
   .add('condensed min width', () => (
     <div style={{ display: 'flex' }}>
-      <Card type="condensed" minWidth={200}>Hello</Card>
+      <Card type="condensed" minWidth={200}>
+        Hello
+      </Card>
     </div>
   ));

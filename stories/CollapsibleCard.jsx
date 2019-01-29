@@ -5,49 +5,33 @@ import CollapsibleCard from '../src/components/CollapsibleCard/CollapsibleCard';
 storiesOf('CollapsibleCard', module)
   .add('default', () => (
     <div style={{ display: 'flex' }}>
-      <CollapsibleCard
-        headerText="Header Text"
-      >
-        Hello
-      </CollapsibleCard>
+      <CollapsibleCard headerText="Header Text">Hello</CollapsibleCard>
     </div>
   ))
   .add('expandable text', () => (
     <div style={{ display: 'flex' }}>
-      <CollapsibleCard
-        headerText="Header Text"
-        collapsibleText="more"
-      >
+      <CollapsibleCard headerText="Header Text" collapsibleText="more">
         Hello
       </CollapsibleCard>
     </div>
   ))
   .add('is collapsed', () => (
     <div style={{ display: 'flex' }}>
-      <CollapsibleCard
-        headerText="Header Text"
-        isCollapsed
-      >
+      <CollapsibleCard headerText="Header Text" isCollapsed>
         Hello
       </CollapsibleCard>
     </div>
   ))
   .add('red style color', () => (
     <div style={{ display: 'flex' }}>
-      <CollapsibleCard
-        headerText="Header Text"
-        styleColor="red"
-      >
+      <CollapsibleCard headerText="Header Text" styleColor="red">
         Hello
       </CollapsibleCard>
     </div>
   ))
   .add('disabled', () => (
     <div style={{ display: 'flex' }}>
-      <CollapsibleCard
-        headerText="Header Text"
-        disabled
-      >
+      <CollapsibleCard headerText="Header Text" disabled>
         Hello
       </CollapsibleCard>
     </div>

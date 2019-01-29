@@ -7,9 +7,7 @@ import { shallow, mount } from 'enzyme';
 
 describe('Loader Component', () => {
   test('render', () => {
-    const component = renderer.create(
-      <Loader />
-    );
-    expect(component).toMatchSnapshot()
+    const component = renderer.create(<Loader />);
+    expect(component).toMatchSnapshot();
   });
 });

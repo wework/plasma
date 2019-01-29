@@ -5,6 +5,4 @@ import { linkTo } from '@storybook/addon-links';
 import Icon from '../src/components/Icon/Icon';
 import locationPin from '../src/icons/locationPin';
 
-storiesOf('Icon', module).add('default', () => (
-  <Icon icon={locationPin} color="blue" />
-));
+storiesOf('Icon', module).add('default', () => <Icon icon={locationPin} color="blue" />);
