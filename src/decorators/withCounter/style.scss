@@ -1,5 +1,7 @@
 @import '../../styles/base';
 
-.wrapper {
+.counter {
+  @extend %type--body;
+
   color: $cGray70;
 }

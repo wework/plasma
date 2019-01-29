@@ -1,25 +1,38 @@
 // @flow
 import React, { type ComponentType } from 'react';
 import cx from 'classnames';
-import style from './style.scss';
+
+import styles from './style.scss';
 
 type Props = {
   value: string,
-  counterStyle: any,
-  maxLength: string,
+  counterClassName?: string,
+  maxLength?: string,
 };
 
-const withCounter = (Component: ComponentType<Object>) => {
-  return class extends React.Component<Props> {
+const withCounter = <P: {}>(Component: ComponentType<P>) => {
+  return class extends React.Component<Props & P> {
     render() {
-      const wrapperStyle = cx(style.wrapper, {
-        [this.props.counterStyle]: this.props.counterStyle,
-      });
+      const {
+        counterClassName,
+        value,
+        maxLength,
+      } = this.props;
+
+      const counterClasses = cx(styles.counter, counterClassName);
+
+      let counter = (value || '').length;
+
+      if (maxLength) {
+        counter += `/${maxLength}`;
+      }
+
+      counter += ' characters';
+
       return (
         <div>
-          <div className={wrapperStyle}>
-            {this.props.value ? this.props.value.length : 0}
-            {this.props.maxLength && `/${this.props.maxLength}`} characters
+          <div className={counterClasses}>
+            {counter}
           </div>
           <Component {...this.props} />
         </div>

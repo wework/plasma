@@ -7,15 +7,74 @@ exports[`TextInput Component render 1`] = `
   <input
     className="input"
     disabled={undefined}
-    id={undefined}
-    maxLength={undefined}
-    name={undefined}
-    onBlur={[Function]}
-    onChange={undefined}
-    onFocus={[Function]}
+    id="id"
+    maxLength={100}
+    name="name"
     placeholder="Type something..."
     type="text"
-    value={undefined}
+    value="foo"
   />
+</div>
+`;
+
+exports[`TextInput Component render error 1`] = `
+<div
+  className="wrapper wrapperError"
+>
+  <input
+    className="input"
+    disabled={undefined}
+    placeholder="Type something..."
+    type="text"
+  />
+</div>
+`;
+
+exports[`TextInput Component render placeholder 1`] = `
+<div
+  className="wrapper"
+>
+  <input
+    className="input"
+    disabled={undefined}
+    placeholder="placeholder"
+    type="text"
+  />
+</div>
+`;
+
+exports[`TextInput Component render prefix 1`] = `
+<div
+  className="wrapper"
+>
+  <div
+    className="prefix"
+  >
+    prefix
+  </div>
+  <input
+    className="input"
+    disabled={undefined}
+    placeholder="Type something..."
+    type="text"
+  />
+</div>
+`;
+
+exports[`TextInput Component render suffix 1`] = `
+<div
+  className="wrapper"
+>
+  <input
+    className="input"
+    disabled={undefined}
+    placeholder="Type something..."
+    type="text"
+  />
+  <div
+    className="suffix"
+  >
+    suffix
+  </div>
 </div>
 `;
