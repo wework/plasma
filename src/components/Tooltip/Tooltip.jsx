@@ -18,14 +18,9 @@ class Tooltip extends React.Component<Props> {
 
   render() {
     return (
-      <div
-        {...getDataAttrs(this.props.data)}
-        className={style.wrapper}
-      >
-        { this.props.children }
-        <div className={style.content}>
-          {this.props.content}
-        </div>
+      <div {...getDataAttrs(this.props.data)} className={style.wrapper}>
+        {this.props.children}
+        <div className={style.content}>{this.props.content}</div>
       </div>
     );
   }

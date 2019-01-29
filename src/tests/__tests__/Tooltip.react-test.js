@@ -7,9 +7,7 @@ import { shallow, mount } from 'enzyme';
 
 describe('Tooltip Component', () => {
   test('render', () => {
-    const component = renderer.create(
-      <Tooltip />
-    );
+    const component = renderer.create(<Tooltip />);
     let tree = component.toJSON();
     expect(tree).toMatchSnapshot();
   });

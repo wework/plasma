@@ -19,7 +19,7 @@ type Props = {|
 |};
 
 type State = {|
-    revealed: boolean,
+  revealed: boolean,
 |};
 
 class OverflowMenu extends React.Component<Props, State> {

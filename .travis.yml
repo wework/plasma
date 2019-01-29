@@ -10,6 +10,7 @@ before_script:
   - yarn global add gulp-cli
   - yarn
 script:
-  - npm run lint
+  - yarn lint
+  - yarn prettier:ci
   - yarn test
-  - yarn run flow
+  - yarn flow

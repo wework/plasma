@@ -8,51 +8,34 @@ import { mount } from 'enzyme';
 describe('TextInput Component', () => {
   test('render', () => {
     const component = renderer.create(
-      <TextInput
-        name="name"
-        id="id"
-        value="foo"
-        maxLength={100}
-      />
+      <TextInput name="name" id="id" value="foo" maxLength={100} />
     );
     expect(component).toMatchSnapshot();
   });
 
   test('render placeholder', () => {
-    const component = renderer.create(
-      <TextInput placeholder="placeholder" />
-    );
+    const component = renderer.create(<TextInput placeholder="placeholder" />);
     expect(component).toMatchSnapshot();
   });
 
   test('render prefix', () => {
-    const component = renderer.create(
-      <TextInput prefix="prefix" />
-    );
+    const component = renderer.create(<TextInput prefix="prefix" />);
     expect(component).toMatchSnapshot();
   });
 
   test('render suffix', () => {
-    const component = renderer.create(
-      <TextInput suffix="suffix" />
-    );
+    const component = renderer.create(<TextInput suffix="suffix" />);
     expect(component).toMatchSnapshot();
   });
 
   test('render error', () => {
-    const component = renderer.create(
-      <TextInput error />
-    );
+    const component = renderer.create(<TextInput error />);
     expect(component).toMatchSnapshot();
   });
 
   test('change', () => {
     const onChange = jest.fn();
-    const component = mount(
-      <TextInput
-        onChange={onChange}
-      />
-    );
+    const component = mount(<TextInput onChange={onChange} />);
 
     const input = component.find('input');
 
@@ -71,12 +54,7 @@ describe('TextInput Component', () => {
     const onFocus = jest.fn();
     const onBlur = jest.fn();
 
-    const component = mount(
-      <TextInput
-        onFocus={onFocus}
-        onBlur={onBlur}
-      />
-    );
+    const component = mount(<TextInput onFocus={onFocus} onBlur={onBlur} />);
 
     const input = component.find('input');
 
@@ -86,5 +64,4 @@ describe('TextInput Component', () => {
     input.simulate('blur');
     expect(onBlur).toHaveBeenCalledTimes(1);
   });
-
 });

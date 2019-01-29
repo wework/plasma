@@ -7,8 +7,8 @@ import type { Data } from '../../types';
 import style from './style.scss';
 
 type Tab = {|
-    label: string,
-    title: string,
+  label: string,
+  title: string,
 |};
 
 type Props = {|
@@ -21,18 +21,17 @@ type Props = {|
   vertical: string,
 |};
 
-
 class Tabs extends React.Component<Props> {
   static defaultProps = {
     items: [],
-    onChange: () => { },
+    onChange: () => {},
   };
 
   onClick = (tab: Tab, index: number): void => {
     this.props.onChange(tab.label, index);
   };
 
-  onKeyDown = (event: {keyCode: number}, tab: Tab, index: number): void => {
+  onKeyDown = (event: { keyCode: number }, tab: Tab, index: number): void => {
     if (event.keyCode === 13 /* enter */) {
       this.onClick(tab, index);
     }
@@ -55,9 +54,7 @@ class Tabs extends React.Component<Props> {
   getTabClassNames = (tab: Tab, index: number): string => {
     const baseTabClass = this.getTabStyle();
     return cn(baseTabClass, {
-      [style.active]: (
-        this.props.selectedIndex === index || this.props.selectedLabel === tab.label
-      ),
+      [style.active]: this.props.selectedIndex === index || this.props.selectedLabel === tab.label,
       [style.first]: index === 0,
       [style.last]: index === this.props.items.length - 1,
     });
@@ -68,24 +65,20 @@ class Tabs extends React.Component<Props> {
       <li
         role="tab"
         onClick={() => this.onClick(tab, index)}
-        onKeyDown={(event) => this.onKeyDown(event, tab, index)}
+        onKeyDown={event => this.onKeyDown(event, tab, index)}
         className={this.getTabClassNames(tab, index)}
         key={index}
         tabIndex="0"
       >
-        { tab.title }
+        {tab.title}
       </li>
     );
   };
 
   render() {
     return (
-      <ul
-        {...getDataAttrs(this.props.data)}
-        className={this.getTabsStyle()}
-        role="tablist"
-      >
-        { map(this.props.items, this.renderTab) }
+      <ul {...getDataAttrs(this.props.data)} className={this.getTabsStyle()} role="tablist">
+        {map(this.props.items, this.renderTab)}
       </ul>
     );
   }

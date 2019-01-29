@@ -6,9 +6,7 @@ type Props = ExternalSelect.propTypes;
 
 class Select extends React.Component<Props> {
   render() {
-    return (
-      <ExternalSelect {...this.props} />
-    );
+    return <ExternalSelect {...this.props} />;
   }
 }
 

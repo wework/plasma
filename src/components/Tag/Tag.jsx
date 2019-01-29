@@ -15,10 +15,7 @@ type Props = {|
 const Tag = ({ text, children, data, className = '' }: Props) => {
   const tagClasses = cn(style.tag, style.small, className);
   return (
-    <div
-      className={tagClasses}
-      {...getDataAttrs(data)}
-    >
+    <div className={tagClasses} {...getDataAttrs(data)}>
       <span>{text || children}</span>
     </div>
   );

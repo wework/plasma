@@ -51,10 +51,7 @@ class Image extends React.Component<Props, State> {
     const { className, data, style, altText, imageStyle, onClick, onLoad } = this.props;
     const imageCn = cn(styles.image, className);
     return (
-      <div
-        {...getDataAttrs(data)}
-        style={style}
-      >
+      <div {...getDataAttrs(data)} style={style}>
         <img
           alt={altText}
           className={imageCn}
