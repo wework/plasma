@@ -5,9 +5,7 @@ import TextInput from '../src/components/TextInput/TextInput';
 
 const stories = storiesOf('Hint', module);
 
-stories.add('default', () => (
-  <Hint>Hint</Hint>
-));
+stories.add('default', () => <Hint>Hint</Hint>);
 
 stories.add('with input', () => (
   <div>

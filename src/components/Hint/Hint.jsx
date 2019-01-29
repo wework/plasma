@@ -2,10 +2,7 @@
 import React, { type Node } from 'react';
 import cx from 'classnames';
 import { getDataAttrs } from '../../dataUtils';
-import type {
-  Data,
-  GlobalAttributes,
-} from '../../types';
+import type { Data, GlobalAttributes } from '../../types';
 
 import styles from './style.scss';
 
@@ -25,11 +22,7 @@ const Hint = ({ children, className, data, disabled, error, text, ...rest }: Pro
   });
 
   return (
-    <div
-      className={classes}
-      {...getDataAttrs(data)}
-      {...rest}
-    >
+    <div className={classes} {...getDataAttrs(data)} {...rest}>
       {children || text}
     </div>
   );
