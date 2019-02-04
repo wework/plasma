@@ -5,14 +5,16 @@ import { action } from '@storybook/addon-actions';
 import StoryState from '../StoryState';
 import Checkbox from '../src/components/Checkbox/Checkbox';
 
+const change = action('change');
+
 storiesOf('Checkbox', module)
   .add('default', () => (
     <StoryState
       render={(state, setState) => (
         <Checkbox
-          onChange={() => {
+          onChange={evt => {
             setState({ checked: !state.checked });
-            action('change');
+            change(evt);
           }}
         >
           Option
