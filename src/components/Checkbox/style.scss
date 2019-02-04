@@ -1,151 +1,72 @@
 @import '../../styles/base';
 $checkboxBorder: 1px solid $cBorder;
 
-.inline {
-  display: inline-block;
-  vertical-align: top;
-  margin: 10px 10px 10px 0;
-}
-
 .wrapper {
+  @extend %type--body;
+
+  box-sizing: border-box;
   position: relative;
-  display: inline-flex;
-  flex-direction: row;
-  justify-content: flex-start;
-  align-items: center;
-  cursor: pointer;
 
-  .original, .intermediate {
-    cursor: pointer;
-  }
-
-  &:hover {
-    .checkbox {
-      border: 1px solid $cGray200;
-    }
-  }
-
-  &.fancy {
-    .text {
-      padding: 12px 15px 12px 0;
-      margin: 0;
-      font-size: 13px;
-      color: $cBlue70;
-      line-height: 16px;
-    }
-    padding-left: 15px;
-    height: 40px;
-    border-radius: 20px;
-    border: 1px solid $cBlue70;
-  }
-
-  &.fancyChecked {
-    .text {
-      color: $cWhite;
-    }
-    background-color: $cBlue70;
-  }
-}
-
-.wrapperDisabled {
-  cursor: not-allowed;
-  .original, .indeterminate {
+  &.wrapperDisabled {
     cursor: not-allowed;
   }
-  &:hover {
-    .checkbox {
-      border: $checkboxBorder;
-    }
+
+  &.wrapperError .label::before,
+  &.wrapperError .label:hover::before {
+    border-color: $cWarningRed;
   }
 }
 
-.original {
-  position: absolute;
-  opacity: 0;
-  z-index: 10;
-  ~ .checkbox::before {
-    width: 12px;
-    height: 8px;
+.label {
+  align-items: center;
+  cursor: pointer;
+  display: flex;
+  flex-direction: row;
+  font-size: $typeBase;
+  justify-content: stretch;
+  line-height: 16px;
+
+  &::before {
+    border: 1px solid $cGray300;
+    border-radius: $inputRadius;
     content: '';
+    margin-right: 0.3em;
+    width: 16px;
+    height: 16px;
   }
 
-  &:checked ~ .checkbox {
-    &::before {
-      height: 20px;
-      // content: url('data:image/svg+xml;utf8,<svg width="12px" height="10px" viewBox="2 5 12 10" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"><defs></defs><polygon id="Rectangle-34" stroke="none" fill="#282829" fill-rule="evenodd" points="6 15 2 10.8333333 3.6 9.16666667 6 11.6666667 12.4 5 14 6.66666667"></polygon></svg>');
-      content: url('data:image/svg+xml;utf8,<svg width="12px" height="10px" viewBox="0 0 12 10" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"><!-- Generator: Sketch 43.1 (39012) - http://www.bohemiancoding.com/sketch --><title>checked</title><desc>Created with Sketch.</desc><defs></defs><g id="Symbols" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd"><g id="checkbox-/-selected" transform="translate(-2.000000, -8.000000)" fill="#252729"><polygon id="checked" points="6 18 2 13.8333333 3.6 12.1666667 6 14.6666667 12.4 8 14 9.66666667"></polygon></g></g></svg>');
-    }
-  }
-}
-
-.indeterminate {
-  position: absolute;
-  opacity: 0;
-  z-index: 10;
-
-  ~ .checkbox::before {
-    content: '';
-    height: 2px;
-  }
-
-  &:checked ~ .checkbox {
-    &::before {
-      display: block;
-      width: 8px;
-      height: 2px;
-      background: $cWeWorkBlack;
-      position: relative;
-      top: 0;
-    }
+  &:hover::before {
+    border-color: $cGray200;
   }
 }
 
 .checkbox {
-  width: 16px;
-  height: 16px;
+  position: absolute;
+  clip: rect(0, 0, 0, 0);
   background: $cWhite;
-  border: $checkboxBorder;
-  border-radius: 3px;
-  background: $cWhite;
-  transition: border-color 0.1s ease-out;
-  box-sizing: border-box;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  &::before {
-    display: block;
-    content: '';
-    background: none;
+  transition-duration: 0.1s;
+  transition-property: border-color, box-shadow, color;
+  transition-timing-function: ease-out;
+
+  &:checked + .label::before {
+    background: url('data:image/svg+xml;utf8,<svg width="12px" height="10px" viewBox="0 0 12 10" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"><title>checked</title><defs></defs><g id="Symbols" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd"><g id="checkbox-selected" transform="translate(-2.000000, -8.000000)" fill="#252729"><polygon id="checked" points="6 18 2 13.8333333 3.6 12.1666667 6 14.6666667 12.4 8 14 9.66666667"></polygon></g></g></svg>') center center no-repeat;
+  }
+
+  &:checked:disabled + .label::before {
+    background-image: url('data:image/svg+xml;utf8,<svg width="12px" height="10px" viewBox="0 0 12 10" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"><title>checked</title><defs></defs><g id="Symbols" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd"><g id="checkbox-selected" transform="translate(-2.000000, -8.000000)" fill="#c2c2c2"><polygon id="checked" points="6 18 2 13.8333333 3.6 12.1666667 6 14.6666667 12.4 8 14 9.66666667"></polygon></g></g></svg>');
+  }
+
+  &:disabled + .label {
+    color: $cGray400;
+
+    &::before,
+    &:hover::before {
+      border-color: $cGray400;
+    }
+  }
+
+  &:focus + .label::before {
+    border-color: $cGray200;
+    box-shadow: 0 0 4px 1px $cGray300;
   }
 }
-
-.text {
-  margin-left: 10px;
-  @extend %type--body;
-}
-
-.textBold {
-  font-weight: bold;
-}
-
-.textDisabled {
-  color: $cGray200;
-}
-
-.icon {
-  margin: 0 -10px 0 0;
-}
-
-.fancyIcon {
-  margin: 0 0 0 -10px;
-}
-
-.description {
-  display: inline-block;
-  @extend %fontFamily--body;
-  font-size: 11px;
-  color: $cGray200;
-  line-height: 20px;
-  margin-left: 26px;
-}
-

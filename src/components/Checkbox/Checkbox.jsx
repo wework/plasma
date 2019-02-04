@@ -1,92 +1,64 @@
 // @flow
-import { uniqueId } from 'lodash';
 import React, { type Node } from 'react';
+import { uniqueId } from 'lodash';
 import cx from 'classnames';
-import style from './style.scss';
-import Icon from '../Icon/Icon';
+
 import { getDataAttrs } from '../../dataUtils';
-import type { Data } from '../../types';
+
+import styles from './style.scss';
+
+import type {
+  ChangeEventHanlders,
+  Data,
+  FocusEventHandlers,
+  GlobalAttributes,
+  SyntheticMouseEventHandler,
+} from '../../types';
 
 type Props = {|
   checked?: boolean,
   data?: Data,
-  description?: string,
   disabled?: boolean,
-  fancy?: boolean,
-  icon?: string,
-  indeterminate?: boolean,
-  isBold?: boolean,
-  name: string,
-  onBlur?: () => mixed,
-  onChange?: () => mixed,
-  text: Node,
-  value?: boolean,
+  error?: boolean,
+  // TODO(grozki): This can only be set using a ref, should we include it?
+  // See: https://developer.mozilla.org/en-US/docs/Web/HTML/Element/input/checkbox
+  // indeterminate?: boolean,
+  name?: string,
+  children?: Node,
+  value?: string,
+  onClick?: SyntheticMouseEventHandler<HTMLInputElement>,
+  ...FocusEventHandlers<HTMLInputElement>,
+  ...ChangeEventHanlders<HTMLInputElement>,
+  ...GlobalAttributes,
 |};
 
 class Checkbox extends React.Component<Props> {
   static defaultProps = {
-    checked: false,
-    indeterminate: false,
-    name: 'checkbox',
-    text: 'Option',
-    value: false,
+    error: false,
   };
 
   render() {
-    const {
-      checked,
-      data,
-      description,
-      disabled,
-      fancy,
-      icon,
-      indeterminate,
-      isBold,
-      name,
-      onBlur,
-      onChange,
-      text,
-      value,
-    } = this.props;
+    const { children, className, data, disabled, error, id, onClick, ...rest } = this.props;
 
-    const isChecked = checked || value;
-    const id = uniqueId('id');
-    const inlineClass = cx({ [style.inline]: fancy });
-    const inputClassName = indeterminate ? style.indeterminate : style.original;
-    const wrapperClassName = cx(style.wrapper, {
-      [style.wrapperDisabled]: disabled,
-      [style.fancy]: fancy,
-      [style.fancyChecked]: fancy && isChecked,
+    const classes = cx(styles.wrapper, className, {
+      [styles.wrapperDisabled]: disabled,
+      [styles.wrapperError]: error,
     });
-    const textClassName = cx(style.text, {
-      [style.textBold]: isBold,
-      [style.textDisabled]: disabled,
-    });
+
+    const checkboxId = id || uniqueId('checkbox-');
 
     return (
-      <div {...getDataAttrs(data)} className={inlineClass}>
-        <div>
-          <label htmlFor={id} className={wrapperClassName}>
-            <input
-              checked={isChecked}
-              className={inputClassName}
-              disabled={disabled}
-              id={id}
-              name={name}
-              onChange={onChange}
-              onBlur={onBlur}
-              type="checkbox"
-            />
-            {!fancy && <div className={style.checkbox} />}
-            {icon && (
-              <div className={fancy ? style.fancyIcon : style.icon}>
-                <Icon icon={icon} />
-              </div>
-            )}
-            <div className={textClassName}>{text}</div>
-          </label>
-        </div>
-        {description && <span className={style.description}>{description}</span>}
+      <div {...getDataAttrs(data)} className={classes}>
+        <input
+          type="checkbox"
+          className={styles.checkbox}
+          disabled={disabled}
+          id={checkboxId}
+          {...rest}
+        />
+        <label className={styles.label} onClick={onClick} htmlFor={checkboxId}>
+          {children}
+        </label>
       </div>
     );
   }
