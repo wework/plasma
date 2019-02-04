@@ -49,11 +49,11 @@ $checkboxBorder: 1px solid $cBorder;
   transition-timing-function: ease-out;
 
   &:checked + .label::before {
-    background: url('data:image/svg+xml;utf8,<svg width="12px" height="10px" viewBox="0 0 12 10" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"><title>checked</title><defs></defs><g id="Symbols" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd"><g id="checkbox-selected" transform="translate(-2.000000, -8.000000)" fill="#252729"><polygon id="checked" points="6 18 2 13.8333333 3.6 12.1666667 6 14.6666667 12.4 8 14 9.66666667"></polygon></g></g></svg>') center center no-repeat;
+    background: url('data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIxMiIgaGVpZ2h0PSIxMCI+PHBhdGggZmlsbD0iIzI1MjcyOSIgZmlsbC1ydWxlPSJldmVub2RkIiBkPSJNNCAxMEwwIDUuODMzMzNsMS42LTEuNjY2NjYgMi40IDIuNUwxMC40IDAgMTIgMS42NjY2N3oiLz48L3N2Zz4=') center center no-repeat;
   }
 
   &:checked:disabled + .label::before {
-    background-image: url('data:image/svg+xml;utf8,<svg width="12px" height="10px" viewBox="0 0 12 10" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"><title>checked</title><defs></defs><g id="Symbols" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd"><g id="checkbox-selected" transform="translate(-2.000000, -8.000000)" fill="#c2c2c2"><polygon id="checked" points="6 18 2 13.8333333 3.6 12.1666667 6 14.6666667 12.4 8 14 9.66666667"></polygon></g></g></svg>');
+    background-image: url('data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIxMiIgaGVpZ2h0PSIxMCI+PHBhdGggZmlsbD0iI2MyYzJjMiIgZmlsbC1ydWxlPSJldmVub2RkIiBkPSJNNCAxMEwwIDUuODMzMzNsMS42LTEuNjY2NjYgMi40IDIuNUwxMC40IDAgMTIgMS42NjY2N3oiLz48L3N2Zz4=');
   }
 
   &:disabled + .label {
