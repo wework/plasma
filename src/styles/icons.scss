@@ -1,6 +1,6 @@
 %icon--overflow {
-  &:before {
-    content: url('data:image/svg+xml;utf8,<svg width="30px" height="30px" viewBox="0 0 30 30" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"><!-- Generator: Sketch 42 (36781) - http://www.bohemiancoding.com/sketch --><defs></defs><g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd"><g id="Group-Copy" transform="translate(13.000000, 7.000000)" fill="#575757"><circle id="Oval" cx="2" cy="2" r="2"></circle><circle id="Oval-Copy" cx="2" cy="8" r="2"></circle><circle id="Oval-Copy-2" cx="2" cy="14" r="2"></circle></g></g></svg>');
+  &::before {
+    content: url('data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIzMCIgaGVpZ2h0PSIzMCI+PGcgZmlsbD0iIzU3NTc1NyIgZmlsbC1ydWxlPSJldmVub2RkIiB0cmFuc2Zvcm09InRyYW5zbGF0ZSgxMyA3KSI+PGNpcmNsZSBjeD0iMiIgY3k9IjIiIHI9IjIiLz48Y2lyY2xlIGN4PSIyIiBjeT0iOCIgcj0iMiIvPjxjaXJjbGUgY3g9IjIiIGN5PSIxNCIgcj0iMiIvPjwvZz48L3N2Zz4=');
     height: 30px;
     width: 30px;
   }
