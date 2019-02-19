@@ -2,7 +2,7 @@
 
 import React from 'react';
 import renderer from 'react-test-renderer';
-import TimePicker, { DefaultOptions, FormatTypes } from '../src/components/TimePicker/TimePicker';
+import TimePicker, { FormatTypes } from '../../components/TimePicker/TimePicker';
 
 describe('TimePicker default', () => {
   test('default', () => {

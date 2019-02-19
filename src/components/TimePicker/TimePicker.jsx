@@ -5,6 +5,7 @@ import cn from 'classnames';
 import ReactSelect from 'react-select';
 import 'react-select/dist/react-select.min.css';
 import style from './style.scss';
+import Text from '../Text/Text';
 
 /**
  * A TimePicker component.
@@ -178,5 +179,7 @@ class TimePicker extends React.Component<Props, State> {
     );
   }
 }
+
+Text.displayName = 'Plasma@TimePicker';
 
 export default TimePicker;
