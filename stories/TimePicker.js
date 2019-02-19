@@ -1,12 +1,21 @@
 import React from 'react';
 import { storiesOf } from '@storybook/react';
 import { action } from '@storybook/addon-actions';
-import TimePicker from '../src/components/TimePicker/TimePicker';
+import TimePicker, { DefaultOptions, FormatTypes } from '../src/components/TimePicker/TimePicker';
+
+const change = action('change');
 
 storiesOf('TimePicker', module)
-  .add('default', () => (
-    <TimePicker onBlur={action('blurred')} onChange={action('changed')} time="20:00" />
+  .add('default', () => <TimePicker onChange={change} disabled />)
+  .add('24H format', () => (
+    <TimePicker timeFormat={FormatTypes.timeFormat24} value="14:00" onChange={change} />
   ))
-  .add('disabled', () => (
-    <TimePicker disabled onBlur={action('blurred')} onChange={action('changed')} time="20:00" />
+  .add('12H format', () => (
+    <TimePicker timeFormat={FormatTypes.timeFormat12} value="14:00" onChange={change} />
+  ))
+  .add('default option minimum', () => (
+    <TimePicker defaultOption={DefaultOptions.minimum} onChange={change} value="06:00" />
+  ))
+  .add('default option nextInterval', () => (
+    <TimePicker defaultOption={DefaultOptions.nextInterval} onChange={change} />
   ));
