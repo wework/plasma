@@ -1,5 +1,5 @@
 // @flow
-import React from 'react';
+import React, { type Node } from 'react';
 import RadioButton from '../RadioButton/RadioButton';
 
 type Option = {|
@@ -23,12 +23,12 @@ class RadioButtonGroup extends React.Component<Props> {
   static defaultProps = {
     value: null,
   };
-  renderRadioButtons = () => {
+  renderRadioButtons = (): Node => {
     const { options, value, fancy, isLarge, name, onChange } = this.props;
     // TODO: replace fieldValue with value={opt.value}
     return (
       options &&
-      options.map(opt => (
+      options.map((opt: Option) => (
         <RadioButton
           checked={value === opt.value}
           description={opt.description}
