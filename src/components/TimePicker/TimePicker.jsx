@@ -18,7 +18,7 @@ import Text from '../Text/Text';
  *
  * Optional 'timeIntervalMinutes', Time step for time slots, default is 30 minute.
  *
- * Optional 'timeFormatType' label type in 24H or 12H, default 24H.
+ * Optional 'timeFormatType' label type in 24H or 12H, default 12H.
  *
  * Optional 'defaultOption':
  *    nextInterval = will round up: 11:26 -> 11:30  based on 'timeIntervalMinutes'.
@@ -62,31 +62,16 @@ type Props = {|
   transparentBackground?: boolean,
 |};
 
-type State = {|
-  value: string,
-|};
 
 class TimePicker extends React.Component<Props, State> {
   static defaultProps = {
     minTime: '08:00',
     maxTime: '20:00',
-    timeFormat: FormatTypes.timeFormat24,
+    timeFormat: FormatTypes.timeFormat12,
     timeIntervalMinutes: 30,
     disabled: false,
     placeholder: 'Select time',
   };
-
-  state = {
-    value: this.getValue(this.props.value),
-  };
-
-  componentWillReceiveProps(nextProps: Props) {
-    if (nextProps.value !== this.props.value) {
-      this.setState({
-        value: this.getValue(nextProps.value),
-      });
-    }
-  }
 
   getValue(value: ?string): string {
     if (!value) {
@@ -130,11 +115,6 @@ class TimePicker extends React.Component<Props, State> {
 
   handleChange = (option: Option) => {
     const { onChange } = this.props;
-
-    this.setState({
-      value: option.value,
-    });
-
     if (onChange) onChange(option.value);
   };
 
@@ -176,7 +156,7 @@ class TimePicker extends React.Component<Props, State> {
         searchable={false}
         options={this.getOptions()}
         onChange={this.handleChange}
-        value={this.state.value}
+        value={this.getValue(this.props.value)}
         disabled={disabled}
       />
     );
