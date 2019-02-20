@@ -62,8 +62,7 @@ type Props = {|
   transparentBackground?: boolean,
 |};
 
-
-class TimePicker extends React.Component<Props, State> {
+class TimePicker extends React.Component<Props> {
   static defaultProps = {
     minTime: '08:00',
     maxTime: '20:00',

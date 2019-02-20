@@ -159,7 +159,7 @@ exports[`TimePicker default default 1`] = `
           id="react-select-2--value-item"
           role="option"
         >
-          08:00
+          08:00 AM
         </span>
       </div>
       <div
