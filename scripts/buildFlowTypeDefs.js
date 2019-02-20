@@ -15,6 +15,8 @@ console.log(`
 
 import type { Node } from 'react';
 
+${String(declarations)}
+
 declare module '@wework-dev/plasma' {
   declare type Data = { key: string, value: string };
 
