@@ -25,7 +25,7 @@ describe('Search Component', () => {
   test('onChange', () => {
     const onChange = jest.fn();
     const component = mount(<Search onChange={onChange} />);
-    component.find('input').simulate('change', { target: { value: 'YOLO' } });
+    component.find('input').prop('onChange')({ currentTarget: { value: 'YOLO' } });
     expect(onChange).toHaveBeenCalledTimes(1);
     expect(component.state('text')).toBe('YOLO');
   });
