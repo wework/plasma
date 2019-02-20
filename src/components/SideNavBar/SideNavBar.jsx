@@ -8,11 +8,18 @@ type Props = {|
 
 class SideNavBar extends Component<Props> {
   render() {
-    return (
-      <div className={style.wrapper}>
-        {this.props.children}
-      </div>
-    );
+    const {
+      data,
+      editingTopText,
+      onBlurTop,
+      onClickTop,
+      onTopTextChange,
+      topIcon,
+      topText,
+      topTextValue,
+    } = this.props;
+
+    return <div className={style.wrapper}>{this.props.children}</div>;
   }
 }
 

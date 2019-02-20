@@ -15,6 +15,7 @@ class Tooltip extends React.Component<Props> {
     children: 'test',
     content: 'Protip: Tooltips can be used to reveal information.',
   };
+
   render() {
     return (
       <div {...getDataAttrs(this.props.data)} className={style.wrapper}>

@@ -98,7 +98,6 @@ class Table extends React.Component<Props, State> {
       const tableTopOffset = this.table.getBoundingClientRect().top;
       const tableBottomOffset = this.table.getBoundingClientRect().bottom;
       const topAtOrAboveStickyPoint = tableTopOffset < this.props.stickAt;
-
       const bottomAtOrAboveStickyPoint =
         // $FlowFixMe TODO isNull is not recognized as refinement
         tableBottomOffset - this.state.headerHeight < this.props.stickAt;

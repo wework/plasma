@@ -19,6 +19,7 @@ exports[`Search Component render 1`] = `
       className="input"
       disabled={undefined}
       onChange={[Function]}
+      onKeyDown={null}
       placeholder="Search..."
       type="text"
       value=""

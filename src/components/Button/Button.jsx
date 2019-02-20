@@ -53,6 +53,7 @@ function Button(props: Props): Node {
     size,
     style,
     type = Variants.PRIMARY,
+    // eslint-disable-next-line comma-dangle
     ...rest
   } = props;
 

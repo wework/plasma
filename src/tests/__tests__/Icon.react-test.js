@@ -7,9 +7,7 @@ import { shallow, mount } from 'enzyme';
 
 describe('Icon Component', () => {
   test('render', () => {
-    const component = renderer.create(
-      <Icon />
-    );
+    const component = renderer.create(<Icon />);
     let tree = component.toJSON();
     expect(tree).toMatchSnapshot();
   });

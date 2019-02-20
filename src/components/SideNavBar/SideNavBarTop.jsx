@@ -8,6 +8,14 @@ type Props = {|
   label: Node,
   icon: string,
   onClick: () => void,
+  editing: boolean,
+  placeholder: string,
+  value: string,
+  onChange: ({ value: string }) => void,
+  onBlur: () => void,
+  fullWidth: boolean,
+  className: string,
+  forwardedRef?: { current: null | HTMLInputElement },
 |};
 
 const SideBarNavTop = ({ label, onClick, icon }: Props) => {
@@ -19,8 +27,9 @@ const SideBarNavTop = ({ label, onClick, icon }: Props) => {
         </div>
         <div className={cn(style.groupLabelWrapper, style.topText)}>{label}</div>
       </div>
-    </div>
-  );
-};
+    );
+  }
+}
 
-export default SideBarNavTop;
+// $FlowFixMe
+export default React.forwardRef((props, ref) => <SideBarNavTop {...props} forwardedRef={ref} />);

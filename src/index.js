@@ -22,6 +22,7 @@ import Tooltip from './components/Tooltip/Tooltip';
 import SideNavBar from './components/SideNavBar/SideNavBar';
 import SideNavBarItem from './components/SideNavBar/SideNavBarItemV2';
 import SideNavBarV2 from './components/SideNavBar/SideNavBarV2';
+import SideNavBarTop from './components/SideNavBar/SideNavBarTop';
 // import DatePicker from './components/DatePicker/DatePicker';
 import Search from './components/Search/Search';
 import Tabs from './components/Tabs/Tabs';
@@ -77,6 +78,7 @@ Plasma.Tabs = Tabs;
 Plasma.SideNavBar = SideNavBar;
 Plasma.SideNavBarItem = SideNavBarItem;
 Plasma.SideNavBarV2 = SideNavBarV2;
+Plasma.SideNavBarTop = SideNavBarTop;
 Plasma.Table = Table;
 Plasma.Modal = Modal;
 Plasma.Group = Group;
@@ -117,6 +119,7 @@ export {
   SideNavBar,
   SideNavBarItem,
   SideNavBarV2,
+  SideNavBarTop,
   Table,
   Modal,
   HorizontalScroll,

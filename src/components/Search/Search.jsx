@@ -24,7 +24,9 @@ type State = {|
 class Search extends Component<Props, State> {
   static defaultProps = {
     placeholder: 'Search...',
+    onKeyDown: null,
   };
+
   constructor(props: Props) {
     super(props);
     this.state = {
@@ -71,6 +73,7 @@ class Search extends Component<Props, State> {
             className={style.input}
             disabled={disabled}
             onChange={this.onChange}
+            onKeyDown={this.props.onKeyDown}
             placeholder={placeholder}
             type="text"
             value={this.state.text}
