@@ -6,7 +6,16 @@ import TimePicker, { DefaultOptions, FormatTypes } from '../src/components/TimeP
 const change = action('change');
 
 storiesOf('TimePicker', module)
-  .add('default', () => <TimePicker onChange={change} disabled />)
+  .add('default', () => <TimePicker onChange={change} />)
+  .add('disabled', () => <TimePicker onChange={change} disabled />)
+  .add('transparentBackground', () => (
+    <TimePicker
+      timeFormat={FormatTypes.timeFormat24}
+      transparentBackground
+      value="14:00"
+      onChange={change}
+    />
+  ))
   .add('24H format', () => (
     <TimePicker timeFormat={FormatTypes.timeFormat24} value="14:00" onChange={change} />
   ))

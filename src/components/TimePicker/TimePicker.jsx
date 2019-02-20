@@ -59,6 +59,7 @@ type Props = {|
   className?: string,
   placeholder?: string,
   defaultOption?: DefaultOption,
+  transparentBackground?: boolean,
 |};
 
 type State = {|
@@ -160,9 +161,11 @@ class TimePicker extends React.Component<Props, State> {
   }
 
   render() {
-    const { className, disabled, placeholder } = this.props;
+    const { className, disabled, placeholder, transparentBackground } = this.props;
 
-    const TimeSelectClassName = cn(style.selectInput, className);
+    const TimeSelectClassName = cn(style.selectInput, className, {
+      [style.transparentBackground]: transparentBackground,
+    });
 
     return (
       <ReactSelect

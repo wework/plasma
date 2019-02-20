@@ -35,6 +35,7 @@
   :global {
     .Select-control {
       @extend %input--wrapper;
+
       &:hover {
         @extend %input--wrapper--hover;
       }
@@ -70,6 +71,15 @@
 
     .Select-option {
       text-align: center;
+    }
+  }
+}
+
+.transparentBackground {
+  :global {
+    .Select-control {
+      @extend %input--wrapper;
+      border: transparent;
     }
   }
 }
