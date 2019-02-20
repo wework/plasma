@@ -13,10 +13,10 @@ const declarations = execSync(
 console.log(`
 // flow-typed version: <<STUB>>/@wework-dev/plasma_v${currentVersion}/flow_v${flowVersion}
 
-${String(declarations).replace(/\bNode\b/g, 'React$Node')}
-
 declare module '@wework-dev/plasma' {
   declare type Data = { key: string, value: string };
+
+  ${String(declarations).replace(/\bNode\b/g, 'React$Node')}
 
   declare export class CountedTextInput extends React$Component<{ ...$PropertyType<TextInput, 'props'>, counterStyle: string }> { }
   declare export class CountedTextArea extends React$Component<{ ...$PropertyType<TextArea, 'props'>, counterStyle: string }> { }
