@@ -1,88 +1,59 @@
 // @flow
-import { toUpper } from 'lodash';
-import React, { type Node } from 'react';
+import React, { Component, type Node } from 'react';
 import cx from 'classnames';
+
 import { getDataAttrs } from '../../dataUtils';
-import type { Data } from '../../types';
-import style from './style.scss';
+import type {
+  ChangeEventHanlders,
+  Data,
+  FocusEventHandlers,
+  GlobalAttributes,
+  SyntheticMouseEventHandler,
+} from '../../types';
+
+import styles from './style.scss';
 
 type Props = {|
-  placeholder: string,
-  value: string,
-  onChange: () => void,
-  onFocus: () => void,
-  onBlur: () => void,
-  suffix: Node,
-  prefix: Node,
-  isDisabled: boolean,
-  disabled: boolean,
-  size: number,
-  error: boolean,
-  maxLength: string,
-  data: Data,
+  data?: Data,
+  disabled?: boolean,
+  error?: boolean,
+  maxLength?: number | string,
+  name?: string,
+  placeholder?: string,
+  prefix?: Node,
+  suffix?: Node,
+  type?: 'text' | 'password' | 'email' | 'url',
+  value?: string,
+  onClick?: SyntheticMouseEventHandler<HTMLInputElement>,
+  ...FocusEventHandlers<HTMLInputElement>,
+  ...ChangeEventHanlders<HTMLInputElement>,
+  ...GlobalAttributes,
 |};
 
-const TextInput = ({
-  suffix,
-  prefix,
-  placeholder,
-  value,
-  onChange,
-  onFocus,
-  onBlur,
-  isDisabled,
-  disabled,
-  size,
-  error,
-  data,
-  maxLength,
-}: Props) => {
-  const fixStyle = cx(style.fix, {
-    [style.suffix]: suffix,
-    [style.prefix]: prefix,
-  });
+class TextInput extends Component<Props> {
+  static defaultProps = {
+    placeholder: 'Type something...',
+  };
 
-  const wrapperStyle = cx(style.wrapper, {
-    [style.wrapperDisabled]: isDisabled || disabled,
-    [style.wrapperError]: error,
-    [style.wrapperLarge]: toUpper(size) === 'LARGE',
-  });
+  render() {
+    const { className, disabled, error, data, prefix, suffix, type, ...rest } = this.props;
 
-  const inputStyle = cx(style.input, {
-    [style.disabled]: isDisabled || disabled,
-    [style.large]: toUpper(size) === 'LARGE',
-  });
+    const inputType = type || 'text';
 
-  return (
-    <div {...getDataAttrs(data)} className={wrapperStyle}>
-      <input
-        className={inputStyle}
-        disabled={isDisabled || disabled}
-        onChange={onChange}
-        onFocus={e => {
-          /* eslint-disable no-param-reassign */
-          e.target.parentElement.className += ` ${style.wrapperFocused}`;
-          /* eslint-enable no-param-reassign */
-          onFocus && onFocus();
-        }}
-        onBlur={e => {
-          e.target.parentElement.classList.remove(style.wrapperFocused);
-          onBlur && onBlur();
-        }}
-        placeholder={placeholder}
-        type="text"
-        value={value}
-        maxLength={maxLength}
-      />
-      {(suffix || prefix) && <div className={fixStyle}>{suffix || prefix}</div>}
-    </div>
-  );
-};
+    const classes = cx(styles.wrapper, className, {
+      [styles.wrapperDisabled]: disabled,
+      [styles.wrapperError]: error,
+    });
 
-TextInput.defaultProps = {
-  placeholder: 'Type something...',
-  isDisabled: false,
-};
+    return (
+      <div {...getDataAttrs(data)} className={classes}>
+        {prefix && <div className={styles.prefix}>{prefix}</div>}
+        <input className={styles.input} disabled={disabled} type={inputType} {...rest} />
+        {suffix && <div className={styles.suffix}>{suffix}</div>}
+      </div>
+    );
+  }
+}
 
 TextInput.displayName = 'Plasma@TextInput';
 
