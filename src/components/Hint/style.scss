@@ -1,0 +1,25 @@
+@import '../../styles/base';
+
+.hint {
+  @extend %type--tiny;
+
+  color: $cGray200;
+
+  &.hintDisabled {
+    color: $cGray300;
+  }
+
+  &.hintError {
+    font-weight: bold;
+    color: $cWarningRed;
+  }
+
+  > a[href]:only-child {
+    font-weight: bold;
+    color: $cLinkBlue;
+  }
+}
+
+* + .hint {
+  margin-top: 5px;
+}

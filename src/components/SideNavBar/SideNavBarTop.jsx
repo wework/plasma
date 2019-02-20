@@ -1,6 +1,5 @@
 // @flow
 import React, { type Node } from 'react';
-import cn from 'classnames';
 import Icon from '../Icon/Icon';
 import style from './style.scss';
 
@@ -18,18 +17,17 @@ type Props = {|
   forwardedRef?: { current: null | HTMLInputElement },
 |};
 
-const SideBarNavTop = ({ label, onClick, icon }: Props) => {
+const SideBarNavTop = ({ onClick, icon }: Props) => {
   return (
     <div className={style.top} onClick={onClick}>
       <div className={style.iconAndLabelContainer}>
         <div className={style.iconWrapper}>
           <Icon color="#fff" icon={icon} />
         </div>
-        <div className={cn(style.groupLabelWrapper, style.topText)}>{label}</div>
       </div>
-    );
-  }
-}
+    </div>
+  );
+};
 
 // $FlowFixMe
 export default React.forwardRef((props, ref) => <SideBarNavTop {...props} forwardedRef={ref} />);

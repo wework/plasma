@@ -1,39 +1,46 @@
 // @flow
 import React, { type Node } from 'react';
 import cx from 'classnames';
-import { getDataAttrs } from '../../dataUtils';
-import type { Data } from '../../types';
-import style from './style.scss';
 
-const types = {
-  PRIMARY: 'primary',
-  SECONDARY: 'secondary',
-  DISABLED: 'disabled',
-};
+import { getDataAttrs } from '../../dataUtils';
+import type { Data, GlobalAttributes } from '../../types';
+
+import styles from './style.scss';
 
 type Props = {|
-  text: string,
-  type?: string,
   children?: Node,
   data?: Data,
-  className?: string,
+  disabled?: boolean,
+  htmlFor?: string,
+  inline?: boolean,
+  required?: boolean,
+  text?: string,
+  ...GlobalAttributes,
 |};
 
-const Label = ({ type, text, data, children }: Props) => {
-  const labelStyle = cx(style.label, {
-    [style.labelSecondary]: type === types.SECONDARY,
-    [style.labelDisabled]: type === types.DISABLED,
+function Label({
+  children,
+  className,
+  data,
+  disabled,
+  htmlFor,
+  inline,
+  required,
+  text,
+  ...rest
+}: Props) {
+  const classes = cx(styles.label, className, {
+    [styles.labelInline]: inline,
+    [styles.labelDisabled]: disabled,
+    [styles.labelRequired]: required,
   });
-  return (
-    <div {...getDataAttrs(data)} className={labelStyle}>
-      {text || children}
-    </div>
-  );
-};
 
-Label.defaultProps = {
-  type: types.PRIMARY,
-};
+  return (
+    <label className={classes} htmlFor={htmlFor} {...getDataAttrs(data)} {...rest}>
+      {children || text}
+    </label>
+  );
+}
 
 Label.displayName = 'Plasma@Label';
 

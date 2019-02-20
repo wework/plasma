@@ -1,6 +1,6 @@
 {
   "name": "@wework-dev/plasma",
-  "version": "0.0.182",
+  "version": "0.0.183",
   "description": "",
   "main": "./dist/index.js",
   "scripts": {
@@ -41,9 +41,7 @@
   "author": "WeWork",
   "license": "ISC",
   "devDependencies": {
-    "@storybook/addon-actions": "^3.1.9",
     "@storybook/addon-links": "^3.1.6",
-    "@storybook/react": "^3.4.8",
     "anchorate": "^1.1.0",
     "babel-cli": "^6.24.1",
     "babel-core": "^6.10.4",
@@ -105,6 +103,8 @@
     "webpack-dev-server": "^1.14.1"
   },
   "dependencies": {
+    "@storybook/addon-actions": "^3.1.9",
+    "@storybook/react": "^3.4.8",
     "classnames": "^2.2.5",
     "jest-cli": "^22.0.6",
     "jsdom": "^11.1.0",

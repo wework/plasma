@@ -11,6 +11,7 @@ type Props = {|
   iconUrl: string,
   instructionText?: string,
   onChange?: (event: SyntheticEvent<HTMLInputElement>) => void,
+  onKeyDown?: (event: SyntheticEvent<HTMLInputElement>) => void,
   onClear?: (event: SyntheticEvent<HTMLInputElement>) => void,
   placeholder?: string,
   value?: string,

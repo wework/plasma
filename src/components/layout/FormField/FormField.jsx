@@ -33,11 +33,7 @@ const FormField = ({
 
   return (
     <div {...getDataAttrs(data)} className={styles.wrapper} style={style}>
-      <Label
-        text={labelText}
-        className={styles.disabled}
-        type={isDisabled ? 'disabled' : 'primary'}
-      />
+      <Label text={labelText} className={styles.disabled} disabled={isDisabled} />
       <div className={styles.input}>{children}</div>
       {displayError && errorMessage && <div className={styles.error}>{errorMessage}</div>}
     </div>
