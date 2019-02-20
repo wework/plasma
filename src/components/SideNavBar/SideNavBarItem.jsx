@@ -1,63 +1,71 @@
 // @flow
 import React, { Component, type Node } from 'react';
 import cn from 'classnames';
-import style from './oldStyle.scss';
+import style from './style.scss';
 
 type Props = {|
-  icon: string,
+  id: string,
+  icon?: string,
   iconSize: number,
-  iconStyle: Object,
+  iconStyle?: Object,
   label: Node,
-  onClick: () => mixed,
+  onClick: string => mixed,
   selected: boolean,
-  children: Node,
-  darkBg: boolean,
+  children?: Node,
+  darkBg?: boolean,
+  linkComponent: Node,
+  tagText: ?string,
 |};
 
 class SideNavBarItem extends Component<Props> {
   static defaultProps = {
     label: 'Label',
-    iconSize: 24,
+    iconSize: 16,
     selected: false,
+    tagText: null,
+  };
+
+  _onClick = (): void => {
+    this.props.onClick(this.props.id);
   };
 
   renderIconAndLabel(): Node {
-    const { icon, iconSize, iconStyle, label } = this.props;
-
-    const renderIcon = icon && iconSize && (
-      <img
-        className={style.icon}
-        style={{
-          width: iconSize,
-          height: iconSize,
-          ...iconStyle,
-        }}
-        src={icon}
-        alt={label}
-      />
-    );
+    const { label } = this.props;
 
     return (
-      <div>
-        {renderIcon}
+      <div className={style.iconAndLabelContainer}>
         <div className={style.label}>{label}</div>
       </div>
     );
   }
 
   render() {
-    const { children, darkBg, onClick, selected } = this.props;
+    const { darkBg, selected, linkComponent, tagText } = this.props;
 
     const wrapperClasses = cn(style.itemWrapper, {
       [style.darkBg]: darkBg,
       [style.selected]: selected,
     });
 
-    return (
-      <div className={wrapperClasses} onClick={onClick}>
-        {children || this.renderIconAndLabel()}
-      </div>
-    );
+    let comp;
+
+    if (linkComponent) {
+      comp = (
+        <div className={wrapperClasses}>
+          {linkComponent}
+          {tagText && <div className={style.tag}>{tagText}</div>}
+        </div>
+      );
+    } else {
+      comp = (
+        <div className={wrapperClasses} onClick={this._onClick}>
+          {this.renderIconAndLabel()}
+          {tagText && <div className={style.tag}>{tagText}</div>}
+        </div>
+      );
+    }
+
+    return comp;
   }
 }
 
