@@ -1,3 +1,4 @@
+/* eslint-disable */
 const { execSync } = require('child_process');
 
 const p = require('../package.json');
@@ -12,7 +13,7 @@ const declarations = execSync(
 console.log(`
 // flow-typed version: <<STUB>>/@wework-dev/plasma_v${currentVersion}/flow_v${flowVersion}
 
-import type { ComponentType, ElementConfig, Node, Component } from 'react';
+import type { Node } from 'react';
 
 declare module '@wework-dev/plasma' {
   declare type Data = { key: string, value: string };
