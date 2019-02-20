@@ -66,7 +66,6 @@ class SideBarNavTop extends React.Component<Props> {
             )}
           </div>
         </div>
-        <div className={cn(style.groupLabelWrapper, style.topText)}>{label}</div>
       </div>
     );
   }

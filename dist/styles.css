@@ -416,7 +416,7 @@
 
 .src-components-Checkbox-original__3CBDl:checked ~ .src-components-Checkbox-checkbox__3nwSj::before {
   height: 20px;
-  content: url('data:image/svg+xml;utf8,<svg width="12px" height="10px" viewBox="0 0 12 10" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"><!-- Generator: Sketch 43.1 (39012) - http://www.bohemiancoding.com/sketch --><title>checked</title><desc>Created with Sketch.</desc><defs></defs><g id="Symbols" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd"><g id="checkbox-/-selected" transform="translate(-2.000000, -8.000000)" fill="#252729"><polygon id="checked" points="6 18 2 13.8333333 3.6 12.1666667 6 14.6666667 12.4 8 14 9.66666667"></polygon></g></g></svg>');
+  content: url("data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMTJweCIgaGVpZ2h0PSIxMHB4IiB2aWV3Qm94PSIwIDAgMTIgMTAiIHZlcnNpb249IjEuMSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIiB4bWxuczp4bGluaz0iaHR0cDovL3d3dy53My5vcmcvMTk5OS94bGluayI+PCEtLSBHZW5lcmF0b3I6IFNrZXRjaCA0My4xICgzOTAxMikgLSBodHRwOi8vd3d3LmJvaGVtaWFuY29kaW5nLmNvbS9za2V0Y2ggLS0+PHRpdGxlPmNoZWNrZWQ8L3RpdGxlPjxkZXNjPkNyZWF0ZWQgd2l0aCBTa2V0Y2guPC9kZXNjPjxkZWZzPjwvZGVmcz48ZyBpZD0iU3ltYm9scyIgc3Ryb2tlPSJub25lIiBzdHJva2Utd2lkdGg9IjEiIGZpbGw9Im5vbmUiIGZpbGwtcnVsZT0iZXZlbm9kZCI+PGcgaWQ9ImNoZWNrYm94LS8tc2VsZWN0ZWQiIHRyYW5zZm9ybT0idHJhbnNsYXRlKC0yLjAwMDAwMCwgLTguMDAwMDAwKSIgZmlsbD0iIzI1MjcyOSI+PHBvbHlnb24gaWQ9ImNoZWNrZWQiIHBvaW50cz0iNiAxOCAyIDEzLjgzMzMzMzMgMy42IDEyLjE2NjY2NjcgNiAxNC42NjY2NjY3IDEyLjQgOCAxNCA5LjY2NjY2NjY3Ij48L3BvbHlnb24+PC9nPjwvZz48L3N2Zz4K");
 }
 
 .src-components-Checkbox-indeterminate__3MFpa {
@@ -570,8 +570,8 @@
   height: 0;
 }
 
-.src-components-OverflowMenu-overflow__k7TpV:before {
-  content: url('data:image/svg+xml;utf8,<svg width="30px" height="30px" viewBox="0 0 30 30" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"><!-- Generator: Sketch 42 (36781) - http://www.bohemiancoding.com/sketch --><defs></defs><g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd"><g id="Group-Copy" transform="translate(13.000000, 7.000000)" fill="#575757"><circle id="Oval" cx="2" cy="2" r="2"></circle><circle id="Oval-Copy" cx="2" cy="8" r="2"></circle><circle id="Oval-Copy-2" cx="2" cy="14" r="2"></circle></g></g></svg>');
+.src-components-OverflowMenu-overflow__k7TpV::before {
+  content: url("data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIzMCIgaGVpZ2h0PSIzMCI+PGcgZmlsbD0iIzU3NTc1NyIgZmlsbC1ydWxlPSJldmVub2RkIiB0cmFuc2Zvcm09InRyYW5zbGF0ZSgxMyA3KSI+PGNpcmNsZSBjeD0iMiIgY3k9IjIiIHI9IjIiLz48Y2lyY2xlIGN4PSIyIiBjeT0iOCIgcj0iMiIvPjxjaXJjbGUgY3g9IjIiIGN5PSIxNCIgcj0iMiIvPjwvZz48L3N2Zz4=");
   height: 30px;
   width: 30px;
 }
