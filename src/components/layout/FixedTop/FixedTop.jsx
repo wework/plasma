@@ -11,7 +11,7 @@ type State = {|
 type Props = {|
   children: Array<Node>,
   backgroundColor: string,
-  data: Data,
+  data?: Data,
 |};
 
 class FixedTop extends React.Component<Props, State> {

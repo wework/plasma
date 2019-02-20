@@ -2,7 +2,7 @@
 import React from 'react';
 import ExternalSelect from 'react-select';
 
-type Props = ExternalSelect.propTypes;
+type Props = {};
 
 class Select extends React.Component<Props> {
   render() {

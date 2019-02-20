@@ -11,7 +11,7 @@ type Props = {|
   autosize: boolean,
   disabled: boolean,
   error: boolean,
-  maxLength: string,
+  maxLength: string | number,
   onBlur: () => void,
   onChange: () => void,
   onFocus: () => void,
@@ -19,7 +19,7 @@ type Props = {|
   rows: string,
   size: string,
   value: string,
-  data: Data,
+  data?: Data,
 |};
 
 class TextArea extends Component<Props> {

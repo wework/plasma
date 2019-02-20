@@ -22,15 +22,15 @@ type HandleEvent = {|
   },
 |};
 type Props = {|
-  data: Data,
-  disabled: boolean,
-  error: boolean,
+  data?: Data,
+  disabled?: boolean,
+  error?: boolean,
   maxValue: number,
   minValue: number,
-  onBlur: HandleEvent => void,
+  onBlur?: HandleEvent => void,
   onChange: HandleEvent => void,
-  onFocus: HandleEvent => void,
-  placeholder: string,
+  onFocus?: HandleEvent => void,
+  placeholder?: string,
   step: number,
   value: string,
 |};
@@ -42,6 +42,7 @@ class NumberInput extends React.Component<Props> {
     step: 1,
     maxValue: Number.MAX_SAFE_INTEGER,
     minValue: Number.MIN_SAFE_INTEGER,
+    onChange() {},
   };
 
   handleIncrement = (): void => {
@@ -59,7 +60,7 @@ class NumberInput extends React.Component<Props> {
   };
 
   handleChange = (e: HandleEvent): void => {
-    this.props.onChange(e.nativeEvent.target.value);
+    this.props.onChange && this.props.onChange(e.nativeEvent.target.value);
   };
 
   handleBlur = (e: HandleEvent): void => {

@@ -3,7 +3,7 @@ import React from 'react';
 import style from './style.scss';
 
 type Props = {
-  onClick: any => void,
+  onClick: string => void,
   optionKey: string,
   text: string,
 };

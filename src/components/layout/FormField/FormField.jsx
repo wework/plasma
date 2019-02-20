@@ -6,13 +6,13 @@ import Label from '../../Label/Label.jsx';
 
 type Props = {|
   children: Node,
-  isDisabled: boolean,
-  isRequired: boolean,
+  isDisabled?: boolean,
+  isRequired?: boolean,
   label: string,
-  displayError: boolean,
-  errorMessage: string,
-  data: Object,
-  style: Object,
+  displayError?: boolean,
+  errorMessage?: string,
+  data?: Object,
+  style?: { [string]: string },
 |};
 
 const FormField = ({

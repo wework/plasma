@@ -9,15 +9,15 @@ import style from './style.scss';
 
 type Props = {|
   data?: Data,
-  checked: boolean,
-  description: ?string,
-  disabled: ?boolean,
-  fancy: ?boolean,
-  fieldValue: string,
-  icon: ?string,
-  isLarge: ?boolean,
+  checked?: boolean,
+  description?: ?string,
+  disabled?: ?boolean,
+  fancy?: ?boolean,
+  fieldValue?: string,
+  icon?: ?string,
+  isLarge?: ?boolean,
   name: string,
-  onChange: () => mixed,
+  onChange: (event: SyntheticEvent<HTMLInputElement>) => mixed,
   text: string,
   value?: string,
 |};

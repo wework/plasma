@@ -4,11 +4,11 @@ import style from './style.scss';
 import type { Data } from '../../types';
 
 type Props = {|
-  onBlur: (event: { target: { value: Object } }) => void,
-  onChange: (event: { target: { value: Object } }) => void,
+  onBlur?: (event: { target: { value: Object } }) => void,
+  onChange?: (event: { target: { value: Object } }) => void,
   time: string,
-  data: Data,
-  disabled: boolean,
+  data?: Data,
+  disabled?: boolean,
 |};
 
 class TimePicker extends Component<Props> {
@@ -17,13 +17,13 @@ class TimePicker extends Component<Props> {
   handleBlur = (event: { target: { value: Object } }): void => {
     const newTime = event.target.value;
 
-    this.props.onBlur(newTime);
+    this.props.onBlur && this.props.onBlur(newTime);
   };
 
   handleChange = (event: { target: { value: Object } }): void => {
     const newTime = event.target.value;
 
-    this.props.onChange(newTime);
+    this.props.onChange && this.props.onChange(newTime);
   };
 
   render() {

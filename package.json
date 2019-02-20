@@ -23,7 +23,8 @@
     "test:watch": "yarn test --watch --coverage",
     "test:update": "yarn test --updateSnapshot",
     "test:coverage": "yarn test --coverage --coverageReporters=text-lcov",
-    "flow:coverage": "flow-coverage-report --config .flow-coverage.config.json --strict-coverage"
+    "flow:coverage": "flow-coverage-report --config .flow-coverage.config.json --strict-coverage",
+    "flow:buildTypeDefs": "node ./scripts/buildFlowTypeDefs.js"
   },
   "lint-staged": {
     "*.{js,jsx}": [
@@ -40,9 +41,7 @@
   "author": "WeWork",
   "license": "ISC",
   "devDependencies": {
-    "@storybook/addon-actions": "^3.1.9",
     "@storybook/addon-links": "^3.1.6",
-    "@storybook/react": "^3.4.8",
     "anchorate": "^1.1.0",
     "babel-cli": "^6.24.1",
     "babel-core": "^6.10.4",
@@ -61,15 +60,15 @@
     "babel-runtime": "^6.9.2",
     "base64-image-loader": "^1.2.0",
     "css-loader": "^0.23.1",
-    "eslint-config-prettier": "4.0.0",
-    "eslint-plugin-prettier": "3.0.1",
     "enzyme": "3.7.0",
     "enzyme-adapter-react-16": "1.7.0",
     "eslint": "4.19.1",
     "eslint-config-airbnb": "10.0.1",
+    "eslint-config-prettier": "4.0.0",
     "eslint-plugin-flowtype": "3.2.1",
     "eslint-plugin-import": "2.15.0",
     "eslint-plugin-jsx-a11y": "2.2.3",
+    "eslint-plugin-prettier": "3.0.1",
     "eslint-plugin-react": "6.10.3",
     "extract-text-webpack-plugin": "^2.1.2",
     "flow-bin": "^0.69.0",
@@ -104,8 +103,11 @@
     "webpack-dev-server": "^1.14.1"
   },
   "dependencies": {
+    "@storybook/addon-actions": "^3.1.9",
+    "@storybook/react": "^3.4.8",
     "classnames": "^2.2.5",
     "jest-cli": "^22.0.6",
+    "jscodeshift": "^0.6.3",
     "jsdom": "^11.1.0",
     "lodash": "^4.14.1",
     "proxy-middleware": "^0.15.0",

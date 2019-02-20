@@ -8,7 +8,7 @@ type Props = {|
   children: Node,
   onScroll: (evt: MouseEvent) => void,
   style: Object,
-  data: Data,
+  data?: Data,
 |};
 
 class HorizontalScroll extends React.Component<Props> {

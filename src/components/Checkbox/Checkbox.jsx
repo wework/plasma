@@ -16,7 +16,7 @@ type Props = {|
   icon?: string,
   indeterminate?: boolean,
   isBold?: boolean,
-  name: string,
+  name?: string,
   onBlur?: () => mixed,
   onChange?: () => mixed,
   text: Node,

@@ -5,17 +5,17 @@ import type { Data } from '../../types';
 import style from './style.scss';
 
 type Props = {|
-  clearable: boolean,
-  clearIconUrl: string,
-  disabled: boolean,
+  clearable?: boolean,
+  clearIconUrl?: string,
+  disabled?: boolean,
   iconUrl: string,
-  instructionText: string,
-  onChange: ({ target: { value: string } }) => void,
-  onKeyDown: (event: Event) => void,
-  onClear: (event: Event) => void,
-  placeholder: string,
-  value: string,
-  data: Data,
+  instructionText?: string,
+  onChange?: (event: SyntheticEvent<HTMLInputElement>) => void,
+  onKeyDown?: (event: SyntheticEvent<HTMLInputElement>) => void,
+  onClear?: (event: SyntheticEvent<HTMLInputElement>) => void,
+  placeholder?: string,
+  value?: string,
+  data?: Data,
 |};
 
 type State = {|
@@ -43,15 +43,15 @@ class Search extends Component<Props, State> {
     }
   }
 
-  onChange = (event: { target: { value: string } }): void => {
+  onChange = (event: SyntheticEvent<HTMLInputElement>): void => {
     const { onChange } = this.props;
 
-    this.setState({ text: event.target.value });
+    this.setState({ text: event.currentTarget.value });
 
     onChange && onChange(event);
   };
 
-  onClear = (event: Event): void => {
+  onClear = (event: SyntheticEvent<HTMLInputElement>): void => {
     const { onClear } = this.props;
 
     this.setState({ text: '' });

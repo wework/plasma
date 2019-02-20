@@ -19,7 +19,7 @@ type Props = {|
   children: Array<Node>,
   stickAt: number,
   fixedContainerStyle: Object,
-  data: Data,
+  data?: Data,
 |};
 
 /* eslint-enable */
