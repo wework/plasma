@@ -1,20 +1,20 @@
 // @flow
 import React, { Component, type Node } from 'react';
 import { find } from 'lodash';
-import SideNavBarItem from './SideNavBarItemV2';
-import { type ItemV2 } from './SideNavBarV2';
+import SideNavBarItem from './SideNavBarItem';
+import { type Item } from './SideNavBar';
 import style from './style.scss';
 
 type Props = {|
   id: string,
-  icon?: string,
+  icon: string,
   iconSize: number,
-  iconStyle?: { [string]: string },
+  iconStyle?: Object,
   label: Node,
   onClick: ({ id: string }) => mixed,
-  items?: Array<ItemV2>,
+  items: Array<Item>,
   darkBg?: boolean,
-  selectedId?: string,
+  selectedId: string,
 |};
 
 class SideNavBarItemGroup extends Component<Props> {
