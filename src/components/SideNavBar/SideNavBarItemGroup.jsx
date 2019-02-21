@@ -62,10 +62,10 @@ class SideNavBarItemGroup extends Component<Props> {
     );
   }
 
-  renderSubItems() {
+  renderSubItems(): Node {
     const items =
       this.props.items &&
-      this.props.items.map(groupedItem => {
+      this.props.items.map((groupedItem: Item) => {
         return (
           !groupedItem.hidden && (
             <SideNavBarItem
