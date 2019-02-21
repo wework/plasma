@@ -10,19 +10,19 @@ import downArrow from '../../icons/downArrow';
 import style from './style.scss';
 
 type Props = {|
-  clickable: boolean,
+  clickable?: boolean,
   empty: boolean,
   emptyText: string,
   headerData: Array<Object>,
-  highlightable: boolean,
-  items: Array<Object>,
+  highlightable?: boolean,
+  items: ?Array<Object>,
   loading: boolean,
-  onSort: string => void,
-  selectedColumnKey: string,
-  spanMap: Object,
-  stickAt: number,
-  style: Object,
-  data: Data,
+  onSort?: string => void,
+  selectedColumnKey?: string,
+  spanMap?: Object,
+  stickAt?: number,
+  style?: { [string]: string },
+  data?: Data,
   sort: { key: string, order: string },
 |};
 
@@ -43,6 +43,7 @@ class Table extends React.Component<Props, State> {
     loading: false,
     stickAt: null,
     headerData: [],
+    sort: {},
   };
 
   constructor() {
@@ -98,6 +99,7 @@ class Table extends React.Component<Props, State> {
       const tableBottomOffset = this.table.getBoundingClientRect().bottom;
       const topAtOrAboveStickyPoint = tableTopOffset < this.props.stickAt;
       const bottomAtOrAboveStickyPoint =
+        // $FlowFixMe TODO isNull is not recognized as refinement
         tableBottomOffset - this.state.headerHeight < this.props.stickAt;
       let isVisible = false;
       if (topAtOrAboveStickyPoint && !bottomAtOrAboveStickyPoint) {

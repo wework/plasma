@@ -8,10 +8,10 @@ import style from './style.scss';
 
 type Props = {|
   children: Array<Node>,
-  vertical: boolean,
+  vertical?: boolean,
   layout: Array<Object>,
-  style: Object,
-  data: Data,
+  style?: { [string]: string },
+  data?: Data,
 |};
 
 class Group extends React.Component<Props> {

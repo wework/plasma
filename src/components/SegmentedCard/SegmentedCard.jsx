@@ -9,7 +9,7 @@ type Props = {|
   children: Array<Node>,
   style: Object,
   vertical: Boolean,
-  data: Data,
+  data?: Data,
 |};
 
 class SegmentedCard extends React.Component<Props> {

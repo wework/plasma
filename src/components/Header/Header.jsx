@@ -16,7 +16,7 @@ type Props = {|
   h5?: boolean,
   h6?: boolean,
   invert?: boolean,
-  style?: boolean,
+  style?: { [string]: string },
   noMargin?: boolean,
   data?: Data,
 |};

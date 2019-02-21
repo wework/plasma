@@ -7,7 +7,7 @@ import type { Data } from '../../types';
 type Props = {|
   children: Node,
   content: Node,
-  data: Data,
+  data?: Data,
 |};
 
 class Tooltip extends React.Component<Props> {

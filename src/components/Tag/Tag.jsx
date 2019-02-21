@@ -7,9 +7,9 @@ import style from './style.scss';
 
 type Props = {|
   text: Node,
-  children: Node,
-  data: Data,
-  className: string,
+  children?: Node,
+  data?: Data,
+  className?: string,
 |};
 
 const Tag = ({ text, children, data, className = '' }: Props) => {

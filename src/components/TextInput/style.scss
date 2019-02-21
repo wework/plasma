@@ -2,57 +2,48 @@
 
 .wrapper {
   @extend %input--wrapper;
+  @extend %type--body;
+
+  box-sizing: border-box;
   display: flex;
   flex-direction: row;
+  font-size: $typeBase;
+  justify-content: stretch;
+
   &:hover {
     @extend %input--wrapper--hover;
-    .fix {
-      border-top: 1px solid $cGray200;
-      border-right: 1px solid $cGray200;
-      border-bottom: 1px solid $cGray200;
-      border-left: 1px solid $cGray200;
+
+    .prefix,
+    .suffix {
+      border-color: $cGray200;
     }
   }
-}
 
-.wrapperLarge {
-  @extend %input--wrapper--large;
-  .fix {
-    padding: 0 15px;
-  }
-}
+  &:focus-within {
+    @extend %input--wrapper--focus;
 
-.wrapperFocused {
-  @extend %input--wrapper--focus;
-  .fix {
-    border: 1px solid $cGray200;
-  }
-}
-
-.wrapperDisabled {
-  @extend %input--wrapper--disabled;
-  .fix {
-    color: $cGray300;
-    border: 1px solid $cGray400;
-  }
-  &:hover {
-    .fix {
-      border: 1px solid $cGray400;
+    .prefix,
+    .suffix {
+      border-color: $cGray200;
     }
   }
-}
 
-.wrapperError {
-  @extend %input--wrapper--error;
-  &:hover {
+  &.wrapperDisabled {
+    @extend %input--wrapper--disabled;
+
+    .prefix,
+    .suffix {
+      border-color: $cGray400;
+    }
+  }
+
+  &.wrapperError,
+  &.wrapperError:hover {
     @extend %input--wrapper--error;
-  }
-  .fix {
-    border: 1px solid $cWarningRed;
-  }
-  &:hover {
-    .fix {
-      border: 1px solid $cWarningRed;
+
+    .prefix,
+    .suffix {
+      border-color: $cWarningRed;
     }
   }
 }
@@ -60,51 +51,30 @@
 .input {
   @extend %input;
   @extend %type--body;
+
   border: 0;
+  flex: 1 1 auto;
   outline: none;
-  box-sizing: border-box;
-  width: 100%;
-  height: 100%;
-  order: 1;
+
+  &:disabled {
+    @extend %input--disabled;
+  }
 }
 
-.large {
-  @extend %input--large;
-}
-
-.disabled {
-  @extend %input--disabled;
-}
-
-.fix {
-  @extend %fontFamily--body;
+.prefix,
+.suffix {
+  border: 0 solid $cGray300;
   background-color: $cGray600;
-  color: $cWeWorkBlack;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  padding: 0 10px;
-  border-top: 1px solid $cGray300;
-  border-right: 1px solid $cGray300;
-  border-bottom: 1px solid $cGray300;
-  border-left: 1px solid $cGray300;
+  flex: 0 0 auto;
+  padding: 10px;
 }
 
 .suffix {
-  margin-top: -1px;
-  margin-right: -1px;
-  margin-bottom: -1px;
-  border-top-right-radius: $inputRadius;
-  border-bottom-right-radius: $inputRadius;
-  order: 2;
+  border-left-width: 1px;
+  border-radius: 0 $inputRadius $inputRadius 0;
 }
 
 .prefix {
-  margin-top: -1px;
-  margin-left: -1px;
-  margin-bottom: -1px;
-  border-top-left-radius: $inputRadius;
-  border-bottom-left-radius: $inputRadius;
-  order: 0;
+  border-right-width: 1px;
+  border-radius: $inputRadius 0 0 $inputRadius;
 }

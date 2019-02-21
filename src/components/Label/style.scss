@@ -2,16 +2,31 @@
 
 .label {
   @extend %type--label;
-  line-height: 20px;
-  margin-bottom: 5px;
+
+  display: block;
   font-weight: bold;
-}
+  line-height: 20px;
 
-.labelSecondary {
-  color: $cGray200;
-}
+  &[for] {
+    cursor: pointer;
+  }
 
-.labelDisabled {
-  color: $cGray300;
-  cursor: not-allowed;
+  &:not(.labelInline) + * {
+    margin-top: 5px;
+  }
+
+  &.labelDisabled {
+    color: $cGray300;
+    cursor: not-allowed;
+  }
+
+  &.labelInline {
+    display: inline-block;
+    margin-right: 20px;
+    padding: 10px 0;
+  }
+
+  &.labelRequired::after {
+    content: ' *';
+  }
 }

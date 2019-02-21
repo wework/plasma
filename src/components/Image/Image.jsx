@@ -9,14 +9,14 @@ import type { Data } from '../../types';
 const defaultImage = 'https://cdn.spacetelescope.org/archives/images/screen/s82e5407.jpg';
 
 type Props = {|
-  style: Object,
-  imageStyle: Object,
+  style?: { [string]: string },
+  imageStyle?: { [string]: string },
   src: string,
-  altText: string,
-  data: Data,
-  onClick: (evt: MouseEvent) => void,
-  className: Object,
-  fallback: string,
+  altText?: string,
+  data?: Data,
+  onClick?: (evt: MouseEvent) => void,
+  className?: string,
+  fallback?: string,
   onLoad?: (evt: MouseEvent) => void,
 |};
 

@@ -6,7 +6,7 @@ import type { Data } from '../../types';
 
 type Props = {|
   style?: Object,
-  dotStyle: ?Object,
+  dotStyle?: ?Object,
   data?: Data,
 |};
 

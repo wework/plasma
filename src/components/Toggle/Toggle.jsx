@@ -13,17 +13,17 @@ const type = {
 };
 
 type Props = {|
-  items: {
+  items: Array<{
     label: string,
     title: string,
-    disabled: boolean,
-  },
+    disabled?: boolean,
+  }>,
   onChange: (string, number) => void,
-  selectedIndex: number,
+  selectedIndex?: number,
   selectedLabel: string,
   type: string,
-  data: Data,
-  size: string,
+  data?: Data,
+  size?: string,
 |};
 
 class Toggle extends React.Component<Props> {

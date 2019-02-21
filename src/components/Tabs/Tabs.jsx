@@ -7,18 +7,18 @@ import type { Data } from '../../types';
 import style from './style.scss';
 
 type Tab = {|
-  label: string,
+  label: Node,
   title: string,
 |};
 
 type Props = {|
   items: Array<Tab>,
-  onChange: (string, number) => void,
-  selectedIndex: number,
-  selectedLabel: string,
-  data: Data,
-  plain: string,
-  vertical: string,
+  onChange?: (Node, number) => void,
+  selectedIndex?: number,
+  selectedLabel?: string,
+  data?: Data,
+  plain?: string,
+  vertical?: boolean,
 |};
 
 class Tabs extends React.Component<Props> {
@@ -28,7 +28,7 @@ class Tabs extends React.Component<Props> {
   };
 
   onClick = (tab: Tab, index: number): void => {
-    this.props.onChange(tab.label, index);
+    this.props.onChange && this.props.onChange(tab.label, index);
   };
 
   onKeyDown = (event: { keyCode: number }, tab: Tab, index: number): void => {

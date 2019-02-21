@@ -9,7 +9,7 @@ export type Props = {|
   children: Node,
   data?: Data,
   large?: boolean,
-  style?: Object,
+  style?: { [string]: string | number },
   type?: string,
 |};
 

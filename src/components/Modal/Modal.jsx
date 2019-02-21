@@ -6,15 +6,15 @@ import { getDataAttrs } from '../../dataUtils';
 import type { Data } from '../../types';
 
 type Props = {|
-  title: string,
-  actions: Array<Node>,
+  title?: string,
+  actions?: Array<Node>,
   children: Node,
-  visible: boolean,
-  onDismiss: (evt: MouseEvent) => void,
-  style: Object,
-  minWidth: number,
-  maxWidth: number,
-  data: Data,
+  visible?: boolean,
+  onDismiss?: (evt: MouseEvent) => void,
+  style?: { [string]: string | number },
+  minWidth?: string | number,
+  maxWidth?: string | number,
+  data?: Data,
 |};
 
 class Modal extends React.Component<Props> {

@@ -10,7 +10,7 @@ type Props = {|
   children: Node,
   actions: Array<Object>,
   breadcrumb: Node,
-  data: Data,
+  data?: Data,
 |};
 
 class Page extends React.Component<Props> {
