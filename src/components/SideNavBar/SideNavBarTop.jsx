@@ -11,7 +11,7 @@ type Props = {|
   editing?: boolean,
   placeholder?: string,
   value?: string,
-  onChange?: (SyntheticInputEvent<>) => void,
+  onChange?: (SyntheticInputEvent<HTMLInputElement>) => void,
   onBlur?: (SyntheticFocusEvent<>) => void,
   fullWidth?: boolean,
   className?: string,
