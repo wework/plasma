@@ -1,5 +1,5 @@
 // @flow
-import React from 'react';
+import React, { type Node } from 'react';
 import cn from 'classnames';
 import { map } from 'lodash';
 import { getDataAttrs } from '../../dataUtils';
@@ -7,8 +7,8 @@ import type { Data } from '../../types';
 import style from './style.scss';
 
 type Tab = {|
-  label: Node,
-  title: string,
+  label: string,
+  title: Node,
 |};
 
 type Props = {|
