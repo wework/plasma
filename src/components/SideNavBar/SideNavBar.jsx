@@ -11,7 +11,7 @@ export type Item = {|
   icon: string,
   label: string,
   items: Array<Item>,
-  linkComponent?: Node,
+  linkComponent: Node,
   tagText?: string,
   hidden?: boolean,
 |};
