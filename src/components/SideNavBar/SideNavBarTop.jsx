@@ -5,16 +5,16 @@ import Icon from '../Icon/Icon';
 import style from './style.scss';
 
 type Props = {|
-  label: string,
+  label: React$Node,
   icon: string,
-  onClick: () => void,
-  editing: boolean,
-  placeholder: string,
-  value: string,
-  onChange: ({ value: string }) => void,
-  onBlur: () => void,
-  fullWidth: boolean,
-  className: string,
+  onClick: (SyntheticMouseEvent<>) => void,
+  editing?: boolean,
+  placeholder?: string,
+  value?: string,
+  onChange?: (SyntheticInputEvent<>) => void,
+  onBlur?: (SyntheticFocusEvent<>) => void,
+  fullWidth?: boolean,
+  className?: string,
   forwardedRef?: { current: null | HTMLInputElement },
 |};
 
@@ -59,7 +59,7 @@ class SideBarNavTop extends React.Component<Props> {
                 type="text"
                 onChange={onChange}
                 onBlur={onBlur}
-                placeholder={placeholder || label}
+                placeholder={placeholder}
               />
             ) : (
               label

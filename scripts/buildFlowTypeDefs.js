@@ -14,7 +14,7 @@ console.log(`
 // flow-typed version: <<STUB>>/@wework-dev/plasma_v${currentVersion}/flow_v${flowVersion}
 
 declare module '@wework-dev/plasma' {
-  declare type Data = { key: string, value: string };
+  declare type Data = { [key: string]: string };
 
   ${String(declarations).replace(/\bNode\b/g, 'React$Node')}
 
