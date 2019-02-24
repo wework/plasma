@@ -19,9 +19,9 @@ import Table from './components/Table/Table';
 import Text from './components/Text/Text';
 import TextInput from './components/TextInput/TextInput';
 import Tooltip from './components/Tooltip/Tooltip';
-import SideNavBar from './components/SideNavBar/OldSideNavBar';
+import OldSideNavBar from './components/SideNavBar/OldSideNavBar';
 import SideNavBarItem from './components/SideNavBar/OldSideNavBarItem';
-import SideNavBarV2 from './components/SideNavBar/SideNavBar';
+import SideNavBar from './components/SideNavBar/SideNavBar';
 import SideNavBarTop from './components/SideNavBar/SideNavBarTop';
 // import DatePicker from './components/DatePicker/DatePicker';
 import Search from './components/Search/Search';
@@ -75,9 +75,9 @@ Plasma.Search = Search;
 Plasma.FormField = FormField;
 Plasma.Tooltip = Tooltip;
 Plasma.Tabs = Tabs;
-Plasma.SideNavBar = SideNavBar;
+Plasma.OldSideNavBar = OldSideNavBar;
 Plasma.SideNavBarItem = SideNavBarItem;
-Plasma.SideNavBarV2 = SideNavBarV2;
+Plasma.SideNavBar = SideNavBar;
 Plasma.SideNavBarTop = SideNavBarTop;
 Plasma.Table = Table;
 Plasma.Modal = Modal;
@@ -116,9 +116,9 @@ export {
   FormField,
   Tooltip,
   Tabs,
-  SideNavBar,
+  OldSideNavBar,
   SideNavBarItem,
-  SideNavBarV2,
+  SideNavBar,
   SideNavBarTop,
   Table,
   Modal,
