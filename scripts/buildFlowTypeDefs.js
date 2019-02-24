@@ -14,12 +14,12 @@ console.log(`
 // flow-typed version: <<STUB>>/@wework-dev/plasma_v${currentVersion}/flow_v${flowVersion}
 
 declare module '@wework-dev/plasma' {
-  declare type Data = { key: string, value: string };
+  declare type Data = { [key: string]: string };
 
   ${String(declarations).replace(/\bNode\b/g, 'React$Node')}
 
-  declare export class CountedTextInput extends React$Component<{ ...$PropertyType<TextInput, 'props'>, counterStyle: string }> { }
-  declare export class CountedTextArea extends React$Component<{ ...$PropertyType<TextArea, 'props'>, counterStyle: string }> { }
+  declare export class CountedTextInput extends React$Component<{ ...$PropertyType<TextInput, 'props'>, counterClassName?: string }> { }
+  declare export class CountedTextArea extends React$Component<{ ...$PropertyType<TextArea, 'props'>, counterClassName?: string }> { }
 
   declare export var LocationPin: string;
 }
