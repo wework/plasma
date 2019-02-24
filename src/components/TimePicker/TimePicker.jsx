@@ -11,9 +11,9 @@ import Text from '../Text/Text';
  *
  * Optional 'value' must be in 24H 'HH:mm' format.
  *
- * Optional 'minTime' in 24H 'HH:mm' format, default time 08:00.
+ * Optional 'minTime' in 24H 'HH:mm' format, default time 00:00.
  *
- * Optional 'maxTime' in 24H 'HH:mm' format, default time 20:00.
+ * Optional 'maxTime' in 24H 'HH:mm' format, default time 24:00.
  *
  * Optional 'timeIntervalMinutes', Time step for time slots, default is 30 minute.
  *
