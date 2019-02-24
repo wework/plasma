@@ -9,6 +9,9 @@ module.exports = {
   entry: [
     './src/index.js',
   ],
+  externals: {
+    'moment-timezone': 'moment-timezone',
+  },
   output: {
     path: path.resolve(__dirname, 'dist'),
     filename: 'index.js',
@@ -29,7 +32,7 @@ module.exports = {
         loader: 'babel-loader',
       },
       {
-        test: /\.scss$/,
+        test: /\.(scss|css)$/,
         loader: ExtractTextPlugin.extract({
           fallback: 'style-loader',
           use: [

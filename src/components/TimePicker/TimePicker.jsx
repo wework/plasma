@@ -1,9 +1,8 @@
 // @flow
-import moment from 'moment';
+import moment from 'moment-timezone';
 import React, { type Node } from 'react';
 import cn from 'classnames';
 import ReactSelect from 'react-select';
-import 'react-select/dist/react-select.min.css';
 import style from './style.scss';
 import Text from '../Text/Text';
 
@@ -64,8 +63,8 @@ type Props = {|
 
 class TimePicker extends React.Component<Props> {
   static defaultProps = {
-    minTime: '08:00',
-    maxTime: '20:00',
+    minTime: '00:00',
+    maxTime: '24:00',
     timeFormat: FormatTypes.timeFormat12,
     timeIntervalMinutes: 30,
     disabled: false,
@@ -142,13 +141,13 @@ class TimePicker extends React.Component<Props> {
   render() {
     const { className, disabled, placeholder, transparentBackground } = this.props;
 
-    const TimeSelectClassName = cn(style.selectInput, className, {
+    const timeSelectClassName = cn(style.selectInput, className, {
       [style.transparentBackground]: transparentBackground,
     });
 
     return (
       <ReactSelect
-        className={TimeSelectClassName}
+        className={timeSelectClassName}
         placeholder={placeholder}
         arrowRenderer={this.iconRenderer}
         clearable={false}
