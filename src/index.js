@@ -5,6 +5,7 @@ import Checkbox from './components/Checkbox/Checkbox';
 import CollapsibleCard from './components/CollapsibleCard/CollapsibleCard';
 import OverflowMenu from './components/OverflowMenu/OverflowMenu';
 import Header from './components/Header/Header';
+import Hint from './components/Hint/Hint';
 import Icon from './components/Icon/Icon';
 import Image from './components/Image/Image';
 import Label from './components/Label/Label';
@@ -54,6 +55,7 @@ const CountedTextInput = withCounter(TextInput);
 const Plasma = {};
 
 Plasma.Header = Header;
+Plasma.Hint = Hint;
 Plasma.Label = Label;
 Plasma.Image = Image;
 Plasma.Icon = Icon;
@@ -100,6 +102,7 @@ export default Plasma;
 export {
   Icon,
   Header,
+  Hint,
   Label,
   Image,
   Text,
