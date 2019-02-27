@@ -9572,14 +9572,7 @@ mkdirp@0.5.x, "mkdirp@>=0.5 0", mkdirp@^0.5.0, mkdirp@^0.5.1, mkdirp@~0.5.0, mkd
   dependencies:
     minimist "0.0.8"
 
-moment-timezone@0.5.22:
-  version "0.5.22"
-  resolved "https://registry.yarnpkg.com/moment-timezone/-/moment-timezone-0.5.22.tgz#11923e7ee878e8a2f74fba5859b8604cb9ec9b2d"
-  integrity sha512-yYy26PNi+1mpZ7BvPYW6lPaaJhNGeJ4vKl+ryn8h56mmgauCm1IQ0ySwuZP/kknJdkk+sGaSC2uxK2WdI6B73g==
-  dependencies:
-    moment ">= 2.9.0"
-
-"moment@>= 2.9.0":
+moment@2.24.0:
   version "2.24.0"
   resolved "https://registry.yarnpkg.com/moment/-/moment-2.24.0.tgz#0d055d53f5052aa653c9f6eb68bb5d12bf5c2b5b"
   integrity sha512-bV7f+6l2QigeBBZSM/6yTNq4P2fNpSWj/0e7jQcy87A8e7o2nAfP/34/2ky5Vw4B9S446EtIhodAzkFCcR4dQg==
