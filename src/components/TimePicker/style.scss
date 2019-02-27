@@ -32,6 +32,18 @@
       @extend %input--wrapper--focus;
   }
 
+  &.selectInputError {
+    :global {
+      .Select-control {
+        @extend %input--wrapper--error;
+
+        &:hover {
+          @extend %input--wrapper--error;
+        }
+      }
+    }
+  }
+
   :global {
     .Select-control {
       @extend %input--wrapper;

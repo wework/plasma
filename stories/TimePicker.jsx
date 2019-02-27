@@ -19,6 +19,18 @@ storiesOf('TimePicker', module)
       )}
     />
   ))
+  .add('error', () => (
+    <StoryState
+      render={(state, setState) => (
+        <TimePicker
+          defaultOption={DefaultOptions.nextInterval}
+          onChange={value => setState({ value })}
+          value={state.value}
+          error
+        />
+      )}
+    />
+  ))
   .add('transparentBackground', () => (
     <StoryState
       render={(state, setState) => (

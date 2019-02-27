@@ -7,7 +7,7 @@ import ReactSelect from 'react-select';
 
 import type { FocusEventHandlers, GlobalAttributes } from '../../types';
 
-import style from './style.scss';
+import styles from './style.scss';
 
 /**
  * A TimePicker component.
@@ -28,7 +28,21 @@ import style from './style.scss';
  *
  * Optional 'disabled'.
  *
- * OnChange receives string value in 24H 'HH:mm' format.
+ * Optional 'error'.
+ *
+ * Optional 'required'.
+ *
+ * Optional 'name'.
+ *
+ * Optional 'id'.
+ *
+ * Optional 'tabIndex'.
+ *
+ * onChange receives string value in 24H 'HH:mm' format.
+ *
+ * Optional 'onBlur'.
+ *
+ * Optional 'onFocus'.
  */
 
 export const FormatTypes = Object.freeze({
@@ -53,11 +67,12 @@ type Option = {|
 type Props = {|
   defaultOption?: DefaultOption,
   disabled?: boolean,
+  error?: boolean,
   maxTime: string,
   minTime: string,
   onChange?: string => void,
   placeholder?: string,
-  required?: string,
+  required?: boolean,
   name?: string,
   timeFormat: TimeFormatType,
   timeIntervalMinutes: number,
@@ -84,6 +99,7 @@ class TimePicker extends React.Component<Props> {
     const maxTime = moment(this.props.maxTime, FormatTypes.timeFormat24);
     const minTime = moment(this.props.minTime, FormatTypes.timeFormat24);
     const valueMoment = moment(value, FormatTypes.timeFormat24);
+
     if (valueMoment.isBefore(minTime)) {
       return this.props.minTime;
     }
@@ -91,6 +107,7 @@ class TimePicker extends React.Component<Props> {
     if (valueMoment.isAfter(maxTime)) {
       return this.props.maxTime;
     }
+
     return value;
   }
 
@@ -113,6 +130,7 @@ class TimePicker extends React.Component<Props> {
 
       timeValue.add(this.props.timeIntervalMinutes, 'minutes');
     }
+
     return options;
   };
 
@@ -122,7 +140,7 @@ class TimePicker extends React.Component<Props> {
   };
 
   iconRenderer(): Node {
-    return <span className={style.selectClockIcon} />;
+    return <span className={styles.selectClockIcon} />;
   }
 
   defaultTimeSelected(): string {
@@ -144,20 +162,22 @@ class TimePicker extends React.Component<Props> {
   }
 
   render() {
-    const { className, transparentBackground, ...rest } = this.props;
+    const { className, error, transparentBackground, ...rest } = this.props;
 
-    const timeSelectClassName = cn(style.selectInput, className, {
-      [style.transparentBackground]: transparentBackground,
+    const timeSelectClassName = cn(styles.selectInput, className, {
+      [styles.transparentBackground]: transparentBackground,
+      [styles.selectInputError]: error,
     });
 
     const restProps = omit(
       rest,
       'defaultOption',
+      'hidden', // TODO(grozki): Get this to work?
       'maxTime',
       'minTime',
       'timeFormat',
       'timeIntervalMinutes',
-      'title'
+      'title' // TODO(grozki): Get this to work?
     );
 
     return (
