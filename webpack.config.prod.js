@@ -8,7 +8,7 @@ const webpack = require('webpack');
 module.exports = {
   entry: ['./src/index.js'],
   externals: {
-    'moment-timezone': 'moment-timezone',
+    moment: 'moment',
   },
   output: {
     path: path.resolve(__dirname, 'dist'),
