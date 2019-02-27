@@ -10,41 +10,20 @@
   height: 20px;
 }
 
-.selectInput {
-  @extend %type--body;
-  width: 8.125rem;
-  font-size: 13px;
-  color: $cBlack50;
+:global {
+  :local(.selectInput) {
+    @extend %type--body;
+    width: 8.125rem;
+    font-size: 13px;
+    color: $cBlack50;
 
-  &:global(.is-disabled > .Select-control) {
-    @extend %input--wrapper--disabled;
+    &.is-disabled > .Select-control {
+      @extend %input--wrapper--disabled;
 
-    background: $cWhite;
-    color: $cGray400;
-
-  }
-
-  &:global(.Select.has-value.Select--single.is-disabled > .Select-control .Select-value .Select-value-label) {
+      background: $cWhite;
       color: $cGray400;
-  }
-
-  &:global(.is-focused:not(.is-open) > .Select-control) {
-      @extend %input--wrapper--focus;
-  }
-
-  &.selectInputError {
-    :global {
-      .Select-control {
-        @extend %input--wrapper--error;
-
-        &:hover {
-          @extend %input--wrapper--error;
-        }
-      }
     }
-  }
 
-  :global {
     .Select-control {
       @extend %input--wrapper;
 
@@ -84,14 +63,45 @@
     .Select-option {
       text-align: center;
     }
-  }
-}
 
-.transparentBackground {
-  :global {
+    &.Select.has-value.Select--single.is-disabled > .Select-control .Select-value .Select-value-label {
+      color: $cGray400;
+    }
+
+    &.is-focused:not(.is-open) > .Select-control {
+      @extend %input--wrapper--focus;
+    }
+  }
+
+  :local(.selectInput.selectInputError) {
+    .Select-control {
+      @extend %input--wrapper--error;
+
+      &:hover {
+        @extend %input--wrapper--error;
+      }
+    }
+
+    &.is-focused:not(.is-open) > .Select-control {
+      @extend %input--wrapper--error;
+    }
+  }
+
+  :local(.selectInput.transparentBackground) {
+    &.is-focused:not(.is-open) > .Select-control {
+      border-color: transparent;
+      box-shadow: none;
+    }
+
     .Select-control {
       @extend %input--wrapper;
-      border: transparent;
+
+      border-color: transparent;
+
+      &:hover {
+        border-color: transparent;
+        box-shadow: none;
+      }
     }
   }
 }
