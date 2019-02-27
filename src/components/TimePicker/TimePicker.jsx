@@ -1,10 +1,13 @@
 // @flow
-import moment from 'moment-timezone';
 import React, { type Node } from 'react';
+import { omit } from 'lodash';
 import cn from 'classnames';
+import moment from 'moment';
 import ReactSelect from 'react-select';
+
+import type { FocusEventHandlers, GlobalAttributes } from '../../types';
+
 import style from './style.scss';
-import Text from '../Text/Text';
 
 /**
  * A TimePicker component.
@@ -48,17 +51,20 @@ type Option = {|
 |};
 
 type Props = {|
-  minTime: string,
-  maxTime: string,
-  timeIntervalMinutes: number,
-  timeFormat: TimeFormatType,
-  disabled: boolean,
-  value?: string,
-  onChange: string => void,
-  className?: string,
-  placeholder?: string,
   defaultOption?: DefaultOption,
+  disabled?: boolean,
+  maxTime: string,
+  minTime: string,
+  onChange?: string => void,
+  placeholder?: string,
+  required?: string,
+  name?: string,
+  timeFormat: TimeFormatType,
+  timeIntervalMinutes: number,
   transparentBackground?: boolean,
+  value?: string,
+  ...FocusEventHandlers<>,
+  ...GlobalAttributes,
 |};
 
 class TimePicker extends React.Component<Props> {
@@ -67,7 +73,6 @@ class TimePicker extends React.Component<Props> {
     maxTime: '24:00',
     timeFormat: FormatTypes.timeFormat12,
     timeIntervalMinutes: 30,
-    disabled: false,
     placeholder: 'Select time',
   };
 
@@ -139,28 +144,37 @@ class TimePicker extends React.Component<Props> {
   }
 
   render() {
-    const { className, disabled, placeholder, transparentBackground } = this.props;
+    const { className, transparentBackground, ...rest } = this.props;
 
     const timeSelectClassName = cn(style.selectInput, className, {
       [style.transparentBackground]: transparentBackground,
     });
 
+    const restProps = omit(
+      rest,
+      'defaultOption',
+      'maxTime',
+      'minTime',
+      'timeFormat',
+      'timeIntervalMinutes',
+      'title'
+    );
+
     return (
       <ReactSelect
-        className={timeSelectClassName}
-        placeholder={placeholder}
         arrowRenderer={this.iconRenderer}
+        className={timeSelectClassName}
         clearable={false}
-        searchable={false}
-        options={this.getOptions()}
         onChange={this.handleChange}
+        options={this.getOptions()}
+        searchable={false}
         value={this.getValue(this.props.value)}
-        disabled={disabled}
+        {...restProps}
       />
     );
   }
 }
 
-Text.displayName = 'Plasma@TimePicker';
+TimePicker.displayName = 'Plasma@TimePicker';
 
 export default TimePicker;
