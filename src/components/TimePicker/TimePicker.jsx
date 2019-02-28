@@ -76,7 +76,7 @@ type Props = {|
   name?: string,
   timeFormat: TimeFormatType,
   timeIntervalMinutes: number,
-  transparentBackground?: boolean,
+  borderless?: boolean,
   value?: string,
   ...FocusEventHandlers<>,
   ...GlobalAttributes,
@@ -164,10 +164,10 @@ class TimePicker extends React.Component<Props> {
   }
 
   render() {
-    const { className, error, transparentBackground, value, ...rest } = this.props;
+    const { className, error, borderless, value, ...rest } = this.props;
 
     const timeSelectClassName = cn(styles.selectInput, className, {
-      [styles.transparentBackground]: transparentBackground,
+      [styles.borderless]: borderless,
       [styles.selectInputError]: error,
     });
 

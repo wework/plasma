@@ -91,7 +91,7 @@
     }
   }
 
-  :local(.selectInput.transparentBackground) {
+  :local(.selectInput.borderless) {
     &.is-focused:not(.is-open) > .Select-control {
       border-color: transparent;
       box-shadow: none;
