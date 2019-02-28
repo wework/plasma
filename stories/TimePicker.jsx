@@ -31,11 +31,11 @@ storiesOf('TimePicker', module)
       )}
     />
   ))
-  .add('transparentBackground', () => (
+  .add('borderless', () => (
     <StoryState
       render={(state, setState) => (
         <TimePicker
-          transparentBackground
+          borderless
           value={state.value || '14:00'}
           onChange={value => setState({ value })}
         />
@@ -48,7 +48,7 @@ storiesOf('TimePicker', module)
         <TimePicker
           timeFormat={FormatTypes.timeFormat24}
           defaultOption={DefaultOptions.nextInterval}
-          value={state.value}
+          value={state.value || '14:00'}
           onChange={value => setState({ value })}
         />
       )}
@@ -71,7 +71,7 @@ storiesOf('TimePicker', module)
         <TimePicker
           defaultOption={DefaultOptions.minimum}
           onChange={value => setState({ value })}
-          value={state.value || '06:00'}
+          value={state.value}
         />
       )}
     />
