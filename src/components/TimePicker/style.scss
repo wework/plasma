@@ -1,8 +1,6 @@
 @import '../../styles/base';
 
 .selectClockIcon {
-  text-align: center;
-  vertical-align: middle;
   background: url('data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIyMCIgaGVpZ2h0PSIyMCIgdmlld0JveD0iMCAwIDIwIDIwIj48cGF0aCBmaWxsPSIjQzFDMUMyIiBmaWxsLXJ1bGU9ImV2ZW5vZGQiIHN0cm9rZT0iI0MxQzFDMiIgc3Ryb2tlLXdpZHRoPSIuNSIgZD0iTTEwIDIuMTI1YTcuODc1IDcuODc1IDAgMSAwIDAgMTUuNzUgNy44NzUgNy44NzUgMCAwIDAgMC0xNS43NXpNMSAxMGE5IDkgMCAxIDEgMTggMCA5IDkgMCAwIDEtMTggMHptOSAwaDQuODc1djEuMTI0aC02di02SDEwVjEweiIvPjwvc3ZnPg==');
   background-repeat: no-repeat;
   display: inline-block;
@@ -24,6 +22,17 @@
       color: $cGray400;
     }
 
+    &.Select--single > .Select-control .Select-value {
+      padding: 0;
+
+      .Select-value-label {
+        display: block;
+        line-height: 2.5rem;
+        padding: 0 .5rem 0 2.25rem;
+        height: 38px;
+      }
+    }
+
     .Select-control {
       @extend %input--wrapper;
 
@@ -33,15 +42,9 @@
     }
 
     .Select-placeholder {
-      padding-left: 2.0625rem;
-      text-align: center;
+      color: $cGray200;
       line-height: 2.5rem;
-      color: $cBlack50;
-    }
-
-    .Select-value-label {
-      padding-left: 2.0625rem;
-      line-height: 2.5rem !important;
+      padding-left: 2.25rem;
     }
 
     .Select-input {
@@ -54,10 +57,11 @@
     }
 
     .Select-arrow-zone {
-      display: inline-block;
-      padding-left: 0.75rem;
-      padding-right: 0.75rem;
+      align-items: center;
+      display: flex;
+      padding: 0 0.5rem;
       line-height: 2.3125rem;
+      width: 2.25rem;
     }
 
     .Select-option {
