@@ -91,7 +91,7 @@ class TimePicker extends React.Component<Props> {
     placeholder: 'Select time',
   };
 
-  getValue(value: ?string): string {
+  getValue(value: ?string): ?string {
     if (!value) {
       return this.defaultTimeSelected();
     }
@@ -143,26 +143,28 @@ class TimePicker extends React.Component<Props> {
     return <span className={styles.selectClockIcon} />;
   }
 
-  defaultTimeSelected(): string {
+  defaultTimeSelected(): ?string {
     const { timeIntervalMinutes, defaultOption } = this.props;
     switch (defaultOption) {
       case DefaultOptions.nextInterval: {
         const roundedUp = Math.ceil(moment().minute() / timeIntervalMinutes) * timeIntervalMinutes;
+
         return moment()
           .minute(roundedUp)
           .second(0)
           .format(FormatTypes.timeFormat24);
       }
       case DefaultOptions.minimum:
-      default:
         return moment(this.props.minTime, FormatTypes.timeFormat24).format(
           FormatTypes.timeFormat24
         );
+      default:
+        return null;
     }
   }
 
   render() {
-    const { className, error, transparentBackground, ...rest } = this.props;
+    const { className, error, transparentBackground, value, ...rest } = this.props;
 
     const timeSelectClassName = cn(styles.selectInput, className, {
       [styles.transparentBackground]: transparentBackground,
@@ -188,7 +190,7 @@ class TimePicker extends React.Component<Props> {
         onChange={this.handleChange}
         options={this.getOptions()}
         searchable={false}
-        value={this.getValue(this.props.value)}
+        value={this.getValue(value)}
         {...restProps}
       />
     );
