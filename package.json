@@ -1,6 +1,6 @@
 {
   "name": "@wework-dev/plasma",
-  "version": "0.0.187",
+  "version": "0.0.188",
   "description": "",
   "main": "./dist/index.js",
   "scripts": {
@@ -82,7 +82,7 @@
     "lodash": "^4.14.1",
     "marked": "^0.3.6",
     "mkdirp": "^0.5.1",
-    "moment": "^2.18.1",
+    "moment": "2.24.0",
     "node-sass": "^4.9.3",
     "prettier": "1.16.1",
     "proxy-middleware": "^0.15.0",
@@ -116,8 +116,9 @@
     "react-select": "1.2.1"
   },
   "peerDependencies": {
-    "react": "16.6.3",
-    "react-dom": "16.6.3",
+    "moment": "^2.24",
+    "react": "^16.6",
+    "react-dom": "^16.6",
     "react-tap-event-plugin": "^2.0.1"
   },
   "jest": {

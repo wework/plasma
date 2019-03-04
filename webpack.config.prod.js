@@ -6,9 +6,10 @@ const ExtractTextPlugin = require('extract-text-webpack-plugin');
 const webpack = require('webpack');
 
 module.exports = {
-  entry: [
-    './src/index.js',
-  ],
+  entry: ['./src/index.js'],
+  externals: {
+    moment: 'moment',
+  },
   output: {
     path: path.resolve(__dirname, 'dist'),
     filename: 'index.js',
@@ -16,9 +17,7 @@ module.exports = {
     libraryTarget: 'umd',
   },
   resolve: {
-    modules: [
-      path.resolve('./node_modules'),
-    ],
+    modules: [path.resolve('./node_modules')],
     extensions: ['.js', '.jsx'],
   },
   module: {
@@ -36,6 +35,16 @@ module.exports = {
             'css-loader?modules&importLoaders=1&localIdentName=[path][local]__[hash:base64:5]',
             'resolve-url-loader',
             'sass-loader',
+          ],
+        }),
+      },
+      {
+        test: /\.css$/,
+        loader: ExtractTextPlugin.extract({
+          fallback: 'style-loader',
+          use: [
+            'css-loader?importLoaders=1&localIdentName=[path][local]__[hash:base64:5]',
+            'resolve-url-loader',
           ],
         }),
       },

@@ -1,0 +1,187 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`TimePicker default 12H format 1`] = `
+<div
+  className="Select selectInput has-value Select--single"
+  style={undefined}
+>
+  <div
+    className="Select-control"
+    onKeyDown={[Function]}
+    onMouseDown={[Function]}
+    onTouchEnd={[Function]}
+    onTouchMove={[Function]}
+    onTouchStart={[Function]}
+    style={undefined}
+  >
+    <span
+      className="Select-multi-value-wrapper"
+      id="react-select-4--value"
+    >
+      <div
+        className="Select-value"
+        style={undefined}
+        title={undefined}
+      >
+        <span
+          aria-selected="true"
+          className="Select-value-label"
+          id="react-select-4--value-item"
+          role="option"
+        >
+          02:00 PM
+        </span>
+      </div>
+      <div
+        aria-activedescendant="react-select-4--value"
+        aria-disabled="false"
+        aria-expanded={false}
+        aria-label={undefined}
+        aria-labelledby={undefined}
+        aria-owns=""
+        className="Select-input"
+        onBlur={[Function]}
+        onFocus={[Function]}
+        role="combobox"
+        style={
+          Object {
+            "border": 0,
+            "display": "inline-block",
+            "width": 1,
+          }
+        }
+        tabIndex={0}
+      />
+    </span>
+    <span
+      className="Select-arrow-zone"
+      onMouseDown={[Function]}
+    >
+      <span
+        className="selectClockIcon"
+      />
+    </span>
+  </div>
+</div>
+`;
+
+exports[`TimePicker default 24H format 1`] = `
+<div
+  className="Select selectInput has-value Select--single"
+  style={undefined}
+>
+  <div
+    className="Select-control"
+    onKeyDown={[Function]}
+    onMouseDown={[Function]}
+    onTouchEnd={[Function]}
+    onTouchMove={[Function]}
+    onTouchStart={[Function]}
+    style={undefined}
+  >
+    <span
+      className="Select-multi-value-wrapper"
+      id="react-select-3--value"
+    >
+      <div
+        className="Select-value"
+        style={undefined}
+        title={undefined}
+      >
+        <span
+          aria-selected="true"
+          className="Select-value-label"
+          id="react-select-3--value-item"
+          role="option"
+        >
+          14:00
+        </span>
+      </div>
+      <div
+        aria-activedescendant="react-select-3--value"
+        aria-disabled="false"
+        aria-expanded={false}
+        aria-label={undefined}
+        aria-labelledby={undefined}
+        aria-owns=""
+        className="Select-input"
+        onBlur={[Function]}
+        onFocus={[Function]}
+        role="combobox"
+        style={
+          Object {
+            "border": 0,
+            "display": "inline-block",
+            "width": 1,
+          }
+        }
+        tabIndex={0}
+      />
+    </span>
+    <span
+      className="Select-arrow-zone"
+      onMouseDown={[Function]}
+    >
+      <span
+        className="selectClockIcon"
+      />
+    </span>
+  </div>
+</div>
+`;
+
+exports[`TimePicker default default 1`] = `
+<div
+  className="Select selectInput is-disabled Select--single"
+  style={undefined}
+>
+  <div
+    className="Select-control"
+    onKeyDown={[Function]}
+    onMouseDown={[Function]}
+    onTouchEnd={[Function]}
+    onTouchMove={[Function]}
+    onTouchStart={[Function]}
+    style={undefined}
+  >
+    <span
+      className="Select-multi-value-wrapper"
+      id="react-select-2--value"
+    >
+      <div
+        className="Select-placeholder"
+      >
+        Select time
+      </div>
+      <div
+        aria-activedescendant="react-select-2--value"
+        aria-disabled="true"
+        aria-expanded={false}
+        aria-label={undefined}
+        aria-labelledby={undefined}
+        aria-owns=""
+        className="Select-input"
+        onBlur={[Function]}
+        onFocus={[Function]}
+        role="combobox"
+        style={
+          Object {
+            "border": 0,
+            "display": "inline-block",
+            "width": 1,
+          }
+        }
+        tabIndex={0}
+      />
+    </span>
+    <span
+      className="Select-arrow-zone"
+      onMouseDown={[Function]}
+    >
+      <span
+        className="selectClockIcon"
+      />
+    </span>
+  </div>
+</div>
+`;
