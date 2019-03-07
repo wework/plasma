@@ -1,7 +1,6 @@
 // @flow
 export type Data = {
-  key: string,
-  value: string,
+  [key: string]: string,
 };
 
 export type GlobalAttributes = $Shape<{|
