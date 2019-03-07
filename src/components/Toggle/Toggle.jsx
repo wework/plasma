@@ -33,7 +33,9 @@ class Toggle extends React.Component<Props> {
     onChange: () => {},
   };
   onClick(toggle: Object, index: number) {
-    this.props.onChange(toggle.label, index);
+    if (toggle.disabled !== true) {
+      this.props.onChange(toggle.label, index);
+    }
   }
 
   onKeyDown(event: Object, toggle: Object, index: number) {
@@ -49,7 +51,7 @@ class Toggle extends React.Component<Props> {
           const toggleClasses = cx(style.toggle, {
             [style.active]:
               this.props.selectedIndex === index || this.props.selectedLabel === toggle.label,
-            [style.disabled]: this.props.items[index].disabled,
+            [style.disabled]: toggle.disabled,
             [style.horizontal]: this.props.type === type.HORIZONTAL,
             [style.vertical]: this.props.type === type.VERTICAL,
             [style.small]: this.props.size === type.SMALL,
@@ -63,6 +65,7 @@ class Toggle extends React.Component<Props> {
               className={toggleClasses}
               key={index}
               type={this.props.type}
+              data-state={toggle.disabled ? 'disabled' : 'enabled'}
             >
               {toggle.title}
             </li>
