@@ -96,4 +96,22 @@ describe('Toggle Component', () => {
       expect(component.prop(`data-${key}`)).toEqual(value)
     );
   });
+
+  test('data attributes are added', () => {
+    const items = [
+      {
+        label: 'one',
+        title: 'One',
+      },
+    ];
+    const dataAttributes = {
+      qa: 'toggle',
+      id: uuidv4(),
+    };
+    const component = shallow(<Toggle items={items} data={dataAttributes} />);
+
+    Object.entries(dataAttributes).forEach(([key, value]) =>
+      expect(component.prop(`data-${key}`)).toEqual(value)
+    );
+  });
 });
