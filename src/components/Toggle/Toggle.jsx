@@ -33,7 +33,7 @@ class Toggle extends React.Component<Props> {
     onChange: () => {},
   };
   onClick(item: Object, index: number) {
-    if (item.disabled !== true) {
+    if (!item.disabled) {
       this.props.onChange(item.label, index);
     }
   }
