@@ -75,7 +75,7 @@ class SideNavBarItemGroup extends Component<Props> {
               tagText={groupedItem.tagText}
               onClick={this.handleItemClick}
               selected={groupedItem.id === this.props.selectedId}
-              linkComponent={groupedItem.linkComponent}
+              linkComponent={groupedItem.linkComponent || null}
             />
           )
         );
