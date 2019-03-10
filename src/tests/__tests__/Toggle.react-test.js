@@ -4,6 +4,7 @@ import React from 'react';
 import Toggle from '../../components/Toggle/Toggle';
 import renderer from 'react-test-renderer';
 import { shallow, mount } from 'enzyme';
+import uuidv4 from 'uuid/v4';
 
 describe('Toggle Component', () => {
   test('render', () => {
@@ -71,5 +72,23 @@ describe('Toggle Component', () => {
       .simulate('keydown', { keyCode: 13 });
     expect(onChange).toHaveBeenCalledTimes(1);
     expect(onChange).toHaveBeenCalledWith('one', 0);
+  });
+
+  test('data attributes are added', () => {
+    const items = [
+      {
+        label: 'one',
+        title: 'One',
+      },
+    ];
+    const dataAttributes = {
+      qa: 'toggle',
+      id: uuidv4(),
+    };
+    const component = shallow(<Toggle items={items} data={dataAttributes} />);
+
+    Object.entries(dataAttributes).forEach(([key, value]) =>
+      expect(component.prop(`data-${key}`)).toEqual(value)
+    );
   });
 });
