@@ -1,6 +1,9 @@
 [ignore]
 .*/node_modules/findup
 
+[untyped]
+.*/node_modules/react-select
+
 [include]
 
 [libs]
