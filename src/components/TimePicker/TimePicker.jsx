@@ -3,6 +3,9 @@ import React from 'react';
 import moment from 'moment';
 import cn from 'classnames';
 import ReactSelect from 'react-select';
+
+import type { GlobalAttributes, SyntheticFocusEventHandler } from '../../types';
+
 import styles from './style.scss';
 
 /**
@@ -70,19 +73,16 @@ type Props = {|
   timeIntervalMinutes: number,
   value?: string,
   borderless?: boolean,
-  className?: string,
   disabled?: boolean,
   error?: boolean,
-  hidden?: boolean,
-  id?: string,
   menuIsOpen?: boolean,
   onBlur?: (?string) => void,
   onChange?: string => void,
-  onFocus?: (SyntheticFocusEvent<>) => void,
+  onFocus?: SyntheticFocusEventHandler<>,
   placeholder?: string,
   name?: string,
-  tabIndex?: string | number,
-  title?: string,
+  required?: boolean,
+  ...GlobalAttributes,
 |};
 
 type State = {|
@@ -121,7 +121,7 @@ class TimePicker extends React.Component<Props, State> {
   static defaultProps = {
     minTime: '00:00',
     maxTime: '24:00',
-    timeFormat: FormatTypes.timeFormat12,
+    timeFormat: FormatTypes.timeFormat24,
     timeIntervalMinutes: 30,
     placeholder: 'Select time',
   };
@@ -159,12 +159,18 @@ class TimePicker extends React.Component<Props, State> {
 
   handleChange = (option: Option) => {
     const { onChange } = this.props;
-    if (onChange) onChange(option.value);
+
+    if (onChange) {
+      onChange(option.value);
+    }
   };
 
   handleOnBlur = (): void => {
     const { onBlur, value } = this.props;
-    if (onBlur) onBlur(value);
+
+    if (onBlur) {
+      onBlur(value);
+    }
   };
 
   defaultTimeSelected(): ?string {
@@ -228,5 +234,7 @@ class TimePicker extends React.Component<Props, State> {
     );
   }
 }
+
+TimePicker.displayName = 'Plasma@TimePicker';
 
 export default TimePicker;

@@ -2,6 +2,7 @@
 //  maybe a better solution exists.
 // stylelint-disable no-descending-specificity
 @import '../../styles/base';
+@import '../../styles/colors';
 
 // These are here just to shut ESLint up.
 /* stylelint-disable block-no-empty */
@@ -118,15 +119,15 @@
 
   :local(.selectInput.selectInputError) {
     .time-picker__control {
-      border-color: red;
+      border-color: $cWarningRed;
 
       &:hover {
-        border-color: red;
+        border-color: $cWarningRed;
       }
     }
 
     .time-picker__control--is-focused {
-      border-color: red;
+      border-color: $cWarningRed;
     }
   }
 

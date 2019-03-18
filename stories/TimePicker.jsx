@@ -1,14 +1,14 @@
-/* eslint-disable react/jsx-filename-extension */
 import React from 'react';
 import { storiesOf } from '@storybook/react';
+import 'react-select/dist/react-select.css';
 import TimePicker, { DefaultOptions, FormatTypes } from '../src/components/TimePicker/TimePicker';
 import StoryState from '../StoryState';
 
 storiesOf('TimePicker', module)
-  .add('open', () => (
+  .add('default', () => (
     <StoryState
       render={(state, setState) => (
-        <TimePicker value={state.value} onChange={value => setState({ value })} menuIsOpen />
+        <TimePicker value={state.value} onChange={value => setState({ value })} />
       )}
     />
   ))
@@ -22,7 +22,12 @@ storiesOf('TimePicker', module)
   .add('error', () => (
     <StoryState
       render={(state, setState) => (
-        <TimePicker onChange={value => setState({ value })} value={state.value} error />
+        <TimePicker
+          defaultOption={DefaultOptions.nextInterval}
+          onChange={value => setState({ value })}
+          value={state.value}
+          error
+        />
       )}
     />
   ))
@@ -42,6 +47,7 @@ storiesOf('TimePicker', module)
       render={(state, setState) => (
         <TimePicker
           timeFormat={FormatTypes.timeFormat24}
+          defaultOption={DefaultOptions.nextInterval}
           value={state.value || '14:00'}
           onChange={value => setState({ value })}
         />
@@ -64,8 +70,19 @@ storiesOf('TimePicker', module)
       render={(state, setState) => (
         <TimePicker
           defaultOption={DefaultOptions.minimum}
-          value={state.value}
           onChange={value => setState({ value })}
+          value={state.value}
+        />
+      )}
+    />
+  ))
+  .add('default option nextInterval', () => (
+    <StoryState
+      render={(state, setState) => (
+        <TimePicker
+          defaultOption={DefaultOptions.nextInterval}
+          onChange={value => setState({ value })}
+          value={state.value}
         />
       )}
     />
