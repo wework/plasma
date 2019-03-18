@@ -1,6 +1,5 @@
 import React from 'react';
 import { storiesOf } from '@storybook/react';
-import 'react-select/dist/react-select.css';
 import TimePicker, { DefaultOptions, FormatTypes } from '../src/components/TimePicker/TimePicker';
 import StoryState from '../StoryState';
 

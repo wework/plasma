@@ -27,9 +27,12 @@
 
 :global {
   :local(.selectInput) {
+    @extend %type--body;
+
     width: 7.5rem;
     font-size: 13px;
     color: $cBlack50;
+    -webkit-font-smoothing: antialiased;
 
     .time-picker__single-value {
       color: currentColor;
@@ -49,38 +52,25 @@
     }
 
     .time-picker__control {
-      border: 1px solid $cGray300;
-      border-radius: 2px;
-      box-sizing: border-box;
-      display: flex;
-      flex-grow: 1;
-      flex-direction: row;
-      font-size: 13px;
-      height: 40px;
-      justify-content: flex-start;
-      outline: none;
-      padding: 0;
-      text-rendering: geometricPrecision;
-      width: 100%;
+      @extend %input--wrapper;
 
       &:hover {
-        border-color: $cGray200;
+        @extend %input--wrapper--hover;
       }
     }
 
     .time-picker__control.time-picker__control--is-focused {
-      border-color: $cGray200;
-      box-shadow: 0 0 4px 1px $cGray300;
+      @extend %input--wrapper--focus;
     }
 
     .time-picker__control.time-picker__control--is-disabled {
+      @extend %input--wrapper--disabled;
+
       background: white;
-      border-color: $cGray400;
-      color: $cGray400;
-      cursor: not-allowed;
+      pointer-events: auto;
 
       &:hover {
-        border-color: $cGray400;
+        @extend %input--wrapper--disabled;
       }
 
       .time-picker__placeholder {
@@ -119,15 +109,15 @@
 
   :local(.selectInput.selectInputError) {
     .time-picker__control {
-      border-color: $cWarningRed;
+      @extend %input--wrapper--error;
 
       &:hover {
-        border-color: $cWarningRed;
+        @extend %input--wrapper--error;
       }
     }
 
     .time-picker__control--is-focused {
-      border-color: $cWarningRed;
+      @extend %input--wrapper--error;
     }
   }
 

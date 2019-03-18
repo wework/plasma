@@ -135,6 +135,15 @@ class TimePicker extends React.Component<Props, State> {
     options: enumerateOptions(minTime, maxTime, timeIntervalMinutes, timeFormat),
   });
 
+  state = {
+    options: enumerateOptions(
+      this.props.minTime,
+      this.props.maxTime,
+      this.props.timeIntervalMinutes,
+      this.props.timeFormat
+    ),
+  };
+
   getValue(value: ?string): ?string {
     if (!value) {
       return this.defaultTimeSelected();
