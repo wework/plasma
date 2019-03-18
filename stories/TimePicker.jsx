@@ -64,6 +64,13 @@ storiesOf('TimePicker', module)
       )}
     />
   ))
+  .add('15 minute intervals', () => (
+    <StoryState
+      render={(state, setState) => (
+        <TimePicker timeIntervalMinutes={15} onChange={value => setState({ value })} />
+      )}
+    />
+  ))
   .add('default option minimum', () => (
     <StoryState
       render={(state, setState) => (
