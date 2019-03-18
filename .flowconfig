@@ -2,6 +2,7 @@
 .*/node_modules/findup
 
 [untyped]
+# TODO(grozki): react-select 2 has built-in Flow annotations, but requires a more recent version (>0.89?) to work.
 .*/node_modules/react-select
 
 [include]
