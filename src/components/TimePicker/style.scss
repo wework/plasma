@@ -1,39 +1,57 @@
+// TODO(grozki): Disabling this rule because it breaks with either solution tried. Should be attempted again later,
+//  maybe a better solution exists.
+// stylelint-disable no-descending-specificity
 @import '../../styles/base';
+@import '../../styles/colors';
+
+// These are here just to shut ESLint up.
+/* stylelint-disable block-no-empty */
+.borderless {
+}
+
+.selectInput {
+}
+
+.selectInputError {
+}
+/* stylelint-enable block-no-empty */
 
 .selectClockIcon {
-  background: url('data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIyMCIgaGVpZ2h0PSIyMCIgdmlld0JveD0iMCAwIDIwIDIwIj48cGF0aCBmaWxsPSIjQzFDMUMyIiBmaWxsLXJ1bGU9ImV2ZW5vZGQiIHN0cm9rZT0iI0MxQzFDMiIgc3Ryb2tlLXdpZHRoPSIuNSIgZD0iTTEwIDIuMTI1YTcuODc1IDcuODc1IDAgMSAwIDAgMTUuNzUgNy44NzUgNy44NzUgMCAwIDAgMC0xNS43NXpNMSAxMGE5IDkgMCAxIDEgMTggMCA5IDkgMCAwIDEtMTggMHptOSAwaDQuODc1djEuMTI0aC02di02SDEwVjEweiIvPjwvc3ZnPg==');
-  background-repeat: no-repeat;
+  background: url('data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIyMCIgaGVpZ2h0PSIyMCIgdmlld0JveD0iMCAwIDIwIDIwIj48cGF0aCBmaWxsPSIjQzFDMUMyIiBmaWxsLXJ1bGU9ImV2ZW5vZGQiIHN0cm9rZT0iI0MxQzFDMiIgc3Ryb2tlLXdpZHRoPSIuNSIgZD0iTTEwIDIuMTI1YTcuODc1IDcuODc1IDAgMSAwIDAgMTUuNzUgNy44NzUgNy44NzUgMCAwIDAgMC0xNS43NXpNMSAxMGE5IDkgMCAxIDEgMTggMCA5IDkgMCAwIDEtMTggMHptOSAwaDQuODc1djEuMTI0aC02di02SDEwVjEweiIvPjwvc3ZnPg==')
+  transparent no-repeat center center;
   display: inline-block;
   width: 20px;
   height: 20px;
+  padding: 0.5rem;
 }
 
 :global {
   :local(.selectInput) {
     @extend %type--body;
-    width: 8.125rem;
+
+    width: 7.5rem;
     font-size: 13px;
     color: $cBlack50;
+    -webkit-font-smoothing: antialiased;
 
-    &.is-disabled > .Select-control {
-      @extend %input--wrapper--disabled;
+    .time-picker__single-value {
+      color: currentColor;
+    }
 
-      background: $cWhite;
+    .time-picker__placeholder {
       color: $cGray400;
     }
 
-    &.Select--single > .Select-control .Select-value {
-      padding: 0;
-
-      .Select-value-label {
-        display: block;
-        line-height: 2.5rem;
-        padding: 0 .5rem 0 2.25rem;
-        height: 38px;
-      }
+    .time-picker__indicators {
+      order: 0;
     }
 
-    .Select-control {
+    .time-picker__value-container {
+      order: 1;
+      padding: 0;
+    }
+
+    .time-picker__control {
       @extend %input--wrapper;
 
       &:hover {
@@ -41,44 +59,56 @@
       }
     }
 
-    .Select-placeholder {
-      color: $cGray200;
-      line-height: 2.5rem;
-      padding-left: 2.25rem;
-    }
-
-    .Select-input {
-      padding-left: 0;
-      padding-right: 0;
-    }
-
-    .Select-option.is-focused {
-      background-color: $cGray30;
-    }
-
-    .Select-arrow-zone {
-      align-items: center;
-      display: flex;
-      padding: 0 0.5rem;
-      line-height: 2.3125rem;
-      width: 2.25rem;
-    }
-
-    .Select-option {
-      text-align: center;
-    }
-
-    &.Select.has-value.Select--single.is-disabled > .Select-control .Select-value .Select-value-label {
-      color: $cGray400;
-    }
-
-    &.is-focused:not(.is-open) > .Select-control {
+    .time-picker__control.time-picker__control--is-focused {
       @extend %input--wrapper--focus;
+    }
+
+    .time-picker__control.time-picker__control--is-disabled {
+      @extend %input--wrapper--disabled;
+
+      background: white;
+      pointer-events: auto;
+
+      &:hover {
+        @extend %input--wrapper--disabled;
+      }
+
+      .time-picker__placeholder {
+        color: currentColor;
+      }
+
+      :local(.selectClockIcon) {
+        opacity: 0.5;
+      }
+    }
+
+    .time-picker__option {
+      text-align: center;
+      color: $cBlack50;
+
+      &:active {
+        background-color: $cGray400;
+      }
+
+      &--is-focused {
+        background-color: $cGray600;
+      }
+
+      &--is-selected {
+        background-color: $cGray600;
+        color: currentColor;
+      }
+    }
+
+    .time-picker__menu {
+      margin-top: 0;
+      border-radius: 0 0 2px 2px;
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.15);
     }
   }
 
   :local(.selectInput.selectInputError) {
-    .Select-control {
+    .time-picker__control {
       @extend %input--wrapper--error;
 
       &:hover {
@@ -86,26 +116,27 @@
       }
     }
 
-    &.is-focused:not(.is-open) > .Select-control {
+    .time-picker__control--is-focused {
       @extend %input--wrapper--error;
     }
   }
 
   :local(.selectInput.borderless) {
-    &.is-focused:not(.is-open) > .Select-control {
-      border-color: transparent;
-      box-shadow: none;
-    }
+    border-color: transparent;
+    box-shadow: none;
 
-    .Select-control {
-      @extend %input--wrapper;
-
+    .time-picker__control {
       border-color: transparent;
 
       &:hover {
-        border-color: transparent;
+        border-color: $cGray200;
         box-shadow: none;
+      }
+
+      &--is-focused {
+        border-color: $cGray200;
       }
     }
   }
 }
+// stylelint-enable no-descending-specificity

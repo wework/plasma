@@ -2,186 +2,270 @@
 
 exports[`TimePicker default 12H format 1`] = `
 <div
-  className="Select selectInput has-value Select--single"
-  style={undefined}
+  className="css-10nd86i selectInput"
+  id={undefined}
+  onKeyDown={[Function]}
 >
   <div
-    className="Select-control"
-    onKeyDown={[Function]}
+    className="css-vj8t7z time-picker__control"
     onMouseDown={[Function]}
     onTouchEnd={[Function]}
-    onTouchMove={[Function]}
-    onTouchStart={[Function]}
-    style={undefined}
   >
-    <span
-      className="Select-multi-value-wrapper"
-      id="react-select-4--value"
+    <div
+      className="css-1hwfws3 time-picker__value-container time-picker__value-container--has-value"
     >
       <div
-        className="Select-value"
-        style={undefined}
-        title={undefined}
+        className="css-xp4uvy time-picker__single-value"
       >
-        <span
-          aria-selected="true"
-          className="Select-value-label"
-          id="react-select-4--value-item"
-          role="option"
-        >
-          02:00 PM
-        </span>
+        02:00 PM
       </div>
       <div
-        aria-activedescendant="react-select-4--value"
-        aria-disabled="false"
-        aria-expanded={false}
-        aria-label={undefined}
-        aria-labelledby={undefined}
-        aria-owns=""
-        className="Select-input"
-        onBlur={[Function]}
-        onFocus={[Function]}
-        role="combobox"
-        style={
-          Object {
-            "border": 0,
-            "display": "inline-block",
-            "width": 1,
+        className="css-1g6gooi"
+      >
+        <div
+          className="time-picker__input"
+          style={
+            Object {
+              "display": "inline-block",
+            }
           }
-        }
-        tabIndex={0}
-      />
-    </span>
-    <span
-      className="Select-arrow-zone"
-      onMouseDown={[Function]}
+        >
+          <input
+            aria-autocomplete="list"
+            aria-label={undefined}
+            aria-labelledby={undefined}
+            autoCapitalize="none"
+            autoComplete="off"
+            autoCorrect="off"
+            className={undefined}
+            disabled={false}
+            id="react-select-4-input"
+            onBlur={[Function]}
+            onChange={[Function]}
+            onFocus={[Function]}
+            spellCheck="false"
+            style={
+              Object {
+                "background": 0,
+                "border": 0,
+                "boxSizing": "content-box",
+                "color": "inherit",
+                "fontSize": "inherit",
+                "opacity": 1,
+                "outline": 0,
+                "padding": 0,
+                "width": "1px",
+              }
+            }
+            tabIndex="0"
+            type="text"
+            value=""
+          />
+          <div
+            style={
+              Object {
+                "height": 0,
+                "left": 0,
+                "overflow": "scroll",
+                "position": "absolute",
+                "top": 0,
+                "visibility": "hidden",
+                "whiteSpace": "pre",
+              }
+            }
+          >
+            
+          </div>
+        </div>
+      </div>
+    </div>
+    <div
+      className="css-1wy0on6 time-picker__indicators"
     >
       <span
         className="selectClockIcon"
       />
-    </span>
+    </div>
   </div>
 </div>
 `;
 
 exports[`TimePicker default 24H format 1`] = `
 <div
-  className="Select selectInput has-value Select--single"
-  style={undefined}
+  className="css-10nd86i selectInput"
+  id={undefined}
+  onKeyDown={[Function]}
 >
   <div
-    className="Select-control"
-    onKeyDown={[Function]}
+    className="css-vj8t7z time-picker__control"
     onMouseDown={[Function]}
     onTouchEnd={[Function]}
-    onTouchMove={[Function]}
-    onTouchStart={[Function]}
-    style={undefined}
   >
-    <span
-      className="Select-multi-value-wrapper"
-      id="react-select-3--value"
+    <div
+      className="css-1hwfws3 time-picker__value-container time-picker__value-container--has-value"
     >
       <div
-        className="Select-value"
-        style={undefined}
-        title={undefined}
+        className="css-xp4uvy time-picker__single-value"
       >
-        <span
-          aria-selected="true"
-          className="Select-value-label"
-          id="react-select-3--value-item"
-          role="option"
-        >
-          14:00
-        </span>
+        14:00
       </div>
       <div
-        aria-activedescendant="react-select-3--value"
-        aria-disabled="false"
-        aria-expanded={false}
-        aria-label={undefined}
-        aria-labelledby={undefined}
-        aria-owns=""
-        className="Select-input"
-        onBlur={[Function]}
-        onFocus={[Function]}
-        role="combobox"
-        style={
-          Object {
-            "border": 0,
-            "display": "inline-block",
-            "width": 1,
+        className="css-1g6gooi"
+      >
+        <div
+          className="time-picker__input"
+          style={
+            Object {
+              "display": "inline-block",
+            }
           }
-        }
-        tabIndex={0}
-      />
-    </span>
-    <span
-      className="Select-arrow-zone"
-      onMouseDown={[Function]}
+        >
+          <input
+            aria-autocomplete="list"
+            aria-label={undefined}
+            aria-labelledby={undefined}
+            autoCapitalize="none"
+            autoComplete="off"
+            autoCorrect="off"
+            className={undefined}
+            disabled={false}
+            id="react-select-3-input"
+            onBlur={[Function]}
+            onChange={[Function]}
+            onFocus={[Function]}
+            spellCheck="false"
+            style={
+              Object {
+                "background": 0,
+                "border": 0,
+                "boxSizing": "content-box",
+                "color": "inherit",
+                "fontSize": "inherit",
+                "opacity": 1,
+                "outline": 0,
+                "padding": 0,
+                "width": "1px",
+              }
+            }
+            tabIndex="0"
+            type="text"
+            value=""
+          />
+          <div
+            style={
+              Object {
+                "height": 0,
+                "left": 0,
+                "overflow": "scroll",
+                "position": "absolute",
+                "top": 0,
+                "visibility": "hidden",
+                "whiteSpace": "pre",
+              }
+            }
+          >
+            
+          </div>
+        </div>
+      </div>
+    </div>
+    <div
+      className="css-1wy0on6 time-picker__indicators"
     >
       <span
         className="selectClockIcon"
       />
-    </span>
+    </div>
   </div>
 </div>
 `;
 
 exports[`TimePicker default default 1`] = `
 <div
-  className="Select selectInput is-disabled Select--single"
-  style={undefined}
+  className="css-1sontr1 selectInput time-picker--is-disabled"
+  id={undefined}
+  onKeyDown={[Function]}
 >
   <div
-    className="Select-control"
-    onKeyDown={[Function]}
+    className="css-162g8z5 time-picker__control time-picker__control--is-disabled"
     onMouseDown={[Function]}
     onTouchEnd={[Function]}
-    onTouchMove={[Function]}
-    onTouchStart={[Function]}
-    style={undefined}
   >
-    <span
-      className="Select-multi-value-wrapper"
-      id="react-select-2--value"
+    <div
+      className="css-1hwfws3 time-picker__value-container"
     >
       <div
-        className="Select-placeholder"
+        className="css-1492t68 time-picker__placeholder"
       >
         Select time
       </div>
       <div
-        aria-activedescendant="react-select-2--value"
-        aria-disabled="true"
-        aria-expanded={false}
-        aria-label={undefined}
-        aria-labelledby={undefined}
-        aria-owns=""
-        className="Select-input"
-        onBlur={[Function]}
-        onFocus={[Function]}
-        role="combobox"
-        style={
-          Object {
-            "border": 0,
-            "display": "inline-block",
-            "width": 1,
+        className="css-1g6gooi"
+      >
+        <div
+          className="time-picker__input"
+          style={
+            Object {
+              "display": "inline-block",
+            }
           }
-        }
-        tabIndex={0}
-      />
-    </span>
-    <span
-      className="Select-arrow-zone"
-      onMouseDown={[Function]}
+        >
+          <input
+            aria-autocomplete="list"
+            aria-label={undefined}
+            aria-labelledby={undefined}
+            autoCapitalize="none"
+            autoComplete="off"
+            autoCorrect="off"
+            className={undefined}
+            disabled={true}
+            id="react-select-2-input"
+            onBlur={[Function]}
+            onChange={[Function]}
+            onFocus={[Function]}
+            spellCheck="false"
+            style={
+              Object {
+                "background": 0,
+                "border": 0,
+                "boxSizing": "content-box",
+                "color": "inherit",
+                "fontSize": "inherit",
+                "opacity": 1,
+                "outline": 0,
+                "padding": 0,
+                "width": "1px",
+              }
+            }
+            tabIndex="0"
+            type="text"
+            value=""
+          />
+          <div
+            style={
+              Object {
+                "height": 0,
+                "left": 0,
+                "overflow": "scroll",
+                "position": "absolute",
+                "top": 0,
+                "visibility": "hidden",
+                "whiteSpace": "pre",
+              }
+            }
+          >
+            
+          </div>
+        </div>
+      </div>
+    </div>
+    <div
+      className="css-1wy0on6 time-picker__indicators"
     >
       <span
         className="selectClockIcon"
       />
-    </span>
+    </div>
   </div>
 </div>
 `;

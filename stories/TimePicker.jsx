@@ -1,6 +1,5 @@
 import React from 'react';
 import { storiesOf } from '@storybook/react';
-import 'react-select/dist/react-select.css';
 import TimePicker, { DefaultOptions, FormatTypes } from '../src/components/TimePicker/TimePicker';
 import StoryState from '../StoryState';
 
@@ -62,6 +61,13 @@ storiesOf('TimePicker', module)
           value={state.value || '14:00'}
           onChange={value => setState({ value })}
         />
+      )}
+    />
+  ))
+  .add('15 minute intervals', () => (
+    <StoryState
+      render={(state, setState) => (
+        <TimePicker timeIntervalMinutes={15} onChange={value => setState({ value })} />
       )}
     />
   ))

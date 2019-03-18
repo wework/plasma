@@ -1,11 +1,11 @@
 // @flow
-import React, { type Node } from 'react';
+import React from 'react';
+import moment from 'moment';
 import { omit } from 'lodash';
 import cn from 'classnames';
-import moment from 'moment';
 import ReactSelect from 'react-select';
 
-import type { FocusEventHandlers, GlobalAttributes } from '../../types';
+import type { GlobalAttributes, SyntheticFocusEventHandler } from '../../types';
 
 import styles from './style.scss';
 
@@ -25,6 +25,8 @@ import styles from './style.scss';
  * Optional 'defaultOption':
  *    nextInterval = will round up: 11:26 -> 11:30  based on 'timeIntervalMinutes'.
  *    minimum (default selection) =  will select 'minTime'.
+ *
+ * Optional 'menuIsOpen': Whether dropdown is open. Default: false.
  *
  * Optional 'disabled'.
  *
@@ -65,30 +67,82 @@ type Option = {|
 |};
 
 type Props = {|
-  defaultOption?: DefaultOption,
-  disabled?: boolean,
-  error?: boolean,
   maxTime: string,
   minTime: string,
-  onChange?: string => void,
-  placeholder?: string,
-  required?: boolean,
-  name?: string,
+  defaultOption?: DefaultOption,
   timeFormat: TimeFormatType,
   timeIntervalMinutes: number,
-  borderless?: boolean,
   value?: string,
-  ...FocusEventHandlers<>,
+  borderless?: boolean,
+  disabled?: boolean,
+  error?: boolean,
+  menuIsOpen?: boolean,
+  onBlur?: (?string) => void,
+  onChange?: string => void,
+  onFocus?: SyntheticFocusEventHandler<>,
+  placeholder?: string,
+  name?: string,
+  required?: boolean,
   ...GlobalAttributes,
 |};
 
-class TimePicker extends React.Component<Props> {
+type State = {|
+  options: Array<Option>,
+|};
+
+const moment24h = (value?: string): moment => moment(value, FormatTypes.timeFormat24);
+
+const enumerateOptions = (
+  start: string,
+  end: string,
+  intervalMinutes: number,
+  timeFormat: string
+): Array<Option> => {
+  const minTime = moment24h(start);
+  const maxTime = moment24h(end);
+
+  const timeValue = minTime.clone();
+  const options = [];
+
+  while (timeValue.isSameOrBefore(maxTime)) {
+    options.push({
+      value: timeValue.format(FormatTypes.timeFormat24),
+      label: timeValue.format(timeFormat),
+    });
+
+    timeValue.add(intervalMinutes, 'minutes');
+  }
+
+  return options;
+};
+
+const ClockIcon = () => <span className={styles.selectClockIcon} />;
+
+class TimePicker extends React.Component<Props, State> {
   static defaultProps = {
     minTime: '00:00',
     maxTime: '24:00',
-    timeFormat: FormatTypes.timeFormat12,
+    timeFormat: FormatTypes.timeFormat24,
     timeIntervalMinutes: 30,
     placeholder: 'Select time',
+  };
+
+  static getDerivedStateFromProps = ({
+    maxTime,
+    minTime,
+    timeFormat,
+    timeIntervalMinutes,
+  }: Props) => ({
+    options: enumerateOptions(minTime, maxTime, timeIntervalMinutes, timeFormat),
+  });
+
+  state = {
+    options: enumerateOptions(
+      this.props.minTime,
+      this.props.maxTime,
+      this.props.timeIntervalMinutes,
+      this.props.timeFormat
+    ),
   };
 
   getValue(value: ?string): ?string {
@@ -96,52 +150,38 @@ class TimePicker extends React.Component<Props> {
       return this.defaultTimeSelected();
     }
 
-    const maxTime = moment(this.props.maxTime, FormatTypes.timeFormat24);
-    const minTime = moment(this.props.minTime, FormatTypes.timeFormat24);
-    const valueMoment = moment(value, FormatTypes.timeFormat24);
+    const { maxTime, minTime } = this.props;
 
-    if (valueMoment.isBefore(minTime)) {
-      return this.props.minTime;
+    const start = moment24h(minTime);
+    const end = moment24h(maxTime);
+    const valueMoment = moment24h(value);
+
+    if (valueMoment.isBefore(start)) {
+      return minTime;
     }
 
-    if (valueMoment.isAfter(maxTime)) {
-      return this.props.maxTime;
+    if (valueMoment.isAfter(end)) {
+      return maxTime;
     }
 
     return value;
   }
 
-  getTimeInFormat = (timeValue: moment): string => {
-    return timeValue.format(this.props.timeFormat);
-  };
-
-  getOptions = () => {
-    const maxTime = moment(this.props.maxTime, FormatTypes.timeFormat24);
-    const minTime = moment(this.props.minTime, FormatTypes.timeFormat24);
-
-    const timeValue = minTime.clone();
-    const options = [];
-
-    while (timeValue.isSameOrBefore(maxTime)) {
-      options.push({
-        value: timeValue.format(FormatTypes.timeFormat24),
-        label: this.getTimeInFormat(timeValue),
-      });
-
-      timeValue.add(this.props.timeIntervalMinutes, 'minutes');
-    }
-
-    return options;
-  };
-
   handleChange = (option: Option) => {
     const { onChange } = this.props;
-    if (onChange) onChange(option.value);
+
+    if (onChange) {
+      onChange(option.value);
+    }
   };
 
-  iconRenderer(): Node {
-    return <span className={styles.selectClockIcon} />;
-  }
+  handleOnBlur = (): void => {
+    const { onBlur, value } = this.props;
+
+    if (onBlur) {
+      onBlur(value);
+    }
+  };
 
   defaultTimeSelected(): ?string {
     const { timeIntervalMinutes, defaultOption } = this.props;
@@ -155,21 +195,32 @@ class TimePicker extends React.Component<Props> {
           .format(FormatTypes.timeFormat24);
       }
       case DefaultOptions.minimum:
-        return moment(this.props.minTime, FormatTypes.timeFormat24).format(
-          FormatTypes.timeFormat24
-        );
+        return moment24h(this.props.minTime).format(FormatTypes.timeFormat24);
       default:
         return null;
     }
   }
 
   render() {
-    const { className, error, borderless, value, ...rest } = this.props;
+    const {
+      borderless,
+      className,
+      disabled,
+      error,
+      menuIsOpen,
+      value,
+      placeholder,
+      ...rest
+    } = this.props;
 
     const timeSelectClassName = cn(styles.selectInput, className, {
       [styles.borderless]: borderless,
       [styles.selectInputError]: error,
     });
+
+    const currentValue = this.getValue(value);
+
+    const currentOption = this.state.options.find(item => item.value === currentValue);
 
     const restProps = omit(
       rest,
@@ -184,14 +235,22 @@ class TimePicker extends React.Component<Props> {
 
     return (
       <ReactSelect
-        arrowRenderer={this.iconRenderer}
-        className={timeSelectClassName}
-        clearable={false}
-        onChange={this.handleChange}
-        options={this.getOptions()}
-        searchable={false}
-        value={this.getValue(value)}
         {...restProps}
+        menuIsOpen={menuIsOpen}
+        components={{
+          IndicatorSeparator: null,
+          DropdownIndicator: ClockIcon,
+        }}
+        className={timeSelectClassName}
+        classNamePrefix="time-picker"
+        clearable={false}
+        options={this.state.options}
+        searchable={false}
+        isDisabled={disabled}
+        value={currentOption}
+        onChange={this.handleChange}
+        placeholder={placeholder}
+        onBlur={this.handleOnBlur}
       />
     );
   }
