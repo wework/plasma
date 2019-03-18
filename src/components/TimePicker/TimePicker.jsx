@@ -1,6 +1,7 @@
 // @flow
 import React from 'react';
 import moment from 'moment';
+import { omit } from 'lodash';
 import cn from 'classnames';
 import ReactSelect from 'react-select';
 
@@ -221,9 +222,20 @@ class TimePicker extends React.Component<Props, State> {
 
     const currentOption = this.state.options.find(item => item.value === currentValue);
 
+    const restProps = omit(
+      rest,
+      'defaultOption',
+      'hidden', // TODO(grozki): Get this to work?
+      'maxTime',
+      'minTime',
+      'timeFormat',
+      'timeIntervalMinutes',
+      'title' // TODO(grozki): Get this to work?
+    );
+
     return (
       <ReactSelect
-        {...rest}
+        {...restProps}
         menuIsOpen={menuIsOpen}
         components={{
           IndicatorSeparator: null,
