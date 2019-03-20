@@ -21,7 +21,7 @@
   display: inline-block;
   width: 20px;
   height: 20px;
-  padding: 0.5rem;
+  padding: 5px;
 }
 
 :global {
@@ -44,7 +44,7 @@
 
     .time-picker__value-container {
       order: 1;
-      padding: 0;
+      padding: 1px;
     }
 
     .time-picker__control {
