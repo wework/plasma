@@ -1,7 +1,7 @@
 /* eslint-disable react/jsx-filename-extension */
 import React from 'react';
 import { storiesOf } from '@storybook/react';
-import TimePicker, { DefaultOptions, FormatTypes } from '../src/components/TimePicker/TimePicker';
+import TimePicker from '../src/components/TimePicker/TimePicker';
 import StoryState from '../StoryState';
 
 storiesOf('TimePicker', module)
@@ -41,7 +41,7 @@ storiesOf('TimePicker', module)
     <StoryState
       render={(state, setState) => (
         <TimePicker
-          timeFormat={FormatTypes.timeFormat24}
+          timeFormat={TimePicker.FormatTypes.timeFormat24}
           value={state.value || '14:00'}
           onChange={value => setState({ value })}
         />
@@ -52,7 +52,7 @@ storiesOf('TimePicker', module)
     <StoryState
       render={(state, setState) => (
         <TimePicker
-          timeFormat={FormatTypes.timeFormat12}
+          timeFormat={TimePicker.FormatTypes.timeFormat12}
           value={state.value || '14:00'}
           onChange={value => setState({ value })}
         />
@@ -63,7 +63,7 @@ storiesOf('TimePicker', module)
     <StoryState
       render={(state, setState) => (
         <TimePicker
-          defaultOption={DefaultOptions.minimum}
+          defaultOption={TimePicker.DefaultOptions.minimum}
           value={state.value}
           onChange={value => setState({ value })}
         />
