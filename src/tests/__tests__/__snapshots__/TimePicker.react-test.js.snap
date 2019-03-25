@@ -1,0 +1,271 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`TimePicker default 12H format 1`] = `
+<div
+  className="css-10nd86i selectInput"
+  id={undefined}
+  onKeyDown={[Function]}
+>
+  <div
+    className="css-vj8t7z time-picker__control"
+    onMouseDown={[Function]}
+    onTouchEnd={[Function]}
+  >
+    <div
+      className="css-1hwfws3 time-picker__value-container time-picker__value-container--has-value"
+    >
+      <div
+        className="css-xp4uvy time-picker__single-value"
+      >
+        02:00 PM
+      </div>
+      <div
+        className="css-1g6gooi"
+      >
+        <div
+          className="time-picker__input"
+          style={
+            Object {
+              "display": "inline-block",
+            }
+          }
+        >
+          <input
+            aria-autocomplete="list"
+            aria-label={undefined}
+            aria-labelledby={undefined}
+            autoCapitalize="none"
+            autoComplete="off"
+            autoCorrect="off"
+            className={undefined}
+            disabled={false}
+            id="react-select-4-input"
+            onBlur={[Function]}
+            onChange={[Function]}
+            onFocus={[Function]}
+            spellCheck="false"
+            style={
+              Object {
+                "background": 0,
+                "border": 0,
+                "boxSizing": "content-box",
+                "color": "inherit",
+                "fontSize": "inherit",
+                "opacity": 1,
+                "outline": 0,
+                "padding": 0,
+                "width": "1px",
+              }
+            }
+            tabIndex="0"
+            type="text"
+            value=""
+          />
+          <div
+            style={
+              Object {
+                "height": 0,
+                "left": 0,
+                "overflow": "scroll",
+                "position": "absolute",
+                "top": 0,
+                "visibility": "hidden",
+                "whiteSpace": "pre",
+              }
+            }
+          >
+            
+          </div>
+        </div>
+      </div>
+    </div>
+    <div
+      className="css-1wy0on6 time-picker__indicators"
+    >
+      <span
+        className="selectClockIcon"
+      />
+    </div>
+  </div>
+</div>
+`;
+
+exports[`TimePicker default 24H format 1`] = `
+<div
+  className="css-10nd86i selectInput"
+  id={undefined}
+  onKeyDown={[Function]}
+>
+  <div
+    className="css-vj8t7z time-picker__control"
+    onMouseDown={[Function]}
+    onTouchEnd={[Function]}
+  >
+    <div
+      className="css-1hwfws3 time-picker__value-container time-picker__value-container--has-value"
+    >
+      <div
+        className="css-xp4uvy time-picker__single-value"
+      >
+        14:00
+      </div>
+      <div
+        className="css-1g6gooi"
+      >
+        <div
+          className="time-picker__input"
+          style={
+            Object {
+              "display": "inline-block",
+            }
+          }
+        >
+          <input
+            aria-autocomplete="list"
+            aria-label={undefined}
+            aria-labelledby={undefined}
+            autoCapitalize="none"
+            autoComplete="off"
+            autoCorrect="off"
+            className={undefined}
+            disabled={false}
+            id="react-select-3-input"
+            onBlur={[Function]}
+            onChange={[Function]}
+            onFocus={[Function]}
+            spellCheck="false"
+            style={
+              Object {
+                "background": 0,
+                "border": 0,
+                "boxSizing": "content-box",
+                "color": "inherit",
+                "fontSize": "inherit",
+                "opacity": 1,
+                "outline": 0,
+                "padding": 0,
+                "width": "1px",
+              }
+            }
+            tabIndex="0"
+            type="text"
+            value=""
+          />
+          <div
+            style={
+              Object {
+                "height": 0,
+                "left": 0,
+                "overflow": "scroll",
+                "position": "absolute",
+                "top": 0,
+                "visibility": "hidden",
+                "whiteSpace": "pre",
+              }
+            }
+          >
+            
+          </div>
+        </div>
+      </div>
+    </div>
+    <div
+      className="css-1wy0on6 time-picker__indicators"
+    >
+      <span
+        className="selectClockIcon"
+      />
+    </div>
+  </div>
+</div>
+`;
+
+exports[`TimePicker default default 1`] = `
+<div
+  className="css-1sontr1 selectInput time-picker--is-disabled"
+  id={undefined}
+  onKeyDown={[Function]}
+>
+  <div
+    className="css-162g8z5 time-picker__control time-picker__control--is-disabled"
+    onMouseDown={[Function]}
+    onTouchEnd={[Function]}
+  >
+    <div
+      className="css-1hwfws3 time-picker__value-container"
+    >
+      <div
+        className="css-1492t68 time-picker__placeholder"
+      >
+        Select time
+      </div>
+      <div
+        className="css-1g6gooi"
+      >
+        <div
+          className="time-picker__input"
+          style={
+            Object {
+              "display": "inline-block",
+            }
+          }
+        >
+          <input
+            aria-autocomplete="list"
+            aria-label={undefined}
+            aria-labelledby={undefined}
+            autoCapitalize="none"
+            autoComplete="off"
+            autoCorrect="off"
+            className={undefined}
+            disabled={true}
+            id="react-select-2-input"
+            onBlur={[Function]}
+            onChange={[Function]}
+            onFocus={[Function]}
+            spellCheck="false"
+            style={
+              Object {
+                "background": 0,
+                "border": 0,
+                "boxSizing": "content-box",
+                "color": "inherit",
+                "fontSize": "inherit",
+                "opacity": 1,
+                "outline": 0,
+                "padding": 0,
+                "width": "1px",
+              }
+            }
+            tabIndex="0"
+            type="text"
+            value=""
+          />
+          <div
+            style={
+              Object {
+                "height": 0,
+                "left": 0,
+                "overflow": "scroll",
+                "position": "absolute",
+                "top": 0,
+                "visibility": "hidden",
+                "whiteSpace": "pre",
+              }
+            }
+          >
+            
+          </div>
+        </div>
+      </div>
+    </div>
+    <div
+      className="css-1wy0on6 time-picker__indicators"
+    >
+      <span
+        className="selectClockIcon"
+      />
+    </div>
+  </div>
+</div>
+`;
