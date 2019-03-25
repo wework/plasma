@@ -3,7 +3,7 @@ import React from 'react';
 import moment from 'moment';
 import cn from 'classnames';
 import ReactSelect from 'react-select';
-
+import { omit } from 'lodash';
 import type { GlobalAttributes, SyntheticFocusEventHandler } from '../../types';
 
 import styles from './style.scss';
@@ -226,9 +226,20 @@ class TimePicker extends React.Component<Props, State> {
 
     const currentOption = this.state.options.find(item => item.value === currentValue);
 
+    const restProps = omit(
+      ...rest,
+      'defaultOption',
+      'hidden',
+      'maxTime',
+      'minTime',
+      'timeFormat',
+      'timeIntervalMinutes',
+      'title'
+    );
+
     return (
       <ReactSelect
-        {...rest}
+        {...restProps}
         menuIsOpen={menuIsOpen}
         components={{
           IndicatorSeparator: null,
