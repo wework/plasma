@@ -227,7 +227,7 @@ class TimePicker extends React.Component<Props, State> {
     const currentOption = this.state.options.find(item => item.value === currentValue);
 
     const restProps = omit(
-      ...rest,
+      rest,
       'defaultOption',
       'hidden',
       'maxTime',
