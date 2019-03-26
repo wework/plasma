@@ -2,7 +2,7 @@
 
 import React from 'react';
 import renderer from 'react-test-renderer';
-import TimePicker, { FormatTypes } from '../../components/TimePicker/TimePicker';
+import TimePicker from '../../components/TimePicker/TimePicker';
 
 describe('TimePicker default', () => {
   test('default', () => {
@@ -13,7 +13,7 @@ describe('TimePicker default', () => {
 
   test('24H format', () => {
     const component = renderer.create(
-      <TimePicker timeFormat={FormatTypes.timeFormat24} value="14:00" />
+      <TimePicker timeFormat={TimePicker.FormatTypes.timeFormat24} value="14:00" />
     );
     let tree = component.toJSON();
     expect(tree).toMatchSnapshot();
@@ -21,7 +21,7 @@ describe('TimePicker default', () => {
 
   test('12H format', () => {
     const component = renderer.create(
-      <TimePicker timeFormat={FormatTypes.timeFormat12} value="14:00" />
+      <TimePicker timeFormat={TimePicker.FormatTypes.timeFormat12} value="14:00" />
     );
     let tree = component.toJSON();
     expect(tree).toMatchSnapshot();

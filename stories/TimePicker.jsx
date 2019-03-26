@@ -1,6 +1,6 @@
 import React from 'react';
 import { storiesOf } from '@storybook/react';
-import TimePicker, { DefaultOptions, FormatTypes } from '../src/components/TimePicker/TimePicker';
+import TimePicker from '../src/components/TimePicker/TimePicker';
 import StoryState from '../StoryState';
 
 storiesOf('TimePicker', module)
@@ -22,7 +22,7 @@ storiesOf('TimePicker', module)
     <StoryState
       render={(state, setState) => (
         <TimePicker
-          defaultOption={DefaultOptions.nextInterval}
+          defaultOption={TimePicker.DefaultOptions.nextInterval}
           onChange={value => setState({ value })}
           value={state.value}
           error
@@ -45,8 +45,8 @@ storiesOf('TimePicker', module)
     <StoryState
       render={(state, setState) => (
         <TimePicker
-          timeFormat={FormatTypes.timeFormat24}
-          defaultOption={DefaultOptions.nextInterval}
+          timeFormat={TimePicker.FormatTypes.timeFormat24}
+          defaultOption={TimePicker.DefaultOptions.nextInterval}
           value={state.value || '14:00'}
           onChange={value => setState({ value })}
         />
@@ -57,7 +57,7 @@ storiesOf('TimePicker', module)
     <StoryState
       render={(state, setState) => (
         <TimePicker
-          timeFormat={FormatTypes.timeFormat12}
+          timeFormat={TimePicker.FormatTypes.timeFormat12}
           value={state.value || '14:00'}
           onChange={value => setState({ value })}
         />
@@ -67,7 +67,11 @@ storiesOf('TimePicker', module)
   .add('15 minute intervals', () => (
     <StoryState
       render={(state, setState) => (
-        <TimePicker timeIntervalMinutes={15} onChange={value => setState({ value })} />
+        <TimePicker
+          timeIntervalMinutes={15}
+          onChange={value => setState({ value })}
+          timeFormat={TimePicker.FormatTypes.timeFormat12}
+        />
       )}
     />
   ))
@@ -75,7 +79,7 @@ storiesOf('TimePicker', module)
     <StoryState
       render={(state, setState) => (
         <TimePicker
-          defaultOption={DefaultOptions.minimum}
+          defaultOption={TimePicker.DefaultOptions.minimum}
           onChange={value => setState({ value })}
           value={state.value}
         />
@@ -86,7 +90,7 @@ storiesOf('TimePicker', module)
     <StoryState
       render={(state, setState) => (
         <TimePicker
-          defaultOption={DefaultOptions.nextInterval}
+          defaultOption={TimePicker.DefaultOptions.nextInterval}
           onChange={value => setState({ value })}
           value={state.value}
         />

@@ -1,10 +1,9 @@
 // @flow
 import React from 'react';
 import moment from 'moment';
-import { omit } from 'lodash';
 import cn from 'classnames';
 import ReactSelect from 'react-select';
-
+import { omit } from 'lodash';
 import type { GlobalAttributes, SyntheticFocusEventHandler } from '../../types';
 
 import styles from './style.scss';
@@ -47,14 +46,14 @@ import styles from './style.scss';
  * Optional 'onFocus'.
  */
 
-export const FormatTypes = Object.freeze({
+const FormatTypes = Object.freeze({
   timeFormat12: 'hh:mm A',
   timeFormat24: 'HH:mm',
 });
 
 export type TimeFormatType = $Values<typeof FormatTypes>;
 
-export const DefaultOptions = Object.freeze({
+const DefaultOptions = Object.freeze({
   minimum: 'minimum',
   nextInterval: 'nextInterval',
 });
@@ -74,6 +73,7 @@ type Props = {|
   timeIntervalMinutes: number,
   value?: string,
   borderless?: boolean,
+  className?: string,
   disabled?: boolean,
   error?: boolean,
   menuIsOpen?: boolean,
@@ -119,6 +119,10 @@ const enumerateOptions = (
 const ClockIcon = () => <span className={styles.selectClockIcon} />;
 
 class TimePicker extends React.Component<Props, State> {
+  static DefaultOptions = DefaultOptions;
+
+  static FormatTypes = FormatTypes;
+
   static defaultProps = {
     minTime: '00:00',
     maxTime: '24:00',
@@ -186,16 +190,16 @@ class TimePicker extends React.Component<Props, State> {
   defaultTimeSelected(): ?string {
     const { timeIntervalMinutes, defaultOption } = this.props;
     switch (defaultOption) {
-      case DefaultOptions.nextInterval: {
+      case TimePicker.DefaultOptions.nextInterval: {
         const roundedUp = Math.ceil(moment().minute() / timeIntervalMinutes) * timeIntervalMinutes;
 
         return moment()
           .minute(roundedUp)
           .second(0)
-          .format(FormatTypes.timeFormat24);
+          .format(TimePicker.FormatTypes.timeFormat24);
       }
-      case DefaultOptions.minimum:
-        return moment24h(this.props.minTime).format(FormatTypes.timeFormat24);
+      case TimePicker.DefaultOptions.minimum:
+        return moment24h(this.props.minTime).format(TimePicker.FormatTypes.timeFormat24);
       default:
         return null;
     }
@@ -225,12 +229,12 @@ class TimePicker extends React.Component<Props, State> {
     const restProps = omit(
       rest,
       'defaultOption',
-      'hidden', // TODO(grozki): Get this to work?
+      'hidden',
       'maxTime',
       'minTime',
       'timeFormat',
       'timeIntervalMinutes',
-      'title' // TODO(grozki): Get this to work?
+      'title'
     );
 
     return (
