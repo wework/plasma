@@ -1,5 +1,6 @@
 // @flow
 import React, { type Node } from 'react';
+import cn from 'classnames';
 import style from './style.scss';
 import Header from '../Header/Header';
 import { getDataAttrs } from '../../dataUtils';
@@ -15,6 +16,7 @@ type Props = {|
   minWidth?: string | number,
   maxWidth?: string | number,
   data?: Data,
+  contentStyle?: string,
 |};
 
 class Modal extends React.Component<Props> {
@@ -29,6 +31,7 @@ class Modal extends React.Component<Props> {
       maxWidth,
       visible,
       innerCardStyle,
+      contentStyle,
     } = this.props;
 
     if (!visible) {
@@ -39,7 +42,7 @@ class Modal extends React.Component<Props> {
       <div {...getDataAttrs(data)} className={style.wrapper}>
         <div className={style.innerWrapper}>
           <div style={{ ...innerCardStyle, minWidth, maxWidth }} className={style.card}>
-            <div className={style.content}>
+            <div className={cn(style.content, contentStyle)}>
               {title && (
                 <div className={style.top}>
                   <Header h3>{title}</Header>
