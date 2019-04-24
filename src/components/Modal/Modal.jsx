@@ -16,7 +16,7 @@ type Props = {|
   minWidth?: string | number,
   maxWidth?: string | number,
   data?: Data,
-  contentStyle?: string,
+  contentClassName?: string,
 |};
 
 class Modal extends React.Component<Props> {
@@ -31,7 +31,7 @@ class Modal extends React.Component<Props> {
       maxWidth,
       visible,
       innerCardStyle,
-      contentStyle,
+      contentClassName,
     } = this.props;
 
     if (!visible) {
@@ -42,7 +42,7 @@ class Modal extends React.Component<Props> {
       <div {...getDataAttrs(data)} className={style.wrapper}>
         <div className={style.innerWrapper}>
           <div style={{ ...innerCardStyle, minWidth, maxWidth }} className={style.card}>
-            <div className={cn(style.content, contentStyle)}>
+            <div className={cn(style.content, contentClassName)}>
               {title && (
                 <div className={style.top}>
                   <Header h3>{title}</Header>
