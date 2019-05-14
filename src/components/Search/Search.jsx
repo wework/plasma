@@ -16,6 +16,7 @@ type Props = {|
   placeholder?: string,
   value?: string,
   data?: Data,
+  autoFocus?: boolean,
 |};
 
 type State = {|
@@ -62,7 +63,15 @@ class Search extends Component<Props, State> {
   };
 
   render() {
-    const { clearable, clearIconUrl, disabled, iconUrl, instructionText, placeholder } = this.props;
+    const {
+      clearable,
+      clearIconUrl,
+      disabled,
+      iconUrl,
+      instructionText,
+      placeholder,
+      autoFocus,
+    } = this.props;
 
     return (
       <div {...getDataAttrs(this.props.data)} className={style.container}>
@@ -78,6 +87,7 @@ class Search extends Component<Props, State> {
             placeholder={placeholder}
             type="text"
             value={this.state.text}
+            autoFocus={autoFocus}
           />
           {clearable && clearIconUrl && this.state.text !== '' && (
             <img
