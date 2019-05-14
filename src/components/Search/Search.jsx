@@ -16,7 +16,7 @@ type Props = {|
   placeholder?: string,
   value?: string,
   data?: Data,
-  focused?: boolean,
+  autoFocus?: boolean,
 |};
 
 type State = {|
@@ -70,7 +70,7 @@ class Search extends Component<Props, State> {
       iconUrl,
       instructionText,
       placeholder,
-      focused,
+      autoFocus,
     } = this.props;
 
     return (
@@ -87,7 +87,7 @@ class Search extends Component<Props, State> {
             placeholder={placeholder}
             type="text"
             value={this.state.text}
-            ref={input => (focused ? input && input.focus() : null)}
+            autoFocus={autoFocus}
           />
           {clearable && clearIconUrl && this.state.text !== '' && (
             <img
