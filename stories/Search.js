@@ -1,7 +1,6 @@
+/* eslint-disable react/jsx-filename-extension */
 import React from 'react';
 import { storiesOf } from '@storybook/react';
-import { action } from '@storybook/addon-actions';
-import { linkTo } from '@storybook/addon-links';
 import Search from '../src/components/Search/Search';
 
 storiesOf('Search', module).add('default', () => {
@@ -19,6 +18,7 @@ storiesOf('Search', module).add('with instruction text', () => {
       instructionText="Some sort of instructions for this search."
       onChange={() => {}}
       placeholder="Search"
+      focused
     />
   );
 });

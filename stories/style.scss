@@ -1,0 +1,154 @@
+// TODO(grozki): Disabling this rule because it breaks with either solution tried. Should be attempted again later,
+//  maybe a better solution exists.
+// stylelint-disable no-descending-specificity
+@import '../src/styles/base';
+@import '../src/styles/colors';
+
+// These are here just to shut ESLint up.
+/* stylelint-disable block-no-empty */
+.borderless {
+}
+
+.selectInput {
+}
+
+.selectInputError {
+}
+
+
+/* stylelint-enable block-no-empty */
+:global {
+  .aviv {
+    .react-select__indicators {
+      background: transparent;
+      display: inline-block;
+      width: 5px;
+      height: 5px;
+      padding: 5px;
+    }
+
+    .time-picker__indicators {
+      background: transparent;
+      display: inline-block;
+      width: 5px;
+      height: 5px;
+      padding: 5px;
+    }
+  }
+}
+
+:global {
+  :local(.selectInput) {
+    @extend %type--body;
+
+    width: 7.5rem;
+    font-size: 13px;
+    color: $cBlack50;
+    -webkit-font-smoothing: antialiased;
+
+    .time-picker__single-value {
+      color: currentColor;
+    }
+
+    .time-picker__placeholder {
+      color: $cGray400;
+    }
+
+    .time-picker__indicators {
+      order: 0;
+    }
+
+    .time-picker__value-container {
+      order: 1;
+      padding: 1px;
+    }
+
+    .time-picker__control {
+      @extend %input--wrapper;
+
+      &:hover {
+        @extend %input--wrapper--hover;
+      }
+    }
+
+    .time-picker__control.time-picker__control--is-focused {
+      @extend %input--wrapper--focus;
+    }
+
+    .time-picker__control.time-picker__control--is-disabled {
+      @extend %input--wrapper--disabled;
+
+      background: white;
+      pointer-events: auto;
+
+      &:hover {
+        @extend %input--wrapper--disabled;
+      }
+
+      .time-picker__placeholder {
+        color: currentColor;
+      }
+
+      :local(.selectClockIcon) {
+        opacity: 0.5;
+      }
+    }
+
+    .time-picker__option {
+      text-align: center;
+      color: $cBlack50;
+
+      &:active {
+        background-color: $cGray400;
+      }
+
+      &--is-focused {
+        background-color: $cGray600;
+      }
+
+      &--is-selected {
+        background-color: $cGray600;
+        color: currentColor;
+      }
+    }
+
+    .time-picker__menu {
+      margin-top: 0;
+      border-radius: 0 0 2px 2px;
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.15);
+    }
+  }
+
+  :local(.selectInput.selectInputError) {
+    .time-picker__control {
+      @extend %input--wrapper--error;
+
+      &:hover {
+        @extend %input--wrapper--error;
+      }
+    }
+
+    .time-picker__control--is-focused {
+      @extend %input--wrapper--error;
+    }
+  }
+
+  :local(.selectInput.borderless) {
+    border-color: transparent;
+    box-shadow: none;
+
+    .time-picker__control {
+      border-color: transparent;
+
+      &:hover {
+        border-color: $cGray200;
+        box-shadow: none;
+      }
+
+      &--is-focused {
+        border-color: $cGray200;
+      }
+    }
+  }
+}
+// stylelint-enable no-descending-specificity
