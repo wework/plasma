@@ -19,7 +19,7 @@ const Sizes = Object.freeze({
   SMALL: 'small',
 });
 
-type Props = {|
+export type Props = {|
   autofocus?: boolean,
   children?: Node,
   className?: string,
