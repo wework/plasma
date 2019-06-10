@@ -16,6 +16,7 @@ exports[`Search Component render 1`] = `
       />
     </span>
     <input
+      autoFocus={false}
       className="input"
       disabled={undefined}
       onChange={[Function]}
