@@ -82,7 +82,6 @@
     "lodash": "^4.14.1",
     "marked": "^0.3.6",
     "mkdirp": "^0.5.1",
-    "moment": "2.24.0",
     "node-sass": "^4.9.3",
     "prettier": "1.16.1",
     "proxy-middleware": "^0.15.0",
@@ -114,13 +113,12 @@
     "react-datepicker": "^1.4.0",
     "react-input-autosize": "^1.1.0",
     "react-select": "^2.4.1",
-    "moment": "^2.18.1"
+    "moment": "2.24.0"
   },
   "peerDependencies": {
     "moment": "^2.24",
     "react": "^16.6",
-    "react-dom": "^16.6",
-    "react-tap-event-plugin": "^2.0.1"
+    "react-dom": "^16.6"
   },
   "jest": {
     "testEnvironment": "node",
