@@ -42,6 +42,8 @@
   "license": "ISC",
   "devDependencies": {
     "@storybook/addon-links": "^3.1.6",
+    "@storybook/addon-actions": "^3.1.9",
+    "@storybook/react": "^3.4.8",
     "anchorate": "^1.1.0",
     "babel-cli": "^6.24.1",
     "babel-core": "^6.10.4",
@@ -78,9 +80,13 @@
     "identity-obj-proxy": "^3.0.0",
     "image-webpack-loader": "^3.2.0",
     "jest": "^23.4.2",
+    "jest-cli": "^22.0.6",
+    "jscodeshift": "^0.6.3",
+    "jsdom": "^11.1.0",
     "lint-staged": "8.1.1",
     "lodash": "^4.14.1",
     "marked": "^0.3.6",
+    "moment": "2.24.0",
     "mkdirp": "^0.5.1",
     "node-sass": "^4.9.3",
     "prettier": "1.16.1",
@@ -102,18 +108,11 @@
     "webpack-dev-server": "^1.14.1"
   },
   "dependencies": {
-    "@storybook/addon-actions": "^3.1.9",
-    "@storybook/react": "^3.4.8",
     "classnames": "^2.2.5",
-    "jest-cli": "^22.0.6",
-    "jscodeshift": "^0.6.3",
-    "jsdom": "^11.1.0",
     "lodash": "^4.14.1",
-    "proxy-middleware": "^0.15.0",
     "react-datepicker": "^1.4.0",
     "react-input-autosize": "^1.1.0",
-    "react-select": "^2.4.1",
-    "moment": "2.24.0"
+    "react-select": "^2.4.1"
   },
   "peerDependencies": {
     "moment": "^2.24",
