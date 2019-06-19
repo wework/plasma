@@ -74,8 +74,8 @@ class Table extends React.Component<Props, State> {
     }
   }
 
-  componentDidUpdate() {
-    if (!isNull(this.props.stickAt)) {
+  componentDidUpdate(prevProps: Props) {
+    if (this.props.stickAt && !isEqual(this.props, prevProps)) {
       this.calculateSizes();
     }
   }
