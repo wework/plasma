@@ -6,19 +6,19 @@ import { getDataAttrs } from '../../dataUtils';
 import type { Data } from '../../types';
 
 type Props = {|
-  className?: Object,
+  className?: string,
   dotColor?: string,
-  dotClassName?: Object,
+  dotClassName?: string,
   style?: Object,
-  dotStyle?: ?Object,
+  dotStyle?: Object,
   data?: Data,
 |};
 
 class Loader extends React.Component<Props> {
   render() {
-    const dotStyle = this.props.dotStyle || {};
-    if (this.props.dotColor != null) {
-      dotStyle.backgroundColor = this.props.dotColor;
+    const { dotColor, dotStyle = {} } = this.props;
+    if (dotColor != null) {
+      dotStyle.backgroundColor = dotColor;
     }
 
     return (
