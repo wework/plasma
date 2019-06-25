@@ -3,14 +3,14 @@ import React from 'react';
 import cn from 'classnames';
 import style from './style.scss';
 import { getDataAttrs } from '../../dataUtils';
-import type { Data } from '../../types';
+import type { Data, StyleAttributes } from '../../types';
 
 type Props = {|
   className?: string,
   dotColor?: string,
   dotClassName?: string,
-  style?: Object,
-  dotStyle: Object,
+  style?: StyleAttributes,
+  dotStyle: StyleAttributes,
   data?: Data,
 |};
 

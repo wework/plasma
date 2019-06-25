@@ -4,13 +4,13 @@ import cn from 'classnames';
 import styles from './style.scss';
 
 import { getDataAttrs } from '../../dataUtils';
-import type { Data } from '../../types';
+import type { Data, StyleAttributes } from '../../types';
 
 const defaultImage = 'https://cdn.spacetelescope.org/archives/images/screen/s82e5407.jpg';
 
 type Props = {|
-  style?: { [string]: string },
-  imageStyle?: { [string]: string },
+  style?: StyleAttributes,
+  imageStyle?: StyleAttributes,
   src: string,
   altText?: string,
   data?: Data,

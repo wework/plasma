@@ -1,5 +1,6 @@
 // @flow
 import React, { type Node } from 'react';
+import type { StyleAttributes } from '../../../types';
 import { getDataAttrs } from '../../../dataUtils';
 import styles from './style.scss';
 import Label from '../../Label/Label.jsx';
@@ -12,7 +13,7 @@ type Props = {|
   displayError?: boolean,
   errorMessage?: string,
   data?: Object,
-  style?: { [string]: string },
+  style?: StyleAttributes,
 |};
 
 const FormField = ({

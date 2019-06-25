@@ -3,7 +3,7 @@ import { pick, keys, forEach, isNull, get, map, includes, isEqual, find } from '
 import React from 'react';
 import cx from 'classnames';
 import { getDataAttrs } from '../../dataUtils';
-import type { Data } from '../../types';
+import type { Data, StyleAttributes } from '../../types';
 import Icon from '../Icon/Icon';
 import upArrow from '../../icons/upArrow';
 import downArrow from '../../icons/downArrow';
@@ -21,7 +21,7 @@ type Props = {|
   selectedColumnKey?: string,
   spanMap?: Object,
   stickAt?: number,
-  style?: { [string]: string },
+  style?: StyleAttributes,
   data?: Data,
   sort: { key: string, order: string },
 |};
