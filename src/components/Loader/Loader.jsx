@@ -10,13 +10,17 @@ type Props = {|
   dotColor?: string,
   dotClassName?: string,
   style?: Object,
-  dotStyle?: Object,
+  dotStyle: Object,
   data?: Data,
 |};
 
 class Loader extends React.Component<Props> {
+  static defaultProps = {
+    dotStyle: {},
+  };
+
   render() {
-    const { dotColor, dotStyle = {} } = this.props;
+    const { dotColor, dotStyle } = this.props;
     if (dotColor != null) {
       dotStyle.backgroundColor = dotColor;
     }
