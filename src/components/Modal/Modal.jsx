@@ -4,7 +4,7 @@ import cn from 'classnames';
 import style from './style.scss';
 import Header from '../Header/Header';
 import { getDataAttrs } from '../../dataUtils';
-import type { Data } from '../../types';
+import type { Data, StyleAttributes } from '../../types';
 
 type Props = {|
   title?: string,
@@ -12,7 +12,7 @@ type Props = {|
   children: Node,
   visible?: boolean,
   onDismiss?: (evt: MouseEvent) => void,
-  innerCardStyle: { [string]: string | number },
+  innerCardStyle: StyleAttributes,
   minWidth?: string | number,
   maxWidth?: string | number,
   data?: Data,

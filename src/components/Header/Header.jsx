@@ -3,7 +3,7 @@ import cx from 'classnames';
 import React, { type Node } from 'react';
 import style from './style.scss';
 import { getDataAttrs } from '../../dataUtils';
-import type { Data } from '../../types';
+import type { Data, StyleAttributes } from '../../types';
 
 type Props = {|
   text?: string,
@@ -16,7 +16,7 @@ type Props = {|
   h5?: boolean,
   h6?: boolean,
   invert?: boolean,
-  style?: { [string]: string },
+  style?: StyleAttributes,
   noMargin?: boolean,
   data?: Data,
 |};

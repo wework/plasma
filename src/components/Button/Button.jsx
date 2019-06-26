@@ -70,7 +70,7 @@ function Button(props: Props): Node {
     const loaderDotStyle =
       type === Variants.SECONDARY || type === Variants.TERTIARY
         ? { backgroundColor: '#000', opacity: '0.1' }
-        : null;
+        : undefined;
 
     contentComponent = <Loader dotStyle={loaderDotStyle} />;
   } else {

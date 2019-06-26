@@ -3,14 +3,14 @@ import React, { type Node } from 'react';
 import cx from 'classnames';
 import { map, isArray, toArray } from 'lodash';
 import { getDataAttrs } from '../../../dataUtils';
-import type { Data } from '../../../types';
+import type { Data, StyleAttributes } from '../../../types';
 import style from './style.scss';
 
 type Props = {|
   children: Array<Node>,
   vertical?: boolean,
   layout: Array<Object>,
-  style?: { [string]: string },
+  style?: StyleAttributes,
   data?: Data,
 |};
 

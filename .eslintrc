@@ -24,6 +24,7 @@
       {
         "allowShortCircuit": true
       }
-    ]
+    ],
+    "import/no-extraneous-dependencies": ["error", {"devDependencies": ["stories/**/*.js?"]}]
   }
 }
