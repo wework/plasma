@@ -97,7 +97,6 @@
     "react-docgen-fixed": "^2.9.1",
     "react-dom": "16.6.3",
     "react-hot-loader": "^3.0.0-beta.6",
-    "react-select": "2.4.2",
     "react-styleguidist": "6.4.0",
     "react-test-renderer": "^16.0.0",
     "regenerator-runtime": "^0.10.5",
@@ -111,6 +110,7 @@
     "webpack-dev-server": "^1.14.1"
   },
   "dependencies": {
+    "react-select": "2.4.2"
   },
   "peerDependencies": {
     "classnames": "2.2.5",
@@ -118,8 +118,7 @@
     "moment": ">=2.24 < 3",
     "react": ">=16.6 < 17",
     "react-datepicker": "1.8.0",
-    "react-dom": ">=16.6 < 17",
-    "react-select": ">= 2.4 < 2.5"
+    "react-dom": ">=16.6 < 17"
   },
   "jest": {
     "testEnvironment": "node",
