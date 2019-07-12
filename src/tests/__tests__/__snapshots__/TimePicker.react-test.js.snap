@@ -2,12 +2,12 @@
 
 exports[`TimePicker default 12H format 1`] = `
 <div
-  className="css-1pcexqc-container selectInput"
+  className="css-10nd86i selectInput"
   id={undefined}
   onKeyDown={[Function]}
 >
   <div
-    className="css-bg1rzq-control time-picker__control"
+    className="css-vj8t7z time-picker__control"
     onMouseDown={[Function]}
     onTouchEnd={[Function]}
   >
@@ -15,7 +15,7 @@ exports[`TimePicker default 12H format 1`] = `
       className="css-1hwfws3 time-picker__value-container time-picker__value-container--has-value"
     >
       <div
-        className="css-dvua67-singleValue time-picker__single-value"
+        className="css-xp4uvy time-picker__single-value"
       >
         02:00 PM
       </div>
@@ -51,7 +51,6 @@ exports[`TimePicker default 12H format 1`] = `
                 "boxSizing": "content-box",
                 "color": "inherit",
                 "fontSize": "inherit",
-                "label": "input",
                 "opacity": 1,
                 "outline": 0,
                 "padding": 0,
@@ -93,12 +92,12 @@ exports[`TimePicker default 12H format 1`] = `
 
 exports[`TimePicker default 24H format 1`] = `
 <div
-  className="css-1pcexqc-container selectInput"
+  className="css-10nd86i selectInput"
   id={undefined}
   onKeyDown={[Function]}
 >
   <div
-    className="css-bg1rzq-control time-picker__control"
+    className="css-vj8t7z time-picker__control"
     onMouseDown={[Function]}
     onTouchEnd={[Function]}
   >
@@ -106,7 +105,7 @@ exports[`TimePicker default 24H format 1`] = `
       className="css-1hwfws3 time-picker__value-container time-picker__value-container--has-value"
     >
       <div
-        className="css-dvua67-singleValue time-picker__single-value"
+        className="css-xp4uvy time-picker__single-value"
       >
         14:00
       </div>
@@ -142,7 +141,6 @@ exports[`TimePicker default 24H format 1`] = `
                 "boxSizing": "content-box",
                 "color": "inherit",
                 "fontSize": "inherit",
-                "label": "input",
                 "opacity": 1,
                 "outline": 0,
                 "padding": 0,
@@ -184,12 +182,12 @@ exports[`TimePicker default 24H format 1`] = `
 
 exports[`TimePicker default default 1`] = `
 <div
-  className="css-ssi0ig-container selectInput time-picker--is-disabled"
+  className="css-1sontr1 selectInput time-picker--is-disabled"
   id={undefined}
   onKeyDown={[Function]}
 >
   <div
-    className="css-14ojxsb-control time-picker__control time-picker__control--is-disabled"
+    className="css-162g8z5 time-picker__control time-picker__control--is-disabled"
     onMouseDown={[Function]}
     onTouchEnd={[Function]}
   >
@@ -197,7 +195,7 @@ exports[`TimePicker default default 1`] = `
       className="css-1hwfws3 time-picker__value-container"
     >
       <div
-        className="css-151xaom-placeholder time-picker__placeholder"
+        className="css-1492t68 time-picker__placeholder"
       >
         Select time
       </div>
@@ -233,7 +231,6 @@ exports[`TimePicker default default 1`] = `
                 "boxSizing": "content-box",
                 "color": "inherit",
                 "fontSize": "inherit",
-                "label": "input",
                 "opacity": 1,
                 "outline": 0,
                 "padding": 0,
