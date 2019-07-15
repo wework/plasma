@@ -11,3 +11,5 @@ styleguide
 docs/gitbook/_book
 docs/storybook
 docs/components
+
+*.log

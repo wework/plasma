@@ -43,6 +43,9 @@ class Card extends React.Component<Props, State> {
     };
   }
 
+  /**
+   * TODO: remove the use of react-dom here as it is not needed for refs
+   */
   componentDidMount() {
     /* eslint-disable */
     if (this.props.expandedComponent) {
