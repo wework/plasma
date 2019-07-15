@@ -1,7 +1,6 @@
 /* eslint-disable import/no-extraneous-dependencies, no-console */
 
 const path = require('path');
-const ExtractTextPlugin = require('extract-text-webpack-plugin');
 // const BundleAnalyzerPlugin = require('webpack-bundle-analyzer').BundleAnalyzerPlugin;
 const webpack = require('webpack');
 
@@ -34,24 +33,20 @@ module.exports = {
       },
       {
         test: /\.scss$/,
-        loader: ExtractTextPlugin.extract({
-          fallback: 'style-loader',
-          use: [
-            'css-loader?modules&importLoaders=1&localIdentName=[path][local]__[hash:base64:5]',
-            'resolve-url-loader',
-            'sass-loader',
-          ],
-        }),
+        use: [
+          'style-loader',
+          'css-loader?modules&importLoaders=1&localIdentName=[path][local]__[hash:base64:5]',
+          'resolve-url-loader',
+          'sass-loader',
+        ],
       },
       {
         test: /\.css$/,
-        loader: ExtractTextPlugin.extract({
-          fallback: 'style-loader',
-          use: [
-            'css-loader?importLoaders=1&localIdentName=[path][local]__[hash:base64:5]',
-            'resolve-url-loader',
-          ],
-        }),
+        use: [
+          'style-loader',
+          'css-loader?importLoaders=1&localIdentName=[path][local]__[hash:base64:5]',
+          'resolve-url-loader',
+        ],
       },
       {
         test: /\.png$/,
@@ -63,7 +58,6 @@ module.exports = {
     new webpack.DefinePlugin({
       'process.env.NODE_ENV': JSON.stringify('production'),
     }),
-    new ExtractTextPlugin('styles.css'),
     new webpack.NoErrorsPlugin(),
     new webpack.optimize.OccurrenceOrderPlugin(),
     new webpack.optimize.UglifyJsPlugin({
