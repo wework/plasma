@@ -61,6 +61,7 @@
     "babel-register": "^6.9.0",
     "babel-runtime": "^6.9.2",
     "base64-image-loader": "^1.2.0",
+    "classnames": "^2.2.5",
     "css-loader": "^0.23.1",
     "enzyme": "3.7.0",
     "enzyme-adapter-react-16": "1.7.0",
@@ -92,6 +93,7 @@
     "prettier": "1.16.1",
     "proxy-middleware": "^0.15.0",
     "react": "16.6.3",
+    "react-datepicker": "1.8.0",
     "react-docgen-fixed": "^2.9.1",
     "react-dom": "16.6.3",
     "react-hot-loader": "^3.0.0-beta.6",
@@ -108,16 +110,15 @@
     "webpack-dev-server": "^1.14.1"
   },
   "dependencies": {
-    "classnames": "^2.2.5",
-    "lodash": "^4.14.1",
-    "react-datepicker": "^1.4.0",
-    "react-input-autosize": "^1.1.0",
-    "react-select": "^2.4.1"
+    "react-select": "2.4.2"
   },
   "peerDependencies": {
-    "moment": "^2.24",
-    "react": "^16.6",
-    "react-dom": "^16.6"
+    "classnames": "2.2.5",
+    "lodash": ">= 4.14 < 5",
+    "moment": ">=2.24 < 3",
+    "react": ">=16.6 < 17",
+    "react-datepicker": "1.8.0",
+    "react-dom": ">=16.6 < 17"
   },
   "jest": {
     "testEnvironment": "node",
