@@ -2,6 +2,7 @@
 
 const css = require('./css.config');
 const path = require('path');
+const ExtractTextPlugin = require('extract-text-webpack-plugin');
 // const BundleAnalyzerPlugin = require('webpack-bundle-analyzer').BundleAnalyzerPlugin;
 const webpack = require('webpack');
 
@@ -34,20 +35,24 @@ module.exports = {
       },
       {
         test: /\.scss$/,
-        use: [
-          'style-loader',
-          `css-loader?modules&importLoaders=1&localIdentName=${css.localIdentName}`,
-          'resolve-url-loader',
-          'sass-loader',
-        ],
+        loader: ExtractTextPlugin.extract({
+          fallback: 'style-loader',
+          use: [
+            `css-loader?modules&importLoaders=1&localIdentName=${css.localIdentName}`,
+            'resolve-url-loader',
+            'sass-loader',
+          ],
+        }),
       },
       {
         test: /\.css$/,
-        use: [
-          'style-loader',
-          `css-loader?importLoaders=1&localIdentName=${css.localIdentName}`,
-          'resolve-url-loader',
-        ],
+        loader: ExtractTextPlugin.extract({
+          fallback: 'style-loader',
+          use: [
+            `css-loader?importLoaders=1&localIdentName=${css.localIdentName}`,
+            'resolve-url-loader',
+          ],
+        }),
       },
       {
         test: /\.png$/,
@@ -59,15 +64,6 @@ module.exports = {
     new webpack.DefinePlugin({
       'process.env.NODE_ENV': JSON.stringify('production'),
     }),
-    new webpack.NoErrorsPlugin(),
-    new webpack.optimize.OccurrenceOrderPlugin(),
-    new webpack.optimize.UglifyJsPlugin({
-      compress: {
-        warnings: false,
-      },
-      output: {
-        comments: false,
-      },
-    }),
+    new ExtractTextPlugin('styles.css'),
   ],
 };

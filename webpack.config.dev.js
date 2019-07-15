@@ -1,5 +1,6 @@
 /* eslint-disable import/no-extraneous-dependencies, no-console */
 
+const css = require('./css.config');
 const path = require('path');
 
 module.exports = {
@@ -26,7 +27,7 @@ module.exports = {
         test: /\.scss$/,
         use: [
           'style-loader',
-          'css-loader?modules&importLoaders=2&localIdentName=[path][local]__[hash:base64:5]',
+          `css-loader?modules&importLoaders=1&localIdentName=${css.localIdentName}`,
           'resolve-url-loader',
           'sass-loader',
         ],
@@ -35,7 +36,7 @@ module.exports = {
         test: /\.css$/,
         use: [
           'style-loader',
-          'css-loader?importLoaders=1&localIdentName=[path][local]__[hash:base64:5]',
+          `css-loader?importLoaders=1&localIdentName=${css.localIdentName}`,
           'resolve-url-loader',
         ],
       },
