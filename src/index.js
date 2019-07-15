@@ -24,7 +24,6 @@ import OldSideNavBar from './components/SideNavBar/OldSideNavBar';
 import SideNavBarItem from './components/SideNavBar/OldSideNavBarItem';
 import SideNavBar from './components/SideNavBar/SideNavBar';
 import SideNavBarTop from './components/SideNavBar/SideNavBarTop';
-// import DatePicker from './components/DatePicker/DatePicker';
 import Search from './components/Search/Search';
 import Tabs from './components/Tabs/Tabs';
 import Toggle from './components/Toggle/Toggle';
@@ -44,8 +43,6 @@ import FixedTop from './components/layout/FixedTop/FixedTop';
 // Misc
 import withCounter from './decorators/withCounter/withCounter';
 import LocationPin from './icons/locationPin';
-
-import style from '../src/external';
 
 const CountedTextArea = withCounter(TextArea);
 const CountedTextInput = withCounter(TextInput);
@@ -72,7 +69,6 @@ Plasma.RadioButtonGroup = RadioButtonGroup;
 Plasma.Rule = Rule;
 Plasma.Loader = Loader;
 Plasma.OverflowMenu = OverflowMenu;
-// Plasma.DatePicker = DatePicker;
 Plasma.Search = Search;
 Plasma.FormField = FormField;
 Plasma.Tooltip = Tooltip;
@@ -94,8 +90,6 @@ Plasma.TimePicker = TimePicker;
 Plasma.CountedTextArea = CountedTextArea;
 Plasma.CountedTextInput = CountedTextInput;
 Plasma.LocationPin = LocationPin;
-
-Plasma._style = style;
 
 export default Plasma;
 
@@ -132,7 +126,6 @@ export {
   NumberInput,
   Loader,
   OverflowMenu,
-  // DatePicker,
   Search,
   Toggle,
   Page,

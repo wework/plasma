@@ -5,8 +5,7 @@ To get up and running developing with Plasma, follow these instructions:
 #### Important note
 
 ````
-Select and Datepicker components do not work right now.
-Use react-select and datepicker directly in Spacestation.
+Select component does not work right now. Use react-select directly in Spacestation.
 ````
 
 ### Links
