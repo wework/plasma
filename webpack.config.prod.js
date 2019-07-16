@@ -2,11 +2,53 @@
 
 const css = require('./css.config');
 const path = require('path');
-// const BundleAnalyzerPlugin = require('webpack-bundle-analyzer').BundleAnalyzerPlugin;
+const ExtractTextPlugin = require('extract-text-webpack-plugin');
 const webpack = require('webpack');
+const fs = require('fs');
+
+function createEntries(base = '.', basename = '') {
+  const regularExpression = /\.jsx?$/;
+  const root = path.resolve(__dirname, base);
+  function readDirectory(directory, fileCache = {}) {
+    return fs.readdirSync(directory).reduce((files, file) => {
+      const fullPath = path.resolve(directory, file);
+      if (fs.statSync(fullPath).isDirectory()) {
+        return readDirectory(fullPath, files);
+      }
+      if (!regularExpression.test(fullPath)) return files;
+
+      const entryName = fullPath.replace(root, '').replace(regularExpression, '');
+
+      return Object.assign(files, { [`${basename}${entryName}`]: fullPath });
+    }, fileCache);
+  }
+
+  return readDirectory(root);
+}
+
+const componentEntries = createEntries('./src/components', 'components');
+const decoratorEntries = createEntries('./src/decorators', 'decorators');
+const iconEntries = createEntries('./src/icons', 'icons');
+
+const entries = Object.assign(
+  {
+    dataUtils: './src/dataUtils.js',
+  },
+  componentEntries,
+  decoratorEntries,
+  iconEntries
+);
+
+console.log('ENTRIES', entries);
 
 module.exports = {
-  entry: ['./src/index.js'],
+  entry: Object.assign(
+    {
+      index: './src/index.js',
+    },
+    entries
+  ),
+
   externals: {
     moment: 'moment',
     react: 'react',
@@ -16,10 +58,10 @@ module.exports = {
     'react-datepicker': 'react-datepicker',
   },
   output: {
-    path: path.resolve(__dirname, 'dist'),
-    filename: 'index.js',
-    library: 'Plasma',
-    libraryTarget: 'umd',
+    path: path.resolve(__dirname, 'lib'),
+    filename: '[name].js',
+    library: '',
+    libraryTarget: 'commonjs',
   },
   resolve: {
     modules: [path.resolve('./node_modules')],
@@ -34,20 +76,24 @@ module.exports = {
       },
       {
         test: /\.scss$/,
-        use: [
-          'style-loader',
-          `css-loader?modules&importLoaders=1&localIdentName=${css.localIdentName}`,
-          'resolve-url-loader',
-          'sass-loader',
-        ],
+        loader: ExtractTextPlugin.extract({
+          fallback: 'style-loader',
+          use: [
+            `css-loader?modules&importLoaders=1&localIdentName=${css.localIdentName}`,
+            'resolve-url-loader',
+            'sass-loader',
+          ],
+        }),
       },
       {
         test: /\.css$/,
-        use: [
-          'style-loader',
-          `css-loader?importLoaders=1&localIdentName=${css.localIdentName}`,
-          'resolve-url-loader',
-        ],
+        loader: ExtractTextPlugin.extract({
+          fallback: 'style-loader',
+          use: [
+            `css-loader?importLoaders=1&localIdentName=${css.localIdentName}`,
+            'resolve-url-loader',
+          ],
+        }),
       },
       {
         test: /\.png$/,
@@ -59,15 +105,6 @@ module.exports = {
     new webpack.DefinePlugin({
       'process.env.NODE_ENV': JSON.stringify('production'),
     }),
-    new webpack.NoErrorsPlugin(),
-    new webpack.optimize.OccurrenceOrderPlugin(),
-    new webpack.optimize.UglifyJsPlugin({
-      compress: {
-        warnings: false,
-      },
-      output: {
-        comments: false,
-      },
-    }),
+    new ExtractTextPlugin('styles.css'),
   ],
 };

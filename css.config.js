@@ -1,3 +1,3 @@
 module.exports = {
-  localIdentName: '[path][local]__plasma-core',
+  localIdentName: '[path][local]__[hash:base64:5]',
 };
