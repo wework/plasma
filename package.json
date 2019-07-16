@@ -7,7 +7,9 @@
   "scripts": {
     "lint": "./node_modules/.bin/eslint src/components/**/*.jsx",
     "pack": "NODE_ENV=production webpack --config webpack.config.prod -p",
-    "build:lib": "cp lib/index.js /tmp/. && rm -rf lib && NODE_ENV=production webpack --config webpack.config.prod -p && mv /tmp/index.js lib/index.js",
+    "build:lib": "rm -rf lib && yarn build:lib:only",
+    "build:lib:only": "NODE_ENV=production webpack --config webpack.config.prod && yarn build:lib:index",
+    "build:lib:index": "babel ./src/index.js -o lib/index.js",
     "build:dist": "rm -rf dist && NODE_ENV=production webpack --config webpack.config.dist -p",
     "build": "npm-run-all --parallel build:*",
     "storybook": "start-storybook -p 6006",

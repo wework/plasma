@@ -61,7 +61,7 @@ module.exports = {
     path: path.resolve(__dirname, 'lib'),
     filename: '[name].js',
     library: '',
-    libraryTarget: 'commonjs',
+    libraryTarget: 'commonjs2',
   },
   resolve: {
     modules: [path.resolve('./node_modules')],

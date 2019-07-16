@@ -15,5 +15,4 @@ docs/components
 *.log
 
 lib/
-!lib/index.js
 dist/
