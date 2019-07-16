@@ -268,8 +268,7 @@ class Table extends React.Component<Props, State> {
 
         columnComponents.push(
           <td
-            className={cx({
-              [style.cell]: true,
+            className={cx(style.cell, itemValue.cellClassName, {
               [style.condensedCell]: isCondensed,
             })}
             key={headerKey}
@@ -283,8 +282,7 @@ class Table extends React.Component<Props, State> {
       rowComponents.push(
         <tr
           key={itemIndex}
-          className={cx({
-            [style.row]: true,
+          className={cx(style.row, itemValue.rowClassName, {
             [style.rowDisabled]: isDisabledRow,
             [style.clickable]: clickable,
             [style.highlightable]: highlightable,
@@ -300,7 +298,7 @@ class Table extends React.Component<Props, State> {
           const partialRowColumns = [];
           forEach(spannedHeaderKeys, key => {
             partialRowColumns.push(
-              <td key={key} className={style.cell}>
+              <td key={key} className={cx(style.cell, itemValue.cellClassName)}>
                 {itemValue[spanKey][i][key]}
               </td>
             );
@@ -308,8 +306,7 @@ class Table extends React.Component<Props, State> {
           rowComponents.push(
             <tr
               key={`${itemIndex}.${i}`}
-              className={cx({
-                [style.row]: true,
+              className={cx(style.row, itemValue.rowClassName, {
                 [style.rowDisabled]: isDisabledRow,
                 [style.clickable]: clickable,
                 [style.highlightable]: highlightable,

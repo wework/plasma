@@ -5,6 +5,8 @@ import { action } from '@storybook/addon-actions';
 import { linkTo } from '@storybook/addon-links';
 import Table from '../src/components/Table/Table';
 
+import style from './style.scss';
+
 const headerData = [
   { label: 'First name', key: 'firstname' },
   { label: 'Last name', key: 'lastname' },
@@ -216,6 +218,37 @@ storiesOf('Table', module).add('with condensed column', () => {
       empty={false}
       emptyText="The table is empty."
       headerData={hd}
+      items={items}
+      loading={false}
+    />
+  );
+});
+
+storiesOf('Table', module).add('with a styled rows and cols', () => {
+  const items = [
+    {
+      firstname: 'Brad',
+      lastname: 'Pitt',
+      age: '45',
+      sex: 'Male',
+      location: 'Beverly Hills',
+      cellClassName: style.tableCellRed,
+    },
+    {
+      firstname: 'Jennifer',
+      lastname: 'Lawrence',
+      age: '26',
+      sex: 'Female',
+      location: 'NYC',
+      rowClassName: style.tableRowFaded,
+    },
+  ];
+
+  return (
+    <Table
+      empty={false}
+      emptyText="The table is empty."
+      headerData={headerData}
       items={items}
       loading={false}
     />
