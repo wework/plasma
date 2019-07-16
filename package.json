@@ -7,7 +7,6 @@
   "scripts": {
     "lint": "./node_modules/.bin/eslint src/components/**/*.jsx",
     "pack": "NODE_ENV=production webpack --config webpack.config.prod -p",
-    "build:lib:index": "npx babel ./src/index.js -o lib/index.js",
     "build:lib": "rm -rf lib && NODE_ENV=production webpack --config webpack.config.prod -p",
     "build:dist": "rm -rf dist && NODE_ENV=production webpack --config webpack.config.dist -p",
     "build": "npm-run-all --parallel build:*",
