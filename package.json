@@ -16,7 +16,7 @@
     "preversion": "node ./scripts/preversion.js",
     "prettier": "prettier --write \"src/**/*.{js,jsx}\" \"stories/**/*.{js,jsx}\"",
     "prettier:ci": "prettier -l \"src/**/*.{js,jsx}\" \"stories/**/*.{js,jsx}\"",
-    "version": "node ./scripts/version.js && yarn run pack && git add -A dist",
+    "version": "node ./scripts/version.js",
     "postversion": "node ./scripts/postversion.js",
     "styleguide": "styleguidist server",
     "styleguide:build": "styleguidist build",
