@@ -44,7 +44,7 @@ console.log('ENTRIES', entries);
 module.exports = {
   entry: Object.assign(
     {
-      main: './src/index.js',
+      index: './src/index.js',
     },
     entries
   ),

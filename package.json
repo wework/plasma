@@ -19,6 +19,8 @@
     "styleguide": "styleguidist server",
     "styleguide:build": "styleguidist build",
     "watch": "webpack --watch --config webpack.config.dev",
+    "preversion": "yarn build",
+    "prepublish": "yarn build",
     "test": "node_modules/.bin/jest",
     "test:watch": "yarn test --watch --coverage",
     "test:update": "yarn test --updateSnapshot",
