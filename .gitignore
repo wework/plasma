@@ -16,3 +16,4 @@ docs/components
 
 lib/
 dist/
+!dist/index.js
