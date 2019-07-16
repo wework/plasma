@@ -24,6 +24,7 @@ type Props = {|
   type: string,
   data?: Data,
   size?: string,
+  className?: string,
 |};
 
 class Toggle extends React.Component<Props> {
@@ -48,9 +49,10 @@ class Toggle extends React.Component<Props> {
     return (
       <ul {...getDataAttrs(this.props.data)} className={style.toggleWrapper} role="tablist">
         {_.map(this.props.items, (item, index) => {
-          const toggleClasses = cx(style.toggle, {
-            [style.active]:
-              this.props.selectedIndex === index || this.props.selectedLabel === item.label,
+          const isActive =
+            this.props.selectedIndex === index || this.props.selectedLabel === item.label;
+          const toggleClasses = cx(style.toggle, this.props.className, {
+            [style.active]: isActive,
             [style.disabled]: item.disabled,
             [style.horizontal]: this.props.type === type.HORIZONTAL,
             [style.vertical]: this.props.type === type.VERTICAL,
@@ -66,6 +68,7 @@ class Toggle extends React.Component<Props> {
               key={index}
               type={this.props.type}
               data-state={item.disabled ? 'disabled' : 'enabled'}
+              data-active={isActive}
             >
               {item.title}
             </li>
