@@ -28,6 +28,7 @@ function createEntries(base = '.', basename = '') {
 
 const componentEntries = createEntries('./src/components', 'components');
 const decoratorEntries = createEntries('./src/decorators', 'decorators');
+const externalEntries = createEntries('./src/icons', 'external');
 const iconEntries = createEntries('./src/icons', 'icons');
 
 const entries = Object.assign(
@@ -36,6 +37,7 @@ const entries = Object.assign(
   },
   componentEntries,
   decoratorEntries,
+  externalEntries,
   iconEntries
 );
 
