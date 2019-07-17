@@ -1,9 +1,15 @@
 {
-  "presets": ["env", "react", "flow"],
+  "presets":    [
+    [ "env", {
+      "modules": "commonjs",
+      "useBuiltIns": true
+    }],
+    "react",
+    "flow"
+  ],
   "plugins": [
   	"transform-class-properties",
-  	"transform-object-rest-spread",
-  	"lodash"
+  	"transform-object-rest-spread"
   ],
   "env": {
     "development": {

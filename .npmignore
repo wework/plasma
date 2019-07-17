@@ -12,8 +12,8 @@ stories
 .prettier*
 .travis*
 CNAME
-server.js
 StoryState.js
 *.config*.js
 yarn.lock
 *.log
+.nvmrc

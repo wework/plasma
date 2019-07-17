@@ -3,54 +3,11 @@
 const css = require('./css.config');
 const path = require('path');
 const ExtractTextPlugin = require('extract-text-webpack-plugin');
+// const BundleAnalyzerPlugin = require('webpack-bundle-analyzer').BundleAnalyzerPlugin;
 const webpack = require('webpack');
-const fs = require('fs');
-
-function createEntries(base = '.', basename = '') {
-  const regularExpression = /\.jsx?$/;
-  const root = path.resolve(__dirname, base);
-  function readDirectory(directory, fileCache = {}) {
-    return fs.readdirSync(directory).reduce((files, file) => {
-      const fullPath = path.resolve(directory, file);
-      if (fs.statSync(fullPath).isDirectory()) {
-        return readDirectory(fullPath, files);
-      }
-      if (!regularExpression.test(fullPath)) return files;
-
-      const entryName = fullPath.replace(root, '').replace(regularExpression, '');
-
-      return Object.assign(files, { [`${basename}${entryName}`]: fullPath });
-    }, fileCache);
-  }
-
-  return readDirectory(root);
-}
-
-const componentEntries = createEntries('./src/components', 'components');
-const decoratorEntries = createEntries('./src/decorators', 'decorators');
-const externalEntries = createEntries('./src/external', 'external');
-const iconEntries = createEntries('./src/icons', 'icons');
-
-const entries = Object.assign(
-  {
-    dataUtils: './src/dataUtils.js',
-  },
-  componentEntries,
-  decoratorEntries,
-  externalEntries,
-  iconEntries
-);
-
-console.log('ENTRIES', entries);
 
 module.exports = {
-  entry: Object.assign(
-    {
-      index: './src/index.js',
-    },
-    entries
-  ),
-
+  entry: ['./src/index.js'],
   externals: {
     moment: 'moment',
     react: 'react',
@@ -60,10 +17,10 @@ module.exports = {
     'react-datepicker': 'react-datepicker',
   },
   output: {
-    path: path.resolve(__dirname, 'lib'),
-    filename: '[name].js',
-    library: '',
-    libraryTarget: 'commonjs2',
+    path: path.resolve(__dirname, 'dist'),
+    filename: 'index.js',
+    library: 'Plasma',
+    libraryTarget: 'umd',
   },
   resolve: {
     modules: [path.resolve('./node_modules')],
