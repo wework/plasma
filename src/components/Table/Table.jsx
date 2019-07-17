@@ -268,7 +268,7 @@ class Table extends React.Component<Props, State> {
 
         columnComponents.push(
           <td
-            className={cx(style.cell, itemValue.cellClassName, {
+            className={cx(style.cell, {
               [style.condensedCell]: isCondensed,
             })}
             key={headerKey}
@@ -298,7 +298,7 @@ class Table extends React.Component<Props, State> {
           const partialRowColumns = [];
           forEach(spannedHeaderKeys, key => {
             partialRowColumns.push(
-              <td key={key} className={cx(style.cell, itemValue.cellClassName)}>
+              <td key={key} className={style.cell}>
                 {itemValue[spanKey][i][key]}
               </td>
             );

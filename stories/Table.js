@@ -224,15 +224,14 @@ storiesOf('Table', module).add('with condensed column', () => {
   );
 });
 
-storiesOf('Table', module).add('with a styled rows and cols', () => {
+storiesOf('Table', module).add('with styled rows', () => {
   const items = [
     {
       firstname: 'Brad',
       lastname: 'Pitt',
       age: '45',
       sex: 'Male',
-      location: 'Beverly Hills',
-      cellClassName: style.tableCellRed,
+      location: 'Beverly Hills'
     },
     {
       firstname: 'Jennifer',
