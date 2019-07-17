@@ -71,7 +71,6 @@ Plasma.RadioButtonGroup = RadioButtonGroup;
 Plasma.Rule = Rule;
 Plasma.Loader = Loader;
 Plasma.OverflowMenu = OverflowMenu;
-// Plasma.DatePicker = DatePicker;
 Plasma.Search = Search;
 Plasma.FormField = FormField;
 Plasma.Tooltip = Tooltip;
