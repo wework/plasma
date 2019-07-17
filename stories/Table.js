@@ -231,7 +231,7 @@ storiesOf('Table', module).add('with styled rows', () => {
       lastname: 'Pitt',
       age: '45',
       sex: 'Male',
-      location: 'Beverly Hills'
+      location: 'Beverly Hills',
     },
     {
       firstname: 'Jennifer',
