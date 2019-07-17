@@ -1,3 +1,21 @@
 .greenDotLoader {
   background-color: #0f0 !important;
 }
+
+.tableRowFaded {
+  background: rgba(0, 0, 255, 0.35) !important;
+  color: #f3f3f3;
+}
+
+.toggle {
+  &[data-active="true"] {
+    background-color: #ff01ff !important;
+    border-color: #9e1c9e !important;
+  }
+
+  &[data-state="disabled"] {
+    background-color: #ead8ea !important;
+    border-color: #796679 !important;
+    color: #423838 !important;
+  }
+}

@@ -5,6 +5,8 @@ import { linkTo } from '@storybook/addon-links';
 import Toggle from '../src/components/Toggle/Toggle';
 import Button from '../src/components/Button/Button';
 
+import style from './style.scss';
+
 class ToggleWithLabelState extends React.Component {
   constructor(props) {
     super(props);
@@ -76,6 +78,18 @@ storiesOf('Toggle', module)
         { title: 'Bye bye', label: 'bye' },
       ]}
       type="horizontal"
+    />
+  ))
+  .add('three toggles styled - horizontal', () => (
+    <Toggle
+      selectedLabel="hello"
+      items={[
+        { title: 'Hello', label: 'hello' },
+        { title: 'World', label: 'world' },
+        { title: 'Disabled', label: 'disabled', disabled: true },
+      ]}
+      type="horizontal"
+      className={style.toggle}
     />
   ))
   .add('five toggles - horizontal', () => (
