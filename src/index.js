@@ -24,7 +24,6 @@ import OldSideNavBar from './components/SideNavBar/OldSideNavBar';
 import SideNavBarItem from './components/SideNavBar/OldSideNavBarItem';
 import SideNavBar from './components/SideNavBar/SideNavBar';
 import SideNavBarTop from './components/SideNavBar/SideNavBarTop';
-// import DatePicker from './components/DatePicker/DatePicker';
 import Search from './components/Search/Search';
 import Tabs from './components/Tabs/Tabs';
 import Toggle from './components/Toggle/Toggle';
@@ -132,7 +131,6 @@ export {
   NumberInput,
   Loader,
   OverflowMenu,
-  // DatePicker,
   Search,
   Toggle,
   Page,
