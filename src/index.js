@@ -44,6 +44,8 @@ import FixedTop from './components/layout/FixedTop/FixedTop';
 import withCounter from './decorators/withCounter/withCounter';
 import LocationPin from './icons/locationPin';
 
+import style from '../src/external';
+
 const CountedTextArea = withCounter(TextArea);
 const CountedTextInput = withCounter(TextInput);
 
@@ -90,6 +92,8 @@ Plasma.TimePicker = TimePicker;
 Plasma.CountedTextArea = CountedTextArea;
 Plasma.CountedTextInput = CountedTextInput;
 Plasma.LocationPin = LocationPin;
+
+Plasma._style = style;
 
 export default Plasma;
 
