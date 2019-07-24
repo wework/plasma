@@ -13,47 +13,47 @@ const type = {
 };
 
 type Props = {|
-  items: {
+  items: Array<{
     label: string,
-	title: string,
-	disabled: boolean,
-    },
+    title: string,
+    disabled?: boolean,
+  }>,
   onChange: (string, number) => void,
-  selectedIndex: number,
+  selectedIndex?: number,
   selectedLabel: string,
   type: string,
-  data: Data,
-  size: string,
+  data?: Data,
+  size?: string,
+  className?: string,
 |};
 
 class Toggle extends React.Component<Props> {
   static defaultProps = {
     items: [],
     type: type.HORIZONTAL,
-    onChange: () => { },
+    onChange: () => {},
   };
-  onClick(toggle: Object, index: number) {
-    this.props.onChange(toggle.label, index);
+  onClick(item: Object, index: number) {
+    if (!item.disabled) {
+      this.props.onChange(item.label, index);
+    }
   }
 
-  onKeyDown(event: Object, toggle: Object, index: number) {
+  onKeyDown(event: Object, item: Object, index: number) {
     if (event.keyCode === 13 /* enter */) {
-      this.onClick(toggle, index);
+      this.onClick(item, index);
     }
   }
 
   render() {
     return (
-      <ul
-        {...getDataAttrs(this.props.data)}
-        className={style.toggleWrapper}
-        role="tablist"
-      >
-        { _.map(this.props.items, (toggle, index) => {
-          const toggleClasses = cx(style.toggle, {
-            [style.active]: (this.props.selectedIndex === index ||
-                             this.props.selectedLabel === toggle.label),
-            [style.disabled]: this.props.items[index].disabled,
+      <ul {...getDataAttrs(this.props.data)} className={style.toggleWrapper} role="tablist">
+        {_.map(this.props.items, (item, index) => {
+          const isActive =
+            this.props.selectedIndex === index || this.props.selectedLabel === item.label;
+          const toggleClasses = cx(style.toggle, this.props.className, {
+            [style.active]: isActive,
+            [style.disabled]: item.disabled,
             [style.horizontal]: this.props.type === type.HORIZONTAL,
             [style.vertical]: this.props.type === type.VERTICAL,
             [style.small]: this.props.size === type.SMALL,
@@ -62,14 +62,15 @@ class Toggle extends React.Component<Props> {
           return (
             <li
               role="tab"
-              onClick={() => this.onClick(toggle, index)}
-              onKeyDown={(event) => this.onKeyDown(event, toggle, index)}
+              onClick={() => this.onClick(item, index)}
+              onKeyDown={event => this.onKeyDown(event, item, index)}
               className={toggleClasses}
               key={index}
               type={this.props.type}
-
+              data-state={item.disabled ? 'disabled' : 'enabled'}
+              data-active={isActive}
             >
-              { toggle.title }
+              {item.title}
             </li>
           );
         })}

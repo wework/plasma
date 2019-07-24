@@ -10,10 +10,8 @@ import Loader from '../../components/Loader/Loader';
 
 describe('Button Component', () => {
   test('render', () => {
-    const component = renderer.create(
-      <Button>YOLO</Button>
-    );
-    expect(component).toMatchSnapshot()
+    const component = renderer.create(<Button>YOLO</Button>);
+    expect(component).toMatchSnapshot();
   });
 
   test('children', () => {
@@ -44,7 +42,7 @@ describe('Button Component', () => {
 
   test('disabled', () => {
     const component = shallow(<Button disabled>YOLO</Button>);
-    expect(component.find('.disabled')).toHaveLength(1);
+    expect(component.find('[disabled]')).toHaveLength(1);
     expect(component.prop('disabled')).toBe(true);
   });
 
@@ -67,13 +65,7 @@ describe('Button Component', () => {
 
   test('onClick', () => {
     const onClick = jest.fn();
-    const component = mount(
-      <Button
-        onClick={onClick}
-      >
-        YOLO
-      </Button>
-    );
+    const component = mount(<Button onClick={onClick}>YOLO</Button>);
     component.simulate('click');
     expect(onClick).toHaveBeenCalledTimes(1);
   });
@@ -81,10 +73,7 @@ describe('Button Component', () => {
   test('onClick disabled', () => {
     const onClick = jest.fn();
     const component = mount(
-      <Button
-        disabled
-        onClick={onClick}
-      >
+      <Button disabled onClick={onClick}>
         YOLO
       </Button>
     );
@@ -93,14 +82,7 @@ describe('Button Component', () => {
   });
 
   test('with data attribute', () => {
-    const component = shallow(
-      <Button
-        data={{ qa: 'important' }}
-      >
-        YOLO
-      </Button>
-    );
+    const component = shallow(<Button data={{ qa: 'important' }}>YOLO</Button>);
     expect(component.prop('data-qa')).toBe('important');
   });
-
 });

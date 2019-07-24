@@ -5,6 +5,8 @@ import { action } from '@storybook/addon-actions';
 import { linkTo } from '@storybook/addon-links';
 import Table from '../src/components/Table/Table';
 
+import style from './style.scss';
+
 const headerData = [
   { label: 'First name', key: 'firstname' },
   { label: 'Last name', key: 'lastname' },
@@ -75,15 +77,13 @@ storiesOf('Table', module).add('with a disabled row', () => {
 storiesOf('Table', module).add('with explicit column width', () => {
   const items = [];
   times(100, () => {
-    items.push(
-      {
-        firstname: 'Brad',
-        lastname: 'Pitt',
-        age: '45',
-        sex: 'Male',
-        location: '149 Bobcat Lane, Beverly Hills, 90210',
-      },
-    );
+    items.push({
+      firstname: 'Brad',
+      lastname: 'Pitt',
+      age: '45',
+      sex: 'Male',
+      location: '149 Bobcat Lane, Beverly Hills, 90210',
+    });
   });
 
   const hd = cloneDeep(headerData);
@@ -137,17 +137,13 @@ storiesOf('Table', module).add('with 2 spanned columns', () => {
       firstname: 'Brad',
       lastname: 'Pitt',
       age: '45',
-      sex: [
-        { sex: 'Male', location: 'Beverly Hills' },
-        { sex: 'Female', location: 'Tokyo' }],
+      sex: [{ sex: 'Male', location: 'Beverly Hills' }, { sex: 'Female', location: 'Tokyo' }],
     },
     {
       firstname: 'Jennifer',
       lastname: 'Lawrence',
       age: '26',
-      sex: [
-        { sex: 'Male', location: 'Beverly Hills' },
-        { sex: 'Female', location: 'Tokyo' }],
+      sex: [{ sex: 'Male', location: 'Beverly Hills' }, { sex: 'Female', location: 'Tokyo' }],
     },
   ];
 
@@ -172,18 +168,14 @@ storiesOf('Table', module).add('with 2 spanned middle columns', () => {
       firstname: 'Brad',
       lastname: 'Pitt',
       age: '45',
-      sex: [
-        { sex: 'Male', location: 'Beverly Hills' },
-        { sex: 'Female', location: 'Tokyo' }],
+      sex: [{ sex: 'Male', location: 'Beverly Hills' }, { sex: 'Female', location: 'Tokyo' }],
       nickname: 'The Bulldozer',
     },
     {
       firstname: 'Jennifer',
       lastname: 'Lawrence',
       age: '26',
-      sex: [
-        { sex: 'Male', location: 'Beverly Hills' },
-        { sex: 'Female', location: 'Tokyo' }],
+      sex: [{ sex: 'Male', location: 'Beverly Hills' }, { sex: 'Female', location: 'Tokyo' }],
       nickname: 'Slow Loris',
     },
   ];
@@ -232,3 +224,32 @@ storiesOf('Table', module).add('with condensed column', () => {
   );
 });
 
+storiesOf('Table', module).add('with styled rows', () => {
+  const items = [
+    {
+      firstname: 'Brad',
+      lastname: 'Pitt',
+      age: '45',
+      sex: 'Male',
+      location: 'Beverly Hills',
+    },
+    {
+      firstname: 'Jennifer',
+      lastname: 'Lawrence',
+      age: '26',
+      sex: 'Female',
+      location: 'NYC',
+      rowClassName: style.tableRowFaded,
+    },
+  ];
+
+  return (
+    <Table
+      empty={false}
+      emptyText="The table is empty."
+      headerData={headerData}
+      items={items}
+      loading={false}
+    />
+  );
+});

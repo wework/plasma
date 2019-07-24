@@ -1,4 +1,5 @@
 @import '../../styles/base';
+
 .button {
   @extend %button--base;
   @extend %type--body;
@@ -21,11 +22,6 @@
   cursor: default;
   pointer-events: none;
 }
-
-.disabled {
-  @extend %button--disabled;
-}
-
 
 .small {
   @extend %button--small;

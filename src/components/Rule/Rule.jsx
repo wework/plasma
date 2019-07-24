@@ -8,9 +8,9 @@ import type { Data } from '../../types';
 const type = { SOLID: 'solid', DOTTED: 'dotted', DASHED: 'dashed' };
 
 type Props = {|
-  type: string,
-  withTopMargin: boolean,
-  data: Data,
+  type?: string,
+  withTopMargin?: boolean,
+  data?: Data,
 |};
 
 class Rule extends React.Component<Props> {

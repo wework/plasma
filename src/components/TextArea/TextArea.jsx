@@ -11,7 +11,7 @@ type Props = {|
   autosize: boolean,
   disabled: boolean,
   error: boolean,
-  maxLength: string,
+  maxLength: string | number,
   onBlur: () => void,
   onChange: () => void,
   onFocus: () => void,
@@ -19,7 +19,7 @@ type Props = {|
   rows: string,
   size: string,
   value: string,
-  data: Data,
+  data?: Data,
 |};
 
 class TextArea extends Component<Props> {
@@ -71,13 +71,13 @@ class TextArea extends Component<Props> {
           disabled={disabled}
           onChange={onChange}
           rows={rows}
-          onFocus={(e: { target: {parentElement: {className: string}} }) => {
+          onFocus={(e: { target: { parentElement: { className: string } } }) => {
             /* eslint-disable no-param-reassign */
             e.target.parentElement.className += ` ${style.wrapperFocused}`;
             /* eslint-enable no-param-reassign */
             onFocus && onFocus();
           }}
-          onBlur={(e: { target: {parentElement: {classList: Object}} }) => {
+          onBlur={(e: { target: { parentElement: { classList: Object } } }) => {
             e.target.parentElement.classList.remove(style.wrapperFocused);
             onBlur && onBlur();
           }}

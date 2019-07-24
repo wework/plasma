@@ -2,7 +2,6 @@
 .idea
 
 node_modules
-dist
 npm-debug.log
 coverage
 
@@ -12,3 +11,8 @@ styleguide
 docs/gitbook/_book
 docs/storybook
 docs/components
+
+*.log
+
+lib/
+dist/

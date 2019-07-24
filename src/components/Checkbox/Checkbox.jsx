@@ -16,7 +16,7 @@ type Props = {|
   icon?: string,
   indeterminate?: boolean,
   isBold?: boolean,
-  name: string,
+  name?: string,
   onBlur?: () => mixed,
   onChange?: () => mixed,
   text: Node,
@@ -49,7 +49,7 @@ class Checkbox extends React.Component<Props> {
       value,
     } = this.props;
 
-    const isChecked = (checked || value);
+    const isChecked = checked || value;
     const id = uniqueId('id');
     const inlineClass = cx({ [style.inline]: fancy });
     const inputClassName = indeterminate ? style.indeterminate : style.original;
@@ -86,9 +86,7 @@ class Checkbox extends React.Component<Props> {
             <div className={textClassName}>{text}</div>
           </label>
         </div>
-        {description && (
-          <span className={style.description}>{description}</span>
-        )}
+        {description && <span className={style.description}>{description}</span>}
       </div>
     );
   }

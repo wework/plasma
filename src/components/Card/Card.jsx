@@ -35,7 +35,6 @@ type State = {|
   isMounted: boolean,
 |};
 
-
 class Card extends React.Component<Props, State> {
   constructor() {
     super();
@@ -44,14 +43,15 @@ class Card extends React.Component<Props, State> {
     };
   }
 
+  /**
+   * TODO: remove the use of react-dom here as it is not needed for refs
+   */
   componentDidMount() {
     /* eslint-disable */
     if (this.props.expandedComponent) {
       const defaultEl = ReactDOM.findDOMNode(this.default); //$FlowFixMe
       const defaultHeight = defaultEl.offsetHeight;
-      const expandedEl
-
-          = ReactDOM.findDOMNode(this.expanded); //$FlowFixMe
+      const expandedEl = ReactDOM.findDOMNode(this.expanded); //$FlowFixMe
       const expandedHeight = expandedEl.offsetHeight;
       this.setState({ defaultHeight, expandedHeight });
     }
@@ -140,7 +140,6 @@ class Card extends React.Component<Props, State> {
     );
   }
 }
-
 
 Card.displayName = 'Plasma@Card';
 

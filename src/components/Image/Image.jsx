@@ -3,19 +3,19 @@ import React from 'react';
 import cn from 'classnames';
 
 import { getDataAttrs } from '../../dataUtils';
-import type { Data } from '../../types';
+import type { Data, StyleAttributes } from '../../types';
 
 const defaultImage = 'https://cdn.spacetelescope.org/archives/images/screen/s82e5407.jpg';
 
 type Props = {|
-  style: Object,
-  imageStyle: Object,
+  style?: StyleAttributes,
+  imageStyle?: StyleAttributes,
   src: string,
-  altText: string,
-  data: Data,
-  onClick: (evt: MouseEvent) => void,
-  className: Object,
-  fallback: string,
+  altText?: string,
+  data?: Data,
+  onClick?: (evt: MouseEvent) => void,
+  className?: string,
+  fallback?: string,
   onLoad?: (evt: MouseEvent) => void,
 |};
 
@@ -51,10 +51,7 @@ class Image extends React.Component<Props, State> {
     const { className, data, style, altText, imageStyle, onClick, onLoad } = this.props;
     const imageCn = cn(className);
     return (
-      <div
-        {...getDataAttrs(data)}
-        style={style}
-      >
+      <div {...getDataAttrs(data)} style={style}>
         <img
           alt={altText}
           className={imageCn}

@@ -1,76 +1,96 @@
 // @flow
 import cx from 'classnames';
 import React, { type Node } from 'react';
-import { getDataAttrs } from '../../dataUtils';
+
 import Loader from '../Loader/Loader.jsx';
-import style from './style.scss';
+
+import { getDataAttrs } from '../../dataUtils';
+
 import type { Data } from '../../types';
 
-const buttontType = { PRIMARY: 'primary', SECONDARY: 'secondary', TERTIARY: 'tertiary' };
-const size = { SMALL: 'small' };
+import styles from './style.scss';
+
+const Variants = Object.freeze({
+  PRIMARY: 'primary',
+  SECONDARY: 'secondary',
+  TERTIARY: 'tertiary',
+});
+const Sizes = Object.freeze({
+  SMALL: 'small',
+});
 
 type Props = {|
-  label?: string,
-  onClick?: (evt: MouseEvent) => void,
-  type?: string,
-  disabled: boolean,
-  loading: boolean,
-  children: Node,
-  style?: Object,
-  isSubmit?: boolean,
-  size?: string,
+  autofocus?: boolean,
+  children?: Node,
+  className?: string,
   data?: Data,
+  disabled?: boolean,
+  hidden?: boolean,
+  label?: string,
+  loading?: boolean,
+  name?: string,
+  onClick?: (evt: MouseEvent) => void,
+  id?: string,
+  isSubmit?: boolean,
+  size?: $Values<typeof Sizes>,
+  style?: { [key: string]: any },
+  type?: $Values<typeof Variants>,
+  value?: string,
+  tabIndex?: number,
+  title?: string,
 |};
 
-class Button extends React.Component<Props> {
-  static defaultProps = {
-    type: buttontType.PRIMARY,
-    disabled: false,
-    loading: false,
-  };
+function Button(props: Props): Node {
+  const {
+    children,
+    className,
+    data,
+    disabled = false,
+    isSubmit,
+    label,
+    loading = false,
+    onClick,
+    size,
+    style,
+    type = Variants.PRIMARY,
+    // eslint-disable-next-line comma-dangle
+    ...rest
+  } = props;
 
-  render() {
-    const buttonStyle = cx(style.button, {
-      [style.primary]: this.props.type === buttontType.PRIMARY,
-      [style.secondary]: this.props.type === buttontType.SECONDARY,
-      [style.tertiary]: this.props.type === buttontType.TERTIARY,
-      [style.small]: this.props.size === size.SMALL,
-      [style.loading]: this.props.loading,
-      [style.disabled]: this.props.disabled,
-    });
+  const classes = cx(styles.button, className, {
+    [styles.primary]: type === Variants.PRIMARY,
+    [styles.secondary]: type === Variants.SECONDARY,
+    [styles.tertiary]: type === Variants.TERTIARY,
+    [styles.small]: size === Sizes.SMALL,
+    [styles.loading]: loading,
+  });
 
-    let loaderDotStyle;
-    if (this.props.type === buttontType.SECONDARY || this.props.type === buttontType.TERTIARY) {
-      loaderDotStyle = { backgroundColor: '#000', opacity: '0.1' };
-    }
+  let contentComponent;
+  if (loading) {
+    const loaderDotStyle =
+      type === Variants.SECONDARY || type === Variants.TERTIARY
+        ? { backgroundColor: '#000', opacity: '0.1' }
+        : undefined;
 
-    let contentComponent;
-    if (this.props.loading) {
-      contentComponent = <Loader dotStyle={loaderDotStyle} />;
-    } else {
-      contentComponent = this.props.label || this.props.children;
-    }
-
-    let buttonType = 'button';
-    if (this.props.isSubmit) {
-      buttonType = 'submit';
-    }
-
-    return (
-      <button
-        {...getDataAttrs(this.props.data)}
-        className={cx(buttonStyle)}
-        disabled={this.props.disabled}
-        style={this.props.style}
-        onClick={this.props.onClick}
-        type={buttonType}
-      >
-        {contentComponent}
-      </button>
-    );
+    contentComponent = <Loader dotStyle={loaderDotStyle} />;
+  } else {
+    contentComponent = children || label;
   }
-}
 
+  return (
+    <button
+      {...getDataAttrs(data)}
+      className={classes}
+      disabled={disabled}
+      onClick={onClick}
+      style={style}
+      type={isSubmit ? 'submit' : 'button'}
+      {...rest}
+    >
+      {contentComponent}
+    </button>
+  );
+}
 
 Button.displayName = 'Plasma@Button';
 

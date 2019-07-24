@@ -3,18 +3,15 @@ import React from 'react';
 import style from './style.scss';
 
 type Props = {
-  onClick: (any) => void,
+  onClick: string => void,
   optionKey: string,
   text: string,
 };
 
 const OverflowMenuItem = ({ onClick, optionKey, text }: Props) => {
   return (
-    <li
-      className={style.revealableListItem}
-      onClick={() => onClick(optionKey)}
-    >
-      { text }
+    <li className={style.revealableListItem} onClick={() => onClick(optionKey)}>
+      {text}
     </li>
   );
 };

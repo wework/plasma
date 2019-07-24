@@ -8,7 +8,7 @@ type Props = {|
   children: Node,
   onScroll: (evt: MouseEvent) => void,
   style: Object,
-  data: Data,
+  data?: Data,
 |};
 
 class HorizontalScroll extends React.Component<Props> {
@@ -40,11 +40,11 @@ class HorizontalScroll extends React.Component<Props> {
         {...getDataAttrs(this.props.data)}
         style={this.props.style}
         className={style.wrapper}
-        ref={(c) => { this.wrapper = c; }}
+        ref={c => {
+          this.wrapper = c;
+        }}
       >
-        <div className={style.content}>
-          { this.props.children }
-        </div>
+        <div className={style.content}>{this.props.children}</div>
       </div>
     );
   }

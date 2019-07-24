@@ -3,7 +3,7 @@ import cx from 'classnames';
 import React, { type Node } from 'react';
 import style from './style.scss';
 import { getDataAttrs } from '../../dataUtils';
-import type { Data } from '../../types';
+import type { Data, StyleAttributes } from '../../types';
 
 type Props = {|
   text?: string,
@@ -16,7 +16,7 @@ type Props = {|
   h5?: boolean,
   h6?: boolean,
   invert?: boolean,
-  style?: boolean,
+  style?: StyleAttributes,
   noMargin?: boolean,
   data?: Data,
 |};
@@ -35,16 +35,9 @@ class Header extends React.Component<Props> {
     });
 
     return (
-      <div
-        {...getDataAttrs(this.props.data)}
-        className={[headerStyle]}
-      >
-        <div className={style.content}>
-          { this.props.text || this.props.children }
-        </div>
-        { this.props.underline &&
-          <div className={style.rule} />
-        }
+      <div {...getDataAttrs(this.props.data)} className={[headerStyle]}>
+        <div className={style.content}>{this.props.text || this.props.children}</div>
+        {this.props.underline && <div className={style.rule} />}
       </div>
     );
   }

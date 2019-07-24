@@ -1,12 +1,22 @@
 {
-  "presets": ["es2015", "react", "flow"],
+  "presets":    [
+    [ "env", {
+      "modules": "commonjs",
+      "useBuiltIns": true
+    }],
+    "react",
+    "flow"
+  ],
   "plugins": [
   	"transform-class-properties",
-  	"react-hot-loader/babel",
-  	"transform-object-rest-spread",
-  	"lodash"
+  	"transform-object-rest-spread"
   ],
   "env": {
+    "development": {
+      "plugins": [
+        "react-hot-loader/babel"
+      ]
+    },
     "test": {
       "plugins": ["transform-es2015-modules-commonjs"]
     }

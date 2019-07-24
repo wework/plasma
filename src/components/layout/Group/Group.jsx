@@ -3,15 +3,15 @@ import React, { type Node } from 'react';
 import cx from 'classnames';
 import { map, isArray, toArray } from 'lodash';
 import { getDataAttrs } from '../../../dataUtils';
-import type { Data } from '../../../types';
+import type { Data, StyleAttributes } from '../../../types';
 import style from './style.scss';
 
 type Props = {|
   children: Array<Node>,
-  vertical: boolean,
+  vertical?: boolean,
   layout: Array<Object>,
-  style: Object,
-  data: Data,
+  style?: StyleAttributes,
+  data?: Data,
 |};
 
 class Group extends React.Component<Props> {
@@ -30,11 +30,7 @@ class Group extends React.Component<Props> {
     }
 
     return (
-      <div
-        {...getDataAttrs(this.props.data)}
-        className={groupStyle}
-        style={this.props.style}
-      >
+      <div {...getDataAttrs(this.props.data)} className={groupStyle} style={this.props.style}>
         {map(children, (child, index) => {
           const styleObj = {};
           if (this.props.layout[index] === 'shrink') {
@@ -47,12 +43,11 @@ class Group extends React.Component<Props> {
             styleObj.flexBasis = `${100 / this.props.children.length}%`;
           }
 
-          return (<div
-            key={index}
-            style={styleObj}
-          >
-            {child}
-          </div>);
+          return (
+            <div key={index} style={styleObj}>
+              {child}
+            </div>
+          );
         })}
       </div>
     );

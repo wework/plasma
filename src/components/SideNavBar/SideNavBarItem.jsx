@@ -9,7 +9,7 @@ type Props = {|
   iconSize: number,
   iconStyle?: Object,
   label: Node,
-  onClick: (string) => mixed,
+  onClick: string => mixed,
   selected: boolean,
   children?: Node,
   darkBg?: boolean,
@@ -51,21 +51,16 @@ class SideNavBarItem extends Component<Props> {
 
     if (linkComponent) {
       comp = (
-        <div
-          className={wrapperClasses}
-        >
-          { linkComponent }
-          { tagText && <div className={style.tag}>{tagText}</div>}
+        <div className={wrapperClasses}>
+          {linkComponent}
+          {tagText && <div className={style.tag}>{tagText}</div>}
         </div>
       );
     } else {
       comp = (
-        <div
-          className={wrapperClasses}
-          onClick={this._onClick}
-        >
-          { this.renderIconAndLabel() }
-          { tagText && <div className={style.tag}>{tagText}</div>}
+        <div className={wrapperClasses} onClick={this._onClick}>
+          {this.renderIconAndLabel()}
+          {tagText && <div className={style.tag}>{tagText}</div>}
         </div>
       );
     }

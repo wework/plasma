@@ -5,7 +5,6 @@ import SideNavBarItem from './SideNavBarItem';
 import { type Item } from './SideNavBar';
 import style from './style.scss';
 
-
 type Props = {|
   id: string,
   icon: string,
@@ -38,7 +37,7 @@ class SideNavBarItemGroup extends Component<Props> {
 
   renderIconAndLabel() {
     const { icon, iconSize, iconStyle, label, items } = this.props;
-    if (!find(items, (item) => !item.hidden)) {
+    if (!find(items, item => !item.hidden)) {
       return null;
     }
 
@@ -56,46 +55,39 @@ class SideNavBarItemGroup extends Component<Props> {
     );
 
     return (
-      <div
-        onClick={this.handleGroupClick}
-        className={style.iconAndLabelContainer}
-      >
-        <div className={style.iconWrapper}>
-          {iconToRender}
-        </div>
-        <div className={style.groupLabelWrapper}>
-          {label}
-        </div>
+      <div onClick={this.handleGroupClick} className={style.iconAndLabelContainer}>
+        <div className={style.iconWrapper}>{iconToRender}</div>
+        <div className={style.groupLabelWrapper}>{label}</div>
       </div>
     );
   }
 
-  renderSubItems() {
-    const items = this.props.items && this.props.items.map((groupedItem) => {
-      return !groupedItem.hidden && (
-        <SideNavBarItem
-          key={groupedItem.id}
-          id={groupedItem.id}
-          label={groupedItem.label}
-          tagText={groupedItem.tagText}
-          onClick={this.handleItemClick}
-          selected={groupedItem.id === this.props.selectedId}
-          linkComponent={groupedItem.linkComponent}
-        />
-      );
-    });
+  renderSubItems(): Node {
+    const items =
+      this.props.items &&
+      this.props.items.map((groupedItem: Item) => {
+        return (
+          !groupedItem.hidden && (
+            <SideNavBarItem
+              key={groupedItem.id}
+              id={groupedItem.id}
+              label={groupedItem.label}
+              tagText={groupedItem.tagText}
+              onClick={this.handleItemClick}
+              selected={groupedItem.id === this.props.selectedId}
+              linkComponent={groupedItem.linkComponent}
+            />
+          )
+        );
+      });
     return items;
   }
 
   render() {
     return (
-      <div
-        className={style.groupWrapper}
-      >
+      <div className={style.groupWrapper}>
         {this.renderIconAndLabel()}
-        <div className={style.groupSubItems}>
-          { this.renderSubItems() }
-        </div>
+        <div className={style.groupSubItems}>{this.renderSubItems()}</div>
       </div>
     );
   }

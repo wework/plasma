@@ -10,7 +10,7 @@ describe('Table Component', () => {
     if (element.type === 'table') {
       return {
         offsetWidth: 1000,
-      }
+      };
     }
     if (element.type === 'calculateSizes') {
       return () => {};
@@ -19,10 +19,7 @@ describe('Table Component', () => {
   }
 
   test('render', () => {
-    const component = renderer.create(
-      <Table />,
-      {createNodeMock}
-    );
+    const component = renderer.create(<Table />, { createNodeMock });
     let tree = component.toJSON();
     expect(tree).toMatchSnapshot();
   });
@@ -42,18 +39,14 @@ describe('Table Component', () => {
         firstname: 'Brad',
         lastname: 'Pitt',
         age: '45',
-        sex: [
-          { sex: 'Male', location: 'Beverly Hills' },
-          { sex: 'Female', location: 'Tokyo' }],
+        sex: [{ sex: 'Male', location: 'Beverly Hills' }, { sex: 'Female', location: 'Tokyo' }],
         nickname: 'The Bulldozer',
       },
       {
         firstname: 'Jennifer',
         lastname: 'Lawrence',
         age: '26',
-        sex: [
-          { sex: 'Male', location: 'Beverly Hills' },
-          { sex: 'Female', location: 'Tokyo' }],
+        sex: [{ sex: 'Male', location: 'Beverly Hills' }, { sex: 'Female', location: 'Tokyo' }],
         nickname: 'Slow Loris',
       },
     ];
@@ -70,13 +63,59 @@ describe('Table Component', () => {
     );
 
     expect(component.find('thead').find('tr')).toHaveLength(1);
-    expect(component.find('thead').find('tr').find('th')).toHaveLength(6);
-    expect(component.find('thead').find('tr').find('th').at(0).text()).toEqual('First name');
-    expect(component.find('thead').find('tr').find('th').at(1).text()).toEqual('Last name');
-    expect(component.find('thead').find('tr').find('th').at(2).text()).toEqual('Age');
-    expect(component.find('thead').find('tr').find('th').at(3).text()).toEqual('Sex');
-    expect(component.find('thead').find('tr').find('th').at(4).text()).toEqual('Location');
-    expect(component.find('thead').find('tr').find('th').at(5).text()).toEqual('Nickname');
+    expect(
+      component
+        .find('thead')
+        .find('tr')
+        .find('th')
+    ).toHaveLength(6);
+    expect(
+      component
+        .find('thead')
+        .find('tr')
+        .find('th')
+        .at(0)
+        .text()
+    ).toEqual('First name');
+    expect(
+      component
+        .find('thead')
+        .find('tr')
+        .find('th')
+        .at(1)
+        .text()
+    ).toEqual('Last name');
+    expect(
+      component
+        .find('thead')
+        .find('tr')
+        .find('th')
+        .at(2)
+        .text()
+    ).toEqual('Age');
+    expect(
+      component
+        .find('thead')
+        .find('tr')
+        .find('th')
+        .at(3)
+        .text()
+    ).toEqual('Sex');
+    expect(
+      component
+        .find('thead')
+        .find('tr')
+        .find('th')
+        .at(4)
+        .text()
+    ).toEqual('Location');
+    expect(
+      component
+        .find('thead')
+        .find('tr')
+        .find('th')
+        .at(5)
+        .text()
+    ).toEqual('Nickname');
   });
-
 });

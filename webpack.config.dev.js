@@ -1,15 +1,10 @@
 /* eslint-disable import/no-extraneous-dependencies, no-console */
 
+const css = require('./css.config');
 const path = require('path');
-const ExtractTextPlugin = require('extract-text-webpack-plugin');
-const webpack = require('webpack');
-
-const port = process.env.PORT || 8082;
 
 module.exports = {
-  entry: [
-    './src/index.js',
-  ],
+  entry: ['./src/index.js'],
   output: {
     path: path.resolve(__dirname, 'dist'),
     publicPath: path.resolve(__dirname, 'dist'),
@@ -18,9 +13,7 @@ module.exports = {
     libraryTarget: 'umd',
   },
   resolve: {
-    modules: [
-      path.resolve('./node_modules'),
-    ],
+    modules: [path.resolve('./node_modules')],
     extensions: ['.js', '.jsx'],
   },
   module: {
@@ -32,24 +25,20 @@ module.exports = {
       },
       {
         test: /\.scss$/,
-        loader: ExtractTextPlugin.extract({
-          fallback: 'style-loader',
-          use: [
-            'css-loader?modules&importLoaders=2&localIdentName=[path][local]__[hash:base64:5]',
-            'resolve-url-loader',
-            'sass-loader',
-          ],
-        }),
+        use: [
+          'style-loader',
+          `css-loader?modules&importLoaders=1&localIdentName=${css.localIdentName}`,
+          'resolve-url-loader',
+          'sass-loader',
+        ],
       },
       {
         test: /\.css$/,
-        loader: ExtractTextPlugin.extract({
-          fallback: 'style-loader',
-          use: [
-            'css-loader?importLoaders=1&localIdentName=[path][local]__[hash:base64:5]',
-            'resolve-url-loader',
-          ],
-        }),
+        use: [
+          'style-loader',
+          `css-loader?importLoaders=1&localIdentName=${css.localIdentName}`,
+          'resolve-url-loader',
+        ],
       },
       {
         test: /\.png$/,
@@ -58,7 +47,6 @@ module.exports = {
     ],
   },
   plugins: [
-    new ExtractTextPlugin('styles.css'),
     // new webpack.HotModuleReplacementPlugin(),
   ],
   devtool: 'source-map',

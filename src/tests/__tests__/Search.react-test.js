@@ -7,9 +7,7 @@ import { shallow, mount } from 'enzyme';
 
 describe('Search Component', () => {
   test('render', () => {
-    const component = renderer.create(
-      <Search />
-    );
+    const component = renderer.create(<Search />);
     let tree = component.toJSON();
     expect(tree).toMatchSnapshot();
   });
@@ -17,11 +15,7 @@ describe('Search Component', () => {
   test('onClear', () => {
     const onClear = jest.fn();
     const component = mount(
-      <Search
-        clearable
-        clearIconUrl='http://yolo.com/icon.png'
-        onClear={onClear}
-      />
+      <Search clearable clearIconUrl="http://yolo.com/icon.png" onClear={onClear} />
     );
     component.setState({ text: 'text' });
     component.find('.clearableIcon').simulate('click');
@@ -30,12 +24,8 @@ describe('Search Component', () => {
 
   test('onChange', () => {
     const onChange = jest.fn();
-    const component = mount(
-      <Search
-        onChange={onChange}
-      />
-    );
-    component.find('input').simulate('change', { target: { value: 'YOLO' }});
+    const component = mount(<Search onChange={onChange} />);
+    component.find('input').prop('onChange')({ currentTarget: { value: 'YOLO' } });
     expect(onChange).toHaveBeenCalledTimes(1);
     expect(component.state('text')).toBe('YOLO');
   });

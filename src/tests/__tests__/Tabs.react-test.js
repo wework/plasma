@@ -7,9 +7,7 @@ import { shallow, mount } from 'enzyme';
 
 describe('Tabs Component', () => {
   test('render', () => {
-    const component = renderer.create(
-      <Tabs />
-    );
+    const component = renderer.create(<Tabs />);
     let tree = component.toJSON();
     expect(tree).toMatchSnapshot();
   });
@@ -23,13 +21,9 @@ describe('Tabs Component', () => {
       {
         label: 'two',
         title: 'Two',
-      }
+      },
     ];
-    const component = shallow(
-      <Tabs
-        items={items}
-      />
-    );
+    const component = shallow(<Tabs items={items} />);
     expect(component.find('li')).toHaveLength(2);
   });
 
@@ -42,18 +36,16 @@ describe('Tabs Component', () => {
       {
         label: 'two',
         title: 'Two',
-      }
+      },
     ];
     const onChange = jest.fn();
-    const component = mount(
-      <Tabs
-        items={items}
-        onChange={onChange}
-      />
-    );
-    component.find('li').first().simulate('click');
+    const component = mount(<Tabs items={items} onChange={onChange} />);
+    component
+      .find('li')
+      .first()
+      .simulate('click');
     expect(onChange).toHaveBeenCalledTimes(1);
-    expect(onChange).toHaveBeenCalledWith("one", 0);
+    expect(onChange).toHaveBeenCalledWith('one', 0);
   });
 
   test('onClick last tab', () => {
@@ -65,18 +57,16 @@ describe('Tabs Component', () => {
       {
         label: 'two',
         title: 'Two',
-      }
+      },
     ];
     const onChange = jest.fn();
-    const component = mount(
-      <Tabs
-        items={items}
-        onChange={onChange}
-      />
-    );
-    component.find('li').last().simulate('click');
+    const component = mount(<Tabs items={items} onChange={onChange} />);
+    component
+      .find('li')
+      .last()
+      .simulate('click');
     expect(onChange).toHaveBeenCalledTimes(1);
-    expect(onChange).toHaveBeenCalledWith("two", 1);
+    expect(onChange).toHaveBeenCalledWith('two', 1);
   });
 
   test('keydown first tab', () => {
@@ -92,18 +82,16 @@ describe('Tabs Component', () => {
       {
         label: 'three',
         title: 'Three',
-      }
+      },
     ];
     const onChange = jest.fn();
-    const component = mount(
-      <Tabs
-        items={items}
-        onChange={onChange}
-      />
-    );
-    component.find('li').first().simulate('keydown', { keyCode: 13 });
+    const component = mount(<Tabs items={items} onChange={onChange} />);
+    component
+      .find('li')
+      .first()
+      .simulate('keydown', { keyCode: 13 });
     expect(onChange).toHaveBeenCalledTimes(1);
-    expect(onChange).toHaveBeenCalledWith("one", 0);
+    expect(onChange).toHaveBeenCalledWith('one', 0);
   });
 
   test('keydown last tab', () => {
@@ -119,17 +107,15 @@ describe('Tabs Component', () => {
       {
         label: 'three',
         title: 'Three',
-      }
+      },
     ];
     const onChange = jest.fn();
-    const component = mount(
-      <Tabs
-        items={items}
-        onChange={onChange}
-      />
-    );
-    component.find('li').last().simulate('keydown', { keyCode: 13 });
+    const component = mount(<Tabs items={items} onChange={onChange} />);
+    component
+      .find('li')
+      .last()
+      .simulate('keydown', { keyCode: 13 });
     expect(onChange).toHaveBeenCalledTimes(1);
-    expect(onChange).toHaveBeenCalledWith("three", 2);
+    expect(onChange).toHaveBeenCalledWith('three', 2);
   });
 });

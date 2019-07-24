@@ -1,34 +1,31 @@
 // @flow
 import React, { type Node } from 'react';
-import {
-  getDataAttrs,
-} from '../../../dataUtils';
+import type { StyleAttributes } from '../../../types';
+import { getDataAttrs } from '../../../dataUtils';
 import styles from './style.scss';
 import Label from '../../Label/Label.jsx';
 
 type Props = {|
   children: Node,
-  isDisabled: boolean,
-  isRequired: boolean,
+  isDisabled?: boolean,
+  isRequired?: boolean,
   label: string,
-  displayError: boolean,
-  errorMessage: string,
-  data: Object,
-  style: Object,
+  displayError?: boolean,
+  errorMessage?: string,
+  data?: Object,
+  style?: StyleAttributes,
 |};
 
-const FormField = (
-  {
-    children,
-    isDisabled,
-    isRequired,
-    label,
-    data,
-    displayError,
-    errorMessage,
-    style,
-  }: Props
-) => {
+const FormField = ({
+  children,
+  isDisabled,
+  isRequired,
+  label,
+  data,
+  displayError,
+  errorMessage,
+  style,
+}: Props) => {
   let labelText = label;
 
   if (isRequired) {
@@ -36,19 +33,9 @@ const FormField = (
   }
 
   return (
-    <div
-      {...getDataAttrs(data)}
-      className={styles.wrapper}
-      style={style}
-    >
-      <Label
-        text={labelText}
-        className={styles.disabled}
-        type={isDisabled ? 'disabled' : 'primary'}
-      />
-      <div className={styles.input}>
-        {children}
-      </div>
+    <div {...getDataAttrs(data)} className={styles.wrapper} style={style}>
+      <Label disabled={isDisabled}>{labelText}</Label>
+      <div className={styles.input}>{children}</div>
       {displayError && errorMessage && <div className={styles.error}>{errorMessage}</div>}
     </div>
   );
@@ -58,7 +45,7 @@ FormField.defaultProps = {
   children: '',
   disabled: false,
   label: '',
-  style: { },
+  style: {},
 };
 
 FormField.displayName = 'Plasma@FormField';

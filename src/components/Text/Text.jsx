@@ -2,14 +2,14 @@
 import React, { type Node } from 'react';
 import cx from 'classnames';
 import style from './style.scss';
-import type { Data } from '../../types';
+import type { Data, StyleAttributes } from '../../types';
 import { getDataAttrs } from '../../dataUtils';
 
 export type Props = {|
   children: Node,
   data?: Data,
   large?: boolean,
-  style?: Object,
+  style?: StyleAttributes,
   type?: string,
 |};
 
@@ -30,11 +30,7 @@ class Text extends React.Component<Props> {
       [style.secondary]: type === types.SECONDARY,
     });
     return (
-      <div
-        {...getDataAttrs(this.props.data)}
-        className={textStyle}
-        style={this.props.style}
-      >
+      <div {...getDataAttrs(this.props.data)} className={textStyle} style={this.props.style}>
         {this.props.children}
       </div>
     );

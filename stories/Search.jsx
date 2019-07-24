@@ -1,27 +1,13 @@
 import React from 'react';
 import { storiesOf } from '@storybook/react';
-import { action } from '@storybook/addon-actions';
-import { linkTo } from '@storybook/addon-links';
 import Search from '../src/components/Search/Search';
 
 storiesOf('Search', module).add('default', () => {
-  return (
-    <Search
-      iconUrl="http://placehold.it/30x30"
-      onChange={() => {}}
-      placeholder="Search"
-    />
-  );
+  return <Search iconUrl="http://placehold.it/30x30" onChange={() => {}} placeholder="Search" />;
 });
 
 storiesOf('Search', module).add('with a small icon passed in', () => {
-  return (
-    <Search
-      iconUrl="http://placehold.it/16x16"
-      onChange={() => {}}
-      placeholder="Search"
-    />
-  );
+  return <Search iconUrl="http://placehold.it/16x16" onChange={() => {}} placeholder="Search" />;
 });
 
 storiesOf('Search', module).add('with instruction text', () => {
@@ -31,6 +17,7 @@ storiesOf('Search', module).add('with instruction text', () => {
       instructionText="Some sort of instructions for this search."
       onChange={() => {}}
       placeholder="Search"
+      autoFocus
     />
   );
 });
@@ -49,12 +36,7 @@ storiesOf('Search', module).add('clearable', () => {
 
 storiesOf('Search', module).add('disabled', () => {
   return (
-    <Search
-      disabled
-      iconUrl="http://placehold.it/30x30"
-      onChange={() => {}}
-      placeholder="Search"
-    />
+    <Search disabled iconUrl="http://placehold.it/30x30" onChange={() => {}} placeholder="Search" />
   );
 });
 

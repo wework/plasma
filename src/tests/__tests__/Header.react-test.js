@@ -7,11 +7,7 @@ import { shallow, mount } from 'enzyme';
 
 describe('Header Component', () => {
   test('render', () => {
-    const component = renderer.create(
-      <Header>
-        YOLO
-      </Header>
-    );
+    const component = renderer.create(<Header>YOLO</Header>);
     let tree = component.toJSON();
     expect(tree).toMatchSnapshot();
   });
