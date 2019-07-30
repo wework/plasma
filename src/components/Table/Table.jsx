@@ -13,6 +13,7 @@ type Props = {|
   clickable?: boolean,
   empty: boolean,
   emptyText: string,
+  emptyPlaceholder: ?React$Node,
   headerData: Array<Object>,
   highlightable?: boolean,
   items: ?Array<Object>,
@@ -201,6 +202,7 @@ class Table extends React.Component<Props, State> {
       clickable,
       empty,
       emptyText,
+      emptyPlaceholder,
       headerData,
       highlightable,
       items,
@@ -222,12 +224,12 @@ class Table extends React.Component<Props, State> {
       );
     }
 
-    if (empty && emptyText) {
+    if (empty && (emptyText || emptyPlaceholder)) {
       return (
         <tbody className={style.tbody}>
           <tr className={style.row}>
             <td className={style.cell} colSpan={totalColumns}>
-              <span className={style.emptyText}>{emptyText}</span>
+              {emptyText ? <span className={style.emptyText}>{emptyText}</span> : emptyPlaceholder}
             </td>
           </tr>
         </tbody>

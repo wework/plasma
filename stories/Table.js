@@ -253,3 +253,23 @@ storiesOf('Table', module).add('with styled rows', () => {
     />
   );
 });
+
+storiesOf('Table', module)
+  .add('empty text', () => (
+    <Table
+      empty
+      emptyText="The table is empty."
+      headerData={headerData}
+      items={[]}
+      loading={false}
+    />
+  ))
+  .add('empty placeholder', () => (
+    <Table
+      empty
+      emptyPlaceholder={<div className={style.tableEmptyPlaceholder}>No items here!</div>}
+      headerData={headerData}
+      items={[]}
+      loading={false}
+    />
+  ));
