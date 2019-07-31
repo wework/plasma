@@ -12,8 +12,7 @@ import style from './style.scss';
 type Props = {|
   clickable?: boolean,
   empty: boolean,
-  emptyText: string,
-  emptyPlaceholder: ?React$Node,
+  emptyText: React$Node,
   headerData: Array<Object>,
   highlightable?: boolean,
   items: ?Array<Object>,
@@ -24,7 +23,7 @@ type Props = {|
   stickAt?: number,
   style?: StyleAttributes,
   data?: Data,
-  sort: { key: string, order: string },
+  sort?: { key: string, order: string },
 |};
 
 type State = {|
@@ -42,9 +41,8 @@ class Table extends React.Component<Props, State> {
     empty: false,
     emptyText: '',
     loading: false,
-    stickAt: null,
     headerData: [],
-    sort: {},
+    // sort: {},
   };
 
   constructor() {
@@ -148,7 +146,8 @@ class Table extends React.Component<Props, State> {
   }
 
   renderCarat() {
-    return <Icon color="#fff" icon={this.props.sort.order === 'asc' ? downArrow : upArrow} />;
+    const { sort } = this.props;
+    return <Icon color="#fff" icon={sort && sort.order === 'asc' ? downArrow : upArrow} />;
   }
 
   renderHeader(opts: Object = {}) {
@@ -202,7 +201,6 @@ class Table extends React.Component<Props, State> {
       clickable,
       empty,
       emptyText,
-      emptyPlaceholder,
       headerData,
       highlightable,
       items,
@@ -224,12 +222,16 @@ class Table extends React.Component<Props, State> {
       );
     }
 
-    if (empty && (emptyText || emptyPlaceholder)) {
+    if (empty && emptyText) {
       return (
         <tbody className={style.tbody}>
           <tr className={style.row}>
             <td className={style.cell} colSpan={totalColumns}>
-              {emptyText ? <span className={style.emptyText}>{emptyText}</span> : emptyPlaceholder}
+              {typeof emptyText === 'string' ? (
+                <span className={style.emptyText}>{emptyText}</span>
+              ) : (
+                emptyText
+              )}
             </td>
           </tr>
         </tbody>

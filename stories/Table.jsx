@@ -1,8 +1,7 @@
+// @flow
 import React from 'react';
 import { times, cloneDeep } from 'lodash';
 import { storiesOf } from '@storybook/react';
-import { action } from '@storybook/addon-actions';
-import { linkTo } from '@storybook/addon-links';
 import Table from '../src/components/Table/Table';
 
 import style from './style.scss';
@@ -267,7 +266,7 @@ storiesOf('Table', module)
   .add('empty placeholder', () => (
     <Table
       empty
-      emptyPlaceholder={<div className={style.tableEmptyPlaceholder}>No items here!</div>}
+      emptyText={<div className={style.tableEmptyPlaceholder}>No items here!</div>}
       headerData={headerData}
       items={[]}
       loading={false}
