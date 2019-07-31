@@ -42,7 +42,6 @@ class Table extends React.Component<Props, State> {
     emptyText: '',
     loading: false,
     headerData: [],
-    // sort: {},
   };
 
   constructor() {
