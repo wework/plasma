@@ -1,5 +1,5 @@
 // @flow
-import { pick, keys, forEach, isNull, get, map, includes, isEqual, find } from 'lodash';
+import { pick, keys, forEach, get, map, includes, isEqual, find } from 'lodash';
 import React from 'react';
 import cx from 'classnames';
 import { getDataAttrs } from '../../dataUtils';
@@ -59,7 +59,7 @@ class Table extends React.Component<Props, State> {
   }
 
   componentDidMount() {
-    if (!isNull(this.props.stickAt)) {
+    if (this.props.stickAt != null) {
       document.addEventListener('scroll', this.handleScroll);
       window.addEventListener('resize', this.handleWindowResize);
       const init = () => {
@@ -92,13 +92,12 @@ class Table extends React.Component<Props, State> {
   };
 
   handleScroll = () => {
-    if (!isNull(this.props.stickAt)) {
+    const { stickAt } = this.props;
+    if (stickAt != null) {
       const tableTopOffset = this.table.getBoundingClientRect().top;
       const tableBottomOffset = this.table.getBoundingClientRect().bottom;
-      const topAtOrAboveStickyPoint = tableTopOffset < this.props.stickAt;
-      const bottomAtOrAboveStickyPoint =
-        // $FlowFixMe TODO isNull is not recognized as refinement
-        tableBottomOffset - this.state.headerHeight < this.props.stickAt;
+      const topAtOrAboveStickyPoint = tableTopOffset < stickAt;
+      const bottomAtOrAboveStickyPoint = tableBottomOffset - this.state.headerHeight < stickAt;
       let isVisible = false;
       if (topAtOrAboveStickyPoint && !bottomAtOrAboveStickyPoint) {
         isVisible = true;
@@ -328,7 +327,7 @@ class Table extends React.Component<Props, State> {
   render() {
     return (
       <div {...getDataAttrs(this.props.data)} style={this.props.style} className={style.wrapper}>
-        {!isNull(this.props.stickAt) && (
+        {this.props.stickAt != null && (
           <div
             ref={c => (this.fixed = c)}
             className={cx(style.table, style.sticky)}
