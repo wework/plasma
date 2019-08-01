@@ -1,5 +1,5 @@
 // @flow
-import { pick, keys, forEach, isNull, get, map, includes, isEqual, find } from 'lodash';
+import { pick, keys, forEach, get, map, includes, isEqual, find } from 'lodash';
 import React from 'react';
 import cx from 'classnames';
 import { getDataAttrs } from '../../dataUtils';
@@ -12,7 +12,7 @@ import style from './style.scss';
 type Props = {|
   clickable?: boolean,
   empty: boolean,
-  emptyText: string,
+  emptyText: React$Node,
   headerData: Array<Object>,
   highlightable?: boolean,
   items: ?Array<Object>,
@@ -23,7 +23,7 @@ type Props = {|
   stickAt?: number,
   style?: StyleAttributes,
   data?: Data,
-  sort: { key: string, order: string },
+  sort?: { key: string, order: string },
 |};
 
 type State = {|
@@ -41,9 +41,7 @@ class Table extends React.Component<Props, State> {
     empty: false,
     emptyText: '',
     loading: false,
-    stickAt: null,
     headerData: [],
-    sort: {},
   };
 
   constructor() {
@@ -61,7 +59,7 @@ class Table extends React.Component<Props, State> {
   }
 
   componentDidMount() {
-    if (!isNull(this.props.stickAt)) {
+    if (this.props.stickAt != null) {
       document.addEventListener('scroll', this.handleScroll);
       window.addEventListener('resize', this.handleWindowResize);
       const init = () => {
@@ -94,13 +92,12 @@ class Table extends React.Component<Props, State> {
   };
 
   handleScroll = () => {
-    if (!isNull(this.props.stickAt)) {
+    const { stickAt } = this.props;
+    if (stickAt != null) {
       const tableTopOffset = this.table.getBoundingClientRect().top;
       const tableBottomOffset = this.table.getBoundingClientRect().bottom;
-      const topAtOrAboveStickyPoint = tableTopOffset < this.props.stickAt;
-      const bottomAtOrAboveStickyPoint =
-        // $FlowFixMe TODO isNull is not recognized as refinement
-        tableBottomOffset - this.state.headerHeight < this.props.stickAt;
+      const topAtOrAboveStickyPoint = tableTopOffset < stickAt;
+      const bottomAtOrAboveStickyPoint = tableBottomOffset - this.state.headerHeight < stickAt;
       let isVisible = false;
       if (topAtOrAboveStickyPoint && !bottomAtOrAboveStickyPoint) {
         isVisible = true;
@@ -147,7 +144,8 @@ class Table extends React.Component<Props, State> {
   }
 
   renderCarat() {
-    return <Icon color="#fff" icon={this.props.sort.order === 'asc' ? downArrow : upArrow} />;
+    const { sort } = this.props;
+    return <Icon color="#fff" icon={sort && sort.order === 'asc' ? downArrow : upArrow} />;
   }
 
   renderHeader(opts: Object = {}) {
@@ -227,7 +225,11 @@ class Table extends React.Component<Props, State> {
         <tbody className={style.tbody}>
           <tr className={style.row}>
             <td className={style.cell} colSpan={totalColumns}>
-              <span className={style.emptyText}>{emptyText}</span>
+              {typeof emptyText === 'string' ? (
+                <span className={style.emptyText}>{emptyText}</span>
+              ) : (
+                emptyText
+              )}
             </td>
           </tr>
         </tbody>
@@ -325,7 +327,7 @@ class Table extends React.Component<Props, State> {
   render() {
     return (
       <div {...getDataAttrs(this.props.data)} style={this.props.style} className={style.wrapper}>
-        {!isNull(this.props.stickAt) && (
+        {this.props.stickAt != null && (
           <div
             ref={c => (this.fixed = c)}
             className={cx(style.table, style.sticky)}
