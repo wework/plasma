@@ -32,6 +32,8 @@ class Checkbox extends React.Component<Props> {
     value: false,
   };
 
+  id = uniqueId('id');
+
   render() {
     const {
       checked,
@@ -50,7 +52,7 @@ class Checkbox extends React.Component<Props> {
     } = this.props;
 
     const isChecked = checked || value;
-    const id = uniqueId('id');
+    const id = this.id;
     const inlineClass = cx({ [style.inline]: fancy });
     const inputClassName = indeterminate ? style.indeterminate : style.original;
     const wrapperClassName = cx(style.wrapper, {

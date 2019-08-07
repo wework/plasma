@@ -28,6 +28,8 @@ class RadioButton extends React.Component<Props> {
     text: 'Option',
   };
 
+  id = uniqueId('id');
+
   value = (): mixed => {
     const { checked, value, fieldValue } = this.props;
     return checked || (fieldValue && value === this.props.fieldValue);
@@ -45,7 +47,7 @@ class RadioButton extends React.Component<Props> {
       onChange,
       text,
     } = this.props;
-    const id = uniqueId('id');
+    const id = this.id;
     const wrapperClasses = cx(style.wrapper, {
       [style.disabled]: disabled,
       [style.fancy]: fancy,
