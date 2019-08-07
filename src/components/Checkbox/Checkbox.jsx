@@ -8,6 +8,7 @@ import { getDataAttrs } from '../../dataUtils';
 import type { Data } from '../../types';
 
 type Props = {|
+  id?: string,
   checked?: boolean,
   data?: Data,
   description?: string,
@@ -32,7 +33,7 @@ class Checkbox extends React.Component<Props> {
     value: false,
   };
 
-  id = uniqueId('id');
+  id = this.props.id || uniqueId('id');
 
   render() {
     const {

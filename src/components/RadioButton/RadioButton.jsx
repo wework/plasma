@@ -8,6 +8,7 @@ import type { Data } from '../../types';
 import style from './style.scss';
 
 type Props = {|
+  id?: string,
   data?: Data,
   checked?: boolean,
   description?: ?string,
@@ -28,7 +29,7 @@ class RadioButton extends React.Component<Props> {
     text: 'Option',
   };
 
-  id = uniqueId('id');
+  id = this.props.id || uniqueId('id');
 
   value = (): mixed => {
     const { checked, value, fieldValue } = this.props;
