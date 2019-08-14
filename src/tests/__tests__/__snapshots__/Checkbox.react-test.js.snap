@@ -7,13 +7,13 @@ exports[`Checkbox Component render 1`] = `
   <div>
     <label
       className="wrapper"
-      htmlFor="id1"
+      htmlFor={undefined}
     >
       <input
         checked={false}
         className="original"
         disabled={undefined}
-        id="id1"
+        id={undefined}
         name="checkbox"
         onBlur={undefined}
         onChange={undefined}
@@ -40,13 +40,13 @@ exports[`Checkbox Component render 2`] = `
   <div>
     <label
       className="wrapper"
-      htmlFor="id1"
+      htmlFor={undefined}
     >
       <input
         checked={false}
         className="original"
         disabled={undefined}
-        id="id1"
+        id={undefined}
         name="checkbox"
         onBlur={undefined}
         onChange={undefined}
@@ -72,13 +72,13 @@ exports[`Checkbox Component render 3`] = `
   <div>
     <label
       className="wrapper fancy"
-      htmlFor="id2"
+      htmlFor={undefined}
     >
       <input
         checked={false}
         className="original"
         disabled={undefined}
-        id="id2"
+        id={undefined}
         name="checkbox"
         onBlur={undefined}
         onChange={undefined}
