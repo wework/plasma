@@ -1,5 +1,4 @@
 // @flow
-import { uniqueId } from 'lodash';
 import React, { type Node } from 'react';
 import cx from 'classnames';
 import style from './style.scss';
@@ -33,8 +32,6 @@ class Checkbox extends React.Component<Props> {
     value: false,
   };
 
-  id = this.props.id || uniqueId('id');
-
   render() {
     const {
       checked,
@@ -50,10 +47,10 @@ class Checkbox extends React.Component<Props> {
       onChange,
       text,
       value,
+      id,
     } = this.props;
 
     const isChecked = checked || value;
-    const id = this.id;
     const inlineClass = cx({ [style.inline]: fancy });
     const inputClassName = indeterminate ? style.indeterminate : style.original;
     const wrapperClassName = cx(style.wrapper, {

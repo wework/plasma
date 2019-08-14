@@ -1,5 +1,4 @@
 // @flow
-import { uniqueId } from 'lodash';
 import React from 'react';
 import cx from 'classnames';
 import Icon from '../Icon/Icon';
@@ -29,8 +28,6 @@ class RadioButton extends React.Component<Props> {
     text: 'Option',
   };
 
-  id = this.props.id || uniqueId('id');
-
   value = (): mixed => {
     const { checked, value, fieldValue } = this.props;
     return checked || (fieldValue && value === this.props.fieldValue);
@@ -47,8 +44,8 @@ class RadioButton extends React.Component<Props> {
       name,
       onChange,
       text,
+      id,
     } = this.props;
-    const id = this.id;
     const wrapperClasses = cx(style.wrapper, {
       [style.disabled]: disabled,
       [style.fancy]: fancy,

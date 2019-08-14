@@ -6,13 +6,13 @@ exports[`RadioButton Component render 1`] = `
 >
   <label
     className="wrapper"
-    htmlFor="id1"
+    htmlFor={undefined}
   >
     <input
       checked={undefined}
       className="original"
       disabled={undefined}
-      id="id1"
+      id={undefined}
       name="radioButton"
       onChange={undefined}
       type="radio"
@@ -37,13 +37,13 @@ exports[`RadioButton Component render 2`] = `
 >
   <label
     className="wrapper"
-    htmlFor="id1"
+    htmlFor={undefined}
   >
     <input
       checked={undefined}
       className="original"
       disabled={undefined}
-      id="id1"
+      id={undefined}
       name="radioButton"
       onChange={undefined}
       type="radio"
