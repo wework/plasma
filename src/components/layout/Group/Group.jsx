@@ -1,5 +1,5 @@
 // @flow
-import React, { type Node } from 'react';
+import React from 'react';
 import cx from 'classnames';
 import { map, isArray, toArray } from 'lodash';
 import { getDataAttrs } from '../../../dataUtils';
@@ -7,7 +7,7 @@ import type { Data, StyleAttributes } from '../../../types';
 import style from './style.scss';
 
 type Props = {|
-  children: Array<Node>,
+  children: React$Node,
   vertical?: boolean,
   layout: Array<Object>,
   style?: StyleAttributes,
@@ -40,7 +40,7 @@ class Group extends React.Component<Props> {
           } else if (this.props.layout[index]) {
             styleObj.flexBasis = this.props.layout[index];
           } else {
-            styleObj.flexBasis = `${100 / this.props.children.length}%`;
+            styleObj.flexBasis = `${100 / React.Children.count(this.props.children)}%`;
           }
 
           return (

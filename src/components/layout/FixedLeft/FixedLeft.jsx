@@ -1,6 +1,6 @@
 // @flow
 import { isNull, clamp } from 'lodash';
-import React, { type Node } from 'react';
+import React from 'react';
 import style from './style.scss';
 import { getDataAttrs } from '../../../dataUtils';
 import type { Data } from '../../../types';
@@ -26,7 +26,7 @@ type State = {|
 |};
 
 type Props = {|
-  children: Array<Node>,
+  children: React$Node,
   stickAt: number,
   contentStyle?: Object,
   fixedStyle?: Object,
@@ -52,6 +52,7 @@ class FixedLeft extends React.Component<Props, State> {
     if (!isNull(this.props.stickAt)) {
       document.addEventListener('scroll', this.handleScroll);
     }
+    // eslint-disable-next-line
     this.setState({ fixedWidth: this.fixed.offsetWidth });
   }
 
@@ -74,6 +75,8 @@ class FixedLeft extends React.Component<Props, State> {
   fixedViewportOffsetOrigin: number;
 
   render() {
+    const children = React.Children.toArray(this.props.children);
+
     return (
       <div {...getDataAttrs(this.props.data)} className={style.wrapper}>
         <div
@@ -88,7 +91,7 @@ class FixedLeft extends React.Component<Props, State> {
             }
           }}
         >
-          {this.props.children[0]}
+          {children[0]}
         </div>
         <div className={style.contentWrapper}>
           <div
@@ -96,7 +99,7 @@ class FixedLeft extends React.Component<Props, State> {
             style={{ width: this.state.fixedWidth, minWidth: this.state.fixedWidth }}
           />
           <div className={style.content} style={{ ...this.props.contentStyle }}>
-            {this.props.children[1]}
+            {children[1]}
           </div>
         </div>
       </div>

@@ -10,7 +10,7 @@ const defaultDeclarations = execSync(
   `jscodeshift -s -t scripts/extractDefaultFlowTypes.js src/components/**/*.jsx src/components/layout/**/*.jsx --parser flow`
 );
 
-const componentDecclarations = execSync(
+const componentDeclarations = execSync(
   `jscodeshift -s -t scripts/extractComponentFlowTypes.js src/components/**/*.jsx src/components/layout/**/*.jsx --parser flow`
 );
 
