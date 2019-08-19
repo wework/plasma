@@ -13,13 +13,14 @@ const defaultDeclarations = execSync(
 const componentDeclarations = execSync(
   `jscodeshift -s -t scripts/extractComponentFlowTypes.js src/components/**/*.jsx src/components/layout/**/*.jsx --parser flow`
 );
+const typeDec = execSync(`cat src/types.js`);
 
 console.log(`
 // flow-typed version: <<STUB>>/@wework-dev/plasma_v${currentVersion}/flow_v${flowVersion}
 
-declare module '@wework-dev/plasma' {
-  declare type Data = { [key: string]: string };
-
+declare module '@wework-dev/plasma' {  
+  ${String(typeDec).replace(/export/g, 'declare export')}
+  
   ${String(defaultDeclarations)}
 
   declare export class CountedTextInput extends React$Component<{ ...$PropertyType<TextInput, 'props'>, counterClassName?: string }> { }
