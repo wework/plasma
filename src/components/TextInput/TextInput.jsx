@@ -13,7 +13,7 @@ import type {
 
 import styles from './style.scss';
 
-type Props = {|
+export type Props = {|
   data?: Data,
   disabled?: boolean,
   error?: boolean,

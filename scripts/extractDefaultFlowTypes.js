@@ -18,9 +18,20 @@ export default function extractDefaultFlowTypes(file, api) {
     console.log(`// source file: ${file.path}`);
 
     if (p.value.id.name === 'Props') {
+      const capitalStaticKey = /^[A-Z]/;
+      const classProps = root
+        .find(j.ClassProperty)
+        .filter(
+          ({ value }) => value.static && value.key.name && capitalStaticKey.test(value.key.name)
+        );
+
+      const nodes = classProps.nodes();
+
       // declare export class ...
       console.log(
-        `declare export class ${componentName} extends React$Component<${typeDeclarationRHS}> { }`
+        `declare export class ${componentName} extends React$Component<${typeDeclarationRHS}> {
+            ${nodes.map(node => `static ${node.key.name}: any;`).join('\n')}
+        }`
       );
     } else if (p.value.id.name !== 'State') {
       // declare type ... = ...

@@ -37,7 +37,7 @@
   },
   "husky": {
     "hooks": {
-      "pre-commit": "yarn flow && yarn lint-staged"
+      "pre-commit": "yarn lint-staged && yarn flow"
     }
   },
   "author": "WeWork",
@@ -76,7 +76,7 @@
     "eslint-plugin-prettier": "3.0.1",
     "eslint-plugin-react": "6.10.3",
     "extract-text-webpack-plugin": "3.0.2",
-    "flow-bin": "0.84.0",
+    "flow-bin": "0.105",
     "fs-promise": "^0.5.0",
     "glob": "^7.0.5",
     "husky": "1.3.1",
