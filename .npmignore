@@ -2,7 +2,6 @@ docs
 
 .idea
 .storybook
-flow
 .flow*
 scripts
 src

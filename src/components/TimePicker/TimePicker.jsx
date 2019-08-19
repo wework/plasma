@@ -60,7 +60,7 @@ const DefaultOptions = Object.freeze({
 
 export type DefaultOption = $Values<typeof DefaultOptions>;
 
-type Option = {|
+type TimeOption = {|
   label: string,
   value: string,
 |};
@@ -87,7 +87,7 @@ type Props = {|
 |};
 
 type State = {|
-  options: Array<Option>,
+  options: Array<TimeOption>,
 |};
 
 const moment24h = (value?: string): moment => moment(value, FormatTypes.timeFormat24);
@@ -97,7 +97,7 @@ const enumerateOptions = (
   end: string,
   intervalMinutes: number,
   timeFormat: string
-): Array<Option> => {
+): Array<TimeOption> => {
   const minTime = moment24h(start);
   const maxTime = moment24h(end);
 
@@ -171,7 +171,7 @@ class TimePicker extends React.Component<Props, State> {
     return value;
   }
 
-  handleChange = (option: Option) => {
+  handleChange = (option: TimeOption) => {
     const { onChange } = this.props;
 
     if (onChange) {

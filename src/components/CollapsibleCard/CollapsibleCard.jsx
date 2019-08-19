@@ -1,5 +1,5 @@
 // @flow
-import React, { Component, type Node } from 'react';
+import React, { Component } from 'react';
 import cx from 'classnames';
 
 // Components
@@ -9,9 +9,9 @@ import Card, { borderColors as styleColors } from '../Card/Card';
 import style from './style.scss';
 
 type Props = {|
-  headerText: Node,
-  collapsibleText: Node,
-  children: Node,
+  headerText: React$Node,
+  collapsibleText: React$Node,
+  children: React$Node,
   styleColor: $Values<typeof styleColors>,
   isCollapsed: boolean,
   disabled: boolean,

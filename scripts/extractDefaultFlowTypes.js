@@ -1,6 +1,6 @@
 const { execSync } = require('child_process');
 
-export default function transformer(file, api) {
+export default function extractDefaultFlowTypes(file, api) {
   const j = api.jscodeshift;
   const root = j(file.source);
 
@@ -15,6 +15,7 @@ export default function transformer(file, api) {
 
     const fullTypeDeclaration = typeAtPosOutput.split('\n')[0];
     const typeDeclarationRHS = fullTypeDeclaration.replace(/^type\s+\w+\s+=\s+/, '');
+    console.log(`// source file: ${file.path}`);
 
     if (p.value.id.name === 'Props') {
       // declare export class ...

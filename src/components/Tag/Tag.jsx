@@ -1,13 +1,13 @@
 // @flow
-import React, { type Node } from 'react';
+import React from 'react';
 import cn from 'classnames';
 import { getDataAttrs } from '../../dataUtils';
 import type { Data } from '../../types';
 import style from './style.scss';
 
 type Props = {|
-  text: Node,
-  children?: Node,
+  text: React$Node,
+  children?: React$Node,
   data?: Data,
   className?: string,
 |};

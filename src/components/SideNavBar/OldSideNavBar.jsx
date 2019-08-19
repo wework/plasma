@@ -1,9 +1,9 @@
 // @flow
-import React, { Component, type Node } from 'react';
+import React, { Component } from 'react';
 import style from './oldStyle.scss';
 
 type Props = {|
-  children: Node,
+  children: React$Node,
 |};
 
 class SideNavBar extends Component<Props> {

@@ -1,7 +1,7 @@
 // @flow
 import cx from 'classnames';
 import { map } from 'lodash';
-import React, { type Node } from 'react';
+import React from 'react';
 import { getDataAttrs } from '../../dataUtils';
 import type { Data } from '../../types';
 import OverflowMenuItem from './OverflowMenuItem.jsx';
@@ -47,7 +47,7 @@ class OverflowMenu extends React.Component<Props, State> {
     this.props.onClick(optionKey);
   };
 
-  renderLabel = (): Node => {
+  renderLabel = (): React$Node => {
     const { label } = this.props;
     if (label) {
       return <div className={style.labelWithText}>{label} &#9662;</div>;

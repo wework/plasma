@@ -8,7 +8,7 @@ import style from './style.scss';
 
 type Tab = {|
   label: string,
-  title: Node,
+  title: React$Node,
 |};
 
 type Props = {|

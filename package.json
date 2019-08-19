@@ -19,19 +19,19 @@
     "styleguide": "styleguidist server",
     "styleguide:build": "styleguidist build",
     "watch": "webpack --watch --config webpack.config.dev",
-    "preversion": "yarn build",
-    "prepublish": "yarn build",
+    "preversion": "yarn build && yarn flow:buildTypeDefs",
+    "prepublish": "yarn preversion",
     "test": "node_modules/.bin/jest",
     "test:watch": "yarn test --watch --coverage",
     "test:update": "yarn test --updateSnapshot",
     "test:coverage": "yarn test --coverage --coverageReporters=text-lcov",
     "flow:coverage": "flow-coverage-report --config .flow-coverage.config.json --strict-coverage",
-    "flow:buildTypeDefs": "node ./scripts/buildFlowTypeDefs.js"
+    "flow:buildTypeDefs": "node ./scripts/buildFlowTypeDefs.js > flow/plasma_vx.x.x.js"
   },
   "lint-staged": {
     "*.{js,jsx}": [
       "prettier --write",
-      "eslint",
+      "eslint --fix",
       "git add"
     ]
   },
