@@ -66,8 +66,8 @@ type TimeOption = {|
 |};
 
 type Props = {|
-  maxTime: string,
-  minTime: string,
+  maxTime?: string,
+  minTime?: string,
   defaultOption?: DefaultOption,
   timeFormat: TimeFormatType,
   timeIntervalMinutes: number,
@@ -132,8 +132,8 @@ class TimePicker extends React.Component<Props, State> {
   };
 
   static getDerivedStateFromProps = ({
-    maxTime,
-    minTime,
+    maxTime = TimePicker.defaultProps.maxTime,
+    minTime = TimePicker.defaultProps.minTime,
     timeFormat,
     timeIntervalMinutes,
   }: Props) => ({
@@ -142,8 +142,8 @@ class TimePicker extends React.Component<Props, State> {
 
   state = {
     options: enumerateOptions(
-      this.props.minTime,
-      this.props.maxTime,
+      this.props.minTime || TimePicker.defaultProps.minTime,
+      this.props.maxTime || TimePicker.defaultProps.maxTime,
       this.props.timeIntervalMinutes,
       this.props.timeFormat
     ),
