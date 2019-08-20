@@ -11,7 +11,7 @@ type Props = {|
   actions?: Array<Node>,
   children: React$Node,
   visible?: boolean,
-  onDismiss?: (evt: MouseEvent) => void,
+  onDismiss?: (evt: MouseEvent) => any,
   innerCardStyle?: StyleAttributes,
   minWidth?: string | number,
   maxWidth?: string | number,
