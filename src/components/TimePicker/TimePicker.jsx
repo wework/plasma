@@ -70,7 +70,7 @@ type Props = {|
   minTime?: string,
   defaultOption?: DefaultOption,
   timeFormat: TimeFormatType,
-  timeIntervalMinutes: number,
+  timeIntervalMinutes?: number,
   value?: string,
   borderless?: boolean,
   className?: string,
@@ -135,7 +135,7 @@ class TimePicker extends React.Component<Props, State> {
     maxTime = TimePicker.defaultProps.maxTime,
     minTime = TimePicker.defaultProps.minTime,
     timeFormat,
-    timeIntervalMinutes,
+    timeIntervalMinutes = TimePicker.defaultProps.timeIntervalMinutes,
   }: Props) => ({
     options: enumerateOptions(minTime, maxTime, timeIntervalMinutes, timeFormat),
   });
@@ -144,7 +144,7 @@ class TimePicker extends React.Component<Props, State> {
     options: enumerateOptions(
       this.props.minTime || TimePicker.defaultProps.minTime,
       this.props.maxTime || TimePicker.defaultProps.maxTime,
-      this.props.timeIntervalMinutes,
+      this.props.timeIntervalMinutes || TimePicker.defaultProps.timeIntervalMinutes,
       this.props.timeFormat
     ),
   };
@@ -188,7 +188,10 @@ class TimePicker extends React.Component<Props, State> {
   };
 
   defaultTimeSelected(): ?string {
-    const { timeIntervalMinutes, defaultOption } = this.props;
+    const {
+      timeIntervalMinutes = TimePicker.defaultProps.timeIntervalMinutes,
+      defaultOption,
+    } = this.props;
     switch (defaultOption) {
       case TimePicker.DefaultOptions.nextInterval: {
         const roundedUp = Math.ceil(moment().minute() / timeIntervalMinutes) * timeIntervalMinutes;
