@@ -30,7 +30,6 @@
   },
   "lint-staged": {
     "*.{js,jsx}": [
-      "yarn flow:buildTypeDefs",
       "prettier --write",
       "eslint --fix",
       "git add"
