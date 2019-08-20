@@ -1,12 +1,11 @@
-// @flow
 import React from 'react';
 import { storiesOf } from '@storybook/react';
 import { action } from '@storybook/addon-actions';
-import TextInput, { type Props } from '../src/components/TextInput/TextInput';
+import TextInput from '../src/components/TextInput/TextInput';
 import withCounter from '../src/decorators/withCounter/withCounter';
 import StoryState from '../StoryState';
 
-const TextInputWithCounter = withCounter<Props>(TextInput);
+const TextInputWithCounter = withCounter(TextInput);
 
 storiesOf('TextInput', module)
   .add('default', () => <TextInput onChange={action('changed')} />)
