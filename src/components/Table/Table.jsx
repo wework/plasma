@@ -23,7 +23,7 @@ type Props = {|
   stickAt?: number,
   style?: StyleAttributes,
   data?: Data,
-  sort?: { key: string, order: string },
+  sort?: { key: ?string, order: ?string },
 |};
 
 type State = {|
