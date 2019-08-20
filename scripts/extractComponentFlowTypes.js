@@ -2,7 +2,7 @@ export default function extractDefaultFlowTypes(file, api) {
   const j = api.jscodeshift;
   const root = j(file.source);
 
-  root.find(j.TypeAlias).forEach(() => {
+  root.find(j.ClassDeclaration).forEach(() => {
     const componentName = file.path.match(/(\w+)\.jsx/)[1];
     const filePath = file.path.replace('src', 'lib').replace('.jsx', '');
 

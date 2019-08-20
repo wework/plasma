@@ -110,19 +110,6 @@ declare module '@wework-dev/plasma' {
     value?: string,
   |}> {}
 
-  // source file: src/components/SideNavBar/SideNavBarItemGroup.jsx
-  declare export class SideNavBarItemGroup extends React$Component<{|
-    darkBg?: boolean,
-    icon?: string,
-    iconSize: number,
-    iconStyle?: any,
-    id: string,
-    items?: Array<Item>,
-    label: React$Node,
-    onClick?: ({ id: string }) => mixed,
-    selectedId?: string,
-  |}> {}
-
   // source file: src/components/TextArea/TextArea.jsx
   declare export class TextArea extends React$Component<{|
     autosize: boolean,
@@ -139,7 +126,18 @@ declare module '@wework-dev/plasma' {
     value: string,
   |}> {}
 
-  // source file: src/components/layout/FixedRight/FixedRight.jsx
+  // source file: src/components/SideNavBar/SideNavBarItemGroup.jsx
+  declare export class SideNavBarItemGroup extends React$Component<{|
+    darkBg?: boolean,
+    icon?: string,
+    iconSize: number,
+    iconStyle?: any,
+    id: string,
+    items?: Array<Item>,
+    label: React$Node,
+    onClick?: ({ id: string }) => mixed,
+    selectedId?: string,
+  |}> {}
 
   // source file: src/components/OverflowMenu/OverflowMenu.jsx
   declare export class OverflowMenu extends React$Component<{|
@@ -150,6 +148,8 @@ declare module '@wework-dev/plasma' {
     openDirection?: $Values<{| LEFT: string, RIGHT: string |}>,
     options: Array<{| key: string, text: string |}>,
   |}> {}
+
+  // source file: src/components/layout/FixedRight/FixedRight.jsx
 
   // source file: src/components/Select/Select.jsx
   declare export class Select extends React$Component<{}> {}
@@ -177,21 +177,6 @@ declare module '@wework-dev/plasma' {
 
   // source file: src/components/OverflowMenu/OverflowMenu.jsx
 
-  // source file: src/components/SideNavBar/SideNavBarTop.jsx
-  declare export class SideNavBarTop extends React$Component<{|
-    className?: string,
-    editing?: boolean,
-    forwardedRef?: { current: null | HTMLInputElement },
-    fullWidth?: boolean,
-    icon: string,
-    label: React$Node,
-    onBlur?: (SyntheticFocusEvent<>) => void,
-    onChange?: (SyntheticInputEvent<HTMLInputElement>) => void,
-    onClick: (SyntheticMouseEvent<>) => void,
-    placeholder?: string,
-    value?: string,
-  |}> {}
-
   // source file: src/components/TextInput/TextInput.jsx
   declare export class TextInput extends React$Component<{|
     value?: string,
@@ -210,9 +195,6 @@ declare module '@wework-dev/plasma' {
     ...GlobalAttributes,
   |}> {}
 
-  // source file: src/components/SideNavBar/OldSideNavBar.jsx
-  declare export class OldSideNavBar extends React$Component<{| children: React$Node |}> {}
-
   // source file: src/components/Card/Card.jsx
   declare export class Card extends React$Component<{|
     actions?: Array<any>,
@@ -228,7 +210,33 @@ declare module '@wework-dev/plasma' {
     type?: $Values<{| CONDENSED: string, REGULAR: string |}>,
   |}> {}
 
+  // source file: src/components/SideNavBar/SideNavBarTop.jsx
+  declare export class SideNavBarTop extends React$Component<{|
+    className?: string,
+    editing?: boolean,
+    forwardedRef?: { current: null | HTMLInputElement },
+    fullWidth?: boolean,
+    icon: string,
+    label: React$Node,
+    onBlur?: (SyntheticFocusEvent<>) => void,
+    onChange?: (SyntheticInputEvent<HTMLInputElement>) => void,
+    onClick: (SyntheticMouseEvent<>) => void,
+    placeholder?: string,
+    value?: string,
+  |}> {}
+
   // source file: src/components/Image/Image.jsx
+
+  // source file: src/components/SideNavBar/SideNavBar.jsx
+  declare type Item = {|
+    hidden?: boolean,
+    icon?: string,
+    id: string,
+    items?: Array<Item>,
+    label: string,
+    linkComponent?: React$Node,
+    tagText?: string,
+  |};
 
   // source file: src/components/OverflowMenu/OverflowMenuItem.jsx
   declare export class OverflowMenuItem extends React$Component<{
@@ -239,23 +247,6 @@ declare module '@wework-dev/plasma' {
 
   // source file: src/components/layout/FixedTop/FixedTop.jsx
 
-  // source file: src/components/Card/Card.jsx
-
-  // source file: src/components/SideNavBar/OldSideNavBarItem.jsx
-  declare export class OldSideNavBarItem extends React$Component<{|
-    children: React$Node,
-    darkBg: boolean,
-    icon: string,
-    iconSize: number,
-    iconStyle: any,
-    label: string,
-    onClick: () => mixed,
-    selected: boolean,
-  |}> {}
-
-  // source file: src/components/TimePicker/TimePicker.jsx
-  declare type TimeFormatType = $Values<{| timeFormat12: string, timeFormat24: string |}>;
-
   // source file: src/components/Loader/Loader.jsx
   declare export class Loader extends React$Component<{|
     className?: string,
@@ -264,6 +255,26 @@ declare module '@wework-dev/plasma' {
     dotColor?: string,
     dotStyle?: StyleAttributes,
     style?: StyleAttributes,
+  |}> {}
+
+  // source file: src/components/TimePicker/TimePicker.jsx
+  declare type TimeFormatType = $Values<{| timeFormat12: string, timeFormat24: string |}>;
+
+  // source file: src/components/Card/Card.jsx
+
+  // source file: src/components/SideNavBar/SideNavBar.jsx
+  declare export class SideNavBar extends React$Component<{|
+    data?: Data,
+    editingTopText?: boolean,
+    items: Array<Item>,
+    onBlurTop?: () => void,
+    onChange?: ({ id: number }) => void,
+    onClickTop?: () => void,
+    onTopTextChange?: ({ value: string }) => void,
+    selectedId?: string,
+    topIcon?: string,
+    topText?: string,
+    topTextValue?: string,
   |}> {}
 
   // source file: src/components/layout/FixedTop/FixedTop.jsx
@@ -308,6 +319,21 @@ declare module '@wework-dev/plasma' {
     style?: StyleAttributes,
   |}> {}
 
+  // source file: src/components/TimePicker/TimePicker.jsx
+  declare type DefaultOption = $Values<{| minimum: string, nextInterval: string |}>;
+
+  // source file: src/components/Label/Label.jsx
+  declare export class Label extends React$Component<{|
+    text?: string,
+    required?: boolean,
+    inline?: boolean,
+    htmlFor?: string,
+    disabled?: boolean,
+    data?: Data,
+    children?: React$Node,
+    ...GlobalAttributes,
+  |}> {}
+
   // source file: src/components/Checkbox/Checkbox.jsx
   declare export class Checkbox extends React$Component<{|
     checked?: boolean,
@@ -326,30 +352,16 @@ declare module '@wework-dev/plasma' {
     value?: boolean,
   |}> {}
 
-  // source file: src/components/SideNavBar/SideNavBar.jsx
-  declare type Item = {|
-    hidden?: boolean,
-    icon?: string,
-    id: string,
-    items?: Array<Item>,
+  // source file: src/components/SideNavBar/OldSideNavBarItem.jsx
+  declare export class OldSideNavBarItem extends React$Component<{|
+    children: React$Node,
+    darkBg: boolean,
+    icon: string,
+    iconSize: number,
+    iconStyle: any,
     label: string,
-    linkComponent?: React$Node,
-    tagText?: string,
-  |};
-
-  // source file: src/components/TimePicker/TimePicker.jsx
-  declare type DefaultOption = $Values<{| minimum: string, nextInterval: string |}>;
-
-  // source file: src/components/Label/Label.jsx
-  declare export class Label extends React$Component<{|
-    text?: string,
-    required?: boolean,
-    inline?: boolean,
-    htmlFor?: string,
-    disabled?: boolean,
-    data?: Data,
-    children?: React$Node,
-    ...GlobalAttributes,
+    onClick: () => mixed,
+    selected: boolean,
   |}> {}
 
   // source file: src/components/layout/FormField/FormField.jsx
@@ -375,31 +387,6 @@ declare module '@wework-dev/plasma' {
 
   // source file: src/components/Table/Table.jsx
 
-  // source file: src/components/CollapsibleCard/CollapsibleCard.jsx
-  declare export class CollapsibleCard extends React$Component<{|
-    children: React$Node,
-    collapsibleText: React$Node,
-    disabled: boolean,
-    headerText: React$Node,
-    isCollapsed: boolean,
-    styleColor: $Values<{| RED: string |}>,
-  |}> {}
-
-  // source file: src/components/SideNavBar/SideNavBar.jsx
-  declare export class SideNavBar extends React$Component<{|
-    data?: Data,
-    editingTopText?: boolean,
-    items: Array<Item>,
-    onBlurTop?: () => void,
-    onChange?: ({ id: number }) => void,
-    onClickTop?: () => void,
-    onTopTextChange?: ({ value: string }) => void,
-    selectedId?: string,
-    topIcon?: string,
-    topText?: string,
-    topTextValue?: string,
-  |}> {}
-
   // source file: src/components/TimePicker/TimePicker.jsx
   declare type TimeOption = {| label: string, value: string |};
 
@@ -416,6 +403,19 @@ declare module '@wework-dev/plasma' {
     title?: string,
     visible?: boolean,
   |}> {}
+
+  // source file: src/components/CollapsibleCard/CollapsibleCard.jsx
+  declare export class CollapsibleCard extends React$Component<{|
+    children: React$Node,
+    collapsibleText: React$Node,
+    disabled: boolean,
+    headerText: React$Node,
+    isCollapsed: boolean,
+    styleColor: $Values<{| RED: string |}>,
+  |}> {}
+
+  // source file: src/components/SideNavBar/OldSideNavBar.jsx
+  declare export class OldSideNavBar extends React$Component<{| children: React$Node |}> {}
 
   // source file: src/components/layout/Group/Group.jsx
   declare export class Group extends React$Component<{|
@@ -434,26 +434,6 @@ declare module '@wework-dev/plasma' {
     onChange: () => mixed,
     options: Array<Option>,
     value?: string,
-  |}> {}
-
-  // source file: src/components/Tabs/Tabs.jsx
-  declare type Tab = {| label: string, title: React$Node |};
-
-  // source file: src/components/CollapsibleCard/CollapsibleCard.jsx
-
-  // source file: src/components/SideNavBar/SideNavBarItem.jsx
-  declare export class SideNavBarItem extends React$Component<{|
-    children?: React$Node,
-    darkBg?: boolean,
-    icon?: string,
-    iconSize: number,
-    iconStyle?: any,
-    id: string,
-    label: React$Node,
-    linkComponent: ?React$Node,
-    onClick: string => mixed,
-    selected: boolean,
-    tagText: ?string,
   |}> {}
 
   // source file: src/components/TimePicker/TimePicker.jsx
@@ -481,6 +461,32 @@ declare module '@wework-dev/plasma' {
     static FormatTypes: any;
   }
 
+  // source file: src/components/Tabs/Tabs.jsx
+  declare type Tab = {| label: string, title: React$Node |};
+
+  // source file: src/components/CollapsibleCard/CollapsibleCard.jsx
+
+  // source file: src/components/SideNavBar/SideNavBarItem.jsx
+  declare export class SideNavBarItem extends React$Component<{|
+    children?: React$Node,
+    darkBg?: boolean,
+    icon?: string,
+    iconSize: number,
+    iconStyle?: any,
+    id: string,
+    label: React$Node,
+    linkComponent: ?React$Node,
+    onClick: string => mixed,
+    selected: boolean,
+    tagText: ?string,
+  |}> {}
+
+  // source file: src/components/NumberInput/NumberInput.jsx
+  declare type HandleEvent = {|
+    nativeEvent: { target: { value: any } },
+    target: { parentElement: { classList: { add: string => mixed, remove: string => mixed } } },
+  |};
+
   // source file: src/components/layout/HorizontalScroll/HorizontalScroll.jsx
   declare export class HorizontalScroll extends React$Component<{|
     children: React$Node,
@@ -496,11 +502,7 @@ declare module '@wework-dev/plasma' {
     withTopMargin?: boolean,
   |}> {}
 
-  // source file: src/components/NumberInput/NumberInput.jsx
-  declare type HandleEvent = {|
-    nativeEvent: { target: { value: any } },
-    target: { parentElement: { classList: { add: string => mixed, remove: string => mixed } } },
-  |};
+  // source file: src/components/TimePicker/TimePicker.jsx
 
   // source file: src/components/Tabs/Tabs.jsx
   declare export class Tabs extends React$Component<{|
@@ -530,7 +532,20 @@ declare module '@wework-dev/plasma' {
     underline?: boolean,
   |}> {}
 
-  // source file: src/components/TimePicker/TimePicker.jsx
+  // source file: src/components/NumberInput/NumberInput.jsx
+  declare export class NumberInput extends React$Component<{|
+    data?: Data,
+    disabled?: boolean,
+    error?: boolean,
+    maxValue: number,
+    minValue: number,
+    onBlur?: HandleEvent => void,
+    onChange: HandleEvent => void,
+    onFocus?: HandleEvent => void,
+    placeholder?: string,
+    step: number,
+    value: string,
+  |}> {}
 
   // source file: src/components/layout/Page/Page.jsx
   declare export class Page extends React$Component<{|
@@ -557,27 +572,24 @@ declare module '@wework-dev/plasma' {
     value?: string,
   |}> {}
 
-  // source file: src/components/NumberInput/NumberInput.jsx
-  declare export class NumberInput extends React$Component<{|
-    data?: Data,
-    disabled?: boolean,
-    error?: boolean,
-    maxValue: number,
-    minValue: number,
-    onBlur?: HandleEvent => void,
-    onChange: HandleEvent => void,
-    onFocus?: HandleEvent => void,
-    placeholder?: string,
-    step: number,
-    value: string,
-  |}> {}
-
   // source file: src/components/Tag/Tag.jsx
   declare export class Tag extends React$Component<{|
     children?: React$Node,
     className?: string,
     data?: Data,
     text: React$Node,
+  |}> {}
+
+  // source file: src/components/Toggle/Toggle.jsx
+  declare export class Toggle extends React$Component<{|
+    className?: string,
+    data?: Data,
+    items: Array<{ disabled?: boolean, label: string, title: string }>,
+    onChange: (string, number) => void,
+    selectedIndex?: number,
+    selectedLabel: string,
+    size?: string,
+    type: string,
   |}> {}
 
   // source file: src/components/Hint/Hint.jsx
@@ -588,13 +600,6 @@ declare module '@wework-dev/plasma' {
     data?: Data,
     children?: React$Node,
     ...GlobalAttributes,
-  |}> {}
-
-  // source file: src/components/Tooltip/Tooltip.jsx
-  declare export class Tooltip extends React$Component<{|
-    children: React$Node,
-    content: React$Node,
-    data?: Data,
   |}> {}
 
   // source file: src/components/Search/Search.jsx
@@ -608,16 +613,11 @@ declare module '@wework-dev/plasma' {
     type?: string,
   |}> {}
 
-  // source file: src/components/Toggle/Toggle.jsx
-  declare export class Toggle extends React$Component<{|
-    className?: string,
+  // source file: src/components/Tooltip/Tooltip.jsx
+  declare export class Tooltip extends React$Component<{|
+    children: React$Node,
+    content: React$Node,
     data?: Data,
-    items: Array<{ disabled?: boolean, label: string, title: string }>,
-    onChange: (string, number) => void,
-    selectedIndex?: number,
-    selectedLabel: string,
-    size?: string,
-    type: string,
   |}> {}
 
   // source file: src/components/layout/FixedLeft/FixedLeft.jsx
@@ -655,12 +655,16 @@ declare module '@wework-dev/plasma/lib/components/SideNavBar/OldSideNavBar' {
   declare module.exports: $PropertyType<$Exports<'@wework-dev/plasma'>, 'OldSideNavBar'>;
 }
 
-declare module '@wework-dev/plasma/lib/components/Button/Button' {
-  declare module.exports: $PropertyType<$Exports<'@wework-dev/plasma'>, 'Button'>;
+declare module '@wework-dev/plasma/lib/components/OverflowMenu/OverflowMenu' {
+  declare module.exports: $PropertyType<$Exports<'@wework-dev/plasma'>, 'OverflowMenu'>;
 }
 
-declare module '@wework-dev/plasma/lib/components/Icon/Icon' {
-  declare module.exports: $PropertyType<$Exports<'@wework-dev/plasma'>, 'Icon'>;
+declare module '@wework-dev/plasma/lib/components/Image/Image' {
+  declare module.exports: $PropertyType<$Exports<'@wework-dev/plasma'>, 'Image'>;
+}
+
+declare module '@wework-dev/plasma/lib/components/SideNavBar/SideNavBarItemGroup' {
+  declare module.exports: $PropertyType<$Exports<'@wework-dev/plasma'>, 'SideNavBarItemGroup'>;
 }
 
 declare module '@wework-dev/plasma/lib/components/SideNavBar/OldSideNavBarItem' {
@@ -671,156 +675,88 @@ declare module '@wework-dev/plasma/lib/components/TextArea/TextArea' {
   declare module.exports: $PropertyType<$Exports<'@wework-dev/plasma'>, 'TextArea'>;
 }
 
-declare module '@wework-dev/plasma/lib/components/SideNavBar/SideNavBarItemGroup' {
-  declare module.exports: $PropertyType<$Exports<'@wework-dev/plasma'>, 'SideNavBarItemGroup'>;
-}
-
-declare module '@wework-dev/plasma/lib/components/layout/FixedRight/FixedRight' {
-  declare module.exports: $PropertyType<$Exports<'@wework-dev/plasma'>, 'FixedRight'>;
-}
-
 declare module '@wework-dev/plasma/lib/components/layout/FixedRight/FixedRight' {
   declare module.exports: $PropertyType<$Exports<'@wework-dev/plasma'>, 'FixedRight'>;
 }
 
 declare module '@wework-dev/plasma/lib/components/SideNavBar/SideNavBar' {
   declare module.exports: $PropertyType<$Exports<'@wework-dev/plasma'>, 'SideNavBar'>;
-}
-
-declare module '@wework-dev/plasma/lib/components/SideNavBar/SideNavBar' {
-  declare module.exports: $PropertyType<$Exports<'@wework-dev/plasma'>, 'SideNavBar'>;
-}
-
-declare module '@wework-dev/plasma/lib/components/TextInput/TextInput' {
-  declare module.exports: $PropertyType<$Exports<'@wework-dev/plasma'>, 'TextInput'>;
-}
-
-declare module '@wework-dev/plasma/lib/components/SideNavBar/SideNavBarTop' {
-  declare module.exports: $PropertyType<$Exports<'@wework-dev/plasma'>, 'SideNavBarTop'>;
-}
-
-declare module '@wework-dev/plasma/lib/components/Card/Card' {
-  declare module.exports: $PropertyType<$Exports<'@wework-dev/plasma'>, 'Card'>;
-}
-
-declare module '@wework-dev/plasma/lib/components/Card/Card' {
-  declare module.exports: $PropertyType<$Exports<'@wework-dev/plasma'>, 'Card'>;
-}
-
-declare module '@wework-dev/plasma/lib/components/Image/Image' {
-  declare module.exports: $PropertyType<$Exports<'@wework-dev/plasma'>, 'Image'>;
-}
-
-declare module '@wework-dev/plasma/lib/components/Image/Image' {
-  declare module.exports: $PropertyType<$Exports<'@wework-dev/plasma'>, 'Image'>;
-}
-
-declare module '@wework-dev/plasma/lib/components/layout/FixedTop/FixedTop' {
-  declare module.exports: $PropertyType<$Exports<'@wework-dev/plasma'>, 'FixedTop'>;
-}
-
-declare module '@wework-dev/plasma/lib/components/layout/FixedTop/FixedTop' {
-  declare module.exports: $PropertyType<$Exports<'@wework-dev/plasma'>, 'FixedTop'>;
-}
-
-declare module '@wework-dev/plasma/lib/components/OverflowMenu/OverflowMenu' {
-  declare module.exports: $PropertyType<$Exports<'@wework-dev/plasma'>, 'OverflowMenu'>;
-}
-
-declare module '@wework-dev/plasma/lib/components/OverflowMenu/OverflowMenu' {
-  declare module.exports: $PropertyType<$Exports<'@wework-dev/plasma'>, 'OverflowMenu'>;
-}
-
-declare module '@wework-dev/plasma/lib/components/SideNavBar/SideNavBarItem' {
-  declare module.exports: $PropertyType<$Exports<'@wework-dev/plasma'>, 'SideNavBarItem'>;
-}
-
-declare module '@wework-dev/plasma/lib/components/OverflowMenu/OverflowMenuItem' {
-  declare module.exports: $PropertyType<$Exports<'@wework-dev/plasma'>, 'OverflowMenuItem'>;
-}
-
-declare module '@wework-dev/plasma/lib/components/CollapsibleCard/CollapsibleCard' {
-  declare module.exports: $PropertyType<$Exports<'@wework-dev/plasma'>, 'CollapsibleCard'>;
-}
-
-declare module '@wework-dev/plasma/lib/components/CollapsibleCard/CollapsibleCard' {
-  declare module.exports: $PropertyType<$Exports<'@wework-dev/plasma'>, 'CollapsibleCard'>;
-}
-
-declare module '@wework-dev/plasma/lib/components/layout/FormField/FormField' {
-  declare module.exports: $PropertyType<$Exports<'@wework-dev/plasma'>, 'FormField'>;
-}
-
-declare module '@wework-dev/plasma/lib/components/Loader/Loader' {
-  declare module.exports: $PropertyType<$Exports<'@wework-dev/plasma'>, 'Loader'>;
-}
-
-declare module '@wework-dev/plasma/lib/components/layout/HorizontalScroll/HorizontalScroll' {
-  declare module.exports: $PropertyType<$Exports<'@wework-dev/plasma'>, 'HorizontalScroll'>;
-}
-
-declare module '@wework-dev/plasma/lib/components/Label/Label' {
-  declare module.exports: $PropertyType<$Exports<'@wework-dev/plasma'>, 'Label'>;
-}
-
-declare module '@wework-dev/plasma/lib/components/Checkbox/Checkbox' {
-  declare module.exports: $PropertyType<$Exports<'@wework-dev/plasma'>, 'Checkbox'>;
-}
-
-declare module '@wework-dev/plasma/lib/components/Hint/Hint' {
-  declare module.exports: $PropertyType<$Exports<'@wework-dev/plasma'>, 'Hint'>;
-}
-
-declare module '@wework-dev/plasma/lib/components/RadioButton/RadioButton' {
-  declare module.exports: $PropertyType<$Exports<'@wework-dev/plasma'>, 'RadioButton'>;
-}
-
-declare module '@wework-dev/plasma/lib/components/layout/Group/Group' {
-  declare module.exports: $PropertyType<$Exports<'@wework-dev/plasma'>, 'Group'>;
-}
-
-declare module '@wework-dev/plasma/lib/components/TimePicker/TimePicker' {
-  declare module.exports: $PropertyType<$Exports<'@wework-dev/plasma'>, 'TimePicker'>;
-}
-
-declare module '@wework-dev/plasma/lib/components/TimePicker/TimePicker' {
-  declare module.exports: $PropertyType<$Exports<'@wework-dev/plasma'>, 'TimePicker'>;
-}
-
-declare module '@wework-dev/plasma/lib/components/TimePicker/TimePicker' {
-  declare module.exports: $PropertyType<$Exports<'@wework-dev/plasma'>, 'TimePicker'>;
-}
-
-declare module '@wework-dev/plasma/lib/components/TimePicker/TimePicker' {
-  declare module.exports: $PropertyType<$Exports<'@wework-dev/plasma'>, 'TimePicker'>;
-}
-
-declare module '@wework-dev/plasma/lib/components/TimePicker/TimePicker' {
-  declare module.exports: $PropertyType<$Exports<'@wework-dev/plasma'>, 'TimePicker'>;
 }
 
 declare module '@wework-dev/plasma/lib/components/Modal/Modal' {
   declare module.exports: $PropertyType<$Exports<'@wework-dev/plasma'>, 'Modal'>;
 }
 
-declare module '@wework-dev/plasma/lib/components/Header/Header' {
-  declare module.exports: $PropertyType<$Exports<'@wework-dev/plasma'>, 'Header'>;
+declare module '@wework-dev/plasma/lib/components/TextInput/TextInput' {
+  declare module.exports: $PropertyType<$Exports<'@wework-dev/plasma'>, 'TextInput'>;
 }
 
-declare module '@wework-dev/plasma/lib/components/RadioButtonGroup/RadioButtonGroup' {
-  declare module.exports: $PropertyType<$Exports<'@wework-dev/plasma'>, 'RadioButtonGroup'>;
+declare module '@wework-dev/plasma/lib/components/Search/Search' {
+  declare module.exports: $PropertyType<$Exports<'@wework-dev/plasma'>, 'Search'>;
 }
 
-declare module '@wework-dev/plasma/lib/components/RadioButtonGroup/RadioButtonGroup' {
-  declare module.exports: $PropertyType<$Exports<'@wework-dev/plasma'>, 'RadioButtonGroup'>;
+declare module '@wework-dev/plasma/lib/components/Card/Card' {
+  declare module.exports: $PropertyType<$Exports<'@wework-dev/plasma'>, 'Card'>;
 }
 
-declare module '@wework-dev/plasma/lib/components/layout/Page/Page' {
-  declare module.exports: $PropertyType<$Exports<'@wework-dev/plasma'>, 'Page'>;
+declare module '@wework-dev/plasma/lib/components/SideNavBar/SideNavBarTop' {
+  declare module.exports: $PropertyType<$Exports<'@wework-dev/plasma'>, 'SideNavBarTop'>;
+}
+
+declare module '@wework-dev/plasma/lib/components/Loader/Loader' {
+  declare module.exports: $PropertyType<$Exports<'@wework-dev/plasma'>, 'Loader'>;
+}
+
+declare module '@wework-dev/plasma/lib/components/SideNavBar/SideNavBarItem' {
+  declare module.exports: $PropertyType<$Exports<'@wework-dev/plasma'>, 'SideNavBarItem'>;
+}
+
+declare module '@wework-dev/plasma/lib/components/Checkbox/Checkbox' {
+  declare module.exports: $PropertyType<$Exports<'@wework-dev/plasma'>, 'Checkbox'>;
+}
+
+declare module '@wework-dev/plasma/lib/components/layout/FixedTop/FixedTop' {
+  declare module.exports: $PropertyType<$Exports<'@wework-dev/plasma'>, 'FixedTop'>;
+}
+
+declare module '@wework-dev/plasma/lib/components/RadioButton/RadioButton' {
+  declare module.exports: $PropertyType<$Exports<'@wework-dev/plasma'>, 'RadioButton'>;
+}
+
+declare module '@wework-dev/plasma/lib/components/CollapsibleCard/CollapsibleCard' {
+  declare module.exports: $PropertyType<$Exports<'@wework-dev/plasma'>, 'CollapsibleCard'>;
 }
 
 declare module '@wework-dev/plasma/lib/components/Rule/Rule' {
   declare module.exports: $PropertyType<$Exports<'@wework-dev/plasma'>, 'Rule'>;
+}
+
+declare module '@wework-dev/plasma/lib/components/NumberInput/NumberInput' {
+  declare module.exports: $PropertyType<$Exports<'@wework-dev/plasma'>, 'NumberInput'>;
+}
+
+declare module '@wework-dev/plasma/lib/components/layout/Group/Group' {
+  declare module.exports: $PropertyType<$Exports<'@wework-dev/plasma'>, 'Group'>;
+}
+
+declare module '@wework-dev/plasma/lib/components/RadioButtonGroup/RadioButtonGroup' {
+  declare module.exports: $PropertyType<$Exports<'@wework-dev/plasma'>, 'RadioButtonGroup'>;
+}
+
+declare module '@wework-dev/plasma/lib/components/Header/Header' {
+  declare module.exports: $PropertyType<$Exports<'@wework-dev/plasma'>, 'Header'>;
+}
+
+declare module '@wework-dev/plasma/lib/components/layout/HorizontalScroll/HorizontalScroll' {
+  declare module.exports: $PropertyType<$Exports<'@wework-dev/plasma'>, 'HorizontalScroll'>;
+}
+
+declare module '@wework-dev/plasma/lib/components/TimePicker/TimePicker' {
+  declare module.exports: $PropertyType<$Exports<'@wework-dev/plasma'>, 'TimePicker'>;
+}
+
+declare module '@wework-dev/plasma/lib/components/layout/Page/Page' {
+  declare module.exports: $PropertyType<$Exports<'@wework-dev/plasma'>, 'Page'>;
 }
 
 declare module '@wework-dev/plasma/lib/components/Toggle/Toggle' {
@@ -831,44 +767,12 @@ declare module '@wework-dev/plasma/lib/components/Tooltip/Tooltip' {
   declare module.exports: $PropertyType<$Exports<'@wework-dev/plasma'>, 'Tooltip'>;
 }
 
-declare module '@wework-dev/plasma/lib/components/Search/Search' {
-  declare module.exports: $PropertyType<$Exports<'@wework-dev/plasma'>, 'Search'>;
-}
-
-declare module '@wework-dev/plasma/lib/components/Search/Search' {
-  declare module.exports: $PropertyType<$Exports<'@wework-dev/plasma'>, 'Search'>;
-}
-
-declare module '@wework-dev/plasma/lib/components/NumberInput/NumberInput' {
-  declare module.exports: $PropertyType<$Exports<'@wework-dev/plasma'>, 'NumberInput'>;
-}
-
-declare module '@wework-dev/plasma/lib/components/NumberInput/NumberInput' {
-  declare module.exports: $PropertyType<$Exports<'@wework-dev/plasma'>, 'NumberInput'>;
-}
-
-declare module '@wework-dev/plasma/lib/components/layout/FixedLeft/FixedLeft' {
-  declare module.exports: $PropertyType<$Exports<'@wework-dev/plasma'>, 'FixedLeft'>;
-}
-
 declare module '@wework-dev/plasma/lib/components/layout/FixedLeft/FixedLeft' {
   declare module.exports: $PropertyType<$Exports<'@wework-dev/plasma'>, 'FixedLeft'>;
 }
 
 declare module '@wework-dev/plasma/lib/components/Table/Table' {
   declare module.exports: $PropertyType<$Exports<'@wework-dev/plasma'>, 'Table'>;
-}
-
-declare module '@wework-dev/plasma/lib/components/Table/Table' {
-  declare module.exports: $PropertyType<$Exports<'@wework-dev/plasma'>, 'Table'>;
-}
-
-declare module '@wework-dev/plasma/lib/components/Tag/Tag' {
-  declare module.exports: $PropertyType<$Exports<'@wework-dev/plasma'>, 'Tag'>;
-}
-
-declare module '@wework-dev/plasma/lib/components/Tabs/Tabs' {
-  declare module.exports: $PropertyType<$Exports<'@wework-dev/plasma'>, 'Tabs'>;
 }
 
 declare module '@wework-dev/plasma/lib/components/Tabs/Tabs' {
