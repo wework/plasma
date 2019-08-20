@@ -1,5 +1,5 @@
 // @flow
-import { isNull, clamp } from 'lodash';
+import { clamp } from 'lodash';
 import React from 'react';
 import style from './style.scss';
 import { getDataAttrs } from '../../../dataUtils';
@@ -27,7 +27,7 @@ type State = {|
 
 type Props = {|
   children: React$Node,
-  stickAt: number,
+  stickAt?: number,
   contentStyle?: Object,
   fixedStyle?: Object,
   data?: Data,
@@ -49,7 +49,7 @@ class FixedLeft extends React.Component<Props, State> {
   }
 
   componentDidMount() {
-    if (!isNull(this.props.stickAt)) {
+    if (this.props.stickAt) {
       document.addEventListener('scroll', this.handleScroll);
     }
     // eslint-disable-next-line
@@ -60,13 +60,13 @@ class FixedLeft extends React.Component<Props, State> {
     document.removeEventListener('scroll', this.handleScroll);
   }
   handleScroll = () => {
-    if (!isNull(this.props.stickAt)) {
+    if (this.props.stickAt) {
       const offsetViewport = this.fixed.offsetTop;
       const offsetDoc = getOffsetTop(this.fixed);
       const ty = clamp(
         offsetDoc - offsetViewport,
         0,
-        this.fixedViewportOffsetOrigin - this.props.stickAt
+        this.fixedViewportOffsetOrigin - (this.props.stickAt || 0)
       );
       this.fixed.style.transform = `translateY(${-ty})`;
     }
