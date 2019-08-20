@@ -9,7 +9,7 @@ import style from './style.scss';
 export type Item = {|
   id: string,
   icon?: string,
-  label: string,
+  label: React$Node,
   items?: Array<Item>,
   linkComponent?: React$Node,
   tagText?: string,
