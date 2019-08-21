@@ -10,7 +10,7 @@ type Props = {
   maxLength?: string,
 };
 
-const withCounter = <P: any>(Component: ComponentType<P>) => {
+const withCounter = <P>(Component: ComponentType<P>) => {
   return class extends React.Component<Props & P> {
     render() {
       const { counterClassName, value, maxLength } = this.props;
