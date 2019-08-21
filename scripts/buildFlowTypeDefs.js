@@ -1,5 +1,6 @@
 /* eslint-disable */
 const { execSync } = require('child_process');
+const { readFileSync } = require('fs');
 
 const p = require('../package.json');
 
@@ -13,7 +14,7 @@ const defaultDeclarations = execSync(
 const componentDeclarations = execSync(
   `jscodeshift -s -t scripts/extractComponentFlowTypes.js src/components/**/*.jsx src/components/layout/**/*.jsx --parser flow`
 );
-const typeDec = execSync(`cat src/types.js`);
+const typeDec = readFileSync(`src/types.js`);
 
 console.log(`
 // flow-typed version: <<STUB>>/@wework-dev/plasma_v${currentVersion}/flow_v${flowVersion}
