@@ -1,6 +1,6 @@
 // @flow
 import cx from 'classnames';
-import React, { type Node } from 'react';
+import React from 'react';
 
 import Loader from '../Loader/Loader.jsx';
 
@@ -21,7 +21,7 @@ const Sizes = Object.freeze({
 
 type Props = {|
   autofocus?: boolean,
-  children?: Node,
+  children?: React$Node,
   className?: string,
   data?: Data,
   disabled?: boolean,
@@ -40,7 +40,7 @@ type Props = {|
   title?: string,
 |};
 
-function Button(props: Props): Node {
+function Button(props: Props): React$Node {
   const {
     children,
     className,

@@ -1,12 +1,12 @@
 // @flow
-import React, { type Node } from 'react';
+import React from 'react';
 import cx from 'classnames';
 import style from './style.scss';
 import type { Data, StyleAttributes } from '../../types';
 import { getDataAttrs } from '../../dataUtils';
 
 export type Props = {|
-  children: Node,
+  children: React$Node,
   data?: Data,
   large?: boolean,
   style?: StyleAttributes,

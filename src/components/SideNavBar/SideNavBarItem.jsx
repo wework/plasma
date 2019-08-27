@@ -1,5 +1,5 @@
 // @flow
-import React, { Component, type Node } from 'react';
+import React, { Component } from 'react';
 import cn from 'classnames';
 import style from './style.scss';
 
@@ -8,12 +8,12 @@ type Props = {|
   icon?: string,
   iconSize: number,
   iconStyle?: Object,
-  label: Node,
+  label: React$Node,
   onClick: string => mixed,
   selected: boolean,
-  children?: Node,
+  children?: React$Node,
   darkBg?: boolean,
-  linkComponent: Node,
+  linkComponent: ?React$Node,
   tagText: ?string,
 |};
 
@@ -29,7 +29,7 @@ class SideNavBarItem extends Component<Props> {
     this.props.onClick(this.props.id);
   };
 
-  renderIconAndLabel(): Node {
+  renderIconAndLabel(): React$Node {
     const { label } = this.props;
 
     return (

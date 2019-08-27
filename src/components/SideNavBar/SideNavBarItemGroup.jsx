@@ -1,5 +1,5 @@
 // @flow
-import React, { Component, type Node } from 'react';
+import React, { Component } from 'react';
 import { find } from 'lodash';
 import SideNavBarItem from './SideNavBarItem';
 import { type Item } from './SideNavBar';
@@ -7,14 +7,14 @@ import style from './style.scss';
 
 type Props = {|
   id: string,
-  icon: string,
+  icon?: string,
   iconSize: number,
   iconStyle?: Object,
-  label: Node,
-  onClick: ({ id: string }) => mixed,
-  items: Array<Item>,
+  label: React$Node,
+  onClick?: ({ id: string }) => mixed,
+  items?: Array<Item>,
   darkBg?: boolean,
-  selectedId: string,
+  selectedId?: string,
 |};
 
 class SideNavBarItemGroup extends Component<Props> {
@@ -24,15 +24,19 @@ class SideNavBarItemGroup extends Component<Props> {
   };
 
   handleGroupClick = () => {
-    if (this.props.items && this.props.items[0]) {
-      this.props.onClick({ id: this.props.items[0].id });
-    } else {
-      this.props.onClick({ id: this.props.id });
+    if (this.props.onClick) {
+      if (this.props.items && this.props.items[0]) {
+        this.props.onClick({ id: this.props.items[0].id });
+      } else {
+        this.props.onClick({ id: this.props.id });
+      }
     }
   };
 
   handleItemClick = (itemId: string): void => {
-    this.props.onClick({ id: itemId });
+    if (this.props.onClick) {
+      this.props.onClick({ id: itemId });
+    }
   };
 
   renderIconAndLabel() {
@@ -62,8 +66,8 @@ class SideNavBarItemGroup extends Component<Props> {
     );
   }
 
-  renderSubItems(): Node {
-    const items =
+  renderSubItems(): ?React$Node {
+    return (
       this.props.items &&
       this.props.items.map((groupedItem: Item) => {
         return (
@@ -79,8 +83,8 @@ class SideNavBarItemGroup extends Component<Props> {
             />
           )
         );
-      });
-    return items;
+      })
+    );
   }
 
   render() {

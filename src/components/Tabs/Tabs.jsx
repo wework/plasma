@@ -1,5 +1,5 @@
 // @flow
-import React, { type Node } from 'react';
+import React from 'react';
 import cn from 'classnames';
 import { map } from 'lodash';
 import { getDataAttrs } from '../../dataUtils';
@@ -8,12 +8,12 @@ import style from './style.scss';
 
 type Tab = {|
   label: string,
-  title: Node,
+  title: React$Node,
 |};
 
 type Props = {|
   items: Array<Tab>,
-  onChange?: (Node, number) => void,
+  onChange?: (string, number) => void,
   selectedIndex?: number,
   selectedLabel?: string,
   data?: Data,

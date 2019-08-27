@@ -1,11 +1,11 @@
 // @flow
-import React, { type Node } from 'react';
+import React from 'react';
 import { getDataAttrs } from '../../../dataUtils';
 import type { Data } from '../../../types';
 import style from './style.scss';
 
 type Props = {|
-  children: Node,
+  children: React$Node,
   onScroll: (evt: MouseEvent) => void,
   style: Object,
   data?: Data,

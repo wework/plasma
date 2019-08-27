@@ -1,5 +1,5 @@
 // @flow
-import React, { type Node } from 'react';
+import React from 'react';
 import Header from '../../Header/Header';
 import { getDataAttrs } from '../../../dataUtils';
 import type { Data } from '../../../types';
@@ -7,9 +7,9 @@ import style from './style.scss';
 
 type Props = {|
   title: string,
-  children: Node,
+  children: React$Node,
   actions: Array<Object>,
-  breadcrumb: Node,
+  breadcrumb: React$Node,
   data?: Data,
 |};
 

@@ -1,5 +1,5 @@
 // @flow
-import React, { Component, type Node } from 'react';
+import React, { Component } from 'react';
 import cx from 'classnames';
 
 import { getDataAttrs } from '../../dataUtils';
@@ -13,15 +13,15 @@ import type {
 
 import styles from './style.scss';
 
-type Props = {|
+export type Props = {|
   data?: Data,
   disabled?: boolean,
   error?: boolean,
   maxLength?: number | string,
   name?: string,
   placeholder?: string,
-  prefix?: Node,
-  suffix?: Node,
+  prefix?: React$Node,
+  suffix?: React$Node,
   type?: 'text' | 'password' | 'email' | 'url',
   value?: string,
   onClick?: SyntheticMouseEventHandler<HTMLInputElement>,

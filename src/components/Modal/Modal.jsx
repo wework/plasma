@@ -9,10 +9,10 @@ import type { Data, StyleAttributes } from '../../types';
 type Props = {|
   title?: string,
   actions?: Array<Node>,
-  children: Node,
+  children: React$Node,
   visible?: boolean,
-  onDismiss?: (evt: MouseEvent) => void,
-  innerCardStyle: StyleAttributes,
+  onDismiss?: (evt: MouseEvent) => any,
+  innerCardStyle?: StyleAttributes,
   minWidth?: string | number,
   maxWidth?: string | number,
   data?: Data,

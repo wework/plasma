@@ -1,13 +1,13 @@
 // @flow
 import cx from 'classnames';
-import React, { type Node } from 'react';
+import React from 'react';
 import style from './style.scss';
 import { getDataAttrs } from '../../dataUtils';
 import type { Data, StyleAttributes } from '../../types';
 
 type Props = {|
   text?: string,
-  children?: Node,
+  children?: React$Node,
   underline?: boolean,
   h1?: boolean,
   h2?: boolean,

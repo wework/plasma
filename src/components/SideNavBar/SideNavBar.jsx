@@ -8,22 +8,22 @@ import style from './style.scss';
 
 export type Item = {|
   id: string,
-  icon: string,
-  label: string,
-  items: Array<Item>,
-  linkComponent: Node,
+  icon?: string,
+  label: React$Node,
+  items?: Array<Item>,
+  linkComponent?: React$Node,
   tagText?: string,
   hidden?: boolean,
 |};
 
 type Props = {|
   items: Array<Item>,
-  onChange: ({ id: number }) => void,
-  selectedId: string,
+  onChange?: ({ id: number }) => void,
+  selectedId?: string,
   onClickTop?: () => void,
   topText?: string,
   topIcon?: string,
-  data: Data,
+  data?: Data,
   editingTopText?: boolean,
   topTextValue?: string,
   onTopTextChange?: ({ value: string }) => void,

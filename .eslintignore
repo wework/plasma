@@ -1,2 +1,3 @@
 dist/*.js
 lib/**/*.js
+flow/**/*.js

@@ -1,5 +1,5 @@
 // @flow
-import React, { type Node } from 'react';
+import React from 'react';
 import { getDataAttrs } from '../../../dataUtils';
 import type { Data } from '../../../types';
 import style from './style.scss';
@@ -9,7 +9,7 @@ type State = {|
 |};
 
 type Props = {|
-  children: Array<Node>,
+  children: React$Node,
   backgroundColor: string,
   data?: Data,
 |};
@@ -28,14 +28,17 @@ class FixedTop extends React.Component<Props, State> {
   }
 
   componentDidMount() {
+    // eslint-disable-next-line
     this.setState({ fixedHeight: this.fixed.offsetHeight });
   }
   fixed: any;
   render() {
+    const children = React.Children.toArray(this.props.children);
+
     return (
       <div {...getDataAttrs(this.props.data)} className={style.wrapper}>
         <div className={style.fixedWrapper} ref={c => (this.fixed = c)}>
-          {this.props.children[0]}
+          {children[0]}
         </div>
         <div className={style.contentWrapper}>
           <div
@@ -43,7 +46,7 @@ class FixedTop extends React.Component<Props, State> {
             style={{ height: this.state.fixedHeight, minHeight: this.state.fixedHeight }}
           />
           <div className={style.content} style={{ backgroundColor: this.props.backgroundColor }}>
-            {this.props.children[1]}
+            {children[1]}
           </div>
         </div>
       </div>

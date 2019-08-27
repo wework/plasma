@@ -1,6 +1,6 @@
 // @flow
 import cx from 'classnames';
-import React, { type Node } from 'react';
+import React from 'react';
 import ReactDOM from 'react-dom';
 import { getDataAttrs } from '../../dataUtils';
 import type { Data } from '../../types';
@@ -18,12 +18,12 @@ export const borderColors = { RED: 'red' };
 type Props = {|
   title?: string,
   actions?: Array<Object>,
-  children?: Node,
+  children?: React$Node,
   type?: $Values<typeof cardTypes>,
   onClick?: (evt: MouseEvent) => void,
   borderType?: string,
   borderColor?: $Values<typeof borderColors>,
-  expandedComponent?: Node,
+  expandedComponent?: React$Node,
   isExpanded?: boolean,
   minWidth?: number,
   data?: Data,

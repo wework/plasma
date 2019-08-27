@@ -1,5 +1,5 @@
 // @flow
-import React, { Component, type Node } from 'react';
+import React, { Component } from 'react';
 import cn from 'classnames';
 import style from './oldStyle.scss';
 
@@ -10,7 +10,7 @@ type Props = {|
   label: string,
   onClick: () => mixed,
   selected: boolean,
-  children: Node,
+  children: React$Node,
   darkBg: boolean,
 |};
 
@@ -21,7 +21,7 @@ class SideNavBarItem extends Component<Props> {
     selected: false,
   };
 
-  renderIconAndLabel(): Node {
+  renderIconAndLabel(): React$Node {
     const { icon, iconSize, iconStyle, label } = this.props;
 
     const renderIcon = icon && iconSize && (

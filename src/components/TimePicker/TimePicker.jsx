@@ -60,17 +60,17 @@ const DefaultOptions = Object.freeze({
 
 export type DefaultOption = $Values<typeof DefaultOptions>;
 
-type Option = {|
+type TimeOption = {|
   label: string,
   value: string,
 |};
 
 type Props = {|
-  maxTime: string,
-  minTime: string,
+  maxTime?: string,
+  minTime?: string,
   defaultOption?: DefaultOption,
   timeFormat: TimeFormatType,
-  timeIntervalMinutes: number,
+  timeIntervalMinutes?: number,
   value?: string,
   borderless?: boolean,
   className?: string,
@@ -87,7 +87,7 @@ type Props = {|
 |};
 
 type State = {|
-  options: Array<Option>,
+  options: Array<TimeOption>,
 |};
 
 const moment24h = (value?: string): moment => moment(value, FormatTypes.timeFormat24);
@@ -97,7 +97,7 @@ const enumerateOptions = (
   end: string,
   intervalMinutes: number,
   timeFormat: string
-): Array<Option> => {
+): Array<TimeOption> => {
   const minTime = moment24h(start);
   const maxTime = moment24h(end);
 
@@ -132,19 +132,19 @@ class TimePicker extends React.Component<Props, State> {
   };
 
   static getDerivedStateFromProps = ({
-    maxTime,
-    minTime,
+    maxTime = TimePicker.defaultProps.maxTime,
+    minTime = TimePicker.defaultProps.minTime,
     timeFormat,
-    timeIntervalMinutes,
+    timeIntervalMinutes = TimePicker.defaultProps.timeIntervalMinutes,
   }: Props) => ({
     options: enumerateOptions(minTime, maxTime, timeIntervalMinutes, timeFormat),
   });
 
   state = {
     options: enumerateOptions(
-      this.props.minTime,
-      this.props.maxTime,
-      this.props.timeIntervalMinutes,
+      this.props.minTime || TimePicker.defaultProps.minTime,
+      this.props.maxTime || TimePicker.defaultProps.maxTime,
+      this.props.timeIntervalMinutes || TimePicker.defaultProps.timeIntervalMinutes,
       this.props.timeFormat
     ),
   };
@@ -171,7 +171,7 @@ class TimePicker extends React.Component<Props, State> {
     return value;
   }
 
-  handleChange = (option: Option) => {
+  handleChange = (option: TimeOption) => {
     const { onChange } = this.props;
 
     if (onChange) {
@@ -188,7 +188,10 @@ class TimePicker extends React.Component<Props, State> {
   };
 
   defaultTimeSelected(): ?string {
-    const { timeIntervalMinutes, defaultOption } = this.props;
+    const {
+      timeIntervalMinutes = TimePicker.defaultProps.timeIntervalMinutes,
+      defaultOption,
+    } = this.props;
     switch (defaultOption) {
       case TimePicker.DefaultOptions.nextInterval: {
         const roundedUp = Math.ceil(moment().minute() / timeIntervalMinutes) * timeIntervalMinutes;
