@@ -14,7 +14,6 @@ module.exports = {
     'react-dom': 'react-dom',
     lodash: 'lodash',
     classnames: 'classnames',
-    'react-datepicker': 'react-datepicker',
   },
   output: {
     path: path.resolve(__dirname, 'dist'),

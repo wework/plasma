@@ -28,7 +28,6 @@ function createEntries(base = '.', basename = '') {
 
 const componentEntries = createEntries('./src/components', 'components');
 const decoratorEntries = createEntries('./src/decorators', 'decorators');
-const externalEntries = createEntries('./src/external', 'external');
 const iconEntries = createEntries('./src/icons', 'icons');
 
 const entries = Object.assign(
@@ -37,7 +36,6 @@ const entries = Object.assign(
   },
   componentEntries,
   decoratorEntries,
-  externalEntries,
   iconEntries
 );
 
@@ -57,7 +55,6 @@ module.exports = {
     'react-dom': 'react-dom',
     lodash: 'lodash',
     classnames: 'classnames',
-    'react-datepicker': 'react-datepicker',
   },
   output: {
     path: path.resolve(__dirname, 'lib'),
