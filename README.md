@@ -10,7 +10,7 @@ Storybook at http://plasma.guide/dev/storybook
 
 ### IMPORTANT!
 
-Select and Datepicker components do not work right now. Use `react-select` and datepicker directly in Spacestation.
+Select components do not work right now. Use `react-select` directly in Spacestation.
 
 ## Developing with Storybook
 
