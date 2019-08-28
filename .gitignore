@@ -13,6 +13,3 @@ docs/storybook
 docs/components
 
 *.log
-
-lib/
-dist/
