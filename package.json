@@ -19,7 +19,7 @@
     "styleguide": "styleguidist server",
     "styleguide:build": "styleguidist build",
     "watch": "webpack --watch --config webpack.config.dev",
-    "preversion": "yarn build && yarn flow:buildTypeDefs",
+    "preversion": "yarn build",
     "prepublish": "yarn preversion",
     "test": "node_modules/.bin/jest",
     "test:watch": "yarn test --watch --coverage",
@@ -30,6 +30,7 @@
   },
   "lint-staged": {
     "*.{js,jsx}": [
+      "yarn flow:buildTypeDefs",
       "prettier --write",
       "eslint --fix",
       "git add"
