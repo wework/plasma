@@ -1,4 +1,4 @@
-// flow-typed version: <<STUB>>/@wework-dev/plasma_v0.1.5-alpha.0/flow_v0.105.2
+// flow-typed version: <<STUB>>/@wework-dev/plasma_v0.1.6/flow_v0.105.2
 
 declare module '@wework-dev/plasma' {
   // @flow
