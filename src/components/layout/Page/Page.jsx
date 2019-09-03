@@ -6,10 +6,10 @@ import type { Data } from '../../../types';
 import style from './style.scss';
 
 type Props = {|
-  title: string,
+  title?: string,
   children: React$Node,
-  actions: Array<Object>,
-  breadcrumb: React$Node,
+  actions?: Array<Object>,
+  breadcrumb?: React$Node,
   data?: Data,
 |};
 

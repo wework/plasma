@@ -1,6 +1,6 @@
 {
   "name": "@wework-dev/plasma",
-  "version": "0.1.5",
+  "version": "0.1.6-alpha.0",
   "description": "",
   "main": "dist/index.js",
   "module": "lib/index.js",
@@ -19,7 +19,7 @@
     "styleguide": "styleguidist server",
     "styleguide:build": "styleguidist build",
     "watch": "webpack --watch --config webpack.config.dev",
-    "preversion": "yarn build && yarn flow:buildTypeDefs",
+    "preversion": "yarn build",
     "prepublish": "yarn preversion",
     "test": "node_modules/.bin/jest",
     "test:watch": "yarn test --watch --coverage",
@@ -30,6 +30,7 @@
   },
   "lint-staged": {
     "*.{js,jsx}": [
+      "yarn flow:buildTypeDefs",
       "prettier --write",
       "eslint --fix",
       "git add"
