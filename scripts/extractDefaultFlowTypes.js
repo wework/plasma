@@ -1,7 +1,6 @@
 const { execSync } = require('child_process');
 
-export default function extractDefaultFlowTypes(file, api) {
-  const j = api.jscodeshift;
+export default function extractDefaultFlowTypes(file, { j, report }) {
   const root = j(file.source);
 
   root.find(j.TypeAlias).forEach(p => {
@@ -15,7 +14,7 @@ export default function extractDefaultFlowTypes(file, api) {
 
     const fullTypeDeclaration = typeAtPosOutput.split('\n')[0];
     const typeDeclarationRHS = fullTypeDeclaration.replace(/^type\s+\w+\s+=\s+/, '');
-    console.log(`// source file: ${file.path}`);
+    report(`// source file: ${file.path}`);
 
     if (p.value.id.name === 'Props') {
       const capitalStaticKey = /^[A-Z]/;
@@ -28,17 +27,17 @@ export default function extractDefaultFlowTypes(file, api) {
       const nodes = classProps.nodes();
 
       // declare export class ...
-      console.log(
+      report(
         `declare export class ${componentName} extends React$Component<${typeDeclarationRHS}> {
             ${nodes.map(node => `static ${node.key.name}: any;`).join('\n')}
         }`
       );
     } else if (p.value.id.name !== 'State') {
       // declare type ... = ...
-      console.log(`declare ${fullTypeDeclaration}`);
+      report(`declare ${fullTypeDeclaration}`);
     }
 
-    console.log('\n');
+    report('\n');
   });
   return file.source;
 }
