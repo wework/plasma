@@ -1,22 +1,55 @@
 /* eslint-disable */
 const { execSync } = require('child_process');
 const { readFileSync } = require('fs');
+const globby = require('globby');
+const path = require('path');
+const workerBuilder = require('jscodeshift/dist/Worker');
 
 const p = require('../package.json');
 
 const currentVersion = p.version;
 const flowVersion = String(execSync('flow version')).match(/[\d\.]+/)[0];
 
-const defaultDeclarations = execSync(
-  `jscodeshift -s -t scripts/extractDefaultFlowTypes.js src/components/**/*.jsx src/components/layout/**/*.jsx --parser flow`
-);
+const workerOptions = {
+  parser: 'flow',
+  dry: true,
+};
 
-const componentDeclarations = execSync(
-  `jscodeshift -s -t scripts/extractComponentFlowTypes.js src/components/**/*.jsx src/components/layout/**/*.jsx --parser flow`
-);
-const typeDec = readFileSync(`src/types.js`);
+const extractTypes = (filePaths, transformationFile, options = workerOptions) =>
+  new Promise(resolve => {
+    let output = '';
+    const files = [...filePaths];
 
-console.log(`
+    const worker = workerBuilder([path.join(__dirname, transformationFile), 'babel']);
+    worker.on('disconnect', () => {
+      // emitter is shared because of the module caching in node
+      worker.removeAllListeners();
+      resolve(output);
+    });
+    worker.on('message', message => {
+      switch (message.action) {
+        case 'report':
+          output += `${message.msg}\n`;
+          break;
+        case 'free':
+          const next = files.shift();
+          worker.send({ files: next ? [next] : [], options });
+          break;
+      }
+    });
+    worker.send({ files: [files.shift()], options });
+  });
+
+const run = async () => {
+  const files = (await globby(['src/components/**/*.jsx'])).sort();
+
+  const defaultDeclarations = await extractTypes(files, 'extractDefaultFlowTypes');
+
+  const componentDeclarations = await extractTypes(files, 'extractComponentFlowTypes');
+
+  const typeDec = readFileSync(`src/types.js`);
+
+  console.log(`
 // flow-typed version: <<STUB>>/@wework-dev/plasma_v${currentVersion}/flow_v${flowVersion}
 
 declare module '@wework-dev/plasma' {  
@@ -32,3 +65,6 @@ declare module '@wework-dev/plasma' {
 
 ${String(componentDeclarations)}
 `);
+};
+
+run();
