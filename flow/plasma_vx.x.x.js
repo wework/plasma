@@ -109,8 +109,6 @@ declare module '@wework-dev/plasma' {
     type?: $Values<{| CONDENSED: string, REGULAR: string |}>,
   |}> {}
 
-  // source file: src/components/Card/Card.jsx
-
   // source file: src/components/Checkbox/Checkbox.jsx
   declare export class Checkbox extends React$Component<{|
     checked?: boolean,
@@ -138,8 +136,6 @@ declare module '@wework-dev/plasma' {
     isCollapsed: boolean,
     styleColor: $Values<{| RED: string |}>,
   |}> {}
-
-  // source file: src/components/CollapsibleCard/CollapsibleCard.jsx
 
   // source file: src/components/Header/Header.jsx
   declare export class Header extends React$Component<{|
@@ -188,8 +184,6 @@ declare module '@wework-dev/plasma' {
     src: string,
     style?: StyleAttributes,
   |}> {}
-
-  // source file: src/components/Image/Image.jsx
 
   // source file: src/components/Label/Label.jsx
   declare export class Label extends React$Component<{|
@@ -258,8 +252,6 @@ declare module '@wework-dev/plasma' {
     options: Array<{| key: string, text: string |}>,
   |}> {}
 
-  // source file: src/components/OverflowMenu/OverflowMenu.jsx
-
   // source file: src/components/OverflowMenu/OverflowMenuItem.jsx
   declare export class OverflowMenuItem extends React$Component<{
     onClick: string => void,
@@ -325,8 +317,6 @@ declare module '@wework-dev/plasma' {
     placeholder?: string,
     value?: string,
   |}> {}
-
-  // source file: src/components/Search/Search.jsx
 
   // source file: src/components/SegmentedCard/SegmentedCard.jsx
   declare export class SegmentedCard extends React$Component<{|
@@ -441,8 +431,6 @@ declare module '@wework-dev/plasma' {
     style?: StyleAttributes,
   |}> {}
 
-  // source file: src/components/Table/Table.jsx
-
   // source file: src/components/Tabs/Tabs.jsx
   declare type Tab = {| label: string, title: React$Node |};
 
@@ -542,8 +530,6 @@ declare module '@wework-dev/plasma' {
     static FormatTypes: any;
   }
 
-  // source file: src/components/TimePicker/TimePicker.jsx
-
   // source file: src/components/Toggle/Toggle.jsx
   declare export class Toggle extends React$Component<{|
     className?: string,
@@ -564,8 +550,6 @@ declare module '@wework-dev/plasma' {
   |}> {}
 
   // source file: src/components/layout/FixedLeft/FixedLeft.jsx
-
-  // source file: src/components/layout/FixedLeft/FixedLeft.jsx
   declare export class FixedLeft extends React$Component<{|
     children: React$Node,
     contentStyle?: any,
@@ -575,16 +559,12 @@ declare module '@wework-dev/plasma' {
   |}> {}
 
   // source file: src/components/layout/FixedRight/FixedRight.jsx
-
-  // source file: src/components/layout/FixedRight/FixedRight.jsx
   declare export class FixedRight extends React$Component<{|
     children: React$Node,
     data?: Data,
     fixedContainerStyle: any,
     stickAt: number,
   |}> {}
-
-  // source file: src/components/layout/FixedTop/FixedTop.jsx
 
   // source file: src/components/layout/FixedTop/FixedTop.jsx
   declare export class FixedTop extends React$Component<{|

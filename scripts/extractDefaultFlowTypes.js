@@ -14,7 +14,8 @@ export default function extractDefaultFlowTypes(file, { j, report }) {
 
     const fullTypeDeclaration = typeAtPosOutput.split('\n')[0];
     const typeDeclarationRHS = fullTypeDeclaration.replace(/^type\s+\w+\s+=\s+/, '');
-    report(`// source file: ${file.path}`);
+    let foundSomething = false;
+    let log = `// source file: ${file.path}\n`;
 
     if (p.value.id.name === 'Props') {
       const capitalStaticKey = /^[A-Z]/;
@@ -27,17 +28,21 @@ export default function extractDefaultFlowTypes(file, { j, report }) {
       const nodes = classProps.nodes();
 
       // declare export class ...
-      report(
-        `declare export class ${componentName} extends React$Component<${typeDeclarationRHS}> {
+      log += `declare export class ${componentName} extends React$Component<${typeDeclarationRHS}> {
             ${nodes.map(node => `static ${node.key.name}: any;`).join('\n')}
-        }`
-      );
+        }\n`;
+      foundSomething = true;
     } else if (p.value.id.name !== 'State') {
       // declare type ... = ...
-      report(`declare ${fullTypeDeclaration}`);
+      log += `declare ${fullTypeDeclaration}\n`;
+      foundSomething = true;
     }
 
-    report('\n');
+    log += '\n';
+
+    if (foundSomething) {
+      report(log);
+    }
   });
   return file.source;
 }
