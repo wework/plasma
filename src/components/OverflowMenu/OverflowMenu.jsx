@@ -11,7 +11,7 @@ const direction = { RIGHT: 'right', LEFT: 'left' };
 
 type Props = {|
   disabled?: boolean,
-  options: Array<{| key: string, text: string |}>,
+  options: Array<{| key: string, text: React$Node |}>,
   onClick: string => void,
   openDirection?: $Values<typeof direction>,
   label?: string,

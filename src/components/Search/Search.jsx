@@ -20,7 +20,7 @@ type Props = {|
 |};
 
 type State = {|
-  text: string,
+  text: React$Node,
 |};
 
 class Search extends Component<Props, State> {

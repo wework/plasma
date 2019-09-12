@@ -249,14 +249,14 @@ declare module '@wework-dev/plasma' {
     label?: string,
     onClick: string => void,
     openDirection?: $Values<{| LEFT: string, RIGHT: string |}>,
-    options: Array<{| key: string, text: string |}>,
+    options: Array<{| key: string, text: React$Node |}>,
   |}> {}
 
   // source file: src/components/OverflowMenu/OverflowMenuItem.jsx
   declare export class OverflowMenuItem extends React$Component<{
     onClick: string => void,
     optionKey: string,
-    text: string,
+    text: React$Node,
   }> {}
 
   // source file: src/components/RadioButton/RadioButton.jsx
@@ -272,7 +272,7 @@ declare module '@wework-dev/plasma' {
     isLarge?: ?boolean,
     name: string,
     onChange: (event: SyntheticEvent<HTMLInputElement>) => mixed,
-    text: string,
+    text: React$Node,
     value?: string,
   |}> {}
 
