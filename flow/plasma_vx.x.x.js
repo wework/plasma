@@ -272,7 +272,7 @@ declare module '@wework-dev/plasma' {
     isLarge?: ?boolean,
     name: string,
     onChange: (event: SyntheticEvent<HTMLInputElement>) => mixed,
-    text: string,
+    text: React$Node,
     value?: string,
   |}> {}
 
