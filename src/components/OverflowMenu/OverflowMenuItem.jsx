@@ -5,7 +5,7 @@ import style from './style.scss';
 type Props = {
   onClick: string => void,
   optionKey: string,
-  text: string,
+  text: React$Node,
 };
 
 const OverflowMenuItem = ({ onClick, optionKey, text }: Props) => {
