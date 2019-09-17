@@ -1,6 +1,5 @@
 // @flow
 import React from 'react';
-import moment from 'moment';
 import cn from 'classnames';
 import ReactSelect from 'react-select';
 import { omit } from 'lodash';
@@ -47,12 +46,12 @@ import styles from './style.scss';
  */
 
 const FormatTypes = Object.freeze({
-  intlTimeFormat12: new Intl.DateTimeFormat('default', {
+  timeFormat12: new Intl.DateTimeFormat('default', {
     hour: 'numeric',
     minute: 'numeric',
     hour12: true,
   }),
-  intlTimeFormat24: new Intl.DateTimeFormat('default', {
+  timeFormat24: new Intl.DateTimeFormat('default', {
     hour: 'numeric',
     minute: 'numeric',
     hour12: false,
@@ -98,7 +97,10 @@ type State = {|
   options: Array<TimeOption>,
 |};
 
-const moment24h = (value?: string): moment => moment(`'2018-01-01 ${value || '00:00'}`);
+const isBefore = (date, otherDate) => date.getTime() < otherDate.getTime();
+const isAfter = (date, otherDate) => date.getTime() > otherDate.getTime();
+// using an arbitrary date as we only care about time
+const get24HourTimeAsDate = (value?: string): Date => new Date(`2018-01-01 ${value || '00:00'}`);
 
 const enumerateOptions = (
   start: string,
@@ -106,19 +108,19 @@ const enumerateOptions = (
   intervalMinutes: number,
   timeFormat: Intl$DateTimeFormat
 ): Array<TimeOption> => {
-  const minTime = moment24h(start);
-  const maxTime = moment24h(end);
+  const minTime = get24HourTimeAsDate(start);
+  const maxTime = get24HourTimeAsDate(end);
 
-  const timeValue = minTime.clone();
+  const timeValue = new Date(minTime);
   const options = [];
 
-  while (Date.parse(timeValue.toDate()) <= Date.parse(maxTime.toDate())) {
+  while (timeValue.getTime() <= maxTime.getTime()) {
     options.push({
-      value: FormatTypes.intlTimeFormat24.format(timeValue.toDate()),
-      label: timeFormat.format(timeValue.toDate()),
+      value: FormatTypes.timeFormat24.format(timeValue),
+      label: timeFormat.format(timeValue),
     });
 
-    timeValue.add(intervalMinutes, 'minutes');
+    timeValue.setMinutes(timeValue.getMinutes() + intervalMinutes);
   }
 
   return options;
@@ -134,7 +136,7 @@ class TimePicker extends React.Component<Props, State> {
   static defaultProps = {
     minTime: '00:00',
     maxTime: '24:00',
-    timeFormat: FormatTypes.intlTimeFormat24,
+    timeFormat: FormatTypes.timeFormat24,
     timeIntervalMinutes: 30,
     placeholder: 'Select time',
   };
@@ -164,15 +166,15 @@ class TimePicker extends React.Component<Props, State> {
 
     const { maxTime, minTime } = this.props;
 
-    const start = moment24h(minTime);
-    const end = moment24h(maxTime);
-    const valueMoment = moment24h(value);
+    const start = get24HourTimeAsDate(minTime);
+    const end = get24HourTimeAsDate(maxTime);
+    const valueMoment = get24HourTimeAsDate(value);
 
-    if (valueMoment.isBefore(start)) {
+    if (isBefore(valueMoment, start)) {
       return minTime;
     }
 
-    if (valueMoment.isAfter(end)) {
+    if (isAfter(valueMoment, end)) {
       return maxTime;
     }
 
@@ -202,19 +204,17 @@ class TimePicker extends React.Component<Props, State> {
     } = this.props;
     switch (defaultOption) {
       case TimePicker.DefaultOptions.nextInterval: {
-        const roundedUp = Math.ceil(moment().minute() / timeIntervalMinutes) * timeIntervalMinutes;
+        const now = new Date();
+        const roundedUp = Math.ceil(now.getMinutes() / timeIntervalMinutes) * timeIntervalMinutes;
 
-        return TimePicker.FormatTypes.intlTimeFormat24.format(
-          moment()
-            .minute(roundedUp)
-            .second(0)
-            .toDate()
-        );
+        const defaultTime = new Date(now);
+        defaultTime.setMinutes(roundedUp);
+        defaultTime.setSeconds(0);
+
+        return TimePicker.FormatTypes.timeFormat24.format(defaultTime);
       }
       case TimePicker.DefaultOptions.minimum:
-        return TimePicker.FormatTypes.intlTimeFormat24.format(
-          moment24h(this.props.minTime).toDate()
-        );
+        return TimePicker.FormatTypes.timeFormat24.format(get24HourTimeAsDate(this.props.minTime));
       default:
         return null;
     }
