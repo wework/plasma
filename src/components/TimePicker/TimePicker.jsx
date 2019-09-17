@@ -97,8 +97,8 @@ type State = {|
   options: Array<TimeOption>,
 |};
 
-const isBefore = (date, otherDate) => date.getTime() < otherDate.getTime();
-const isAfter = (date, otherDate) => date.getTime() > otherDate.getTime();
+const isBefore = (date: Date, otherDate: Date) => date.getTime() < otherDate.getTime();
+const isAfter = (date: Date, otherDate: Date) => date.getTime() > otherDate.getTime();
 // using an arbitrary date as we only care about time
 const get24HourTimeAsDate = (value?: string): Date => new Date(`2018-01-01 ${value || '00:00'}`);
 
