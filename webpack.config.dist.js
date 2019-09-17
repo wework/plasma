@@ -9,7 +9,6 @@ const webpack = require('webpack');
 module.exports = {
   entry: ['./src/index.js'],
   externals: {
-    moment: 'moment',
     react: 'react',
     'react-dom': 'react-dom',
     lodash: 'lodash',

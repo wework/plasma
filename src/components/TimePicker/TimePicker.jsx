@@ -1,6 +1,5 @@
 // @flow
 import React from 'react';
-import moment from 'moment';
 import cn from 'classnames';
 import ReactSelect from 'react-select';
 import { omit } from 'lodash';
@@ -47,8 +46,16 @@ import styles from './style.scss';
  */
 
 const FormatTypes = Object.freeze({
-  timeFormat12: 'hh:mm A',
-  timeFormat24: 'HH:mm',
+  timeFormat12: new Intl.DateTimeFormat('default', {
+    hour: '2-digit',
+    minute: '2-digit',
+    hour12: true,
+  }),
+  timeFormat24: new Intl.DateTimeFormat('default', {
+    hour: '2-digit',
+    minute: '2-digit',
+    hour12: false,
+  }),
 });
 
 export type TimeFormatType = $Values<typeof FormatTypes>;
@@ -86,31 +93,30 @@ type Props = {|
   ...GlobalAttributes,
 |};
 
-type State = {|
-  options: Array<TimeOption>,
-|};
-
-const moment24h = (value?: string): moment => moment(value, FormatTypes.timeFormat24);
+const isBefore = (date: Date, otherDate: Date) => date.getTime() < otherDate.getTime();
+const isAfter = (date: Date, otherDate: Date) => date.getTime() > otherDate.getTime();
+// using an arbitrary date as we only care about time
+const get24HourTimeAsDate = (value?: string): Date => new Date(`2018-01-01 ${value || '00:00'}`);
 
 const enumerateOptions = (
   start: string,
   end: string,
   intervalMinutes: number,
-  timeFormat: string
+  timeFormat: Intl$DateTimeFormat
 ): Array<TimeOption> => {
-  const minTime = moment24h(start);
-  const maxTime = moment24h(end);
+  const minTime = get24HourTimeAsDate(start);
+  const maxTime = get24HourTimeAsDate(end);
 
-  const timeValue = minTime.clone();
+  const timeValue = new Date(minTime);
   const options = [];
 
-  while (timeValue.isSameOrBefore(maxTime)) {
+  while (timeValue.getTime() <= maxTime.getTime()) {
     options.push({
-      value: timeValue.format(FormatTypes.timeFormat24),
-      label: timeValue.format(timeFormat),
+      value: FormatTypes.timeFormat24.format(timeValue),
+      label: timeFormat.format(timeValue),
     });
 
-    timeValue.add(intervalMinutes, 'minutes');
+    timeValue.setMinutes(timeValue.getMinutes() + intervalMinutes);
   }
 
   return options;
@@ -118,7 +124,7 @@ const enumerateOptions = (
 
 const ClockIcon = () => <span className={styles.selectClockIcon} />;
 
-class TimePicker extends React.Component<Props, State> {
+class TimePicker extends React.Component<Props> {
   static DefaultOptions = DefaultOptions;
 
   static FormatTypes = FormatTypes;
@@ -131,23 +137,13 @@ class TimePicker extends React.Component<Props, State> {
     placeholder: 'Select time',
   };
 
-  static getDerivedStateFromProps = ({
-    maxTime = TimePicker.defaultProps.maxTime,
-    minTime = TimePicker.defaultProps.minTime,
-    timeFormat,
-    timeIntervalMinutes = TimePicker.defaultProps.timeIntervalMinutes,
-  }: Props) => ({
-    options: enumerateOptions(minTime, maxTime, timeIntervalMinutes, timeFormat),
-  });
-
-  state = {
-    options: enumerateOptions(
+  getOptions = () =>
+    enumerateOptions(
       this.props.minTime || TimePicker.defaultProps.minTime,
       this.props.maxTime || TimePicker.defaultProps.maxTime,
       this.props.timeIntervalMinutes || TimePicker.defaultProps.timeIntervalMinutes,
       this.props.timeFormat
-    ),
-  };
+    );
 
   getValue(value: ?string): ?string {
     if (!value) {
@@ -156,15 +152,15 @@ class TimePicker extends React.Component<Props, State> {
 
     const { maxTime, minTime } = this.props;
 
-    const start = moment24h(minTime);
-    const end = moment24h(maxTime);
-    const valueMoment = moment24h(value);
+    const start = get24HourTimeAsDate(minTime);
+    const end = get24HourTimeAsDate(maxTime);
+    const valueAsDate = get24HourTimeAsDate(value);
 
-    if (valueMoment.isBefore(start)) {
+    if (isBefore(valueAsDate, start)) {
       return minTime;
     }
 
-    if (valueMoment.isAfter(end)) {
+    if (isAfter(valueAsDate, end)) {
       return maxTime;
     }
 
@@ -194,15 +190,17 @@ class TimePicker extends React.Component<Props, State> {
     } = this.props;
     switch (defaultOption) {
       case TimePicker.DefaultOptions.nextInterval: {
-        const roundedUp = Math.ceil(moment().minute() / timeIntervalMinutes) * timeIntervalMinutes;
+        const now = new Date();
+        const roundedUp = Math.ceil(now.getMinutes() / timeIntervalMinutes) * timeIntervalMinutes;
 
-        return moment()
-          .minute(roundedUp)
-          .second(0)
-          .format(TimePicker.FormatTypes.timeFormat24);
+        const defaultTime = new Date(now);
+        defaultTime.setMinutes(roundedUp);
+        defaultTime.setSeconds(0);
+
+        return TimePicker.FormatTypes.timeFormat24.format(defaultTime);
       }
       case TimePicker.DefaultOptions.minimum:
-        return moment24h(this.props.minTime).format(TimePicker.FormatTypes.timeFormat24);
+        return TimePicker.FormatTypes.timeFormat24.format(get24HourTimeAsDate(this.props.minTime));
       default:
         return null;
     }
@@ -226,8 +224,8 @@ class TimePicker extends React.Component<Props, State> {
     });
 
     const currentValue = this.getValue(value);
-
-    const currentOption = this.state.options.find(item => item.value === currentValue);
+    const options = this.getOptions();
+    const currentOption = options.find(item => item.value === currentValue);
 
     const restProps = omit(
       rest,
@@ -251,7 +249,7 @@ class TimePicker extends React.Component<Props, State> {
         className={timeSelectClassName}
         classNamePrefix="time-picker"
         clearable={false}
-        options={this.state.options}
+        options={options}
         searchable={false}
         isDisabled={disabled}
         value={currentOption}
