@@ -93,10 +93,6 @@ type Props = {|
   ...GlobalAttributes,
 |};
 
-type State = {|
-  options: Array<TimeOption>,
-|};
-
 const isBefore = (date: Date, otherDate: Date) => date.getTime() < otherDate.getTime();
 const isAfter = (date: Date, otherDate: Date) => date.getTime() > otherDate.getTime();
 // using an arbitrary date as we only care about time
@@ -128,7 +124,7 @@ const enumerateOptions = (
 
 const ClockIcon = () => <span className={styles.selectClockIcon} />;
 
-class TimePicker extends React.Component<Props, State> {
+class TimePicker extends React.Component<Props> {
   static DefaultOptions = DefaultOptions;
 
   static FormatTypes = FormatTypes;
@@ -141,23 +137,13 @@ class TimePicker extends React.Component<Props, State> {
     placeholder: 'Select time',
   };
 
-  static getDerivedStateFromProps = ({
-    maxTime = TimePicker.defaultProps.maxTime,
-    minTime = TimePicker.defaultProps.minTime,
-    timeFormat,
-    timeIntervalMinutes = TimePicker.defaultProps.timeIntervalMinutes,
-  }: Props) => ({
-    options: enumerateOptions(minTime, maxTime, timeIntervalMinutes, timeFormat),
-  });
-
-  state = {
-    options: enumerateOptions(
+  getOptions = () =>
+    enumerateOptions(
       this.props.minTime || TimePicker.defaultProps.minTime,
       this.props.maxTime || TimePicker.defaultProps.maxTime,
       this.props.timeIntervalMinutes || TimePicker.defaultProps.timeIntervalMinutes,
       this.props.timeFormat
-    ),
-  };
+    );
 
   getValue(value: ?string): ?string {
     if (!value) {
@@ -238,8 +224,8 @@ class TimePicker extends React.Component<Props, State> {
     });
 
     const currentValue = this.getValue(value);
-
-    const currentOption = this.state.options.find(item => item.value === currentValue);
+    const options = this.getOptions();
+    const currentOption = options.find(item => item.value === currentValue);
 
     const restProps = omit(
       rest,
@@ -263,7 +249,7 @@ class TimePicker extends React.Component<Props, State> {
         className={timeSelectClassName}
         classNamePrefix="time-picker"
         clearable={false}
-        options={this.state.options}
+        options={options}
         searchable={false}
         isDisabled={disabled}
         value={currentOption}
