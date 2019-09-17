@@ -168,13 +168,13 @@ class TimePicker extends React.Component<Props, State> {
 
     const start = get24HourTimeAsDate(minTime);
     const end = get24HourTimeAsDate(maxTime);
-    const valueMoment = get24HourTimeAsDate(value);
+    const valueAsDate = get24HourTimeAsDate(value);
 
-    if (isBefore(valueMoment, start)) {
+    if (isBefore(valueAsDate, start)) {
       return minTime;
     }
 
-    if (isAfter(valueMoment, end)) {
+    if (isAfter(valueAsDate, end)) {
       return maxTime;
     }
 
