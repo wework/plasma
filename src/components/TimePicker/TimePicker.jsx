@@ -47,13 +47,13 @@ import styles from './style.scss';
 
 const FormatTypes = Object.freeze({
   timeFormat12: new Intl.DateTimeFormat('default', {
-    hour: 'numeric',
-    minute: 'numeric',
+    hour: '2-digit',
+    minute: '2-digit',
     hour12: true,
   }),
   timeFormat24: new Intl.DateTimeFormat('default', {
-    hour: 'numeric',
-    minute: 'numeric',
+    hour: '2-digit',
+    minute: '2-digit',
     hour12: false,
   }),
 });
