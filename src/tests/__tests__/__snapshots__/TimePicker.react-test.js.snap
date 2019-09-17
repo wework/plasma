@@ -17,7 +17,7 @@ exports[`TimePicker default 12H format 1`] = `
       <div
         className="css-xp4uvy time-picker__single-value"
       >
-        02:00 PM
+        14:00
       </div>
       <div
         className="css-1g6gooi"

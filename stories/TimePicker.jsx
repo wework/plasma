@@ -45,7 +45,7 @@ storiesOf('TimePicker', module)
     <StoryState
       render={(state, setState) => (
         <TimePicker
-          timeFormat={TimePicker.FormatTypes.timeFormat24}
+          timeFormat={TimePicker.FormatTypes.intlTimeFormat24}
           defaultOption={TimePicker.DefaultOptions.nextInterval}
           value={state.value || '14:00'}
           onChange={value => setState({ value })}
@@ -57,7 +57,7 @@ storiesOf('TimePicker', module)
     <StoryState
       render={(state, setState) => (
         <TimePicker
-          timeFormat={TimePicker.FormatTypes.timeFormat12}
+          timeFormat={TimePicker.FormatTypes.intlTimeFormat12}
           value={state.value || '14:00'}
           onChange={value => setState({ value })}
         />
@@ -70,7 +70,7 @@ storiesOf('TimePicker', module)
         <TimePicker
           timeIntervalMinutes={15}
           onChange={value => setState({ value })}
-          timeFormat={TimePicker.FormatTypes.timeFormat12}
+          timeFormat={TimePicker.FormatTypes.intlTimeFormat12}
         />
       )}
     />

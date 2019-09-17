@@ -1,4 +1,4 @@
-// flow-typed version: <<STUB>>/@wework-dev/plasma_v0.1.6/flow_v0.105.2
+// flow-typed version: <<STUB>>/@wework-dev/plasma_v0.1.6/flow_v0.107.0
 
 declare module '@wework-dev/plasma' {
   // @flow
@@ -156,11 +156,11 @@ declare module '@wework-dev/plasma' {
 
   // source file: src/components/Hint/Hint.jsx
   declare export class Hint extends React$Component<{|
-    text?: string,
-    error?: boolean,
-    disabled?: boolean,
-    data?: Data,
     children?: React$Node,
+    data?: Data,
+    disabled?: boolean,
+    error?: boolean,
+    text?: string,
     ...GlobalAttributes,
   |}> {}
 
@@ -187,13 +187,13 @@ declare module '@wework-dev/plasma' {
 
   // source file: src/components/Label/Label.jsx
   declare export class Label extends React$Component<{|
-    text?: string,
-    required?: boolean,
-    inline?: boolean,
-    htmlFor?: string,
-    disabled?: boolean,
-    data?: Data,
     children?: React$Node,
+    data?: Data,
+    disabled?: boolean,
+    htmlFor?: string,
+    inline?: boolean,
+    required?: boolean,
+    text?: string,
     ...GlobalAttributes,
   |}> {}
 
@@ -480,24 +480,24 @@ declare module '@wework-dev/plasma' {
 
   // source file: src/components/TextInput/TextInput.jsx
   declare export class TextInput extends React$Component<{|
-    value?: string,
-    type?: 'text' | 'password' | 'email' | 'url',
-    suffix?: React$Node,
-    prefix?: React$Node,
-    placeholder?: string,
-    onClick?: SyntheticMouseEventHandler<HTMLInputElement>,
-    name?: string,
-    maxLength?: number | string,
-    error?: boolean,
-    disabled?: boolean,
     data?: Data,
+    disabled?: boolean,
+    error?: boolean,
+    maxLength?: number | string,
+    name?: string,
+    onClick?: SyntheticMouseEventHandler<HTMLInputElement>,
+    placeholder?: string,
+    prefix?: React$Node,
+    suffix?: React$Node,
+    type?: 'text' | 'password' | 'email' | 'url',
+    value?: string,
     ...FocusEventHandlers<HTMLInputElement>,
     ...ChangeEventHanlders<HTMLInputElement>,
     ...GlobalAttributes,
   |}> {}
 
   // source file: src/components/TimePicker/TimePicker.jsx
-  declare type TimeFormatType = $Values<{| timeFormat12: string, timeFormat24: string |}>;
+  declare type TimeFormatType = Intl$DateTimeFormat;
 
   // source file: src/components/TimePicker/TimePicker.jsx
   declare type DefaultOption = $Values<{| minimum: string, nextInterval: string |}>;
@@ -507,23 +507,23 @@ declare module '@wework-dev/plasma' {
 
   // source file: src/components/TimePicker/TimePicker.jsx
   declare export class TimePicker extends React$Component<{|
-    value?: string,
-    timeIntervalMinutes?: number,
-    timeFormat: TimeFormatType,
-    required?: boolean,
-    placeholder?: string,
-    onFocus?: SyntheticFocusEventHandler<>,
-    onChange?: string => void,
-    onBlur?: (?string) => void,
-    name?: string,
-    minTime?: string,
-    menuIsOpen?: boolean,
-    maxTime?: string,
-    error?: boolean,
-    disabled?: boolean,
-    defaultOption?: DefaultOption,
-    className?: string,
     borderless?: boolean,
+    className?: string,
+    defaultOption?: DefaultOption,
+    disabled?: boolean,
+    error?: boolean,
+    maxTime?: string,
+    menuIsOpen?: boolean,
+    minTime?: string,
+    name?: string,
+    onBlur?: (?string) => void,
+    onChange?: string => void,
+    onFocus?: SyntheticFocusEventHandler<>,
+    placeholder?: string,
+    required?: boolean,
+    timeFormat: TimeFormatType,
+    timeIntervalMinutes?: number,
+    value?: string,
     ...GlobalAttributes,
   |}> {
     static DefaultOptions: any;
