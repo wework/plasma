@@ -47,11 +47,19 @@ import styles from './style.scss';
  */
 
 const FormatTypes = Object.freeze({
-  timeFormat12: 'hh:mm A',
-  timeFormat24: 'HH:mm',
+  intlTimeFormat12: new Intl.DateTimeFormat('default', {
+    hour: 'numeric',
+    minute: 'numeric',
+    hour12: true,
+  }),
+  intlTimeFormat24: new Intl.DateTimeFormat('default', {
+    hour: 'numeric',
+    minute: 'numeric',
+    hour12: false,
+  }),
 });
 
-export type TimeFormatType = $Values<typeof FormatTypes>;
+export type TimeFormatType = Intl$DateTimeFormat;
 
 const DefaultOptions = Object.freeze({
   minimum: 'minimum',
@@ -90,13 +98,13 @@ type State = {|
   options: Array<TimeOption>,
 |};
 
-const moment24h = (value?: string): moment => moment(value, FormatTypes.timeFormat24);
+const moment24h = (value?: string): moment => moment(`'2018-01-01 ${value || '00:00'}`);
 
 const enumerateOptions = (
   start: string,
   end: string,
   intervalMinutes: number,
-  timeFormat: string
+  timeFormat: Intl$DateTimeFormat
 ): Array<TimeOption> => {
   const minTime = moment24h(start);
   const maxTime = moment24h(end);
@@ -104,10 +112,10 @@ const enumerateOptions = (
   const timeValue = minTime.clone();
   const options = [];
 
-  while (timeValue.isSameOrBefore(maxTime)) {
+  while (Date.parse(timeValue.toDate()) <= Date.parse(maxTime.toDate())) {
     options.push({
-      value: timeValue.format(FormatTypes.timeFormat24),
-      label: timeValue.format(timeFormat),
+      value: FormatTypes.intlTimeFormat24.format(timeValue.toDate()),
+      label: timeFormat.format(timeValue.toDate()),
     });
 
     timeValue.add(intervalMinutes, 'minutes');
@@ -126,7 +134,7 @@ class TimePicker extends React.Component<Props, State> {
   static defaultProps = {
     minTime: '00:00',
     maxTime: '24:00',
-    timeFormat: FormatTypes.timeFormat24,
+    timeFormat: FormatTypes.intlTimeFormat24,
     timeIntervalMinutes: 30,
     placeholder: 'Select time',
   };
@@ -196,13 +204,17 @@ class TimePicker extends React.Component<Props, State> {
       case TimePicker.DefaultOptions.nextInterval: {
         const roundedUp = Math.ceil(moment().minute() / timeIntervalMinutes) * timeIntervalMinutes;
 
-        return moment()
-          .minute(roundedUp)
-          .second(0)
-          .format(TimePicker.FormatTypes.timeFormat24);
+        return TimePicker.FormatTypes.intlTimeFormat24.format(
+          moment()
+            .minute(roundedUp)
+            .second(0)
+            .toDate()
+        );
       }
       case TimePicker.DefaultOptions.minimum:
-        return moment24h(this.props.minTime).format(TimePicker.FormatTypes.timeFormat24);
+        return TimePicker.FormatTypes.intlTimeFormat24.format(
+          moment24h(this.props.minTime).toDate()
+        );
       default:
         return null;
     }
