@@ -497,7 +497,10 @@ declare module '@wework-dev/plasma' {
   |}> {}
 
   // source file: src/components/TimePicker/TimePicker.jsx
-  declare type TimeFormatType = Intl$DateTimeFormat;
+  declare type TimeFormatType = $Values<{|
+    timeFormat12: Intl$DateTimeFormat,
+    timeFormat24: Intl$DateTimeFormat,
+  |}>;
 
   // source file: src/components/TimePicker/TimePicker.jsx
   declare type DefaultOption = $Values<{| minimum: string, nextInterval: string |}>;

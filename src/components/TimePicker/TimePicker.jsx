@@ -58,7 +58,7 @@ const FormatTypes = Object.freeze({
   }),
 });
 
-export type TimeFormatType = Intl$DateTimeFormat;
+export type TimeFormatType = $Values<typeof FormatTypes>;
 
 const DefaultOptions = Object.freeze({
   minimum: 'minimum',
