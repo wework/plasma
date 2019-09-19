@@ -16,7 +16,7 @@ export default function extractDefaultFlowTypes(file, { j, report }) {
     const fullTypeDeclaration = typeAtPosOutput.split('\n')[0];
     const typeDeclarationRHS = fullTypeDeclaration.replace(/^type\s+\w+\s+=\s+/, '');
 
-    if (inexact) {
+    if (!inexact) {
       fullTypeDeclaration.push('...');
     }
 
