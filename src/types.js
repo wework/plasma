@@ -1,7 +1,5 @@
 // @flow
-export type Data = {
-  [key: string]: string,
-};
+export type Data = { [key: string]: string, ... };
 
 export type GlobalAttributes = {|
   className?: string,

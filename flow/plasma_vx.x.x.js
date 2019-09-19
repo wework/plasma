@@ -2,9 +2,7 @@
 
 declare module '@wework-dev/plasma' {
   // @flow
-  declare export type Data = {
-    [key: string]: string,
-  };
+  declare export type Data = { [key: string]: string, ... };
 
   declare export type GlobalAttributes = {|
     className?: string,
