@@ -29,7 +29,7 @@ export type SyntheticFocusEventHandler<T: EventTarget = EventTarget> = (
 
 // Common event handler props
 
-export type ChangeEventHanlders<T: EventTarget = EventTarget> = {|
+export type ChangeEventHandlers<T: EventTarget = EventTarget> = {|
   onChange?: SyntheticInputEventHandler<T>,
 |};
 

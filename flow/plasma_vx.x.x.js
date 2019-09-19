@@ -32,7 +32,7 @@ declare module '@wework-dev/plasma' {
 
   // Common event handler props
 
-  declare export type ChangeEventHanlders<T: EventTarget = EventTarget> = {|
+  declare export type ChangeEventHandlers<T: EventTarget = EventTarget> = {|
     onChange?: SyntheticInputEventHandler<T>,
   |};
 
@@ -85,7 +85,7 @@ declare module '@wework-dev/plasma' {
     name?: string,
     onClick?: (evt: MouseEvent) => void,
     size?: $Values<{| SMALL: string |}>,
-    style?: { [key: string]: any },
+    style?: StyleAttributes,
     tabIndex?: number,
     title?: string,
     type?: $Values<{| PRIMARY: string, SECONDARY: string, TERTIARY: string |}>,
@@ -220,24 +220,26 @@ declare module '@wework-dev/plasma' {
   |}> {}
 
   // source file: src/components/NumberInput/NumberInput.jsx
-  declare type HandleEvent = {|
-    nativeEvent: { target: { value: any } },
-    target: { parentElement: { classList: { add: string => mixed, remove: string => mixed } } },
-  |};
+  declare type HandleEvent =
+    | {|
+        nativeEvent: { target: { value: any } },
+        target: { parentElement: { classList: { add: string => mixed, remove: string => mixed } } },
+      |}
+    | string;
 
   // source file: src/components/NumberInput/NumberInput.jsx
   declare export class NumberInput extends React$Component<{|
     data?: Data,
     disabled?: boolean,
     error?: boolean,
-    maxValue: number,
-    minValue: number,
+    maxValue?: number,
+    minValue?: number,
     onBlur?: HandleEvent => void,
-    onChange: HandleEvent => void,
+    onChange?: HandleEvent => void,
     onFocus?: HandleEvent => void,
     placeholder?: string,
-    step: number,
-    value: string,
+    step?: number,
+    value?: string,
   |}> {}
 
   // source file: src/components/OverflowMenu/OverflowMenu.jsx
@@ -490,7 +492,7 @@ declare module '@wework-dev/plasma' {
     type?: 'text' | 'password' | 'email' | 'url',
     value?: string,
     ...FocusEventHandlers<HTMLInputElement>,
-    ...ChangeEventHanlders<HTMLInputElement>,
+    ...ChangeEventHandlers<HTMLInputElement>,
     ...GlobalAttributes,
   |}> {}
 

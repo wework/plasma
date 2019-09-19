@@ -20,19 +20,19 @@ type HandleEvent = {|
       value: Object,
     },
   },
-|};
+|} | string;
 type Props = {|
   data?: Data,
   disabled?: boolean,
   error?: boolean,
-  maxValue: number,
-  minValue: number,
+  maxValue?: number,
+  minValue?: number,
   onBlur?: HandleEvent => void,
-  onChange: HandleEvent => void,
+  onChange?: HandleEvent => void,
   onFocus?: HandleEvent => void,
   placeholder?: string,
-  step: number,
-  value: string,
+  step?: number,
+  value?: string,
 |};
 
 class NumberInput extends React.Component<Props> {
