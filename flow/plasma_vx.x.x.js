@@ -70,7 +70,7 @@ declare module '@wework-dev/plasma' {
     onBlur?: SyntheticFocusEventHandler<T>,
   |};
 
-  declare export type StyleAttributes = { [string]: string | number };
+  declare export type StyleAttributes = { [string]: string | number, ... };
 
   // source file: src/components/Button/Button.jsx
   declare export class Button extends React$Component<{|

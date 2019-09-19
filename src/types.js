@@ -67,4 +67,4 @@ export type FocusEventHandlers<T: EventTarget = EventTarget> = {|
   onBlur?: SyntheticFocusEventHandler<T>,
 |};
 
-export type StyleAttributes = { [string]: string | number };
+export type StyleAttributes = { [string]: string | number, ... };
