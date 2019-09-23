@@ -13,7 +13,6 @@ type Props = {|
   label: React$Node,
   onClick?: ({ id: string }) => mixed,
   items?: Array<Item>,
-  darkBg?: boolean,
   selectedId?: string,
 |};
 

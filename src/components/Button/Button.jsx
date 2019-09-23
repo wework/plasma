@@ -2,7 +2,7 @@
 import cx from 'classnames';
 import React from 'react';
 
-import Loader from '../Loader/Loader.jsx';
+import Loader from '../Loader/Loader';
 
 import { getDataAttrs } from '../../dataUtils';
 
@@ -78,6 +78,7 @@ function Button(props: Props): React$Node {
   }
 
   return (
+    // eslint-disable-next-line react/button-has-type
     <button
       {...getDataAttrs(data)}
       className={classes}

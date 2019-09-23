@@ -32,6 +32,7 @@ class RadioButton extends React.Component<Props> {
     const { checked, value, fieldValue } = this.props;
     return checked || (fieldValue && value === this.props.fieldValue);
   };
+
   render() {
     const {
       data,

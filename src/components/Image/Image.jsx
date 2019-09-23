@@ -31,6 +31,7 @@ class Image extends React.Component<Props, State> {
     fallback: defaultImage,
     altText: 'Image',
   };
+
   state = {
     errored: false,
   };

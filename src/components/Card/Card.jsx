@@ -36,6 +36,12 @@ type State = {|
 |};
 
 class Card extends React.Component<Props, State> {
+  expanded: ?Object;
+
+  outer: ?Element;
+
+  default: ?Object;
+
   constructor() {
     super();
     this.state = {
@@ -58,10 +64,6 @@ class Card extends React.Component<Props, State> {
     this.setState({ isMounted: true });
     /* eslint-enable */
   }
-
-  expanded: ?Object;
-  outer: ?Element;
-  default: ?Object;
 
   render() {
     const {
@@ -91,8 +93,10 @@ class Card extends React.Component<Props, State> {
     if (this.state.isMounted) {
       if (this.props.isExpanded) {
         defaultHeight = 0;
+        // eslint-disable-next-line prefer-destructuring
         expandedHeight = this.state.expandedHeight;
       } else {
+        // eslint-disable-next-line prefer-destructuring
         defaultHeight = this.state.defaultHeight;
         expandedHeight = 0;
       }

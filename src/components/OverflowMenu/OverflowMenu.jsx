@@ -4,7 +4,7 @@ import { map } from 'lodash';
 import React from 'react';
 import { getDataAttrs } from '../../dataUtils';
 import type { Data } from '../../types';
-import OverflowMenuItem from './OverflowMenuItem.jsx';
+import OverflowMenuItem from './OverflowMenuItem';
 import style from './style.scss';
 
 const direction = { RIGHT: 'right', LEFT: 'left' };

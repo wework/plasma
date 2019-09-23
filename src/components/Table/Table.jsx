@@ -37,6 +37,12 @@ type State = {|
 |};
 
 class Table extends React.Component<Props, State> {
+  table: any;
+
+  fixed: any;
+
+  headerComponents: Object;
+
   static defaultProps = {
     empty: false,
     emptyText: '',
@@ -82,9 +88,6 @@ class Table extends React.Component<Props, State> {
     document.removeEventListener('scroll', this.handleScroll);
     window.removeEventListener('resize', this.handleWindowResize);
   }
-  table: any;
-  fixed: any;
-  headerComponents: Object;
 
   handleWindowResize = () => {
     this.calculateSizes();
@@ -152,7 +155,7 @@ class Table extends React.Component<Props, State> {
     const { sort, onSort } = this.props;
     const headerComponents = map(this.props.headerData, value => {
       let colStyles = { width: value.width };
-      const key = value.key;
+      const { key } = value;
 
       if (opts.sticky && this.state.columnSizes[key] && !value.width) {
         colStyles = { width: this.state.columnSizes[key].width };
@@ -237,6 +240,7 @@ class Table extends React.Component<Props, State> {
     }
 
     if (spanMap) {
+      // eslint-disable-next-line prefer-destructuring
       spanKey = keys(spanMap)[0];
       spannedHeaderKeys = spanMap[spanKey];
     }
@@ -296,6 +300,7 @@ class Table extends React.Component<Props, State> {
 
       // Create the remaining partial rows if necessary
       if (spanCount) {
+        // eslint-disable-next-line no-plusplus
         for (let i = 1; i < spanCount; i++) {
           const partialRowColumns = [];
           forEach(spannedHeaderKeys, key => {
@@ -329,6 +334,7 @@ class Table extends React.Component<Props, State> {
       <div {...getDataAttrs(this.props.data)} style={this.props.style} className={style.wrapper}>
         {this.props.stickAt != null && (
           <div
+            // eslint-disable-next-line no-return-assign
             ref={c => (this.fixed = c)}
             className={cx(style.table, style.sticky)}
             style={{

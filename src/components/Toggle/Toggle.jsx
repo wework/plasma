@@ -33,6 +33,7 @@ class Toggle extends React.Component<Props> {
     type: type.HORIZONTAL,
     onChange: () => {},
   };
+
   onClick(item: Object, index: number) {
     if (!item.disabled) {
       this.props.onChange(item.label, index);

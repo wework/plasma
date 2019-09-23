@@ -5,13 +5,9 @@ import style from './style.scss';
 
 type Props = {|
   id: string,
-  icon?: string,
-  iconSize: number,
-  iconStyle?: Object,
   label: React$Node,
   onClick: string => mixed,
   selected: boolean,
-  children?: React$Node,
   darkBg?: boolean,
   linkComponent: ?React$Node,
   tagText: ?string,
@@ -20,7 +16,6 @@ type Props = {|
 class SideNavBarItem extends Component<Props> {
   static defaultProps = {
     label: 'Label',
-    iconSize: 16,
     selected: false,
     tagText: null,
   };
