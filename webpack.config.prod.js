@@ -1,10 +1,10 @@
 /* eslint-disable import/no-extraneous-dependencies, no-console */
 
-const css = require('./css.config');
 const path = require('path');
 const ExtractTextPlugin = require('extract-text-webpack-plugin');
 const webpack = require('webpack');
 const fs = require('fs');
+const css = require('./css.config');
 
 function createEntries(base = '.', basename = '') {
   const regularExpression = /\.jsx?$/;
@@ -56,7 +56,6 @@ module.exports = {
     'react-dom': 'react-dom',
     lodash: 'lodash',
     classnames: 'classnames',
-    'react-datepicker': 'react-datepicker',
   },
   output: {
     path: path.resolve(__dirname, 'lib'),
