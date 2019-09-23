@@ -34,17 +34,7 @@ export default function extractDefaultFlowTypes(file, { j, report }) {
     let log = `// source file: ${file.path}\n`;
 
     if (p.value.id.name === 'Props') {
-      const capitalStaticKey = /^[A-Z]/;
-      const isDefaultProps = key => key === 'defaultProps';
-
-      const classProps = root
-        .find(j.ClassProperty)
-        .filter(
-          ({ value }) =>
-            value.static &&
-            value.key.name &&
-            (capitalStaticKey.test(value.key.name) || isDefaultProps(value.key.name))
-        );
+      const classProps = root.find(j.ClassProperty).filter(({ value }) => value.static);
 
       const nodes = classProps.nodes();
 
