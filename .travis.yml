@@ -7,7 +7,6 @@ cache:
 node_js:
   - 12.4.0
 before_script:
-  - yarn global add gulp-cli
   - yarn
 script:
   - yarn lint
