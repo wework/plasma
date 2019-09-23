@@ -123,7 +123,15 @@ declare module '@wework-dev/plasma' {
     onChange?: () => mixed,
     text: React$Node,
     value?: boolean,
-  |}> {}
+  |}> {
+    static defaultProps: {|
+      checked: boolean,
+      indeterminate: boolean,
+      name: string,
+      text: string,
+      value: boolean,
+    |};
+  }
 
   // source file: src/components/CollapsibleCard/CollapsibleCard.jsx
   declare export class CollapsibleCard extends React$Component<{|
@@ -133,7 +141,9 @@ declare module '@wework-dev/plasma' {
     headerText: React$Node,
     isCollapsed: boolean,
     styleColor: $Values<{| RED: string |}>,
-  |}> {}
+  |}> {
+    static defaultProps: {| isCollapsed: boolean |};
+  }
 
   // source file: src/components/Header/Header.jsx
   declare export class Header extends React$Component<{|
@@ -181,7 +191,14 @@ declare module '@wework-dev/plasma' {
     onLoad?: (evt: MouseEvent) => void,
     src: string,
     style?: StyleAttributes,
-  |}> {}
+  |}> {
+    static defaultProps: {|
+      altText: string,
+      fallback: string,
+      src: string,
+      style: {| height: string, width: number |},
+    |};
+  }
 
   // source file: src/components/Label/Label.jsx
   declare export class Label extends React$Component<{|
@@ -203,7 +220,9 @@ declare module '@wework-dev/plasma' {
     dotColor?: string,
     dotStyle?: StyleAttributes,
     style?: StyleAttributes,
-  |}> {}
+  |}> {
+    static defaultProps: {| dotStyle: {||} |};
+  }
 
   // source file: src/components/Modal/Modal.jsx
   declare export class Modal extends React$Component<{|
@@ -238,7 +257,16 @@ declare module '@wework-dev/plasma' {
     placeholder: string,
     step: number,
     value: string,
-  |}> {}
+  |}> {
+    static defaultProps: {|
+      maxValue: number,
+      minValue: number,
+      onChange: () => void,
+      placeholder: string,
+      step: number,
+      value: string,
+    |};
+  }
 
   // source file: src/components/OverflowMenu/OverflowMenu.jsx
   declare export class OverflowMenu extends React$Component<{|
@@ -248,7 +276,9 @@ declare module '@wework-dev/plasma' {
     onClick: string => void,
     openDirection?: $Values<{| LEFT: string, RIGHT: string |}>,
     options: Array<{| key: string, text: React$Node |}>,
-  |}> {}
+  |}> {
+    static defaultProps: {| openDirection: string, options: Array<empty> |};
+  }
 
   // source file: src/components/OverflowMenu/OverflowMenuItem.jsx
   declare export class OverflowMenuItem extends React$Component<{
@@ -272,7 +302,9 @@ declare module '@wework-dev/plasma' {
     onChange: (event: SyntheticEvent<HTMLInputElement>) => mixed,
     text: React$Node,
     value?: string,
-  |}> {}
+  |}> {
+    static defaultProps: {| name: string, text: string |};
+  }
 
   // source file: src/components/RadioButtonGroup/RadioButtonGroup.jsx
   declare type Option = {|
@@ -291,14 +323,18 @@ declare module '@wework-dev/plasma' {
     onChange: () => mixed,
     options: Array<Option>,
     value?: string,
-  |}> {}
+  |}> {
+    static defaultProps: {| value: null |};
+  }
 
   // source file: src/components/Rule/Rule.jsx
   declare export class Rule extends React$Component<{|
     data?: Data,
     type?: string,
     withTopMargin?: boolean,
-  |}> {}
+  |}> {
+    static defaultProps: {| type: string |};
+  }
 
   // source file: src/components/Search/Search.jsx
   declare export class Search extends React$Component<{|
@@ -314,7 +350,9 @@ declare module '@wework-dev/plasma' {
     onKeyDown?: (event: SyntheticKeyboardEvent<HTMLInputElement>) => void,
     placeholder?: string,
     value?: string,
-  |}> {}
+  |}> {
+    static defaultProps: {| autoFocus: boolean, onKeyDown: null, placeholder: string |};
+  }
 
   // source file: src/components/SegmentedCard/SegmentedCard.jsx
   declare export class SegmentedCard extends React$Component<{|
@@ -322,7 +360,9 @@ declare module '@wework-dev/plasma' {
     data?: Data,
     style: any,
     vertical: Boolean,
-  |}> {}
+  |}> {
+    static defaultProps: {| children: Array<string>, style: {||} |};
+  }
 
   // source file: src/components/Select/Select.jsx
   declare export class Select extends React$Component<{}> {}
@@ -340,7 +380,9 @@ declare module '@wework-dev/plasma' {
     label: string,
     onClick: () => mixed,
     selected: boolean,
-  |}> {}
+  |}> {
+    static defaultProps: {| iconSize: number, label: string, selected: boolean |};
+  }
 
   // source file: src/components/SideNavBar/SideNavBar.jsx
   declare type Item = {|
@@ -381,7 +423,9 @@ declare module '@wework-dev/plasma' {
     onClick: string => mixed,
     selected: boolean,
     tagText: ?string,
-  |}> {}
+  |}> {
+    static defaultProps: {| iconSize: number, label: string, selected: boolean, tagText: null |};
+  }
 
   // source file: src/components/SideNavBar/SideNavBarItemGroup.jsx
   declare export class SideNavBarItemGroup extends React$Component<{|
@@ -394,7 +438,9 @@ declare module '@wework-dev/plasma' {
     label: React$Node,
     onClick?: ({ id: string }) => mixed,
     selectedId?: string,
-  |}> {}
+  |}> {
+    static defaultProps: {| iconSize: number, label: string |};
+  }
 
   // source file: src/components/SideNavBar/SideNavBarTop.jsx
   declare export class SideNavBarTop extends React$Component<{|
@@ -427,7 +473,14 @@ declare module '@wework-dev/plasma' {
     spanMap?: any,
     stickAt?: number,
     style?: StyleAttributes,
-  |}> {}
+  |}> {
+    static defaultProps: {|
+      empty: boolean,
+      emptyText: string,
+      headerData: Array<empty>,
+      loading: boolean,
+    |};
+  }
 
   // source file: src/components/Tabs/Tabs.jsx
   declare type Tab = {| label: string, title: React$Node |};
@@ -441,7 +494,9 @@ declare module '@wework-dev/plasma' {
     selectedIndex?: number,
     selectedLabel?: string,
     vertical?: boolean,
-  |}> {}
+  |}> {
+    static defaultProps: {| items: Array<empty>, onChange: () => void |};
+  }
 
   // source file: src/components/Tag/Tag.jsx
   declare export class Tag extends React$Component<{|
@@ -458,7 +513,9 @@ declare module '@wework-dev/plasma' {
     large?: boolean,
     style?: StyleAttributes,
     type?: string,
-  |}> {}
+  |}> {
+    static defaultProps: {| style: {| height: string, width: number |} |};
+  }
 
   // source file: src/components/TextArea/TextArea.jsx
   declare export class TextArea extends React$Component<{|
@@ -474,7 +531,9 @@ declare module '@wework-dev/plasma' {
     rows: string,
     size: string,
     value: string,
-  |}> {}
+  |}> {
+    static defaultProps: {| autosize: boolean, placeholder: string, rows: string |};
+  }
 
   // source file: src/components/TextInput/TextInput.jsx
   declare export class TextInput extends React$Component<{|
@@ -492,7 +551,9 @@ declare module '@wework-dev/plasma' {
     ...FocusEventHandlers<HTMLInputElement>,
     ...ChangeEventHandlers<HTMLInputElement>,
     ...GlobalAttributes,
-  |}> {}
+  |}> {
+    static defaultProps: {| placeholder: string |};
+  }
 
   // source file: src/components/TimePicker/TimePicker.jsx
   declare type TimeFormatType = $Values<{|
@@ -527,8 +588,15 @@ declare module '@wework-dev/plasma' {
     value?: string,
     ...GlobalAttributes,
   |}> {
-    static DefaultOptions: any;
-    static FormatTypes: any;
+    static DefaultOptions: {| minimum: string, nextInterval: string |};
+    static FormatTypes: {| timeFormat12: Intl$DateTimeFormat, timeFormat24: Intl$DateTimeFormat |};
+    static defaultProps: {|
+      maxTime: string,
+      minTime: string,
+      placeholder: string,
+      timeFormat: Intl$DateTimeFormat,
+      timeIntervalMinutes: number,
+    |};
   }
 
   // source file: src/components/Toggle/Toggle.jsx
@@ -541,14 +609,18 @@ declare module '@wework-dev/plasma' {
     selectedLabel: string,
     size?: string,
     type: string,
-  |}> {}
+  |}> {
+    static defaultProps: {| items: Array<empty>, onChange: () => void, type: string |};
+  }
 
   // source file: src/components/Tooltip/Tooltip.jsx
   declare export class Tooltip extends React$Component<{|
     children: React$Node,
     content: React$Node,
     data?: Data,
-  |}> {}
+  |}> {
+    static defaultProps: {| children: string, content: string |};
+  }
 
   // source file: src/components/layout/FixedLeft/FixedLeft.jsx
   declare export class FixedLeft extends React$Component<{|
@@ -557,7 +629,9 @@ declare module '@wework-dev/plasma' {
     data?: Data,
     fixedStyle?: any,
     stickAt?: number,
-  |}> {}
+  |}> {
+    static defaultProps: {| children: Array<null>, stickAt: number |};
+  }
 
   // source file: src/components/layout/FixedRight/FixedRight.jsx
   declare export class FixedRight extends React$Component<{|
@@ -565,14 +639,18 @@ declare module '@wework-dev/plasma' {
     data?: Data,
     fixedContainerStyle: any,
     stickAt: number,
-  |}> {}
+  |}> {
+    static defaultProps: {| children: Array<null>, stickAt: null |};
+  }
 
   // source file: src/components/layout/FixedTop/FixedTop.jsx
   declare export class FixedTop extends React$Component<{|
     backgroundColor: string,
     children: React$Node,
     data?: Data,
-  |}> {}
+  |}> {
+    static defaultProps: {| backgroundColor: string, children: Array<string> |};
+  }
 
   // source file: src/components/layout/FormField/FormField.jsx
   declare export class FormField extends React$Component<{|
@@ -593,7 +671,9 @@ declare module '@wework-dev/plasma' {
     layout: Array<any>,
     style?: StyleAttributes,
     vertical?: boolean,
-  |}> {}
+  |}> {
+    static defaultProps: {| children: Array<empty>, layout: Array<empty> |};
+  }
 
   // source file: src/components/layout/HorizontalScroll/HorizontalScroll.jsx
   declare export class HorizontalScroll extends React$Component<{|
@@ -601,7 +681,9 @@ declare module '@wework-dev/plasma' {
     data?: Data,
     onScroll: (evt: MouseEvent) => void,
     style: any,
-  |}> {}
+  |}> {
+    static defaultProps: {| children: null, onScroll: () => void |};
+  }
 
   // source file: src/components/layout/Page/Page.jsx
   declare export class Page extends React$Component<{|
