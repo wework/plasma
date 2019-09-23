@@ -412,11 +412,7 @@ declare module '@wework-dev/plasma' {
 
   // source file: src/components/SideNavBar/SideNavBarItem.jsx
   declare export class SideNavBarItem extends React$Component<{|
-    children?: React$Node,
     darkBg?: boolean,
-    icon?: string,
-    iconSize: number,
-    iconStyle?: any,
     id: string,
     label: React$Node,
     linkComponent: ?React$Node,
@@ -424,12 +420,11 @@ declare module '@wework-dev/plasma' {
     selected: boolean,
     tagText: ?string,
   |}> {
-    static defaultProps: {| iconSize: number, label: string, selected: boolean, tagText: null |};
+    static defaultProps: {| label: string, selected: boolean, tagText: null |};
   }
 
   // source file: src/components/SideNavBar/SideNavBarItemGroup.jsx
   declare export class SideNavBarItemGroup extends React$Component<{|
-    darkBg?: boolean,
     icon?: string,
     iconSize: number,
     iconStyle?: any,
