@@ -20,7 +20,7 @@ const types = {
 
 class Text extends React.Component<Props> {
   static defaultProps = {
-    style: { width: 200, height: 'auto' },
+    style: { width: '200px', height: 'auto' },
   };
 
   render() {

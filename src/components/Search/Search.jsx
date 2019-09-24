@@ -26,7 +26,6 @@ type State = {|
 class Search extends Component<Props, State> {
   static defaultProps = {
     placeholder: 'Search...',
-    onKeyDown: null,
     autoFocus: false,
   };
 

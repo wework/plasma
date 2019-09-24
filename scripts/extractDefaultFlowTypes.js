@@ -10,7 +10,7 @@ const getNodeTypedef = (file, node) => {
     const nodeTypeDeclaration = nodeTypeAtPosOutput.split('\n')[0];
     const nodeTypeDeclarationRHS = nodeTypeDeclaration.replace(/^type\s+\w+\s+=\s+/, '');
 
-    return nodeTypeDeclarationRHS;
+    return nodeTypeDeclarationRHS.replace(/<empty>/gi, '<any>');
   } catch (error) {
     return `any /* ${error.message} */`;
   }

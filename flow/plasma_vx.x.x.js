@@ -68,7 +68,7 @@ declare module '@wework-dev/plasma' {
     onBlur?: SyntheticFocusEventHandler<T>,
   |};
 
-  declare export type StyleAttributes = { [string]: string | number, ... };
+  declare export type StyleAttributes = { [string]: string, ... };
 
   // source file: src/components/Button/Button.jsx
   declare export class Button extends React$Component<{|
@@ -196,7 +196,7 @@ declare module '@wework-dev/plasma' {
       altText: string,
       fallback: string,
       src: string,
-      style: {| height: string, width: number |},
+      style: {| height: string, width: string |},
     |};
   }
 
@@ -277,7 +277,7 @@ declare module '@wework-dev/plasma' {
     openDirection?: $Values<{| LEFT: string, RIGHT: string |}>,
     options: Array<{| key: string, text: React$Node |}>,
   |}> {
-    static defaultProps: {| openDirection: string, options: Array<empty> |};
+    static defaultProps: {| openDirection: string, options: Array<any> |};
   }
 
   // source file: src/components/OverflowMenu/OverflowMenuItem.jsx
@@ -323,9 +323,7 @@ declare module '@wework-dev/plasma' {
     onChange: () => mixed,
     options: Array<Option>,
     value?: string,
-  |}> {
-    static defaultProps: {| value: null |};
-  }
+  |}> {}
 
   // source file: src/components/Rule/Rule.jsx
   declare export class Rule extends React$Component<{|
@@ -351,7 +349,7 @@ declare module '@wework-dev/plasma' {
     placeholder?: string,
     value?: string,
   |}> {
-    static defaultProps: {| autoFocus: boolean, onKeyDown: null, placeholder: string |};
+    static defaultProps: {| autoFocus: boolean, placeholder: string |};
   }
 
   // source file: src/components/SegmentedCard/SegmentedCard.jsx
@@ -472,7 +470,7 @@ declare module '@wework-dev/plasma' {
     static defaultProps: {|
       empty: boolean,
       emptyText: string,
-      headerData: Array<empty>,
+      headerData: Array<any>,
       loading: boolean,
     |};
   }
@@ -490,7 +488,7 @@ declare module '@wework-dev/plasma' {
     selectedLabel?: string,
     vertical?: boolean,
   |}> {
-    static defaultProps: {| items: Array<empty>, onChange: () => void |};
+    static defaultProps: {| items: Array<any>, onChange: () => void |};
   }
 
   // source file: src/components/Tag/Tag.jsx
@@ -509,7 +507,7 @@ declare module '@wework-dev/plasma' {
     style?: StyleAttributes,
     type?: string,
   |}> {
-    static defaultProps: {| style: {| height: string, width: number |} |};
+    static defaultProps: {| style: {| height: string, width: string |} |};
   }
 
   // source file: src/components/TextArea/TextArea.jsx
@@ -605,7 +603,7 @@ declare module '@wework-dev/plasma' {
     size?: string,
     type: string,
   |}> {
-    static defaultProps: {| items: Array<empty>, onChange: () => void, type: string |};
+    static defaultProps: {| items: Array<any>, onChange: () => void, type: string |};
   }
 
   // source file: src/components/Tooltip/Tooltip.jsx
@@ -667,7 +665,7 @@ declare module '@wework-dev/plasma' {
     style?: StyleAttributes,
     vertical?: boolean,
   |}> {
-    static defaultProps: {| children: Array<empty>, layout: Array<empty> |};
+    static defaultProps: {| children: Array<any>, layout: Array<any> |};
   }
 
   // source file: src/components/layout/HorizontalScroll/HorizontalScroll.jsx

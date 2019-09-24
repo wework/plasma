@@ -20,10 +20,6 @@ type Props = {|
 |};
 
 class RadioButtonGroup extends React.Component<Props> {
-  static defaultProps = {
-    value: null,
-  };
-
   renderRadioButtons = (): React$Node => {
     const { options, value, fancy, isLarge, name, onChange } = this.props;
     // TODO: replace fieldValue with value={opt.value}
