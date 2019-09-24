@@ -21,6 +21,7 @@ type HandleEvent = {|
     },
   },
 |};
+
 type Props = {|
   data?: Data,
   disabled?: boolean,
@@ -30,7 +31,7 @@ type Props = {|
   onBlur?: HandleEvent => void,
   onChange: HandleEvent => void,
   onFocus?: HandleEvent => void,
-  placeholder?: string,
+  placeholder: string,
   step: number,
   value: string,
 |};

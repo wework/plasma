@@ -2,11 +2,11 @@
 import cx from 'classnames';
 import React from 'react';
 
-import Loader from '../Loader/Loader.jsx';
+import Loader from '../Loader/Loader';
 
 import { getDataAttrs } from '../../dataUtils';
 
-import type { Data } from '../../types';
+import type { Data, StyleAttributes } from '../../types';
 
 import styles from './style.scss';
 
@@ -33,7 +33,7 @@ type Props = {|
   id?: string,
   isSubmit?: boolean,
   size?: $Values<typeof Sizes>,
-  style?: { [key: string]: any },
+  style?: StyleAttributes,
   type?: $Values<typeof Variants>,
   value?: string,
   tabIndex?: number,
@@ -78,6 +78,7 @@ function Button(props: Props): React$Node {
   }
 
   return (
+    // eslint-disable-next-line react/button-has-type
     <button
       {...getDataAttrs(data)}
       className={classes}

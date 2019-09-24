@@ -28,15 +28,19 @@ class TextArea extends Component<Props> {
     rows: '3',
     autosize: true,
   };
+
+  autogrow: Object;
+
   componentWillUnmount() {
     this.autogrow && this.autogrow.destroy();
   }
+
   onRef = (el: ?Object) => {
     if (el && this.props.autosize) {
       this.autogrow = new Autogrow(el);
     }
   };
-  autogrow: Object;
+
   render() {
     const {
       data,

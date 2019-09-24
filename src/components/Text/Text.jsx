@@ -22,6 +22,7 @@ class Text extends React.Component<Props> {
   static defaultProps = {
     style: { width: 200, height: 'auto' },
   };
+
   render() {
     const { large, type } = this.props;
     const textStyle = cx(style.wrapper, {

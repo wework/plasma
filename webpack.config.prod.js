@@ -1,10 +1,10 @@
 /* eslint-disable import/no-extraneous-dependencies, no-console */
 
-const css = require('./css.config');
 const path = require('path');
 const ExtractTextPlugin = require('extract-text-webpack-plugin');
 const webpack = require('webpack');
 const fs = require('fs');
+const css = require('./css.config');
 
 function createEntries(base = '.', basename = '') {
   const regularExpression = /\.jsx?$/;

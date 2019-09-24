@@ -17,6 +17,7 @@ class SegmentedCard extends React.Component<Props> {
     children: ['Side', 'Content'],
     style: {},
   };
+
   render() {
     const className = cx(style.card, {
       [style.vertical]: this.props.vertical,

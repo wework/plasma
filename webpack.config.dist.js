@@ -1,10 +1,10 @@
 /* eslint-disable import/no-extraneous-dependencies, no-console */
 
-const css = require('./css.config');
 const path = require('path');
 const ExtractTextPlugin = require('extract-text-webpack-plugin');
 // const BundleAnalyzerPlugin = require('webpack-bundle-analyzer').BundleAnalyzerPlugin;
 const webpack = require('webpack');
+const css = require('./css.config');
 
 module.exports = {
   entry: ['./src/index.js'],

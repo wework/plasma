@@ -1,7 +1,5 @@
 // @flow
-export type Data = {
-  [key: string]: string,
-};
+export type Data = { [key: string]: string, ... };
 
 export type GlobalAttributes = {|
   className?: string,
@@ -31,7 +29,7 @@ export type SyntheticFocusEventHandler<T: EventTarget = EventTarget> = (
 
 // Common event handler props
 
-export type ChangeEventHanlders<T: EventTarget = EventTarget> = {|
+export type ChangeEventHandlers<T: EventTarget = EventTarget> = {|
   onChange?: SyntheticInputEventHandler<T>,
 |};
 
@@ -67,4 +65,4 @@ export type FocusEventHandlers<T: EventTarget = EventTarget> = {|
   onBlur?: SyntheticFocusEventHandler<T>,
 |};
 
-export type StyleAttributes = { [string]: string | number };
+export type StyleAttributes = { [string]: string | number, ... };

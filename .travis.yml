@@ -1,13 +1,12 @@
 sudo: required
-dist: trusty
+dist: xenial
+language: node_js
 cache:
   yarn: true
   directories:
     - node_modules
-node_js:
-  - 10.9.0
 before_script:
-  - yarn global add gulp-cli
+  - node -v
   - yarn
 script:
   - yarn lint

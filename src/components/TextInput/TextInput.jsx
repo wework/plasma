@@ -4,7 +4,7 @@ import cx from 'classnames';
 
 import { getDataAttrs } from '../../dataUtils';
 import type {
-  ChangeEventHanlders,
+  ChangeEventHandlers,
   Data,
   FocusEventHandlers,
   GlobalAttributes,
@@ -26,7 +26,7 @@ export type Props = {|
   value?: string,
   onClick?: SyntheticMouseEventHandler<HTMLInputElement>,
   ...FocusEventHandlers<HTMLInputElement>,
-  ...ChangeEventHanlders<HTMLInputElement>,
+  ...ChangeEventHandlers<HTMLInputElement>,
   ...GlobalAttributes,
 |};
 
