@@ -5,7 +5,7 @@ exports[`Image Component render 1`] = `
   style={
     Object {
       "height": "auto",
-      "width": 200,
+      "width": "200px",
     }
   }
 >
