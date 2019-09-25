@@ -26,7 +26,7 @@ type State = {|
 
 class Image extends React.Component<Props, State> {
   static defaultProps = {
-    style: { width: 200, height: 'auto' },
+    style: { width: '200px', height: 'auto' },
     src: defaultImage,
     fallback: defaultImage,
     altText: 'Image',
