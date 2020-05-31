@@ -21,6 +21,9 @@ type Props = {|
   vertical?: boolean,
 |};
 
+/**
+ * @deprecated
+ */
 class Tabs extends React.Component<Props> {
   static defaultProps = {
     items: [],

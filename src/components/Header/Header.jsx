@@ -21,6 +21,9 @@ type Props = {|
   data?: Data,
 |};
 
+/**
+ * @deprecated
+ */
 class Header extends React.Component<Props> {
   render() {
     const headerStyle = cx(style.header, {

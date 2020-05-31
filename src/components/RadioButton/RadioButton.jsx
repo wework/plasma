@@ -22,6 +22,9 @@ type Props = {|
   value?: string,
 |};
 
+/**
+ * @deprecated
+ */
 class RadioButton extends React.Component<Props> {
   static defaultProps = {
     name: 'radioButton',

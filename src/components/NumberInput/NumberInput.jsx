@@ -36,6 +36,9 @@ type Props = {|
   value: string,
 |};
 
+/**
+ * @deprecated
+ */
 class NumberInput extends React.Component<Props> {
   static defaultProps = {
     value: '',

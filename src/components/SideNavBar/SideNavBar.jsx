@@ -30,6 +30,9 @@ type Props = {|
   onBlurTop?: () => void,
 |};
 
+/**
+ * @deprecated
+ */
 class SideNavBar extends Component<Props> {
   handleClick = (result: Object): void => {
     this.props.onChange && this.props.onChange({ id: result.id });

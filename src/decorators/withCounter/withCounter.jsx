@@ -10,6 +10,9 @@ type Props = {
   maxLength?: string,
 };
 
+/**
+ * @deprecated
+ */
 const withCounter = <P>(Component: ComponentType<P>) => {
   return class extends React.Component<Props & P> {
     render() {

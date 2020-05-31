@@ -11,6 +11,9 @@ type Props = {|
   data?: Data,
 |};
 
+/**
+ * @deprecated
+ */
 class HorizontalScroll extends React.Component<Props> {
   static defaultProps = {
     children: null,
@@ -34,6 +37,7 @@ class HorizontalScroll extends React.Component<Props> {
   };
 
   wrapper: ?Object;
+
   render() {
     return (
       <div

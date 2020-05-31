@@ -22,6 +22,9 @@ type State = {|
   revealed: boolean,
 |};
 
+/**
+ * @deprecated
+ */
 class OverflowMenu extends React.Component<Props, State> {
   static defaultProps = {
     options: [],

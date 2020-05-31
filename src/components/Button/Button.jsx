@@ -40,6 +40,9 @@ type Props = {|
   title?: string,
 |};
 
+/**
+ * @deprecated
+ */
 function Button(props: Props): React$Node {
   const {
     children,

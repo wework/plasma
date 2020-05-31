@@ -18,7 +18,7 @@ type Props = {|
   forwardedRef?: { current: null | HTMLInputElement },
 |};
 
-class SideBarNavTop extends React.Component<Props> {
+class SideNavBarTopComponent extends React.Component<Props> {
   input: { current: null | HTMLInputElement };
 
   // $FlowFixMe (https://github.com/facebook/flow/issues/6103)
@@ -71,5 +71,12 @@ class SideBarNavTop extends React.Component<Props> {
   }
 }
 
+/**
+ * @deprecated
+ */
 // $FlowFixMe
-export default React.forwardRef((props, ref) => <SideBarNavTop {...props} forwardedRef={ref} />);
+const SideNavBarTop = React.forwardRef((props, ref) => (
+  <SideNavBarTopComponent {...props} forwardedRef={ref} />
+));
+
+export default SideNavBarTop;

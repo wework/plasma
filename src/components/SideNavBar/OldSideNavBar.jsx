@@ -6,6 +6,9 @@ type Props = {|
   children: React$Node,
 |};
 
+/**
+ * @deprecated
+ */
 class SideNavBar extends Component<Props> {
   render() {
     return <div className={style.wrapper}>{this.props.children}</div>;

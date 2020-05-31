@@ -10,6 +10,9 @@ type Props = {|
   data?: Data,
 |};
 
+/**
+ * @deprecated
+ */
 class Tooltip extends React.Component<Props> {
   static defaultProps = {
     children: 'test',

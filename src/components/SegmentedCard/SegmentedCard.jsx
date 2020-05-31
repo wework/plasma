@@ -12,6 +12,9 @@ type Props = {|
   data?: Data,
 |};
 
+/**
+ * @deprecated
+ */
 class SegmentedCard extends React.Component<Props> {
   static defaultProps = {
     children: ['Side', 'Content'],

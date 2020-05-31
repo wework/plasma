@@ -34,6 +34,9 @@ type Props = {|
 |};
 
 /* eslint-enable */
+/**
+ * @deprecated
+ */
 class FixedLeft extends React.Component<Props, State> {
   static defaultProps = {
     children: [null, null],

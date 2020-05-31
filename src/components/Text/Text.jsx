@@ -18,6 +18,9 @@ const types = {
   SECONDARY: 'secondary',
 };
 
+/**
+ * @deprecated
+ */
 class Text extends React.Component<Props> {
   static defaultProps = {
     style: { width: '200px', height: 'auto' },

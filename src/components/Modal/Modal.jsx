@@ -19,6 +19,9 @@ type Props = {|
   contentClassName?: string,
 |};
 
+/**
+ * @deprecated
+ */
 class Modal extends React.Component<Props> {
   render() {
     const {

@@ -27,6 +27,9 @@ type Props = {|
   className?: string,
 |};
 
+/**
+ * @deprecated
+ */
 class Toggle extends React.Component<Props> {
   static defaultProps = {
     items: [],

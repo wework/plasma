@@ -14,6 +14,9 @@ type Props = {|
   data?: Data,
 |};
 
+/**
+ * @deprecated
+ */
 class Loader extends React.Component<Props> {
   static defaultProps = {
     dotStyle: {},

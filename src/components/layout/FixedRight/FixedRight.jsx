@@ -23,6 +23,9 @@ type Props = {|
 |};
 
 /* eslint-enable */
+/**
+ * @deprecated
+ */
 class FixedRight extends React.Component<Props, State> {
   static defaultProps = {
     children: [null, null],

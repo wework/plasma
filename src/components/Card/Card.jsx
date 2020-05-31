@@ -35,6 +35,9 @@ type State = {|
   isMounted: boolean,
 |};
 
+/**
+ * @deprecated
+ */
 class Card extends React.Component<Props, State> {
   expanded: ?Object;
 

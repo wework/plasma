@@ -14,6 +14,9 @@ type Props = {|
   data?: Data,
 |};
 
+/**
+ * @deprecated
+ */
 class FixedTop extends React.Component<Props, State> {
   static defaultProps = {
     children: ['', ''],

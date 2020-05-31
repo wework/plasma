@@ -36,6 +36,9 @@ type State = {|
   headerHeight: number,
 |};
 
+/**
+ * @deprecated
+ */
 class Table extends React.Component<Props, State> {
   table: any;
 

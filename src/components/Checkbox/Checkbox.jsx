@@ -23,6 +23,9 @@ type Props = {|
   value?: boolean,
 |};
 
+/**
+ * @deprecated
+ */
 class Checkbox extends React.Component<Props> {
   static defaultProps = {
     checked: false,

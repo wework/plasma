@@ -13,6 +13,9 @@ type Props = {|
   data?: Data,
 |};
 
+/**
+ * @deprecated
+ */
 class Rule extends React.Component<Props> {
   static defaultProps = {
     type: type.SOLID,

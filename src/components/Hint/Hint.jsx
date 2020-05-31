@@ -15,6 +15,9 @@ type Props = {|
   ...GlobalAttributes,
 |};
 
+/**
+ * @deprecated
+ */
 const Hint = ({ children, className, data, disabled, error, text, ...rest }: Props) => {
   const classes = cx(styles.hint, className, {
     [styles.hintDisabled]: disabled,

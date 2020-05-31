@@ -13,6 +13,9 @@ type Props = {|
   data?: Data,
 |};
 
+/**
+ * @deprecated
+ */
 class Page extends React.Component<Props> {
   render() {
     const { title, children, actions, breadcrumb } = this.props;

@@ -18,6 +18,9 @@ type Props = {|
   ...GlobalAttributes,
 |};
 
+/**
+ * @deprecated
+ */
 function Label({
   children,
   className,

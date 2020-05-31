@@ -12,6 +12,9 @@ type Props = {|
   className?: string,
 |};
 
+/**
+ * @deprecated
+ */
 const Tag = ({ text, children, data, className = '' }: Props) => {
   const tagClasses = cn(style.tag, style.small, className);
   return (

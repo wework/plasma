@@ -24,6 +24,9 @@ type State = {|
   errored: boolean,
 |};
 
+/**
+ * @deprecated
+ */
 class Image extends React.Component<Props, State> {
   static defaultProps = {
     style: { width: '200px', height: 'auto' },

@@ -30,6 +30,9 @@ export type Props = {|
   ...GlobalAttributes,
 |};
 
+/**
+ * @deprecated
+ */
 class TextInput extends Component<Props> {
   static defaultProps = {
     placeholder: 'Type something...',

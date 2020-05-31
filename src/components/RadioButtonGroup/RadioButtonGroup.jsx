@@ -19,6 +19,9 @@ type Props = {|
   value?: string,
 |};
 
+/**
+ * @deprecated
+ */
 class RadioButtonGroup extends React.Component<Props> {
   renderRadioButtons = (): React$Node => {
     const { options, value, fancy, isLarge, name, onChange } = this.props;

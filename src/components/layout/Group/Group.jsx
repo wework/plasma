@@ -14,6 +14,9 @@ type Props = {|
   data?: Data,
 |};
 
+/**
+ * @deprecated
+ */
 class Group extends React.Component<Props> {
   static defaultProps = {
     children: [],

@@ -46,11 +46,19 @@ import LocationPin from './icons/locationPin';
 
 import style from './external';
 
+/**
+ * @deprecated
+ */
 const CountedTextArea = withCounter(TextArea);
+/**
+ * @deprecated
+ */
 const CountedTextInput = withCounter(TextInput);
 
 // Plasma object
-
+/**
+ * @deprecated
+ */
 const Plasma = {};
 
 Plasma.Header = Header;

@@ -22,6 +22,9 @@ type Props = {|
   data?: Data,
 |};
 
+/**
+ * @deprecated
+ */
 class TextArea extends Component<Props> {
   static defaultProps = {
     placeholder: '',

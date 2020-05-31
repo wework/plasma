@@ -124,6 +124,9 @@ const enumerateOptions = (
 
 const ClockIcon = () => <span className={styles.selectClockIcon} />;
 
+/**
+ * @deprecated
+ */
 class TimePicker extends React.Component<Props> {
   static DefaultOptions = DefaultOptions;
 

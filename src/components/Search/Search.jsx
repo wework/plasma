@@ -23,6 +23,9 @@ type State = {|
   text: React$Node,
 |};
 
+/**
+ * @deprecated
+ */
 class Search extends Component<Props, State> {
   static defaultProps = {
     placeholder: 'Search...',

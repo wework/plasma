@@ -1,5 +1,13 @@
 **PLASMA** _by WeWork_
 
+### DEPRECATION NOTICE
+
+Plasma is not longer under active development and is deprecated for internal use at WeWork.
+
+For internal projects at WeWork please use [Dieter](https://github.com/WeConnect/dieter-ui) instead.
+
+---
+
 Plasma is a design system for creating sensible, modern interfaces.
 
 Component docs at http://plasma.guide

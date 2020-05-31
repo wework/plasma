@@ -11,6 +11,9 @@ type Props = {|
   size?: number,
 |};
 
+/**
+ * @deprecated
+ */
 const Icon = ({ icon, color, data }: Props) => {
   return (
     <div

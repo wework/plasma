@@ -14,6 +14,9 @@ type Props = {|
   darkBg: boolean,
 |};
 
+/**
+ * @deprecated
+ */
 class SideNavBarItem extends Component<Props> {
   static defaultProps = {
     label: 'Label',

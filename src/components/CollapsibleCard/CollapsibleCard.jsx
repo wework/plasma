@@ -21,6 +21,9 @@ type State = {|
   shouldDisplayCard: boolean,
 |};
 
+/**
+ * @deprecated
+ */
 class CollapsibleCard extends Component<Props, State> {
   static defaultProps = {
     isCollapsed: false,

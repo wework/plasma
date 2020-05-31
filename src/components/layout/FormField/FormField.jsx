@@ -16,6 +16,9 @@ type Props = {|
   style?: StyleAttributes,
 |};
 
+/**
+ * @deprecated
+ */
 const FormField = ({
   children,
   isDisabled,
