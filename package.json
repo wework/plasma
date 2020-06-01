@@ -100,7 +100,7 @@
     "react-docgen-fixed": "^2.9.1",
     "react-dom": "16.6.3",
     "react-hot-loader": "^3.0.0-beta.6",
-    "react-styleguidist": "6.4.0",
+    "react-styleguidist": "9.2.0",
     "react-test-renderer": "^16.0.0",
     "regenerator-runtime": "^0.10.5",
     "resolve-url-loader": "^1.6.0",
