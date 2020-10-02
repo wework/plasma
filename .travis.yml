@@ -9,6 +9,8 @@ before_script:
   - node -v
   - yarn
 script:
+  - yarn build-storybook
+  - bash <(curl -s https://peek.run/ci)
   - yarn lint
   - yarn prettier:ci
   - yarn test
